@@ -18,7 +18,7 @@ if(isset($_GET['bank_req'])){
     $updated_at=$editData['updated_at'];
     $accepted_at=$editData['accepted_at'];
 
-    if($to_account_type != 0){
+    if($to_account_type != '0'){
     $benf_info="SELECT * FROM beneficiary_info WHERE name = '$transfer_to'";
     $res2= $conn->query($benf_info);
     $editData2=$res2->fetch_assoc();
