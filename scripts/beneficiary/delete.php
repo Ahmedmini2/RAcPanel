@@ -20,7 +20,7 @@ include '../../db/connection.php';
                         if($del)
                         {
                             $_SESSION['notification'] = "تم حذف حساب المستفيد بنجاح";
-                            header('location:../../accounts.php');
+                            header('location:../../beneficiary-banks.php');
                         }
                     }
 
