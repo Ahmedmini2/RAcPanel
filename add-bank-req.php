@@ -43,6 +43,7 @@ if(!empty($_GET['edit'])){
     $to_name=$_POST['to_name'];
     $to_bank_name=$_POST['to_bank_name'];
     $to_bank_number=$_POST['to_bank_number'];
+    $to_bank_iban=$_POST['to_bank_iban'];
 
     if($transfer_to ==""){
     $transfer_to = $to_name;
@@ -54,7 +55,7 @@ if(!empty($_GET['edit'])){
      '1',NOW(),'0000-00-00 00:00','0000-00-00 00:00')";
 
     if($to_name != ""){
-      $insert2 = "INSERT INTO `beneficiary_info` (`id` , `name` , `beneficiary_bank` , `account_number` , `created_at`) VALUES (NULL, '$to_name','$to_bank_name','$to_bank_number', NOW())";
+      $insert2 = "INSERT INTO `beneficiary_info` (`id` , `name` , `beneficiary_bank` , `account_number` ,`iban`, `created_at`) VALUES (NULL, '$to_name','$to_bank_name','$to_bank_number','$to_bank_iban', NOW())";
       $insertResult2=$conn->query($insert2);
     }
      $insertResult=$conn->query($insert);
@@ -544,6 +545,12 @@ if(!empty($_GET['edit'])){
                                      <div class="form-group">
                                         <label>رقم الحساب</label>
                                         <input type="text" placeholder="الرجاء كتابة أسم رقم حساب البنك المحول له" class="form-control" name="to_bank_number">
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                     <div class="form-group">
+                                        <label>رقم الأيبان</label>
+                                        <input type="text" placeholder="الرجاء كتابة أسم رقم حساب البنك المحول له" class="form-control" name="to_bank_iban">
                                       </div>
                                     </div>
                                 </div>     
