@@ -333,7 +333,10 @@ $select =mysqli_query($conn, "select * from bank_info");
         <a href="add-company-bank.php" class="btn bg-gradient-dark mb-0 col-2">أضافة حساب بنك جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
         <div class="block-content " style="padding:15px;">
             <div class="content">
-                    
+            <div class="block-header bg-warning  col-2  rounded">
+                                    
+                                    <?php require_once('components/notification.php'); ?>
+                                  </div>
                 
                 <div class="block">
                     

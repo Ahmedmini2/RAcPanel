@@ -334,7 +334,10 @@ $select =mysqli_query($conn, "select * from bank_request");
           <?php } ?>
         <div class="block-content " style="padding:15px;">
             <div class="content">
-                    
+            <div class="block-header bg-warning  col-2  rounded">
+                                    
+                                    <?php require_once('components/notification.php'); ?>
+                                  </div> 
                 
                 <div class="block">
                     <?php if(!empty($_GET['bank_req']))
