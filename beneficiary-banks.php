@@ -336,16 +336,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
                     
                 
                 <div class="block">
-                    <?php if(!empty($_GET['beneficiary-id']))
-                    {
-                        $id = $_GET['beneficiary_req'];
-                        $del= mysqli_query($conn, "delete from beneficiary_info where id = '$id'");
-                        if($del)
-                        {
-                            echo '<div class="alert alert-success"> تم حذف الحساب </div>';
-                        }
-                    }
-                    ?>
+                    
                     <table class="table align-items-center mb-0" id="myTable">
                     <thead>
                     <tr>
@@ -375,7 +366,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
                     <td class="text-xs text-secondary mb-0"><?php echo $r['iban'];?></td>
                     <td class="text-xs text-secondary mb-0"><?php echo $r['swift'];?></td>
                     <td class="text-xs text-secondary mb-0"><?php echo $r['created_at'];?></td>
-                    <td><a href="bank-req-info.php?bank_req=<?php echo $r['id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a> | <a href="edit-accounts?bank_req=<?php echo $r['id'];?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="accounts.php?bank_req=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                    <td><a href="bank-req-info.php?bank_req=<?php echo $r['id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a> | <a href="edit-accounts?bank_req=<?php echo $r['id'];?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="scripts/beneficiary/delete.php?bank_id=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
                     </tr>
 
