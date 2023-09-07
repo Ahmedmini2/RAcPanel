@@ -1,5 +1,4 @@
 <?php
-echo "ssss"; 
 include ('cookies/session.php');
 $select =mysqli_query($conn, "select * from users");
 
