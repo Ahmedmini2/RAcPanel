@@ -55,7 +55,7 @@ if(!empty($_GET['edit'])){
      '1',NOW(),'0000-00-00 00:00','0000-00-00 00:00')";
 
     if($to_name != ""){
-      $insert2 = "INSERT INTO `beneficiary_info` (`id` , `name` , `beneficiary_bank` , `account_number` ,`iban`, `created_at`) VALUES (NULL, '$to_name','$to_bank_name','$to_bank_number','$to_bank_iban', NOW())";
+      $insert2 = "INSERT INTO `beneficiary_info` (`id`, `name`, `beneficiary_bank`, `branch`, `account_number`, `iban`, `swift`, `created_at`) VALUES (NULL, '$to_name','$to_bank_name','','$to_bank_number','$to_bank_iban','', NOW())";
       $insertResult2=$conn->query($insert2);
     }
      $insertResult=$conn->query($insert);
