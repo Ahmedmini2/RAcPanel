@@ -548,7 +548,7 @@ if(isset($_GET['bank_req'])){
 
 								<td class="row2" style="width:30%">
                   
-									<?php if ($to_account_type !=0) { echo "الى حساب : ". $transfer_to; ?><br />
+									<?php if ($to_account_type !='0') { echo "الى حساب : ". $transfer_to; ?><br />
 									<?php echo "أسم البنك: ". $beneficiary_bank; ?><br />
 									<?php echo "رقم الحساب : ". $account_number; ?><br />
 									<?php echo "رقم الأيبان : ". $iban; }?>
