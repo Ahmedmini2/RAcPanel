@@ -1,5 +1,10 @@
 <?php 
 
+// $db = "ruknamial";
+// $host = "localhost";
+// $dbusername = "root";
+// $dbpassword = "";
+
 $db = "ruknam5_app";
 $host = "localhost";
 $dbusername = "ruknam5_root";
