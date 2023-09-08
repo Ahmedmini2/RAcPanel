@@ -332,7 +332,7 @@ $select =mysqli_query($conn, "select * from bank_request");
         <div class="row">
         <?php if($position == 'Admin') { ?> <a href="add-bank-req.php" class="btn bg-gradient-dark mb-0 col-2"> أضافة طلب تعميد جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
           <?php } ?>
-        <div class="block-content " style="padding:15px;">
+        <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
             <div class="content">
             <div class="block-header bg-warning  col-2  rounded">
                                     
