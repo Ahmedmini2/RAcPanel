@@ -505,12 +505,12 @@ if(isset($_GET['bank_req'])){
               </div>
               <div class="modal-body">
                 <form method="post" action="scripts/update-status/update.php?bank_req=<?=$id?>">
-                <?php if($position == 'Admin' || $position == 'Accounts' ) { ?> <button type="submit" name="account" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <?php if($position == 'Admin' || $position == 'Accounts' && $status == 1 ) { ?> <button type="submit" name="account" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                  تأكيد التعميد عن طريق المحاسب
                 </button>
                 <?php } ?>
                 <br>
-                <?php if($position == 'Admin' || $position == 'Manager' ) { ?> <button type="submit" name="manager" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <?php if($position == 'Admin' || $position == 'Manager' && $status == 2 ) { ?> <button type="submit" name="manager" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                  تأكيد التعميد عن طريق طريق المدير العام
                 </button>
                 <?php } ?>
