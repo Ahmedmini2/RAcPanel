@@ -388,13 +388,13 @@ if(!empty($_GET['edit'])){
     <div class="container-fluid py-4">
         <div class="row">
         <div class="block block-themed">
-          <div class="block-header bg-warning  col-2  rounded">
+          <div class="block-header bg-warning  col-md-2 col-sm-6 col-xs-6 rounded">
                                     
             <?php require_once('components/notification.php'); ?>
           </div>
-                                <div class="block-header bg-warning  col-2  rounded">
+                                <div class="block-header bg-warning  col-md-2 col-sm-6 col-xs-6  rounded">
                                     
-                                    <h5 class="block-title py-2 px-4">إضافة حساب مستفيد جديد</h5>
+                                    <h5 class="block-title py-2 px-4 ">إضافة حساب مستفيد جديد</h5>
                                 </div>
                                 <form id="<?php echo $idAttr; ?>" action="" method="post">
                                 <div class="row">
@@ -459,7 +459,7 @@ if(!empty($_GET['edit'])){
                                 <div class="row">
                                   <div class="col">
                                     <div class="form-group">
-                                      <button type="submit" name="submit"  onclick="this.disabled='disabled'" class="btn btn-secondary">تقديم طلب تسجيل مستفيد</button>
+                                      <button type="submit" name="submit"  class="btn btn-secondary">تقديم طلب تسجيل مستفيد</button>
                                     </div>
                                   </div>
                                   <div class="col">

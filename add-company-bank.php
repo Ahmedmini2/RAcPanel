@@ -386,11 +386,11 @@ if(!empty($_GET['edit'])){
     <div class="container-fluid py-4">
         <div class="row">
         <div class="block block-themed">
-          <div class="block-header bg-warning  col-2  rounded">
+          <div class="block-header bg-warning  col-md-2 col-sm-6 col-xs-6  rounded">
                                     
             <?php require_once('components/notification.php'); ?>
           </div>
-                                <div class="block-header bg-warning  col-2  rounded">
+                                <div class="block-header bg-warning  col-md-2 col-sm-6 col-xs-6  rounded">
                                     
                                     <h5 class="block-title py-2 px-4">إضافة حساب شركة جديد</h5>
                                 </div>
@@ -445,7 +445,7 @@ if(!empty($_GET['edit'])){
                                 <div class="row">
                                   <div class="col">
                                     <div class="form-group">
-                                      <button type="submit" name="submit" onclick="this.disabled='disabled'" class="btn btn-secondary">تقديم طلب تسجيل حساب بنك</button>
+                                      <button type="submit" name="submit"  class="btn btn-secondary">تقديم طلب تسجيل حساب بنك</button>
                                     </div>
                                   </div>
                                   <div class="col">

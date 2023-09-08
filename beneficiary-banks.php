@@ -330,10 +330,10 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
     <!-- End Navbar -->
     <div class="container-fluid py-4">
         <div class="row">
-        <a href="add-beneficiary-bank.php" class="btn bg-gradient-dark mb-0 md:col-2">أضافة حساب مستفيد جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
+        <a href="add-beneficiary-bank.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة حساب مستفيد جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
         <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
             <div class="content">
-            <div class="block-header bg-warning  col-2  rounded">
+            <div class="block-header bg-warning  col-md-2 col-sm-6 col-xs-6  rounded">
                                     
                                     <?php require_once('components/notification.php'); ?>
                                   </div>   

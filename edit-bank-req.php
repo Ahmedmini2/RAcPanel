@@ -377,11 +377,11 @@ include ('cookies/session.php');
     <div class="container-fluid py-4">
         <div class="row">
         <div class="block block-themed">
-          <div class="block-header bg-warning  col-2  rounded">
+          <div class="block-header bg-warning col-md-2 col-sm-6 col-xs-6  rounded">
                                     
             <?php require_once('components/notification.php'); ?>
           </div>
-                                <div class="block-header bg-warning  col-2  rounded">
+                                <div class="block-header bg-warning  col-md-2 col-sm-6 col-xs-6  rounded">
                                     
                                     <h5 class="block-title py-2 px-4">تعديل طلب تعميد</h5>
                                 </div>
