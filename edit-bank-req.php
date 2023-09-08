@@ -28,6 +28,14 @@ include ('cookies/session.php');
       $transfer_to = $to_name;
       }
     if(isset($_POST['edit'])){
+        $name=$_POST['name'];
+    $description=$_POST['description'];
+    $amount_text=$_POST['amount_text'];
+    $amount_number=$_POST['amount_number'];
+    $our_bank_name=$_POST['our_bank_name'];
+    $to_account_type=$_POST['to_account_type'];
+    $transfer_to=$_POST['transfer_to'];
+    
     $update = "UPDATE `bank_request` SET `name' = '$name' , `description' = '$description' , `amount_text' = '$amount_text', `amount_number`= '$amount_number' , `our_bank_name` = '$our_bank_name'
     ,`to_account_type`='$to_account_type', `transfer_to' = '$transfer_to' WHERE `id` = $id";
     $updateResult=$conn->query($update);

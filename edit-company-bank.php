@@ -17,6 +17,13 @@ include ('cookies/session.php');
     $idAttr="updateForm";
     
     if(isset($_POST['edit'])){
+
+        $name=$_POST['name'];
+    $account_number=$_POST['account_number'];
+    $branch=$_POST['branch'];
+    $iban=$_POST['iban'];
+    $swift=$_POST['swift'];
+    
     $update = "UPDATE bank_info SET `name`='$name', `branch`='$branch', `iban`='$iban',`created_at`='$created_at', `swift`='$swift' , `account_number` = '$account_number' WHERE `id`=$id";
     $updateResult=$conn->query($update);
     $idAttr="updateForm";
