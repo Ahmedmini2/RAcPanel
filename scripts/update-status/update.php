@@ -44,7 +44,7 @@ if(isset($_POST['upload'])){
 $id= $_GET['bank_req'];
 $target_dir = "../../Signed-Docs/".$id."/";
 if(!is_dir($target_dir)) {
-  mkdir($target_dir);
+  mkdir($target_dir, 0777, true);
 }
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $filename = basename($_FILES["fileToUpload"]["name"]);
