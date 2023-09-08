@@ -150,7 +150,7 @@ if(isset($_GET['bank_req'])){
         left: 10px;
       }
       @page { size: auto;  margin: 0mm; }
-      .printing{
+      .printing2{
         left: 120px;
       }
 
@@ -474,7 +474,7 @@ if(isset($_GET['bank_req'])){
         طباعة الطلب
         </button>
 
-        <button type="button" id="btn3" class=" printing btn bg-gradient-primary" data-bs-toggle="modal2" data-bs-target="#exampleModal2">
+        <button type="button" id="btn3" class=" printing2 btn bg-gradient-primary" data-bs-toggle="modal2" data-bs-target="#exampleModal2">
         إرفاق \ عرض الملف
         </button>
 
