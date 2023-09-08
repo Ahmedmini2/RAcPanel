@@ -54,6 +54,7 @@ if(!empty($_GET['edit'])){
       $_SESSION['notification'] = "يوجد خلل في النظام";
     }
     header('location: beneficiary-banks.php');
+    exit();
   }else{
     $name="";
     $beneficiary_bank="";
