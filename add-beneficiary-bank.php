@@ -39,7 +39,11 @@ if(!empty($_GET['edit'])){
     $iban=$_POST['iban'];
     $swift=$_POST['swift'];
     
-  
+    if (empty($name) || empty($beneficiary_bank) || empty($iban)) {
+      $_SESSION['notification'] = "الرجاء ادخال رقم الحساب و الايبان و اسم المستفيد";
+      header('location: beneficiary-banks.php');
+      exit(); // Stop further execution of the script
+  }
 
     $insert = "INSERT INTO `beneficiary_info` (`id`, `name`,`beneficiary_bank`, `branch`, `account_number`, `iban`, `swift`,`created_at`) VALUES (NULL, '$name','$beneficiary_bank','$branch','$account_number','$iban','$swift',NOW())";
      $insertResult=$conn->query($insert);
@@ -388,7 +392,7 @@ if(!empty($_GET['edit'])){
     <div class="container-fluid py-4">
         <div class="row">
         <div class="block block-themed">
-          <div class="block-header bg-warning  col-md-2 col-sm-6 col-xs-6 rounded">
+          <div class="block-header bg-warning  col-md-3 col-sm-6 col-xs-6 rounded">
                                     
             <?php require_once('components/notification.php'); ?>
           </div>

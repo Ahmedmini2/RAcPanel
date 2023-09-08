@@ -330,10 +330,7 @@ $select =mysqli_query($conn, "select * from users");
     <!-- End Navbar -->
     <div class="container-fluid py-4">
         <div class="row">
-        <div class="block-header bg-warning  col-md-2 col-sm-6 col-xs-6  rounded">
-                                    
-                                    <?php require_once('components/notification.php'); ?>
-                                  </div>
+        
         <a href="add-user.php" class="btn btn-primary content-link col-md-2 col-sm-6 col-xs-6"> أضافة مستخدم</a>
         <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
             <div class="content">

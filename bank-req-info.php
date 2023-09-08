@@ -462,7 +462,7 @@ if(isset($_GET['bank_req'])){
     </nav> -->
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-    <div class="block-header bg-warning rounded col-md-2 col-sm-6 col-xs-6">
+    <div class="block-header bg-warning rounded col-md-3 col-sm-6 col-xs-6">
                                     
                                     <?php require_once('components/notification.php'); ?>
                                   </div>
