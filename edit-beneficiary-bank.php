@@ -1,6 +1,52 @@
 <?php 
 include ('cookies/session.php');
-$select =mysqli_query($conn, "select * from beneficiary_info");
+
+
+    $id= $_GET['bank_id'];
+    $query="SELECT * FROM beneficiary_info WHERE id=$id";
+    $res= $conn->query($query);
+    $editData=$res->fetch_assoc();
+    $name=$editData['name'];
+    $beneficiary_bank=$editData['beneficiary_bank'];
+    $branch=$editData['branch'];
+    $account_number=$editData['account_number'];
+    $iban=$editData['iban'];
+    $swift=$editData['swift'];
+   
+  
+    
+    $idAttr="updateForm";
+    if(!empty($_POST['edit'])){
+        $name=$editData['name'];
+        $beneficiary_bank=$editData['beneficiary_bank'];
+        $branch=$editData['branch'];
+        $account_number=$editData['account_number'];
+        $iban=$editData['iban'];
+        $swift=$editData['swift'];
+        
+        $update = "UPDATE beneficiary_info SET `name`='$name', `beneficiary_bank`='$beneficiary' , `branch`='$branch' , `account_number`='$account_number' , `iban`='$iban' , `swift`='$swift' WHERE `id`=$id";
+        $updateResult=$conn->query($update);
+        $idAttr="updateForm";
+        if($updateResult){
+          $_SESSION['notification'] = "تم تعديل حساب المستفيد بنجاح";
+        }else{
+          $_SESSION['notification'] = "يوجد خلل في النظام";
+        } 
+    }
+  // }else if(isset($_POST['submit'])){
+  //   $name=$_POST['full_name'];
+  //   $email=$_POST['email'];
+  //   $phone=$_POST['phone'];
+  //   $role=$_POST['role'];
+  //   $password=$_POST['password'];
+  //   $cpassword=$_POST['cpassword'];
+  //   $username=$_POST['username'];
+  //   $position=$_POST['position'];
+  
+  //   if($password == $cpassword){
+  //     $query="INSERT INTO users ('')";
+  //   }
+ 
 
 ?>
 <!DOCTYPE html>
@@ -12,7 +58,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
   <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <title>
-   بنوك الشركة
+  تعديل حساب مستفيد 
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -79,8 +125,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
                 </div>
                 <span class="nav-link-text me-1">الحسابات</span>
               </a>
-            </li>
-            <?php if($position == 'Admin' ) { ?><li class="nav-item">
+            <?php if($position == 'Manager' && $role == 'Admin') { ?></li>
              <li class="nav-item">
               <a class="nav-link " href="users.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -100,8 +145,8 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
                 </div>
                 <span class="nav-link-text me-1">المستخدمين</span>
               </a>
-             </li>
-              <?php } ?>
+            </li>
+            <?php } ?>
             <li class="nav-item">
               <a class="nav-link " href="company-banks.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -217,7 +262,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">حسابات البنك</a></li>
+            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;"> تعديل حساب مستفيد </a></li>
             
           </ol>
 
@@ -330,110 +375,89 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
     <!-- End Navbar -->
     <div class="container-fluid py-4">
         <div class="row">
-        <a href="add-beneficiary-bank.php" class="btn bg-gradient-dark mb-0 col-2">أضافة حساب مستفيد جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
-        <div class="block-content " style="padding:15px;">
-            <div class="content">
-            <div class="block-header bg-warning  col-2  rounded">
+        <div class="block block-themed">
+          <div class="block-header bg-warning  col-2  rounded">
                                     
-                                    <?php require_once('components/notification.php'); ?>
-                                  </div>   
-                
-                <div class="block">
-                    
-                    <table class="table align-items-center mb-0" id="myTable">
-                    <thead>
-                    <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الرقم</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="10%">الأسم</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">أسم البنك</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الفرع</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">رقم الحساب</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الأيبان</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">السويفت</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">انشاء بتاريخ</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
-
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php $i=0; while($r=mysqli_fetch_array($select)){$i++; ?>
-
-
-                    <tr>
-                    
-                    <td class="text-xs text-secondary mb-0"><?php echo $custem =  $r['id'];?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['name'] ; ?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['beneficiary_bank'] ; ?></td>
-                    <td class="mb-0 text-sm"><?php echo $r['branch'];?></td>
-                    <td class="mb-0 text-sm"><?php echo $r['account_number'];?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['iban'];?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['swift'];?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['created_at'];?></td>
-                    <td><a href="edit-beneficiary-bank.php?bank_id=<?php echo $r['id'];?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="scripts/beneficiary/delete.php?bank_id=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-
-                    </tr>
-
-                    <?php } ?>
-                    </tbody>
-                    </table>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            ...
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn bg-gradient-primary">Save changes</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                </div>
-            </div>    
-        </div>
-        </div>
-        
-      <footer class="footer pt-3  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-end">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
-                
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                
-              </ul>
-            </div>
+            <?php require_once('components/notification.php'); ?>
           </div>
+                                <div class="block-header bg-warning  col-2  rounded">
+                                    
+                                    <h5 class="block-title py-2 px-4">إضافة حساب مستفيد جديد</h5>
+                                </div>
+                                <form id="<?php echo $idAttr; ?>" action="" method="post">
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label>أسم المستفيد</label>
+                                      <input type="text" placeholder="الرجاء كتابة أسم البنك" class="form-control" name="name" value="<?php echo $name; ?>">
+                                          
+                                      
+                                     
+                                    </div>
+                                  </div>
+                                 
+                                </div>
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label>أسم البنك</label>
+                                      <input type="text" placeholder="الرجاء كتابة أسم البنك" class="form-control" name="beneficiary_bank" value="<?php echo $beneficiary_bank; ?>">
+                                          
+                                      
+                                     
+                                    </div>
+                                  </div>
+                                 
+                                </div>
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label> أسم الفرع</label>
+                                      <input type="text" placeholder="الرجاء كتابةأسم الفرع " class="form-control" name="branch" value="<?php echo $branch; ?>">
+                                     
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-6">
+                                    <div class="form-group">
+                                      <label>رقم الحساب</label>
+                                      <input type="text" placeholder="الرجاء كتابة رقم الحساب" class="form-control" name="account_number" value="<?php echo $account_number; ?>">
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label>الأيبان</label>
+                                      <input type="text" placeholder="ادخل رقم الايبان" class="form-control" name="iban" value="<?php echo $iban; ?>">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="form-group">
+                                    <label>السويفت</label>
+                                      <input type="text" placeholder="ادخل السويفت كود" class="form-control" name="swift" value="<?php echo $swift; ?>">
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+
+                                
+                                
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <button type="submit" name="edit" class="btn btn-secondary">تعديل حساب المستفيد</button>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    
+                                  </div>
+                                </div>
+                                </form>
         </div>
-      </footer>
-    </div>
+</div>
+</div>
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
