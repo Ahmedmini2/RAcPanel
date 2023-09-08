@@ -537,7 +537,7 @@ if(isset($_GET['bank_req'])){
               <div class="modal-body">
                 <form method="post" action="scripts/update-status/update.php?bank_req=<?=$id?>" enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
-                <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-primary">
+                <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-primary m-4">
                 <?php if($doc != ''){ echo '<a href="Signed-Docs/'.$id.'/'.$doc.'" target="_blank"><img src="Signed-Docs/'.$id.'/'.$doc.'" class="img-fluid rounded-top" alt="'.$doc.'"></a>'; } ?>
                 </form>
               </div>
