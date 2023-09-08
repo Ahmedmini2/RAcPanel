@@ -49,11 +49,11 @@ if(!empty($_GET['edit'])){
      $insertResult=$conn->query($insert);
      if($insertResult){
       $_SESSION['notification'] = "تم اضافة المستفيد بنجاح";
-      header('location: beneficiary-banks.php');
+      
     }else{
       $_SESSION['notification'] = "يوجد خلل في النظام";
     }
-
+    header('location: beneficiary-banks.php');
   }else{
     $name="";
     $beneficiary_bank="";

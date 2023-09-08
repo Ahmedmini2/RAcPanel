@@ -37,7 +37,11 @@ if(!empty($_GET['edit'])){
     $iban=$_POST['iban'];
     $swift=$_POST['swift'];
     
-  
+    if (empty($name) || empty($account_number) || empty($iban)) {
+      $_SESSION['notification'] = "الرجاء ادخال رقم الحساب ورقم الايبان واسم البنك";
+      header('location: company-banks.php');
+      exit(); // Stop further execution of the script
+  }
 
     $insert = "INSERT INTO `bank_info` (`id`, `name`, `branch`, `account_number`, `iban`, `swift`,`created_at`) VALUES (NULL, '$name','$branch','$account_number','$iban','$swift',NOW())";
      $insertResult=$conn->query($insert);
