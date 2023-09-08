@@ -367,7 +367,7 @@ $select =mysqli_query($conn, "select * from bank_info");
                     <td class="text-xs text-secondary mb-0"><?php echo $r['iban'];?></td>
                     <td class="text-xs text-secondary mb-0"><?php echo $r['swift'];?></td>
                     <td class="text-xs text-secondary mb-0"><?php echo $r['created_at'];?></td>
-                    <td><a href="bank-req-info.php?bank_req=<?php echo $r['id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a> | <a href="edit-accounts?bank_req=<?php echo $r['id'];?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="scripts/banks/delete.php?bank_id=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                    <td><a href="bank-req-info.php?bank_req=<?php echo $r['id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a> | <a href="edit-bank-req.php?bank_id=<?php echo $r['id'];?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="scripts/banks/delete.php?bank_id=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
                     </tr>
 
