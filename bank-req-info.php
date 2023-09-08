@@ -146,7 +146,7 @@ if(isset($_GET['bank_req'])){
 			}
       @page { size: auto;  margin: 0mm; }
       .printing{
-        position: absolute;
+        position: fixed;
         left: 10px;
       }
       @page { size: auto;  margin: 0mm; }
