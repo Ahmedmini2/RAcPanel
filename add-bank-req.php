@@ -10,34 +10,12 @@ if(!empty($_GET['edit'])){
     $name=$editData['name'];
     $description=$editData['description'];
     $amount_text=$editData['amount_text'];
-    $amount_number=$_POST['amount_number'];
     $our_bank_name=$editData['our_bank_name'];
     $to_account_type=$editData['to_account_type'];
     $transfer_to=$editData['transfer_to'];
-    $status=$editData['status'];
-    $created_at=$editData['created_at'];
-    $updated_at=$editData['updated_at'];
-    $accepted_at=$editData['accepted_at'];
-
-    $to_name=$_POST['to_name'];
-    $to_bank_name=$_POST['to_bank_name'];
-    $to_bank_number=$_POST['to_bank_number'];
-    $to_bank_iban=$_POST['to_bank_iban'];
-
-    if($transfer_to ==""){
-      $transfer_to = $to_name;
-      }
+  
     
-    $update = "UPDATE `bank_request` SET `name' = '$name' , `description' = '$description' , `amount_text' = '$amount_text', `amount_number`= '$amount_number' , `our_bank_name` = '$our_bank_name'
-    ,`to_account_type`='$to_account_type', `transfer_to' = '$transfer_to' , `status` = '$status' , `created_at` = '$created_at' , `updated_at` = '$updated_at' , `accepted_at` = '$accepted_at'
-    WHERE `id` = '$id'";
-    $updateResult=$conn->query($update);
     $idAttr="updateForm";
-    if($updateResult){
-      $_SESSION['notification'] = "تم تعديل التعميد بنجاح";
-    }else{
-      $_SESSION['notification'] = "يوجد خلل في النظام";
-    }
     
   // }else if(isset($_POST['submit'])){
   //   $name=$_POST['full_name'];

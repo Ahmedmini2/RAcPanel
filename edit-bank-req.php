@@ -1,6 +1,46 @@
 <?php 
 include ('cookies/session.php');
-$select =mysqli_query($conn, "select * from bank_request");
+
+
+
+    $id= $_GET['req_id'];
+    $query="SELECT * FROM bank_request WHERE id=$id";
+    $res= $conn->query($query);
+    $editData=$res->fetch_assoc();
+    $name=$editData['name'];
+    $description=$editData['description'];
+    $amount_text=$editData['amount_text'];
+    $amount_number=$_POST['amount_number'];
+    $our_bank_name=$editData['our_bank_name'];
+    $to_account_type=$editData['to_account_type'];
+    $transfer_to=$editData['transfer_to'];
+    $status=$editData['status'];
+    $created_at=$editData['created_at'];
+    $updated_at=$editData['updated_at'];
+    $accepted_at=$editData['accepted_at'];
+
+    $to_name=$_POST['to_name'];
+    $to_bank_name=$_POST['to_bank_name'];
+    $to_bank_number=$_POST['to_bank_number'];
+    $to_bank_iban=$_POST['to_bank_iban'];
+
+    if($transfer_to ==""){
+      $transfer_to = $to_name;
+      }
+    if(!empty($_GET['edit'])){
+    $update = "UPDATE `bank_request` SET `name' = '$name' , `description' = '$description' , `amount_text' = '$amount_text', `amount_number`= '$amount_number' , `our_bank_name` = '$our_bank_name'
+    ,`to_account_type`='$to_account_type', `transfer_to' = '$transfer_to' , `status` = '$status' , `created_at` = '$created_at' , `updated_at` = '$updated_at' , `accepted_at` = '$accepted_at'
+    WHERE `id` = '$id'";
+    $updateResult=$conn->query($update);
+    $idAttr="updateForm";
+    if($updateResult){
+      $_SESSION['notification'] = "تم تعديل التعميد بنجاح";
+    }else{
+      $_SESSION['notification'] = "يوجد خلل في النظام";
+    }
+  }
+    
+  
 
 ?>
 <!DOCTYPE html>
@@ -12,7 +52,7 @@ $select =mysqli_query($conn, "select * from bank_request");
   <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <title>
-    الحسابات
+  تعديل طلب تعميد
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -80,8 +120,7 @@ $select =mysqli_query($conn, "select * from bank_request");
                 <span class="nav-link-text me-1">الحسابات</span>
               </a>
             </li>
-            <?php if($position == 'Admin' ) { ?><li class="nav-item">
-             <li class="nav-item">
+            <?php if($position == 'Admin' ) { ?><li class="nav-item"> <li class="nav-item">
               <a class="nav-link " href="users.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                   <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -217,7 +256,7 @@ $select =mysqli_query($conn, "select * from bank_request");
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">الحسابات</a></li>
+            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">تعديل طلب تعميد</a></li>
             
           </ol>
 
@@ -330,122 +369,143 @@ $select =mysqli_query($conn, "select * from bank_request");
     <!-- End Navbar -->
     <div class="container-fluid py-4">
         <div class="row">
-        <?php if($position == 'Admin') { ?> <a href="add-bank-req.php" class="btn bg-gradient-dark mb-0 col-2"> أضافة طلب تعميد جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
-          <?php } ?>
-        <div class="block-content " style="padding:15px;">
-            <div class="content">
-            <div class="block-header bg-warning  col-2  rounded">
+        <div class="block block-themed">
+          <div class="block-header bg-warning  col-2  rounded">
                                     
-                                    <?php require_once('components/notification.php'); ?>
-                                  </div> 
-                
-                <div class="block">
-                    <?php if(!empty($_GET['bank_req']))
-                    {
-                        $id = $_GET['bank_req'];
-                        $del= mysqli_query($conn, "delete from bank_request where id = '$id'");
-                        if($del)
-                        {
-                            echo '<div class="alert alert-success"> تم حذف التعميد </div>';
-                        }
-                    }
-                    ?>
-                    <table class="table align-items-center mb-0" id="myTable">
-                    <thead>
-                    <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">نوع الطلب</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الوصف</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">القيمة المطلوبة</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">المسار</th>
-                    <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الى الجهة</th> -->
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">تاريخ الطلب</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">حالة الطلب</th>
-                    
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
-
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php $i=0; while($r=mysqli_fetch_array($select)){$i++; ?>
-
-
-                    <tr>
-                    
-                    <td class="text-xs text-secondary mb-0"><?php echo $custem =  $r['id'];?></td>
-                    <td class="text-xs text-secondary mb-0"><?php if($r['name']==1) {echo "طلب تحويل" ;} elseif ($r['name']==2){echo "طلب سحب مبلغ" ;} else {echo "طلب شيك بنكي"; }?></td>
-                    <td class="mb-0 text-sm"><?php echo $r['description'];?></td>
-                    <td class="mb-0 text-sm"><?php echo $r['amount_number'];?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo 'من حساب : '.$r['our_bank_name'].'<br><br>'; echo 'الى شركة : '.$r['transfer_to'];?></td>
-                    <!-- <td class="text-xs text-secondary mb-0"><?php echo $r['transfer_to'];?></td> -->
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['created_at'];?></td>
-                    <td><?php if($r['status']==1) {echo '<span class="badge badge-sm bg-gradient-success">طلب تعميد جديد</span>';} elseif ($r['status']==2){echo '<span class="badge badge-sm bg-gradient-warning">تم التعميد من قبل المحاسب في انتظار التأكيد</span>';} else {echo '<span class="badge badge-sm bg-gradient-primary">تم التأكيد</span>';}?></td>
-                    
-                    <td><a href="bank-req-info.php?bank_req=<?php echo $r['id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a>  <?php if($position == 'Admin') { ?> | <a href="edit-bank-req.php?req_id=<?php echo $r['id'];?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="scripts/accounts/delete.php?bank_req=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a> <?php } ?></td>
-
-                    </tr>
-
-                    <?php } ?>
-                    </tbody>
-                    </table>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            ...
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn bg-gradient-primary">Save changes</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                </div>
-            </div>    
-        </div>
-        </div>
-        
-      <footer class="footer pt-3  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-end">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
-                
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                
-              </ul>
-            </div>
+            <?php require_once('components/notification.php'); ?>
           </div>
+                                <div class="block-header bg-warning  col-2  rounded">
+                                    
+                                    <h5 class="block-title py-2 px-4">تعديل طلب تعميد</h5>
+                                </div>
+                                <form id="<?php echo $idAttr; ?>" action="" method="post">
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label>نوع التعميد</label>
+                                      <select name="name" id="name" class="form-control" placeholder="نوع التعميد" onchange="showDiv(this)">
+                                            <option value="0"></option>
+                                            <option value="1" <?php if($name==1) echo 'selected="selected"'; ?>>طلب تحويل بنكي</option>
+                                            <option value="2" <?php if($name==2) echo 'selected="selected"'; ?>>طلب سحب مبلغ مالي</option>
+                                            <option value="3" <?php if($name==3) echo 'selected="selected"'; ?>>طلب اصدار شيك بنكي</option>
+                                          </select>
+                                          
+                                      <script type="text/javascript">
+                                      function showDiv(select){
+                                        if(select.value==1){
+                                          document.getElementById('hidden_div').style.display = "block";
+                                        } else{
+                                          document.getElementById('hidden_div').style.display = "none";
+                                          document.getElementById('hidden_div2').style.display = "none";
+                                          document.getElementById('hidden_div3').style.display = "none";
+                                        }
+                                      } 
+
+                                      </script>
+                                     
+                                    </div>
+                                  </div>
+                                 
+                                </div>
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label>التفاصيل و الملاحظات</label>
+                                      <textarea  placeholder="التفاصيل" class="form-control" name="description" ><?php echo $description; ?></textarea>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-8">
+                                    <div class="form-group">
+                                      <label>المبلغ المالي كتابة</label>
+                                      <input type="text" placeholder="الرجاء كتابة المبلغ المالي نصا" class="form-control" name="amount_text" value="<?php echo $amount_text; ?>">
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label>المبلغ المالي ارقام</label>
+                                      <input type="text" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="amount_number" value="<?php echo $amount_number; ?>">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label>من حساب الشركة بنك</label>
+                                      <select name="our_bank_name" id="our_bank_name" class="form-control" placeholder="نوع التعميد">
+                                            <?php
+                                            $select =mysqli_query($conn, "select name from bank_info");
+                                            $i=0; while($r=mysqli_fetch_array($select)){
+
+                                              echo '<option value="'.$r[$i].'"'; if($our_bank_name==$r[$i]) echo 'selected="selected"'; echo '>'.$r[$i].'</option>';
+                                              $i++;
+                                            }
+                                            ?>
+                                            
+                                          </select>
+                                    </div>
+                                  </div>
+                                  <div class="col" id="hidden_div" style="display:none">
+                                    <div class="form-group">
+                                      <label>نوع الحساب</label>
+                                      <select name="to_account_type" id="to_account_type" class="form-control" placeholder="نوع التعميد" onchange="showDiv2(this)">
+                                        <option value="0"></option>
+                                        <option value="حساب مسجل" <?php if($to_account_type=='حساب مسجل') echo 'selected="selected"'; ?>>حساب مسجل</option>
+                                        <option value="حساب جديد" <?php if($to_account_type=='حساب جديد') echo 'selected="selected"'; ?>>حساب جديد</option>
+                                      </select>
+                                      <script type="text/javascript">
+                                      function showDiv2(select){
+                                        if(select.value=="حساب جديد"){
+                                          document.getElementById('hidden_div2').style.display = "block";
+                                          document.getElementById('hidden_div3').style.display = "none";
+                                        } else{
+                                          document.getElementById('hidden_div2').style.display = "none";
+                                          document.getElementById('hidden_div3').style.display = "block";
+                                        }
+                                      } 
+
+                                      </script>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col"  id="hidden_div3" style="display:none">
+                                     <div class="form-group">
+                                        <label>الى حساب شركة</label>
+                                        <select name="transfer_to" id="transfer_to" class="form-control" placeholder="نوع التعميد">
+                                        <option value=""></option>  
+                                        <?php
+                                            $select =mysqli_query($conn, "select name from beneficiary_info");
+                                            $i=0; while($r=mysqli_fetch_array($select)){
+
+                                              echo '<option value="'.$r[$i].'"'; if($transfer_to==$r[$i]) echo 'selected="selected"'; echo ' >'.$r[$i].'</option>';
+                                              $i++;
+                                            }
+                                            ?>
+                                                  
+                                        </select>
+                                      </div>
+                                    </div>
+                                </div> 
+                                
+                                
+                                
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <button type="submit" name="edit" class="btn btn-secondary">تقديم تعديل التعميد</button>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    
+                                  </div>
+                                </div>
+                                </form>
         </div>
-      </footer>
-    </div>
+</div>
+</div>
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
