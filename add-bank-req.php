@@ -519,7 +519,7 @@ if(!empty($_GET['edit'])){
                                             $select =mysqli_query($conn, "select * from beneficiary_info");
                                              while($r=mysqli_fetch_array($select)){
 
-                                              echo '<option value="'.$r['name'].'">'.$r['name'].'</option>';
+                                              echo '<option value="'.$r['name'].'">'.$r['name'].' ( '.$r['beneficiary_bank'].' )</option>';
                                               
                                             }
                                             ?>
