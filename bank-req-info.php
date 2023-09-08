@@ -146,8 +146,12 @@ if(isset($_GET['bank_req'])){
 			}
       @page { size: auto;  margin: 0mm; }
       .printing{
-        position: fixed;
+        position: absolute;
         left: 10px;
+      }
+      @page { size: auto;  margin: 0mm; }
+      .printing{
+        left: 120px;
       }
 
 			
@@ -470,19 +474,25 @@ if(isset($_GET['bank_req'])){
         طباعة الطلب
         </button>
 
+        <button type="button" id="btn3" class=" printing2 btn bg-gradient-primary" data-bs-toggle="modal2" data-bs-target="#exampleModal2">
+        إرفاق \ عرض الملف
+        </button>
+
         <script>
           function printDiv(divName) {
           
           document.getElementById('btn1').style.display = "none";
           document.getElementById('btn2').style.display = "none";
+          document.getElementById('btn3').style.display = "none";
           window.print();
           document.getElementById('btn1').style.display = "inline";
           document.getElementById('btn2').style.display = "inline";
+          document.getElementById('btn3').style.display = "inline";
           
 }
         </script>
 
-                <!-- Modal -->
+                <!-- Change Status Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -503,6 +513,30 @@ if(isset($_GET['bank_req'])){
                  تأكيد التعميد عن طريق طريق المدير العام
                 </button>
                 <?php } ?>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn bg-gradient-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <!-- Doc Modal -->
+         <div class="modal2 fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">حالة الطلب</h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal2" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form method="post" action="scripts/update-status/update.php?bank_req=<?=$id?>" enctype="multipart/form-data">
+                <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
+                <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-primary">
                 </form>
               </div>
               <div class="modal-footer">

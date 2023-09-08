@@ -39,4 +39,23 @@ if($up_res){
 }
 }
 
+if(isset($_POST['upload'])){
+
+$id= $_GET['bank_req'];
+$target_dir = "../../Signed-Docs/".$id."/";
+if(!is_dir($target_dir)) {
+  mkdir($target_dir);
+}
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$filename = basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+  $update = "UPDATE bank_request SET doc = '$filename' WHERE id = '$id'";
+  $_SESSION['notification'] = "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+  header('location:../../bank-req-info.php?bank_req='.$id);
+} else {
+  $_SESSION['notification'] = "Sorry, there was an error uploading your file.";
+}
+}
+
 ?>
