@@ -330,8 +330,8 @@ $select =mysqli_query($conn, "select * from users");
     <!-- End Navbar -->
     <div class="container-fluid py-4">
         <div class="row">
-        <a href="add-user.php" class="btn btn-primary content-link col-1"> أضافة مستخدم</a>
-        <div class="block-content " style="padding:15px;">
+        <a href="add-user.php" class="btn btn-primary content-link md:col-1"> أضافة مستخدم</a>
+        <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
             <div class="content">
                     
                 

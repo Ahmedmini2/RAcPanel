@@ -211,7 +211,7 @@ $select =mysqli_query($conn, "select * from bank_info");
         </div>
         
       </aside>
-  <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg overflow-hidden">
+  <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
       <div class="container-fluid py-1 px-3">
@@ -330,8 +330,8 @@ $select =mysqli_query($conn, "select * from bank_info");
     <!-- End Navbar -->
     <div class="container-fluid py-4">
         <div class="row">
-        <a href="add-company-bank.php" class="btn bg-gradient-dark mb-0 col-2">أضافة حساب بنك جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
-        <div class="block-content " style="padding:15px;">
+        <a href="add-company-bank.php" class="btn bg-gradient-dark mb-0 md:col-2">أضافة حساب بنك جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
+        <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
             <div class="content">
             <div class="block-header bg-warning  col-2  rounded">
                                     
