@@ -24817,6 +24817,7 @@ pre[class*="language-"] {
   -ms-overflow-style: none;
   touch-action: auto;
   -ms-touch-action: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /*
@@ -24831,7 +24832,7 @@ pre[class*="language-"] {
   /* there must be 'bottom' or 'top' for ps__rail-x */
   bottom: 0px;
   /* please don't change 'position' */
- 
+  position: absolute;
 }
 
 .ps__rail-y {
@@ -24843,7 +24844,7 @@ pre[class*="language-"] {
   /* there must be 'right' or 'left' for ps__rail-y */
   right: 0;
   /* please don't change 'position' */
-  
+  position: absolute;
 }
 
 .ps--active-x>.ps__rail-x,
