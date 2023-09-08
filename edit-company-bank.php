@@ -2,44 +2,43 @@
 include ('cookies/session.php');
 
 
-
-    $id= $_GET['req_id'];
-    $query="SELECT * FROM bank_request WHERE id=$id";
+    $id= $_GET['bank_id'];
+    $query="SELECT * FROM bank_info WHERE id=$id";
     $res= $conn->query($query);
     $editData=$res->fetch_assoc();
     $name=$editData['name'];
-    $description=$editData['description'];
-    $amount_text=$editData['amount_text'];
-    $amount_number=$_POST['amount_number'];
-    $our_bank_name=$editData['our_bank_name'];
-    $to_account_type=$editData['to_account_type'];
-    $transfer_to=$editData['transfer_to'];
-    $status=$editData['status'];
+    $branch=$editData['branch'];
+    $account_number=$editData['account_number'];
+    $iban=$editData['iban'];
+    $swift=$editData['swift'];
     $created_at=$editData['created_at'];
-    $updated_at=$editData['updated_at'];
-    $accepted_at=$editData['accepted_at'];
-
-    $to_name=$_POST['to_name'];
-    $to_bank_name=$_POST['to_bank_name'];
-    $to_bank_number=$_POST['to_bank_number'];
-    $to_bank_iban=$_POST['to_bank_iban'];
-
-    if($transfer_to ==""){
-      $transfer_to = $to_name;
-      }
+  
+    
+    $idAttr="updateForm";
+    
     if(!empty($_GET['edit'])){
-    $update = "UPDATE `bank_request` SET `name' = '$name' , `description' = '$description' , `amount_text' = '$amount_text', `amount_number`= '$amount_number' , `our_bank_name` = '$our_bank_name'
-    ,`to_account_type`='$to_account_type', `transfer_to' = '$transfer_to' , `status` = '$status' , `created_at` = '$created_at' , `updated_at` = '$updated_at' , `accepted_at` = '$accepted_at'
-    WHERE `id` = '$id'";
+    $update = "UPDATE bank_info SET `name`='$name', `branch`='$branch', `iban`='$iban' `created_at`='$created_at', `swift`='$swift' , `account_number` = '$account_number' WHERE `id`=$id";
     $updateResult=$conn->query($update);
     $idAttr="updateForm";
     if($updateResult){
-      $_SESSION['notification'] = "تم تعديل التعميد بنجاح";
+      $_SESSION['notification'] = "تم تعديل حساب البنك بنجاح";
     }else{
       $_SESSION['notification'] = "يوجد خلل في النظام";
     }
-  }
-    
+    }
+  // }else if(isset($_POST['submit'])){
+  //   $name=$_POST['full_name'];
+  //   $email=$_POST['email'];
+  //   $phone=$_POST['phone'];
+  //   $role=$_POST['role'];
+  //   $password=$_POST['password'];
+  //   $cpassword=$_POST['cpassword'];
+  //   $username=$_POST['username'];
+  //   $position=$_POST['position'];
+  
+  //   if($password == $cpassword){
+  //     $query="INSERT INTO users ('')";
+  //   }
   
 
 ?>
@@ -52,7 +51,7 @@ include ('cookies/session.php');
   <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <title>
-  تعديل طلب تعميد
+  تعديل حساب شركة جديد
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -120,7 +119,8 @@ include ('cookies/session.php');
                 <span class="nav-link-text me-1">الحسابات</span>
               </a>
             </li>
-            <?php if($position == 'Admin' ) { ?><li class="nav-item"> <li class="nav-item">
+            <?php if($position == 'Admin' ) { ?><li class="nav-item">
+             <li class="nav-item">
               <a class="nav-link " href="users.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                   <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -140,7 +140,7 @@ include ('cookies/session.php');
                 <span class="nav-link-text me-1">المستخدمين</span>
               </a>
              </li>
-             <?php } ?>
+             <?php } ?> 
             <li class="nav-item">
               <a class="nav-link " href="company-banks.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -256,7 +256,7 @@ include ('cookies/session.php');
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">تعديل طلب تعميد</a></li>
+            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;"> تعديل حساب شركة جديد</a></li>
             
           </ol>
 
@@ -376,33 +376,15 @@ include ('cookies/session.php');
           </div>
                                 <div class="block-header bg-warning  col-2  rounded">
                                     
-                                    <h5 class="block-title py-2 px-4">تعديل طلب تعميد</h5>
+                                    <h5 class="block-title py-2 px-4">تعديل حساب شركة جديد</h5>
                                 </div>
                                 <form id="<?php echo $idAttr; ?>" action="" method="post">
                                 <div class="row">
                                   <div class="col">
                                     <div class="form-group">
-                                      <label>نوع التعميد</label>
-                                      <select name="name" id="name" class="form-control" placeholder="نوع التعميد" onchange="showDiv(this)">
-                                            <option value="0"></option>
-                                            <option value="1" <?php if($name==1) echo 'selected="selected"'; ?>>طلب تحويل بنكي</option>
-                                            <option value="2" <?php if($name==2) echo 'selected="selected"'; ?>>طلب سحب مبلغ مالي</option>
-                                            <option value="3" <?php if($name==3) echo 'selected="selected"'; ?>>طلب اصدار شيك بنكي</option>
-                                          </select>
+                                      <label>أسم البنك</label>
+                                      <input type="text" placeholder="الرجاء كتابة أسم البنك" class="form-control" name="name" value="<?php echo $name; ?>">
                                           
-                                      <script type="text/javascript">
-                                      function showDiv(select){
-                                        if(select.value==1){
-                                          document.getElementById('hidden_div').style.display = "block";
-                                        } else{
-                                          document.getElementById('hidden_div').style.display = "none";
-                                          document.getElementById('hidden_div2').style.display = "none";
-                                          document.getElementById('hidden_div3').style.display = "none";
-                                        }
-                                      } 
-
-                                      </script>
-                                     
                                     </div>
                                   </div>
                                  
@@ -410,81 +392,42 @@ include ('cookies/session.php');
                                 <div class="row">
                                   <div class="col">
                                     <div class="form-group">
-                                      <label>التفاصيل و الملاحظات</label>
-                                      <textarea  placeholder="التفاصيل" class="form-control" name="description" ><?php echo $description; ?></textarea>
+                                      <label> أسم الفرع</label>
+                                      <input type="text" placeholder="الرجاء كتابةأسم الفرع " class="form-control" name="branch" value="<?php echo $branch; ?>">
+                                     
                                     </div>
                                   </div>
                                 </div>
                                 <div class="row">
-                                  <div class="col-8">
+                                  <div class="col-6">
                                     <div class="form-group">
-                                      <label>المبلغ المالي كتابة</label>
-                                      <input type="text" placeholder="الرجاء كتابة المبلغ المالي نصا" class="form-control" name="amount_text" value="<?php echo $amount_text; ?>">
+                                      <label>رقم الحساب</label>
+                                      <input type="text" placeholder="الرجاء كتابة رقم الحساب" class="form-control" name="account_number" value="<?php echo $account_number; ?>">
                                     </div>
                                   </div>
                                   <div class="col">
                                     <div class="form-group">
-                                      <label>المبلغ المالي ارقام</label>
-                                      <input type="text" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="amount_number" value="<?php echo $amount_number; ?>">
+                                      <label>الأيبان</label>
+                                      <input type="text" placeholder="ادخل رقم الايبان" class="form-control" name="iban" value="<?php echo $iban; ?>">
                                     </div>
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col">
                                     <div class="form-group">
-                                      <label>من حساب الشركة بنك</label>
-                                      <select name="our_bank_name" id="our_bank_name" class="form-control" placeholder="نوع التعميد">
-                                            <?php
-                                            $select =mysqli_query($conn, "select name from bank_info");
-                                            $i=0; while($r=mysqli_fetch_array($select)){
-
-                                              echo '<option value="'.$r[$i].'"'; if($our_bank_name==$r[$i]) echo 'selected="selected"'; echo '>'.$r[$i].'</option>';
-                                              $i++;
-                                            }
-                                            ?>
-                                            
-                                          </select>
+                                    <label>السويفت</label>
+                                      <input type="text" placeholder="ادخل السويفت كود" class="form-control" name="swift" value="<?php echo $swift; ?>">
                                     </div>
                                   </div>
-                                  <div class="col" >
-                                    <div class="form-group">
-                                      <label>نوع الحساب</label>
-                                      <select name="to_account_type" id="to_account_type" class="form-control" placeholder="نوع التعميد" onchange="showDiv2(this)">
-                                        <option value="0"></option>
-                                        <option value="حساب مسجل" <?php if($to_account_type=='حساب مسجل') echo 'selected="selected"'; ?>>حساب مسجل</option>
-                                        <option value="حساب جديد" <?php if($to_account_type=='حساب جديد') echo 'selected="selected"'; ?>>حساب جديد</option>
-                                      </select>
-                                      
-                                    </div>
-                                  </div>
+                                  
                                 </div>
 
-                                <div class="row">
-                                  <div class="col"  >
-                                     <div class="form-group">
-                                        <label>الى حساب شركة</label>
-                                        <select name="transfer_to" id="transfer_to" class="form-control" placeholder="نوع التعميد">
-                                        <option value=""></option>  
-                                        <?php
-                                            $select =mysqli_query($conn, "select name from beneficiary_info");
-                                            $i=0; while($r=mysqli_fetch_array($select)){
-
-                                              echo '<option value="'.$r[$i].'"'; if($transfer_to==$r[$i]) echo 'selected="selected"'; echo ' >'.$r[$i].'</option>';
-                                              $i++;
-                                            }
-                                            ?>
-                                                  
-                                        </select>
-                                      </div>
-                                    </div>
-                                </div> 
-                                
                                 
                                 
                                 <div class="row">
                                   <div class="col">
                                     <div class="form-group">
-                                      <button type="submit" name="edit" class="btn btn-secondary">تقديم تعديل التعميد</button>
+                                      <button type="submit" name="submit" class="btn btn-secondary">تعديل طلب تسجيل حساب بنك</button>
                                     </div>
                                   </div>
                                   <div class="col">
