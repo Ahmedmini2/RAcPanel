@@ -444,6 +444,8 @@ else{
                                       <option value="CEO">CEO</option>
                                       <option value="Manager">Manager</option>
                                       <option value="Emplyee">Emplyee</option>
+                                      <option value="Admin">Admin</option>
+                                      <option value="Reception">Reception</option>
                                       </select>
                                     </div>
                                   </div>
@@ -463,7 +465,7 @@ else{
                                 <div class="row">
                                   <div class="col">
                                     <div class="form-group">
-                                      <button type="submit" name="submit" class="btn btn-secondary">Save</button>
+                                      <button type="submit" onclick="this.disabled='disabled'" name="submit" class="btn btn-secondary">Save</button>
                                     </div>
                                   </div>
                                   <div class="col">

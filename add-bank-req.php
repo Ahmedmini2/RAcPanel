@@ -61,6 +61,7 @@ if(!empty($_GET['edit'])){
      $insertResult=$conn->query($insert);
      if($insertResult){
       $_SESSION['notification'] = "تم اضافة التعميد بنجاح";
+      header('location: accounts.php');
     }else{
       $_SESSION['notification'] = "يوجد خلل في النظام";
     }
@@ -558,7 +559,7 @@ if(!empty($_GET['edit'])){
                                 <div class="row">
                                   <div class="col">
                                     <div class="form-group">
-                                      <button type="submit" name="submit" class="btn btn-secondary">تقديم طلب التعميد</button>
+                                      <button type="submit" name="submit" onclick="this.disabled='disabled'" class="btn btn-secondary">تقديم طلب التعميد</button>
                                     </div>
                                   </div>
                                   <div class="col">

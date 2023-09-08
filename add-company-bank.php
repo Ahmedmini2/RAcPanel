@@ -43,6 +43,7 @@ if(!empty($_GET['edit'])){
      $insertResult=$conn->query($insert);
      if($insertResult){
       $_SESSION['notification'] = "تم اضافة الحساب بنجاح";
+      header('location: company-banks.php');
     }else{
       $_SESSION['notification'] = "يوجد خلل في النظام";
     }
@@ -444,7 +445,7 @@ if(!empty($_GET['edit'])){
                                 <div class="row">
                                   <div class="col">
                                     <div class="form-group">
-                                      <button type="submit" name="submit" class="btn btn-secondary">تقديم طلب تسجيل حساب بنك</button>
+                                      <button type="submit" name="submit" onclick="this.disabled='disabled'" class="btn btn-secondary">تقديم طلب تسجيل حساب بنك</button>
                                     </div>
                                   </div>
                                   <div class="col">
