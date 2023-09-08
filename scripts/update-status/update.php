@@ -51,6 +51,7 @@ $filename = basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
   $update = "UPDATE bank_request SET doc = '$filename' WHERE id = '$id'";
+  $up_res = $conn->query($update);
   $_SESSION['notification'] = "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
   header('location:../../bank-req-info.php?bank_req='.$id);
 } else {
