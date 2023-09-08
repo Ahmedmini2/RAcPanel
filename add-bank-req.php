@@ -427,6 +427,7 @@ if(!empty($_GET['edit'])){
                                             <option value="1">طلب تحويل بنكي</option>
                                             <option value="2">طلب سحب مبلغ مالي</option>
                                             <option value="3">طلب اصدار شيك بنكي</option>
+                                            <option value="4">تسديد فاتورة إلكترونية</option>
                                           </select>
                                           
                                       <script type="text/javascript">

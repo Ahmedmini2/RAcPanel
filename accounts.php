@@ -373,7 +373,7 @@ $select =mysqli_query($conn, "select * from bank_request");
                     <tr>
                     
                     <td class="text-xs text-secondary mb-0"><?php echo $custem =  $r['id'];?></td>
-                    <td class="text-xs text-secondary mb-0"><?php if($r['name']==1) {echo "طلب تحويل" ;} elseif ($r['name']==2){echo "طلب سحب مبلغ" ;} else {echo "طلب شيك بنكي"; }?></td>
+                    <td class="text-xs text-secondary mb-0"><?php if($r['name']==1) {echo "طلب تحويل" ;} elseif ($r['name']==2){echo "طلب سحب مبلغ" ;} elseif ($r['name']==3) {echo "طلب شيك بنكي"; } elseif ($r['name']==4) {echo "تسديد فاتورة إلكترونية"; }?></td>
                     <td class="mb-0 text-sm"><?php echo $r['description'];?></td>
                     <td class="mb-0 text-sm"><?php echo $r['amount_number'];?></td>
                     <td class="text-xs text-secondary mb-0"><?php echo 'من حساب : '.$r['our_bank_name'].'<br><br>'; echo 'الى شركة : '.$r['transfer_to'];?></td>

@@ -518,7 +518,7 @@ if(isset($_GET['bank_req'])){
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn bg-gradient-primary">Save changes</button>
+                
               </div>
             </div>
           </div>
@@ -578,14 +578,14 @@ if(isset($_GET['bank_req'])){
 						<table>
 							<tr>
 								<td style="width:65%">
-									نوع الطلب : <?php if($name=='1') {echo "طلب تحويل" ;} elseif ($name==2){echo "طلب سحب مبلغ" ;} else {echo "طلب شيك بنكي"; }?><br />
+									نوع الطلب : <?php if($name=='1') {echo "طلب تحويل" ;} elseif ($name==2){echo "طلب سحب مبلغ" ;} elseif ($name==3) {echo "طلب شيك بنكي"; } elseif ($name==4) {echo "تسديد فاتورة إلكترونية"; }?><br />
 									<p class="pt-2">ملاحظات الطلب : <?=$description?> </p>
 								</td>
 
 								<td class="row2" style="width:30%">
                   
-									<?php if ($to_account_type !='0') { echo "الى حساب : ". $transfer_to; ?><br />
-									<?php echo "أسم المستفيد: ". $beneficiary_bank; ?><br />
+									<?php if ($to_account_type !='0') { echo "الى المستفيد : ". $transfer_to; ?><br />
+									<?php echo "أسم الحساب: ". $beneficiary_bank; ?><br />
 									<?php echo "رقم الحساب : ". $account_number; ?><br />
 									<?php echo "رقم الأيبان : ". $iban; }?>
 								</td>
