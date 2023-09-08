@@ -446,7 +446,7 @@ include ('cookies/session.php');
                                           </select>
                                     </div>
                                   </div>
-                                  <div class="col" id="hidden_div" style="display:none">
+                                  <div class="col" id="hidden_div" >
                                     <div class="form-group">
                                       <label>نوع الحساب</label>
                                       <select name="to_account_type" id="to_account_type" class="form-control" placeholder="نوع التعميد" onchange="showDiv2(this)">
@@ -454,24 +454,13 @@ include ('cookies/session.php');
                                         <option value="حساب مسجل" <?php if($to_account_type=='حساب مسجل') echo 'selected="selected"'; ?>>حساب مسجل</option>
                                         <option value="حساب جديد" <?php if($to_account_type=='حساب جديد') echo 'selected="selected"'; ?>>حساب جديد</option>
                                       </select>
-                                      <script type="text/javascript">
-                                      function showDiv2(select){
-                                        if(select.value=="حساب جديد"){
-                                          document.getElementById('hidden_div2').style.display = "block";
-                                          document.getElementById('hidden_div3').style.display = "none";
-                                        } else{
-                                          document.getElementById('hidden_div2').style.display = "none";
-                                          document.getElementById('hidden_div3').style.display = "block";
-                                        }
-                                      } 
-
-                                      </script>
+                                      
                                     </div>
                                   </div>
                                 </div>
 
                                 <div class="row">
-                                  <div class="col"  id="hidden_div3" style="display:none">
+                                  <div class="col"  id="hidden_div3" >
                                      <div class="form-group">
                                         <label>الى حساب شركة</label>
                                         <select name="transfer_to" id="transfer_to" class="form-control" placeholder="نوع التعميد">
