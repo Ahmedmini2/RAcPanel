@@ -381,7 +381,7 @@ $select =mysqli_query($conn, "select * from bank_request");
                     <td class="text-xs text-secondary mb-0"><?php echo $r['created_at'];?></td>
                     <td><?php if($r['status']==1) {echo '<span class="badge badge-sm bg-gradient-success">طلب تعميد جديد</span>';} elseif ($r['status']==2){echo '<span class="badge badge-sm bg-gradient-warning">تم التعميد من قبل المحاسب في انتظار التأكيد</span>';} else {echo '<span class="badge badge-sm bg-gradient-primary">تم التأكيد</span>';}?></td>
                     
-                    <td><a href="bank-req-info.php?bank_req=<?php echo $r['id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a>  <?php if($position == 'Admin') { ?> | <a href="add-bank-req?edit=<?php echo $r['id'];?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="scripts/accounts/delete.php?bank_req=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a> <?php } ?></td>
+                    <td><a href="bank-req-info.php?bank_req=<?php echo $r['id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a>  <?php if($position == 'Admin') { ?> | <a href="add-bank-req.php?edit=<?php echo $r['id'];?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="scripts/accounts/delete.php?bank_req=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a> <?php } ?></td>
 
                     </tr>
 
