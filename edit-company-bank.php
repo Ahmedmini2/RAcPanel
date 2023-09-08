@@ -16,7 +16,7 @@ include ('cookies/session.php');
     
     $idAttr="updateForm";
     
-    if(!empty($_GET['edit'])){
+    if(isset($_POST['edit'])){
     $update = "UPDATE bank_info SET `name`='$name', `branch`='$branch', `iban`='$iban' `created_at`='$created_at', `swift`='$swift' , `account_number` = '$account_number' WHERE `id`=$id";
     $updateResult=$conn->query($update);
     $idAttr="updateForm";
@@ -427,7 +427,7 @@ include ('cookies/session.php');
                                 <div class="row">
                                   <div class="col">
                                     <div class="form-group">
-                                      <button type="submit" name="submit" class="btn btn-secondary">تعديل طلب تسجيل حساب بنك</button>
+                                      <button type="submit" name="edit" class="btn btn-secondary">تعديل طلب تسجيل حساب بنك</button>
                                     </div>
                                   </div>
                                   <div class="col">

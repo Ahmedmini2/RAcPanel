@@ -27,7 +27,7 @@ include ('cookies/session.php');
     if($transfer_to ==""){
       $transfer_to = $to_name;
       }
-    if(!empty($_GET['edit'])){
+    if(isset($_POST['edit'])){
     $update = "UPDATE `bank_request` SET `name' = '$name' , `description' = '$description' , `amount_text' = '$amount_text', `amount_number`= '$amount_number' , `our_bank_name` = '$our_bank_name'
     ,`to_account_type`='$to_account_type', `transfer_to' = '$transfer_to' , `status` = '$status' , `created_at` = '$created_at' , `updated_at` = '$updated_at' , `accepted_at` = '$accepted_at'
     WHERE `id` = '$id'";
