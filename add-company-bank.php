@@ -52,6 +52,7 @@ if(!empty($_GET['edit'])){
       $_SESSION['notification'] = "يوجد خلل في النظام";
     }
     header('location: company-banks.php');
+    exit();
   }else{
     $name="";
     $account_number="";
