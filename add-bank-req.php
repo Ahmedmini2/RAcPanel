@@ -474,11 +474,11 @@ if(!empty($_GET['edit'])){
                                       <label>من حساب الشركة بنك</label>
                                       <select name="our_bank_name" id="our_bank_name" class="form-control" placeholder="نوع التعميد">
                                             <?php
-                                            $select =mysqli_query($conn, "select name from bank_info");
-                                            $i=0; while($r=mysqli_fetch_array($select)){
+                                            $select =mysqli_query($conn, "select * from bank_info");
+                                             while($r=mysqli_fetch_array($select)){
 
-                                              echo '<option value="'.$r[$i].'">'.$r[$i].'</option>';
-                                              $i++;
+                                              echo '<option value="'.$r['name'].'">'.$r['name'].'</option>';
+                                              
                                             }
                                             ?>
                                             
@@ -516,11 +516,11 @@ if(!empty($_GET['edit'])){
                                         <select name="transfer_to" id="transfer_to" class="form-control" placeholder="نوع التعميد">
                                         <option value=""></option>  
                                         <?php
-                                            $select =mysqli_query($conn, "select name from beneficiary_info");
-                                            $i=0; while($r=mysqli_fetch_array($select)){
+                                            $select =mysqli_query($conn, "select * from beneficiary_info");
+                                             while($r=mysqli_fetch_array($select)){
 
-                                              echo '<option value="'.$r[$i].'">'.$r[$i].'</option>';
-                                              $i++;
+                                              echo '<option value="'.$r['name'].'">'.$r['name'].'</option>';
+                                              
                                             }
                                             ?>
                                                   
