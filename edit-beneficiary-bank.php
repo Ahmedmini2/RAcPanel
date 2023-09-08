@@ -16,7 +16,7 @@ include ('cookies/session.php');
   
     
     $idAttr="updateForm";
-    if(!empty($_POST['edit'])){
+    if(isset($_POST['edit'])){
         $name=$editData['name'];
         $beneficiary_bank=$editData['beneficiary_bank'];
         $branch=$editData['branch'];
