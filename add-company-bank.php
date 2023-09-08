@@ -47,11 +47,11 @@ if(!empty($_GET['edit'])){
      $insertResult=$conn->query($insert);
      if($insertResult){
       $_SESSION['notification'] = "تم اضافة الحساب بنجاح";
-      header('location: company-banks.php');
+      
     }else{
       $_SESSION['notification'] = "يوجد خلل في النظام";
     }
-
+    header('location: company-banks.php');
   }else{
     $name="";
     $account_number="";
