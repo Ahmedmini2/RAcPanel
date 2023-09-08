@@ -17,6 +17,7 @@ if(isset($_GET['bank_req'])){
     $created_at=$editData['created_at'];
     $updated_at=$editData['updated_at'];
     $accepted_at=$editData['accepted_at'];
+    $doc=$editData['doc'];
 
     if($to_account_type != '0'){
     $benf_info="SELECT * FROM beneficiary_info WHERE name = '$transfer_to'";
@@ -537,6 +538,7 @@ if(isset($_GET['bank_req'])){
                 <form method="post" action="scripts/update-status/update.php?bank_req=<?=$id?>" enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
                 <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-primary">
+                <?php if($doc != ''){ echo '<img src="Signed-Docs/'.$id.'/'.$doc.'" class="img-fluid rounded-top" alt="'.$doc.'">'; } ?>
                 </form>
               </div>
               <div class="modal-footer">
