@@ -474,7 +474,7 @@ if(isset($_GET['bank_req'])){
         طباعة الطلب
         </button>
 
-        <button type="button" id="btn3" class="printing printing2 btn bg-gradient-primary" data-bs-toggle="modal2" data-bs-target="#exampleModal2">
+        <button type="button" id="btn3" class="printing printing2 btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
         إرفاق \ عرض الملف
         </button>
 
@@ -528,8 +528,8 @@ if(isset($_GET['bank_req'])){
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">حالة الطلب</h5>
-                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal2" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                <h5 class="modal-title" id="exampleModalLabel">أرفاق مستند</h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
