@@ -328,7 +328,7 @@ $select =mysqli_query($conn, "select * from bank_request");
       </div>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
+    <div class="container-fluid py-4" style="direction:rtl">
         <div class="row">
         <?php include('4a-cal-page.php'); ?>
         </div>
