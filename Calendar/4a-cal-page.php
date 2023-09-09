@@ -35,9 +35,9 @@
     <?php
     // (A) DAYS MONTHS YEAR
     $months = [
-      1 => "January", 2 => "Febuary", 3 => "March", 4 => "April",
-      5 => "May", 6 => "June", 7 => "July", 8 => "August",
-      9 => "September", 10 => "October", 11 => "November", 12 => "December"
+      1 => "يناير", 2 => "فبراير", 3 => "مارس", 4 => "ابريل",
+      5 => "مايو", 6 => "يونيو", 7 => "يوليو", 8 => "اغسطس",
+      9 => "سبتمبر", 10 => "اكتوبر", 11 => "نوفمبر", 12 => "ديسيمبر"
     ];
     $monthNow = date("m");
     $yearNow = date("Y"); ?>
@@ -54,7 +54,7 @@
         <input id="calYear" type="number" value="<?=$yearNow?>">
         <input id="calNext" type="button" class="mi" value="&gt;">
       </div>
-      <input id="calAdd" type="button" value="+">
+      <input id="calAdd" type="button" value="أضافة موعد جديد">
     </div>
 
     <!-- (C) CALENDAR WRAPPER -->

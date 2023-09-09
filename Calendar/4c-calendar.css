@@ -18,13 +18,13 @@ body {
 #calHead {
   display: flex; align-items: center;
   padding: 15px;
-  background: var(--bg-color-a);
+  background: 0;
 }
 #calPeriod { flex-grow: 1; }
 #calHead input, #calHead select {
   font-size: 24px;
   border: 0; outline: none;
-  color: #fff; background: 0;
+  color: #000; background: 0;
   cursor: pointer;
 }
 #calHead option { color: #000; }
@@ -34,7 +34,7 @@ body {
 }
 #calHead #calAdd {
   padding: 5px 20px;
-  background: var(--bg-color-c);
+  background: #ffc90a;
 }
 
 /* (C) CALENDAR */
