@@ -1,5 +1,5 @@
 <?php 
-include ('../cookies/session.php');
+include ('../cookies/session2.php');
 $select =mysqli_query($conn, "select * from bank_request");
 
 ?>
