@@ -178,6 +178,7 @@ if(empty($_GET['id']) && !empty($_POST['name']) && $_POST['name']=='users'){
        'phone'=>$phone,
        'role'=>$role,
        'position'=>$position,
+       'status'=>1,
        'password'=>md5($password)
        
      ];
