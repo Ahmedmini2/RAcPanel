@@ -129,7 +129,7 @@ else{
                 <span class="nav-link-text me-1">الحسابات</span>
               </a>
             </li>
-            <?php if($position == 'Admin' ) { ?><li class="nav-item">
+            <li class="nav-item">
             <li class="nav-item">
               <a class="nav-link active" href="../Users/users.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -150,7 +150,7 @@ else{
                 <span class="nav-link-text me-1">المستخدمين</span>
               </a>
             </li>
-            <?php } ?> 
+            
             <li class="nav-item">
               <a class="nav-link " href="../Company/company-banks.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
