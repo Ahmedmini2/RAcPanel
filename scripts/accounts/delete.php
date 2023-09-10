@@ -20,7 +20,7 @@ include '../../db/connection.php';
                         if($del)
                         {
                             $_SESSION['notification'] = "تم حذف الطلب";
-                            header('location:../../accounts.php');
+                            header('location:../../Accounts/accounts.php');
                         }
                     }
 

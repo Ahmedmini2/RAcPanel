@@ -20,7 +20,7 @@ include '../../db/connection.php';
                         if($del)
                         {
                             $_SESSION['notification'] = "تم حذف حساب البنك الخاص بالشركة بنجاح";
-                            header('location:../../company-banks.php');
+                            header('location:../../Company/company-banks.php');
                         }
                     }
 

@@ -6,7 +6,7 @@ $role = !empty($_SESSION['role'])?$_SESSION['role']:'';
 $position = !empty($_SESSION['position'])?$_SESSION['position']:'';
 if($email_address == '')
 {
-  header("location:Auth/sign-in.php");
+  header("location:../Auth/sign-in.php");
 }
 include '../db/connection.php';
 

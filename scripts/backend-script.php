@@ -201,7 +201,7 @@ if(empty($_GET['id']) && !empty($_POST['name']) && $_POST['name']=='users'){
 }else{
   $_SESSION['notification'] = "User Profile field is empty";
 }
-header("Location../add-user.php");
+header("Location../Users/add-user.php");
 }
 
 // update
