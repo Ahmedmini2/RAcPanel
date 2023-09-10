@@ -31,7 +31,7 @@ include ('cookies/session.php');
         <div class="sidenav-header">
           <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute start-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
           <a class="navbar-brand m-0" href="index.php">
-            <img src="assets/img/logos/r-gold.png" class="navbar-brand-img h-100" alt="main_logo">
+            <img src="../assets/img/logos/r-gold.png" class="navbar-brand-img " alt="main_logo">
             <span class="me-1 font-weight-bold">ركن اميال</span>
           </a>
         </div>
@@ -39,7 +39,7 @@ include ('cookies/session.php');
         <div class="collapse navbar-collapse px-0 w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active " href="index.php">
+              <a class="nav-link  " href="index.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                   <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>shop </title>
@@ -59,7 +59,7 @@ include ('cookies/session.php');
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="accounts.php">
+              <a class="nav-link " href="../Accounts/accounts.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                   <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>office</title>
@@ -79,7 +79,8 @@ include ('cookies/session.php');
               </a>
             </li>
             <?php if($position == 'Admin' ) { ?><li class="nav-item">
-              <a class="nav-link " href="users.php">
+            <li class="nav-item">
+              <a class="nav-link active" href="../Users/users.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                   <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>credit-card</title>
@@ -97,10 +98,10 @@ include ('cookies/session.php');
                 </div>
                 <span class="nav-link-text me-1">المستخدمين</span>
               </a>
-             </li>
-             <?php } ?>
+            </li>
+            <?php } ?> 
             <li class="nav-item">
-              <a class="nav-link " href="company-banks.php">
+              <a class="nav-link " href="../Company/company-banks.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                   <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>box-3d-50</title>
@@ -120,9 +121,8 @@ include ('cookies/session.php');
                 <span class="nav-link-text me-1">حسابات بنوك الشركة</span>
               </a>
             </li>
-           
            <li class="nav-item">
-              <a class="nav-link" href="beneficiary-banks.php">
+              <a class="nav-link" href="../Beneficiary/beneficiary-banks.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                   <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>settings</title>
@@ -142,8 +142,8 @@ include ('cookies/session.php');
                 <span class="nav-link-text me-1">أضافة حساب بنك للمستفيدين</span>
               </a>
             </li>
-             <li class="nav-item">
-              <a class="nav-link " href="factory.php">
+            <li class="nav-item">
+              <a class="nav-link " href="../Calendar/index.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                   <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>customer-support</title>
@@ -160,11 +160,11 @@ include ('cookies/session.php');
                     </g>
                   </svg>
                 </div>
-                <span class="nav-link-text me-1">المصنع</span>
+                <span class="nav-link-text me-1">المواعيد</span>
               </a>
             </li>
            <!-- <li class="nav-item">
-              <a class="nav-link " href="../pages/sign-in.html">
+              <a class="nav-link " href="pages/sign-in.html">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                   <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>document</title>
@@ -184,7 +184,7 @@ include ('cookies/session.php');
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="../pages/sign-up.html">
+              <a class="nav-link " href="pages/sign-up.html">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                   <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>spaceship</title>
