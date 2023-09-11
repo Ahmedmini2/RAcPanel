@@ -115,6 +115,7 @@ include '../scripts/login.php';
                       <input type="password" name="password"  class="form-control" placeholder="كلمة المرور" aria-label="Password" aria-describedby="password-addon">
                       <p class="err-msg">
                       <?php if($passErr!=1){ echo $passErr; } ?>
+                      "<span style="color:red;">am testing</span>"
                       </p>
                     </div>
                     <div class="form-check form-switch">
