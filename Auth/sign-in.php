@@ -106,7 +106,7 @@ include '../scripts/login.php';
                     <label>البريد الالكتروني</label>
                     <div class="mb-3">
                       <input type="email" name="email" class="form-control" placeholder="البريد الالكتروني" aria-label="Email" aria-describedby="email-addon" value="<?php echo $set_email; ?>">
-                      <p class="err-msg ">
+                      <p class="err-msg " style="color:red;">
                       <?php if($emailErr!=1){ echo $emailErr; } ?>
                       </p>
                     </div>
