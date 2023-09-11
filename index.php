@@ -427,11 +427,6 @@ include ('cookies/session.php');
               <div class="row">
                 <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
                   <div class="card card-blog card-plain">
-                  <div class="d-flex justify-content-center">
-  <div class="spinner-border" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-</div>
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
                         <img src="assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
