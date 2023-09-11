@@ -106,14 +106,14 @@ include '../scripts/login.php';
                     <label>البريد الالكتروني</label>
                     <div class="mb-3">
                       <input type="email" name="email" class="form-control" placeholder="البريد الالكتروني" aria-label="Email" aria-describedby="email-addon" value="<?php echo $set_email; ?>">
-                      <p class="err-msg">
+                      <p class="err-msg ">
                       <?php if($emailErr!=1){ echo $emailErr; } ?>
                       </p>
                     </div>
                     <label>كلمة المرور</label>
                     <div class="mb-3">
                       <input type="password" name="password"  class="form-control" placeholder="كلمة المرور" aria-label="Password" aria-describedby="password-addon">
-                      <p class="err-msg">
+                      <p class="err-msg" style="color:red;">
                       <?php if($passErr!=1){ echo $passErr; } ?>
         
                       </p>
