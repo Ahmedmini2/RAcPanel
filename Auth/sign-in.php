@@ -113,7 +113,7 @@ include '../scripts/login.php';
                     <label>كلمة المرور</label>
                     <div class="mb-3">
                       <input type="password" name="password"  class="form-control" placeholder="كلمة المرور" aria-label="Password" aria-describedby="password-addon">
-                      <p class="err-msg-danger">
+                      <p class="err-msg">
                       <?php if($passErr!=1){ echo $passErr; } ?>
         
                       </p>
