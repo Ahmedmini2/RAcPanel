@@ -63,7 +63,7 @@ include ('cookies/session.php');
   fetchNotifications();
 
   // Poll for new notifications every 5 minutes (adjust the interval as needed)
-  setInterval(fetchNotifications, 300000); // 5 minutes = 300,000 milliseconds
+  setInterval(fetchNotifications, 10); // 5 minutes = 300,000 milliseconds
 </script>
 </head>
 
