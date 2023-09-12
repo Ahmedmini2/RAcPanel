@@ -1156,7 +1156,7 @@ include ('cookies/session.php');
         });
         
         notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
-        const markAsReadButton = $('<button>').text('Mark as Read').addClass('btn btn-sm btn-primary');
+       
         notificationItem.append(notificationLink);
         notificationItem.append(markAsReadButton);
         $('#notifications-container').append(notificationItem);
