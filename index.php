@@ -278,7 +278,7 @@ include ('cookies/session.php');
               </a>
             </li>
             <!-- Notifications -->
-            <li class="nav-item dropdown ps-2 d-flex align-items-center">
+            <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
                 <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-bell cursor-pointer"></i>
                 </a>
