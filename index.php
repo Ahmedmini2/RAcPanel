@@ -1146,12 +1146,39 @@ include ('cookies/session.php');
       data.forEach(function (notification) {
         const notificationItem = $('<li>').addClass('mb-2');
         const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
+        const markAsReadButton = $('<button>').text('Mark as Read').addClass('btn btn-sm btn-primary');
+        if (notification.read_at !== null) {
+          notificationLink.addClass('read-notification'); // Add a CSS class for read notifications
+        }
+        markAsReadButton.on('click', function () {
+        // Call a function to mark the notification as read
+        markNotificationAsRead(notification.id); // You need to pass the notification ID here
+        });
         
         notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
         notificationItem.append(notificationLink);
         $('#notifications-container').append(notificationItem);
 
         console.log(notification);
+      });
+    }
+
+    function markNotificationAsRead(notificationId) {
+      $.ajax({
+        url: 'scripts/notifications/mark_notification_as_read.php', // Replace with the actual URL
+        method: 'POST',
+        data: { notification_id: notificationId },
+        dataType: 'json',
+        success: function (response) {
+          // Handle the response (e.g., display a success message)
+          console.log(response.message);
+
+          // Refresh the notifications to reflect the updated status
+          fetchNotifications();
+        },
+        error: function (error) {
+          console.error('Error marking notification as read:', error);
+        },
       });
     }
 
