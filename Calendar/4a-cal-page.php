@@ -54,7 +54,7 @@
         <input id="calYear" type="number" value="<?=$yearNow?>">
         <input id="calNext" type="button" class="mi" value="&gt;">
       </div>
-      <input id="calAdd" type="button" value="أضافة موعد جديد">
+      <input id="calAdd" type="button" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6" value="أضافة موعد جديد">
     </div>
 
     <!-- (C) CALENDAR WRAPPER -->
@@ -88,8 +88,28 @@
         <input id="evtTxt" type="text" required>
       </div>
       <div class="evt100">
-        <label>Description</label>
-        <textarea id="evtDesc" type="text" required></textarea>
+        <button type="button" id="btn1" class="btn bg-gradient-yellow" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          إضافة محضر الاجتماع
+        </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">حالة الطلب</h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+              <label>Description</label>
+              <textarea id="evtDesc" type="text"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="evt100">
         <input type="hidden" id="evtID">
