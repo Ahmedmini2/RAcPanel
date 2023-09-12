@@ -1139,10 +1139,8 @@ include ('cookies/session.php');
       data.forEach(function (notification) {
         const notificationItem = $('<li>').addClass('mb-2');
         const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
-        // Customize the notificationItem and notificationLink based on your data structure
-        // You can use notification.title, notification.message, notification.timestamp, etc.
-        // Example:
-        // notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
+        
+        notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
         notificationItem.append(notificationLink);
         $('#notifications-container').append(notificationItem);
       });
@@ -1152,7 +1150,7 @@ include ('cookies/session.php');
     fetchNotifications();
 
     // Poll for new notifications every 5 minutes (adjust the interval as needed)
-    setInterval(fetchNotifications, 5000); // 5 minutes = 300,000 milliseconds
+    setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
 </script>
 </body>
 
