@@ -92,7 +92,7 @@
           إضافة محضر الاجتماع
         </button>
         <div class="modal fade position-inherit" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1080px;">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">حالة الطلب</h5>
@@ -102,7 +102,7 @@
               </div>
               <div class="modal-body">
               <label>Description</label>
-              <textarea id="evtDesc" type="text"></textarea>
+              <textarea id="evtDesc" type="text" style="width: -webkit-fill-available;height: 300px;"></textarea>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
