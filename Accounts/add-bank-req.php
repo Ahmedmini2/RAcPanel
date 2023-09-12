@@ -60,8 +60,18 @@ if(!empty($_GET['edit'])){
     }
      $insertResult=$conn->query($insert);
      if($insertResult){
+      $notificationMessage = "New bank request created by ".$_SESSION['username'];
+      $showToAccounts = "Accounts"; // Use the text "Accounts" to indicate the target audience.
+      $created_by = $_SESSION['id'];
+
+      // Insert the notification into the database.
+      $insertNotification = "INSERT INTO notifications (user_id, message, created_at, show_to) VALUES ('$created_by', '$notificationMessage', NOW(), '$showToAccounts')";
+      $insertResultNotification = $conn->query($insertNotification);
+
+      if ($insertResultNotification) {
       $_SESSION['notification'] = "تم اضافة التعميد بنجاح";
       header('location: accounts.php');
+      }
     }else{
       $_SESSION['notification'] = "يوجد خلل في النظام";
     }
