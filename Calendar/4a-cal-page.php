@@ -91,7 +91,7 @@
         <button type="button" id="btn1" class="btn bg-gradient-yellow" data-bs-toggle="modal" data-bs-target="#exampleModal">
           إضافة محضر الاجتماع
         </button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade position-inherit" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
