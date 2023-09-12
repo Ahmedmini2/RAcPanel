@@ -1111,6 +1111,7 @@ include ('cookies/session.php');
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     // Function to fetch notifications from the server
     function fetchNotifications() {
