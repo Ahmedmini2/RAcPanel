@@ -1117,7 +1117,7 @@ include ('cookies/session.php');
     function fetchNotifications() {
       // Make an AJAX request to the server to fetch notifications
       $.ajax({
-        url: 'scripts/notifications/fetch_notifications.php', // Replace with the actual URL
+        url: 'scripts/notifications/fetch_notification.php', // Replace with the actual URL
         method: 'GET',
         dataType: 'json',
         success: function (data) {
