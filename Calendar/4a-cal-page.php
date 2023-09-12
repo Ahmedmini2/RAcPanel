@@ -95,7 +95,7 @@
           <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1080px;">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">حالة الطلب</h5>
+                <h5 class="modal-title" id="exampleModalLabel">محضر الإجتماع</h5>
                 <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
                   <span aria-hidden="true">&times;</span>
                 </button>
