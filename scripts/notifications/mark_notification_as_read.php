@@ -14,7 +14,7 @@ if (isset($_POST['notification_id'])) {
     $notificationId = $_POST['notification_id'];
 
     $currentTimestamp = date('Y-m-d H:i:s');
-    $updateQuery = "UPDATE notifications SET read_at = '$currentTimestamp' WHERE id = $notificationId";
+    $updateQuery = "UPDATE `notifications` SET `read_at` = '$currentTimestamp' WHERE `notifications`.`id` = $notificationId";
 
     if ($conn->query($updateQuery) === TRUE) {
         // Successfully marked as read
