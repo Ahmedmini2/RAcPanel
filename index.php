@@ -1117,7 +1117,7 @@ include ('cookies/session.php');
     function fetchNotifications() {
       // Make an AJAX request to the server to fetch notifications
       $.ajax({
-        url: 'fetch_notifications.php', // Replace with the actual URL
+        url: 'scripts/notifications/fetch_notifications.php', // Replace with the actual URL
         method: 'GET',
         dataType: 'json',
         success: function (data) {
@@ -1152,7 +1152,7 @@ include ('cookies/session.php');
     fetchNotifications();
 
     // Poll for new notifications every 5 minutes (adjust the interval as needed)
-    setInterval(fetchNotifications, 10); // 5 minutes = 300,000 milliseconds
+    setInterval(fetchNotifications, 5000); // 5 minutes = 300,000 milliseconds
 </script>
 </body>
 
