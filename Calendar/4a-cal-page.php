@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr">
   <head>
-    <title>Calendar Demo</title>
+    <title>المواعيد</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
     <link rel="icon" type="image/png" href="favicon.png">
@@ -54,7 +54,7 @@
         <input id="calYear" type="number" value="<?=$yearNow?>">
         <input id="calNext" type="button" class="mi" value="&gt;">
       </div>
-      <input id="calAdd" type="button" value="أضافة موعد جديد">
+      <input id="calAdd" type="button" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6" value="أضافة موعد جديد">
     </div>
 
     <!-- (C) CALENDAR WRAPPER -->
@@ -66,26 +66,50 @@
     <!-- (D) EVENT FORM -->
     <dialog id="calForm"><form method="dialog">
       <div id="evtCX">X</div>
-      <h2 class="evt100">CALENDAR EVENT</h2>
+      <h2 class="evt100">إضافة اجتماع</h2>
       <div class="evt50">
-        <label>Start</label>
+        <label>البداية</label>
         <input id="evtStart" type="datetime-local" required>
       </div>
       <div class="evt50">
-        <label>End</label>
+        <label>النهاية</label>
         <input id="evtEnd" type="datetime-local" required>
       </div>
       <div class="evt50">
-        <label>Text Color</label>
+        <label>لون النص</label>
         <input id="evtColor" type="color" value="#000000" required>
       </div>
       <div class="evt50">
-        <label>Background Color</label>
+        <label>لون الخلفيه</label>
         <input id="evtBG" type="color" value="#ffdbdb" required>
       </div>
       <div class="evt100">
-        <label>Event</label>
+        <label>الاجتماع</label>
         <input id="evtTxt" type="text" required>
+      </div>
+      <div class="evt100">
+        <button type="button" id="btn1" class="btn bg-gradient-yellow" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          إضافة محضر الاجتماع
+        </button>
+        <div class="modal fade position-inherit" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1080px;">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">محضر الإجتماع</h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+              <label>محضر الاجتماع</label>
+              <textarea id="evtDesc" type="text" style="width: -webkit-fill-available;height: 300px;" style="text-align:left;"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="evt100">
         <input type="hidden" id="evtID">
