@@ -1132,9 +1132,10 @@ include ('cookies/session.php');
 
     // Function to update the notification UI with new data
     function updateNotificationUI(data) {
+      console.log(data);
       // Clear the existing notifications
       $('#notifications-container').empty();
-
+      
       // Loop through the received notifications and add them to the UI
       data.forEach(function (notification) {
         const notificationItem = $('<li>').addClass('mb-2');
@@ -1143,6 +1144,8 @@ include ('cookies/session.php');
         notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
         notificationItem.append(notificationLink);
         $('#notifications-container').append(notificationItem);
+
+        console.log(notification);
       });
     }
 
