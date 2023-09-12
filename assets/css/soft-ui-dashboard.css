@@ -24930,3 +24930,13 @@ pre[class*="language-"] {
 
 
 /*# sourceMappingURL=dashboard-free.css.map */
+
+.notification-badge {
+  background-color: red; /* Change the background color */
+  color: white; /* Change the text color */
+  border-radius: 50%; /* Make it circular */
+  padding: 3px 6px; /* Adjust padding as needed */
+  position: absolute;
+  top: 0;
+  right: 0;
+}

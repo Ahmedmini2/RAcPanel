@@ -240,6 +240,7 @@ include ('cookies/session.php');
             <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
                 <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-bell cursor-pointer"></i>
+                    <span id="notification-count" class="notification-badge">0</span> <!-- Add this line -->
                 </a>
                 <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="notifications-container">
                     <!-- Notifications will be dynamically added here -->
@@ -1123,11 +1124,16 @@ include ('cookies/session.php');
         success: function (data) {
           // Process the notifications data and update the notification UI
           updateNotificationUI(data);
+          updateNotificationCount(data.length);
         },
         error: function (error) {
           console.error('Error fetching notifications:', error);
         },
       });
+    }
+
+    function updateNotificationCount(count) {
+      $('#notification-count').text(count); // Update the count displayed
     }
 
     // Function to update the notification UI with new data
