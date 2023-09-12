@@ -230,7 +230,7 @@ include ('cookies/session.php');
             </div>
           </div>
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
-            <li class="nav-item d-flex align-items-center">
+            <li class="nav-item d-flex align-items-center px-4">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none"> تسجيل الخروج</span>

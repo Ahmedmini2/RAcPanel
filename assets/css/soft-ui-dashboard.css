@@ -24937,6 +24937,7 @@ pre[class*="language-"] {
   border-radius: 50%; /* Make it circular */
   padding: 3px 6px; /* Adjust padding as needed */
   position: absolute;
+  font-size: 8px;
   top: 0;
   right: 0;
 }
