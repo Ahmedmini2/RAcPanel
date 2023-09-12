@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr">
   <head>
-    <title>Calendar Demo</title>
+    <title>المواعيد</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
     <link rel="icon" type="image/png" href="favicon.png">
@@ -66,25 +66,25 @@
     <!-- (D) EVENT FORM -->
     <dialog id="calForm"><form method="dialog">
       <div id="evtCX">X</div>
-      <h2 class="evt100">CALENDAR EVENT</h2>
+      <h2 class="evt100">إضافة اجتماع</h2>
       <div class="evt50">
-        <label>Start</label>
+        <label>البداية</label>
         <input id="evtStart" type="datetime-local" required>
       </div>
       <div class="evt50">
-        <label>End</label>
+        <label>النهاية</label>
         <input id="evtEnd" type="datetime-local" required>
       </div>
       <div class="evt50">
-        <label>Text Color</label>
+        <label>لون النص</label>
         <input id="evtColor" type="color" value="#000000" required>
       </div>
       <div class="evt50">
-        <label>Background Color</label>
+        <label>لون الخلفيه</label>
         <input id="evtBG" type="color" value="#ffdbdb" required>
       </div>
       <div class="evt100">
-        <label>Event</label>
+        <label>الاجتماع</label>
         <input id="evtTxt" type="text" required>
       </div>
       <div class="evt100">
@@ -101,7 +101,7 @@
                 </button>
               </div>
               <div class="modal-body">
-              <label>Description</label>
+              <label>محضر الاجتماع</label>
               <textarea id="evtDesc" type="text" style="width: -webkit-fill-available;height: 300px;" style="text-align:left;"></textarea>
               </div>
               <div class="modal-footer">
