@@ -89,7 +89,7 @@
       </div>
       <div class="evt100">
         <label>Description</label>
-        <input id="evtDesc" type="text" required>
+        <textarea id="evtDesc" type="text" required></textarea>
       </div>
       <div class="evt100">
         <input type="hidden" id="evtID">
