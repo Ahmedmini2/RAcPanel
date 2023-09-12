@@ -19,7 +19,8 @@ if ($result) {
         $notifications[] = array(
             'title' => $row['name'],
             'message' => $row['message'],
-            'timestamp' => $row['created_at']
+            'timestamp' => $row['created_at'],
+            'read_at' => $row['read_at']
         );
     }
 }
