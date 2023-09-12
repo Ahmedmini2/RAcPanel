@@ -36,10 +36,10 @@ class Calendar {
     // (D2) RUN SQL
     if ($id==null) {
       $sql = "INSERT INTO `events` (`evt_start`, `evt_end`, `evt_text`,`evt_desc`, `evt_color`, `evt_bg`) VALUES (?,?,?,?,?,?)";
-      $data = [$start, $end, strip_tags($txt),strip_tags($desc), $color, $bg];
+      $data = [$start, $end, strip_tags($txt),$desc, $color, $bg];
     } else {
       $sql = "UPDATE `events` SET `evt_start`=?, `evt_end`=?, `evt_text`=?, `evt_desc`=?, `evt_color`=?, `evt_bg`=? WHERE `evt_id`=?";
-      $data = [$start, $end, strip_tags($txt),strip_tags($desc), $color, $bg, $id];
+      $data = [$start, $end, strip_tags($txt),$desc, $color, $bg, $id];
     }
     $this->query($sql, $data);
     return true;

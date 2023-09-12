@@ -8,6 +8,7 @@ var cal = {
   // html form & fields
   hFormWrap : null, hForm : null, hfID : null, 
   hfStart : null, hfEnd : null, hfTxt : null,
+  hfDesc : null,
   hfColor : null, hfBG : null, hfDel : null,
 
   // (B) SUPPORT FUNCTION - AJAX FETCH
