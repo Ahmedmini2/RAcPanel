@@ -21,7 +21,7 @@ if (isset($_POST['notification_id'])) {
         echo json_encode(['message' => 'Notification marked as read']);
     } else {
         // Error occurred while marking as read
-        echo json_encode(['message' => 'Error marking notification as read']);
+        echo json_encode(['message' => 'Error marking notification as read with id ' . $notificationId .' and Timestamp ' . $currentTimestamp]);
     }
 }
 ?>
