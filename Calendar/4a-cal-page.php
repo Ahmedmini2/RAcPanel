@@ -102,7 +102,7 @@
               </div>
               <div class="modal-body">
               <label>Description</label>
-              <textarea id="evtDesc" type="text" style="width: -webkit-fill-available;height: 300px;"></textarea>
+              <textarea id="evtDesc" type="text" style="width: -webkit-fill-available;height: 300px;" style="text-align:left;"></textarea>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
