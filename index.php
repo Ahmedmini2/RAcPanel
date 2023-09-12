@@ -1124,7 +1124,7 @@ include ('cookies/session.php');
         success: function (data) {
           // Process the notifications data and update the notification UI
           updateNotificationUI(data);
-          updateNotificationCount(data.length);
+          
         },
         error: function (error) {
           console.error('Error fetching notifications:', error);
@@ -1132,12 +1132,12 @@ include ('cookies/session.php');
       });
     }
 
-    function updateNotificationCount(count) {
-      $('#notification-count').text(count); // Update the count displayed
-    }
+    
 
     // Function to update the notification UI with new data
     function updateNotificationUI(data) {
+      $('#notifications-container').empty();
+      let unreadCount = 0;
       console.log(data);
       // Clear the existing notifications
       $('#notifications-container').empty();
@@ -1146,23 +1146,24 @@ include ('cookies/session.php');
       data.forEach(function (notification) {
         const notificationItem = $('<li>').addClass('mb-2');
         const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
-        const markAsReadButton = $('<button>').text('Mark as Read').addClass('btn btn-sm btn-primary');
-        if (notification.read_at !== null) {
-          notificationLink.addClass('read-notification'); // Add a CSS class for read notifications
-        }
-        markAsReadButton.on('click', function () {
-        // Call a function to mark the notification as read
-        markNotificationAsRead(notification.id); // You need to pass the notification ID here
-        });
-        
         notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
-       
-        notificationItem.append(notificationLink);
-        notificationItem.append(markAsReadButton);
+        if (notification.read_at !== null) {
+                    notificationLink.addClass('read-notification');
+                } else {
+                    unreadCount++;
+                }
+                const markAsReadButton = $('<button>').text('Mark as Read').addClass('btn btn-sm btn-primary');
+                markAsReadButton.on('click', function () {
+                    markNotificationAsRead(notification.id); // Mark notification as read when clicked
+                });
+
+                notificationItem.append(notificationLink);
+                notificationItem.append(markAsReadButton);
         $('#notifications-container').append(notificationItem);
 
         console.log(notification);
       });
+      $('#notification-count').text(unreadCount); // Update the notification count
     }
 
     function markNotificationAsRead(notificationId) {
