@@ -36,6 +36,7 @@ var cal = {
     cal.hfStart = document.getElementById("evtStart");
     cal.hfEnd = document.getElementById("evtEnd");
     cal.hfTxt = document.getElementById("evtTxt");
+    cal.hfDesc = document.getElementById("evtDesc");
     cal.hfColor = document.getElementById("evtColor");
     cal.hfBG = document.getElementById("evtBG");
     cal.hfDel = document.getElementById("evtDel");
@@ -201,6 +202,7 @@ var cal = {
       cal.hfStart.value = cal.events[id]["s"].replace(" ", "T").substring(0, 16);
       cal.hfEnd.value = cal.events[id]["e"].replace(" ", "T").substring(0, 16);
       cal.hfTxt.value = cal.events[id]["t"];
+      cal.hfDesc.value = cal.events[id]["d"];
       cal.hfColor.value = cal.events[id]["c"];
       cal.hfBG.value = cal.events[id]["b"];
       cal.hfDel.style.display = "inline-block";
@@ -220,6 +222,7 @@ var cal = {
       start : cal.hfStart.value,
       end : cal.hfEnd.value,
       txt : cal.hfTxt.value,
+      desc : cal.hfDesc.value,
       color : cal.hfColor.value,
       bg : cal.hfBG.value
     };

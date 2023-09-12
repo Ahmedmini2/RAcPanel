@@ -26,7 +26,7 @@ class Calendar {
   }
 
   // (D) SAVE EVENT
-  function save ($start, $end, $txt, $color, $bg, $id=null) {
+  function save ($start, $end, $txt,$desc, $color, $bg, $id=null) {
     // (D1) START & END DATE CHECK
     if (strtotime($end) < strtotime($start)) {
       $this->error = "End date cannot be earlier than start date";
@@ -35,11 +35,11 @@ class Calendar {
 
     // (D2) RUN SQL
     if ($id==null) {
-      $sql = "INSERT INTO `events` (`evt_start`, `evt_end`, `evt_text`, `evt_color`, `evt_bg`) VALUES (?,?,?,?,?)";
-      $data = [$start, $end, strip_tags($txt), $color, $bg];
+      $sql = "INSERT INTO `events` (`evt_start`, `evt_end`, `evt_text`,`evt_desc`, `evt_color`, `evt_bg`) VALUES (?,?,?,?,?)";
+      $data = [$start, $end, strip_tags($txt),strip_tags($desc), $color, $bg];
     } else {
-      $sql = "UPDATE `events` SET `evt_start`=?, `evt_end`=?, `evt_text`=?, `evt_color`=?, `evt_bg`=? WHERE `evt_id`=?";
-      $data = [$start, $end, strip_tags($txt), $color, $bg, $id];
+      $sql = "UPDATE `events` SET `evt_start`=?, `evt_end`=?, `evt_text`=?, `evt_desc`=?, `evt_color`=?, `evt_bg`=? WHERE `evt_id`=?";
+      $data = [$start, $end, strip_tags($txt),strip_tags($desc), $color, $bg, $id];
     }
     $this->query($sql, $data);
     return true;
@@ -74,7 +74,7 @@ class Calendar {
       $events[$r["evt_id"]] = [
         "s" => $r["evt_start"], "e" => $r["evt_end"],
         "c" => $r["evt_color"], "b" => $r["evt_bg"],
-        "t" => $r["evt_text"]
+        "t" => $r["evt_text"],"d" => $r["evt_desc"]
       ];
     }
 

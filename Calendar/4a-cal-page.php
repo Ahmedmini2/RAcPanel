@@ -88,6 +88,10 @@
         <input id="evtTxt" type="text" required>
       </div>
       <div class="evt100">
+        <label>Description</label>
+        <input id="evtDesc" type="text" required>
+      </div>
+      <div class="evt100">
         <input type="hidden" id="evtID">
         <input type="button" id="evtDel" value="Delete">
         <input type="submit" id="evtSave" value="Save">

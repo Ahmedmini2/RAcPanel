@@ -11,7 +11,7 @@ if (isset($_POST["req"])) {
     // (C) SAVE EVENT
     case "save":
       echo $_CAL->save(
-        $_POST["start"], $_POST["end"], $_POST["txt"], $_POST["color"], $_POST["bg"],
+        $_POST["start"], $_POST["end"], $_POST["txt"],$_POST["desc"], $_POST["color"], $_POST["bg"],
         isset($_POST["id"]) ? $_POST["id"] : null
       ) ? "OK" : $_CAL->error ;
       break;
