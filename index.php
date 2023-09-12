@@ -23,48 +23,7 @@ include ('cookies/session.php');
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
-  <script>
-  // Function to fetch notifications from the server
-  function fetchNotifications() {
-    // Make an AJAX request to the server to fetch notifications
-    $.ajax({
-      url: 'fetch_notifications.php', // Replace with the actual URL
-      method: 'GET',
-      dataType: 'json',
-      success: function (data) {
-        // Process the notifications data and update the notification UI
-        updateNotificationUI(data);
-      },
-      error: function (error) {
-        console.error('Error fetching notifications:', error);
-      },
-    });
-  }
-
-  // Function to update the notification UI with new data
-  function updateNotificationUI(data) {
-    // Clear the existing notifications
-    $('#notifications-container').empty();
-
-    // Loop through the received notifications and add them to the UI
-    data.forEach(function (notification) {
-      const notificationItem = $('<li>').addClass('mb-2');
-      const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
-      // Customize the notificationItem and notificationLink based on your data structure
-      // You can use notification.title, notification.message, notification.timestamp, etc.
-      // Example:
-      // notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
-      notificationItem.append(notificationLink);
-      $('#notifications-container').append(notificationItem);
-    });
-  }
-
-  // Fetch notifications initially
-  fetchNotifications();
-
-  // Poll for new notifications every 5 minutes (adjust the interval as needed)
-  setInterval(fetchNotifications, 10); // 5 minutes = 300,000 milliseconds
-</script>
+  
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
@@ -1152,6 +1111,48 @@ include ('cookies/session.php');
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+  <script>
+    // Function to fetch notifications from the server
+    function fetchNotifications() {
+      // Make an AJAX request to the server to fetch notifications
+      $.ajax({
+        url: 'fetch_notifications.php', // Replace with the actual URL
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          // Process the notifications data and update the notification UI
+          updateNotificationUI(data);
+        },
+        error: function (error) {
+          console.error('Error fetching notifications:', error);
+        },
+      });
+    }
+
+    // Function to update the notification UI with new data
+    function updateNotificationUI(data) {
+      // Clear the existing notifications
+      $('#notifications-container').empty();
+
+      // Loop through the received notifications and add them to the UI
+      data.forEach(function (notification) {
+        const notificationItem = $('<li>').addClass('mb-2');
+        const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
+        // Customize the notificationItem and notificationLink based on your data structure
+        // You can use notification.title, notification.message, notification.timestamp, etc.
+        // Example:
+        // notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
+        notificationItem.append(notificationLink);
+        $('#notifications-container').append(notificationItem);
+      });
+    }
+
+    // Fetch notifications initially
+    fetchNotifications();
+
+    // Poll for new notifications every 5 minutes (adjust the interval as needed)
+    setInterval(fetchNotifications, 10); // 5 minutes = 300,000 milliseconds
+</script>
 </body>
 
 </html>
