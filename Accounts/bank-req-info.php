@@ -364,7 +364,7 @@ if(isset($_GET['bank_req'])){
           </div>
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
+              <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">تسجيل الخروج</span>
               </a>
@@ -504,7 +504,7 @@ if(isset($_GET['bank_req'])){
                 </button>
               </div>
               <div class="modal-body">
-                <form method="post" action="scripts/update-status/update.php?bank_req=<?=$id?>">
+                <form method="post" action="../scripts/update-status/update.php?bank_req=<?=$id?>">
                 <?php if($position == 'Admin' || $position == 'Accounts' && $status == 1 ) { ?> <button type="submit" name="account" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                  تأكيد التعميد عن طريق المحاسب
                 </button>
