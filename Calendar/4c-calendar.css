@@ -118,7 +118,7 @@ body {
 }
 #calForm label {
   color: #a1a1a1;
-  font-size: 16px;
+  font-size: 24px;
   margin-bottom: 5px;
 }
 #calForm input[type=datetime-local], #calForm input[type=text] {
