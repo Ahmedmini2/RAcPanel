@@ -377,7 +377,7 @@ include ('../cookies/session2.php');
     <div class="container-fluid py-4">
         <div class="row">
         <div class="block block-themed">
-          <div class="block-header bg-warning  col-md-3 col-sm-6 col-xs-6  rounded">
+          <div class="block-header bg-dark  col-md-3 col-sm-6 col-xs-6  rounded">
                                     
             <?php require_once('../components/notification.php'); ?>
           </div>
