@@ -153,7 +153,7 @@ if (isset($_GET['bank_req'])) {
 
     .printing {
       position: absolute;
-      left: 10px;
+      left: 1px;
     }
 
     @page {
