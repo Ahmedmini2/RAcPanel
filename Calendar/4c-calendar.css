@@ -34,7 +34,7 @@ body {
 }
 #calHead #calAdd {
   padding: 5px 20px;
-  background: #0a60ff;
+  background: #ffc90a;
 }
 
 /* (C) CALENDAR */
@@ -118,7 +118,7 @@ body {
 }
 #calForm label {
   color: #a1a1a1;
-  font-size: 12px;
+  font-size: 16px;
   margin-bottom: 5px;
 }
 #calForm input[type=datetime-local], #calForm input[type=text] {
