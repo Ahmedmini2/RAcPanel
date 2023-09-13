@@ -479,7 +479,7 @@ if (isset($_GET['bank_req'])) {
         تغير حالة الطلب
       </button>
 
-      <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill mr-1 " onclick="printDiv('printableArea')">
+      <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill  " onclick="printDiv('printableArea')">
         طباعة الطلب
       </button>
 
