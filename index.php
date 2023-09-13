@@ -236,6 +236,15 @@ include ('cookies/session.php');
                 <span class="d-sm-inline d-none"> تسجيل الخروج</span>
               </a>
             </li>
+            <li class="nav-item d-xl-none pe-3 d-flex align-items-center px-4">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li>
             <!-- Notifications -->
             <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
                 <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
