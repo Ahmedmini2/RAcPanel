@@ -35,8 +35,8 @@ body {
 #calHead #calAdd {
   padding: 5px 20px;
   /* background: #ffc90a; */
-  background: #3A416F;
-  color: #3A416F;
+  background: var(--bg-color-b);
+  
   
 }
 
