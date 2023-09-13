@@ -153,7 +153,7 @@ if (isset($_GET['bank_req'])) {
 
     .printing {
       position: absolute;
-      left: 1px;
+      left: 10px;
     }
 
     @page {
@@ -162,7 +162,7 @@ if (isset($_GET['bank_req'])) {
     }
 
     .printing2 {
-      left: 120px;
+      left: 140px;
     }
   </style>
 </head>
