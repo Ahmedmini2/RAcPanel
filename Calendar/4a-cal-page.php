@@ -56,7 +56,7 @@
       </div>
       <input id="calAdd" 
       type="button" 
-      class="btn bg-gradient-dark rounded-pill mb-0 col-md-2 col-sm-6 col-xs-6" 
+      class="btn  rounded-pill mb-0 col-md-2 col-sm-6 col-xs-6" 
       value="أضافة موعد جديد">
     </div>
 
