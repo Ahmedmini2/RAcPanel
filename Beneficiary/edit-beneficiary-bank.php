@@ -381,7 +381,7 @@ include ('../cookies/session2.php');
                                     
             <?php require_once('../components/notification.php'); ?>
           </div>
-                                <div class="block-header bg-warning  col-md-2 col-sm-6 col-xs-6  rounded-pill">
+                                <div class="block-header bg-dark   col-md-2 col-sm-6 col-xs-6  rounded">
                                     
                                     <h5 class="block-title py-2 px-4">إضافة حساب مستفيد جديد</h5>
                                 </div>
