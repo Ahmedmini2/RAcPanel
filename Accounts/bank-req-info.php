@@ -475,15 +475,15 @@ if (isset($_GET['bank_req'])) {
         <?php require_once('../components/notification.php'); ?>
       </div>
       <!-- Button trigger modal -->
-      <button type="button" id="btn1" class="btn bg-btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" id="btn1" class="btn bg-gradient-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
         تغير حالة الطلب
       </button>
 
-      <button type="button" id="btn2" class=" printing btn bg-gradient-primary" onclick="printDiv('printableArea')">
+      <button type="button" id="btn2" class=" printing btn bg-gradient-dark" onclick="printDiv('printableArea')">
         طباعة الطلب
       </button>
 
-      <button type="button" id="btn3" class="printing printing2 btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+      <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">
         إرفاق \ عرض الملف
       </button>
 
