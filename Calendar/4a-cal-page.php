@@ -54,7 +54,7 @@
         <input id="calYear" type="number" value="<?=$yearNow?>">
         <input id="calNext" type="button" class="mi" value="&gt;">
       </div>
-      <input id="calAdd" type="button" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6" value="أضافة موعد جديد">
+      <input id="calAdd" type="button" class="btn bg-gradient-dark rounded-pill mb-0 col-md-2 col-sm-6 col-xs-6" value="أضافة موعد جديد">
     </div>
 
     <!-- (C) CALENDAR WRAPPER -->
