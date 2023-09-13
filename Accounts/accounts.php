@@ -337,21 +337,26 @@ $select = mysqli_query($conn, "select * from bank_request");
         <?php if ($position == 'Admin') { ?> <a href="add-bank-req.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6"> أضافة طلب تعميد جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
         <?php } ?>
         <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
-          <div class="content">
-
-
-            <div class="block">
-              <?php if (!empty($_GET['bank_req'])) {
-                $id = $_GET['bank_req'];
-                $del = mysqli_query($conn, "delete from bank_request where id = '$id'");
-                if ($del) {
-                  echo '<div class="alert alert-success"> تم حذف التعميد </div>';
-                }
-              }
-              ?>
-              <table class="table align-items-center mb-0" id="myTable">
-                <thead>
-                  <tr>
+            <div class="content">
+            <div class="block-header   col-md-3 col-sm-6 col-xs-6  rounded">
+                                    
+                                    <?php require_once('../components/notification.php'); ?>
+                                  </div> 
+                
+                <div class="block">
+                    <?php if(!empty($_GET['bank_req']))
+                    {
+                        $id = $_GET['bank_req'];
+                        $del= mysqli_query($conn, "delete from bank_request where id = '$id'");
+                        if($del)
+                        {
+                            echo '<div class="alert alert-success"> تم حذف التعميد </div>';
+                        }
+                    }
+                    ?>
+                    <table class="table align-items-center mb-0" id="myTable">
+                    <thead>
+                    <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">نوع الطلب</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الوصف</th>
