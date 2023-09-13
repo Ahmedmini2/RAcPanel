@@ -34,7 +34,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
           <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute start-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
           <a class="navbar-brand m-0" href="index.php">
             <img src="../assets/img/logos/r-gold.png" class="navbar-brand-img " alt="main_logo">
-            <span class="me-1 font-weight-bold">ركن اميال</span>
+            <span class="me-1 font-weight-bold">شركة ركن اميال للمقاولات</span>
           </a>
         </div>
         <hr class="horizontal dark mt-0">
@@ -231,7 +231,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
           </div>
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
+              <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">تسجيل الخروج</span>
               </a>

@@ -1,11 +1,10 @@
 <?php 
-// Main DB 
-// $db = "ruknam5_app";
-// $host = "localhost";
-// $dbusername = "ruknam5_root";
-// $dbpassword = "Roek9933@";
 
-// Test DB
+// $db = "ruknamial";
+// $host = "localhost";
+// $dbusername = "root";
+// $dbpassword = "";
+
 $db = "ruknam5_test_app";
 $host = "localhost";
 $dbusername = "ruknam5_root";

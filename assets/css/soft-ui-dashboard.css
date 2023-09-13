@@ -6544,7 +6544,7 @@ fieldset:disabled .btn {
 }
 
 .modal-backdrop {
-  position: fixed;
+  position: inherit;
   top: 0;
   left: 0;
   z-index: 1040;
@@ -24930,3 +24930,19 @@ pre[class*="language-"] {
 
 
 /*# sourceMappingURL=dashboard-free.css.map */
+
+.notification-badge {
+  background-color: red; /* Change the background color */
+  color: white; /* Change the text color */
+  border-radius: 50%; /* Make it circular */
+  padding: 3px 6px; /* Adjust padding as needed */
+  position: absolute;
+  font-size: 8px;
+  top: 0;
+  right: 0;
+}
+
+.read-notification {
+  background: gray;
+  color: white;
+}
