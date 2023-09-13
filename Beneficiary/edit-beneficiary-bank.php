@@ -377,11 +377,11 @@ include ('../cookies/session2.php');
     <div class="container-fluid py-4">
         <div class="row">
         <div class="block block-themed">
-          <div class="block-header bg-dark  col-md-3 col-sm-6 col-xs-6  rounded">
+          <div class="block-header bg-secondary  col-md-3 col-sm-6 col-xs-6  rounded">
                                     
             <?php require_once('../components/notification.php'); ?>
           </div>
-                                <div class="block-header bg-dark   col-md-2 col-sm-6 col-xs-6  rounded">
+                                <div class="block-header bg-secondary  col-md-2 col-sm-6 col-xs-6  rounded)">
                                     
                                     <h5 class="block-title py-2 px-4">إضافة حساب مستفيد جديد</h5>
                                 </div>
