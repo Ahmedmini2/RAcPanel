@@ -423,7 +423,7 @@ if (!empty($_GET['edit'])) {
             <?php require_once('../components/notification.php'); ?>
           </div>
           <div class="block-header bg-gradient-dark col-md-2 col-sm-6 col-xs-6  rounded-pill">
-            <h3 class="block-title text-white py-2 px-4 ">إضافة طلب تعميد جديد</h5>
+            <h6 class="block-title text-white py-2 px-4 ">إضافة طلب تعميد جديد</h5>
           </div>
           <form id="<?php echo $idAttr; ?>" action="" method="post">
             <div class="row">
