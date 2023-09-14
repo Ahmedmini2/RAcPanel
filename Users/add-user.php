@@ -382,10 +382,7 @@ else{
     <div class="container-fluid py-4">
         <div class="row">
         <div class="block block-themed">
-          <div class="block-header  col-md-3 col-sm-6 col-xs-6  rounded">
-                                    
-            <?php require_once('../components/notification.php'); ?>
-          </div>
+         
                                 <div class="block-header bg-gradient-dark  col-md-2 col-sm-6 col-xs-6  rounded-pill">
                                     
                                     <h5 class="block-title text-white py-2 px-4">إضافة مستخدم جديد</h5>
