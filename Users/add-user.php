@@ -386,9 +386,9 @@ else{
                                     
             <?php require_once('../components/notification.php'); ?>
           </div>
-                                <div class="block-header bg-warning  col-md-2 col-sm-6 col-xs-6  rounded">
+                                <div class="block-header bg-bg-gradient-dark  col-md-2 col-sm-6 col-xs-6  rounded-pill">
                                     
-                                    <h5 class="block-title py-2 px-4">إضافة مستخدم جديد</h5>
+                                    <h5 class="block-title text-white py-2 px-4">إضافة مستخدم جديد</h5>
                                 </div>
                                 <form id="<?php echo $idAttr; ?>" action="../scripts/backend-script.php" method="post" name="users">
                                 <div class="row">
