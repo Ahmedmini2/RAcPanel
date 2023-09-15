@@ -399,7 +399,7 @@ if(!empty($_GET['edit'])){
          
                                 <div class="block-header bg-gradient-dark  col-md-2 col-sm-6 col-xs-6  rounded-pill">
                                     
-                                    <h5 class="block-title py-2 px-4 ">إضافة حساب مستفيد جديد</h5>
+                                    <h5 class="block-title text-white py-2 px-4 ">إضافة حساب مستفيد جديد</h5>
                                 </div>
                                 <form id="<?php echo $idAttr; ?>" action="" method="post">
                                 <div class="row">
