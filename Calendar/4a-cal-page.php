@@ -69,8 +69,8 @@
     <!-- (D) EVENT FORM -->
     <dialog id="calForm"><form method="dialog">
       <div id="evtCX">X</div>
-      <h3 class="evt100 text-black">إضافة اجتماع</h3>
-      <div class="evt50">
+      <h2 class="evt100 text-dark">إضافة اجتماع</h2>
+      <div class="evt50 text-dark">
         <label>البداية</label>
         <input id="evtStart" type="datetime-local" required>
       </div>
