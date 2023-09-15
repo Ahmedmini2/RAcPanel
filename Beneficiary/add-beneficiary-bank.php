@@ -397,7 +397,7 @@ if(!empty($_GET['edit'])){
         <div class="row">
         <div class="block block-themed">
          
-                                <div class="block-header bg-gradient-dark col-lg-6 col-md-2 col-sm-6 col-xs-6  rounded-pill">
+                                <div class="block-header bg-gradient-dark col-lg-4 col-md-2 col-sm-6 col-xs-6  rounded-pill">
                                     
                                     <h5 class="block-title text-white py-2 px-4 ">إضافة حساب مستفيد جديد</h5>
                                 </div>
