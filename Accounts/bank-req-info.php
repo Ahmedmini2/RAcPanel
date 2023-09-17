@@ -568,7 +568,7 @@ if (isset($_GET['bank_req'])) {
               <table>
                 <tr>
                   <td class="title">
-                    <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px pb-10" />
+                    <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
                   </td>
 
                   <td class="row1">
