@@ -282,22 +282,22 @@ $_SESSION['sidebar']="Projects";
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                  <div class="card card-blog card-plain">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
+                  <div class="card card-blog card-plain py-3">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
                         <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                       </a>
                     </div>
                     <div class="card-body px-1 pb-0">
-                      <p class="text-gradient text-dark mb-2 text-sm">Project #2</p>
+                      <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
                       <a href="javascript:;">
                         <h5>
-                          Modern
+                          Minimalist
                         </h5>
                       </a>
                       <p class="mb-4 text-sm">
-                        As Uber works through a huge amount of internal management turmoil.
+                        Different people have different taste, and various types of music.
                       </p>
                       <div class="d-flex align-items-center justify-content-between">
                         <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
@@ -306,22 +306,22 @@ $_SESSION['sidebar']="Projects";
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
-                  <div class="card card-blog card-plain">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
+                  <div class="card card-blog card-plain py-3">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-2.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                       </a>
                     </div>
                     <div class="card-body px-1 pb-0">
-                      <p class="text-gradient text-dark mb-2 text-sm">Project #1</p>
+                      <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
                       <a href="javascript:;">
                         <h5>
-                          Scandinavian
+                          Minimalist
                         </h5>
                       </a>
                       <p class="mb-4 text-sm">
-                        Music is something that every person has his or her own specific opinion about.
+                        Different people have different taste, and various types of music.
                       </p>
                       <div class="d-flex align-items-center justify-content-between">
                         <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
