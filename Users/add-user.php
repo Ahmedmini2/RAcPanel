@@ -38,13 +38,10 @@ if(!empty($_GET['edit'])){
 }
 
 else{
-  $fullName="";
-  $email="";
-  $phone="";
-  $role="";
+  
   $password="";
   $username="";
-  $position="";
+  
  
   $editId='';
    $idAttr="adminForm";
