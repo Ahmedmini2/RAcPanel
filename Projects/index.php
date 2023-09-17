@@ -162,7 +162,7 @@ $_SESSION['sidebar']="Projects";
             </div>
             <div class="card-body p-3 py-5 ">
               <div class="row">
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
                   <div class="card card-blog card-plain">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
