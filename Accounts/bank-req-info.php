@@ -173,7 +173,7 @@ if (isset($_GET['bank_req'])) {
 <body class="g-sidenav-show rtl bg-gray-100">
 
   <!-- Side Bar -->
-  <?php require_once('components/sidebar.php'); ?>
+  <?php require_once('../components/sidebar.php'); ?>
       <!-- End Of side Bar -->
       
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
