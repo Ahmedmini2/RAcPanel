@@ -161,7 +161,7 @@ $_SESSION['sidebar']="Projects";
               <p class="text-sm">إدارة اخر المشاريع</p>
             
             </div>
-            <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+            <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 " data-bs-toggle="modal" data-bs-target="#exampleModal2">
         إرفاق \ عرض الملف
       </button>
             <div class="card-body p-3  ">
