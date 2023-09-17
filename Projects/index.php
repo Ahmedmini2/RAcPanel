@@ -151,6 +151,109 @@ $_SESSION['sidebar']="Projects";
       </div>
     </nav>
     <!-- End Navbar -->
+
+    <!-- S slider -->
+    <div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <div class="card-body p-3 py-5 ">
+              <div class="row">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
+                  <div class="card card-blog card-plain">
+                    <div class="position-relative">
+                      <a class="d-block shadow-xl border-radius-xl">
+                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                      </a>
+                    </div>
+                    <div class="card-body px-1 pb-0">
+                      <p class="text-gradient text-dark mb-2 text-sm">Project #2</p>
+                      <a href="javascript:;">
+                        <h5>
+                          Modern
+                        </h5>
+                      </a>
+                      <p class="mb-4 text-sm">
+                        As Uber works through a huge amount of internal management turmoil.
+                      </p>
+                      <div class="d-flex align-items-center justify-content-between">
+                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+    <div class="carousel-item">
+    <div class="card-body p-3 py-5 ">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
+                  <div class="card card-blog card-plain">
+                    <div class="position-relative">
+                      <a class="d-block shadow-xl border-radius-xl">
+                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                      </a>
+                    </div>
+                    <div class="card-body px-1 pb-0">
+                      <p class="text-gradient text-dark mb-2 text-sm">Project #2</p>
+                      <a href="javascript:;">
+                        <h5>
+                          Modern
+                        </h5>
+                      </a>
+                      <p class="mb-4 text-sm">
+                        As Uber works through a huge amount of internal management turmoil.
+                      </p>
+                      <div class="d-flex align-items-center justify-content-between">
+                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+    <div class="carousel-item">
+    <div class="card-body p-3 py-5 ">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
+                  <div class="card card-blog card-plain">
+                    <div class="position-relative">
+                      <a class="d-block shadow-xl border-radius-xl">
+                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                      </a>
+                    </div>
+                    <div class="card-body px-1 pb-0">
+                      <p class="text-gradient text-dark mb-2 text-sm">Project #2</p>
+                      <a href="javascript:;">
+                        <h5>
+                          Modern
+                        </h5>
+                      </a>
+                      <p class="mb-4 text-sm">
+                        As Uber works through a huge amount of internal management turmoil.
+                      </p>
+                      <div class="d-flex align-items-center justify-content-between">
+                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- End slider -->
+
+
+
     <div class="container-fluid py-4">
     </div>
     <div class="col-12 mt-4">
@@ -159,9 +262,9 @@ $_SESSION['sidebar']="Projects";
               <h6 class="mb-1">المشاريع</h6>
               <p class="text-sm">إدارة اخر المشاريع</p>
             </div>
-            <div class="card-body p-3 ">
+            <div class="card-body p-3 py-5 ">
               <div class="row">
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 pb-5">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
                   <div class="card card-blog card-plain">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
@@ -185,7 +288,7 @@ $_SESSION['sidebar']="Projects";
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 pb-5">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
                   <div class="card card-blog card-plain">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
@@ -209,7 +312,7 @@ $_SESSION['sidebar']="Projects";
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 pb-5">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
                   <div class="card card-blog card-plain">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
@@ -233,7 +336,7 @@ $_SESSION['sidebar']="Projects";
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 pb-5">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
                   <div class="card card-blog card-plain">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
@@ -257,7 +360,7 @@ $_SESSION['sidebar']="Projects";
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 pb-5 ">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
                   <div class="card card-blog card-plain">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
@@ -281,7 +384,7 @@ $_SESSION['sidebar']="Projects";
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 pb-5">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
                   <div class="card card-blog card-plain">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
@@ -305,7 +408,7 @@ $_SESSION['sidebar']="Projects";
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 pb-5">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
                   <div class="card card-blog card-plain">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
@@ -329,80 +432,7 @@ $_SESSION['sidebar']="Projects";
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 pb-5">
-                  <div class="card card-blog card-plain">
-                    <div class="position-relative">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                      </a>
-                    </div>
-                    <div class="card-body px-1 pb-0">
-                      <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Minimalist
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        Different people have different taste, and various types of music.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 pb-5">
-                  <div class="card card-blog card-plain">
-                    <div class="position-relative">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                      </a>
-                    </div>
-                    <div class="card-body px-1 pb-0">
-                      <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Minimalist
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        Different people have different taste, and various types of music.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 pb-5 ">
-                  <div class="card card-blog card-plain">
-                    <div class="position-relative">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                      </a>
-                    </div>
-                    <div class="card-body px-1 pb-0">
-                      <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Minimalist
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        Different people have different taste, and various types of music.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-               
+              
               </div>
             </div>
           </div>
