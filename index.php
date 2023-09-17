@@ -182,7 +182,7 @@ $_SESSION['sidebar']="Home";
               <h6 class="mb-1">المشاريع</h6>
               <p class="text-sm">إدارة اخر المشاريع</p>
             </div>
-            <div class="card-body p-3">
+            <div class="card-body p-3 ">
               <div class="row">
                 <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
                   <div class="card card-blog card-plain">
