@@ -185,7 +185,7 @@ $_SESSION['sidebar']="Projects";
                             <img alt="Image placeholder" src="assets/img/team-1.jpg">
                           </a>
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                            <img alt="Image placeholder" src="assets/img/team-2.jpg">
+                            <img alt="" src="assets/img/team-2.jpg">
                           </a>
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
                             <img alt="Image placeholder" src="assets/img/team-3.jpg">
