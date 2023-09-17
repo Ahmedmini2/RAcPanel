@@ -32,7 +32,7 @@ $sidebar = $_SESSION['sidebar'];
                     </g>
                   </svg>
                 </div>
-                <span class="nav-link-text me-1">لوحة القيادة</span>
+                <span class="nav-link-text me-1">الرئيسية</span>
               </a>
             </li>
             <li class="nav-item">
@@ -140,8 +140,8 @@ $sidebar = $_SESSION['sidebar'];
                 <span class="nav-link-text me-1">المواعيد</span>
               </a>
             </li>
-           <!-- <li class="nav-item">
-              <a class="nav-link " href="pages/sign-in.html">
+            <li class="nav-item">
+              <a class="nav-link <?php if($sidebar == "Projects") echo 'active'; ?>" href="Projects/index.php">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                   <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>document</title>
@@ -157,10 +157,10 @@ $sidebar = $_SESSION['sidebar'];
                     </g>
                   </svg>
                 </div>
-                <span class="nav-link-text me-1">تسجيل الدخول</span>
+                <span class="nav-link-text me-1">المشاريع</span>
               </a>
             </li>
-            <li class="nav-item">
+           <!-- <li class="nav-item">
               <a class="nav-link " href="pages/sign-up.html">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                   <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
