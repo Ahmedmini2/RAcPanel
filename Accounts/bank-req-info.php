@@ -45,7 +45,9 @@ if (isset($_GET['bank_req'])) {
     عرض التعميد
   </title>
   <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -162,7 +164,7 @@ if (isset($_GET['bank_req'])) {
     }
 
     .printing2 {
-      left: 120px;
+      left: 140px;
     }
   </style>
 </head>
@@ -475,15 +477,15 @@ if (isset($_GET['bank_req'])) {
         <?php require_once('../components/notification.php'); ?>
       </div>
       <!-- Button trigger modal -->
-      <button type="button" id="btn1" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
         تغير حالة الطلب
       </button>
 
-      <button type="button" id="btn2" class=" printing btn bg-gradient-primary" onclick="printDiv('printableArea')">
+      <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill  " onclick="printDiv('printableArea')">
         طباعة الطلب
       </button>
 
-      <button type="button" id="btn3" class="printing printing2 btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+      <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
         إرفاق \ عرض الملف
       </button>
 

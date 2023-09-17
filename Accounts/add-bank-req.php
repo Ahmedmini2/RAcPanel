@@ -101,7 +101,9 @@ if (!empty($_GET['edit'])) {
     أضافة طلب تعميد
   </title>
   <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -418,11 +420,14 @@ if (!empty($_GET['edit'])) {
       <div class="row">
         <div class="block block-themed">
           <div class="block-header bg-warning col-md-3 col-sm-6 col-xs-6 rounded">
-
             <?php require_once('../components/notification.php'); ?>
           </div>
+<<<<<<< HEAD
           <div class="block-header col-md-2 col-sm-6 col-xs-6  rounded">
 
+=======
+          <div class="block-header  col-md-2 col-sm-6 col-xs-6  rounded">
+>>>>>>> Testing
             <h5 class="block-title py-2 px-4 ">إضافة طلب تعميد جديد</h5>
           </div>
           <form id="<?php echo $idAttr; ?>" action="" method="post">

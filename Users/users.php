@@ -15,7 +15,9 @@ $select =mysqli_query($conn, "select * from users");
     المستخدمين
   </title>
   <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -331,7 +333,8 @@ $select =mysqli_query($conn, "select * from users");
     <div class="container-fluid py-4">
         <div class="row">
         
-        <a href="add-user.php" class="btn btn-primary content-link col-md-2 col-sm-6 col-xs-6"> أضافة مستخدم</a>
+        <a href="add-user.php" 
+        class="btn bg-gradient-dark rounded-pill content-link col-md-2 col-sm-6 col-xs-6"> أضافة مستخدم</a>
         <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
             <div class="content">
                     

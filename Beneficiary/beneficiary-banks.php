@@ -15,7 +15,9 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
    بنوك الشركة
   </title>
   <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -330,7 +332,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
     <!-- End Navbar -->
     <div class="container-fluid py-4">
         <div class="row">
-        <a href="add-beneficiary-bank.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة حساب مستفيد جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
+        <a href="add-beneficiary-bank.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">تفيد جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
         <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
             <div class="content">
             <div class="block-header bg-warning  col-md-3 col-sm-6 col-xs-6  rounded">

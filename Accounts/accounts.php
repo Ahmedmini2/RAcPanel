@@ -15,7 +15,9 @@ $select = mysqli_query($conn, "select * from bank_request");
     الحسابات
   </title>
   <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -330,6 +332,7 @@ $select = mysqli_query($conn, "select * from bank_request");
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row">
+<<<<<<< HEAD
         
         <?php if ($position == 'Admin') { ?> <a href="add-bank-req.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6"> أضافة طلب تعميد جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
         <?php } ?>
@@ -352,6 +355,32 @@ $select = mysqli_query($conn, "select * from bank_request");
               <table class="table align-items-center mb-0" id="myTable">
                 <thead>
                   <tr>
+=======
+      
+        <?php if ($position == 'Admin') { ?> <a href="add-bank-req.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6"> أضافة طلب تعميد جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
+        <?php } ?>
+        <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
+            <div class="content">
+            <div class="block-header col-md-3 col-sm-6 col-xs-6  rounded">
+                                    
+                                    <?php require_once('../components/notification.php'); ?>
+                                  </div> 
+                
+                <div class="block">
+                    <?php if(!empty($_GET['bank_req']))
+                    {
+                        $id = $_GET['bank_req'];
+                        $del= mysqli_query($conn, "delete from bank_request where id = '$id'");
+                        if($del)
+                        {
+                            echo '<div class="alert alert-success"> تم حذف التعميد </div>';
+                        }
+                    }
+                    ?>
+                    <table class="table align-items-center mb-0" id="myTable">
+                    <thead>
+                    <tr>
+>>>>>>> Testing
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">نوع الطلب</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الوصف</th>

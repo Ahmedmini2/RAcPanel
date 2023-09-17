@@ -22,7 +22,9 @@ include '../scripts/login.php';
     ركن اميال تسجيل الدخول | Rukn Amial
   </title>
   <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -96,7 +98,7 @@ include '../scripts/login.php';
           <div class="row">
             <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
               <div class="card card-plain mt-8">
-              <p class="text-success text-center"><?php echo $call_login; ?></p>
+              <p class="text-danger text-center"><?php echo $call_login; ?></p>
                 <div class="card-header pb-0 text-left bg-transparent">
                   <h3 class="font-weight-bolder text-info text-gradient">مرحبا بعودتك</h3>
                   <p class="mb-0">قم بإدخال البريد الالكتروني وكلمة المرور لتسجيل الدخول</p>
@@ -106,15 +108,16 @@ include '../scripts/login.php';
                     <label>البريد الالكتروني</label>
                     <div class="mb-3">
                       <input type="email" name="email" class="form-control" placeholder="البريد الالكتروني" aria-label="Email" aria-describedby="email-addon" value="<?php echo $set_email; ?>">
-                      <p class="err-msg">
+                      <p class="text-danger ">
                       <?php if($emailErr!=1){ echo $emailErr; } ?>
                       </p>
                     </div>
                     <label>كلمة المرور</label>
                     <div class="mb-3">
                       <input type="password" name="password"  class="form-control" placeholder="كلمة المرور" aria-label="Password" aria-describedby="password-addon">
-                      <p class="err-msg">
+                      <p class="text-danger">
                       <?php if($passErr!=1){ echo $passErr; } ?>
+        
                       </p>
                     </div>
                     <div class="form-check form-switch">

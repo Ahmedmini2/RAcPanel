@@ -84,7 +84,7 @@ function login($db,$email,$password){
       header("location:../index.php");
      }else
      {
-      return "Your Password is wrong". $password;
+      return "Your Password is wrong" ;
      }
 
   }
