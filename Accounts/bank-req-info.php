@@ -547,7 +547,7 @@ if (isset($_GET['bank_req'])) {
             <div class="modal-body">
               <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>" enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
-                <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-primary m-4">
+                <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
                 <?php if ($doc != '') {
                   echo '<a href="../Signed-Docs/' . $id . '/' . $doc . '" target="_blank"><img src="../Signed-Docs/' . $id . '/' . $doc . '" class="img-fluid rounded-top" alt="' . $doc . '"></a>';
                 } ?>
@@ -555,7 +555,7 @@ if (isset($_GET['bank_req'])) {
             </div>
             <div class="modal-footer">
               <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal2">Close</button>
-              <button type="button" class="btn bg-gradient-primary">Save changes</button>
+              <button type="button" class="btn bg-gradient-dark rounded-pill">Save changes</button>
             </div>
           </div>
         </div>
