@@ -1,5 +1,6 @@
 <?php
 include ('cookies/session.php');
+$_SESSION['sidebar']="Home";
 
 ?>
 
