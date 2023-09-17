@@ -1,5 +1,4 @@
 <?php
-include ('../cookies/session2.php');
 $sidebar = $_SESSION['sidebar'];
 
 ?>
