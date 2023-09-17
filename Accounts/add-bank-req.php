@@ -422,12 +422,7 @@ if (!empty($_GET['edit'])) {
           <div class="block-header bg-warning col-md-3 col-sm-6 col-xs-6 rounded">
             <?php require_once('../components/notification.php'); ?>
           </div>
-<<<<<<< HEAD
-          <div class="block-header col-md-2 col-sm-6 col-xs-6  rounded">
-
-=======
           <div class="block-header  col-md-2 col-sm-6 col-xs-6  rounded">
->>>>>>> Testing
             <h5 class="block-title py-2 px-4 ">إضافة طلب تعميد جديد</h5>
           </div>
           <form id="<?php echo $idAttr; ?>" action="" method="post">
