@@ -233,7 +233,7 @@ $_SESSION['sidebar']="Projects";
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 pb-5">
                   <div class="card card-blog card-plain">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
@@ -257,7 +257,7 @@ $_SESSION['sidebar']="Projects";
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
                   <div class="card card-blog card-plain">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
