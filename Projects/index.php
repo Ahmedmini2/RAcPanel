@@ -179,6 +179,10 @@ $_SESSION['sidebar'] = "Projects";
                   <label for="formGroupExampleInput" class="form-label">اسم المشروع</label>
                   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="ادخل اسم المشروع">
                 </div>
+                <div class="mb-3">
+                  <label for="formGroupExampleInput" class="form-label">تفاصيل المشروع</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="ادخل تفاصيل المشروع">
+                </div>
                 <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>" enctype="multipart/form-data">
                   <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
                   <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
