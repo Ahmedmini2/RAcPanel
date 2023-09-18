@@ -160,7 +160,8 @@ $_SESSION['sidebar']="Projects";
               <h6 class="mb-1">المشاريع</h6>
             </div>
             <!-- S Button+model -->
-            <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 " data-bs-toggle="modal" data-bs-target="#myModal">
+            <button type="button"  
+            class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 " data-bs-toggle="modal" data-bs-target="#myModal">
                أضافة مشروع +
             </button>
             <div class="model" id="myModal">
