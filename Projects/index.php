@@ -1,6 +1,6 @@
 <?php
 include('../cookies/session2.php');
-$_SESSION['sidebar']="Projects";
+$_SESSION['sidebar'] = "Projects";
 
 
 ?>
@@ -17,8 +17,8 @@ $_SESSION['sidebar']="Projects";
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -33,7 +33,7 @@ $_SESSION['sidebar']="Projects";
 
   <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
-      <!-- End Of side Bar --> 
+  <!-- End Of side Bar -->
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
@@ -155,254 +155,254 @@ $_SESSION['sidebar']="Projects";
     <div class="container-fluid py-4">
     </div>
     <div class="col-12 mt-4">
-          <div class="card mb-4 p-3">
-            <div class="card-header">
-              <h3 class="mb-1">المشاريع</h3>
-            </div>
-            
-            <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 " data-bs-toggle="modal" data-bs-target="#exampleModal2">
-               أضافة مشروع +
-            </button>
+      <div class="card mb-4 p-3">
+        <div class="card-header">
+          <h3 class="mb-1">المشاريع</h3>
+        </div>
 
-            <!-- Doc Modal -->
-      <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"> أضافة مشروع </h5>
-              <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-            <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label">اسم المشروع</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="ادخل اسم المشروع">
+        <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+          أضافة  مشروع +
+        </button>
+
+        <!-- Doc Modal -->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> أضافة  مشروع </h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label for="formGroupExampleInput" class="form-label">اسم المشروع</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="ادخل اسم المشروع">
                 </div>
-              <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>" enctype="multipart/form-data">
-                <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
-                <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
-                <?php if ($doc != '') {
-                  echo '<a href="../Signed-Docs/' . $id . '/' . $doc . '" target="_blank"><img src="../Signed-Docs/' . $id . '/' . $doc . '" class="img-fluid rounded-top" alt="' . $doc . '"></a>';
-                } ?>
-              </form>
+                <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>" enctype="multipart/form-data">
+                  <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
+                  <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
+                  <?php if ($doc != '') {
+                    echo '<a href="../Signed-Docs/' . $id . '/' . $doc . '" target="_blank"><img src="../Signed-Docs/' . $id . '/' . $doc . '" class="img-fluid rounded-top" alt="' . $doc . '"></a>';
+                  } ?>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal2">Close</button>
+                <button type="button" class="btn bg-gradient-dark rounded-pill">Save changes</button>
+              </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal2">Close</button>
-              <button type="button" class="btn bg-gradient-dark rounded-pill">Save changes</button>
+          </div>
+        </div>
+        <!-- Doc Modal -->
+        <div class="card-body p-3  ">
+          <div class="row">
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
+              <div class="card card-blog card-plain py-3">
+                <div class="position-relative">
+                  <a class="d-block shadow-xl border-radius-xl">
+                    <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                  </a>
+                </div>
+                <div class="card-body px-1 pb-0">
+                  <p class="text-gradient text-dark mb-2 text-sm">Project #2</p>
+                  <a href="javascript:;">
+                    <h5>
+                      Modern
+                    </h5>
+                  </a>
+                  <p class="mb-4 text-sm">
+                    As Uber works through a huge amount of internal management turmoil.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+
+                  </div>
+                </div>
+              </div>
             </div>
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
+              <div class="card card-blog card-plain py-3">
+                <div class="position-relative">
+                  <a class="d-block shadow-xl border-radius-xl">
+                    <img src="../assets/img/home-decor-2.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                  </a>
+                </div>
+                <div class="card-body px-1 pb-0">
+                  <p class="text-gradient text-dark mb-2 text-sm">Project #1</p>
+                  <a href="javascript:;">
+                    <h5>
+                      Scandinavian
+                    </h5>
+                  </a>
+                  <p class="mb-4 text-sm">
+                    Music is something that every person has his or her own specific opinion about.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
+              <div class="card card-blog card-plain py-3">
+                <div class="position-relative">
+                  <a class="d-block shadow-xl border-radius-xl">
+                    <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                  </a>
+                </div>
+                <div class="card-body px-1 pb-0">
+                  <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
+                  <a href="javascript:;">
+                    <h5>
+                      Minimalist
+                    </h5>
+                  </a>
+                  <p class="mb-4 text-sm">
+                    Different people have different taste, and various types of music.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
+              <div class="card card-blog card-plain py-3">
+                <div class="position-relative">
+                  <a class="d-block shadow-xl border-radius-xl">
+                    <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                  </a>
+                </div>
+                <div class="card-body px-1 pb-0">
+                  <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
+                  <a href="javascript:;">
+                    <h5>
+                      Minimalist
+                    </h5>
+                  </a>
+                  <p class="mb-4 text-sm">
+                    Different people have different taste, and various types of music.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
+              <div class="card card-blog card-plain py-3">
+                <div class="position-relative">
+                  <a class="d-block shadow-xl border-radius-xl">
+                    <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                  </a>
+                </div>
+                <div class="card-body px-1 pb-0">
+                  <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
+                  <a href="javascript:;">
+                    <h5>
+                      Minimalist
+                    </h5>
+                  </a>
+                  <p class="mb-4 text-sm">
+                    Different people have different taste, and various types of music.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
+              <div class="card card-blog card-plain py-3">
+                <div class="position-relative">
+                  <a class="d-block shadow-xl border-radius-xl">
+                    <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                  </a>
+                </div>
+                <div class="card-body px-1 pb-0">
+                  <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
+                  <a href="javascript:;">
+                    <h5>
+                      Minimalist
+                    </h5>
+                  </a>
+                  <p class="mb-4 text-sm">
+                    Different people have different taste, and various types of music.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
+              <div class="card card-blog card-plain py-3">
+                <div class="position-relative">
+                  <a class="d-block shadow-xl border-radius-xl">
+                    <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                  </a>
+                </div>
+                <div class="card-body px-1 pb-0">
+                  <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
+                  <a href="javascript:;">
+                    <h5>
+                      Minimalist
+                    </h5>
+                  </a>
+                  <p class="mb-4 text-sm">
+                    Different people have different taste, and various types of music.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-          
-            <div class="card-body p-3  ">
-              <div class="row">
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
-                  <div class="card card-blog card-plain py-3">
-                    <div class="position-relative">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                      </a>
-                    </div>
-                    <div class="card-body px-1 pb-0">
-                      <p class="text-gradient text-dark mb-2 text-sm">Project #2</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Modern
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        As Uber works through a huge amount of internal management turmoil.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
-                  <div class="card card-blog card-plain py-3">
-                    <div class="position-relative">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-2.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
-                      </a>
-                    </div>
-                    <div class="card-body px-1 pb-0">
-                      <p class="text-gradient text-dark mb-2 text-sm">Project #1</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Scandinavian
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        Music is something that every person has his or her own specific opinion about.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
-                  <div class="card card-blog card-plain py-3">
-                    <div class="position-relative">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                      </a>
-                    </div>
-                    <div class="card-body px-1 pb-0">
-                      <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Minimalist
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        Different people have different taste, and various types of music.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
-                  <div class="card card-blog card-plain py-3">
-                    <div class="position-relative">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                      </a>
-                    </div>
-                    <div class="card-body px-1 pb-0">
-                      <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Minimalist
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        Different people have different taste, and various types of music.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
-                  <div class="card card-blog card-plain py-3">
-                    <div class="position-relative">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                      </a>
-                    </div>
-                    <div class="card-body px-1 pb-0">
-                      <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Minimalist
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        Different people have different taste, and various types of music.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 ">
-                  <div class="card card-blog card-plain py-3">
-                    <div class="position-relative">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                      </a>
-                    </div>
-                    <div class="card-body px-1 pb-0">
-                      <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Minimalist
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        Different people have different taste, and various types of music.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
-                  <div class="card card-blog card-plain py-3">
-                    <div class="position-relative">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                      </a>
-                    </div>
-                    <div class="card-body px-1 pb-0">
-                      <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Minimalist
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        Different people have different taste, and various types of music.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              
-              </div>
+    </div>
+    <footer class="footer pt-3  ">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="copyright text-center text-sm text-muted text-lg-end">
+              © <script>
+                document.write(new Date().getFullYear())
+              </script>,
+              made with <i class="fa fa-heart"></i> by
+              <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
+
             </div>
           </div>
-        </div>
-      <footer class="footer pt-3  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-end">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
+          <div class="col-lg-6">
+            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+              <li class="nav-item">
+                <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
+              </li>
 
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-
-              </ul>
-            </div>
+            </ul>
           </div>
         </div>
-      </footer>
+      </div>
+    </footer>
     </div>
   </main>
-  
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
