@@ -153,52 +153,19 @@ $_SESSION['sidebar'] = "Projects";
     <!-- End Navbar -->
 
     <div class="container-fluid py-4">
-    </div>
-    <div class="col-12 mt-4">
+      <div class="col-12 mt-4">
       <div class="card mb-4 p-3">
         <div class="card-header">
           <h3 class="mb-1">المشاريع</h3>
         </div>
 
-        <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 " data-bs-toggle="modal" data-bs-target="#exampleModal2">
-          أضافة  مشروع +
-        </button>
+        <a href="add-projects.php"
+         class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">تفيد جديد&nbsp;&nbsp; 
+         <i class="fas fa-plus">
+         </i>
+        </a>
 
-        <!-- Doc Modal -->
-        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> أضافة  مشروع </h5>
-                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="mb-3">
-                  <label for="formGroupExampleInput" class="form-label">اسم المشروع</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="ادخل اسم المشروع">
-                </div>
-                <div class="mb-3">
-                  <label for="formGroupExampleInput" class="form-label">تفاصيل المشروع</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="ادخل تفاصيل المشروع">
-                </div>
-                <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>" enctype="multipart/form-data">
-                  <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
-                  <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
-                  <?php if ($doc != '') {
-                    echo '<a href="../Signed-Docs/' . $id . '/' . $doc . '" target="_blank"><img src="../Signed-Docs/' . $id . '/' . $doc . '" class="img-fluid rounded-top" alt="' . $doc . '"></a>';
-                  } ?>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal2">Close</button>
-                <button type="button" class="btn bg-gradient-dark rounded-pill">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Doc Modal -->
+    
         <div class="card-body p-3  ">
           <div class="row">
             <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
