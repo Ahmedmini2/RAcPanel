@@ -159,9 +159,22 @@ $_SESSION['sidebar']="Projects";
             <div class="card-header pb-0 p-3">
               <h6 class="mb-1">المشاريع</h6>
             </div>
-            <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+            <!-- S Button+model -->
+            <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 " data-bs-toggle="modal" data-bs-target="#myModal">
                أضافة مشروع +
-      </button>
+            </button>
+            <div class="model" id="myModal">
+              <div class="model-dialog">
+                <div class="modal-content">
+                  <div class="model-header">
+                    <h3 class="text-center text-dark" >
+                      أضافة مشروع جديد
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Button+model -->
             <div class="card-body p-3  ">
               <div class="row">
                 <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
