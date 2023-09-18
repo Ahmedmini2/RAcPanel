@@ -157,7 +157,7 @@ $_SESSION['sidebar']="Projects";
     <div class="col-12 mt-4">
           <div class="card mb-4 p-3">
             <div class="card-header">
-              <h6 class="mb-1">المشاريع</h6>
+              <h3 class="mb-1">المشاريع</h3>
             </div>
             
             <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 " data-bs-toggle="modal" data-bs-target="#exampleModal2">
