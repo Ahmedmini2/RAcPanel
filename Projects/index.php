@@ -160,7 +160,7 @@ $_SESSION['sidebar'] = "Projects";
         </div>
 
         <a href="add-projects.php"
-         class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">تفيد جديد&nbsp;&nbsp; 
+         class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة مشروع جديد&nbsp;&nbsp; 
          <i class="fas fa-plus">
          </i>
         </a>
