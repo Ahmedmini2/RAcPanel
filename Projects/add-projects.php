@@ -75,6 +75,7 @@ if(!empty($_GET['edit'])){
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <title>
  طلب إعتماد مشروع جديد
   </title>
@@ -303,11 +304,11 @@ if(!empty($_GET['edit'])){
                                                   </div>
                                                 </div>
                                                 <script>
-                                  $("input").on("change", function() {
-                                    var ret = (parseInt($("#kh_price").val()) * parseInt($("#kh_per").val() || '0') ) * parseInt($("#quantity").val())
-                                    $("#kh_tot").val(ret);
-                                  })
-                                </script>
+                                                  $("input").on("change", function() {
+                                                    var ret = (parseInt($("#kh_price").val()) * parseInt($("#kh_per").val() || '0') ) * parseInt($("#quantity").val())
+                                                    $("#kh_tot").val(ret);
+                                                  })
+                                                </script>
 
                                               </div>
                                           </div>
