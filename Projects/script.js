@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to calculate and update the total
     function updateTotal(item) {
-        const quantity = parseFloat(item.querySelector("[name='quantity[]']").value);
+        const quantity = parseFloat(item.querySelector("[name='quantity']").value);
         const kh_price = parseFloat(item.querySelector("[name='kh_price']").value);
         const kh_per = parseFloat(item.querySelector("[name='kh_per']").value);
         const totalField = item.querySelector(".kh_tot");
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add event listeners to the input fields
     productDetails.addEventListener("input", function (e) {
         if (
-            e.target.name === "quantity[]" ||
+            e.target.name === "quantity" ||
             e.target.name === "kh_price" ||
             e.target.name === "kh_per"
         ) {

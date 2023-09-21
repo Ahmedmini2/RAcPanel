@@ -263,8 +263,8 @@ if(!empty($_GET['edit'])){
                                         <div class="row">
                                           <div class="col">
                                             <div class="form-group">
-                                              <label for="quantity[]">كمية الصنف</label>
-                                              <input class="form-control" type="text" name="quantity[]">
+                                              <label for="quantity">كمية الصنف</label>
+                                              <input class="form-control" type="text" name="quantity">
                                               <!-- Add more fields for product details here -->
                                             </div>
                                           </div>
