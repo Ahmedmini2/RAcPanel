@@ -90,6 +90,7 @@ if(!empty($_GET['edit'])){
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+  <script src="script.js"></script>
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
