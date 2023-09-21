@@ -259,11 +259,11 @@ if(!empty($_GET['edit'])){
                                               </div>
                                           </div>
 
-                                          <button type="button" class="add_item">أضافة بند</button>
+                                          <button type="button" class="btn btn-secondary rounded-pill add_item">أضافة بند</button>
                                       </div>
                                   </div>
 
-                                  <button type="button" class="add_product">أضافة منتج</button>
+                                  <button type="button"  class="btn btn-secondary rounded-pill add_product">أضافة منتج</button>
                                   <br><br>
                                
                                   <div class="row">
