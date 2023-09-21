@@ -329,16 +329,16 @@ if(!empty($_GET['edit'])){
                                                     <div class="form-group">
                                                       <label for="iron">مقاس الحديد</label>
                                                       <select class="form-control" name="iron" id="iron">
-                                                        <option value="8مم" >8مم</option>
-                                                        <option value="10مم" >10مم</option>
-                                                        <option value="12مم" >12مم</option>
-                                                        <option value="14مم" >14مم</option>
-                                                        <option value="16مم" >16مم</option>
-                                                        <option value="18مم" >18مم</option>
-                                                        <option value="20مم" >20مم</option>
-                                                        <option value="22مم" >22مم</option>
-                                                        <option value="25مم" >25مم</option>
-                                                        <option value="32مم" >32مم</option>
+                                                        <option value="0.395" >8مم</option>
+                                                        <option value="0.617" >10مم</option>
+                                                        <option value="0.888" >12مم</option>
+                                                        <option value="1.21" >14مم</option>
+                                                        <option value="1.58" >16مم</option>
+                                                        <option value="2" >18مم</option>
+                                                        <option value="2.47" >20مم</option>
+                                                        <option value="2.984" >22مم</option>
+                                                        <option value="3.85" >25مم</option>
+                                                        <option value="6.41" >32مم</option>
                                                         
                                                       </select>
                                                     </div>
@@ -379,10 +379,8 @@ if(!empty($_GET['edit'])){
                                                     var wight;
                                                  
                                                     var iron = $("#iron").val();
-                                                    if (iron == "مم8") { wight = 0.395; } else if (iron == "مم10"){ wight = 0.617; } else if (iron == "مم12"){ wight = 0.888; }else if (iron == "مم14"){ wight = 1.21; }
-                                                    else if (iron == "مم16"){ wight = 1.58; }else if (iron == "مم18"){ wight = 2; }else if (iron == "20مم"){ wight = 2.47; }else if (iron == "مم22"){ wight = 2.984; }
-                                                    else if (iron == "مم25"){ wight = 3.85; }else if (iron == "32مم"){ wight = 6.41; }
-                                                    var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * wight)
+                                                   
+                                                    var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
                                                     var tn = kg / 1000;
                                                     var total = tn * parseFloat($("#iron_price").val())
                                                     $("#iron_tn").val(tn);
