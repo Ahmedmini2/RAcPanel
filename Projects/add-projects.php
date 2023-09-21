@@ -375,14 +375,14 @@ if(!empty($_GET['edit'])){
                                                   </div>
                                                 </div>
                                                 <script>
-                                                  $("input").on("change", function() {
-                                                    var e = document.getElementById("iron");
+                                                  var e = document.getElementById("iron");
                                                     var iron = e.value;
                                                     var wight = 0;
                                                     if (iron == "مم8") { wight = 0.395; } else if (iron == "مم10"){ wight = 0.617; } else if (iron == "مم12"){ wight = 0.888; }else if (iron == "مم14"){ wight = 1.21; }
                                                     else if (iron == "مم16"){ wight = 1.58; }else if (iron == "مم18"){ wight = 2; }else if (iron == "20مم"){ wight = 2.47; }else if (iron == "مم22"){ wight = 2.984; }
                                                     else if (iron == "مم25"){ wight = 3.85; }else if (iron == "32مم"){ wight = 6.41; }
-
+                                                    
+                                                  $("input").on("change", function() {
                                                     var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * wight)
                                                     var tn = kg / 1000;
                                                     var total = tn * parseFloat($("#iron_price").val())
