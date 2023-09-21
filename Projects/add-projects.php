@@ -226,7 +226,7 @@ if(!empty($_GET['edit'])){
                                 <div class="row">
                                   <div class="col">
                                     <div class="form-group">
-                                      <label>أسم مشروع</label>
+                                      <label>أسم الجهة الطالبة للمشروع</label>
                                       <input type="text" placeholder="الرجاء كتابة أسم مشروع" class="form-control" name="name" value="<?php echo $name; ?>">
                                     </div>
                                   </div>
@@ -243,12 +243,19 @@ if(!empty($_GET['edit'])){
                                  <!-- Product Details -->
                                   <div id="product_details">
                                       <div class="product">
-                                        <h4>المنتج</h4>
+                                        <h4>الأصناف</h4>
                                         <div class="row">
                                           <div class="col">
                                             <div class="form-group">
-                                              <label for="product_name[]">أسم المنتج</label>
+                                              <label for="product_name[]">أسم الصنف</label>
                                               <input class="form-control" type="text" name="product_name[]">
+                                              <!-- Add more fields for product details here -->
+                                            </div>
+                                          </div>
+                                          <div class="col">
+                                            <div class="form-group">
+                                              <label for="dimensions[]">المقاسات</label>
+                                              <input class="form-control" type="text" name="dimensions[]">
                                               <!-- Add more fields for product details here -->
                                             </div>
                                           </div>
