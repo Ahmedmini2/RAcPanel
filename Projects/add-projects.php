@@ -302,6 +302,12 @@ if(!empty($_GET['edit'])){
                                                     </div>
                                                   </div>
                                                 </div>
+                                                <script>
+                                  $("input").on("change", function() {
+                                    var ret = (parseInt($("#kh_price").val()) * parseInt($("#kh_per").val() || '0') ) * parseInt($("#quantity").val())
+                                    $("#kh_tot").val(ret);
+                                  })
+                                </script>
 
                                               </div>
                                           </div>
@@ -324,12 +330,7 @@ if(!empty($_GET['edit'])){
                                     </div>
                                   </div>
                                 </form>
-                                <script>
-                                  $("input").on("change", function() {
-                                    var ret = (parseInt($("#kh_price").val()) * parseInt($("#kh_per").val() || '0') ) * parseInt($("#quantity").val())
-                                    $("#kh_tot").val(ret);
-                                  })
-                                </script>
+                                
         </div>
 </div>
 </div>
