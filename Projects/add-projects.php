@@ -298,7 +298,7 @@ if(!empty($_GET['edit'])){
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="kh_tot">السعر الكلي</label>
-                                                      <input type="text" class="form-control" name="kh_tot" disabled>
+                                                      <input type="text" class="form-control" name="kh_tot">
                                                     </div>
                                                   </div>
                                                 </div>
