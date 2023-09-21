@@ -253,7 +253,7 @@ if(!empty($_GET['edit'])){
                                               <h3>البنود</h3>
                                               <div class="item">
                                                   <label for="item_name[]">أسم البند:</label>
-                                                  <input type="text" name="item_name[]">
+                                                  <input type="text" class="form-control" name="item_name[]">
                                                   <!-- Add more fields for item details here -->
                                                   <br><br>
                                               </div>
