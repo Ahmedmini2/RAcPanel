@@ -1,23 +1,23 @@
-<?php 
-include ('../cookies/session2.php');
+<?php
+include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
-if(!empty($_GET['edit'])){
+if (!empty($_GET['edit'])) {
 
-    $id= $_GET['edit'];
-    $query="SELECT * FROM beneficiary_info WHERE id=$id";
-    $res= $conn->query($query);
-    $editData=$res->fetch_assoc();
-    $name=$editData['name'];
-    $beneficiary_bank=$editData['beneficiary_bank'];
-    $description=$editData['description'];
-    $amount_text=$editData['amount_text'];
-    $our_bank_name=$editData['our_bank_name'];
-    $to_account_type=$editData['to_account_type'];
-    $transfer_to=$editData['transfer_to'];
-  
-    
-    $idAttr="updateForm";
-    
+  $id = $_GET['edit'];
+  $query = "SELECT * FROM beneficiary_info WHERE id=$id";
+  $res = $conn->query($query);
+  $editData = $res->fetch_assoc();
+  $name = $editData['name'];
+  $beneficiary_bank = $editData['beneficiary_bank'];
+  $description = $editData['description'];
+  $amount_text = $editData['amount_text'];
+  $our_bank_name = $editData['our_bank_name'];
+  $to_account_type = $editData['to_account_type'];
+  $transfer_to = $editData['transfer_to'];
+
+
+  $idAttr = "updateForm";
+
   // }else if(isset($_POST['submit'])){
   //   $name=$_POST['full_name'];
   //   $email=$_POST['email'];
@@ -27,44 +27,42 @@ if(!empty($_GET['edit'])){
   //   $cpassword=$_POST['cpassword'];
   //   $username=$_POST['username'];
   //   $position=$_POST['position'];
-  
+
   //   if($password == $cpassword){
   //     $query="INSERT INTO users ('')";
   //   }
-  } else if(isset($_POST['submit'])){
+} else if (isset($_POST['submit'])) {
 
-    $name=$_POST['name'];
-    $beneficiary_bank=$_POST['beneficiary_bank'];
-    $account_number=$_POST['account_number'];
-    $branch=$_POST['branch'];
-    $iban=$_POST['iban'];
-    $swift=$_POST['swift'];
-    
-    if (empty($name) || empty($beneficiary_bank) || empty($iban)) {
-      $_SESSION['notification'] = "الرجاء ادخال رقم الحساب و الايبان و اسم المستفيد";
-      header('location: beneficiary-banks.php');
-      exit(); // Stop further execution of the script
-  }
+  $name = $_POST['name'];
+  $beneficiary_bank = $_POST['beneficiary_bank'];
+  $account_number = $_POST['account_number'];
+  $branch = $_POST['branch'];
+  $iban = $_POST['iban'];
+  $swift = $_POST['swift'];
 
-    $insert = "INSERT INTO `beneficiary_info` (`id`, `name`,`beneficiary_bank`, `branch`, `account_number`, `iban`, `swift`,`created_at`) VALUES (NULL, '$name','$beneficiary_bank','$branch','$account_number','$iban','$swift',NOW())";
-     $insertResult=$conn->query($insert);
-     if($insertResult){
-      $_SESSION['notification'] = "تم اضافة المستفيد بنجاح";
-      
-    }else{
-      $_SESSION['notification'] = "يوجد خلل في النظام";
-    }
+  if (empty($name) || empty($beneficiary_bank) || empty($iban)) {
+    $_SESSION['notification'] = "الرجاء ادخال رقم الحساب و الايبان و اسم المستفيد";
     header('location: beneficiary-banks.php');
-    exit();
-  }else{
-    $name="";
-    $beneficiary_bank="";
-    $account_number="";
-    $iban="";
-    $swift="";
-    $branch="";
-  
+    exit(); // Stop further execution of the script
   }
+
+  $insert = "INSERT INTO `beneficiary_info` (`id`, `name`,`beneficiary_bank`, `branch`, `account_number`, `iban`, `swift`,`created_at`) VALUES (NULL, '$name','$beneficiary_bank','$branch','$account_number','$iban','$swift',NOW())";
+  $insertResult = $conn->query($insert);
+  if ($insertResult) {
+    $_SESSION['notification'] = "تم اضافة المستفيد بنجاح";
+  } else {
+    $_SESSION['notification'] = "يوجد خلل في النظام";
+  }
+  header('location: beneficiary-banks.php');
+  exit();
+} else {
+  $name = "";
+  $beneficiary_bank = "";
+  $account_number = "";
+  $iban = "";
+  $swift = "";
+  $branch = "";
+}
 
 ?>
 <!DOCTYPE html>
@@ -79,27 +77,27 @@ if(!empty($_GET['edit'])){
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
   <title>
- طلب إعتماد مشروع جديد
+    طلب إعتماد مشروع جديد
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
-      
-    <!-- Side Bar -->
+
+  <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
-      <!-- End Of side Bar --> 
+  <!-- End Of side Bar -->
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
@@ -107,7 +105,7 @@ if(!empty($_GET['edit'])){
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
             <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;"> طلب إعتماد مشروع جديد</a></li>
-            
+
           </ol>
 
         </nav>
@@ -218,252 +216,255 @@ if(!empty($_GET['edit'])){
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-        <div class="row">
+      <div class="row">
         <div class="block block-themed">
-         
-                                <div class="block-header bg-gradient-dark col-lg-3 col-md-2 col-sm-6 col-xs-6  rounded-pill">
-                                    
-                                    <h5 class="block-title text-white py-2 px-4 ">طلب إعتماد مشروع جديد</h5>
-                                </div>
-                                <form id="<?php echo $idAttr; ?>" action="" method="post">
-                                  <div class="row">
-                                    <div class="col">
-                                      <div class="form-group">
-                                        <label>أسم الجهة الطالبة للمشروع</label>
-                                        <input type="text" placeholder="الرجاء كتابة أسم مشروع" class="form-control" name="name" value="<?php echo $name; ?>">
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="col">
-                                      <div class="form-group">
-                                        <label> تفاصيل المشروع</label>
-                                        <input type="text" placeholder="الرجاء كتابة تفاصيل" class="form-control" name="beneficiary_bank" value="<?php echo $beneficiary_bank; ?>">
-                                      </div>
-                                    </div>             
-                                  </div>
 
-                                 <!-- Product Details -->
-                                  <div id="product_details">
-                                      <div class="product">
-                                        <h4>الأصناف</h4>
-                                        <div class="row">
-                                          <div class="col">
-                                            <div class="form-group">
-                                              <label for="product_name[]">أسم الصنف</label>
-                                              <input class="form-control" type="text" name="product_name[]">
-                                              <!-- Add more fields for product details here -->
-                                            </div>
-                                          </div>
-                                          <div class="col">
-                                            <div class="form-group">
-                                              <label for="dimensions[]">المقاسات</label>
-                                              <input class="form-control" type="text" name="dimensions[]">
-                                              <!-- Add more fields for product details here -->
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="row">
-                                          <div class="col">
-                                            <div class="form-group">
-                                              <label for="quantity">كمية الصنف</label>
-                                              <input class="form-control" type="text" name='quantity' id="quantity">
-                                              <!-- Add more fields for product details here -->
-                                            </div>
-                                          </div>
+          <div class="block-header bg-gradient-dark col-lg-3 col-md-2 col-sm-6 col-xs-6  rounded-pill">
 
-                                          <!-- Item Details -->
-                                          <div class="item_details">
-                                              <h5>بند الخرسانة</h5>
-                                              <div class="item">
-                                                <div class="row">
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="kharasana">نوع الخرسانة</label>
-                                                      <select class="form-control" name="kharasana">
-                                                        <option value="خرسانة شركة" >خرسانة شركة</option>
-                                                        <option value="خرسانة رجيع" >خرسانة رجيع</option>
-                                                      </select>
-                                                    </div>
-                                                  </div>
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="kh_price">سعر الخرسانة</label>
-                                                      <input type="text" class="form-control" name='kh_price' id="kh_price">
-                                                    </div>
-                                                  </div>
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="kh_per">كمية الخرسانة للصنف الواحد</label>
-                                                      <input type="text" class="form-control" name='kh_per' id="kh_per">
-                                                    </div>
-                                                  </div>
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="kh_tot">السعر للمنتج الفردي</label>
-                                                      <input type="text" class="form-control" name='kh_peice' id="kh_peice" disabled>
-                                                    </div>
-                                                  </div>
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="kh_tot">السعر الكلي</label>
-                                                      <input type="text" class="form-control" name='kh_tot' id="kh_tot" disabled>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <script>
-                                                  $("input").on("change", function() {
-                                                    var peice = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0') )
-                                                    var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0') ) * parseFloat($("#quantity").val())
-                                                    $("#kh_tot").val(ret);
-                                                    $("#kh_peice").val(peice);
-                                                  })
-                                                </script>
+            <h5 class="block-title text-white py-2 px-4 ">طلب إعتماد مشروع جديد</h5>
+          </div>
+          <form id="<?php echo $idAttr; ?>" action="" method="post">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label>أسم الجهة الطالبة للمشروع</label>
+                  <input type="text" placeholder="الرجاء كتابة أسم مشروع" class="form-control" name="name" value="<?php echo $name; ?>">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label> تفاصيل المشروع</label>
+                  <input type="text" placeholder="الرجاء كتابة تفاصيل" class="form-control" name="beneficiary_bank" value="<?php echo $beneficiary_bank; ?>">
+                </div>
+              </div>
+            </div>
 
-                                              </div>
-                                                <hr>
-                                              <h5>بند الحديد</h5>
-                                              <div class="iron">
-                                                <div class="row">
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="iron">مقاس الحديد</label>
-                                                      <select class="form-control" name="iron[]" id="iron">
-                                                        <option value="0.395" >8مم</option>
-                                                        <option value="0.617" >10مم</option>
-                                                        <option value="0.888" >12مم</option>
-                                                        <option value="1.21" >14مم</option>
-                                                        <option value="1.58" >16مم</option>
-                                                        <option value="2" >18مم</option>
-                                                        <option value="2.47" >20مم</option>
-                                                        <option value="2.984" >22مم</option>
-                                                        <option value="3.85" >25مم</option>
-                                                        <option value="6.41" >32مم</option>
-                                                        
-                                                      </select>
-                                                    </div>
-                                                  </div>
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="iron_price">سعر طن الحديد لليوم</label>
-                                                      <input type="text" class="form-control" name='iron_price[]' id="iron_price">
-                                                    </div>
-                                                  </div>
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="iron_quantity">كمية الحديد</label>
-                                                      <input type="text" class="form-control" name='iron_quantity[]' id="iron_quantity">
-                                                    </div>
-                                                  </div>
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="iron_long">طول الحديد</label>
-                                                      <input type="text" class="form-control" name='iron_long[]' id="iron_long">
-                                                    </div>
-                                                  </div>
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="iron_tn">السعر الطن</label>
-                                                      <input type="text" class="form-control" name='iron_tn[]' id="iron_tn" disabled>
-                                                    </div>
-                                                  </div>
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="iron_tot">السعر الكلي</label>
-                                                      <input type="text" class="form-control" name='iron_tot[]' id="iron_tot" disabled>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <script>
-                                                  $(document).ready(function () {
-                                                    $("#iron").change(function () {
-                                                    var iron = $("#iron").val();
-                                                    var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
-                                                    var tn = kg / 1000;
-                                                    var total = tn * parseFloat($("#iron_price").val())
-                                                    $("#iron_tn").val(tn);
-                                                    $("#iron_tot").val(total);
-                                                    });
-                                                  });
-                                                  $("input").on("change", function() {   
-                                                    var iron = $("#iron").val();
-                                                    var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
-                                                    var tn = kg / 1000;
-                                                    var total = tn * parseFloat($("#iron_price").val())
-                                                    $("#iron_tn").val(tn);
-                                                    $("#iron_tot").val(total);
-                                                  })
-                                                </script>
+            <!-- Product Details -->
+            <div id="product_details">
+              <div class="product">
+                <h4>الأصناف</h4>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="product_name[]">أسم الصنف</label>
+                      <input class="form-control" type="text" name="product_name[]">
+                      <!-- Add more fields for product details here -->
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="dimensions[]">المقاسات</label>
+                      <input class="form-control" type="text" name="dimensions[]">
+                      <!-- Add more fields for product details here -->
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="quantity">كمية الصنف</label>
+                      <input class="form-control" type="text" name='quantity' id="quantity">
+                      <!-- Add more fields for product details here -->
+                    </div>
+                  </div>
+                </div>
 
-                                              </div>
-                                              <button type="button" class="btn btn-secondary rounded-pill add_item">أضافة بند حديد</button>
-                                          </div>
+                <!-- Item Details -->
+                <div class="item_details">
+                  <h5>بند الخرسانة</h5>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="kharasana">نوع الخرسانة</label>
+                          <select class="form-control" name="kharasana">
+                            <option value="خرسانة شركة">خرسانة شركة</option>
+                            <option value="خرسانة رجيع">خرسانة رجيع</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="kh_price">سعر الخرسانة</label>
+                          <input type="text" class="form-control" name='kh_price' id="kh_price">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="kh_per">كمية الخرسانة للصنف الواحد</label>
+                          <input type="text" class="form-control" name='kh_per' id="kh_per">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="kh_tot">السعر للمنتج الفردي</label>
+                          <input type="text" class="form-control" name='kh_peice' id="kh_peice" disabled>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="kh_tot">السعر الكلي</label>
+                          <input type="text" class="form-control" name='kh_tot' id="kh_tot" disabled>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                      $("input").on("change", function() {
+                        var peice = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0'))
+                        var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0')) * parseFloat($("#quantity").val())
+                        $("#kh_tot").val(ret);
+                        $("#kh_peice").val(peice);
+                      })
+                    </script>
 
-                                          
-                                      </div>
-                                      
-                                      <hr>              
-                                      <h5>بند الاكسسوارات</h5>
-                                              <div class="accessory">
-                                                <div class="row">
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="accessory">أسم الاكسسوار</label>
-                                                      <input type="text" class="form-control" name='accessory' id="accessory">
-                                                    </div>
-                                                  </div>
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="acc_quantity">كمية الاكسسوار</label>
-                                                      <input type="text" class="form-control" name='acc_quantity' id="acc_quantity">
-                                                    </div>
-                                                  </div>
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="acc_price">سعر الاكسسوار الفردي</label>
-                                                      <input type="text" class="form-control" name='acc_price' id="acc_price">
-                                                    </div>
-                                                  </div>
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="acc_tot">السعر الكلي</label>
-                                                      <input type="text" class="form-control" name='acc_tot' id="acc_tot" disabled>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <script>
-                                                  $("input").on("change", function() {
-                                                    var peice = (parseFloat($("#acc_quantity").val()) * parseFloat($("#acc_price").val() || '0') )
-                                                    $("#acc_tot").val(peice); 
-                                                  })
-                                                </script>
+                  </div>
+                  <hr>
+                  <h5>بند الحديد</h5>
+                  <div class="iron">
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="iron">مقاس الحديد</label>
+                          <select class="form-control" name="iron[]" id="iron">
+                            <option value="0.395">8مم</option>
+                            <option value="0.617">10مم</option>
+                            <option value="0.888">12مم</option>
+                            <option value="1.21">14مم</option>
+                            <option value="1.58">16مم</option>
+                            <option value="2">18مم</option>
+                            <option value="2.47">20مم</option>
+                            <option value="2.984">22مم</option>
+                            <option value="3.85">25مم</option>
+                            <option value="6.41">32مم</option>
 
-                                              </div>
-                                              <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="iron_price">سعر طن الحديد لليوم</label>
+                          <input type="text" class="form-control" name='iron_price[]' id="iron_price">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="iron_quantity">كمية الحديد</label>
+                          <input type="text" class="form-control" name='iron_quantity[]' id="iron_quantity">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="iron_long">طول الحديد</label>
+                          <input type="text" class="form-control" name='iron_long[]' id="iron_long">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="iron_tn">السعر الطن</label>
+                          <input type="text" class="form-control" name='iron_tn[]' id="iron_tn" disabled>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="iron_tot">السعر الكلي</label>
+                          <input type="text" class="form-control" name='iron_tot[]' id="iron_tot" disabled>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                      $(document).ready(function() {
+                        $("#iron").change(function() {
+                          var iron = $("#iron").val();
+                          var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
+                          var tn = kg / 1000;
+                          var total = tn * parseFloat($("#iron_price").val())
+                          $("#iron_tn").val(tn);
+                          $("#iron_tot").val(total);
+                        });
+                      });
+                      $("input").on("change", function() {
+                        var iron = $("#iron").val();
+                        var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
+                        var tn = kg / 1000;
+                        var total = tn * parseFloat($("#iron_price").val())
+                        $("#iron_tn").val(tn);
+                        $("#iron_tot").val(total);
+                      })
+                    </script>
 
-                                                <hr>              
-                                  </div>
+                  </div>
+                  <button type="button" class="btn btn-secondary rounded-pill add_item">أضافة بند حديد</button>
+                  <hr>
+                  <h5>بند الاكسسوارات</h5>
+                  <div class="accessory">
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="accessory">أسم الاكسسوار</label>
+                          <input type="text" class="form-control" name='accessory' id="accessory">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="acc_quantity">كمية الاكسسوار</label>
+                          <input type="text" class="form-control" name='acc_quantity' id="acc_quantity">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="acc_price">سعر الاكسسوار الفردي</label>
+                          <input type="text" class="form-control" name='acc_price' id="acc_price">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="acc_tot">السعر الكلي</label>
+                          <input type="text" class="form-control" name='acc_tot' id="acc_tot" disabled>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                      $("input").on("change", function() {
+                        var peice = (parseFloat($("#acc_quantity").val()) * parseFloat($("#acc_price").val() || '0'))
+                        $("#acc_tot").val(peice);
+                      })
+                    </script>
 
-                                  <button type="button"  class="btn btn-secondary rounded-pill add_product">أضافة منتج</button>
-                                  <br><br>
-                               
-                                  <div class="row">
-                                    <div class="col">
-                                      <div class="form-group">
-                                        <button type="submit" name="submit"  class="btn btn-secondary rounded-pill"> حفظ </button>
-                                      </div>
-                                    </div>
-                                    <div class="col">
-                                    
-                                    </div>
-                                  </div>
-                                </form>
-                                
+                  </div>
+                  <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
+
+                  <hr>
+                </div>  
+                <!-- Item End -->
+
+
+
+
+              </div>
+              <!-- Product End -->
+
+              <button type="button" class="btn btn-secondary rounded-pill add_product">أضافة منتج</button>
+              <br><br>
+
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <button type="submit" name="submit" class="btn btn-secondary rounded-pill"> حفظ </button>
+                  </div>
+                </div>
+                <div class="col">
+
+                </div>
+              </div>
+          </form>
+
         </div>
-</div>
-</div>
+      </div>
+    </div>
   </main>
- 
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
