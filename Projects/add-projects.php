@@ -321,6 +321,54 @@ if(!empty($_GET['edit'])){
                                                 </script>
 
                                               </div>
+
+                                              <h5>بند الحديد</h5>
+                                              <div class="item">
+                                                <div class="row">
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="iron">مقاس الحديد</label>
+                                                      <select class="form-control" name="iron">
+                                                        <option value="خرسانة شركة" >خرسانة شركة</option>
+                                                        <option value="خرسانة رجيع" >خرسانة رجيع</option>
+                                                      </select>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="iron_price">سعر الحديد</label>
+                                                      <input type="text" class="form-control" name='iron_price' id="iron_price">
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="iron_per">كمية الحديد للصنف الواحد</label>
+                                                      <input type="text" class="form-control" name='iron_per' id="iron_per">
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="iron_peice">السعر للمنتج الفردي</label>
+                                                      <input type="text" class="form-control" name='iron_peice' id="iron_peice" disabled>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="iron_tot">السعر الكلي</label>
+                                                      <input type="text" class="form-control" name='iron_tot' id="iron_tot" disabled>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <script>
+                                                  $("input").on("change", function() {
+                                                    var peice = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0') )
+                                                    var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0') ) * parseFloat($("#quantity").val())
+                                                    $("#kh_tot").val(ret);
+                                                    $("#kh_peice").val(peice);
+                                                  })
+                                                </script>
+
+                                              </div>
                                           </div>
 
                                           <button type="button" class="btn btn-secondary rounded-pill add_item">أضافة بند</button>
