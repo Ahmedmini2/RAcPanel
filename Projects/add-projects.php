@@ -90,7 +90,6 @@ if(!empty($_GET['edit'])){
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
-  <script src="script.js"></script>
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
@@ -265,7 +264,7 @@ if(!empty($_GET['edit'])){
                                           <div class="col">
                                             <div class="form-group">
                                               <label for="quantity">كمية الصنف</label>
-                                              <input class="form-control" type="text" name="quantity">
+                                              <input class="form-control" type="text" name='quantity'>
                                               <!-- Add more fields for product details here -->
                                             </div>
                                           </div>
@@ -287,19 +286,19 @@ if(!empty($_GET['edit'])){
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="kh_price">سعر الخرسانة</label>
-                                                      <input type="text" class="form-control" name="kh_price">
+                                                      <input type="text" class="form-control" name='kh_price'>
                                                     </div>
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="kh_per">كمية الخرسانة للصنف الواحد</label>
-                                                      <input type="text" class="form-control" name="kh_per">
+                                                      <input type="text" class="form-control" name='kh_per'>
                                                     </div>
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="kh_tot">السعر الكلي</label>
-                                                      <input type="text" class="form-control" name="kh_tot" disabled>
+                                                      <input type="text" class="form-control" name='kh_tot' disabled>
                                                     </div>
                                                   </div>
                                                 </div>
