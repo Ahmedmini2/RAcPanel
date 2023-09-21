@@ -396,11 +396,12 @@ if(!empty($_GET['edit'])){
                                                 </script>
 
                                               </div>
+                                              <button type="button" class="btn btn-secondary rounded-pill add_item">أضافة بند حديد</button>
                                           </div>
 
                                           
                                       </div>
-                                      <button type="button" class="btn btn-secondary rounded-pill add_item">أضافة بند حديد</button>
+                                      
                                       <hr>              
                                       <h5>بند الاكسسوارات</h5>
                                               <div class="accessory">
