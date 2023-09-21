@@ -76,7 +76,7 @@ if(!empty($_GET['edit'])){
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-  أضافة مشروع  جديد
+ طلب إعتماد مشروع جديد
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -103,7 +103,7 @@ if(!empty($_GET['edit'])){
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;"> أضافة مشروع جديد</a></li>
+            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;"> طلب إعتماد مشروع جديد</a></li>
             
           </ol>
 
@@ -220,7 +220,7 @@ if(!empty($_GET['edit'])){
          
                                 <div class="block-header bg-gradient-dark col-lg-3 col-md-2 col-sm-6 col-xs-6  rounded-pill">
                                     
-                                    <h5 class="block-title text-white py-2 px-4 ">إضافة مشروع جديد</h5>
+                                    <h5 class="block-title text-white py-2 px-4 ">طلب إعتماد مشروع جديد</h5>
                                 </div>
                                 <form id="<?php echo $idAttr; ?>" action="" method="post">
                                 <div class="row">
@@ -243,11 +243,16 @@ if(!empty($_GET['edit'])){
                                  <!-- Product Details -->
                                   <div id="product_details">
                                       <div class="product">
-                                      <h4>المنتج</h4>
-                                          <label for="product_name[]">أسم المنتج</label>
-                                          <input class="form-control" type="text" name="product_name[]">
-                                          <!-- Add more fields for product details here -->
-                                          <br><br>
+                                        <h4>المنتج</h4>
+                                        <div class="row">
+                                          <div class="col">
+                                            <div class="form-group">
+                                              <label for="product_name[]">أسم المنتج</label>
+                                              <input class="form-control" type="text" name="product_name[]">
+                                              <!-- Add more fields for product details here -->
+                                            </div>
+                                          </div>
+                                        </div>
                                           <!-- Item Details -->
                                           <div class="item_details">
                                               <h5>البنود</h5>
