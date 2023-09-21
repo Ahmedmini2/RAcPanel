@@ -243,7 +243,7 @@ if (!empty($_GET['edit'])) {
 
             <!-- Product Details -->
             <div id="product_details ">
-              <div class="product card p-4">
+              <div class="product">
                 <h4>الأصناف</h4>
                 <div class="row">
                   <div class="col">
