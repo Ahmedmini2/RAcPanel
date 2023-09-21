@@ -223,22 +223,22 @@ if(!empty($_GET['edit'])){
                                     <h5 class="block-title text-white py-2 px-4 ">طلب إعتماد مشروع جديد</h5>
                                 </div>
                                 <form id="<?php echo $idAttr; ?>" action="" method="post">
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="form-group">
-                                      <label>أسم الجهة الطالبة للمشروع</label>
-                                      <input type="text" placeholder="الرجاء كتابة أسم مشروع" class="form-control" name="name" value="<?php echo $name; ?>">
+                                  <div class="row">
+                                    <div class="col">
+                                      <div class="form-group">
+                                        <label>أسم الجهة الطالبة للمشروع</label>
+                                        <input type="text" placeholder="الرجاء كتابة أسم مشروع" class="form-control" name="name" value="<?php echo $name; ?>">
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="form-group">
-                                      <label> تفاصيل المشروع</label>
-                                      <input type="text" placeholder="الرجاء كتابة تفاصيل" class="form-control" name="beneficiary_bank" value="<?php echo $beneficiary_bank; ?>">
-                                    </div>
-                                  </div>             
-                                </div>
+                                  <div class="row">
+                                    <div class="col">
+                                      <div class="form-group">
+                                        <label> تفاصيل المشروع</label>
+                                        <input type="text" placeholder="الرجاء كتابة تفاصيل" class="form-control" name="beneficiary_bank" value="<?php echo $beneficiary_bank; ?>">
+                                      </div>
+                                    </div>             
+                                  </div>
 
                                  <!-- Product Details -->
                                   <div id="product_details">
@@ -260,14 +260,56 @@ if(!empty($_GET['edit'])){
                                             </div>
                                           </div>
                                         </div>
+                                        <div class="row">
+                                          <div class="col">
+                                            <div class="form-group">
+                                              <label for="quantity[]">كمية الصنف</label>
+                                              <input class="form-control" type="text" name="quantity[]">
+                                              <!-- Add more fields for product details here -->
+                                            </div>
+                                          </div>
+
                                           <!-- Item Details -->
                                           <div class="item_details">
                                               <h5>البنود</h5>
                                               <div class="item">
-                                                  <label for="item_name[]">أسم البند:</label>
-                                                  <input type="text" class="form-control" name="item_name[]">
-                                                  <!-- Add more fields for item details here -->
-                                                  <br><br>
+                                                <div class="row">
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="kharasana[]">بند الخرسانة</label>
+                                                      <input type="text" class="form-control" name="kharasana[]">
+                                                      <!-- Add more fields for item details here -->
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="kharasana[]">نوع الخرسانة</label>
+                                                      <select class="form-control" name="kharasana[]">
+                                                        <option value="خرسانة شركة" >خرسانة شركة</option>
+                                                        <option value="خرسانة رجيع" >خرسانة رجيع</option>
+                                                      </select>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="kharasana[]">سعر الخرسانة</label>
+                                                      <input type="text" class="form-control" name="kharasana[]">
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="kh_per[]">كمية الخرسانة للصنف الواحد</label>
+                                                      <input type="text" class="form-control" name="kh_per[]">
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="kh_tot[]">السعر الكلي</label>
+                                                      <input type="text" class="form-control" name="kh_tot[]" disabled>
+                                                    </div>
+                                                  </div>
+                                                </div>
+
                                               </div>
                                           </div>
 

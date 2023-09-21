@@ -2,6 +2,31 @@ document.addEventListener("DOMContentLoaded", function () {
     const addProductButton = document.querySelector(".add_product");
     const productDetails = document.querySelector("#product_details");
 
+     // Function to calculate and update the total
+     function updateTotal(item) {
+        const quantity = parseFloat(item.querySelector("[name='quantity[]']").value);
+        const kharasana = parseFloat(item.querySelector("[name='kharasana[]']").value);
+        const kh_per = parseFloat(item.querySelector("[name='kh_per[]']").value);
+        const totalField = item.querySelector("[name='kh_tot[]']");
+        const total = (kharasana * kh_per * quantity).toFixed(2); // Calculate total
+  
+        totalField.value = total; // Update the total field
+      }
+  
+      // Add event listeners to the input fields
+      productDetails.addEventListener("input", function (e) {
+        if (
+          e.target.name === "quantity[]" ||
+          e.target.name === "kharasana[]" ||
+          e.target.name === "kh_per[]"
+        ) {
+          const item = e.target.closest(".item");
+          if (item) {
+            updateTotal(item);
+          }
+        }
+      });
+
     addProductButton.addEventListener("click", function () {
         const productClone = document.querySelector(".product").cloneNode(true);
         productDetails.appendChild(productClone);
