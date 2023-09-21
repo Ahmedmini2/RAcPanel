@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Add event listeners to the input fields
       productDetails.addEventListener("input", function (e) {
         if (
-          e.target.name === "quantity" ||
+          e.target.name === "quantity[]" ||
           e.target.name === "kh_price" ||
           e.target.name === "kh_per"
         ) {
