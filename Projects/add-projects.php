@@ -242,28 +242,28 @@ if(!empty($_GET['edit'])){
 
                                  <!-- Product Details -->
                                   <div id="product_details">
-                                      <h2>Product Details</h2>
                                       <div class="product">
-                                          <label for="product_name[]">Product Name:</label>
-                                          <input type="text" name="product_name[]">
+                                      <h2>المنتج</h2>
+                                          <label for="product_name[]">أسم المنتج</label>
+                                          <input class="form-control" type="text" name="product_name[]">
                                           <!-- Add more fields for product details here -->
                                           <br><br>
                                           <!-- Item Details -->
                                           <div class="item_details">
-                                              <h3>Item Details</h3>
+                                              <h3>البنود</h3>
                                               <div class="item">
-                                                  <label for="item_name[]">Item Name:</label>
+                                                  <label for="item_name[]">أسم البند:</label>
                                                   <input type="text" name="item_name[]">
                                                   <!-- Add more fields for item details here -->
                                                   <br><br>
                                               </div>
                                           </div>
 
-                                          <button type="button" class="add_item">Add Item</button>
+                                          <button type="button" class="add_item">أضافة بند</button>
                                       </div>
                                   </div>
 
-                                  <button type="button" class="add_product">Add Product</button>
+                                  <button type="button" class="add_product">أضافة منتج</button>
                                   <br><br>
                                
                                   <div class="row">
