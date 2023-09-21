@@ -243,14 +243,14 @@ if(!empty($_GET['edit'])){
                                  <!-- Product Details -->
                                   <div id="product_details">
                                       <div class="product">
-                                      <h2>المنتج</h2>
+                                      <h4>المنتج</h4>
                                           <label for="product_name[]">أسم المنتج</label>
                                           <input class="form-control" type="text" name="product_name[]">
                                           <!-- Add more fields for product details here -->
                                           <br><br>
                                           <!-- Item Details -->
                                           <div class="item_details">
-                                              <h3>البنود</h3>
+                                              <h5>البنود</h5>
                                               <div class="item">
                                                   <label for="item_name[]">أسم البند:</label>
                                                   <input type="text" class="form-control" name="item_name[]">
