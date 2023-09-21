@@ -271,20 +271,13 @@ if(!empty($_GET['edit'])){
 
                                           <!-- Item Details -->
                                           <div class="item_details">
-                                              <h5>البنود</h5>
+                                              <h5>بند الخرسانة</h5>
                                               <div class="item">
                                                 <div class="row">
                                                   <div class="col">
                                                     <div class="form-group">
-                                                      <label for="kharasana[]">بند الخرسانة</label>
-                                                      <input type="text" class="form-control" name="kharasana[]">
-                                                      <!-- Add more fields for item details here -->
-                                                    </div>
-                                                  </div>
-                                                  <div class="col">
-                                                    <div class="form-group">
-                                                      <label for="kharasana[]">نوع الخرسانة</label>
-                                                      <select class="form-control" name="kharasana[]">
+                                                      <label for="kharasana">نوع الخرسانة</label>
+                                                      <select class="form-control" name="kharasana">
                                                         <option value="خرسانة شركة" >خرسانة شركة</option>
                                                         <option value="خرسانة رجيع" >خرسانة رجيع</option>
                                                       </select>
@@ -292,20 +285,20 @@ if(!empty($_GET['edit'])){
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
-                                                      <label for="kharasana[]">سعر الخرسانة</label>
-                                                      <input type="text" class="form-control" name="kharasana[]">
+                                                      <label for="kh_price">سعر الخرسانة</label>
+                                                      <input type="text" class="form-control" name="kh_price">
                                                     </div>
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
-                                                      <label for="kh_per[]">كمية الخرسانة للصنف الواحد</label>
-                                                      <input type="text" class="form-control" name="kh_per[]">
+                                                      <label for="kh_per">كمية الخرسانة للصنف الواحد</label>
+                                                      <input type="text" class="form-control" name="kh_per">
                                                     </div>
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
-                                                      <label for="kh_tot[]">السعر الكلي</label>
-                                                      <input type="text" class="form-control" name="kh_tot[]" disabled>
+                                                      <label for="kh_tot">السعر الكلي</label>
+                                                      <input type="text" class="form-control" name="kh_tot" disabled>
                                                     </div>
                                                   </div>
                                                 </div>
