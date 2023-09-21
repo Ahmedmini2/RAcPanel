@@ -264,7 +264,7 @@ if(!empty($_GET['edit'])){
                                           <div class="col">
                                             <div class="form-group">
                                               <label for="quantity">كمية الصنف</label>
-                                              <input class="form-control" type="text" name='quantity'>
+                                              <input class="form-control" type="text" name='quantity' id="quantity">
                                               <!-- Add more fields for product details here -->
                                             </div>
                                           </div>
@@ -286,19 +286,19 @@ if(!empty($_GET['edit'])){
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="kh_price">سعر الخرسانة</label>
-                                                      <input type="text" class="form-control" name='kh_price'>
+                                                      <input type="text" class="form-control" name='kh_price' id="kh_price">
                                                     </div>
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="kh_per">كمية الخرسانة للصنف الواحد</label>
-                                                      <input type="text" class="form-control" name='kh_per'>
+                                                      <input type="text" class="form-control" name='kh_per' id="kh_per">
                                                     </div>
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="kh_tot">السعر الكلي</label>
-                                                      <input type="text" class="form-control" name='kh_tot' disabled>
+                                                      <input type="text" class="form-control" name='kh_tot' id="kh_tot" disabled>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -324,6 +324,12 @@ if(!empty($_GET['edit'])){
                                     </div>
                                   </div>
                                 </form>
+                                <script>
+                                  $("input").on("change", function() {
+                                    var ret = (parseInt($("#kh_price").val()) * parseInt($("#kh_per").val() || '0') ) * parseInt($("#quantity").val())
+                                    $("#kh_tot").val(ret);
+                                  })
+                                </script>
         </div>
 </div>
 </div>
