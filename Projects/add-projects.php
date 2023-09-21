@@ -321,7 +321,7 @@ if (!empty($_GET['edit'])) {
 
                   </div>
                 </div>
-                
+                <hr> 
                 <div class="iron_details  card p-4">
                   <hr>
                   <h5>بند الحديد</h5>
