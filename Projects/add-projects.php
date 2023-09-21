@@ -307,7 +307,7 @@ if(!empty($_GET['edit'])){
                                                 </div>
                                                 <script>
                                                   $("input").on("change", function() {
-                                                    var ret = (parseInt($("#kh_price").val()) * parseInt($("#kh_per").val() || '0') ) * parseInt($("#quantity").val())
+                                                    var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0') ) * parseFloat($("#quantity").val())
                                                     $("#kh_tot").val(ret);
                                                   })
                                                 </script>
