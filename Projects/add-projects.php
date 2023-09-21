@@ -328,7 +328,7 @@ if(!empty($_GET['edit'])){
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="iron">مقاس الحديد</label>
-                                                      <select class="form-control" name="iron" id="iron">
+                                                      <select class="form-control" name="iron[]" id="iron">
                                                         <option value="0.395" >8مم</option>
                                                         <option value="0.617" >10مم</option>
                                                         <option value="0.888" >12مم</option>
