@@ -346,31 +346,31 @@ if(!empty($_GET['edit'])){
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="iron_price">سعر طن الحديد لليوم</label>
-                                                      <input type="text" class="form-control" name='iron_price' id="iron_price">
+                                                      <input type="text" class="form-control" name='iron_price[]' id="iron_price">
                                                     </div>
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="iron_quantity">كمية الحديد</label>
-                                                      <input type="text" class="form-control" name='iron_quantity' id="iron_quantity">
+                                                      <input type="text" class="form-control" name='iron_quantity[]' id="iron_quantity">
                                                     </div>
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="iron_long">طول الحديد</label>
-                                                      <input type="text" class="form-control" name='iron_long' id="iron_long">
+                                                      <input type="text" class="form-control" name='iron_long[]' id="iron_long">
                                                     </div>
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="iron_tn">السعر الطن</label>
-                                                      <input type="text" class="form-control" name='iron_tn' id="iron_tn" disabled>
+                                                      <input type="text" class="form-control" name='iron_tn[]' id="iron_tn" disabled>
                                                     </div>
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="iron_tot">السعر الكلي</label>
-                                                      <input type="text" class="form-control" name='iron_tot' id="iron_tot" disabled>
+                                                      <input type="text" class="form-control" name='iron_tot[]' id="iron_tot" disabled>
                                                     </div>
                                                   </div>
                                                 </div>
