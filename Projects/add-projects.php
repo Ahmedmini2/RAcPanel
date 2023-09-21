@@ -323,7 +323,7 @@ if(!empty($_GET['edit'])){
                                               </div>
                                                 <hr>
                                               <h5>بند الحديد</h5>
-                                              <div class="item">
+                                              <div class="iron">
                                                 <div class="row">
                                                   <div class="col">
                                                     <div class="form-group">
@@ -376,7 +376,7 @@ if(!empty($_GET['edit'])){
                                                 </div>
                                                 <script>
                                                   $("input").on("change", function() {
-                                                    var wight;
+                                                    
                                                  
                                                     var iron = $("#iron").val();
                                                    
@@ -391,7 +391,7 @@ if(!empty($_GET['edit'])){
                                               </div>
                                           </div>
 
-                                          <button type="button" class="btn btn-secondary rounded-pill add_item">أضافة بند</button>
+                                          <button type="button" class="btn btn-secondary rounded-pill add_item">أضافة بند حديد</button>
                                       </div>
                                   </div>
 
