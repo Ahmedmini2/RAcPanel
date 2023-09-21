@@ -9,13 +9,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     productDetails.addEventListener("click", function (e) {
-        if (e.target.classList.contains("add_item")) {
-            const itemDetails = e.target.parentElement.querySelector(".item_details");
+        if (e.target.classList.contains("add_iron")) {
+            const itemDetails = e.target.parentElement.querySelector(".iron_details");
             const itemClone = document.querySelector(".iron").cloneNode(true);
             itemDetails.appendChild(itemClone);
         }
         if (e.target.classList.contains("add_accessory")) {
-            const itemDetails = e.target.parentElement.querySelector(".item_details");
+            const itemDetails = e.target.parentElement.querySelector(".accessory_details");
             const itemClone = document.querySelector(".accessory").cloneNode(true);
             itemDetails.appendChild(itemClone);
         }

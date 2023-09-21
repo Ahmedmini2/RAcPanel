@@ -272,7 +272,7 @@ if (!empty($_GET['edit'])) {
                 </div>
 
                 <!-- Item Details -->
-                <div class="item_details">
+                <div class="kh_details">
                   <h5>بند الخرسانة</h5>
                   <div class="item">
                     <div class="row">
@@ -320,6 +320,8 @@ if (!empty($_GET['edit'])) {
                     </script>
 
                   </div>
+                </div> 
+                <div class="iron_details"> 
                   <hr>
                   <h5>بند الحديد</h5>
                   <div class="iron">
@@ -395,8 +397,11 @@ if (!empty($_GET['edit'])) {
                     </script>
 
                   </div>
-                  <button type="button" class="btn btn-secondary rounded-pill add_item">أضافة بند حديد</button>
-                  <hr>
+                </div>
+                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
+                  
+                <hr>
+                <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
                   <div class="accessory">
                     <div class="row">
@@ -433,10 +438,12 @@ if (!empty($_GET['edit'])) {
                     </script>
 
                   </div>
-                  <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
+                  
 
-                  <hr>
-                </div>  
+                 
+                </div>
+                <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
+                <hr>
                 <!-- Item End -->
 
 
