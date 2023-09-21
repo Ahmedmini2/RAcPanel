@@ -444,6 +444,83 @@ if (!empty($_GET['edit'])) {
                 </div>
                 <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <hr>
+
+                <div class="accessory_details">
+                  <h5>بند الاغطية</h5>
+                  <div class="covers">
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="cover_type">نوع الغطاء</label>
+                          <select class="form-control" name="cover_type" id="cover_type">
+                          <option value="بدون اغطية">بدون اغطية</option>
+                          <option value="غطاء واحد">غطاء واحد</option>
+                          <option value="غطائين">غطائين</option>
+                          <option value="غطاء دائري">غطاء دائري</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col">
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="cover_price">سعر الغطاء الفردي</label>
+                          <input type="text" class="form-control" name='cover_price' id="cover_price">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="cover_tot">السعر الكلي</label>
+                          <input type="text" class="form-control" name='cover_tot' id="cover_tot" disabled>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                      $("input").on("change", function() {
+                        var peice = (parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val() || '0'))
+                        $("#cover_tot").val(peice);
+                      })
+                    </script>
+
+                  </div>
+                </div>
+                <hr>
+
+                <div class="band_details">
+                  <h5>بنود اخرى</h5>
+                  <div class="band">
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="band">أسم البند</label>
+                          <input type="text" class="form-control" name='band' id="band">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="band_price">سعر البند</label>
+                          <input type="text" class="form-control" name='band_price' id="band_price">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="band_tot">السعر الكلي</label>
+                          <input type="text" class="form-control" name='band_tot' id="band_tot" disabled>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                      $("input").on("change", function() {
+                        var peice = (parseFloat($("#band_price").val()) * parseFloat($("#quantity").val() || '0'))
+                        $("#band_tot").val(peice);
+                      })
+                    </script>
+
+                  </div>
+
+                </div>
+                <button type="button" class="btn btn-secondary rounded-pill add_band">أضافة بند اكسسوار</button>
+                <hr>
                 <!-- Item End -->
 
 

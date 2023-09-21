@@ -19,5 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const itemClone = document.querySelector(".accessory").cloneNode(true);
             itemDetails.appendChild(itemClone);
         }
+        if (e.target.classList.contains("add_band")) {
+            const itemDetails = e.target.parentElement.querySelector(".band_details");
+            const itemClone = document.querySelector(".band").cloneNode(true);
+            itemDetails.appendChild(itemClone);
+        }
     });
 });
