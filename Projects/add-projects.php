@@ -300,6 +300,12 @@ if(!empty($_GET['edit'])){
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
+                                                      <label for="kh_tot">السعر للمنتج الفردي</label>
+                                                      <input type="text" class="form-control" name='kh_peice' id="kh_peice" disabled>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
                                                       <label for="kh_tot">السعر الكلي</label>
                                                       <input type="text" class="form-control" name='kh_tot' id="kh_tot" disabled>
                                                     </div>
@@ -307,8 +313,10 @@ if(!empty($_GET['edit'])){
                                                 </div>
                                                 <script>
                                                   $("input").on("change", function() {
+                                                    var peice = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0') )
                                                     var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0') ) * parseFloat($("#quantity").val())
                                                     $("#kh_tot").val(ret);
+                                                    $("#kh_peice").val(peice);
                                                   })
                                                 </script>
 
