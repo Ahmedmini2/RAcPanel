@@ -375,11 +375,18 @@ if(!empty($_GET['edit'])){
                                                   </div>
                                                 </div>
                                                 <script>
-                                                  $("input").on("change", function() {
-                                                    
-                                                 
+                                                  $(document).ready(function () {
+                                                    $("#iron").change(function () {
                                                     var iron = $("#iron").val();
-                                                   
+                                                    var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
+                                                    var tn = kg / 1000;
+                                                    var total = tn * parseFloat($("#iron_price").val())
+                                                    $("#iron_tn").val(tn);
+                                                    $("#iron_tot").val(total);
+                                                    });
+                                                  });
+                                                  $("input").on("change", function() {   
+                                                    var iron = $("#iron").val();
                                                     var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
                                                     var tn = kg / 1000;
                                                     var total = tn * parseFloat($("#iron_price").val())
