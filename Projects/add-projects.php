@@ -448,7 +448,7 @@ if (!empty($_GET['edit'])) {
                 <div class="accessory_details">
                   <h5>بند الاغطية</h5>
                   <div class="covers">
-                    <div class="row">
+                    <div class="row bg-white p-2">
                       <div class="col">
                         <div class="form-group">
                           <label for="cover_type">نوع الغطاء</label>
