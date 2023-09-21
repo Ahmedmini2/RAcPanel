@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const productDetails = document.querySelector("#product_details");
 
    // Function to calculate and update the total for each item
-     
-
     addProductButton.addEventListener("click", function () {
         const productClone = document.querySelector(".product").cloneNode(true);
         productDetails.appendChild(productClone);
