@@ -242,7 +242,7 @@ if (!empty($_GET['edit'])) {
             </div>
 
             <!-- Product Details -->
-            <div id="product_details ">
+            <div id="product_details">
               <div class="product">
                 <h4>الأصناف</h4>
                 <div class="row">
@@ -272,7 +272,7 @@ if (!empty($_GET['edit'])) {
                 </div>
 
                 <!-- Item Details -->
-                <div class="kh_details  card p-4">
+                <div class="kh_details">
                   <h5>بند الخرسانة</h5>
                   <div class="item">
                     <div class="row">
@@ -320,9 +320,8 @@ if (!empty($_GET['edit'])) {
                     </script>
 
                   </div>
-                </div>
-                <hr> 
-                <div class="iron_details  card p-4">
+                </div> 
+                <div class="iron_details"> 
                   <hr>
                   <h5>بند الحديد</h5>
                   <div class="iron">
@@ -400,9 +399,9 @@ if (!empty($_GET['edit'])) {
                   </div>
                 </div>
                 <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
-
+                  
                 <hr>
-                <div class="accessory_details  card p-4">
+                <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
                   <div class="accessory">
                     <div class="row">
@@ -439,28 +438,29 @@ if (!empty($_GET['edit'])) {
                     </script>
 
                   </div>
+                  
 
-
-
+                 
                 </div>
                 <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <hr>
 
-                <div class="accessory_details card p-4 ">
+                <div class="accessory_details">
                   <h5>بند الاغطية</h5>
                   <div class="covers">
-                    <div class="row ">
+                    <div class="row">
                       <div class="col">
                         <div class="form-group">
                           <label for="cover_type">نوع الغطاء</label>
                           <select class="form-control" name="cover_type" id="cover_type">
-                            <option value="بدون اغطية">بدون اغطية</option>
-                            <option value="غطاء واحد">غطاء واحد</option>
-                            <option value="غطائين">غطائين</option>
-                            <option value="غطاء دائري">غطاء دائري</option>
+                          <option value="بدون اغطية">بدون اغطية</option>
+                          <option value="غطاء واحد">غطاء واحد</option>
+                          <option value="غطائين">غطائين</option>
+                          <option value="غطاء دائري">غطاء دائري</option>
                           </select>
                         </div>
                       </div>
+                     
                       <div class="col">
                         <div class="form-group">
                           <label for="cover_price">سعر الغطاء الفردي</label>
@@ -485,7 +485,7 @@ if (!empty($_GET['edit'])) {
                 </div>
                 <hr>
 
-                <div class="band_details  card p-4">
+                <div class="band_details">
                   <h5>بنود اخرى</h5>
                   <div class="band">
                     <div class="row">
