@@ -400,6 +400,46 @@ if(!empty($_GET['edit'])){
 
                                           <button type="button" class="btn btn-secondary rounded-pill add_item">أضافة بند حديد</button>
                                       </div>
+                                      <hr>              
+                                      <h5>بند الاكسسوارات</h5>
+                                              <div class="accessory">
+                                                <div class="row">
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="accessory">أسم الاكسسوار</label>
+                                                      <input type="text" class="form-control" name='accessory' id="accessory">
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="acc_quantity">كمية الاكسسوار</label>
+                                                      <input type="text" class="form-control" name='acc_quantity' id="acc_quantity">
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="acc_price">سعر الاكسسوار الفردي</label>
+                                                      <input type="text" class="form-control" name='acc_price' id="acc_price">
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="acc_tot">السعر الكلي</label>
+                                                      <input type="text" class="form-control" name='acc_tot' id="acc_tot" disabled>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <script>
+                                                  $("input").on("change", function() {
+                                                    var peice = (parseFloat($("#acc_quantity").val()) * parseFloat($("#acc_price").val() || '0') )
+                                                    $("#acc_tot").val(peice); 
+                                                  })
+                                                </script>
+
+                                              </div>
+                                              <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
+
+                                                <hr>              
                                   </div>
 
                                   <button type="button"  class="btn btn-secondary rounded-pill add_product">أضافة منتج</button>

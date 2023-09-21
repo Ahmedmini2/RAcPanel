@@ -14,5 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const itemClone = document.querySelector(".iron").cloneNode(true);
             itemDetails.appendChild(itemClone);
         }
+        if (e.target.classList.contains("add_accessory")) {
+            const itemDetails = e.target.parentElement.querySelector(".item_details");
+            const itemClone = document.querySelector(".accessory").cloneNode(true);
+            itemDetails.appendChild(itemClone);
+        }
     });
 });
