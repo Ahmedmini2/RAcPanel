@@ -461,8 +461,6 @@ if (!empty($_GET['edit'])) {
                         </div>
                       </div>
                       <div class="col">
-                      </div>
-                      <div class="col">
                         <div class="form-group">
                           <label for="cover_price">سعر الغطاء الفردي</label>
                           <input type="text" class="form-control" name='cover_price' id="cover_price">
@@ -519,7 +517,7 @@ if (!empty($_GET['edit'])) {
                   </div>
 
                 </div>
-                <button type="button" class="btn btn-secondary rounded-pill add_band">أضافة بند اكسسوار</button>
+                <button type="button" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
                 <hr>
                 <!-- Item End -->
 
