@@ -358,7 +358,7 @@ if(!empty($_GET['edit'])){
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="iron_long">طول الحديد</label>
-                                                      <input type="text" class="form-control" name='iron_long' id="iron_long" disabled>
+                                                      <input type="text" class="form-control" name='iron_long' id="iron_long">
                                                     </div>
                                                   </div>
                                                   <div class="col">
