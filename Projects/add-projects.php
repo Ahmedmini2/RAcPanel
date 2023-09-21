@@ -445,10 +445,10 @@ if (!empty($_GET['edit'])) {
                 <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <hr>
 
-                <div class="accessory_details">
+                <div class="accessory_details card p-2 ">
                   <h5>بند الاغطية</h5>
                   <div class="covers">
-                    <div class="row bg-white p-2">
+                    <div class="row ">
                       <div class="col">
                         <div class="form-group">
                           <label for="cover_type">نوع الغطاء</label>
