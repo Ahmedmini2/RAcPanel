@@ -328,28 +328,43 @@ if(!empty($_GET['edit'])){
                                                   <div class="col">
                                                     <div class="form-group">
                                                       <label for="iron">مقاس الحديد</label>
-                                                      <select class="form-control" name="iron">
-                                                        <option value="خرسانة شركة" >خرسانة شركة</option>
-                                                        <option value="خرسانة رجيع" >خرسانة رجيع</option>
+                                                      <select class="form-control" name="iron" id="iron">
+                                                        <option value="8مم" >8مم</option>
+                                                        <option value="10مم" >10مم</option>
+                                                        <option value="12مم" >12مم</option>
+                                                        <option value="14مم" >14مم</option>
+                                                        <option value="16مم" >16مم</option>
+                                                        <option value="18مم" >18مم</option>
+                                                        <option value="20مم" >20مم</option>
+                                                        <option value="22مم" >22مم</option>
+                                                        <option value="25مم" >25مم</option>
+                                                        <option value="32مم" >32مم</option>
+                                                        
                                                       </select>
                                                     </div>
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
-                                                      <label for="iron_price">سعر الحديد</label>
+                                                      <label for="iron_price">سعر طن الحديد لليوم</label>
                                                       <input type="text" class="form-control" name='iron_price' id="iron_price">
                                                     </div>
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
-                                                      <label for="iron_per">كمية الحديد للصنف الواحد</label>
-                                                      <input type="text" class="form-control" name='iron_per' id="iron_per">
+                                                      <label for="iron_quantity">كمية الحديد</label>
+                                                      <input type="text" class="form-control" name='iron_quantity' id="iron_quantity">
                                                     </div>
                                                   </div>
                                                   <div class="col">
                                                     <div class="form-group">
-                                                      <label for="iron_peice">السعر للمنتج الفردي</label>
-                                                      <input type="text" class="form-control" name='iron_peice' id="iron_peice" disabled>
+                                                      <label for="iron_long">طول الحديد</label>
+                                                      <input type="text" class="form-control" name='iron_long' id="iron_long" disabled>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="iron_tn">السعر الطن</label>
+                                                      <input type="text" class="form-control" name='iron_tn' id="iron_tn" disabled>
                                                     </div>
                                                   </div>
                                                   <div class="col">
@@ -361,10 +376,18 @@ if(!empty($_GET['edit'])){
                                                 </div>
                                                 <script>
                                                   $("input").on("change", function() {
-                                                    var peice = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0') )
-                                                    var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0') ) * parseFloat($("#quantity").val())
-                                                    $("#kh_tot").val(ret);
-                                                    $("#kh_peice").val(peice);
+                                                    var e = document.getElementById("iron");
+                                                    var iron = e.value;
+                                                    var wight = 0;
+                                                    if (iron == "مم8") { wight = 0.395; } else if (iron == "مم10"){ wight = 0.617; } else if (iron == "مم12"){ wight = 0.888; }else if (iron == "مم14"){ wight = 1.21; }
+                                                    else if (iron == "مم16"){ wight = 1.58; }else if (iron == "مم18"){ wight = 2; }else if (iron == "20مم"){ wight = 2.47; }else if (iron == "مم22"){ wight = 2.984; }
+                                                    else if (iron == "مم25"){ wight = 3.85; }else if (iron == "32مم"){ wight = 6.41; }
+
+                                                    var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * wight)
+                                                    var tn = kg / 1000;
+                                                    var total = tn * parseFloat($("#iron_price").val())
+                                                    $("#iron_tn").val(tn);
+                                                    $("#iron_tot").val(total);
                                                   })
                                                 </script>
 
