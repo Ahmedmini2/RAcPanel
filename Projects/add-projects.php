@@ -242,7 +242,7 @@ if (!empty($_GET['edit'])) {
             </div>
 
             <!-- Product Details -->
-            <div id="product_details">
+            <div id="product_details  card p-4">
               <div class="product">
                 <h4>الأصناف</h4>
                 <div class="row">
@@ -272,7 +272,7 @@ if (!empty($_GET['edit'])) {
                 </div>
 
                 <!-- Item Details -->
-                <div class="kh_details">
+                <div class="kh_details  card p-4">
                   <h5>بند الخرسانة</h5>
                   <div class="item">
                     <div class="row">
@@ -321,7 +321,7 @@ if (!empty($_GET['edit'])) {
 
                   </div>
                 </div> 
-                <div class="iron_details"> 
+                <div class="iron_details  card p-4"> 
                   <hr>
                   <h5>بند الحديد</h5>
                   <div class="iron">
@@ -401,7 +401,7 @@ if (!empty($_GET['edit'])) {
                 <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
                   
                 <hr>
-                <div class="accessory_details">
+                <div class="accessory_details  card p-4">
                   <h5>بند الاكسسوارات</h5>
                   <div class="accessory">
                     <div class="row">
@@ -445,7 +445,7 @@ if (!empty($_GET['edit'])) {
                 <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <hr>
 
-                <div class="accessory_details card p-2 ">
+                <div class="accessory_details card p-4 ">
                   <h5>بند الاغطية</h5>
                   <div class="covers">
                     <div class="row ">
@@ -484,7 +484,7 @@ if (!empty($_GET['edit'])) {
                 </div>
                 <hr>
 
-                <div class="band_details">
+                <div class="band_details  card p-4">
                   <h5>بنود اخرى</h5>
                   <div class="band">
                     <div class="row">
