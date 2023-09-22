@@ -98,7 +98,10 @@ hr.new1 {
   border-top: 1px solid red;
 }
 
- 	
+ 	/* Dashed red border */
+hr.new2 {
+  border-top: 1px dashed red;
+}
 
 /* Dotted red border */
 hr.new3 {
