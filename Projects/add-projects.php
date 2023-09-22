@@ -303,7 +303,7 @@ if (!empty($_GET['edit'])) {
                           <input type="text" class="form-control" name='kh_peice' id="kh_peice" disabled>
                         </div>
                       </div>
-                      <div class="col col-md-2 col-sm-12 col-xs-12">
+                      <div class="col col-md-2 col-sm-12 ">
                         <div class="form-group">
                           <label for="kh_tot">السعر الكلي</label>
                           <input type="text" class="form-control" name='kh_tot' id="kh_tot" disabled>
