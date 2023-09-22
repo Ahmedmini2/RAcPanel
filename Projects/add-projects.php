@@ -375,7 +375,7 @@ if (!empty($_GET['edit'])) {
                         </div>
                       </div>
                     </div>
-                    <hr data-content="AND" class="hr-text">
+                    <hr>
                     <script>
                       $(document).ready(function() {
                         $("#iron").change(function() {
