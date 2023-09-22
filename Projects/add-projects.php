@@ -375,6 +375,7 @@ if (!empty($_GET['edit'])) {
                         </div>
                       </div>
                     </div>
+                    <hr>
                     <script>
                       $(document).ready(function() {
                         $("#iron").change(function() {
