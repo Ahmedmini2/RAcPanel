@@ -325,7 +325,7 @@ if (!empty($_GET['edit'])) {
                   <hr>
                   <h5>بند الحديد</h5>
                   <div class="iron">
-                    <div class="row">
+                    <div class="col">
                       <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="iron">مقاس الحديد</label>
@@ -405,13 +405,13 @@ if (!empty($_GET['edit'])) {
                   <h5>بند الاكسسوارات</h5>
                   <div class="accessory">
                     <div class="row">
-                      <div class="col col-xs-6 ">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="accessory">أسم الاكسسوار</label>
                           <input type="text" class="form-control" name='accessory' id="accessory">
                         </div>
                       </div>
-                      <div class="col col-md-2 col-sm-12">
+                      <div class="col">
                         <div class="form-group">
                           <label for="acc_quantity">كمية الاكسسوار</label>
                           <input type="text" class="form-control" name='acc_quantity' id="acc_quantity">
