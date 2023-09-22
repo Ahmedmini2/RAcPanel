@@ -356,7 +356,7 @@ if (!empty($_GET['edit'])) {
                           <input type="text" class="form-control" name='iron_quantity[]' id="iron_quantity">
                         </div>
                       </div>
-                      <div class="col col-md-2 col-sm-12">
+                      <div class="col col-md-2 col-sm-12 col-xs-6">
                         <div class="form-group">
                           <label for="iron_long">طول الحديد</label>
                           <input type="text" class="form-control" name='iron_long[]' id="iron_long">
