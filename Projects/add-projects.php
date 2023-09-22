@@ -275,7 +275,7 @@ if (!empty($_GET['edit'])) {
                 <div class="kh_details">
                   <h5>بند الخرسانة</h5>
                   <div class="item">
-                    <div class="row row-cols-lg-auto g-3 align-items-center">
+                    <div class="row row-cols-lg-sm-xs-auto g-3 align-items-center">
                       <div class="col">
                         <div class="form-group">
                           <label for="kharasana">نوع الخرسانة</label>
