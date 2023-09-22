@@ -404,7 +404,7 @@ if (!empty($_GET['edit'])) {
                 <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
                   <div class="accessory">
-                    <div class="row grid-divider">
+                    <div class="row ">
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="accessory">أسم الاكسسوار</label>
