@@ -225,7 +225,7 @@ if (!empty($_GET['edit'])) {
           </div>
           <form id="<?php echo $idAttr; ?>" action="" method="post">
             <div class="row">
-              <div class="col">
+              <div class="col-md-8 col-sm-6">
                 <div class="form-group">
                   <label>أسم الجهة الطالبة للمشروع</label>
                   <input type="text" placeholder="الرجاء كتابة أسم مشروع" class="form-control" name="name" value="<?php echo $name; ?>">
@@ -233,7 +233,7 @@ if (!empty($_GET['edit'])) {
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col-md-8 col-sm-6">
                 <div class="form-group">
                   <label> تفاصيل المشروع</label>
                   <input type="text" placeholder="الرجاء كتابة تفاصيل" class="form-control" name="beneficiary_bank" value="<?php echo $beneficiary_bank; ?>">
