@@ -246,14 +246,14 @@ if (!empty($_GET['edit'])) {
               <div class="product">
                 <h4>الأصناف</h4>
                 <div class="row">
-                  <div class="col">
+                  <div class="col-md-2 col-sm-6">
                     <div class="form-group">
                       <label for="product_name[]">أسم الصنف</label>
                       <input class="form-control" type="text" name="product_name[]">
                       <!-- Add more fields for product details here -->
                     </div>
                   </div>
-                  <div class="col">
+                  <div class="col-md-2 col-sm-6">
                     <div class="form-group">
                       <label for="dimensions[]">المقاسات</label>
                       <input class="form-control" type="text" name="dimensions[]">
@@ -262,7 +262,7 @@ if (!empty($_GET['edit'])) {
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col">
+                  <div class="col-md-2 col-sm-6">
                     <div class="form-group">
                       <label for="quantity">كمية الصنف</label>
                       <input class="form-control" type="text" name='quantity' id="quantity">
