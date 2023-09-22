@@ -325,9 +325,8 @@ if (!empty($_GET['edit'])) {
                   <hr>
                   <h5>بند الحديد</h5>
                   <div class="iron">
-                    <div class="col">
                     <div class="row">
-                      <div class="col col-md-2 col-sm-12">
+                      <div class="col col-md-2 col-sm-10">
                         <div class="form-group">
                           <label for="iron">مقاس الحديد</label>
                           <select class="form-control" name="iron[]" id="iron">
@@ -376,8 +375,6 @@ if (!empty($_GET['edit'])) {
                         </div>
                       </div>
                     </div>
-                    </div>
-                   
                     <script>
                       $(document).ready(function() {
                         $("#iron").change(function() {
