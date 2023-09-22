@@ -262,7 +262,7 @@ if (!empty($_GET['edit'])) {
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-2 col-sm-6">
+                  <div class="col-md-8 col-sm-6">
                     <div class="form-group">
                       <label for="quantity">كمية الصنف</label>
                       <input class="form-control" type="text" name='quantity' id="quantity">
