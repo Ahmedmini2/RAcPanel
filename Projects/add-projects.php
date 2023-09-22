@@ -376,7 +376,7 @@ if (!empty($_GET['edit'])) {
                         </div>
                       </div>
                     </div>
-                    <hr border-bottom: 1px dashed #344767>
+                    <hr border-bottom: 2px dashed #344767>
                     <script>
                       $(document).ready(function() {
                         $("#iron").change(function() {
