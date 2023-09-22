@@ -326,7 +326,7 @@ if (!empty($_GET['edit'])) {
                   <h5>بند الحديد</h5>
                   <div class="iron">
                     <div class="row">
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="iron">مقاس الحديد</label>
                           <select class="form-control" name="iron[]" id="iron">
@@ -344,31 +344,31 @@ if (!empty($_GET['edit'])) {
                           </select>
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="iron_price">سعر طن الحديد لليوم</label>
                           <input type="text" class="form-control" name='iron_price[]' id="iron_price">
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="iron_quantity">كمية الحديد</label>
                           <input type="text" class="form-control" name='iron_quantity[]' id="iron_quantity">
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="iron_long">طول الحديد</label>
                           <input type="text" class="form-control" name='iron_long[]' id="iron_long">
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
                           <input type="text" class="form-control" name='iron_tn[]' id="iron_tn" disabled>
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="iron_tot">السعر الكلي</label>
                           <input type="text" class="form-control" name='iron_tot[]' id="iron_tot" disabled>
@@ -405,25 +405,25 @@ if (!empty($_GET['edit'])) {
                   <h5>بند الاكسسوارات</h5>
                   <div class="accessory">
                     <div class="row">
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="accessory">أسم الاكسسوار</label>
                           <input type="text" class="form-control" name='accessory' id="accessory">
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="acc_quantity">كمية الاكسسوار</label>
                           <input type="text" class="form-control" name='acc_quantity' id="acc_quantity">
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="acc_price">سعر الاكسسوار الفردي</label>
                           <input type="text" class="form-control" name='acc_price' id="acc_price">
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="acc_tot">السعر الكلي</label>
                           <input type="text" class="form-control" name='acc_tot' id="acc_tot" disabled>
@@ -449,7 +449,7 @@ if (!empty($_GET['edit'])) {
                   <h5>بند الاغطية</h5>
                   <div class="covers">
                     <div class="row">
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="cover_type">نوع الغطاء</label>
                           <select class="form-control" name="cover_type" id="cover_type">
@@ -461,13 +461,13 @@ if (!empty($_GET['edit'])) {
                         </div>
                       </div>
                      
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="cover_price">سعر الغطاء الفردي</label>
                           <input type="text" class="form-control" name='cover_price' id="cover_price">
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="cover_tot">السعر الكلي</label>
                           <input type="text" class="form-control" name='cover_tot' id="cover_tot" disabled>
@@ -489,19 +489,19 @@ if (!empty($_GET['edit'])) {
                   <h5>بنود اخرى</h5>
                   <div class="band">
                     <div class="row">
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="band">أسم البند</label>
                           <input type="text" class="form-control" name='band' id="band">
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="band_price">سعر البند</label>
                           <input type="text" class="form-control" name='band_price' id="band_price">
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col col-md-2 col-sm-12">
                         <div class="form-group">
                           <label for="band_tot">السعر الكلي</label>
                           <input type="text" class="form-control" name='band_tot' id="band_tot" disabled>
