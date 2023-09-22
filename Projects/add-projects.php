@@ -362,7 +362,7 @@ if (!empty($_GET['edit'])) {
                           <input type="text" class="form-control" name='iron_long[]' id="iron_long">
                         </div>
                       </div>
-                      <div class="col-sm-6 col-lg-8">
+                      <div class="col-sm-6 col-lg-8 ">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
                           <input type="text" class="form-control" name='iron_tn[]' id="iron_tn" disabled>
