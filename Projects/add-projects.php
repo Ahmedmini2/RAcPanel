@@ -91,6 +91,32 @@ if (!empty($_GET['edit'])) {
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+
+  <style>
+/* Red border */
+hr.new1 {
+  border-top: 1px solid red;
+}
+
+ 	
+
+/* Dotted red border */
+hr.new3 {
+  border-top: 1px dotted red;
+}
+
+/* Thick red border */
+hr.new4 {
+  border: 1px solid red;
+}
+
+/* Large rounded green border */
+hr.new5 {
+  border: 10px solid green;
+  border-radius: 5px;
+}
+</style>
+
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
@@ -375,7 +401,7 @@ if (!empty($_GET['edit'])) {
                         </div>
                       </div>
                     </div>
-                    <hr>
+                    <hr class="new2">
                     <script>
                       $(document).ready(function() {
                         $("#iron").change(function() {
