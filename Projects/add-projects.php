@@ -276,7 +276,7 @@ if (!empty($_GET['edit'])) {
                   <h5>بند الخرسانة</h5>
                   <div class="item">
                     <div class="row">
-                      <div class="col col-md-2 col-sm-12 col-xs-12">
+                      <div class="col col-md-2 col-sm-12 ">
                         <div class="form-group">
                           <label for="kharasana">نوع الخرسانة</label>
                           <select class="form-control" name="kharasana">
@@ -285,19 +285,19 @@ if (!empty($_GET['edit'])) {
                           </select>
                         </div>
                       </div>
-                      <div class="col col-md-2 col-sm-12 col-xs-12">
+                      <div class="col col-md-2 col-sm-12 ">
                         <div class="form-group">
                           <label for="kh_price">سعر الخرسانة</label>
                           <input type="text" class="form-control" name='kh_price' id="kh_price">
                         </div>
                       </div>
-                      <div class="col col-md-2 col-sm-12 col-xs-12">
+                      <div class="col col-md-2 col-sm-12 ">
                         <div class="form-group">
                           <label for="kh_per">كمية الخرسانة للصنف الواحد</label>
                           <input type="text" class="form-control" name='kh_per' id="kh_per">
                         </div>
                       </div>
-                      <div class="col col-md-2 col-sm-12 col-xs-12">
+                      <div class="col col-md-2 col-sm-12 ">
                         <div class="form-group">
                           <label for="kh_tot">السعر للمنتج الفردي</label>
                           <input type="text" class="form-control" name='kh_peice' id="kh_peice" disabled>
