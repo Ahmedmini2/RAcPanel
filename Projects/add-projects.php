@@ -326,7 +326,7 @@ if (!empty($_GET['edit'])) {
                   <h5>بند الحديد</h5>
                   <div class="iron">
                     <div class="row">
-                      <div class="col col-md-2 col-sm-10">
+                      <div class="col  col-xs-10">
                         <div class="form-group">
                           <label for="iron">مقاس الحديد</label>
                           <select class="form-control" name="iron[]" id="iron">
@@ -350,25 +350,25 @@ if (!empty($_GET['edit'])) {
                           <input type="text" class="form-control" name='iron_price[]' id="iron_price">
                         </div>
                       </div>
-                      <div class="col col-md-2 col-sm-12">
+                      <div class="col col-xs-10">
                         <div class="form-group">
                           <label for="iron_quantity">كمية الحديد</label>
                           <input type="text" class="form-control" name='iron_quantity[]' id="iron_quantity">
                         </div>
                       </div>
-                      <div class="col col-md-2 col-sm-12">
+                      <div class="col col-xs-10">
                         <div class="form-group">
                           <label for="iron_long">طول الحديد</label>
                           <input type="text" class="form-control" name='iron_long[]' id="iron_long">
                         </div>
                       </div>
-                      <div class="col col-md-2 col-sm-12">
+                      <div class="col col-xs-10">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
                           <input type="text" class="form-control" name='iron_tn[]' id="iron_tn" disabled>
                         </div>
                       </div>
-                      <div class="col col-md-2 col-sm-12">
+                      <div class="colcol-xs-10">
                         <div class="form-group">
                           <label for="iron_tot">السعر الكلي</label>
                           <input type="text" class="form-control" name='iron_tot[]' id="iron_tot" disabled>
