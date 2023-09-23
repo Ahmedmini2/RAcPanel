@@ -351,84 +351,96 @@ hr.new5 {
                   </div>
                 </div> 
                 <div class="iron_details"> 
-                  <hr>
-                  <h5>بند الحديد</h5>
-                  <?php $iro = 1 ; ?>
-                  <div class="iron">
+                <hr>
+                <h5>بند الحديد</h5>
+                <div class="iron">
                     <div class="row">
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="iron">مقاس الحديد</label>
-                          <select class="form-control" name="iron<?=$iro?>" id="iron<?=$iro?>">
-                            <option value="0.395">8مم</option>
-                            <option value="0.617">10مم</option>
-                            <option value="0.888">12مم</option>
-                            <option value="1.21">14مم</option>
-                            <option value="1.58">16مم</option>
-                            <option value="2">18مم</option>
-                            <option value="2.47">20مم</option>
-                            <option value="2.984">22مم</option>
-                            <option value="3.85">25مم</option>
-                            <option value="6.41">32مم</option>
-
-                          </select>
+                        <div class="col-md-2 col-sm-6">
+                            <div class="form-group">
+                                <label for="iron">مقاس الحديد</label>
+                                <select class="form-control" name="iron" id="iron">
+                                    <option value="0.395">8مم</option>
+                                    <option value="0.617">10مم</option>
+                                    <option value="0.888">12مم</option>
+                                    <option value="1.21">14مم</option>
+                                    <option value="1.58">16مم</option>
+                                    <option value="2">18مم</option>
+                                    <option value="2.47">20مم</option>
+                                    <option value="2.984">22مم</option>
+                                    <option value="3.85">25مم</option>
+                                    <option value="6.41">32مم</option>
+                                </select>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="iron_price">سعر طن الحديد لليوم</label>
-                          <input type="text" class="form-control" name='iron_price<?=$iro?>' id="iron_price<?=$iro?>">
+                        <div class="col-md-2 col-sm-6">
+                            <div class="form-group">
+                                <label for="iron_price">سعر طن الحديد لليوم</label>
+                                <input type="text" class="form-control" name='iron_price' id="iron_price">
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="iron_quantity">كمية الحديد</label>
-                          <input type="text" class="form-control" name='iron_quantity<?=$iro?>' id="iron_quantity<?=$iro?>">
+                        <div class="col-md-2 col-sm-6">
+                            <div class="form-group">
+                                <label for="iron_quantity">كمية الحديد</label>
+                                <input type="text" class="form-control" name='iron_quantity' id="iron_quantity">
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="iron_long">طول الحديد</label>
-                          <input type="text" class="form-control" name='iron_long<?=$iro?>' id="iron_long<?=$iro?>">
+                        <div class="col-md-2 col-sm-6">
+                            <div class="form-group">
+                                <label for="iron_long">طول الحديد</label>
+                                <input type="text" class="form-control" name='iron_long' id="iron_long">
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6">
-                        <div class="form-group">
-                          <label for="iron_tn">السعر الطن</label>
-                          <input type="text" class="form-control" name='iron_tn<?=$iro?>' id="iron_tn<?=$iro?>" disabled>
+                        <div class="col-md-2 col-sm-6">
+                            <div class="form-group">
+                                <label for="iron_tn">السعر الطن</label>
+                                <input type="text" class="form-control" name='iron_tn' id="iron_tn" disabled>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="iron_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='iron_tot<?=$iro?>' id="iron_tot<?=$iro?>" disabled>
+                        <div class="col-md-2 col-sm-6">
+                            <div class="form-group">
+                                <label for="iron_tot">السعر الكلي</label>
+                                <input type="text" class="form-control" name='iron_tot' id="iron_tot" disabled>
+                            </div>
                         </div>
-                      </div>
                     </div>
                     <hr class="new2">
-                    <script>
-                      $(document).ready(function() {
-                        $("#iron<?=$iro?>").change(function() {
-                          var iron = $("#iron<?=$iro?>").val();
-                          var kg = (parseFloat($("#iron_quantity<?=$iro?>").val()) * parseFloat($("#iron_long<?=$iro?>").val() || '0') * iron)
-                          var tn = kg / 1000;
-                          var total = tn * parseFloat($("#iron_price<?=$iro?>").val())
-                          $("#iron_tn<?=$iro?>").val(tn);
-                          $("#iron_tot<?=$iro?>").val(total);
-                        });
-                      });
-                      $("input").on("change", function() {
-                        var iron = $("#iron<?=$iro?>").val();
-                        var kg = (parseFloat($("#iron_quantity<?=$iro?>").val()) * parseFloat($("#iron_long<?=$iro?>").val() || '0') * iron)
-                        var tn = kg / 1000;
-                        var total = tn * parseFloat($("#iron_price<?=$iro?>").val())
-                        $("#iron_tn<?=$iro?>").val(tn);
-                        $("#iron_tot<?=$iro?>").val(total);
-                      })
-                    </script>
-
-                  </div>
                 </div>
+                <button type="button" class="add_iron">Add Iron</button> <!-- Button to add more .iron elements -->
+            </div>
+
+            <div class="cloned-irons"></div> <!-- Cloned .iron elements will be appended here -->
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+                let counter = 1;
+
+                $(document).on("click", ".add_iron", function () {
+                    const itemClone = $(".iron").clone();
+                    itemClone.find("[id]").each(function () {
+                        $(this).attr("id", $(this).attr("id") + counter);
+                    });
+                    itemClone.find("[name]").each(function () {
+                        $(this).attr("name", $(this).attr("name") + "_clone_" + counter);
+                    });
+                    $(".cloned-irons").append(itemClone);
+                    counter++;
+                });
+
+                // Event listener for changes in cloned elements
+                $(document).on("change", ".cloned-irons select, .cloned-irons input", function () {
+                    var iron = $(this).closest(".cloned-irons").find("select[name^='iron_clone']").val();
+                    var quantity = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_quantity_clone']").val()) || 0;
+                    var length = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_long_clone']").val()) || 0;
+                    var price = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_price_clone']").val()) || 0;
+
+                    var kg = quantity * length * iron;
+                    var tn = kg / 1000;
+                    var total = tn * price;
+
+                    $(this).closest(".cloned-irons").find("input[name^='iron_tn_clone']").val(tn.toFixed(3));
+                    $(this).closest(".cloned-irons").find("input[name^='iron_tot_clone']").val(total.toFixed(2));
+                });
+            </script>
                 <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
                   
                 <hr>

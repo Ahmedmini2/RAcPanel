@@ -8,12 +8,29 @@ document.addEventListener("DOMContentLoaded", function () {
         productDetails.appendChild(productClone);
     });
 
-    productDetails.addEventListener("click", function (e) {
-        if (e.target.classList.contains("add_iron")) {
-            const itemDetails = e.target.parentElement.querySelector(".iron_details");
-            const itemClone = document.querySelector(".iron").cloneNode(true);
-            itemDetails.appendChild(itemClone);
-        }
+    // Assuming you have a counter variable to generate unique IDs
+        let counter = 1;
+
+        productDetails.addEventListener("click", function (e) {
+            if (e.target.classList.contains("add_iron")) {
+                const itemDetails = e.target.parentElement.querySelector(".iron_details");
+                const itemClone = document.querySelector(".iron").cloneNode(true);
+                
+                // Generate unique IDs for the cloned elements
+                itemClone.querySelectorAll("[id]").forEach((element) => {
+                    element.id += counter;
+                });
+                
+                // Update the name attributes if needed
+                itemClone.querySelectorAll("[name]").forEach((element) => {
+                    // Modify the name attribute based on your naming convention
+                    element.name += "_" + counter;
+                });
+                
+                itemDetails.appendChild(itemClone);
+                counter++;
+            }
+
         if (e.target.classList.contains("add_accessory")) {
             const itemDetails = e.target.parentElement.querySelector(".accessory_details");
             const itemClone = document.querySelector(".accessory").cloneNode(true);
