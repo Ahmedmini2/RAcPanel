@@ -8,28 +8,31 @@ document.addEventListener("DOMContentLoaded", function () {
         productDetails.appendChild(productClone);
     });
 
-    // Assuming you have a counter variable to generate unique IDs
-        let counter = 1;
-
-        productDetails.addEventListener("click", function (e) {
-            if (e.target.classList.contains("add_iron")) {
-                const itemDetails = e.target.parentElement.querySelector(".iron_details");
-                const itemClone = document.querySelector(".iron").cloneNode(true);
-                
-                // Generate unique IDs for the cloned elements
-                itemClone.querySelectorAll("[id]").forEach((element) => {
-                    element.id += counter;
-                });
-                
-                // Update the name attributes if needed
-                itemClone.querySelectorAll("[name]").forEach((element) => {
-                    // Modify the name attribute based on your naming convention
-                    element.name += "_" + counter;
-                });
-                
-                itemDetails.appendChild(itemClone);
-                counter++;
-            }
+    let counter = 1;
+    let cloning = false;
+    
+    productDetails.addEventListener("click", function (e) {
+        if (e.target.classList.contains("add_iron") && !cloning) {
+            cloning = true;
+            const itemDetails = e.target.parentElement.querySelector(".iron_details");
+            const itemClone = document.querySelector(".iron").cloneNode(true);
+            
+            // Generate unique IDs for the cloned elements
+            itemClone.querySelectorAll("[id]").forEach((element) => {
+                element.id += counter;
+            });
+            
+            // Update the name attributes if needed
+            itemClone.querySelectorAll("[name]").forEach((element) => {
+                // Modify the name attribute based on your naming convention
+                element.name += "_" + counter;
+            });
+            
+            itemDetails.appendChild(itemClone);
+            counter++;
+            cloning = false;
+        }
+    
 
         if (e.target.classList.contains("add_accessory")) {
             const itemDetails = e.target.parentElement.querySelector(".accessory_details");
