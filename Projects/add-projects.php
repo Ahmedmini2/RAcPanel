@@ -410,50 +410,29 @@ hr.new5 {
             <div class="cloned-irons"></div> <!-- Cloned .iron elements will be appended here -->
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script>
-                $(document).ready(function () {
-                    let counter = 1;
-                    let cloningInProgress = false; // Flag to prevent multiple cloning
-                    // Event listener for changes in cloned elements
-                    $(document).on("change", ".cloned-irons select, .cloned-irons input", function () {
-                        var iron = parseFloat($(this).closest(".cloned-irons").find("select[name^='iron_clone']").val()) || 0;
-                        var quantity = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_quantity_clone']").val()) || 0;
-                        var length = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_long_clone']").val()) || 0;
-                        var price = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_price_clone']").val()) || 0;
+<script>
+    // Assuming you have a counter variable to generate unique IDs
+    let counter = 1;
 
-                        var kg = quantity * length * iron;
-                        var tn = kg / 1000;
-                        var total = tn * price;
+     // Event listener for changes in cloned elements
+     $(document).on("change", ".cloned-irons select, .cloned-irons input", function () {
+        var iron = parseFloat($(this).closest(".cloned-irons").find("select[name^='iron_clone']").val()) || 0;
+        var quantity = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_quantity_clone']").val()) || 0;
+        var length = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_long_clone']").val()) || 0;
+        var price = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_price_clone']").val()) || 0;
 
-                        $(this).closest(".cloned-irons").find("input[name^='iron_tn_clone']").val(tn.toFixed(3));
-                        $(this).closest(".cloned-irons").find("input[name^='iron_tot_clone']").val(total.toFixed(2));
-                    });
+        var kg = quantity * length * iron;
+        var tn = kg / 1000;
+        var total = tn * price;
 
-                    // Event listener for adding cloned items
-                    $(".add_iron").click(function () {
-                        if (!cloningInProgress) {
-                            cloningInProgress = true;
-                            const itemClone = $(".iron").clone();
-                            itemClone.find("[id]").each(function () {
-                                $(this).attr("id", $(this).attr("id") + "_clone_" + counter);
-                            });
-                            itemClone.find("[name]").each(function () {
-                                $(this).attr("name", $(this).attr("name") + "_clone_" + counter);
-                            });
-                            $(".cloned-irons").append(itemClone);
-                            counter++;
+        $(this).closest(".cloned-irons").find("input[name^='iron_tn_clone']").val(tn.toFixed(3));
+        $(this).closest(".cloned-irons").find("input[name^='iron_tot_clone']").val(total.toFixed(2));
+    });
 
-                            // Allow cloning again after a short delay
-                            setTimeout(function () {
-                                cloningInProgress = false;
-                            }, 1000); // Adjust the delay time as needed
-                        }
-                    });
-                });
-            </script>
-
+   
+</script>
             <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
-            <hr>
+                <hr>
                 <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
                   <div class="accessory">
