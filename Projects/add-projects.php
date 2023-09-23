@@ -408,7 +408,7 @@ hr.new5 {
             </div>
 
             <div class="cloned-irons"></div> <!-- Cloned .iron elements will be appended here -->
-
+            <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script>
                // Assuming you have a counter variable to generate unique IDs
@@ -456,7 +456,7 @@ hr.new5 {
                     $(this).closest(".cloned-irons").find("input[name^='iron_tot_clone']").val(total.toFixed(2));
                 });
             </script>
-                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
+                
                   
                 <hr>
                 <div class="accessory_details">
