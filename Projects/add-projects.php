@@ -405,7 +405,6 @@ hr.new5 {
                     </div>
                     <hr class="new2">
                 </div>
-               
             </div>
 
             <div class="cloned-irons"></div> <!-- Cloned .iron elements will be appended here -->
