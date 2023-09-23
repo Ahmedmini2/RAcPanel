@@ -410,31 +410,32 @@ hr.new5 {
             <div class="cloned-irons"></div> <!-- Cloned .iron elements will be appended here -->
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    // Assuming you have a counter variable to generate unique IDs
-    let counter = 1;
-      <?php $coco = 1; ?>
-     // Event listener for changes in cloned elements
-     $(document).on("change", ".cloned-irons select, .cloned-irons input", function () {
-        var iron = parseFloat($(this).closest(".cloned-irons").find("select[name^='iron_clone_<?=$coco?>']").val()) || 0;
-        var quantity = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_quantity_clone_<?=$coco?>']").val()) || 0;
-        var length = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_long_clone_<?=$coco?>']").val()) || 0;
-        var price = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_price_clone_<?=$coco?>']").val()) || 0;
+            <script>
+              <?php $coco = 1; ?>
+                      $(document).ready(function() {
+                        $("#iron_clone_<?=$coco?>").change(function() {
+                          var iron = $("#iron_clone_<?=$coco?>").val();
+                          var kg = (parseFloat($("#iron_quantity_clone_<?=$coco?>").val()) * parseFloat($("#iron_long_clone_<?=$coco?>").val() || '0') * iron)
+                          var tn = kg / 1000;
+                          var total = tn * parseFloat($("#iron_price_clone_<?=$coco?>").val())
+                          $("#iron_tn_clone_<?=$coco?>").val(tn);
+                          $("#iron_tot_clone_<?=$coco?>").val(total);
+                        });
+                      });
+                      $("input").on("change", function() {
+                        var iron = $("#iron_clone_<?=$coco?>").val();
+                        var kg = (parseFloat($("#iron_quantity_clone_<?=$coco?>").val()) * parseFloat($("#iron_long_clone_<?=$coco?>").val() || '0') * iron)
+                        var tn = kg / 1000;
+                        var total = tn * parseFloat($("#iron_price_clone_<?=$coco?>").val())
+                        $("#iron_tn_clone_<?=$coco?>").val(tn);
+                        $("#iron_tot_clone_<?=$coco?>").val(total);
+                      })
 
-        var kg = quantity * length * iron;
-        var tn = kg / 1000;
-        var total = tn * price;
+                      $(".add_iron").click(function () {
+                        <?php $coco++; ?>
+                      });
+                    </script>
 
-        $(this).closest(".cloned-irons").find("input[name^='iron_tn_clone_<?=$coco?>']").val(tn.toFixed(3));
-        $(this).closest(".cloned-irons").find("input[name^='iron_tot_clone_<?=$coco?>']").val(total.toFixed(2));
-
-        $(".add_iron").click(function () {
-          <?php $coco++; ?>
-        });
-    });
-
-   
-</script>
             <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
                 <hr>
                 <div class="accessory_details">
