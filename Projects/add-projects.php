@@ -408,39 +408,11 @@ hr.new5 {
             </div>
 
             <div class="cloned-irons"></div> <!-- Cloned .iron elements will be appended here -->
-            <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
+
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script>
-               // Assuming you have a counter variable to generate unique IDs
-                let counter = 1;
+                
 
-                productDetails.addEventListener("click", function (e) {
-                    if (e.target.classList.contains("add_iron")) {
-                        // Disable the button temporarily to prevent rapid clicks
-                        e.target.disabled = true;
-
-                        setTimeout(function () {
-                            e.target.disabled = false;
-                        }, 1000); // Adjust the delay time (in milliseconds) as needed
-
-                        const itemDetails = e.target.parentElement.querySelector(".iron_details");
-                        const itemClone = document.querySelector(".iron").cloneNode(true);
-
-                        // Generate unique IDs for the cloned elements
-                        itemClone.querySelectorAll("[id]").forEach((element) => {
-                            element.id += counter;
-                        });
-
-                        // Update the name attributes if needed
-                        itemClone.querySelectorAll("[name]").forEach((element) => {
-                            // Modify the name attribute based on your naming convention
-                            element.name += "_clone_" + counter;
-                        });
-
-                        itemDetails.appendChild(itemClone);
-                        counter++;
-                    }
-                });
                 // Event listener for changes in cloned elements
                 $(document).on("change", ".cloned-irons select, .cloned-irons input", function () {
                     var iron = $(this).closest(".cloned-irons").find("select[name^='iron_clone']").val();
@@ -456,7 +428,7 @@ hr.new5 {
                     $(this).closest(".cloned-irons").find("input[name^='iron_tot_clone']").val(total.toFixed(2));
                 });
             </script>
-                
+                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
                   
                 <hr>
                 <div class="accessory_details">
