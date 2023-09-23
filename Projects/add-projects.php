@@ -350,7 +350,7 @@ hr.new5 {
 
                   </div>
                 </div> 
-                <div class="iron_details"> 
+                <div class="iron_details">
                 <hr>
                 <h5>بند الحديد</h5>
                 <div class="iron">
@@ -411,39 +411,50 @@ hr.new5 {
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script>
-                
-              // Assuming you have a counter variable to generate unique IDs
-              let counter = 1;
+                // Assuming you have a counter variable to generate unique IDs
+                let counter = 1;
 
-              $(".add_iron").on("click", function () {
-                  const itemClone = $(".iron").clone();
-                  itemClone.find("[id]").each(function () {
-                      $(this).attr("id", $(this).attr("id") + counter);
-                  });
-                  itemClone.find("[name]").each(function () {
-                      $(this).attr("name", $(this).attr("name") + "_clone_" + counter);
-                  });
-                  $(".cloned-irons").append(itemClone);
-                  counter++;
-              });
+                // Event listener for changes in cloned elements
+                $(document).on("change", ".cloned-irons select, .cloned-irons input", function () {
+                    var iron = $(this).closest(".cloned-irons").find("select[name^='iron_clone']").val();
+                    var quantity = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_quantity_clone']").val()) || 0;
+                    var length = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_long_clone']").val()) || 0;
+                    var price = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_price_clone']").val()) || 0;
 
-              // Event listener for changes in cloned elements
-              $(document).on("change", ".cloned-irons select, .cloned-irons input", function () {
-                  var iron = $(this).closest(".cloned-irons").find("select[name^='iron_clone']").val();
-                  var quantity = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_quantity_clone']").val()) || 0;
-                  var length = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_long_clone']").val()) || 0;
-                  var price = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_price_clone']").val()) || 0;
+                    var kg = quantity * length * iron;
+                    var tn = kg / 1000;
+                    var total = tn * price;
 
-                  var kg = quantity * length * iron;
-                  var tn = kg / 1000;
-                  var total = tn * price;
+                    $(this).closest(".cloned-irons").find("input[name^='iron_tn_clone']").val(tn.toFixed(3));
+                    $(this).closest(".cloned-irons").find("input[name^='iron_tot_clone']").val(total.toFixed(2));
+                });
 
-                  $(this).closest(".cloned-irons").find("input[name^='iron_tn_clone']").val(tn.toFixed(3));
-                  $(this).closest(".cloned-irons").find("input[name^='iron_tot_clone']").val(total.toFixed(2));
-              });
+                // Event listener for the "Add Iron" button click
+                $(".add_iron").on("click", function () {
+                    const itemClone = $(".iron").clone();
+                    itemClone.find("[id]").each(function () {
+                        // Modify the ID attribute based on your naming convention
+                        let id = $(this).attr("id");
+                        id = id + counter;
+                        if (!id.includes("_clone_")) {
+                            id += "_clone_";
+                        }
+                        $(this).attr("id", id);
+                    });
+                    itemClone.find("[name]").each(function () {
+                        // Modify the name attribute based on your naming convention
+                        let name = $(this).attr("name");
+                        name = name + counter;
+                        if (!name.includes("_clone_")) {
+                            name += "_clone_";
+                        }
+                        $(this).attr("name", name);
+                    });
+                    $(".cloned-irons").append(itemClone);
+                    counter++;
+                });
             </script>
-                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
-                  
+            <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
                 <hr>
                 <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
