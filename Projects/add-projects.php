@@ -353,12 +353,13 @@ hr.new5 {
                 <div class="iron_details"> 
                   <hr>
                   <h5>بند الحديد</h5>
+                  <?php $iro = 1 ; ?>
                   <div class="iron">
                     <div class="row">
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="iron">مقاس الحديد</label>
-                          <select class="form-control" name="iron[]" id="iron[]">
+                          <select class="form-control" name="iron<?=$iro?>" id="iron<?=$iro?>">
                             <option value="0.395">8مم</option>
                             <option value="0.617">10مم</option>
                             <option value="0.888">12مم</option>
@@ -376,53 +377,53 @@ hr.new5 {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="iron_price">سعر طن الحديد لليوم</label>
-                          <input type="text" class="form-control" name='iron_price[]' id="iron_price[]">
+                          <input type="text" class="form-control" name='iron_price<?=$iro?>' id="iron_price<?=$iro?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="iron_quantity">كمية الحديد</label>
-                          <input type="text" class="form-control" name='iron_quantity[]' id="iron_quantity[]">
+                          <input type="text" class="form-control" name='iron_quantity<?=$iro?>' id="iron_quantity<?=$iro?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="iron_long">طول الحديد</label>
-                          <input type="text" class="form-control" name='iron_long[]' id="iron_long[]">
+                          <input type="text" class="form-control" name='iron_long<?=$iro?>' id="iron_long<?=$iro?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
-                          <input type="text" class="form-control" name='iron_tn[]' id="iron_tn[]" disabled>
+                          <input type="text" class="form-control" name='iron_tn<?=$iro?>' id="iron_tn<?=$iro?>" disabled>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="iron_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='iron_tot[]' id="iron_tot[]" disabled>
+                          <input type="text" class="form-control" name='iron_tot<?=$iro?>' id="iron_tot<?=$iro?>" disabled>
                         </div>
                       </div>
                     </div>
                     <hr class="new2">
                     <script>
                       $(document).ready(function() {
-                        $("#iron[]").change(function() {
-                          var iron = $("#iron[]").val();
-                          var kg = (parseFloat($("#iron_quantity[]").val()) * parseFloat($("#iron_long[]").val() || '0') * iron)
+                        $("#iron<?=$iro?>").change(function() {
+                          var iron = $("#iron<?=$iro?>").val();
+                          var kg = (parseFloat($("#iron_quantity<?=$iro?>").val()) * parseFloat($("#iron_long<?=$iro?>").val() || '0') * iron)
                           var tn = kg / 1000;
-                          var total = tn * parseFloat($("#iron_price[]").val())
-                          $("#iron_tn[]").val(tn);
-                          $("#iron_tot[]").val(total);
+                          var total = tn * parseFloat($("#iron_price<?=$iro?>").val())
+                          $("#iron_tn<?=$iro?>").val(tn);
+                          $("#iron_tot<?=$iro?>").val(total);
                         });
                       });
                       $("input").on("change", function() {
-                        var iron = $("#iron[]").val();
-                        var kg = (parseFloat($("#iron_quantity[]").val()) * parseFloat($("#iron_long[]").val() || '0') * iron)
+                        var iron = $("#iron<?=$iro?>").val();
+                        var kg = (parseFloat($("#iron_quantity<?=$iro?>").val()) * parseFloat($("#iron_long<?=$iro?>").val() || '0') * iron)
                         var tn = kg / 1000;
-                        var total = tn * parseFloat($("#iron_price[]").val())
-                        $("#iron_tn[]").val(tn);
-                        $("#iron_tot[]").val(total);
+                        var total = tn * parseFloat($("#iron_price<?=$iro?>").val())
+                        $("#iron_tn<?=$iro?>").val(tn);
+                        $("#iron_tot<?=$iro?>").val(total);
                       })
                     </script>
 
