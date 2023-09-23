@@ -407,22 +407,22 @@ hr.new5 {
                     <hr class="new2">
                     <script>
                       $(document).ready(function() {
-                        $("#iron").change(function() {
-                          var iron = $("#iron").val();
-                          var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
+                        $("#iron[]").change(function() {
+                          var iron = $("#iron[]").val();
+                          var kg = (parseFloat($("#iron_quantity[]").val()) * parseFloat($("#iron_long[]").val() || '0') * iron)
                           var tn = kg / 1000;
-                          var total = tn * parseFloat($("#iron_price").val())
-                          $("#iron_tn").val(tn);
-                          $("#iron_tot").val(total);
+                          var total = tn * parseFloat($("#iron_price[]").val())
+                          $("#iron_tn[]").val(tn);
+                          $("#iron_tot[]").val(total);
                         });
                       });
                       $("input").on("change", function() {
-                        var iron = $("#iron").val();
+                        var iron = $("#iron[]").val();
                         var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
                         var tn = kg / 1000;
-                        var total = tn * parseFloat($("#iron_price").val())
-                        $("#iron_tn").val(tn);
-                        $("#iron_tot").val(total);
+                        var total = tn * parseFloat($("#iron_price[]").val())
+                        $("#iron_tn[]").val(tn);
+                        $("#iron_tot[]").val(total);
                       })
                     </script>
 
