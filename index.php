@@ -73,7 +73,7 @@ $_SESSION['sidebar']="Home";
             <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
                 <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-bell cursor-pointer"></i>
-                    <span id="notification-count" class="notification-badge">3</span> <!-- Add this line -->
+                    <span id="notification-count" class="notification-badge">0</span> <!-- Add this line -->
                 </a>
                 <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="notifications-container">
                     <!-- Notifications will be dynamically added here -->
