@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Assuming you have a counter variable to generate unique IDs
         let counter = 1;
-
+        
         productDetails.addEventListener("click", function (e) {
             if (e.target.classList.contains("add_iron")) {
                 const itemDetails = e.target.parentElement.querySelector(".iron_details");
