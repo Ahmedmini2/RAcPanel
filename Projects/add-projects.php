@@ -411,19 +411,34 @@ hr.new5 {
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script>
-                let counter = 1;
+                // Assuming you have a counter variable to generate unique IDs
+                  let counter = 1;
+                  let isCloning = false;
 
-                $(document).on("click", ".add_iron", function () {
-                    const itemClone = $(".iron").clone();
-                    itemClone.find("[id]").each(function () {
-                        $(this).attr("id", $(this).attr("id") + counter);
-                    });
-                    itemClone.find("[name]").each(function () {
-                        $(this).attr("name", $(this).attr("name") + "_clone_" + counter);
-                    });
-                    $(".cloned-irons").append(itemClone);
-                    counter++;
-                });
+                  productDetails.addEventListener("click", function (e) {
+                      if (e.target.classList.contains("add_iron") && !isCloning) {
+                          isCloning = true;
+                          setTimeout(function () {
+                              const itemDetails = e.target.parentElement.querySelector(".iron_details");
+                              const itemClone = document.querySelector(".iron").cloneNode(true);
+                              
+                              // Generate unique IDs for the cloned elements
+                              itemClone.querySelectorAll("[id]").forEach((element) => {
+                                  element.id += counter;
+                              });
+                              
+                              // Update the name attributes if needed
+                              itemClone.querySelectorAll("[name]").forEach((element) => {
+                                  // Modify the name attribute based on your naming convention
+                                  element.name += "_" + counter;
+                              });
+                              
+                              itemDetails.appendChild(itemClone);
+                              counter++;
+                              isCloning = false;
+                          }, 1000); // Adjust the delay time (in milliseconds) as needed
+                      }
+                  });
 
                 // Event listener for changes in cloned elements
                 $(document).on("change", ".cloned-irons select, .cloned-irons input", function () {
