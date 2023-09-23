@@ -413,7 +413,7 @@ hr.new5 {
             <script>
                 $(document).ready(function () {
                     let counter = 1;
-
+                    let cloningInProgress = false; // Flag to prevent multiple cloning
                     // Event listener for changes in cloned elements
                     $(document).on("change", ".cloned-irons select, .cloned-irons input", function () {
                         var iron = parseFloat($(this).closest(".cloned-irons").find("select[name^='iron_clone']").val()) || 0;
