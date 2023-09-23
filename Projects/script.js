@@ -9,32 +9,36 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Assuming you have a counter variable to generate unique IDs
-        let counter = 1;
-        let isCloning = false;
+let counter = 1;
 
-        productDetails.addEventListener("click", function (e) {
-            if (e.target.classList.contains("add_iron") && !isCloning) {
-                isCloning = true;
-                setTimeout(function () {
-                    const itemDetails = e.target.parentElement.querySelector(".iron_details");
-                    const itemClone = document.querySelector(".iron").cloneNode(true);
-                    
-                    // Generate unique IDs for the cloned elements
-                    itemClone.querySelectorAll("[id]").forEach((element) => {
-                        element.id += counter;
-                    });
-                    
-                    // Update the name attributes if needed
-                    itemClone.querySelectorAll("[name]").forEach((element) => {
-                        // Modify the name attribute based on your naming convention
-                        element.name += "_" + counter;
-                    });
-                    
-                    itemDetails.appendChild(itemClone);
-                    counter++;
-                    isCloning = false;
-                }, 1000); // Adjust the delay time (in milliseconds) as needed
-            }
+productDetails.addEventListener("click", function (e) {
+    if (e.target.classList.contains("add_iron")) {
+        const itemDetails = e.target.parentElement.querySelector(".iron_details");
+        const itemClone = document.querySelector(".iron").cloneNode(true);
+
+        // Generate unique IDs for the cloned elements
+        itemClone.querySelectorAll("[id]").forEach((element) => {
+            element.id += counter;
+        });
+
+        // Update the name attributes if needed
+        itemClone.querySelectorAll("[name]").forEach((element) => {
+            // Modify the name attribute based on your naming convention
+            element.name += "_" + counter;
+        });
+
+        itemDetails.appendChild(itemClone);
+        counter++;
+
+        // Disable the button to prevent rapid clicking
+        e.target.disabled = true;
+
+        // Re-enable the button after a short delay (e.g., 1 second)
+        setTimeout(function () {
+            e.target.disabled = false;
+        }, 1000); // Adjust the delay time as needed
+    }
+
 
     
 
