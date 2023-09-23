@@ -459,6 +459,7 @@ hr.new5 {
                         </div>
                       </div>
                     </div>
+                    <hr class="new2">
                     <script>
                       $("input").on("change", function() {
                         var peice = (parseFloat($("#acc_quantity").val()) * parseFloat($("#acc_price").val() || '0'))
@@ -537,6 +538,7 @@ hr.new5 {
                         </div>
                       </div>
                     </div>
+                    <hr class="new2">
                     <script>
                       $("input").on("change", function() {
                         var peice = (parseFloat($("#band_price").val()) * parseFloat($("#quantity").val() || '0'))
