@@ -358,7 +358,7 @@ hr.new5 {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="iron">مقاس الحديد</label>
-                          <select class="form-control" name="iron[]" id="iron">
+                          <select class="form-control" name="iron[]" id="iron[]">
                             <option value="0.395">8مم</option>
                             <option value="0.617">10مم</option>
                             <option value="0.888">12مم</option>
@@ -376,31 +376,31 @@ hr.new5 {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="iron_price">سعر طن الحديد لليوم</label>
-                          <input type="text" class="form-control" name='iron_price[]' id="iron_price">
+                          <input type="text" class="form-control" name='iron_price[]' id="iron_price[]">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="iron_quantity">كمية الحديد</label>
-                          <input type="text" class="form-control" name='iron_quantity[]' id="iron_quantity">
+                          <input type="text" class="form-control" name='iron_quantity[]' id="iron_quantity[]">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="iron_long">طول الحديد</label>
-                          <input type="text" class="form-control" name='iron_long[]' id="iron_long">
+                          <input type="text" class="form-control" name='iron_long[]' id="iron_long[]">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
-                          <input type="text" class="form-control" name='iron_tn[]' id="iron_tn" disabled>
+                          <input type="text" class="form-control" name='iron_tn[]' id="iron_tn[]" disabled>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="iron_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='iron_tot[]' id="iron_tot" disabled>
+                          <input type="text" class="form-control" name='iron_tot[]' id="iron_tot[]" disabled>
                         </div>
                       </div>
                     </div>
