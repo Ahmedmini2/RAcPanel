@@ -26,7 +26,32 @@ $_SESSION['sidebar']="Home";
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
-  
+  <style>
+
+  .notification {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+  }
+
+  .notification:hover {
+  background: red;
+  }
+
+  .notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  }
+  </style>
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
@@ -68,11 +93,12 @@ $_SESSION['sidebar']="Home";
                 </div>
               </a>
             </li>
+            
             <!-- Notifications -->
             <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
                 <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-bell cursor-pointer"></i>
-                    <span id="notification-count" class="notification-badge">0</span> <!-- Add this line -->
+                    <span id="notification-count" class="badge">3</span> <!-- Add this line -->
                 </a>
                 <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="notifications-container">
                     <!-- Notifications will be dynamically added here -->
