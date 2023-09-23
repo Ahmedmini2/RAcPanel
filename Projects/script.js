@@ -18,13 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Generate unique IDs for the cloned elements
                 itemClone.querySelectorAll("[id]").forEach((element) => {
-                    element.id += counter;
+                    element.id += "_clone_" + counter;
                 });
 
                 // Update the name attributes if needed
                 itemClone.querySelectorAll("[name]").forEach((element) => {
                     // Modify the name attribute based on your naming convention
-                    element.name += "_" + counter;
+                    element.name += "_clone_" + counter;
                 });
 
                 itemDetails.appendChild(itemClone);
