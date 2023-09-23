@@ -101,6 +101,7 @@ hr.new1 {
 hr.new2 {
   border-top: 3px dashed black;
   background: blanchedalmond;
+  
 }
 
 /* Dotted red border */
