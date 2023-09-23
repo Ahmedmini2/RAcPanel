@@ -416,17 +416,17 @@ hr.new5 {
       <?php $coco = 1; ?>
      // Event listener for changes in cloned elements
      $(document).on("change", ".cloned-irons select, .cloned-irons input", function () {
-        var iron = parseFloat($(this).closest(".cloned-irons").find("select[name^='iron_clone_<?$coco?>']").val()) || 0;
-        var quantity = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_quantity_clone_<?$coco?>']").val()) || 0;
-        var length = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_long_clone_<?$coco?>']").val()) || 0;
-        var price = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_price_clone_<?$coco?>']").val()) || 0;
+        var iron = parseFloat($(this).closest(".cloned-irons").find("select[name^='iron_clone_<?=$coco?>']").val()) || 0;
+        var quantity = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_quantity_clone_<?=$coco?>']").val()) || 0;
+        var length = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_long_clone_<?=$coco?>']").val()) || 0;
+        var price = parseFloat($(this).closest(".cloned-irons").find("input[name^='iron_price_clone_<?=$coco?>']").val()) || 0;
 
         var kg = quantity * length * iron;
         var tn = kg / 1000;
         var total = tn * price;
 
-        $(this).closest(".cloned-irons").find("input[name^='iron_tn_clone_<?$coco?>']").val(tn.toFixed(3));
-        $(this).closest(".cloned-irons").find("input[name^='iron_tot_clone_<?$coco?>']").val(total.toFixed(2));
+        $(this).closest(".cloned-irons").find("input[name^='iron_tn_clone_<?=$coco?>']").val(tn.toFixed(3));
+        $(this).closest(".cloned-irons").find("input[name^='iron_tot_clone_<?=$coco?>']").val(total.toFixed(2));
 
         $(".add_iron").click(function () {
           <?php $coco++; ?>
