@@ -431,15 +431,23 @@ hr.new5 {
 
                     // Event listener for adding cloned items
                     $(".add_iron").click(function () {
-                        const itemClone = $(".iron").clone();
-                        itemClone.find("[id]").each(function () {
-                            $(this).attr("id", $(this).attr("id") + "_clone_" + counter);
-                        });
-                        itemClone.find("[name]").each(function () {
-                            $(this).attr("name", $(this).attr("name") + "_clone_" + counter);
-                        });
-                        $(".cloned-irons").append(itemClone);
-                        counter++;
+                        if (!cloningInProgress) {
+                            cloningInProgress = true;
+                            const itemClone = $(".iron").clone();
+                            itemClone.find("[id]").each(function () {
+                                $(this).attr("id", $(this).attr("id") + "_clone_" + counter);
+                            });
+                            itemClone.find("[name]").each(function () {
+                                $(this).attr("name", $(this).attr("name") + "_clone_" + counter);
+                            });
+                            $(".cloned-irons").append(itemClone);
+                            counter++;
+
+                            // Allow cloning again after a short delay
+                            setTimeout(function () {
+                                cloningInProgress = false;
+                            }, 1000); // Adjust the delay time as needed
+                        }
                     });
                 });
             </script>
