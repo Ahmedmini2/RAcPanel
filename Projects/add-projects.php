@@ -360,7 +360,7 @@ if (!empty($_GET['edit'])) {
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron">مقاس الحديد</label>
-                          <select class="form-control" name="iron_<?$coco?>" id="iron_<?$coco?>">
+                          <select class="form-control" name="iron_<?=$coco?>" id="iron_<?=$coco?>">
                             <option value="0.395">8مم</option>
                             <option value="0.617">10مم</option>
                             <option value="0.888">12مم</option>
@@ -377,31 +377,31 @@ if (!empty($_GET['edit'])) {
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_price">سعر طن الحديد لليوم</label>
-                          <input type="text" class="form-control" name='iron_price_<?$coco?>' id="iron_price_<?$coco?>">
+                          <input type="text" class="form-control" name='iron_price_<?=$coco?>' id="iron_price_<?=$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_quantity">كمية الحديد</label>
-                          <input type="text" class="form-control" name='iron_quantity_<?$coco?>' id="iron_quantity_<?$coco?>">
+                          <input type="text" class="form-control" name='iron_quantity_<?=$coco?>' id="iron_quantity_<?=$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_long">طول الحديد</label>
-                          <input type="text" class="form-control" name='iron_long_<?$coco?>' id="iron_long_<?$coco?>">
+                          <input type="text" class="form-control" name='iron_long_<?=$coco?>' id="iron_long_<?=$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
-                          <input type="text" class="form-control" name='iron_tn_<?$coco?>' id="iron_tn_<?$coco?>" disabled>
+                          <input type="text" class="form-control" name='iron_tn_<?=$coco?>' id="iron_tn_<?=$coco?>" disabled>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='iron_tot_<?$coco?>' id="iron_tot_<?$coco?>" disabled>
+                          <input type="text" class="form-control" name='iron_tot_<?=$coco?>' id="iron_tot_<?=$coco?>" disabled>
                           <input type="number" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
                         </div>
                       </div>
@@ -411,9 +411,9 @@ if (!empty($_GET['edit'])) {
                 </div>
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
-
+                      var i = 1;
                       $(document).ready(function() {
-                        for (var z = 1; z < i ; z++) {
+                        for (var z = 1; z <= i ; z++) {
                         $("#iron_"+z).change(function() {
                           var iron = $("#iron_"+z).val();
                           var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
@@ -425,7 +425,7 @@ if (!empty($_GET['edit'])) {
                         }
                       });
                       
-                      for (var z = 1; z < i ; z++) {
+                      for (var z = 1; z <= i ; z++) {
                       $("input").on("change", function() {
                         var iron = $("#iron_"+z).val();
                         var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
