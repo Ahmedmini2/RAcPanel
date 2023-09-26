@@ -2,6 +2,7 @@
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
 $coco = 1;
+$numberofrows = 1;
 if (!empty($_GET['edit'])) {
 
   $id = $_GET['edit'];
@@ -355,7 +356,7 @@ if (!empty($_GET['edit'])) {
                   <hr>
                   <h5>بند الحديد</h5>
                   <div class="iron">
-                    <div class="row">
+                    <div class="row" id="row<?=$coco?>">
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron">مقاس الحديد</label>
@@ -401,6 +402,7 @@ if (!empty($_GET['edit'])) {
                         <div class="form-group">
                           <label for="iron_tot">السعر الكلي</label>
                           <input type="text" class="form-control" name='iron_tot[]' id="iron_tot" disabled>
+                          <input type="number" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
                         </div>
                       </div>
                     </div>
