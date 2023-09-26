@@ -1,6 +1,8 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
+$coco = 1;
+$numberofrows = 1;
 if (!empty($_GET['edit'])) {
 
   $id = $_GET['edit'];
@@ -92,34 +94,34 @@ if (!empty($_GET['edit'])) {
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
   <style>
-/* Red border */
-hr.new1 {
-  border-top: 1px solid red;
-}
+    /* Red border */
+    hr.new1 {
+      border-top: 1px solid red;
+    }
 
-/* Dashed red border */
-hr.new2 {
-  border-top: 3px dashed black;
-  background: blanchedalmond;
-  
-}
+    /* Dashed red border */
+    hr.new2 {
+      border-top: 3px dashed black;
+      background: blanchedalmond;
 
-/* Dotted red border */
-hr.new3 {
-  border-top: 1px dotted red;
-}
+    }
 
-/* Thick red border */
-hr.new4 {
-  border: 1px solid red;
-}
+    /* Dotted red border */
+    hr.new3 {
+      border-top: 1px dotted red;
+    }
 
-/* Large rounded green border */
-hr.new5 {
-  border: 10px solid green;
-  border-radius: 5px;
-}
-</style>
+    /* Thick red border */
+    hr.new4 {
+      border: 1px solid red;
+    }
+
+    /* Large rounded green border */
+    hr.new5 {
+      border: 10px solid green;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
@@ -349,16 +351,16 @@ hr.new5 {
                     </script>
 
                   </div>
-                </div> 
-                <div class="iron_details"> 
+                </div>
+                <div class="iron_details">
                   <hr>
                   <h5>بند الحديد</h5>
-                  <div class="iron">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-6 ">
+                  <div class="iron" id="main-iron">
+                    <div class="row" id="row<?=$coco?>">
+                      <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron">مقاس الحديد</label>
-                          <select class="form-control" name="iron[]" id="iron">
+                          <select class="form-control" name="iron_<?=$coco?>" id="iron_<?=$coco?>">
                             <option value="0.395">8مم</option>
                             <option value="0.617">10مم</option>
                             <option value="0.888">12مم</option>
@@ -369,109 +371,145 @@ hr.new5 {
                             <option value="2.984">22مم</option>
                             <option value="3.85">25مم</option>
                             <option value="6.41">32مم</option>
-
                           </select>
                         </div>
                       </div>
-                      <div class="col-md-2 col-sm-6 ">
+                      <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_price">سعر طن الحديد لليوم</label>
-                          <input type="text" class="form-control" name='iron_price[]' id="iron_price">
+                          <input type="text" class="form-control" name='iron_price_<?=$coco?>' id="iron_price_<?=$coco?>">
                         </div>
                       </div>
-                      <div class="col-md-2 col-sm-6 ">
+                      <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_quantity">كمية الحديد</label>
-                          <input type="text" class="form-control" name='iron_quantity[]' id="iron_quantity">
+                          <input type="text" class="form-control" name='iron_quantity_<?=$coco?>' id="iron_quantity_<?=$coco?>">
                         </div>
                       </div>
-                      <div class="col-md-2 col-sm-6 ">
+                      <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_long">طول الحديد</label>
-                          <input type="text" class="form-control" name='iron_long[]' id="iron_long">
+                          <input type="text" class="form-control" name='iron_long_<?=$coco?>' id="iron_long_<?=$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
-                          <input type="text" class="form-control" name='iron_tn[]' id="iron_tn" disabled>
+                          <input type="text" class="form-control" name='iron_tn_<?=$coco?>' id="iron_tn_<?=$coco?>" disabled>
                         </div>
                       </div>
-                      <div class="col-md-2 col-sm-6 ">
+                      <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='iron_tot[]' id="iron_tot" disabled>
+                          <input type="text" class="form-control" name='iron_tot_<?=$coco?>' id="iron_tot_<?=$coco?>" disabled>
+                          <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
                         </div>
                       </div>
                     </div>
                     <hr class="new2">
-                    <script>
-                      $(document).ready(function() {
-                        $("#iron").change(function() {
-                          var iron = $("#iron").val();
-                          var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
-                          var tn = kg / 1000;
-                          var total = tn * parseFloat($("#iron_price").val())
-                          $("#iron_tn").val(tn);
-                          $("#iron_tot").val(total);
-                        });
-                      });
-                      $("input").on("change", function() {
-                        var iron = $("#iron").val();
-                        var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
-                        var tn = kg / 1000;
-                        var total = tn * parseFloat($("#iron_price").val())
-                        $("#iron_tn").val(tn);
-                        $("#iron_tot").val(total);
-                      })
-                    </script>
-
                   </div>
                 </div>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                      var i = 1;
+                      $(document).on('change', 'select', function() {
+                        for (var z = 1; z <= i ; z++) {
+                          var iron = $("#iron_"+z).val();
+                          var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
+                          var tn = kg / 1000;
+                          var total = tn * parseFloat($("#iron_price_"+z).val())
+                          $("#iron_tn_"+z).val(tn);
+                          $("#iron_tot_"+z).val(total);
+                        
+                        }
+                      });
+                      
+                      
+                      $(document).on('change', 'input', function() {
+                        for (var z = 1; z <= i ; z++) {
+                        console.log(z);
+                        var iron = $("#iron_"+z).val();
+                        var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
+                        var tn = kg / 1000;
+                        var total = tn * parseFloat($("#iron_price_"+z).val())
+                        $("#iron_tn_"+z).val(tn);
+                        $("#iron_tot_"+z).val(total);
+                        }
+                      });
+
+                      document.addEventListener("DOMContentLoaded", function () {
+                        const productDetails = document.querySelector("#product_details");
+                        productDetails.addEventListener("click", function (e) {
+                          if (e.target.classList.contains("add_iron")) {
+            
+                            i++;
+                            console.log("this is I : "+i);
+                          }
+                        });
+                      });
+                    
+                    </script>
+
                 <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
-                  
                 <hr>
                 <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
-                  <div class="accessory">
+                  <div class="accessory" id="main-accessory">
                     <div class="row ">
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="accessory">أسم الاكسسوار</label>
-                          <input type="text" class="form-control" name='accessory' id="accessory">
+                          <input type="text" class="form-control" name='accessory_<?=$coco?>' id="accessory_<?=$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="acc_quantity">كمية الاكسسوار</label>
-                          <input type="text" class="form-control" name='acc_quantity' id="acc_quantity">
+                          <input type="text" class="form-control" name='acc_quantity_<?=$coco?>' id="acc_quantity_<?=$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="acc_price">سعر الاكسسوار الفردي</label>
-                          <input type="text" class="form-control" name='acc_price' id="acc_price">
+                          <input type="text" class="form-control" name='acc_price_<?=$coco?>' id="acc_price_<?=$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="acc_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='acc_tot' id="acc_tot" disabled>
+                          <input type="text" class="form-control" name='acc_tot_<?=$coco?>' id="acc_tot_<?=$coco?>" disabled>
+                          <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_ac " disabled>
                         </div>
                       </div>
                     </div>
                     <hr class="new2">
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
-                      $("input").on("change", function() {
-                        var peice = (parseFloat($("#acc_quantity").val()) * parseFloat($("#acc_price").val() || '0'))
-                        $("#acc_tot").val(peice);
-                      })
+                      var a = 1;
+                      console.log("this is A : "+a);
+                       $(document).on('change', 'input', function() {
+                          for (var z = 1; z <= a ; z++) {
+                            var peice = (parseFloat($("#acc_quantity_"+z).val()) * parseFloat($("#acc_price_"+z).val() || '0'))
+                            $("#acc_tot_"+z).val(peice);
+                          }
+                        })
+
+                      document.addEventListener("DOMContentLoaded", function () {
+                        const productDetails = document.querySelector("#product_details");
+                        productDetails.addEventListener("click", function (e) {
+                          if (e.target.classList.contains("add_accessory")) {
+            
+                            a+=1;
+                            console.log("this is A : "+a);
+                          }
+                        });
+                      });
                     </script>
 
                   </div>
-                  
 
-                 
+
+
                 </div>
                 <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <hr>
@@ -484,14 +522,14 @@ hr.new5 {
                         <div class="form-group">
                           <label for="cover_type">نوع الغطاء</label>
                           <select class="form-control" name="cover_type" id="cover_type">
-                          <option value="بدون اغطية">بدون اغطية</option>
-                          <option value="غطاء واحد">غطاء واحد</option>
-                          <option value="غطائين">غطائين</option>
-                          <option value="غطاء دائري">غطاء دائري</option>
+                            <option value="بدون اغطية">بدون اغطية</option>
+                            <option value="غطاء واحد">غطاء واحد</option>
+                            <option value="غطائين">غطائين</option>
+                            <option value="غطاء دائري">غطاء دائري</option>
                           </select>
                         </div>
                       </div>
-                     
+
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_price">سعر الغطاء الفردي</label>
