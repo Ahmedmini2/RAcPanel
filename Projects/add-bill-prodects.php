@@ -283,10 +283,12 @@ hr.new5 {
                 </div>
               </div>
 
-
-              <button type="button" id="btn3" class=" text-white printing printing2 btn bg-secondary rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                <div class="addImage">
+                <button type="button" id="btn3" class=" text-white printing printing2 btn bg-secondary rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
               الرجاء اضافة صورة الفاتورة
                 </button>
+                </div>
+              
 
                 <!-- Doc Modal -->
                 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
