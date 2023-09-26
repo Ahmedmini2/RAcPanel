@@ -428,7 +428,7 @@ if (!empty($_GET['edit'])) {
                       
                       $("input").on("change", function() {
                         for (var z = 1; z <= i ; z++) {
-                          console.log(z);
+                        console.log(z);
                         var iron = $("#iron_"+z).val();
                         var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
                         var tn = kg / 1000;
@@ -444,6 +444,7 @@ if (!empty($_GET['edit'])) {
                           if (e.target.classList.contains("add_iron")) {
             
                             i++;
+                            console.log("this is I : "+i);
                           }
                         });
                     });
