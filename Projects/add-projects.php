@@ -612,7 +612,7 @@ if(isset($_POST['add-project'])){
                   </div>
 
                 </div>
-                <button type="button" name="add-project" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
+                <button type="button"  class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
                 
                 <hr>
                 <!-- Item End -->
@@ -629,7 +629,7 @@ if(isset($_POST['add-project'])){
               <div class="row">
                 <div class="col">
                   <div class="form-group">
-                    <button type="submit" name="submit" class="btn btn-secondary rounded-pill"> حفظ </button>
+                    <button type="submit" name="add-project" class="btn btn-secondary rounded-pill"> حفظ </button>
                   </div>
                 </div>
                 <div class="col">
