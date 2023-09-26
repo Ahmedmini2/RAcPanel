@@ -426,7 +426,7 @@ if (!empty($_GET['edit'])) {
                       });
                       
                       
-                      $("input").on("change paste keyup", "input", function() {
+                      $("input").on("change", function() {
                         for (var z = 1; z <= i ; z++) {
                         var iron = $("#iron_"+z).val();
                         var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
