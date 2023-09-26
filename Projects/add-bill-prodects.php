@@ -291,7 +291,7 @@ hr.new5 {
                     </div>
                   </div>
                 </div>
-                <button type="button" id="btn3" class="printing printing2 btn bg-secondary rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                <button type="button" id="btn3" class=" text-white printing printing2 btn bg-secondary rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
               إرفاق \ عرض الملف
            </button>
                 <!-- Doc Modal -->
@@ -300,7 +300,7 @@ hr.new5 {
                 <div class="modal-content">
                <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">أرفاق مستند</h5>
-              <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+              <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
                 <span aria-hidden="true">&times;</span>
               </button>
                 </div>
