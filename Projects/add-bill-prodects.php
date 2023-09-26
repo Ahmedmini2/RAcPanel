@@ -288,7 +288,7 @@ hr.new5 {
               <label> اضافة صورة الفاتورة </label>
 
               
-              <button type="button" id="btn3" class=" col-md-6 col-sm-6 text-white printing printing2 btn bg-secondary rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+              <button type="button" id="btn3" class=" col-md-4 col-sm-6 text-white printing printing2 btn bg-secondary rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
                   الرجاء اضافة صورة الفاتورة
                 </button>
                
@@ -335,7 +335,7 @@ hr.new5 {
               <div class="row">
                 <div class="col text-center">
                   <div class="form-group">
-                    <button type="submit" name="submit" class=" col-md-6 col-sm-6 btn btn-secondary rounded-pill"> حفظ </button>
+                    <button type="submit" name="submit" class=" col-md-6 col-sm-6 mt-10 btn btn-secondary rounded-pill"> حفظ </button>
                   </div>
                 </div>
               </div>
