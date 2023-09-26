@@ -283,14 +283,18 @@ hr.new5 {
                 </div>
               </div>
 
-                
-
-                  <div class="form-group">
+               <div class="row">
+               <div class="form-group">
                   <label> اضافة صورة الفاتورة </label>
                   <button type="button" id="btn3" class=" col-md-6 col-sm-6 text-white printing printing2 btn bg-secondary rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
                   الرجاء اضافة صورة الفاتورة
                 </button>
                   </div>
+               </div>
+
+                
+
+                 
                
                 
               
