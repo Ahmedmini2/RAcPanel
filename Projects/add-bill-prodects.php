@@ -254,7 +254,7 @@ hr.new5 {
           </div>
           <form id="<?php echo $idAttr; ?>" action="" method="post">
             <div class="row">
-              <div class="col-md-8 col-sm-6">
+              <div class="col">
                 <div class="form-group">
                   <label>أسم الفاتورة</label>
                   <input type="text" placeholder="الرجاء كتابة أسم فاتورة" class="form-control" name="name" value="<?php echo $name; ?>">
@@ -262,7 +262,7 @@ hr.new5 {
               </div>
             </div>
             <div class="row">
-              <div class="col-md-8 col-sm-6">
+              <div class="col">
                 <div class="form-group">
                   <label> مقدم الفاتورة</label>
                   <input type="text" placeholder="الرجاء كتابة مقدم الفاتورة" class="form-control" name="beneficiary_bank" value="<?php echo $beneficiary_bank; ?>">
@@ -275,14 +275,14 @@ hr.new5 {
               <div class="product">
             
                 <div class="row">
-                  <div class="col-md-8 col-sm-6">
+                  <div class="col">
                     <div class="form-group">
                       <label for="product_name[]">سعر الفاتورة</label>
                       <input class="form-control" type="text" name="product_name[]">
                       <!-- Add more fields for product details here -->
                     </div>
                   </div>
-                  <div class="col-md-8 col-sm-6">
+                  <div class="col">
                     <div class="form-group">
                       <label for="dimensions[]">تاريخ الفاتورة</label>
                       <input class="form-control" type="text" name="dimensions[]">
@@ -291,7 +291,7 @@ hr.new5 {
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-8 col-sm-6">
+                  <div class="col">
                     <div class="form-group">
                       <label for="quantity">صورة الفاتورة</label>
                       <input class="form-control" type="text" name='quantity' id="quantity">
