@@ -512,7 +512,7 @@ if(isset($_POST['add-project'])){
                           if (e.target.classList.contains("add_iron")) {
             
                             i++;
-                            <?php $noraws++; ?>
+                            <?php $iron_raws++; ?>
                           }
                         });
                       });
@@ -570,7 +570,7 @@ if(isset($_POST['add-project'])){
                           if (e.target.classList.contains("add_accessory")) {
             
                             a++;
-                            
+                            <?php $accessory_raws++; ?>
                           }
                         });
                       });
@@ -664,7 +664,7 @@ if(isset($_POST['add-project'])){
                           if (e.target.classList.contains("add_band")) {
             
                             b++;
-                            
+                            <?php $band_raws++; ?>
                           }
                         });
                       });
