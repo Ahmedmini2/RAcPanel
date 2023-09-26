@@ -18,7 +18,7 @@ if(isset($_POST['add-project'])){
 
   $insert_project = "INSERT INTO projects (`id`, `name`, `description`, `total_without_tax`, `total_with_tax`, `net_total`, `status`, `valid_till`, `duration`, `payment_type`, `created_at`)
   VALUES(NULL, '$project_name', '$project_description , '', '', '', '', NOW() , '', '', NOW())";
-  $project_res= $conn->query($insert_project);
+  $project_res = $conn->query($insert_project);
   if($project_res){
     $_SESSION['notification'] = "تم اضافة المستفيد بنجاح";
     header('location: index.php');
