@@ -253,6 +253,7 @@ hr.new5 {
             <h5 class="block-title text-white py-2 px-4 ">اضافة فاتورة جديد</h5>
           </div>
           <form id="<?php echo $idAttr; ?>" action="" method="post">
+          
             <div class="row">
               <div class="col-md-6 col-sm-6">
                 <div class="form-group">
@@ -260,8 +261,7 @@ hr.new5 {
                   <input type="text" placeholder="الرجاء كتابة أسم فاتورة" class="form-control" name="name" value="<?php echo $name; ?>">
                 </div>
               </div>
-            </div>
-            <div class="row">
+
               <div class="col-md-6 col-sm-6">
                 <div class="form-group">
                   <label> مقدم الفاتورة</label>
@@ -269,6 +269,7 @@ hr.new5 {
                 </div>
               </div>
             </div>
+            
 
             <!-- Product Details -->
             <div id="bill-product_details">
