@@ -291,6 +291,9 @@ hr.new5 {
                     </div>
                   </div>
                 </div>
+                <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+        إرفاق \ عرض الملف
+      </button>
                 <!-- Doc Modal -->
       <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
