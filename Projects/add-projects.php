@@ -1,6 +1,7 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
+$coco = 1;
 if (!empty($_GET['edit'])) {
 
   $id = $_GET['edit'];
@@ -411,7 +412,7 @@ hr.new5 {
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script>
-              <?php $coco = 1; ?>
+             
                       $(document).ready(function() {
                         $("#iron_clone_<?=$coco?>").change(function() {
                           var iron = $("#iron_clone_<?=$coco?>").val();
