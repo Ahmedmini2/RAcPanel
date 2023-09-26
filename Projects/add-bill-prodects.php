@@ -77,7 +77,7 @@ if (!empty($_GET['edit'])) {
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
   <title>
-    طلب إعتماد مشروع جديد
+    اضافة فاتورة جديد
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -133,7 +133,7 @@ hr.new5 {
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;"> طلب إعتماد مشروع جديد</a></li>
+            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">  اضافة فاتورة جديد</a></li>
 
           </ol>
 
