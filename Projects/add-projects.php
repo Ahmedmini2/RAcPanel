@@ -426,7 +426,7 @@ if (!empty($_GET['edit'])) {
                       });
                       
                       
-                      $("input").on("change", function() {
+                      $(document).on('change', 'input', function() {
                         for (var z = 1; z <= i ; z++) {
                         console.log(z);
                         var iron = $("#iron_"+z).val();
