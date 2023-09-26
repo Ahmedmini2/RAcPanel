@@ -25,6 +25,7 @@ if(isset($_POST['add-project'])){
     
   }else{
     $_SESSION['notification'] = "يوجد خلل في النظام";
+    header('location: index.php');
   }
   
 
