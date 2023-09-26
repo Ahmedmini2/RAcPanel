@@ -360,7 +360,7 @@ if (!empty($_GET['edit'])) {
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron">مقاس الحديد</label>
-                          <select class="form-control" name="iron[]" id="iron">
+                          <select class="form-control" name="iron_<?$coco?>" id="iron_<?$coco?>">
                             <option value="0.395">8مم</option>
                             <option value="0.617">10مم</option>
                             <option value="0.888">12مم</option>
@@ -377,31 +377,31 @@ if (!empty($_GET['edit'])) {
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_price">سعر طن الحديد لليوم</label>
-                          <input type="text" class="form-control" name='iron_price[]' id="iron_price">
+                          <input type="text" class="form-control" name='iron_price_<?$coco?>' id="iron_price_<?$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_quantity">كمية الحديد</label>
-                          <input type="text" class="form-control" name='iron_quantity[]' id="iron_quantity">
+                          <input type="text" class="form-control" name='iron_quantity_<?$coco?>' id="iron_quantity_<?$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_long">طول الحديد</label>
-                          <input type="text" class="form-control" name='iron_long[]' id="iron_long">
+                          <input type="text" class="form-control" name='iron_long_<?$coco?>' id="iron_long_<?$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
-                          <input type="text" class="form-control" name='iron_tn[]' id="iron_tn" disabled>
+                          <input type="text" class="form-control" name='iron_tn_<?$coco?>' id="iron_tn_<?$coco?>" disabled>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='iron_tot[]' id="iron_tot" disabled>
+                          <input type="text" class="form-control" name='iron_tot_<?$coco?>' id="iron_tot_<?$coco?>" disabled>
                           <input type="number" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
                         </div>
                       </div>
@@ -411,34 +411,30 @@ if (!empty($_GET['edit'])) {
                 </div>
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
-                      $(document).ready(function() {
-                        $("#iron").change(function() {
-                          var iron = $("#iron").val();
-                          var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
-                          var tn = kg / 1000;
-                          var total = tn * parseFloat($("#iron_price").val())
-                          $("#iron_tn").val(tn);
-                          $("#iron_tot").val(total);
-                        });
-                      });
-                      $("input").on("change", function() {
-                        var iron = $("#iron").val();
-                        var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
-                        var tn = kg / 1000;
-                        var total = tn * parseFloat($("#iron_price").val())
-                        $("#iron_tn").val(tn);
-                        $("#iron_tot").val(total);
-                      });
 
-                      $("#main-iron").on("change paste keyup", "input", function() {
-                        var tableRow = $(this).closest("row");
-                        var iron = parseFloat(tableRow.find($("#iron")).val()) ;
-                        var kg = (parseFloat(tableRow.find($("#iron_quantity")).val()) * parseFloat(tableRow.find($("#iron_long")).val() || '0') * iron)
-                        var tn = kg / 1000;
-                        var total = tn * parseFloat(tableRow.find($("#iron_price")).val())
-                        tableRow.find($("#iron_tn")).val(tn);
-                        tableRow.find($("#iron_tot")).val(total);
+                      $(document).ready(function() {
+                        for (var z = 1; z < i ; z++) {
+                        $("#iron_"+z).change(function() {
+                          var iron = $("#iron_"+z).val();
+                          var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
+                          var tn = kg / 1000;
+                          var total = tn * parseFloat($("#iron_price_"+z).val())
+                          $("#iron_tn_"+z).val(tn);
+                          $("#iron_tot_"+z).val(total);
+                        });
+                        }
                       });
+                      
+                      for (var z = 1; z < i ; z++) {
+                      $("input").on("change", function() {
+                        var iron = $("#iron_"+z).val();
+                        var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
+                        var tn = kg / 1000;
+                        var total = tn * parseFloat($("#iron_price_"+z).val())
+                        $("#iron_tn_"+z).val(tn);
+                        $("#iron_tot_"+z).val(total);
+                      });
+                    }
                     </script>
 
                 <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
