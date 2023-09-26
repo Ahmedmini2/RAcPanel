@@ -320,14 +320,8 @@ hr.new5 {
           </div>
         </div>
       </div>
-
-  
-
-              </div>
+ </div>
               <!-- Product End -->
-
-              <button type="button" class="btn btn-secondary rounded-pill add_product">أضافة منتج</button>
-              <br><br>
 
               <div class="row">
                 <div class="col">
