@@ -285,7 +285,7 @@ hr.new5 {
 
 
               <button type="button" id="btn3" class=" text-white printing printing2 btn bg-secondary rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
-              إرفاق \ عرض الملف
+              الرجاء اضافة صورة الفاتورة
                 </button>
 
                 <!-- Doc Modal -->
