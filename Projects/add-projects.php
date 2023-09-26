@@ -43,7 +43,59 @@ if(isset($_POST['add-project'])){
       $kh_res = $conn->query($insert_kh);
       if($kh_res){
         
-        
+        while ($iron1 <= $iron_raws){
+          $iron = $_POST['iron_'.$iron1];
+          $iron_price = $_POST['iron_price_'.$iron1];
+          $iron_quantity = $_POST['iron_quantity_'.$iron1];
+          $iron_long = $_POST['iron_long_'.$iron1];
+          $iron_tn = $_POST['iron_tn_'.$iron1];
+          $iron_tot = $_POST['iron_tot_'.$iron1];
+
+          $sizeText = [
+            "0.395" => "8مم",
+            "0.617" => "10مم",
+            "0.888" => "12مم",
+            "1.21" => "14مم",
+            "1.58" => "16مم",
+            "2" => "18مم",
+            "2.47" => "20مم",
+            "2.984" => "22مم",
+            "3.85" => "25مم",
+            "6.41" => "32مم",
+          ];
+
+          $selectedSizeText = $sizeText[$iron];
+
+          $insert_iron = "INSERT INTO iron_band (`id`, `product_id`, `size`, `price_today`, `quantity`, `iron_height`, `tn_price`, `total_price`, `created_at`)
+          VALUES (NULL, '$product_id' , '$selectedSizeText' , '$iron_price' , '$iron_quantity' , '$iron_long' , '$iron_tn' ,'$iron_tot', NOW())";
+          $iron_res = $conn->query($insert_iron);
+          if($iron_res){
+            $_SESSION['notification'] = "One Addes";
+          }else{
+            $_SESSION['notification'] = "One Error";
+          }
+          $iron1++;
+        }
+
+        while ($accessory1 <= $accessory_raws){
+          $accessory = $_POST['accessory_'.$accessory1];
+          $acc_quantity = $_POST['acc_quantity_'.$accessory1];
+          $acc_price = $_POST['acc_price_'.$accessory1];
+          $acc_tot = $_POST['acc_tot_'.$accessory1];
+
+          $insert_accessory = "INSERT INTO `accessory_band` (`id`, `product_id`, `name`, `quantity`, `price_per_piece`, `total_price`, `created_at`) 
+          VALUES (NULL, '$product_id' , '$accessory' , '$acc_quantity' , '$acc_price' , '$acc_tot' , NOW())";
+          $accessory_res = $conn->query($insert_accessory);
+          if($accessory_res){
+            $_SESSION['notification'] = "One Addes";
+          }else{
+            $_SESSION['notification'] = "One Error";
+          }
+          $accessory1++;
+        }
+        $_SESSION['notification'] = "كلو في السليم يا زميل";
+        header('location: index.php');
+
       }else{
         $_SESSION['notification'] = "يوجد خلل في ادخال الصنف";
         header('location: index.php');
@@ -61,29 +113,11 @@ if(isset($_POST['add-project'])){
 
   
 
-  $kharasana = $_POST['kharasana'];
-  $kh_price = $_POST['kh_price'];
-  $kh_per = $_POST['kh_per'];
-  $kh_peice = $_POST['kh_peice'];
-  $kh_tot = $_POST['kh_tot'];
+  
 
-  while ($iron1 <= $iron_raws){
-    $iron_[$iron1] = $_POST['iron_'.$iron1];
-    $iron_price_[$iron1] = $_POST['iron_price_'.$iron1];
-    $iron_quantity_[$iron1] = $_POST['iron_quantity_'.$iron1];
-    $iron_long_[$iron1] = $_POST['iron_long_'.$iron1];
-    $iron_tn_[$iron1] = $_POST['iron_tn_'.$iron1];
-    $iron_tot_[$iron1] = $_POST['iron_tot_'.$iron1];
-    $iron1++;
-  }
 
-  while ($accessory1 <= $accessory_raws){
-    $accessory_[$accessory1] = $_POST['accessory_'.$accessory1];
-    $acc_quantity_[$accessory1] = $_POST['acc_quantity_'.$accessory1];
-    $acc_price_[$accessory1] = $_POST['acc_price_'.$accessory1];
-    $acc_tot_[$accessory1] = $_POST['acc_tot_'.$accessory1];
-    $accessory1++;
-  }
+
+  
 
   $cover_type = $_POST['cover_type'];
   $cover_price = $_POST['cover_price'];
@@ -431,13 +465,13 @@ if(isset($_POST['add-project'])){
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
-                          <input type="text" class="form-control" name='iron_tn_<?=$coco?>' id="iron_tn_<?=$coco?>" disabled>
+                          <input type="text" class="form-control" name='iron_tn_<?=$coco?>' id="iron_tn_<?=$coco?>" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='iron_tot_<?=$coco?>' id="iron_tot_<?=$coco?>" disabled>
+                          <input type="text" class="form-control" name='iron_tot_<?=$coco?>' id="iron_tot_<?=$coco?>" readonly>
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
                         </div>
                       </div>
@@ -512,7 +546,7 @@ if(isset($_POST['add-project'])){
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="acc_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='acc_tot_<?=$coco?>' id="acc_tot_<?=$coco?>" disabled>
+                          <input type="text" class="form-control" name='acc_tot_<?=$coco?>' id="acc_tot_<?=$coco?>" readonly>
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_ac" disabled>
                         </div>
                       </div>
@@ -575,7 +609,7 @@ if(isset($_POST['add-project'])){
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='cover_tot' id="cover_tot" disabled>
+                          <input type="text" class="form-control" name='cover_tot' id="cover_tot" readonly>
                         </div>
                       </div>
                     </div>
@@ -609,7 +643,7 @@ if(isset($_POST['add-project'])){
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="band_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name="band_tot_<?=$coco?>" id="band_tot_<?=$coco?>" disabled>
+                          <input type="text" class="form-control" name="band_tot_<?=$coco?>" id="band_tot_<?=$coco?>" readonly>
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_band" disabled>
                         </div>
                       </div>
