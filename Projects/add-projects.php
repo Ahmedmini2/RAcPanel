@@ -478,7 +478,7 @@ if (!empty($_GET['edit'])) {
                         <div class="form-group">
                           <label for="acc_tot">السعر الكلي</label>
                           <input type="text" class="form-control" name='acc_tot_<?=$coco?>' id="acc_tot_<?=$coco?>" disabled>
-                          <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_ac " disabled>
+                          <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_ac" disabled>
                         </div>
                       </div>
                     </div>
@@ -486,9 +486,10 @@ if (!empty($_GET['edit'])) {
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
                       var a = 1;
-                      console.log("this is A : "+a);
+                      
                        $(document).on('change', 'input', function() {
                           for (var z = 1; z <= a ; z++) {
+                            console.log("this is A : "+a);
                             var peice = (parseFloat($("#acc_quantity_"+z).val()) * parseFloat($("#acc_price_"+z).val() || '0'))
                             $("#acc_tot_"+z).val(peice);
                           }
@@ -499,7 +500,7 @@ if (!empty($_GET['edit'])) {
                         productDetails.addEventListener("click", function (e) {
                           if (e.target.classList.contains("add_accessory")) {
             
-                            a+=1;
+                            a++;
                             console.log("this is A : "+a);
                           }
                         });
