@@ -262,7 +262,7 @@ if(isset($_POST['add-project'])){
 
             <h5 class="block-title text-white py-2 px-4 ">طلب إعتماد مشروع جديد</h5>
           </div>
-          <form id="<?php echo $idAttr; ?>" action="" method="post">
+          <form id="<?php echo $idAttr; ?>" action="#" method="post">
             <div class="row">
               <div class="col-md-8 col-sm-6">
                 <div class="form-group">
