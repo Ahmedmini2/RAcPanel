@@ -93,34 +93,34 @@ if (!empty($_GET['edit'])) {
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
   <style>
-/* Red border */
-hr.new1 {
-  border-top: 1px solid red;
-}
+    /* Red border */
+    hr.new1 {
+      border-top: 1px solid red;
+    }
 
-/* Dashed red border */
-hr.new2 {
-  border-top: 3px dashed black;
-  background: blanchedalmond;
-  
-}
+    /* Dashed red border */
+    hr.new2 {
+      border-top: 3px dashed black;
+      background: blanchedalmond;
 
-/* Dotted red border */
-hr.new3 {
-  border-top: 1px dotted red;
-}
+    }
 
-/* Thick red border */
-hr.new4 {
-  border: 1px solid red;
-}
+    /* Dotted red border */
+    hr.new3 {
+      border-top: 1px dotted red;
+    }
 
-/* Large rounded green border */
-hr.new5 {
-  border: 10px solid green;
-  border-radius: 5px;
-}
-</style>
+    /* Thick red border */
+    hr.new4 {
+      border: 1px solid red;
+    }
+
+    /* Large rounded green border */
+    hr.new5 {
+      border: 10px solid green;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
@@ -350,94 +350,86 @@ hr.new5 {
                     </script>
 
                   </div>
-                </div> 
+                </div>
                 <div class="iron_details">
-                <hr>
-                <h5>بند الحديد</h5>
-                <div class="iron">
+                  <hr>
+                  <h5>بند الحديد</h5>
+                  <div class="iron">
                     <div class="row">
-                        <div class="col-md-2 col-sm-6">
-                            <div class="form-group">
-                                <label for="iron">مقاس الحديد</label>
-                                <select class="form-control" name="iron" id="iron">
-                                    <option value="0.395">8مم</option>
-                                    <option value="0.617">10مم</option>
-                                    <option value="0.888">12مم</option>
-                                    <option value="1.21">14مم</option>
-                                    <option value="1.58">16مم</option>
-                                    <option value="2">18مم</option>
-                                    <option value="2.47">20مم</option>
-                                    <option value="2.984">22مم</option>
-                                    <option value="3.85">25مم</option>
-                                    <option value="6.41">32مم</option>
-                                </select>
-                            </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="iron">مقاس الحديد</label>
+                          <select class="form-control" name="iron[]" id="iron">
+                            <option value="0.395">8مم</option>
+                            <option value="0.617">10مم</option>
+                            <option value="0.888">12مم</option>
+                            <option value="1.21">14مم</option>
+                            <option value="1.58">16مم</option>
+                            <option value="2">18مم</option>
+                            <option value="2.47">20مم</option>
+                            <option value="2.984">22مم</option>
+                            <option value="3.85">25مم</option>
+                            <option value="6.41">32مم</option>
+                          </select>
                         </div>
-                        <div class="col-md-2 col-sm-6">
-                            <div class="form-group">
-                                <label for="iron_price">سعر طن الحديد لليوم</label>
-                                <input type="text" class="form-control" name='iron_price' id="iron_price">
-                            </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="iron_price">سعر طن الحديد لليوم</label>
+                          <input type="text" class="form-control" name='iron_price[]' id="iron_price">
                         </div>
-                        <div class="col-md-2 col-sm-6">
-                            <div class="form-group">
-                                <label for="iron_quantity">كمية الحديد</label>
-                                <input type="text" class="form-control" name='iron_quantity' id="iron_quantity">
-                            </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="iron_quantity">كمية الحديد</label>
+                          <input type="text" class="form-control" name='iron_quantity[]' id="iron_quantity">
                         </div>
-                        <div class="col-md-2 col-sm-6">
-                            <div class="form-group">
-                                <label for="iron_long">طول الحديد</label>
-                                <input type="text" class="form-control" name='iron_long' id="iron_long">
-                            </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="iron_long">طول الحديد</label>
+                          <input type="text" class="form-control" name='iron_long[]' id="iron_long">
                         </div>
-                        <div class="col-md-2 col-sm-6">
-                            <div class="form-group">
-                                <label for="iron_tn">السعر الطن</label>
-                                <input type="text" class="form-control" name='iron_tn' id="iron_tn" disabled>
-                            </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="iron_tn">السعر الطن</label>
+                          <input type="text" class="form-control" name='iron_tn[]' id="iron_tn" disabled>
                         </div>
-                        <div class="col-md-2 col-sm-6">
-                            <div class="form-group">
-                                <label for="iron_tot">السعر الكلي</label>
-                                <input type="text" class="form-control" name='iron_tot' id="iron_tot" disabled>
-                            </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="iron_tot">السعر الكلي</label>
+                          <input type="text" class="form-control" name='iron_tot[]' id="iron_tot" disabled>
                         </div>
+                      </div>
                     </div>
                     <hr class="new2">
+                  </div>
                 </div>
-            </div>
-
-            <div class="cloned-irons"></div> <!-- Cloned .iron elements will be appended here -->
-
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script>
-             
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
                       $(document).ready(function() {
-                        $("#iron_clone_<?=$coco?>").change(function() {
-                          var iron = $("#iron_clone_<?=$coco?>").val();
-                          var kg = (parseFloat($("#iron_quantity_clone_<?=$coco?>").val()) * parseFloat($("#iron_long_clone_<?=$coco?>").val() || '0') * iron)
+                        $("#iron[]").change(function() {
+                          var iron = $("#iron[]").val();
+                          var kg = (parseFloat($("#iron_quantity[]").val()) * parseFloat($("#iron_long[]").val() || '0') * iron)
                           var tn = kg / 1000;
-                          var total = tn * parseFloat($("#iron_price_clone_<?=$coco?>").val())
-                          $("#iron_tn_clone_<?=$coco?>").val(tn);
-                          $("#iron_tot_clone_<?=$coco?>").val(total);
+                          var total = tn * parseFloat($("#iron_price[]").val())
+                          $("#iron_tn[]").val(tn);
+                          $("#iron_tot[]").val(total);
                         });
                       });
                       $("input").on("change", function() {
-                        var iron = $("#iron_clone_<?=$coco?>").val();
-                        var kg = (parseFloat($("#iron_quantity_clone_<?=$coco?>").val()) * parseFloat($("#iron_long_clone_<?=$coco?>").val() || '0') * iron)
+                        var iron = $("#iron[]").val();
+                        var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
                         var tn = kg / 1000;
-                        var total = tn * parseFloat($("#iron_price_clone_<?=$coco?>").val())
-                        $("#iron_tn_clone_<?=$coco?>").val(tn);
-                        $("#iron_tot_clone_<?=$coco?>").val(total);
+                        var total = tn * parseFloat($("#iron_price[]").val())
+                        $("#iron_tn[]").val(tn);
+                        $("#iron_tot[]").val(total);
                       })
-
-                      $(".add_iron").click(function () {
-                        <?php $coco++; ?>
-                      });
                     </script>
 
-            <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
+                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
                 <hr>
                 <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
@@ -477,9 +469,9 @@ hr.new5 {
                     </script>
 
                   </div>
-                  
 
-                 
+
+
                 </div>
                 <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <hr>
@@ -492,14 +484,14 @@ hr.new5 {
                         <div class="form-group">
                           <label for="cover_type">نوع الغطاء</label>
                           <select class="form-control" name="cover_type" id="cover_type">
-                          <option value="بدون اغطية">بدون اغطية</option>
-                          <option value="غطاء واحد">غطاء واحد</option>
-                          <option value="غطائين">غطائين</option>
-                          <option value="غطاء دائري">غطاء دائري</option>
+                            <option value="بدون اغطية">بدون اغطية</option>
+                            <option value="غطاء واحد">غطاء واحد</option>
+                            <option value="غطائين">غطائين</option>
+                            <option value="غطاء دائري">غطاء دائري</option>
                           </select>
                         </div>
                       </div>
-                     
+
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_price">سعر الغطاء الفردي</label>
