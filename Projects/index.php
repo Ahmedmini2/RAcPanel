@@ -153,6 +153,10 @@ $_SESSION['sidebar'] = "Projects";
     <!-- End Navbar -->
 
     <div class="container-fluid py-4">
+    <div class="block-header bg-gradient-dark  col-md-3 col-sm-6 col-xs-6  rounded-pill">
+                                    
+                                    <?php require_once('../components/notification.php'); ?>
+                                  </div>
       <div class="col-12 mt-4">
       <div class="card mb-4 p-3">
         <div class="card-header">

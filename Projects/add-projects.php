@@ -16,9 +16,9 @@ if(isset($_POST['add-project'])){
   $project_name = $_POST['project_name'];
   $project_description = $_POST['project_description'];
 
-  $insert_project = "INSERT INTO projects (id, name, description,created_at) VALUES(NULL, '$project_name', '$project_description , NOW())";
-  $project_res= $conn->query($insert_project);
-  if($insertResult){
+  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`created_at`) VALUES(NULL, '$project_name', '$project_description' ,NOW())";
+  $project_res = $conn->query($insert_project);
+  if($project_res){
     $_SESSION['notification'] = "تم اضافة المستفيد بنجاح";
     header('location: index.php');
     exit();
@@ -262,7 +262,7 @@ if(isset($_POST['add-project'])){
 
             <h5 class="block-title text-white py-2 px-4 ">طلب إعتماد مشروع جديد</h5>
           </div>
-          <form id="<?php echo $idAttr; ?>" action="" method="post">
+          <form id="<?php echo $idAttr; ?>" action="#" method="post">
             <div class="row">
               <div class="col-md-8 col-sm-6">
                 <div class="form-group">
@@ -611,7 +611,7 @@ if(isset($_POST['add-project'])){
                   </div>
 
                 </div>
-                <button type="button" name="add-project" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
+                <button type="button"  class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
                 
                 <hr>
                 <!-- Item End -->
@@ -628,7 +628,7 @@ if(isset($_POST['add-project'])){
               <div class="row">
                 <div class="col">
                   <div class="form-group">
-                    <button type="submit" name="submit" class="btn btn-secondary rounded-pill"> حفظ </button>
+                    <button type="submit" name="add-project" class="btn btn-secondary rounded-pill"> حفظ </button>
                   </div>
                 </div>
                 <div class="col">
