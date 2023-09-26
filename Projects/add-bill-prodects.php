@@ -277,14 +277,14 @@ hr.new5 {
                 <div class="row">
                   <div class="col-md-8 col-sm-6">
                     <div class="form-group">
-                      <label for="product_name[]">أسم الصنف</label>
+                      <label for="product_name[]">سعر الفاتورة</label>
                       <input class="form-control" type="text" name="product_name[]">
                       <!-- Add more fields for product details here -->
                     </div>
                   </div>
                   <div class="col-md-8 col-sm-6">
                     <div class="form-group">
-                      <label for="dimensions[]">المقاسات</label>
+                      <label for="dimensions[]">تاريخ الفاتورة</label>
                       <input class="form-control" type="text" name="dimensions[]">
                       <!-- Add more fields for product details here -->
                     </div>
@@ -293,263 +293,22 @@ hr.new5 {
                 <div class="row">
                   <div class="col-md-8 col-sm-6">
                     <div class="form-group">
-                      <label for="quantity">كمية الصنف</label>
+                      <label for="quantity">صورة الفاتورة</label>
                       <input class="form-control" type="text" name='quantity' id="quantity">
                       <!-- Add more fields for product details here -->
                     </div>
                   </div>
                 </div>
 
-                <!-- Item Details -->
-                <div class="kh_details">
-                  <h5>بند الخرسانة</h5>
-                  <div class="item">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-6">
-                        <div class="form-group">
-                          <label for="kharasana">نوع الخرسانة</label>
-                          <select class="form-control" name="kharasana">
-                            <option value="خرسانة شركة">خرسانة شركة</option>
-                            <option value="خرسانة رجيع">خرسانة رجيع</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="kh_price">سعر الخرسانة</label>
-                          <input type="text" class="form-control" name='kh_price' id="kh_price">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="kh_per">كمية الخرسانة للصنف الواحد</label>
-                          <input type="text" class="form-control" name='kh_per' id="kh_per">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="kh_tot">السعر للمنتج الفردي</label>
-                          <input type="text" class="form-control" name='kh_peice' id="kh_peice" disabled>
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="kh_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='kh_tot' id="kh_tot" disabled>
-                        </div>
-                      </div>
-                    </div>
-                    <script>
-                      $("input").on("change", function() {
-                        var peice = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0'))
-                        var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0')) * parseFloat($("#quantity").val())
-                        $("#kh_tot").val(ret);
-                        $("#kh_peice").val(peice);
-                      })
-                    </script>
-
-                  </div>
-                </div> 
-                <div class="iron_details"> 
-                  <hr>
-                  <h5>بند الحديد</h5>
-                  <div class="iron">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="iron">مقاس الحديد</label>
-                          <select class="form-control" name="iron[]" id="iron">
-                            <option value="0.395">8مم</option>
-                            <option value="0.617">10مم</option>
-                            <option value="0.888">12مم</option>
-                            <option value="1.21">14مم</option>
-                            <option value="1.58">16مم</option>
-                            <option value="2">18مم</option>
-                            <option value="2.47">20مم</option>
-                            <option value="2.984">22مم</option>
-                            <option value="3.85">25مم</option>
-                            <option value="6.41">32مم</option>
-
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="iron_price">سعر طن الحديد لليوم</label>
-                          <input type="text" class="form-control" name='iron_price[]' id="iron_price">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="iron_quantity">كمية الحديد</label>
-                          <input type="text" class="form-control" name='iron_quantity[]' id="iron_quantity">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="iron_long">طول الحديد</label>
-                          <input type="text" class="form-control" name='iron_long[]' id="iron_long">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6">
-                        <div class="form-group">
-                          <label for="iron_tn">السعر الطن</label>
-                          <input type="text" class="form-control" name='iron_tn[]' id="iron_tn" disabled>
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="iron_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='iron_tot[]' id="iron_tot" disabled>
-                        </div>
-                      </div>
-                    </div>
-                    <hr class="new2">
-                    <script>
-                      $(document).ready(function() {
-                        $("#iron").change(function() {
-                          var iron = $("#iron").val();
-                          var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
-                          var tn = kg / 1000;
-                          var total = tn * parseFloat($("#iron_price").val())
-                          $("#iron_tn").val(tn);
-                          $("#iron_tot").val(total);
-                        });
-                      });
-                      $("input").on("change", function() {
-                        var iron = $("#iron").val();
-                        var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
-                        var tn = kg / 1000;
-                        var total = tn * parseFloat($("#iron_price").val())
-                        $("#iron_tn").val(tn);
-                        $("#iron_tot").val(total);
-                      })
-                    </script>
-
-                  </div>
-                </div>
+               
                 <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
                   
-                <hr>
-                <div class="accessory_details">
-                  <h5>بند الاكسسوارات</h5>
-                  <div class="accessory">
-                    <div class="row ">
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="accessory">أسم الاكسسوار</label>
-                          <input type="text" class="form-control" name='accessory' id="accessory">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6">
-                        <div class="form-group">
-                          <label for="acc_quantity">كمية الاكسسوار</label>
-                          <input type="text" class="form-control" name='acc_quantity' id="acc_quantity">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="acc_price">سعر الاكسسوار الفردي</label>
-                          <input type="text" class="form-control" name='acc_price' id="acc_price">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="acc_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='acc_tot' id="acc_tot" disabled>
-                        </div>
-                      </div>
-                    </div>
-                    <hr class="new2">
-                    <script>
-                      $("input").on("change", function() {
-                        var peice = (parseFloat($("#acc_quantity").val()) * parseFloat($("#acc_price").val() || '0'))
-                        $("#acc_tot").val(peice);
-                      })
-                    </script>
-
-                  </div>
-                  
-
-                 
-                </div>
+                
+                
                 <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <hr>
 
-                <div class="accessory_details">
-                  <h5>بند الاغطية</h5>
-                  <div class="covers">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="cover_type">نوع الغطاء</label>
-                          <select class="form-control" name="cover_type" id="cover_type">
-                          <option value="بدون اغطية">بدون اغطية</option>
-                          <option value="غطاء واحد">غطاء واحد</option>
-                          <option value="غطائين">غطائين</option>
-                          <option value="غطاء دائري">غطاء دائري</option>
-                          </select>
-                        </div>
-                      </div>
-                     
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="cover_price">سعر الغطاء الفردي</label>
-                          <input type="text" class="form-control" name='cover_price' id="cover_price">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="cover_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='cover_tot' id="cover_tot" disabled>
-                        </div>
-                      </div>
-                    </div>
-                    <script>
-                      $("input").on("change", function() {
-                        var peice = (parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val() || '0'))
-                        $("#cover_tot").val(peice);
-                      })
-                    </script>
-
-                  </div>
-                </div>
-                <hr>
-
-                <div class="band_details">
-                  <h5>بنود اخرى</h5>
-                  <div class="band">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-6">
-                        <div class="form-group">
-                          <label for="band">أسم البند</label>
-                          <input type="text" class="form-control" name='band' id="band">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6">
-                        <div class="form-group">
-                          <label for="band_price">سعر البند</label>
-                          <input type="text" class="form-control" name='band_price' id="band_price">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6">
-                        <div class="form-group">
-                          <label for="band_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='band_tot' id="band_tot" disabled>
-                        </div>
-                      </div>
-                    </div>
-                    <hr class="new2">
-                    <script>
-                      $("input").on("change", function() {
-                        var peice = (parseFloat($("#band_price").val()) * parseFloat($("#quantity").val() || '0'))
-                        $("#band_tot").val(peice);
-                      })
-                    </script>
-
-                  </div>
-
-                </div>
+          
                 <button type="button" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
                 <hr>
                 <!-- Item End -->
