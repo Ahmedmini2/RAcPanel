@@ -248,7 +248,7 @@ hr.new5 {
       <div class="row">
         <div class="block block-themed">
 
-          <div class="block-header bg-gradient-dark col-lg-4 col-md-4 col-sm-4 col-xs-4  rounded-pill">
+          <div class="block-header bg-gradient-dark col-lg-3 col-md-5 col-sm-5 col-xs-4  rounded-pill">
 
             <h5 class="block-title text-white py-2 px-4 ">اضافة فاتورة جديد</h5>
           </div>
