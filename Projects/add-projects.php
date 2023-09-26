@@ -430,15 +430,14 @@ if (!empty($_GET['edit'])) {
                         $("#iron_tot").val(total);
                       });
 
-                      $("input").on("change paste keyup", "input", function() {
-                        var tableRow = $(this).closest("rowcount");
-                        console.log(tableRow);
-                        var iron = $("#iron").val();
-                        var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
+                      $("#main-iron").on("change paste keyup", "input", function() {
+                        var tableRow = $(this).closest("row");
+                        var iron = parseFloat(tableRow.find($("#iron")).val()) ;
+                        var kg = (parseFloat(tableRow.find($("#iron_quantity")).val()) * parseFloat(tableRow.find($("#iron_long")).val() || '0') * iron)
                         var tn = kg / 1000;
-                        var total = tn * parseFloat($("#iron_price").val())
-                        $("#iron_tn").val(tn);
-                        $("#iron_tot").val(total);
+                        var total = tn * parseFloat(tableRow.find($("#iron_price")).val())
+                        tableRow.find($("#iron_tn")).val(tn);
+                        tableRow.find($("#iron_tot")).val(total);
                       });
                     </script>
 
