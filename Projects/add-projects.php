@@ -436,6 +436,13 @@ if (!empty($_GET['edit'])) {
                         $("#iron_tot_"+z).val(total);
                         }
                       });
+
+                      productDetails.addEventListener("click", function (e) {
+                        if (e.target.classList.contains("add_iron")) {
+            
+                            i++;
+                        }
+                      });
                     
                     </script>
 
