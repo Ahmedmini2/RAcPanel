@@ -283,7 +283,7 @@ hr.new5 {
                 </div>
               </div>
 
-                <div class="addImage">
+                
 
                   <div class="form-group">
                   <label> اضافة صورة الفاتورة </label>
@@ -292,7 +292,7 @@ hr.new5 {
                 </button>
                   </div>
                
-                </div>
+                
               
 
                 <!-- Doc Modal -->
