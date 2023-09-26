@@ -291,15 +291,32 @@ hr.new5 {
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col">
-                    <div class="form-group">
-                      <label for="quantity">صورة الفاتورة</label>
-                      <input class="form-control" type="text" name='quantity' id="quantity">
-                      <!-- Add more fields for product details here -->
-                    </div>
-                  </div>
-                </div>
+                <!-- Doc Modal -->
+      <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">أرفاق مستند</h5>
+              <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>" enctype="multipart/form-data">
+                <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
+                <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
+                <?php if ($doc != '') {
+                  echo '<a href="../Signed-Docs/' . $id . '/' . $doc . '" target="_blank"><img src="../Signed-Docs/' . $id . '/' . $doc . '" class="img-fluid rounded-top" alt="' . $doc . '"></a>';
+                } ?>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal2">Close</button>
+              <button type="button" class="btn bg-gradient-dark rounded-pill">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
                
                 <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
