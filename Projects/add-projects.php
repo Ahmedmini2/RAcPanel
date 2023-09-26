@@ -499,7 +499,7 @@ if (!empty($_GET['edit'])) {
                         productDetails.addEventListener("click", function (e) {
                           if (e.target.classList.contains("add_accessory")) {
             
-                            a++;
+                            a+=1;
                             console.log("this is A : "+a);
                           }
                         });
