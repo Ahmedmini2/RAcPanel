@@ -335,7 +335,7 @@ hr.new5 {
               <div class="row">
                 <div class="col text-center">
                   <div class="form-group">
-                    <button type="submit" name="submit" class=" col-md-6 col-sm-6 mt-10 btn btn-secondary rounded-pill"> حفظ </button>
+                    <button type="submit" name="submit" class=" col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill"> حفظ </button>
                   </div>
                 </div>
               </div>
