@@ -446,7 +446,7 @@ if (!empty($_GET['edit'])) {
                             console.log("this is I : "+i);
                           }
                         });
-                    });
+                      });
                     
                     </script>
 
@@ -454,39 +454,55 @@ if (!empty($_GET['edit'])) {
                 <hr>
                 <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
-                  <div class="accessory">
+                  <div class="accessory" id="main-accessory">
                     <div class="row ">
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="accessory">أسم الاكسسوار</label>
-                          <input type="text" class="form-control" name='accessory' id="accessory">
+                          <input type="text" class="form-control" name='accessory_<?=$coco?>' id="accessory_<?=$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="acc_quantity">كمية الاكسسوار</label>
-                          <input type="text" class="form-control" name='acc_quantity' id="acc_quantity">
+                          <input type="text" class="form-control" name='acc_quantity_<?=$coco?>' id="acc_quantity_<?=$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="acc_price">سعر الاكسسوار الفردي</label>
-                          <input type="text" class="form-control" name='acc_price' id="acc_price">
+                          <input type="text" class="form-control" name='acc_price_<?=$coco?>' id="acc_price_<?=$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="acc_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='acc_tot' id="acc_tot" disabled>
+                          <input type="text" class="form-control" name='acc_tot_<?=$coco?>' id="acc_tot_<?=$coco?>" disabled>
+                          <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_ac " disabled>
                         </div>
                       </div>
                     </div>
                     <hr class="new2">
                     <script>
-                      $("input").on("change", function() {
-                        var peice = (parseFloat($("#acc_quantity").val()) * parseFloat($("#acc_price").val() || '0'))
-                        $("#acc_tot").val(peice);
+                      var a = 1;
+
+                       $(document).on('change', 'input', function() {
+                        for (var z = 1; z <= a ; z++) {
+                        var peice = (parseFloat($("#acc_quantity_"+z).val()) * parseFloat($("#acc_price_"+z).val() || '0'))
+                        $("#acc_tot_"+z).val(peice);
+                        }
                       })
+
+                      document.addEventListener("DOMContentLoaded", function () {
+                        const productDetails = document.querySelector("#product_details");
+                        productDetails.addEventListener("click", function (e) {
+                          if (e.target.classList.contains("add_accessory")) {
+            
+                            i++;
+                            console.log("this is I : "+i);
+                          }
+                        });
+                      });
                     </script>
 
                   </div>
