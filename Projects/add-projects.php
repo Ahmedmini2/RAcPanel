@@ -413,6 +413,7 @@ if (!empty($_GET['edit'])) {
                 <script>
                       $(document).ready(function() {
                         $("#iron").change(function() {
+                          
                           var iron = $("#iron").val();
                           var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
                           var tn = kg / 1000;
