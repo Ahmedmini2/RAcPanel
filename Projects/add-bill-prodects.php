@@ -283,7 +283,7 @@ hr.new5 {
                 </div>
               </div>
 
-                <div class="addImage">
+                <div class="col-md-6 col-sm-6">
                 <button type="button" id="btn3" class=" text-white printing printing2 btn bg-secondary rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
               الرجاء اضافة صورة الفاتورة
                 </button>
