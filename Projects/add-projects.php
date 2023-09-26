@@ -582,7 +582,7 @@ if (!empty($_GET['edit'])) {
                     <script>
                       b = 1; 
                       $(document).on('change', 'input', function() {
-                          for (var z = 1; z <= a ; z++) {
+                          for (var z = 1; z <= b ; z++) {
                         var peice = (parseFloat($("#band_price_"+z).val()) * parseFloat($("#quantity").val() || '0'))
                         $("#band_tot_"+z).val(peice);
                           }
