@@ -1,14 +1,11 @@
 var i=$('#rowcount').val();
 var a=$('#rowcount_ac').val();
+var b=$('#rowcount_band').val();
 document.addEventListener("DOMContentLoaded", function () {
-    const addProductButton = document.querySelector(".add_product");
+    
     const productDetails = document.querySelector("#product_details");
 
-   // Function to calculate and update the total for each item
-    addProductButton.addEventListener("click", function () {
-        const productClone = document.querySelector(".product").cloneNode(true);
-        productDetails.appendChild(productClone);
-    });
+   
 
     productDetails.addEventListener("click", function (e) {
         if (e.target.classList.contains("add_iron")) {
@@ -22,9 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
             $("#main-accessory").append('<div class="row ">    <div class="col-md-2 col-sm-6 ">      <div class="form-group"><label for="accessory">أسم الاكسسوار</label><input type="text" class="form-control" name="accessory_'+a+'" id="accessory_'+a+'">      </div>    </div>    <div class="col-md-2 col-sm-6">      <div class="form-group"><label for="acc_quantity">كمية الاكسسوار</label><input type="text" class="form-control" name="acc_quantity_'+a+'" id="acc_quantity_'+a+'">      </div>    </div>    <div class="col-md-2 col-sm-6 ">      <div class="form-group"><label for="acc_price">سعر الاكسسوار الفردي</label><input type="text" class="form-control" name="acc_price_'+a+'" id="acc_price_'+a+'">      </div>    </div>    <div class="col-md-2 col-sm-6 ">      <div class="form-group"><label for="acc_tot">السعر الكلي</label><input type="text" class="form-control" name="acc_tot_'+a+'" id="acc_tot_'+a+'" disabled><input type="hidden" value="'+a+'" id="rowcount_ac " disabled>      </div>    </div>  </div><hr class="new2">');
         }
         if (e.target.classList.contains("add_band")) {
-            const itemDetails = e.target.parentElement.querySelector(".band_details");
-            const itemClone = document.querySelector(".band").cloneNode(true);
-            itemDetails.appendChild(itemClone);
+            $("#main-band").append('<div class="row">   <div class="col-md-2 col-sm-6">     <div class="form-group">       <label for="band">أسم البند</label>       <input type="text" class="form-control" name="band_'+b+'" id="band_'+b+'">     </div>   </div>   <div class="col-md-2 col-sm-6">     <div class="form-group">       <label for="band_price">سعر البند</label>       <input type="text" class="form-control" name="band_price_'+b+'" id="band_price_'+b+'">     </div>   </div>   <div class="col-md-2 col-sm-6">     <div class="form-group">       <label for="band_tot">السعر الكلي</label>       <input type="text" class="form-control" name="band_tot_'+b+'" id="band_tot_'+b+'" disabled>       <input type="hidden" value="'+b+'" id="rowcount_band" disabled>     </div>   </div> </div><hr class="new2">');
         }
     });
 });

@@ -427,7 +427,6 @@ if (!empty($_GET['edit'])) {
                       
                       $(document).on('change', 'input', function() {
                         for (var z = 1; z <= i ; z++) {
-                        console.log(z);
                         var iron = $("#iron_"+z).val();
                         var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
                         var tn = kg / 1000;
@@ -443,7 +442,7 @@ if (!empty($_GET['edit'])) {
                           if (e.target.classList.contains("add_iron")) {
             
                             i++;
-                            console.log("this is I : "+i);
+                            
                           }
                         });
                       });
@@ -489,7 +488,7 @@ if (!empty($_GET['edit'])) {
                       
                        $(document).on('change', 'input', function() {
                           for (var z = 1; z <= a ; z++) {
-                            console.log("this is A : "+a);
+                            
                             var peice = (parseFloat($("#acc_quantity_"+z).val()) * parseFloat($("#acc_price_"+z).val() || '0'))
                             $("#acc_tot_"+z).val(peice);
                           }
@@ -501,7 +500,7 @@ if (!empty($_GET['edit'])) {
                           if (e.target.classList.contains("add_accessory")) {
             
                             a++;
-                            console.log("this is A : "+a);
+                            
                           }
                         });
                       });
@@ -557,33 +556,48 @@ if (!empty($_GET['edit'])) {
 
                 <div class="band_details">
                   <h5>بنود اخرى</h5>
-                  <div class="band">
+                  <div class="band" id="main-band">
                     <div class="row">
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="band">أسم البند</label>
-                          <input type="text" class="form-control" name='band' id="band">
+                          <input type="text" class="form-control" name="band_<?=$coco?>" id="band_<?=$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="band_price">سعر البند</label>
-                          <input type="text" class="form-control" name='band_price' id="band_price">
+                          <input type="text" class="form-control" name="band_price_<?=$coco?>" id="band_price_<?=$coco?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="band_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='band_tot' id="band_tot" disabled>
+                          <input type="text" class="form-control" name="band_tot_<?=$coco?>" id="band_tot_<?=$coco?>" disabled>
+                          <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_band" disabled>
                         </div>
                       </div>
                     </div>
                     <hr class="new2">
                     <script>
-                      $("input").on("change", function() {
-                        var peice = (parseFloat($("#band_price").val()) * parseFloat($("#quantity").val() || '0'))
-                        $("#band_tot").val(peice);
+                      b = 1; 
+                      $(document).on('change', 'input', function() {
+                          for (var z = 1; z <= b ; z++) {
+                        var peice = (parseFloat($("#band_price_"+z).val()) * parseFloat($("#quantity").val() || '0'))
+                        $("#band_tot_"+z).val(peice);
+                          }
                       })
+
+                      document.addEventListener("DOMContentLoaded", function () {
+                        const productDetails = document.querySelector("#product_details");
+                        productDetails.addEventListener("click", function (e) {
+                          if (e.target.classList.contains("add_band")) {
+            
+                            b++;
+                            
+                          }
+                        });
+                      });
                     </script>
 
                   </div>
@@ -599,7 +613,7 @@ if (!empty($_GET['edit'])) {
               </div>
               <!-- Product End -->
 
-              <button type="button" class="btn btn-secondary rounded-pill add_product">أضافة منتج</button>
+              
               <br><br>
 
               <div class="row">
