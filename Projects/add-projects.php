@@ -425,16 +425,18 @@ if (!empty($_GET['edit'])) {
                         }
                       });
                       
-                      for (var z = 1; z <= i ; z++) {
+                      
                       $("input").on("change", function() {
+                        for (var z = 1; z <= i ; z++) {
                         var iron = $("#iron_"+z).val();
                         var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
                         var tn = kg / 1000;
                         var total = tn * parseFloat($("#iron_price_"+z).val())
                         $("#iron_tn_"+z).val(tn);
                         $("#iron_tot_"+z).val(total);
+                        }
                       });
-                    }
+                    
                     </script>
 
                 <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
