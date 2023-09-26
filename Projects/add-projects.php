@@ -355,7 +355,7 @@ if (!empty($_GET['edit'])) {
                 <div class="iron_details">
                   <hr>
                   <h5>بند الحديد</h5>
-                  <div class="iron">
+                  <div class="iron" id="main-iron">
                     <div class="row" id="row<?=$coco?>">
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
