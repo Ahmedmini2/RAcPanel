@@ -487,11 +487,11 @@ if (!empty($_GET['edit'])) {
                       var a = 1;
 
                        $(document).on('change', 'input', function() {
-                        for (var z = 1; z <= a ; z++) {
-                        var peice = (parseFloat($("#acc_quantity_"+z).val()) * parseFloat($("#acc_price_"+z).val() || '0'))
-                        $("#acc_tot_"+z).val(peice);
-                        }
-                      })
+                          for (var z = 1; z <= a ; z++) {
+                            var peice = (parseFloat($("#acc_quantity_"+z).val()) * parseFloat($("#acc_price_"+z).val() || '0'))
+                            $("#acc_tot_"+z).val(peice);
+                          }
+                        })
 
                       document.addEventListener("DOMContentLoaded", function () {
                         const productDetails = document.querySelector("#product_details");
@@ -499,7 +499,7 @@ if (!empty($_GET['edit'])) {
                           if (e.target.classList.contains("add_accessory")) {
             
                             a++;
-                            console.log("this is I : "+a);
+                            console.log("this is A : "+a);
                           }
                         });
                       });
