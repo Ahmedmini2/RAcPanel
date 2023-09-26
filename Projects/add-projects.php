@@ -413,7 +413,6 @@ if (!empty($_GET['edit'])) {
                 <script>
                       $(document).ready(function() {
                         $("#iron").change(function() {
-                          
                           var iron = $("#iron").val();
                           var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
                           var tn = kg / 1000;
@@ -429,7 +428,18 @@ if (!empty($_GET['edit'])) {
                         var total = tn * parseFloat($("#iron_price").val())
                         $("#iron_tn").val(tn);
                         $("#iron_tot").val(total);
-                      })
+                      });
+
+                      $("input").on("change paste keyup", "input", function() {
+                        var tableRow = $(this).closest("rowcount");
+                        console.log(tableRow);
+                        var iron = $("#iron").val();
+                        var kg = (parseFloat($("#iron_quantity").val()) * parseFloat($("#iron_long").val() || '0') * iron)
+                        var tn = kg / 1000;
+                        var total = tn * parseFloat($("#iron_price").val())
+                        $("#iron_tn").val(tn);
+                        $("#iron_tot").val(total);
+                      });
                     </script>
 
                 <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
