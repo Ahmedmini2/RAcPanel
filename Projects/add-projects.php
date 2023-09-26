@@ -42,7 +42,8 @@ if(isset($_POST['add-project'])){
       VALUES(NULL, $product_id, '$kharasana', '$kh_price', '$kh_per', '$kh_peice' , '$kh_tot' , NOW())";
       $kh_res = $conn->query($insert_kh);
       if($kh_res){
-        $_SESSION['notification'] = "كلو في السليم يا زميل";
+        
+        
       }else{
         $_SESSION['notification'] = "يوجد خلل في ادخال الصنف";
         header('location: index.php');
@@ -365,14 +366,14 @@ if(isset($_POST['add-project'])){
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
-                          <label for="kh_tot">السعر للمنتج الفردي</label>
-                          <input type="text" class="form-control" name='kh_peice' id="kh_peice" disabled>
+                          <label for="kh_peice">السعر للمنتج الفردي</label>
+                          <input type="text" class="form-control" name='kh_peice' id="kh_peice" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="kh_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='kh_tot' id="kh_tot" disabled>
+                          <input type="text" class="form-control" name='kh_tot' id="kh_tot" readonly>
                         </div>
                       </div>
                     </div>
