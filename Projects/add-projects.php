@@ -402,7 +402,7 @@ if (!empty($_GET['edit'])) {
                         <div class="form-group">
                           <label for="iron_tot">السعر الكلي</label>
                           <input type="text" class="form-control" name='iron_tot_<?=$coco?>' id="iron_tot_<?=$coco?>" disabled>
-                          <input type="number" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
+                          <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
                         </div>
                       </div>
                     </div>
