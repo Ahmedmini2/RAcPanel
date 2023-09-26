@@ -258,65 +258,64 @@ hr.new5 {
               <div class="col-md-6 col-sm-6">
                 <div class="form-group">
                   <label>أسم الفاتورة</label>
-                  <input type="text" placeholder="الرجاء كتابة أسم فاتورة" class="form-control" name="name" value="<?php echo $name; ?>">
+                  <input type="text" placeholder="الرجاء كتابة أسم فاتورة" class="form-control" name="bill" value="<?php echo $name; ?>">
                 </div>
               </div>
 
               <div class="col-md-6 col-sm-6">
                 <div class="form-group">
                   <label> مقدم الفاتورة</label>
-                  <input type="text" placeholder="الرجاء كتابة مقدم الفاتورة" class="form-control" name="beneficiary_bank" value="<?php echo $beneficiary_bank; ?>">
+                  <input type="text" placeholder="الرجاء كتابة مقدم الفاتورة" class="form-control" name="user_bill" value="<?php echo $beneficiary_bank; ?>">
                 </div>
               </div>
-            </div>
-            
 
-            <!-- Product Details -->
-            <div id="bill-product_details">
-              <div class="product">
-            
-                <div class="row">
-                  <div class="col">
-                    <div class="form-group">
-                      <label for="product_name[]">سعر الفاتورة</label>
-                      <input class="form-control" type="text" name="product_name[]">
-                      <!-- Add more fields for product details here -->
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="form-group">
-                      <label for="dimensions[]">تاريخ الفاتورة</label>
-                      <input class="form-control" type="text" name="dimensions[]">
-                      <!-- Add more fields for product details here -->
-                    </div>
-                  </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label> سعر الفاتورة</label>
+                  <input type="text" placeholder="الرجاء كتابة سعر الفاتورة" class="form-control" name="price_bill" value="<?php echo $beneficiary_bank; ?>">
                 </div>
-                <button type="button" id="btn3" class=" text-white printing printing2 btn bg-secondary rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
-              إرفاق \ عرض الملف
-           </button>
+              </div>
+
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label> تاريخ الفاتورة</label>
+                  <input type="text" placeholder="الرجاء كتابة تاريخ الفاتورة" class="form-control" name="date_bill" value="<?php echo $beneficiary_bank; ?>">
+                </div>
+              </div>
+
+
+              <button type="button" id="btn3" class=" text-white printing printing2 btn bg-secondary rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+              الرجاء اضافة صورة الفاتورة
+                </button>
+
                 <!-- Doc Modal -->
-              <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-               <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-               <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">أرفاق مستند</h5>
-              <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
-                <span aria-hidden="true">&times;</span>
-              </button>
-                </div>
-               <div class="modal-body">
-              <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>" enctype="multipart/form-data">
-                <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
-                <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
-                <?php if ($doc != '') {
+                <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                   <div class="modal-dialog modal-dialog-centered" role="document">
+                     <div class="modal-content">
+                     <div class="modal-header">
+                       <h5 class="modal-title" id="exampleModalLabel">أرفاق مستند</h5>
+                       <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                         <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                         <div class="modal-body">
+                                       <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>" enctype="multipart/form-data">
+                                       <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
+                             <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
+                      <?php if ($doc != '') {
                   echo '<a href="../Signed-Docs/' . $id . '/' . $doc . '" target="_blank"><img src="../Signed-Docs/' . $id . '/' . $doc . '" class="img-fluid rounded-top" alt="' . $doc . '"></a>';
                 } ?>
               </form>
-            </div>
-            <div class="modal-footer">
+               </div>
+               <div class="modal-footer">
               <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal2">Close</button>
               <button type="button" class="btn bg-gradient-dark rounded-pill">Save changes</button>
+               </div>
+               </div>
             </div>
+            </div>
+            </div>
+            
           </div>
         </div>
       </div>
