@@ -3,68 +3,75 @@ include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
 $coco = 1;
 $numberofrows = 1;
-if (!empty($_GET['edit'])) {
 
-  $id = $_GET['edit'];
-  $query = "SELECT * FROM beneficiary_info WHERE id=$id";
-  $res = $conn->query($query);
-  $editData = $res->fetch_assoc();
-  $name = $editData['name'];
-  $beneficiary_bank = $editData['beneficiary_bank'];
-  $description = $editData['description'];
-  $amount_text = $editData['amount_text'];
-  $our_bank_name = $editData['our_bank_name'];
-  $to_account_type = $editData['to_account_type'];
-  $transfer_to = $editData['transfer_to'];
+$iron_raws = 1;
+$accessory_raws = 1;
+$band_raws = 1;
+if(isset($_POST['add-project'])){
 
+  $iron1 = 1;
+  $accessory1 = 1;
+  $band1 = 1;
 
-  $idAttr = "updateForm";
+  $project_name = $_POST['project_name'];
+  $project_description = $_POST['project_description'];
 
-  // }else if(isset($_POST['submit'])){
-  //   $name=$_POST['full_name'];
-  //   $email=$_POST['email'];
-  //   $phone=$_POST['phone'];
-  //   $role=$_POST['role'];
-  //   $password=$_POST['password'];
-  //   $cpassword=$_POST['cpassword'];
-  //   $username=$_POST['username'];
-  //   $position=$_POST['position'];
-
-  //   if($password == $cpassword){
-  //     $query="INSERT INTO users ('')";
-  //   }
-} else if (isset($_POST['submit'])) {
-
-  $name = $_POST['name'];
-  $beneficiary_bank = $_POST['beneficiary_bank'];
-  $account_number = $_POST['account_number'];
-  $branch = $_POST['branch'];
-  $iban = $_POST['iban'];
-  $swift = $_POST['swift'];
-
-  if (empty($name) || empty($beneficiary_bank) || empty($iban)) {
-    $_SESSION['notification'] = "الرجاء ادخال رقم الحساب و الايبان و اسم المستفيد";
-    header('location: beneficiary-banks.php');
-    exit(); // Stop further execution of the script
-  }
-
-  $insert = "INSERT INTO `beneficiary_info` (`id`, `name`,`beneficiary_bank`, `branch`, `account_number`, `iban`, `swift`,`created_at`) VALUES (NULL, '$name','$beneficiary_bank','$branch','$account_number','$iban','$swift',NOW())";
-  $insertResult = $conn->query($insert);
-  if ($insertResult) {
+  $insert_project = "INSERT INTO projects (id, name, description,created_at) VALUES(NULL, '$project_name', '$project_description , NOW())";
+  $project_res= $conn->query($insert_project);
+  if($insertResult){
     $_SESSION['notification'] = "تم اضافة المستفيد بنجاح";
-  } else {
+    header('location: index.php');
+    exit();
+    
+  }else{
     $_SESSION['notification'] = "يوجد خلل في النظام";
   }
-  header('location: beneficiary-banks.php');
-  exit();
-} else {
-  $name = "";
-  $beneficiary_bank = "";
-  $account_number = "";
-  $iban = "";
-  $swift = "";
-  $branch = "";
-}
+  
+
+  $product_name = $_POST['product_name'];
+  $dimensions = $_POST['dimensions'];
+  $quantity = $_POST['quantity'];
+
+  $kharasana = $_POST['kharasana'];
+  $kh_price = $_POST['kh_price'];
+  $kh_per = $_POST['kh_per'];
+  $kh_peice = $_POST['kh_peice'];
+  $kh_tot = $_POST['kh_tot'];
+
+  while ($iron1 <= $iron_raws){
+    $iron_[$iron1] = $_POST['iron_'.$iron1];
+    $iron_price_[$iron1] = $_POST['iron_price_'.$iron1];
+    $iron_quantity_[$iron1] = $_POST['iron_quantity_'.$iron1];
+    $iron_long_[$iron1] = $_POST['iron_long_'.$iron1];
+    $iron_tn_[$iron1] = $_POST['iron_tn_'.$iron1];
+    $iron_tot_[$iron1] = $_POST['iron_tot_'.$iron1];
+    $iron1++;
+  }
+
+  while ($accessory1 <= $accessory_raws){
+    $accessory_[$accessory1] = $_POST['accessory_'.$accessory1];
+    $acc_quantity_[$accessory1] = $_POST['acc_quantity_'.$accessory1];
+    $acc_price_[$accessory1] = $_POST['acc_price_'.$accessory1];
+    $acc_tot_[$accessory1] = $_POST['acc_tot_'.$accessory1];
+    $accessory1++;
+  }
+
+  $cover_type = $_POST['cover_type'];
+  $cover_price = $_POST['cover_price'];
+  $cover_tot = $_POST['cover_tot'];
+
+
+  while ($band1 <= $band_raws){
+    $band_[$band1] = $_POST['band_'.$band1];
+    $band_price_[$band1] = $_POST['band_price_'.$band1];
+    $band_tot_[$band1] = $_POST['band_tot_'.$band1];
+    $band1++;
+  }
+  
+  
+  
+  
+  }
 
 ?>
 <!DOCTYPE html>
@@ -259,7 +266,7 @@ if (!empty($_GET['edit'])) {
               <div class="col-md-8 col-sm-6">
                 <div class="form-group">
                   <label>أسم الجهة الطالبة للمشروع</label>
-                  <input type="text" placeholder="الرجاء كتابة أسم مشروع" class="form-control" name="name" value="<?php echo $name; ?>">
+                  <input type="text" placeholder="الرجاء كتابة أسم مشروع" class="form-control" name="project_name" value="<?php echo $name; ?>">
                 </div>
               </div>
             </div>
@@ -267,7 +274,7 @@ if (!empty($_GET['edit'])) {
               <div class="col-md-8 col-sm-6">
                 <div class="form-group">
                   <label> تفاصيل المشروع</label>
-                  <input type="text" placeholder="الرجاء كتابة تفاصيل" class="form-control" name="beneficiary_bank" value="<?php echo $beneficiary_bank; ?>">
+                  <input type="text" placeholder="الرجاء كتابة تفاصيل" class="form-control" name="project_description" value="<?php echo $beneficiary_bank; ?>">
                 </div>
               </div>
             </div>
@@ -279,15 +286,15 @@ if (!empty($_GET['edit'])) {
                 <div class="row">
                   <div class="col-md-8 col-sm-6">
                     <div class="form-group">
-                      <label for="product_name[]">أسم الصنف</label>
-                      <input class="form-control" type="text" name="product_name[]">
+                      <label for="product_name">أسم الصنف</label>
+                      <input class="form-control" type="text" name="product_name">
                       <!-- Add more fields for product details here -->
                     </div>
                   </div>
                   <div class="col-md-8 col-sm-6">
                     <div class="form-group">
-                      <label for="dimensions[]">المقاسات</label>
-                      <input class="form-control" type="text" name="dimensions[]">
+                      <label for="dimensions">المقاسات</label>
+                      <input class="form-control" type="text" name="dimensions">
                       <!-- Add more fields for product details here -->
                     </div>
                   </div>
@@ -442,7 +449,7 @@ if (!empty($_GET['edit'])) {
                           if (e.target.classList.contains("add_iron")) {
             
                             i++;
-                            
+                            <?php $noraws++; ?>
                           }
                         });
                       });
@@ -603,7 +610,8 @@ if (!empty($_GET['edit'])) {
                   </div>
 
                 </div>
-                <button type="button" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
+                <button type="button" name="add-project" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
+                
                 <hr>
                 <!-- Item End -->
 
