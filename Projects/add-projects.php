@@ -591,7 +591,7 @@ if (!empty($_GET['edit'])) {
                       document.addEventListener("DOMContentLoaded", function () {
                         const productDetails = document.querySelector("#product_details");
                         productDetails.addEventListener("click", function (e) {
-                          if (e.target.classList.contains("add_accessory")) {
+                          if (e.target.classList.contains("add_band")) {
             
                             b++;
                             
@@ -613,7 +613,7 @@ if (!empty($_GET['edit'])) {
               </div>
               <!-- Product End -->
 
-              <button type="button" class="btn btn-secondary rounded-pill add_product">أضافة منتج</button>
+              
               <br><br>
 
               <div class="row">
