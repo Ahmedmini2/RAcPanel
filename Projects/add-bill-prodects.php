@@ -291,20 +291,20 @@ hr.new5 {
                     </div>
                   </div>
                 </div>
-                <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
-        إرفاق \ عرض الملف
-      </button>
+                <button type="button" id="btn3" class="printing printing2 btn bg-secondary rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+              إرفاق \ عرض الملف
+           </button>
                 <!-- Doc Modal -->
-      <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
+              <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+               <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">أرفاق مستند</h5>
               <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
                 <span aria-hidden="true">&times;</span>
               </button>
-            </div>
-            <div class="modal-body">
+                </div>
+               <div class="modal-body">
               <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>" enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
                 <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
@@ -321,21 +321,7 @@ hr.new5 {
         </div>
       </div>
 
-               
-                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
-                  
-                
-                
-                <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
-                <hr>
-
-          
-                <button type="button" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
-                <hr>
-                <!-- Item End -->
-
-
-
+  
 
               </div>
               <!-- Product End -->
