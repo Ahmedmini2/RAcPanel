@@ -19,19 +19,46 @@ if(isset($_POST['add-project'])){
   $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`created_at`) VALUES(NULL, '$project_name', '$project_description' ,NOW())";
   $project_res = $conn->query($insert_project);
   if($project_res){
-    $_SESSION['notification'] = "تم اضافة المستفيد بنجاح";
-    header('location: index.php');
-    exit();
     
+    $project_id = $conn->insert_id;
+    
+    $product_name = $_POST['product_name'];
+    $dimensions = $_POST['dimensions'];
+    $quantity = $_POST['quantity'];
+    
+    $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' , NOW())";
+    $product_res = $conn->query($insert_product);
+
+    if($product_res){
+      $product_id = $conn->insert_id;
+      
+      $kharasana = $_POST['kharasana'];
+      $kh_price = $_POST['kh_price'];
+      $kh_per = $_POST['kh_per'];
+      $kh_peice = $_POST['kh_peice'];
+      $kh_tot = $_POST['kh_tot'];
+
+      $insert_kh = "INSERT INTO kharasana (`id`, `product_id`, `type`, `price`, `quantity_per_piece`, `price_per_piece` , `total_price`, `created_at`) 
+      VALUES(NULL, $product_id, '$kharasana', '$kh_price', '$kh_per', '$kh_peice' , '$kh_tot' , NOW())";
+      $kh_res = $conn->query($insert_kh);
+      if($kh_res){
+        $_SESSION['notification'] = "كلو في السليم يا زميل";
+      }else{
+        $_SESSION['notification'] = "يوجد خلل في ادخال الصنف";
+        header('location: index.php');
+      }
+
+    }else{
+      $_SESSION['notification'] = "يوجد خلل في ادخال الصنف";
+      header('location: index.php');
+    }
+
   }else{
-    $_SESSION['notification'] = "يوجد خلل في النظام";
+    $_SESSION['notification'] = "يوجد خلل في ادخال المشروع";
     header('location: index.php');
   }
-  
 
-  $product_name = $_POST['product_name'];
-  $dimensions = $_POST['dimensions'];
-  $quantity = $_POST['quantity'];
+  
 
   $kharasana = $_POST['kharasana'];
   $kh_price = $_POST['kh_price'];
