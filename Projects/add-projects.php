@@ -412,16 +412,15 @@ if (!empty($_GET['edit'])) {
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                       var i = 1;
-                      $(document).ready(function() {
+                      $(document).on('change', 'select', function() {
                         for (var z = 1; z <= i ; z++) {
-                        $("#iron_"+z).change(function() {
                           var iron = $("#iron_"+z).val();
                           var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
                           var tn = kg / 1000;
                           var total = tn * parseFloat($("#iron_price_"+z).val())
                           $("#iron_tn_"+z).val(tn);
                           $("#iron_tot_"+z).val(total);
-                        });
+                        
                         }
                       });
                       
