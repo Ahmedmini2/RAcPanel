@@ -254,7 +254,7 @@ hr.new5 {
           </div>
           <form id="<?php echo $idAttr; ?>" action="" method="post">
             <div class="row">
-              <div class="col">
+              <div class="col-md-8 col-sm-6">
                 <div class="form-group">
                   <label>أسم الفاتورة</label>
                   <input type="text" placeholder="الرجاء كتابة أسم فاتورة" class="form-control" name="name" value="<?php echo $name; ?>">
@@ -262,7 +262,7 @@ hr.new5 {
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col-md-8 col-sm-6">
                 <div class="form-group">
                   <label> مقدم الفاتورة</label>
                   <input type="text" placeholder="الرجاء كتابة مقدم الفاتورة" class="form-control" name="beneficiary_bank" value="<?php echo $beneficiary_bank; ?>">
