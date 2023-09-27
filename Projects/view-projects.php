@@ -235,7 +235,7 @@ $_SESSION['sidebar'] = "Projects";
                 <!--********* -->
                 <div class="container-fluid py-4">
                     <div class="row">
-                    <div class="col-xl-3 col-sm-6 mb-xl-0">
+                        <div class="col-xl-6 mb-xl-0 mb-4">
                             <div class="card h-100">
                                 <div class="card-body p-3">
 
@@ -261,53 +261,88 @@ $_SESSION['sidebar'] = "Projects";
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                        <div class="card w-40">
-                                <div class="card-header mx-4 p-3 text-center">
-                                    <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                        <i class="fas fa-landmark opacity-10"></i>
+                        <div class="col-xl-6">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="card ">
+                                        <div class="card-header mx-4 p-3 text-center">
+                                            <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                <i class="fas fa-landmark opacity-10"></i>
+                                            </div>
+                                        </div>
+                                        <div class="card-body pt-0 p-3 text-center">
+                                            <h6 class="text-center mb-0">Salary</h6>
+                                            <span class="text-xs">Belong Interactive</span>
+                                            <hr class="horizontal dark my-3">
+                                            <h5 class="mb-0">+$2000</h5>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="card-body pt-0 p-3 text-center">
-                                    <h6 class="text-center mb-0">Salary</h6>
-                                    <span class="text-xs">Belong Interactive</span>
-                                    <hr class="horizontal dark my-3">
-                                    <h5 class="mb-0">+$2000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                        <div class="card w-40">
-                                <div class="card-header mx-4 p-3 text-center">
-                                    <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                        <i class="fas fa-landmark opacity-10"></i>
+                                <div class="col-md-2 mt-md-0 mt-4">
+                                    <div class="card ">
+                                        <div class="card-header mx-4 p-3 text-center">
+                                            <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                <i class="fas fa-landmark opacity-10"></i>
+                                            </div>
+                                        </div>
+                                        <div class="card-body pt-0 p-3 text-center">
+                                            <h6 class="text-center mb-0">Salary</h6>
+                                            <span class="text-xs">Belong Interactive</span>
+                                            <hr class="horizontal dark my-3">
+                                            <h5 class="mb-0">+$2000</h5>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="card-body pt-0 p-3 text-center">
-                                    <h6 class="text-center mb-0">Salary</h6>
-                                    <span class="text-xs">Belong Interactive</span>
-                                    <hr class="horizontal dark my-3">
-                                    <h5 class="mb-0">+$2000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6">
-                        <div class="card w-40">
-                                <div class="card-header mx-4 p-3 text-center">
-                                    <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                        <i class="fas fa-landmark opacity-10"></i>
+                                <div class="col-md-2 mt-md-0 mt-4">
+                                    <div class="card ">
+                                        <div class="card-header mx-4 p-3 text-center">
+                                            <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                <i class="fas fa-landmark opacity-10"></i>
+                                            </div>
+                                        </div>
+                                        <div class="card-body pt-0 p-3 text-center">
+                                            <h6 class="text-center mb-0">Salary</h6>
+                                            <span class="text-xs">Belong Interactive</span>
+                                            <hr class="horizontal dark my-3">
+                                            <h5 class="mb-0">+$2000</h5>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="card-body pt-0 p-3 text-center">
-                                    <h6 class="text-center mb-0">Salary</h6>
-                                    <span class="text-xs">Belong Interactive</span>
-                                    <hr class="horizontal dark my-3">
-                                    <h5 class="mb-0">+$2000</h5>
-                                </div>
                             </div>
+
                         </div>
+                        
                     </div>
-                
+                    <footer class="footer pt-3  ">
+          <div class="container-fluid">
+             <div class="row align-items-center justify-content-lg-between">
+               <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="copyright text-center text-sm text-muted text-lg-end">
+              © <script>
+                document.write(new Date().getFullYear())
+              </script>,
+              made with <i class="fa fa-heart"></i> by
+              <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
+
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+              <li class="nav-item">
+                <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
+              </li>
+
+            </ul>
+        </div>
+      </div>
+      </footer>
+      </div>
     </main>
 
     <!--   Core JS Files   -->
