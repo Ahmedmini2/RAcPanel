@@ -164,9 +164,8 @@ $_SESSION['sidebar'] = "Projects";
                         <h3 class="mb-1">عرض مشروع</h3>
                     </div>
                     <!-- Card Header  -->
-                    
-                        <div class="container shadow-sm p-3 mb-5 bg-white rounded-pill">
-                        <div class="row ">
+
+                    <div class="row ">
                         <div class="text-right col-lg-10 col-sm-6">
                             <button type="button" id="btn2" class="btn bg-gradient-dark rounded-pill ">
                                 طباعة امر الشراء
@@ -175,101 +174,101 @@ $_SESSION['sidebar'] = "Projects";
                             <button type="button" id="btn3" class=" btn bg-gradient-dark rounded-pill ">
                                 تعديل بيانات المشروع
                             </button>
-                            </div>
-                            <div class="text-left col-lg-2 col-sm-6">
+                        </div>
+                        <div class="text-left col-lg-2 col-sm-6">
                             <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 تغير حالة المشروع
                             </button>
-                            </div>
-                        </div>
-                        </div>
-                            <script>
-                                function printDiv(divName) {
-
-                                    document.getElementById('btn1').style.display = "none";
-                                    document.getElementById('btn2').style.display = "none";
-                                    document.getElementById('btn3').style.display = "none";
-                                    window.print();
-                                    document.getElementById('btn1').style.display = "inline";
-                                    document.getElementById('btn2').style.display = "inline";
-                                    document.getElementById('btn3').style.display = "inline";
-
-                                }
-                            </script>
-                            <!-- Change Status Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">حالة المشروع</h5>
-                                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>">
-                                                <?php if ($position == 'Admin' || $position == 'Accounts' && $status == 1) { ?> <button type="submit" name="account" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        تأكيد المشروع عن طريق المحاسب
-                                                    </button>
-                                                <?php } ?>
-                                                <br>
-                                                <?php if ($position == 'Admin' || $position == 'Manager' && $status == 2) { ?> <button type="submit" name="manager" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        تأكيد المشروع عن طريق طريق المدير العام
-                                                    </button>
-                                                <?php } ?>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                   
-
-                </div>
-            </div>
-
-
-
-
-
-
-
-            <footer class="footer pt-3  ">
-                <div class="container-fluid">
-                    <div class="row align-items-center justify-content-lg-between">
-                        <div class="col-lg-6 mb-lg-0 mb-4">
-                            <div class="copyright text-center text-sm text-muted text-lg-end">
-                                © <script>
-                                    document.write(new Date().getFullYear())
-                                </script>,
-                                made with <i class="fa fa-heart"></i> by
-                                <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                                <li class="nav-item">
-                                    <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-                                </li>
-
-                            </ul>
                         </div>
                     </div>
+
+                    <script>
+                        function printDiv(divName) {
+
+                            document.getElementById('btn1').style.display = "none";
+                            document.getElementById('btn2').style.display = "none";
+                            document.getElementById('btn3').style.display = "none";
+                            window.print();
+                            document.getElementById('btn1').style.display = "inline";
+                            document.getElementById('btn2').style.display = "inline";
+                            document.getElementById('btn3').style.display = "inline";
+
+                        }
+                    </script>
+                    <!-- Change Status Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">حالة المشروع</h5>
+                                    <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>">
+                                        <?php if ($position == 'Admin' || $position == 'Accounts' && $status == 1) { ?> <button type="submit" name="account" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                تأكيد المشروع عن طريق المحاسب
+                                            </button>
+                                        <?php } ?>
+                                        <br>
+                                        <?php if ($position == 'Admin' || $position == 'Manager' && $status == 2) { ?> <button type="submit" name="manager" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                تأكيد المشروع عن طريق طريق المدير العام
+                                            </button>
+                                        <?php } ?>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
-            </footer>
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <footer class="footer pt-3  ">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-lg-6 mb-lg-0 mb-4">
+                        <div class="copyright text-center text-sm text-muted text-lg-end">
+                            © <script>
+                                document.write(new Date().getFullYear())
+                            </script>,
+                            made with <i class="fa fa-heart"></i> by
+                            <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                            <li class="nav-item">
+                                <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
         </div>
     </main>
 
