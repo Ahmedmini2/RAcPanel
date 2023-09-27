@@ -294,6 +294,21 @@ $_SESSION['sidebar'] = "Projects";
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-6 mt-md-0 mt-4">
+                                    <div class="card">
+                                        <div class="card-header mx-4 p-3 text-center">
+                                            <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                <i class="fas fa-landmark opacity-10"></i>
+                                            </div>
+                                        </div>
+                                        <div class="card-body pt-0 p-3 text-center">
+                                            <h6 class="text-center mb-0">Salary</h6>
+                                            <span class="text-xs">Belong Interactive</span>
+                                            <hr class="horizontal dark my-3">
+                                            <h5 class="mb-0">+$2000</h5>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
