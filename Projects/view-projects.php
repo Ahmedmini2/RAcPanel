@@ -238,26 +238,25 @@ $_SESSION['sidebar'] = "Projects";
 
                         <div class="col-12 col-xl-4">
                             <div class="card h-100">
-                            <div class="card-body p-3">
-                                <dl class="dl-horizontal">
+                                <div class="card-body p-3">
+                                    <dl class="dl-horizontal">
 
-                                    <dt>اسم المشروع :</dt>
-                                    <dd>ركن اميال للمقاولات</dd>
-                                    <dt>Messages:</dt>
-                                    <dd> ركن اميال للمقاولات</dd>
-                                </dl>
-                                <dl class="dl-horizontal">
+                                        <dt>اسم المشروع :</dt>
+                                        <dd>ركن اميال للمقاولات</dd>
+                                        <dt>Messages:</dt>
+                                        <dd> ركن اميال للمقاولات</dd>
+                                        <dt>مدة الموافقة على المشروع:</dt>
+                                        <dd> 2 ايام</dd>
+                                        <dt>مدة تنفيذ المشروع:</dt>
+                                        <dd> 7 ايام </dd>
+                                        <dt>طريقة الدفع :</dt>
+                                        <dd>شيكك</dd>
+                                    </dl>
 
-                                    <dt>مدة الموافقة على المشروع:</dt>
-                                    <dd> 2 ايام</dd>
-                                    <dt>مدة تنفيذ المشروع:</dt>
-                                    <dd> 7 ايام </dd>
-                                    <dt>طريقة الدفع :</dt>
-                                    <dd>شيكك</dd>
-                                    </div>     
+                                </div>
                             </div>
                         </div>
-                    
+
                     </div>
 
 
