@@ -563,7 +563,7 @@ if(isset($_POST['add-project'])){
                             $("#acc_tot_"+z).val(peice);
                           }
                         })
-
+                        console.log("Before Accessory Rows : <?=$accessory_raws?>");
                       document.addEventListener("DOMContentLoaded", function () {
                         const productDetails = document.querySelector("#product_details");
                         productDetails.addEventListener("click", function (e) {
