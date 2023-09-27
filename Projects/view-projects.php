@@ -237,10 +237,21 @@ $_SESSION['sidebar'] = "Projects";
                     <div class="row">
 
                         <div class="col-12 col-xl-4">
-                            <div class="container">
-                                
+                            <div class="card h-100">
+                                <div class="card-body p-3">
+                                <button type="button" id="btn2" class="btn bg-gradient-dark rounded-pill ">
+                                طباعة امر الشراء
+                            </button>
+                            <button type="button" id="btn2" class="btn bg-gradient-dark rounded-pill ">
+                                طباعة امر الشراء
+                            </button>
                                     
-                                    <dl class="dl-horizontal">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <dl class="dl-horizontal">
 
                                         <dt>اسم المشروع :</dt><dd>ركن اميال للمقاولات</dd>
                                         
@@ -253,10 +264,6 @@ $_SESSION['sidebar'] = "Projects";
                                         <dt>طريقة الدفع :</dt><dd>شيكك</dd>
                                         
                                     </dl>
-
-                                
-                            </div>
-                        </div>
 
                     </div>
 
