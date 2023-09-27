@@ -240,14 +240,14 @@ $_SESSION['sidebar'] = "Projects";
                             <div class="card h-100">
                                 <div class="card-body p-3">
                                     <div class="row ">
-                                        <div class="dl-horizontal text-right col-lg-10 col-sm-6">
+                                        <div class="dl-horizontal text-right">
                                             <dt>اسم المشروع :</dt>
                                             <dd>ركن اميال للمقاولات</dd>
 
                                             <dt>Messages:</dt>
                                             <dd> ركن اميال للمقاولات</dd>
                                         </div>
-                                        <div class="dl-horizontal text-left col-lg-2 col-sm-6">
+                                        <div class="dl-horizontal text-left ">
                                             <dt>مدة الموافقة على المشروع:</dt>
                                             <dd> 2 ايام</dd>
 
