@@ -235,7 +235,8 @@ $_SESSION['sidebar'] = "Projects";
                 <!--********* -->
                 <div class="container-fluid py-4">
                     <div class="row">
-                        <div class="col-lg-5">
+                        
+                        <div class="col-lg-5" id="cluster_info">
                             <dl class="dl-horizontal">
 
                                 <dt>اسم المشروع :</dt>
@@ -243,9 +244,7 @@ $_SESSION['sidebar'] = "Projects";
                                 <dt>Messages:</dt>
                                 <dd> ركن اميال للمقاولات</dd>
                             </dl>
-                        </div>
-                        <div class="col-lg-7" id="cluster_info">
-                            <dl class="dl-horizontal">
+                            <dl class="dl-horizontal" >
 
                                 <dt>مدة الموافقة على المشروع:</dt>
                                 <dd> 2 ايام</dd>
@@ -254,20 +253,17 @@ $_SESSION['sidebar'] = "Projects";
                                 <dt>طريقة الدفع :</dt>
                                 <dd> </dd>
                         </div>
-
-                    </div>
-                    <div class="container-fluid py-4">
-                        <div class="row">
-                            <div class="col-12 col-xl-4">
-                                <div class="card h-100">
-                                    <div class="card-header pb-0 p-3">
-                                        <h6 class="mb-0">Platform Settings</h6>
-                                    </div>
-
+                        <div class="col-12 col-xl-4">
+                            <div class="card h-100">
+                                <div class="card-header pb-0 p-3">
+                                    <h6 class="mb-0">Platform Settings</h6>
                                 </div>
+
                             </div>
                         </div>
+
                     </div>
+
 
 
 
