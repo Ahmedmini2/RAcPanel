@@ -570,7 +570,7 @@ if(isset($_POST['add-project'])){
                           if (e.target.classList.contains("add_accessory")) {
             
                             a++;
-                            <?php $accessory_raws++; ?>
+                            <?php $accessory_raws+=1; ?>
                             console.log("Accessory Rows : <?=$accessory_raws?>");
                           }
                         });
