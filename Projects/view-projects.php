@@ -252,91 +252,59 @@ $_SESSION['sidebar'] = "Projects";
                                 <dt>مدة تنفيذ المشروع:</dt>
                                 <dd> 7 ايام </dd>
                                 <dt>طريقة الدفع :</dt>
-                                <dd> شيك</dd>
+                                <dd> </dd>
                         </div>
 
                     </div>
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <dl class="dl-horizontal">
-
-                                <dt>اسم المشروع :</dt>
-                                <dd></dd>
-                                <dt>Messages:</dt>
-                                <dd> ركن اميال للمقاولات</dd>
-                            </dl>
-                        </div>
-                        <div class="col-lg-7" id="cluster_info">
-                            <dl class="dl-horizontal">
-
-                                <dt>مدة الموافقة على المشروع:</dt>
-                                <dd> 2 ايام</dd>
-                                <dt>مدة تنفيذ المشروع:</dt>
-                                <dd> 7 ايام </dd>
-                                <dt>طريقة الدفع :</dt>
-                                <dd> شيك</dd>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <dl class="dl-horizontal">
-
-                                <dt>اسم المشروع :</dt>
-                                <dd></dd>
-                                <dt>Messages:</dt>
-                                <dd> ركن اميال للمقاولات</dd>
-                            </dl>
-                        </div>
-                        <div class="col-lg-7" id="cluster_info">
-                            <dl class="dl-horizontal">
-
-                                <dt>مدة الموافقة على المشروع:</dt>
-                                <dd> 2 ايام</dd>
-                                <dt>مدة تنفيذ المشروع:</dt>
-                                <dd> 7 ايام </dd>
-                                <dt>طريقة الدفع :</dt>
-                                <dd> شيك</dd>
-                        </div>
-
-                    </div>
-
-
-
-
-
-
-                    <footer class="footer pt-3  ">
-                        <div class="container-fluid">
-                            <div class="row align-items-center justify-content-lg-between">
-                                <div class="col-lg-6 mb-lg-0 mb-4">
-                                    <div class="copyright text-center text-sm text-muted text-lg-end">
-                                        © <script>
-                                            document.write(new Date().getFullYear())
-                                        </script>,
-                                        made with <i class="fa fa-heart"></i> by
-                                        <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
-
+                    <div class="container-fluid py-4">
+                        <div class="row">
+                            <div class="col-12 col-xl-4">
+                                <div class="card h-100">
+                                    <div class="card-header pb-0 p-3">
+                                        <h6 class="mb-0">Platform Settings</h6>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                                        <li class="nav-item">
-                                            <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-                                        </li>
 
-                                    </ul>
+                                </div> 
+                            </div> 
+                        </div>     
+                    </div>
+
+
+
+
+
+
+                                    <footer class="footer pt-3  ">
+                                        <div class="container-fluid">
+                                            <div class="row align-items-center justify-content-lg-between">
+                                                <div class="col-lg-6 mb-lg-0 mb-4">
+                                                    <div class="copyright text-center text-sm text-muted text-lg-end">
+                                                        © <script>
+                                                            document.write(new Date().getFullYear())
+                                                        </script>,
+                                                        made with <i class="fa fa-heart"></i> by
+                                                        <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                                                        <li class="nav-item">
+                                                            <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </footer>
                                 </div>
-                            </div>
-                        </div>
-                    </footer>
-                </div>
     </main>
 
     <!--   Core JS Files   -->
