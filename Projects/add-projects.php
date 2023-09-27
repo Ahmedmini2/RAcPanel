@@ -4,9 +4,9 @@ $_SESSION['sidebar'] = "Projects";
 $coco = 1;
 $numberofrows = 1;
 
-$iron_raws = 1;
+$iron_raws = $_POST['iron-rr'];
 $accessory_raws = $_POST['ac-rr'];
-$band_raws = 1;
+$band_raws = $_POST['band-rr'];
 if(isset($_POST['add-project'])){
 
   $iron1 = 1;
@@ -42,7 +42,8 @@ if(isset($_POST['add-project'])){
       VALUES(NULL, $product_id, '$kharasana', '$kh_price', '$kh_per', '$kh_peice' , '$kh_tot' , NOW())";
       $kh_res = $conn->query($insert_kh);
       if($kh_res){
-        
+
+        $iron_raws = $_POST['iron-rr'];
         while ($iron1 <= $iron_raws){
           $iron = $_POST['iron_'.$iron1];
           $iron_price = $_POST['iron_price_'.$iron1];
@@ -93,11 +94,44 @@ if(isset($_POST['add-project'])){
           }
           $accessory1++;
         }
-        $_SESSION['notification'] = "كلو في السليم يا زميل";
-        header('location: index.php');
+
+        $cover_type = $_POST['cover_type'];
+        $cover_price = $_POST['cover_price'];
+        $cover_tot = $_POST['cover_tot'];
+
+        $insert_cover = "INSERT INTO `covers_band` (`id`, `product_id`, `type`, `price_per_piece`, `total_price`, `created_at`) 
+        VALUES (NULL , '$product_id' , '$cover_type' , '$cover_price' , '$cover_tot' , NOW())";
+        $cover_res = $conn->query($insert_cover);
+        if($cover_res){
+          
+          $band_raws = $_POST['band-rr'];
+          while ($band1 <= $band_raws){
+            $band = $_POST['band_'.$band1];
+            $band_price = $_POST['band_price_'.$band1];
+            $band_tot = $_POST['band_tot_'.$band1];
+
+            $insert_band = "INSERT INTO `extra_band` (`id`, `product_id`, `name`, `price_per_piece`, `total_price`, `created_at`) 
+            VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
+            $band_res = $conn->query($insert_band);
+            if($band_res){
+              $_SESSION['notification'] = "تمت اضافة المشروع بنجاح";
+              header('location: index.php');
+              exit();
+            }else{
+              $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
+              header('location: index.php');
+            }
+            $band1++;
+          }
+
+        }else{
+          $_SESSION['notification'] = "يوجد خلل في ادخال الاغطية";
+          header('location: index.php');
+        }
+        
 
       }else{
-        $_SESSION['notification'] = "يوجد خلل في ادخال الصنف";
+        $_SESSION['notification'] = "يوجد خلل في ادخال الخرسانة";
         header('location: index.php');
       }
 
@@ -111,17 +145,6 @@ if(isset($_POST['add-project'])){
     header('location: index.php');
   }
 
-  
-
-  
-
-
-
-  
-
-  $cover_type = $_POST['cover_type'];
-  $cover_price = $_POST['cover_price'];
-  $cover_tot = $_POST['cover_tot'];
 
 
   while ($band1 <= $band_raws){
@@ -473,6 +496,7 @@ if(isset($_POST['add-project'])){
                           <label for="iron_tot">السعر الكلي</label>
                           <input type="text" class="form-control" name='iron_tot_<?=$coco?>' id="iron_tot_<?=$coco?>" readonly>
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
+                          <input type="hidden" name="iron-rr" id="iron-rr" readonly>
                         </div>
                       </div>
                     </div>
@@ -512,7 +536,7 @@ if(isset($_POST['add-project'])){
                           if (e.target.classList.contains("add_iron")) {
             
                             i++;
-                            <?php $iron_raws++; ?>
+                            $("#iron-rr").val(a);
                           }
                         });
                       });
@@ -648,6 +672,7 @@ if(isset($_POST['add-project'])){
                           <label for="band_tot">السعر الكلي</label>
                           <input type="text" class="form-control" name="band_tot_<?=$coco?>" id="band_tot_<?=$coco?>" readonly>
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_band" disabled>
+                          <input type="hidden" name="band-rr" id="band-rr" readonly>
                         </div>
                       </div>
                     </div>
@@ -667,7 +692,7 @@ if(isset($_POST['add-project'])){
                           if (e.target.classList.contains("add_band")) {
             
                             b++;
-                            <?php $band_raws++; ?>
+                            $("#band-rr").val(a);
                             
                           }
                         });
