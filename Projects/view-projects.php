@@ -302,7 +302,7 @@ $_SESSION['sidebar'] = "Projects";
                                         </div>
                                         <div class="card-body pt-0 p-3 text-center">
                                             <h6 class="text-center mb-0">حاله المشروع</h6>
-                                            <span class="text-xs">ركن اميال</span>
+            
                                             <td class="align-middle">
                                                 <div class="progress-wrapper w-75 mx-auto">
                                                     <div class="progress-info">
