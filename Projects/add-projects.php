@@ -571,6 +571,7 @@ if(isset($_POST['add-project'])){
             
                             a++;
                             <?php $accessory_raws++; ?>
+                            console.log("Accessory Rows : <?=$accessory_raws?>");
                           }
                         });
                       });
@@ -665,6 +666,7 @@ if(isset($_POST['add-project'])){
             
                             b++;
                             <?php $band_raws++; ?>
+                            con
                           }
                         });
                       });
