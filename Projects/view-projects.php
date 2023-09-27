@@ -326,101 +326,102 @@ $_SESSION['sidebar'] = "Projects";
 
                     </div>
 
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card mb-4">
+                                <div class="card-body px-0 pt-0 pb-2">
+                                    <div class="table-responsive p-0">
+                                        <table class="table table-hover table-fixed">
 
+                                            <!--Table head-->
+                                            <thead class="bg-dark text-light">
+                                                <tr>
+                                                    <th>الرقم</th>
+                                                    <th>الاسم</th>
+                                                    <th>الابعاد</th>
+                                                    <th>التوصيل</th>
+                                                    <th>التكلفة</th>
+                                                    <th>صافي الربح</th>
+                                                    <th>الكمية</th>
+                                                    <th>تم الانتاج</th>
+                                                </tr>
+                                            </thead>
+                                            <!--Table head-->
 
+                                            <!--Table body-->
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>خرسانه</td>
+                                                    <td>6*6</td>
+                                                    <td>200</td>
+                                                    <td>3460</td>
+                                                    <td>6000</td>
+                                                    <td>12</td>
+                                                    <td>اليوم</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>خرسانه</td>
+                                                    <td>4*4</td>
+                                                    <td>800</td>
+                                                    <td>4675</td>
+                                                    <td>8000</td>
+                                                    <td>5</td>
+                                                    <td>اليوم</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>Gary</td>
+                                                    <td>Winogrand</td>
+                                                    <td>Germany</td>
+                                                    <td>Berlin</td>
+                                                    <td>Photographer</td>
+                                                    <td>37</td>
+                                                    <td>41</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>Angie</td>
+                                                    <td>Smith</td>
+                                                    <td>USA</td>
+                                                    <td>San Francisco</td>
+                                                    <td>Teacher</td>
+                                                    <td>52</td>
+                                                    <td>41</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">5</th>
+                                                    <td>John</td>
+                                                    <td>Mattis</td>
+                                                    <td>France</td>
+                                                    <td>Paris</td>
+                                                    <td>Actor</td>
+                                                    <td>28</td>
+                                                    <td>41</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">6</th>
+                                                    <td>Otto</td>
+                                                    <td>Morris</td>
+                                                    <td>Germany</td>
+                                                    <td>Munich</td>
+                                                    <td>Singer</td>
+                                                    <td>35</td>
+                                                    <td>41</td>
+                                                </tr>
+                                            </tbody>
+                                            <!--Table body-->
 
-                    <!--Table-->
-                    <div class="card mt-5">
-                       
-                        <h4 class="card-title mx-5 mt-3">الاصناف</h4>
-                    
-                        <div class="card-body p-3">
-                            <table class="table table-hover table-fixed">
-
-                                <!--Table head-->
-                                <thead>
-                                    <tr>
-                                        <th>الرقم</th>
-                                        <th>الاسم</th>
-                                        <th>الابعاد</th>
-                                        <th>التوصيل</th>
-                                        <th>التكلفة</th>
-                                        <th>صافي الربح</th>
-                                        <th>الكمية</th>
-                                        <th>تم الانتاج</th>
-                                    </tr>
-                                </thead>
-                                <!--Table head-->
-
-                                <!--Table body-->
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>خرسانه</td>
-                                        <td>6*6</td>
-                                        <td>200</td>
-                                        <td>3460</td>
-                                        <td>6000</td>
-                                        <td>12</td>
-                                        <td>اليوم</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>خرسانه</td>
-                                        <td>4*4</td>
-                                        <td>800</td>
-                                        <td>4675</td>
-                                        <td>8000</td>
-                                        <td>5</td>
-                                        <td>اليوم</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Gary</td>
-                                        <td>Winogrand</td>
-                                        <td>Germany</td>
-                                        <td>Berlin</td>
-                                        <td>Photographer</td>
-                                        <td>37</td>
-                                        <td>41</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Angie</td>
-                                        <td>Smith</td>
-                                        <td>USA</td>
-                                        <td>San Francisco</td>
-                                        <td>Teacher</td>
-                                        <td>52</td>
-                                        <td>41</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>John</td>
-                                        <td>Mattis</td>
-                                        <td>France</td>
-                                        <td>Paris</td>
-                                        <td>Actor</td>
-                                        <td>28</td>
-                                        <td>41</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">6</th>
-                                        <td>Otto</td>
-                                        <td>Morris</td>
-                                        <td>Germany</td>
-                                        <td>Munich</td>
-                                        <td>Singer</td>
-                                        <td>35</td>
-                                        <td>41</td>
-                                    </tr>
-                                </tbody>
-                                <!--Table body-->
-
-                            </table>
-                            <!--Table-->
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <!--Table-->
+                    
 
 
                     <footer class="footer pt-3  ">
