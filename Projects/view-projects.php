@@ -231,6 +231,24 @@ $_SESSION['sidebar'] = "Projects";
 
 
             </div>
+            <div class="col-12 mt-4">
+            <div class="row ">
+                        <div class="text-right col-lg-10 col-sm-6">
+                            <button type="button" id="btn2" class="btn bg-gradient-dark rounded-pill ">
+                                طباعة امر الشراء
+                            </button>
+
+                            <button type="button" id="btn3" class=" btn bg-gradient-dark rounded-pill ">
+                                تعديل بيانات المشروع
+                            </button>
+                        </div>
+                        <div class="text-left col-lg-2 col-sm-6">
+                            <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                تغير حالة المشروع
+                            </button>
+                        </div>
+                    </div>
+            </div>
         </div>
 
 
