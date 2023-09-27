@@ -567,10 +567,11 @@ if(isset($_POST['add-project'])){
                       document.addEventListener("DOMContentLoaded", function () {
                         const productDetails = document.querySelector("#product_details");
                         productDetails.addEventListener("click", function (e) {
+                          
                           if (e.target.classList.contains("add_accessory")) {
             
                             a++;
-                            <?php $accessory_raws+=1; ?>
+                            <?php $accessory_raws++ ; ?>
                             console.log("Accessory Rows : <?=$accessory_raws?>");
                           }
                         });
@@ -666,7 +667,7 @@ if(isset($_POST['add-project'])){
             
                             b++;
                             <?php $band_raws++; ?>
-                            con
+                            
                           }
                         });
                       });
