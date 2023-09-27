@@ -164,42 +164,73 @@ $_SESSION['sidebar'] = "Projects";
                         <h3 class="mb-1">عرض مشروع</h3>
                     </div>
                     <!-- Card Header  -->
-            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
-                <div class="card-body p-3  ">
-                    <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        تغير حالة الطلب
-                    </button>
+                    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+                        <div class="card-body p-3  ">
+                            <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                تغير حالة المشروع
+                            </button>
 
-                    <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill  " onclick="printDiv('printableArea')">
-                        طباعة الطلب
-                    </button>
+                            <button type="button" id="btn2" class="btn bg-gradient-dark rounded-pill " >
+                                طباعة امر الشراء
+                            </button>
 
-                    <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                        إرفاق \ عرض الملف
-                    </button>
-                    <script>
-                        function printDiv(divName) {
+                            <button type="button" id="btn3" class=" btn bg-gradient-dark rounded-pill ">
+                                تعديل بيانات المشروع
+                            </button>
+                            <script>
+                                function printDiv(divName) {
 
-                            document.getElementById('btn1').style.display = "none";
-                            document.getElementById('btn2').style.display = "none";
-                            document.getElementById('btn3').style.display = "none";
-                            window.print();
-                            document.getElementById('btn1').style.display = "inline";
-                            document.getElementById('btn2').style.display = "inline";
-                            document.getElementById('btn3').style.display = "inline";
+                                    document.getElementById('btn1').style.display = "none";
+                                    document.getElementById('btn2').style.display = "none";
+                                    document.getElementById('btn3').style.display = "none";
+                                    window.print();
+                                    document.getElementById('btn1').style.display = "inline";
+                                    document.getElementById('btn2').style.display = "inline";
+                                    document.getElementById('btn3').style.display = "inline";
 
-                        }
-                    </script>
+                                }
+                            </script>
+                            <!-- Change Status Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">حالة المشروع</h5>
+                                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>">
+                                                <?php if ($position == 'Admin' || $position == 'Accounts' && $status == 1) { ?> <button type="submit" name="account" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                        تأكيد المشروع عن طريق المحاسب
+                                                    </button>
+                                                <?php } ?>
+                                                <br>
+                                                <?php if ($position == 'Admin' || $position == 'Manager' && $status == 2) { ?> <button type="submit" name="manager" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                        تأكيد المشروع عن طريق طريق المدير العام
+                                                    </button>
+                                                <?php } ?>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
 
                 </div>
             </div>
 
-                </div>
-            </div>
 
-             
 
-            
+
 
 
 
