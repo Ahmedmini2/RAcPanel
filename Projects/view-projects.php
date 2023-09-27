@@ -235,7 +235,7 @@ $_SESSION['sidebar'] = "Projects";
                 <!--********* -->
                 <div class="container-fluid py-4">
                     <div class="row">
-                    <div class="col-12 col-xl-4">
+                    <div class="col-xl-3 col-sm-6 mb-xl-0">
                             <div class="card h-100">
                                 <div class="card-body p-3">
 
