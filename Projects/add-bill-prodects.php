@@ -333,12 +333,12 @@ hr.new5 {
               <!-- Product End -->
 
               
-                
+                <div class="col text-center">
                   
                     <style>
                       .myButton{
                         border: none;
-                        cursor: pointer;
+                       cursor: pointer;
                         background: #8392AB;
                          color: #fff;
                           border-radius: 20px;   
@@ -349,8 +349,9 @@ hr.new5 {
                          letter-spacing: 1px;
                         }
                     </style>
-                    <button type="submit" name="submit" class="myButton col text-center col-md-4  mt-5 btn btn-secondary rounded-pill"> حفظ </button>
-              
+                    <button type="submit" name="submit" class="myButton col-md-4 col-sm-9 mt-5 btn btn-secondary rounded-pill"> حفظ </button>
+                  
+                </div>
               
           </form>
 
