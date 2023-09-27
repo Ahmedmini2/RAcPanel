@@ -157,70 +157,47 @@ $_SESSION['sidebar'] = "Projects";
 
                 <?php require_once('../components/notification.php'); ?>
             </div>
-            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
-            <div class="card-body p-3  ">
-                        <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            تغير حالة الطلب
-                        </button>
 
-                        <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill  " onclick="printDiv('printableArea')">
-                            طباعة الطلب
-                        </button>
-
-                        <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                            إرفاق \ عرض الملف
-                        </button>
-                        <script>
-                            function printDiv(divName) {
-
-                                document.getElementById('btn1').style.display = "none";
-                                document.getElementById('btn2').style.display = "none";
-                                document.getElementById('btn3').style.display = "none";
-                                window.print();
-                                document.getElementById('btn1').style.display = "inline";
-                                document.getElementById('btn2').style.display = "inline";
-                                document.getElementById('btn3').style.display = "inline";
-
-                            }
-                        </script>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
-                                <div class="card card-blog card-plain py-3">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Project #2</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                                Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-            </div>
             <div class="col-12 mt-4">
                 <div class="card mb-4 p-3">
                     <div class="card-header">
                         <h3 class="mb-1">عرض مشروع</h3>
                     </div>
-                    
+
                 </div>
             </div>
+             <!-- Card Header  -->
+            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+                <div class="card-body p-3  ">
+                    <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        تغير حالة الطلب
+                    </button>
+
+                    <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill  " onclick="printDiv('printableArea')">
+                        طباعة الطلب
+                    </button>
+
+                    <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        إرفاق \ عرض الملف
+                    </button>
+                    <script>
+                        function printDiv(divName) {
+
+                            document.getElementById('btn1').style.display = "none";
+                            document.getElementById('btn2').style.display = "none";
+                            document.getElementById('btn3').style.display = "none";
+                            window.print();
+                            document.getElementById('btn1').style.display = "inline";
+                            document.getElementById('btn2').style.display = "inline";
+                            document.getElementById('btn3').style.display = "inline";
+
+                        }
+                    </script>
+
+                </div>
+            </div>
+
+            
 
 
 
