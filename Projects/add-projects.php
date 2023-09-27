@@ -144,15 +144,6 @@ if(isset($_POST['add-project'])){
     $_SESSION['notification'] = "يوجد خلل في ادخال المشروع";
     header('location: index.php');
   }
-
-
-
-  while ($band1 <= $band_raws){
-    $band_[$band1] = $_POST['band_'.$band1];
-    $band_price_[$band1] = $_POST['band_price_'.$band1];
-    $band_tot_[$band1] = $_POST['band_tot_'.$band1];
-    $band1++;
-  }
   
   
   
@@ -536,7 +527,7 @@ if(isset($_POST['add-project'])){
                           if (e.target.classList.contains("add_iron")) {
             
                             i++;
-                            $("#iron-rr").val(a);
+                            $("#iron-rr").val(i);
                           }
                         });
                       });
@@ -692,7 +683,7 @@ if(isset($_POST['add-project'])){
                           if (e.target.classList.contains("add_band")) {
             
                             b++;
-                            $("#band-rr").val(a);
+                            $("#band-rr").val(b);
                             
                           }
                         });
