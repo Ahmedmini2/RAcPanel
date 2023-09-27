@@ -694,7 +694,21 @@ if(isset($_POST['add-project'])){
               <div class="row">
                 <div class="col">
                   <div class="form-group">
-                    <button type="submit" name="add-project" class=" col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill"> حفظ </button>
+                  <style>
+                      .myButton{
+                        border: none;
+                       cursor: pointer;
+                        background: #8392AB;
+                         color: #fff;
+                          border-radius: 20px;   
+                          transition: 0.5s; 
+                      }
+                      .myButton:hover{
+                         background: #344767;
+                         letter-spacing: 1px;
+                        }
+                    </style>
+                    <button type="submit" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill"> حفظ </button>
                   </div>
                 </div>
                 <div class="col">
