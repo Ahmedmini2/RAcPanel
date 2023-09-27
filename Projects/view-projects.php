@@ -157,7 +157,14 @@ $_SESSION['sidebar'] = "Projects";
 
                 <?php require_once('../components/notification.php'); ?>
             </div>
-            <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+           
+            <div class="col-12 mt-4">
+                <div class="card mb-4 p-3">
+                    <div class="card-header">
+                        <h3 class="mb-1">عرض مشروع</h3>
+                    </div>
+                    <div class="card-body p-3  ">
+                    <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
         تغير حالة الطلب
             </button>
 
@@ -168,12 +175,19 @@ $_SESSION['sidebar'] = "Projects";
       <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
         إرفاق \ عرض الملف
       </button>
-            <div class="col-12 mt-4">
-                <div class="card mb-4 p-3">
-                    <div class="card-header">
-                        <h3 class="mb-1">عرض مشروع</h3>
-                    </div>
-                    <div class="card-body p-3  ">
+      <script>
+        function printDiv(divName) {
+
+          document.getElementById('btn1').style.display = "none";
+          document.getElementById('btn2').style.display = "none";
+          document.getElementById('btn3').style.display = "none";
+          window.print();
+          document.getElementById('btn1').style.display = "inline";
+          document.getElementById('btn2').style.display = "inline";
+          document.getElementById('btn3').style.display = "inline";
+
+        }
+      </script>
                         <div class="row">
                             <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
                                 <div class="card card-blog card-plain py-3">
