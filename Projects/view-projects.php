@@ -423,7 +423,7 @@ $_SESSION['sidebar'] = "Projects";
                             </div>
                         </div>
                     </div>
-                    <!--Table col-md-5 mt-4-->
+                    <!--Table -->
                     
                     <div class="row">
                         <div class="col-md-7 mt-4">
@@ -461,7 +461,7 @@ $_SESSION['sidebar'] = "Projects";
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-md-5 mt-4">
                             <div class="card h-100">
                                 <div class="card-header pb-0 p-3">
                                     <div class="row">
