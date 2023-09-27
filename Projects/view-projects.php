@@ -236,24 +236,28 @@ $_SESSION['sidebar'] = "Projects";
                 <div class="container-fluid py-4">
                     <div class="row">
                         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                            <div class="card">
+                        <div class="card h-100">
                                 <div class="card-body p-3">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <div class="numbers">
-                                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Money</p>
-                                                <h5 class="font-weight-bolder mb-0">
-                                                    $53,000
-                                                    <span class="text-success text-sm font-weight-bolder">+55%</span>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 text-end">
-                                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                    <dl class="dl-horizontal">
+
+                                        <dt>اسم المشروع :</dt>
+                                        <dd>ركن اميال للمقاولات</dd>
+
+                                        <dt>Messages:</dt>
+                                        <dd> ركن اميال للمقاولات</dd>
+
+                                        <dt>مدة الموافقة على المشروع:</dt>
+                                        <dd> 2 ايام</dd>
+
+                                        <dt>مدة تنفيذ المشروع:</dt>
+                                        <dd> 7 ايام </dd>
+
+                                        <dt>طريقة الدفع :</dt>
+                                        <dd>شيكك</dd>
+
+                                    </dl>
+
                                 </div>
                             </div>
                         </div>
