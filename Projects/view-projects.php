@@ -234,44 +234,23 @@ $_SESSION['sidebar'] = "Projects";
             <div class="col-12 mt-4">
                 <!--********* -->
                 <div class="container-fluid py-4">
-                    <div class="row mt-4">
+                    <div class="row">
 
-                        <div class="col-lg-7 mb-lg-0 mb-4">
-                            <div class="card">
-                                <div class="card-body py-3">
-                                    <div class="row">
-                                        <dl class="dl-horizontal">
-
-                                            <dt>اسم المشروع :</dt>
-                                            <dd>ركن اميال للمقاولات</dd>
-                                            <dt>Messages:</dt>
-                                            <dd> ركن اميال للمقاولات</dd>
-                                            <dt>مدة الموافقة على المشروع:</dt>
-                                            <dd> 2 ايام</dd>
-                                            <dt>مدة تنفيذ المشروع:</dt>
-                                            <dd> 7 ايام </dd>
-                                            <dt>طريقة الدفع :</dt>
-                                            <dd>شيكك</dd>
-                                        </dl>
-                                    </div>
-
-                                </div>
-                            </div>
-
+                        <div class="col-12 col-xl-4">
                             <div class="card h-100">
                                 <div class="card-body p-3">
                                     <dl class="dl-horizontal">
 
-                                        <dt>اسم المشروع :</dt>
-                                        <dd>ركن اميال للمقاولات</dd>
-                                        <dt>Messages:</dt>
-                                        <dd> ركن اميال للمقاولات</dd>
-                                        <dt>مدة الموافقة على المشروع:</dt>
-                                        <dd> 2 ايام</dd>
-                                        <dt>مدة تنفيذ المشروع:</dt>
-                                        <dd> 7 ايام </dd>
-                                        <dt>طريقة الدفع :</dt>
-                                        <dd>شيكك</dd>
+                                        <dt>اسم المشروع :</dt><dd>ركن اميال للمقاولات</dd>
+                                        
+                                        <dt>Messages:</dt><dd> ركن اميال للمقاولات</dd>
+                                        
+                                        <dt>مدة الموافقة على المشروع:</dt><dd> 2 ايام</dd>
+                                        
+                                        <dt>مدة تنفيذ المشروع:</dt><dd> 7 ايام </dd>
+                                        
+                                        <dt>طريقة الدفع :</dt><dd>شيكك</dd>
+                                        
                                     </dl>
 
                                 </div>
