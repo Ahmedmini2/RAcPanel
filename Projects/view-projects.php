@@ -256,7 +256,50 @@ $_SESSION['sidebar'] = "Projects";
                         </div>
 
                     </div>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <dl class="dl-horizontal">
 
+                                <dt>اسم المشروع :</dt>
+                                <dd></dd>
+                                <dt>Messages:</dt>
+                                <dd> ركن اميال للمقاولات</dd>
+                            </dl>
+                        </div>
+                        <div class="col-lg-7" id="cluster_info">
+                            <dl class="dl-horizontal">
+
+                                <dt>مدة الموافقة على المشروع:</dt>
+                                <dd> 2 ايام</dd>
+                                <dt>مدة تنفيذ المشروع:</dt>
+                                <dd> 7 ايام </dd>
+                                <dt>طريقة الدفع :</dt>
+                                <dd> شيك</dd>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <dl class="dl-horizontal">
+
+                                <dt>اسم المشروع :</dt>
+                                <dd></dd>
+                                <dt>Messages:</dt>
+                                <dd> ركن اميال للمقاولات</dd>
+                            </dl>
+                        </div>
+                        <div class="col-lg-7" id="cluster_info">
+                            <dl class="dl-horizontal">
+
+                                <dt>مدة الموافقة على المشروع:</dt>
+                                <dd> 2 ايام</dd>
+                                <dt>مدة تنفيذ المشروع:</dt>
+                                <dd> 7 ايام </dd>
+                                <dt>طريقة الدفع :</dt>
+                                <dd> شيك</dd>
+                        </div>
+
+                    </div>
 
 
 
