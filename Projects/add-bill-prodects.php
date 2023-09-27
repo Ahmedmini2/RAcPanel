@@ -339,13 +339,13 @@ hr.new5 {
                       .myButton{
                         border: none;
                        cursor: pointer;
-                        background: #320053;
+                        background: #8392AB;
                          color: #fff;
                           border-radius: 20px;   
                           transition: 0.5s; 
                       }
                       .myButton:hover{
-                         background: #51045f;
+                         background: #344767;
                          letter-spacing: 1px;
                         }
                     </style>
