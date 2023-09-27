@@ -237,7 +237,8 @@ $_SESSION['sidebar'] = "Projects";
                     <div class="row">
 
                         <div class="col-12 col-xl-4">
-                           
+                            <div class="container">
+                                
                                     
                                     <dl class="dl-horizontal">
 
@@ -253,7 +254,8 @@ $_SESSION['sidebar'] = "Projects";
                                         
                                     </dl>
 
-                            
+                                
+                            </div>
                         </div>
 
                     </div>
