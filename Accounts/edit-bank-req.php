@@ -394,6 +394,7 @@ include ('../cookies/session2.php');
                                     <div class="form-group">
                                       <label>نوع التعميد</label>
                                       <select name="name" id="name" class="form-control" placeholder="نوع التعميد" onchange="showDiv(this)">
+                                            <option value="<?=$name?>" selected><?php if($name == 1 ) {  echo 'طلب تحويل بنكي'; }else if ($name == 2) {echo 'طلب سحب مبلغ مالي';} else if ($name == 3){ echo 'طلب اصدار شيك بنكي';} ?></option>
                                             <option value="0"></option>
                                             <option value="1" <?php if($name==1) echo 'selected="selected"'; ?>>طلب تحويل بنكي</option>
                                             <option value="2" <?php if($name==2) echo 'selected="selected"'; ?>>طلب سحب مبلغ مالي</option>
@@ -474,7 +475,7 @@ include ('../cookies/session2.php');
                                      <div class="form-group">
                                         <label>الى حساب شركة</label>
                                         <select name="transfer_to" id="transfer_to" class="form-control" placeholder="نوع التعميد">
-                                        <option value=""></option>  
+                                        <option value="<?=$transfer_to?>"><?=$transfer_to?></option>  
                                         <?php
                                             $select =mysqli_query($conn, "select name from beneficiary_info");
                                             $i=0; while($r=mysqli_fetch_array($select)){
