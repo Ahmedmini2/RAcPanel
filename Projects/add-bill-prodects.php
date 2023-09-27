@@ -332,9 +332,9 @@ hr.new5 {
  </div>
               <!-- Product End -->
 
-              <div class="row">
+              
                 <div class="col text-center">
-                  <div class="form-group">
+                  
                     <style>
                       .myButton{
                         border: none;
@@ -350,9 +350,9 @@ hr.new5 {
                         }
                     </style>
                     <button type="submit" name="submit" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill"> حفظ </button>
-                  </div>
+                  
                 </div>
-              </div>
+              
           </form>
 
         </div>
