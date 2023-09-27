@@ -264,7 +264,7 @@ $_SESSION['sidebar'] = "Projects";
                         </div>
                         <div class="col-xl-6">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 mt-md-0 mt-4">
                                     <div class="card">
                                         <div class="card-header mx-4 p-3 text-center">
                                             <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
