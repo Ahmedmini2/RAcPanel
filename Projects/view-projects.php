@@ -157,7 +157,7 @@ $_SESSION['sidebar'] = "Projects";
 
                 <?php require_once('../components/notification.php'); ?>
             </div>
-
+            <!--********* -->
             <div class="col-12 mt-4">
                 <div class="card mb-4 p-3">
                     <div class="card-header">
@@ -232,24 +232,30 @@ $_SESSION['sidebar'] = "Projects";
 
             </div>
             <div class="col-12 mt-4">
-            <div class="row ">
-                        <div class="text-right col-lg-10 col-sm-6">
-                            <button type="button" id="btn2" class="btn bg-gradient-dark rounded-pill ">
-                                طباعة امر الشراء
-                            </button>
+                <!--********* -->
+                <div class="card mb-4 p-3">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <dl class="dl-horizontal">
 
-                            <button type="button" id="btn3" class=" btn bg-gradient-dark rounded-pill ">
-                                تعديل بيانات المشروع
-                            </button>
+                                <dt>اسم المشروع :</dt>
+                                <dd></dd>
+                                <dt>Messages:</dt>
+                                <dd> ركن اميال للمقاولات</dd>
+                            </dl>
                         </div>
-                        <div class="text-left col-lg-2 col-sm-6">
-                            <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                تغير حالة المشروع
-                            </button>
+                        <div class="col-lg-7" id="cluster_info">
+                            <dl class="dl-horizontal">
+
+                                <dt>مدة الموافقة على المشروع:</dt>
+                                <dd> 2 ايام</dd>
+                                <dt>مدة تنفيذ المشروع:</dt>
+                                <dd> 7 ايام </dd>
+                                <dt>طريقة الدفع :</dt>
+                                <dd> شيك</dd>
                         </div>
+
                     </div>
-            </div>
-        </div>
 
 
 
@@ -257,37 +263,37 @@ $_SESSION['sidebar'] = "Projects";
 
 
 
-        <footer class="footer pt-3  ">
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6 mb-lg-0 mb-4">
-                        <div class="copyright text-center text-sm text-muted text-lg-end">
-                            © <script>
-                                document.write(new Date().getFullYear())
-                            </script>,
-                            made with <i class="fa fa-heart"></i> by
-                            <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
+                    <footer class="footer pt-3  ">
+                        <div class="container-fluid">
+                            <div class="row align-items-center justify-content-lg-between">
+                                <div class="col-lg-6 mb-lg-0 mb-4">
+                                    <div class="copyright text-center text-sm text-muted text-lg-end">
+                                        © <script>
+                                            document.write(new Date().getFullYear())
+                                        </script>,
+                                        made with <i class="fa fa-heart"></i> by
+                                        <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
 
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                                        <li class="nav-item">
+                                            <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-                            </li>
-
-                        </ul>
-                    </div>
+                    </footer>
                 </div>
-            </div>
-        </footer>
-        </div>
     </main>
 
     <!--   Core JS Files   -->
