@@ -114,15 +114,16 @@ if(isset($_POST['add-project'])){
             VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
             $band_res = $conn->query($insert_band);
             if($band_res){
-              $_SESSION['notification'] = "تمت اضافة المشروع بنجاح";
-              header('location: index.php');
-              exit();
+              
             }else{
               $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
               header('location: index.php');
             }
             $band1++;
           }
+          $_SESSION['notification'] = "تمت اضافة المشروع بنجاح";
+          header('location: index.php');
+          exit();
 
         }else{
           $_SESSION['notification'] = "يوجد خلل في ادخال الاغطية";
