@@ -165,8 +165,8 @@ $_SESSION['sidebar'] = "Projects";
                     </div>
                     <!-- Card Header  -->
                     
-            
-                        <div class="row shadow-sm p-3 mb-5 bg-white">
+                        <div class="container shadow-sm p-3 mb-5 bg-white rounded-pill">
+                        <div class="row ">
                         <div class="text-right col-lg-10 col-sm-6">
                             <button type="button" id="btn2" class="btn bg-gradient-dark rounded-pill ">
                                 طباعة امر الشراء
@@ -181,11 +181,8 @@ $_SESSION['sidebar'] = "Projects";
                                 تغير حالة المشروع
                             </button>
                             </div>
-                        </div>  
-                            
-                            
-
-                         
+                        </div>
+                        </div>
                             <script>
                                 function printDiv(divName) {
 
