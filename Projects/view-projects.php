@@ -157,6 +157,17 @@ $_SESSION['sidebar'] = "Projects";
 
                 <?php require_once('../components/notification.php'); ?>
             </div>
+            <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        تغير حالة الطلب
+            </button>
+
+      <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill  " onclick="printDiv('printableArea')">
+        طباعة الطلب
+      </button>
+
+      <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+        إرفاق \ عرض الملف
+      </button>
             <div class="col-12 mt-4">
                 <div class="card mb-4 p-3">
                     <div class="card-header">
