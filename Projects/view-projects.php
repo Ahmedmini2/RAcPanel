@@ -332,21 +332,22 @@ $_SESSION['sidebar'] = "Projects";
                     <!--Table-->
                     <div class="card mt-5">
                        
-                        <h4 class="card-title">الاصناف</h4>
-                        
+                        <h4 class="card-title mx-5 mt-3">الاصناف</h4>
+                    
                         <div class="card-body p-3">
                             <table class="table table-hover table-fixed">
 
                                 <!--Table head-->
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Surname</th>
-                                        <th>Country</th>
-                                        <th>City</th>
-                                        <th>Position</th>
-                                        <th>Age</th>
+                                        <th>الرقم</th>
+                                        <th>الاسم</th>
+                                        <th>الابعاد</th>
+                                        <th>التوصيل</th>
+                                        <th>التكلفة</th>
+                                        <th>صافي الربح</th>
+                                        <th>الكمية</th>
+                                        <th>تم الانتاج</th>
                                     </tr>
                                 </thead>
                                 <!--Table head-->
@@ -354,7 +355,7 @@ $_SESSION['sidebar'] = "Projects";
                                 <!--Table body-->
                                 <tbody>
                                     <tr>
-                                        <th scope="row">4</th>
+                                        <th scope="row">1</th>
                                         <td>Jerry</td>
                                         <td>Horwitz</td>
                                         <td>Italy</td>
@@ -363,7 +364,7 @@ $_SESSION['sidebar'] = "Projects";
                                         <td>41</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">5</th>
+                                        <th scope="row">2</th>
                                         <td>Janis</td>
                                         <td>Joplin</td>
                                         <td>Poland</td>
@@ -372,7 +373,7 @@ $_SESSION['sidebar'] = "Projects";
                                         <td>39</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">6</th>
+                                        <th scope="row">3</th>
                                         <td>Gary</td>
                                         <td>Winogrand</td>
                                         <td>Germany</td>
@@ -381,7 +382,7 @@ $_SESSION['sidebar'] = "Projects";
                                         <td>37</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">7</th>
+                                        <th scope="row">4</th>
                                         <td>Angie</td>
                                         <td>Smith</td>
                                         <td>USA</td>
@@ -390,7 +391,7 @@ $_SESSION['sidebar'] = "Projects";
                                         <td>52</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">8</th>
+                                        <th scope="row">5</th>
                                         <td>John</td>
                                         <td>Mattis</td>
                                         <td>France</td>
@@ -399,7 +400,7 @@ $_SESSION['sidebar'] = "Projects";
                                         <td>28</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">9</th>
+                                        <th scope="row">6</th>
                                         <td>Otto</td>
                                         <td>Morris</td>
                                         <td>Germany</td>
