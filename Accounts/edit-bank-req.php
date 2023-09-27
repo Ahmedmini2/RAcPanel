@@ -37,7 +37,7 @@ include ('../cookies/session2.php');
     $transfer_to=$_POST['transfer_to'];
     
     $update = "UPDATE `bank_request` SET `name` = '$name' , `description` = '$description' , `amount_text` = '$amount_text', `amount_number`= '$amount_number' , `our_bank_name` = '$our_bank_name'
-    ,`to_account_type`='$to_account_type', `transfer_to' = '$transfer_to' WHERE `id` = $id";
+    ,`to_account_type`='$to_account_type', `transfer_to` = '$transfer_to' WHERE `id` = $id";
     $updateResult=$conn->query($update);
     $idAttr="updateForm";
     if($updateResult){
