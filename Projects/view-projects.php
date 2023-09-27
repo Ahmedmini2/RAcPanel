@@ -356,21 +356,23 @@ $_SESSION['sidebar'] = "Projects";
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Jerry</td>
-                                        <td>Horwitz</td>
-                                        <td>Italy</td>
-                                        <td>Bari</td>
-                                        <td>Editor-in-chief</td>
-                                        <td>41</td>
+                                        <td>خرسانه</td>
+                                        <td>6*6</td>
+                                        <td>200</td>
+                                        <td>3460</td>
+                                        <td>6000</td>
+                                        <td>12</td>
+                                        <td>اليوم</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
-                                        <td>Janis</td>
-                                        <td>Joplin</td>
-                                        <td>Poland</td>
-                                        <td>Warsaw</td>
-                                        <td>Video Maker</td>
-                                        <td>39</td>
+                                        <td>خرسانه</td>
+                                        <td>4*4</td>
+                                        <td>800</td>
+                                        <td>4675</td>
+                                        <td>8000</td>
+                                        <td>5</td>
+                                        <td>اليوم</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
@@ -380,6 +382,7 @@ $_SESSION['sidebar'] = "Projects";
                                         <td>Berlin</td>
                                         <td>Photographer</td>
                                         <td>37</td>
+                                        <td>41</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">4</th>
@@ -389,6 +392,7 @@ $_SESSION['sidebar'] = "Projects";
                                         <td>San Francisco</td>
                                         <td>Teacher</td>
                                         <td>52</td>
+                                        <td>41</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">5</th>
@@ -398,6 +402,7 @@ $_SESSION['sidebar'] = "Projects";
                                         <td>Paris</td>
                                         <td>Actor</td>
                                         <td>28</td>
+                                        <td>41</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">6</th>
@@ -407,6 +412,7 @@ $_SESSION['sidebar'] = "Projects";
                                         <td>Munich</td>
                                         <td>Singer</td>
                                         <td>35</td>
+                                        <td>41</td>
                                     </tr>
                                 </tbody>
                                 <!--Table body-->
