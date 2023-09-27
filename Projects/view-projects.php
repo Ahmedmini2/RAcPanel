@@ -164,10 +164,10 @@ $_SESSION['sidebar'] = "Projects";
                         <h3 class="mb-1">عرض مشروع</h3>
                     </div>
                     <!-- Card Header  -->
-                    <div class="card card-body blur shadow-blur mx-2 mt-n3 overflow-hidden">
-                        <div class="card-body p-3  ">
-                        <div class="container">
-                        <div class="text-right">
+                    
+            
+                        <div class="row">
+                        <div class="text-right col-lg-10">
                             <button type="button" id="btn2" class="btn bg-gradient-dark rounded-pill ">
                                 طباعة امر الشراء
                             </button>
@@ -176,7 +176,7 @@ $_SESSION['sidebar'] = "Projects";
                                 تعديل بيانات المشروع
                             </button>
                             </div>
-                            <div class="text-left">
+                            <div class="text-left col-lg-2">
                             <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 تغير حالة المشروع
                             </button>
@@ -232,7 +232,7 @@ $_SESSION['sidebar'] = "Projects";
 
 
                         </div>
-                    </div>
+                   
 
                 </div>
             </div>
