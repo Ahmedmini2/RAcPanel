@@ -331,10 +331,10 @@ $_SESSION['sidebar'] = "Projects";
 
                     <!--Table-->
                     <div class="card">
-                        <div class="card mb-4 p-3">
+                       
                         <h4 class="card-title">الاصناف</h4>
-                        </div>
-                        <div class="card-body p-3">
+                        
+                        <div class="card-body p-3 mt-5">
                             <table class="table table-hover table-fixed">
 
                                 <!--Table head-->
