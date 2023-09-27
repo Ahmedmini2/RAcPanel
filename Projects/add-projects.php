@@ -5,7 +5,7 @@ $coco = 1;
 $numberofrows = 1;
 
 $iron_raws = 1;
-$accessory_raws = $_POST['rowcount_ac'];
+$accessory_raws = $_POST['ac-rr'];
 $band_raws = 1;
 if(isset($_POST['add-project'])){
 
@@ -76,7 +76,7 @@ if(isset($_POST['add-project'])){
           }
           $iron1++;
         }
-        $accessory_raws = $_POST['rowcount_ac'];
+        $accessory_raws = $_POST['ac-rr'];
         while ($accessory1 <= $accessory_raws){
           $accessory = $_POST['accessory_'.$accessory1];
           $acc_quantity = $_POST['acc_quantity_'.$accessory1];
@@ -547,7 +547,8 @@ if(isset($_POST['add-project'])){
                         <div class="form-group">
                           <label for="acc_tot">السعر الكلي</label>
                           <input type="text" class="form-control" name='acc_tot_<?=$coco?>' id="acc_tot_<?=$coco?>" readonly>
-                          <input type="hidden" name="rowcount_ac" id="rowcount_ac" readonly>
+                          <input type="hidden" name="rowcount_ac" value="<?php echo $numberofrows; ?>" id="rowcount_ac" readonly>
+                          <input type="hidden" name="ac-rr" id="ac-rr" readonly>
                         </div>
                       </div>
                     </div>
@@ -571,7 +572,7 @@ if(isset($_POST['add-project'])){
                           if (e.target.classList.contains("add_accessory")) {
             
                             a++;
-                            $("#rowcount_ac").val(a);
+                            $("#ac-rr").val(a);
                             
                           }
                         });
