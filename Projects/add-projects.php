@@ -5,7 +5,7 @@ $coco = 1;
 $numberofrows = 1;
 
 $iron_raws = 1;
-$accessory_raws = 1;
+$accessory_raws = $_POST['rowcount_ac'];
 $band_raws = 1;
 if(isset($_POST['add-project'])){
 
@@ -76,7 +76,7 @@ if(isset($_POST['add-project'])){
           }
           $iron1++;
         }
-
+        $accessory_raws = $_POST['rowcount_ac'];
         while ($accessory1 <= $accessory_raws){
           $accessory = $_POST['accessory_'.$accessory1];
           $acc_quantity = $_POST['acc_quantity_'.$accessory1];
@@ -547,7 +547,7 @@ if(isset($_POST['add-project'])){
                         <div class="form-group">
                           <label for="acc_tot">السعر الكلي</label>
                           <input type="text" class="form-control" name='acc_tot_<?=$coco?>' id="acc_tot_<?=$coco?>" readonly>
-                          <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_ac" disabled>
+                          <input type="hidden" name="rowcount_ac" id="rowcount_ac" readonly>
                         </div>
                       </div>
                     </div>
@@ -563,15 +563,16 @@ if(isset($_POST['add-project'])){
                             $("#acc_tot_"+z).val(peice);
                           }
                         })
-
+                        console.log("Before Accessory Rows : <?=$accessory_raws?>");
                       document.addEventListener("DOMContentLoaded", function () {
                         const productDetails = document.querySelector("#product_details");
                         productDetails.addEventListener("click", function (e) {
+                          
                           if (e.target.classList.contains("add_accessory")) {
             
                             a++;
-                            <?php $accessory_raws++; ?>
-                            console.log("Accessory Rows : <?=$accessory_raws?>");
+                            $("#rowcount_ac").val(a);
+                            
                           }
                         });
                       });
@@ -666,7 +667,7 @@ if(isset($_POST['add-project'])){
             
                             b++;
                             <?php $band_raws++; ?>
-                            con
+                            
                           }
                         });
                       });
