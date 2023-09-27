@@ -271,8 +271,8 @@ $_SESSION['sidebar'] = "Projects";
                                             </div>
                                         </div>
                                         <div class="card-body pt-0 p-3 text-center">
-                                            <h6 class="text-center mb-0">Salary</h6>
-                                            <span class="text-xs">Belong Interactive</span>
+                                            <h6 class="text-center mb-0">تكلفة المشروع</h6>
+                                            <span class="text-xs">ركن اميال</span>
                                             <hr class="horizontal dark my-3">
                                             <h5 class="mb-0">+$2000</h5>
                                         </div>
@@ -286,8 +286,8 @@ $_SESSION['sidebar'] = "Projects";
                                             </div>
                                         </div>
                                         <div class="card-body pt-0 p-3 text-center">
-                                            <h6 class="text-center mb-0">Salary</h6>
-                                            <span class="text-xs">Belong Interactive</span>
+                                            <h6 class="text-center mb-0">صافي الربح</h6>
+                                            <span class="text-xs">ركن اميال</span>
                                             <hr class="horizontal dark my-3">
                                             <h5 class="mb-0">+$2000</h5>
                                         </div>
@@ -301,10 +301,10 @@ $_SESSION['sidebar'] = "Projects";
                                             </div>
                                         </div>
                                         <div class="card-body pt-0 p-3 text-center">
-                                            <h6 class="text-center mb-0">Salary</h6>
-                                            <span class="text-xs">Belong Interactive</span>
+                                            <h6 class="text-center mb-0">حاله المشروع</h6>
+                                            <span class="text-xs">ركن اميال</span>
                                             <hr class="horizontal dark my-3">
-                                            <h5 class="mb-0">+$2000</h5>
+                                            <h5 class="mb-0">قيد التنفيد</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -326,7 +326,7 @@ $_SESSION['sidebar'] = "Projects";
 
             </div>
           </div>
-          <div class="col-lg-6">
+             <div class="col-lg-6">
             <ul class="nav nav-footer justify-content-center justify-content-lg-end">
               <li class="nav-item">
                 <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
