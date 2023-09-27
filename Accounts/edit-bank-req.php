@@ -43,7 +43,7 @@ include ('../cookies/session2.php');
     if($updateResult){
       $_SESSION['notification'] = "تم تعديل التعميد بنجاح";
     }else{
-      $_SESSION['notification'] = "يوجد خلل في النظام";
+      $_SESSION['notification'] = "يوجد خلل في النظام" .  $conn->error;;
     }
   }
     
