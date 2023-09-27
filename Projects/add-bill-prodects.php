@@ -335,7 +335,21 @@ hr.new5 {
               <div class="row">
                 <div class="col text-center">
                   <div class="form-group">
-                    <button type="submit" name="submit" class=" col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill"> حفظ </button>
+                    <style>
+                      .myButton{
+                        border: none;
+                       cursor: pointer;
+                        background: #320053;
+                         color: #fff;
+                          border-radius: 20px;   
+                          transition: 0.5s; 
+                      }
+                      .myButton:hover{
+                         background: #51045f;
+                         letter-spacing: 1px;
+                        }
+                    </style>
+                    <button type="submit" name="submit" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill"> حفظ </button>
                   </div>
                 </div>
               </div>
