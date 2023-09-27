@@ -175,9 +175,12 @@ $_SESSION['sidebar'] = "Projects";
                                 تعديل بيانات المشروع
                             </button>
                             </div>
+                            <div class="text-left">
                             <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 تغير حالة المشروع
                             </button>
+                            </div>
+                            
 
                          
                             <script>
