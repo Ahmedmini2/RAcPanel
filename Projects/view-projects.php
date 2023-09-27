@@ -466,7 +466,7 @@ $_SESSION['sidebar'] = "Projects";
                                 <div class="card-header pb-0 p-3">
                                     <div class="row">
                                         <div class="col-6 d-flex align-items-center">
-                                            <h6 class="mb-0">Invoices</h6>
+                                            <h6 class="mb-0 text-lg">Invoices</h6>
                                         </div>
                                         <div class="col-6 text-end">
                                             <button class="btn btn-outline-primary btn-sm mb-0">View All</button>
