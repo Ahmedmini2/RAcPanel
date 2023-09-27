@@ -303,6 +303,18 @@ $_SESSION['sidebar'] = "Projects";
                                         <div class="card-body pt-0 p-3 text-center">
                                             <h6 class="text-center mb-0">حاله المشروع</h6>
                                             <span class="text-xs">ركن اميال</span>
+                                            <td class="align-middle">
+                                                <div class="progress-wrapper w-75 mx-auto">
+                                                    <div class="progress-info">
+                                                        <div class="progress-percentage">
+                                                            <span class="text-xs font-weight-bold">60%</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
                                             <hr class="horizontal dark my-3">
                                             <h5 class="mb-0">قيد التنفيد</h5>
                                         </div>
@@ -311,38 +323,38 @@ $_SESSION['sidebar'] = "Projects";
                             </div>
 
                         </div>
-                        
+
                     </div>
                     <footer class="footer pt-3  ">
-          <div class="container-fluid">
-             <div class="row align-items-center justify-content-lg-between">
-               <div class="col-lg-6 mb-lg-0 mb-4">
-            <div class="copyright text-center text-sm text-muted text-lg-end">
-              © <script>
-                document.write(new Date().getFullYear())
-              </script>,
-              made with <i class="fa fa-heart"></i> by
-              <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
+                        <div class="container-fluid">
+                            <div class="row align-items-center justify-content-lg-between">
+                                <div class="col-lg-6 mb-lg-0 mb-4">
+                                    <div class="copyright text-center text-sm text-muted text-lg-end">
+                                        © <script>
+                                            document.write(new Date().getFullYear())
+                                        </script>,
+                                        made with <i class="fa fa-heart"></i> by
+                                        <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
 
-            </div>
-          </div>
-             <div class="col-lg-6">
-            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-              <li class="nav-item">
-                <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-              </li>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                                        <li class="nav-item">
+                                            <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
+                                        </li>
 
-            </ul>
-        </div>
-      </div>
-      </footer>
-      </div>
+                                    </ul>
+                                </div>
+                            </div>
+                    </footer>
+                </div>
     </main>
 
     <!--   Core JS Files   -->
