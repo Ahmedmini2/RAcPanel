@@ -869,8 +869,7 @@ if(isset($_POST['add-project'])){
                          letter-spacing: 1px;
                         }
                     </style>
-                    <button type="submit" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill"> حفظ </button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                       إستمرار
                     </button>
 
