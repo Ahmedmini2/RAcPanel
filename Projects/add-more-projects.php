@@ -64,7 +64,7 @@ if (isset($_POST['add-project'])) {
                     $selectedSizeText = $sizeText[$iron];
 
                     $insert_iron = "INSERT INTO iron_band (`id`, `product_id`, `size`, `price_today`, `quantity`, `iron_height`, `tn_price`, `total_price`, `created_at`)
-          VALUES (NULL, '$product_id' , '$selectedSizeText' , '$iron_price' , '$iron_quantity' , '$iron_long' , '$iron_tn' ,'$iron_tot', NOW())";
+                    VALUES (NULL, '$product_id' , '$selectedSizeText' , '$iron_price' , '$iron_quantity' , '$iron_long' , '$iron_tn' ,'$iron_tot', NOW())";
                     $iron_res = $conn->query($insert_iron);
                     if ($iron_res) {
                         $_SESSION['notification'] = "One Addes";
@@ -81,7 +81,7 @@ if (isset($_POST['add-project'])) {
                     $acc_tot = $_POST['acc_tot_' . $accessory1];
 
                     $insert_accessory = "INSERT INTO `accessory_band` (`id`, `product_id`, `name`, `quantity`, `price_per_piece`, `total_price`, `created_at`) 
-          VALUES (NULL, '$product_id' , '$accessory' , '$acc_quantity' , '$acc_price' , '$acc_tot' , NOW())";
+                    VALUES (NULL, '$product_id' , '$accessory' , '$acc_quantity' , '$acc_price' , '$acc_tot' , NOW())";
                     $accessory_res = $conn->query($insert_accessory);
                     if ($accessory_res) {
                         $_SESSION['notification'] = "One Addes";
@@ -198,6 +198,7 @@ if (isset($_POST['add-project'])) {
                     $iron1++;
                 }
                 $accessory_raws = $_POST['ac-rr'];
+                echo $accessory_raws;
                 while ($accessory1 <= $accessory_raws) {
                     $accessory = $_POST['accessory_' . $accessory1];
                     $acc_quantity = $_POST['acc_quantity_' . $accessory1];
