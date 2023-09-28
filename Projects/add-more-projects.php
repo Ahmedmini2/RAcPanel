@@ -40,6 +40,7 @@ if (isset($_POST['add-project'])) {
             if ($kh_res) {
 
                 $iron_raws = $_POST['iron-rr'];
+                if ($iron_raws == ""){$iron_raws = 1;}
                 while ($iron1 <= $iron_raws) {
                     $iron = $_POST['iron_' . $iron1];
                     $iron_price = $_POST['iron_price_' . $iron1];
@@ -74,6 +75,7 @@ if (isset($_POST['add-project'])) {
                     $iron1++;
                 }
                 $accessory_raws = $_POST['ac-rr'];
+                if ($accessory_raws == ""){$accessory_raws = 1;}
                 while ($accessory1 <= $accessory_raws) {
                     $accessory = $_POST['accessory_' . $accessory1];
                     $acc_quantity = $_POST['acc_quantity_' . $accessory1];
@@ -101,6 +103,7 @@ if (isset($_POST['add-project'])) {
                 if ($cover_res) {
 
                     $band_raws = $_POST['band-rr'];
+                    if ($band_raws == ""){$band_raws = 1;}
                     while ($band1 <= $band_raws) {
                         $band = $_POST['band_' . $band1];
                         $band_price = $_POST['band_price_' . $band1];
@@ -164,6 +167,7 @@ if (isset($_POST['add-project'])) {
             if ($kh_res) {
 
                 $iron_raws = $_POST['iron-rr'];
+                if ($iron_raws == ""){$iron_raws = 1;}
                 while ($iron1 <= $iron_raws) {
                     $iron = $_POST['iron_' . $iron1];
                     $iron_price = $_POST['iron_price_' . $iron1];
@@ -198,7 +202,7 @@ if (isset($_POST['add-project'])) {
                     $iron1++;
                 }
                 $accessory_raws = $_POST['ac-rr'];
-                echo $accessory_raws;
+                if ($accessory_raws == ""){$accessory_raws = 1;}
                 while ($accessory1 <= $accessory_raws) {
                     $accessory = $_POST['accessory_' . $accessory1];
                     $acc_quantity = $_POST['acc_quantity_' . $accessory1];
@@ -226,6 +230,7 @@ if (isset($_POST['add-project'])) {
                 if ($cover_res) {
 
                     $band_raws = $_POST['band-rr'];
+                    if ($band_raws == ""){$band_raws = 1;}
                     while ($band1 <= $band_raws) {
                         $band = $_POST['band_' . $band1];
                         $band_price = $_POST['band_price_' . $band1];
