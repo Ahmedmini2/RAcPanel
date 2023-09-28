@@ -122,6 +122,7 @@ if(isset($_POST['add-project'])){
             $band1++;
           }
           $_SESSION['notification'] = "تمت اضافة المشروع بنجاح";
+          unset($_SESSION['last_insert_project']);
           header('location: index.php');
           exit();
 
@@ -149,6 +150,149 @@ if(isset($_POST['add-project'])){
   
   
   
+  }else if(isset($_POST['add-project2'])) {
+      $iron1 = 1;
+      $accessory1 = 1;
+      $band1 = 1;
+    
+      $project_name = $_POST['project_name'];
+      $project_description = $_POST['project_description'];
+    
+      $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`created_at`) VALUES(NULL, '$project_name', '$project_description' ,NOW())";
+      $project_res = $conn->query($insert_project);
+      if($project_res){
+        
+        $project_id = $conn->insert_id;
+        $_SESSION['last_insert_project'] = $project_id;
+        
+        $product_name = $_POST['product_name'];
+        $dimensions = $_POST['dimensions'];
+        $quantity = $_POST['quantity'];
+        
+        $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' , NOW())";
+        $product_res = $conn->query($insert_product);
+    
+        if($product_res){
+          $product_id = $conn->insert_id;
+          
+          $kharasana = $_POST['kharasana'];
+          $kh_price = $_POST['kh_price'];
+          $kh_per = $_POST['kh_per'];
+          $kh_peice = $_POST['kh_peice'];
+          $kh_tot = $_POST['kh_tot'];
+    
+          $insert_kh = "INSERT INTO kharasana (`id`, `product_id`, `type`, `price`, `quantity_per_piece`, `price_per_piece` , `total_price`, `created_at`) 
+          VALUES(NULL, $product_id, '$kharasana', '$kh_price', '$kh_per', '$kh_peice' , '$kh_tot' , NOW())";
+          $kh_res = $conn->query($insert_kh);
+          if($kh_res){
+    
+            $iron_raws = $_POST['iron-rr'];
+            while ($iron1 <= $iron_raws){
+              $iron = $_POST['iron_'.$iron1];
+              $iron_price = $_POST['iron_price_'.$iron1];
+              $iron_quantity = $_POST['iron_quantity_'.$iron1];
+              $iron_long = $_POST['iron_long_'.$iron1];
+              $iron_tn = $_POST['iron_tn_'.$iron1];
+              $iron_tot = $_POST['iron_tot_'.$iron1];
+    
+              $sizeText = [
+                "0.395" => "8مم",
+                "0.617" => "10مم",
+                "0.888" => "12مم",
+                "1.21" => "14مم",
+                "1.58" => "16مم",
+                "2" => "18مم",
+                "2.47" => "20مم",
+                "2.984" => "22مم",
+                "3.85" => "25مم",
+                "6.41" => "32مم",
+              ];
+    
+              $selectedSizeText = $sizeText[$iron];
+    
+              $insert_iron = "INSERT INTO iron_band (`id`, `product_id`, `size`, `price_today`, `quantity`, `iron_height`, `tn_price`, `total_price`, `created_at`)
+              VALUES (NULL, '$product_id' , '$selectedSizeText' , '$iron_price' , '$iron_quantity' , '$iron_long' , '$iron_tn' ,'$iron_tot', NOW())";
+              $iron_res = $conn->query($insert_iron);
+              if($iron_res){
+                $_SESSION['notification'] = "One Addes";
+              }else{
+                $_SESSION['notification'] = "One Error";
+              }
+              $iron1++;
+            }
+            $accessory_raws = $_POST['ac-rr'];
+            while ($accessory1 <= $accessory_raws){
+              $accessory = $_POST['accessory_'.$accessory1];
+              $acc_quantity = $_POST['acc_quantity_'.$accessory1];
+              $acc_price = $_POST['acc_price_'.$accessory1];
+              $acc_tot = $_POST['acc_tot_'.$accessory1];
+    
+              $insert_accessory = "INSERT INTO `accessory_band` (`id`, `product_id`, `name`, `quantity`, `price_per_piece`, `total_price`, `created_at`) 
+              VALUES (NULL, '$product_id' , '$accessory' , '$acc_quantity' , '$acc_price' , '$acc_tot' , NOW())";
+              $accessory_res = $conn->query($insert_accessory);
+              if($accessory_res){
+                $_SESSION['notification'] = "One Addes";
+              }else{
+                $_SESSION['notification'] = "One Error";
+              }
+              $accessory1++;
+            }
+    
+            $cover_type = $_POST['cover_type'];
+            $cover_price = $_POST['cover_price'];
+            $cover_tot = $_POST['cover_tot'];
+    
+            $insert_cover = "INSERT INTO `covers_band` (`id`, `product_id`, `type`, `price_per_piece`, `total_price`, `created_at`) 
+            VALUES (NULL , '$product_id' , '$cover_type' , '$cover_price' , '$cover_tot' , NOW())";
+            $cover_res = $conn->query($insert_cover);
+            if($cover_res){
+              
+              $band_raws = $_POST['band-rr'];
+              while ($band1 <= $band_raws){
+                $band = $_POST['band_'.$band1];
+                $band_price = $_POST['band_price_'.$band1];
+                $band_tot = $_POST['band_tot_'.$band1];
+    
+                $insert_band = "INSERT INTO `extra_band` (`id`, `product_id`, `name`, `price_per_piece`, `total_price`, `created_at`) 
+                VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
+                $band_res = $conn->query($insert_band);
+                if($band_res){
+                  
+                }else{
+                  $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
+                  header('location: index.php');
+                }
+                $band1++;
+              }
+              $_SESSION['notification'] = "الصنف بنجاح";
+              header('location: add-more-projects.php');
+              exit();
+    
+            }else{
+              $_SESSION['notification'] = "يوجد خلل في ادخال الاغطية";
+              header('location: index.php');
+            }
+            
+    
+          }else{
+            $_SESSION['notification'] = "يوجد خلل في ادخال الخرسانة";
+            header('location: index.php');
+          }
+    
+        }else{
+          $_SESSION['notification'] = "يوجد خلل في ادخال الصنف";
+          header('location: index.php');
+        }
+    
+      }else{
+        $_SESSION['notification'] = "يوجد خلل في ادخال المشروع";
+        header('location: index.php');
+      }
+      
+      
+      
+      
+      
   }
 
 ?>
@@ -726,6 +870,28 @@ if(isset($_POST['add-project'])){
                         }
                     </style>
                     <button type="submit" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill"> حفظ </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      إستمرار
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">إضافة صنف جديد</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            هل لديك المزيد من الاصناف تود اضافتها ؟
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" data-bs-dismiss="modal">لا</button>
+                            <button type="submit" name="add-project2" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">نعم اريد اضافة صنف جديد لنفس المشروع</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="col">
