@@ -271,7 +271,7 @@ if (isset($_POST['add-project'])) {
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
     <title>
-        طلب إعتماد مشروع جديد
+       إضافة صنف جديد
     </title>
     <!--     Fonts and icons     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -327,7 +327,7 @@ if (isset($_POST['add-project'])) {
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-                        <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;"> طلب إعتماد مشروع جديد</a></li>
+                        <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;"> إضافة صنف جديد</a></li>
 
                     </ol>
 
@@ -444,25 +444,10 @@ if (isset($_POST['add-project'])) {
 
                     <div class="block-header bg-gradient-dark col-lg-3 col-md-2 col-sm-6 col-xs-6  rounded-pill">
 
-                        <h5 class="block-title text-white py-2 px-4 ">طلب إعتماد مشروع جديد</h5>
+                        <h5 class="block-title text-white py-2 px-4 ">أضافة صنف جديد</h5>
                     </div>
                     <form id="<?php echo $idAttr; ?>" action="#" method="post">
-                        <div class="row">
-                            <div class="col-md-8 col-sm-6">
-                                <div class="form-group">
-                                    <label>أسم الجهة الطالبة للمشروع</label>
-                                    <input type="text" placeholder="الرجاء كتابة أسم مشروع" class="form-control" name="project_name" value="<?php echo $name; ?>">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8 col-sm-6">
-                                <div class="form-group">
-                                    <label> تفاصيل المشروع</label>
-                                    <input type="text" placeholder="الرجاء كتابة تفاصيل" class="form-control" name="project_description" value="<?php echo $beneficiary_bank; ?>">
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <!-- Product Details -->
                         <div id="product_details">
