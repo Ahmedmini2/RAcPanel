@@ -1,6 +1,6 @@
 <?php
 include('../cookies/session2.php');
-$_SESSION['sidebar']="Accounts";
+$_SESSION['sidebar'] = "Accounts";
 if (isset($_GET['bank_req'])) {
 
   $id = $_GET['bank_req'];
@@ -47,8 +47,8 @@ if (isset($_GET['bank_req'])) {
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -174,8 +174,8 @@ if (isset($_GET['bank_req'])) {
 
   <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
-      <!-- End Of side Bar -->
-      
+  <!-- End Of side Bar -->
+
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
     <!-- <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
@@ -383,117 +383,142 @@ if (isset($_GET['bank_req'])) {
         </div>
       </div>
       <div class="invoice-box">
-        <table cellpadding="0" cellspacing="0">
+        <div class="page-content container">
+          <div class="page-header text-blue-d2">
+            <h1 class="page-title text-secondary-d1">
+              Invoice
+              <small class="page-info">
+                <i class="fa fa-angle-double-right text-80"></i>
+                ID: #111-222
+              </small>
+            </h1>
 
-          <tr class="top">
-            <td colspan="2">
-              <table>
-                <tr>
-                  <td class="title">
-                    <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
-                  </td>
-
-                  <td class="row1">
-                    فاتورة رقم :#<?= $id ?><br />
-                    بتاريخ : <?= $created_at ?><br />
-                    تم التحديث بتاريخ : <?= $updated_at ?><br />
-                    حالة الطلب : <?php if ($status == 1) {
-                                    echo "<span class='badge badge-sm bg-gradient-success'>طلب تعميد جديد</span>";
-                                  } elseif ($status == 2) {
-                                    echo "<span class='badge badge-sm bg-gradient-success'>تم تأكيد الطلب عن طريق المحاسب</span>";
-                                  } else {
-                                    echo "<span class='badge badge-sm bg-gradient-success'>تم التأكيد </span>";
-                                  } ?><br />
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <tr class="information">
-            <td colspan="2">
-              <table>
-                <tr>
-                  <td style="width:65%">
-                    نوع الطلب : <?php if ($name == '1') {
-                                  echo "طلب تحويل";
-                                } elseif ($name == 2) {
-                                  echo "طلب سحب مبلغ";
-                                } elseif ($name == 3) {
-                                  echo "طلب شيك بنكي";
-                                } elseif ($name == 4) {
-                                  echo "تسديد فاتورة إلكترونية";
-                                } ?><br />
-                    <p class="pt-2">ملاحظات الطلب : <?= $description ?> </p>
-                  </td>
-
-                  <td class="row2" style="width:30%">
-
-                    <?php if ($to_account_type != '0') {
-                      echo "الى المستفيد : " . $transfer_to; ?><br />
-                      <?php echo "أسم الحساب: " . $beneficiary_bank; ?><br />
-                      <?php echo "رقم الحساب : " . $account_number; ?><br />
-                    <?php echo "رقم الأيبان : " . $iban;
-                    } ?>
-                  </td>
-                </tr>
-              </table>
-
-            </td>
-          </tr>
-
-          <tr class="heading">
-            <td>المبلغ كتابة</td>
-
-            <td class="row2"></td>
-          </tr>
-
-          <tr class="details">
-            <td><?= $amount_text ?></td>
-
-            <td class="row2"></td>
-          </tr>
-
-          <tr class="heading">
-            <td>المبلغ بالأرقام</td>
-
-            <td class="row2"></td>
-          </tr>
-
-          <tr class="item">
-            <td><?= $amount_number ?></td>
-
-            <td class="row2"></td>
-          </tr>
-
-
-
-
-        </table>
-
-        <table>
-          <div class="row p-5 text-center">
-            <div class="col-4">
-              <div class="row">
-                <h6>المحاسب</h6>
-                <h5></h5>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="row">
-                <h6>المدير التنفيذي</h6>
-                <h5></h5>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="row">
-                <h6>المدير العام</h6>
+            <div class="page-tools">
+              <div class="action-buttons">
+                <a class="btn bg-white btn-light mx-1px text-95" href="#" data-title="Print">
+                  <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
+                  Print
+                </a>
+                <a class="btn bg-white btn-light mx-1px text-95" href="#" data-title="PDF">
+                  <i class="mr-1 fa fa-file-pdf-o text-danger-m1 text-120 w-2"></i>
+                  Export
+                </a>
               </div>
             </div>
           </div>
-        </table>
-
+        </div>
       </div>
+      <table cellpadding="0" cellspacing="0">
+
+        <tr class="top">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td class="title">
+                  <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
+                </td>
+
+                <td class="row1">
+                  فاتورة رقم :#<?= $id ?><br />
+                  بتاريخ : <?= $created_at ?><br />
+                  تم التحديث بتاريخ : <?= $updated_at ?><br />
+                  حالة الطلب : <?php if ($status == 1) {
+                                  echo "<span class='badge badge-sm bg-gradient-success'>طلب تعميد جديد</span>";
+                                } elseif ($status == 2) {
+                                  echo "<span class='badge badge-sm bg-gradient-success'>تم تأكيد الطلب عن طريق المحاسب</span>";
+                                } else {
+                                  echo "<span class='badge badge-sm bg-gradient-success'>تم التأكيد </span>";
+                                } ?><br />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr class="information">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td style="width:65%">
+                  نوع الطلب : <?php if ($name == '1') {
+                                echo "طلب تحويل";
+                              } elseif ($name == 2) {
+                                echo "طلب سحب مبلغ";
+                              } elseif ($name == 3) {
+                                echo "طلب شيك بنكي";
+                              } elseif ($name == 4) {
+                                echo "تسديد فاتورة إلكترونية";
+                              } ?><br />
+                  <p class="pt-2">ملاحظات الطلب : <?= $description ?> </p>
+                </td>
+
+                <td class="row2" style="width:30%">
+
+                  <?php if ($to_account_type != '0') {
+                    echo "الى المستفيد : " . $transfer_to; ?><br />
+                    <?php echo "أسم الحساب: " . $beneficiary_bank; ?><br />
+                    <?php echo "رقم الحساب : " . $account_number; ?><br />
+                  <?php echo "رقم الأيبان : " . $iban;
+                  } ?>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <tr class="heading">
+          <td>المبلغ كتابة</td>
+
+          <td class="row2"></td>
+        </tr>
+
+        <tr class="details">
+          <td><?= $amount_text ?></td>
+
+          <td class="row2"></td>
+        </tr>
+
+        <tr class="heading">
+          <td>المبلغ بالأرقام</td>
+
+          <td class="row2"></td>
+        </tr>
+
+        <tr class="item">
+          <td><?= $amount_number ?></td>
+
+          <td class="row2"></td>
+        </tr>
+
+
+
+
+      </table>
+
+      <table>
+        <div class="row p-5 text-center">
+          <div class="col-4">
+            <div class="row">
+              <h6>المحاسب</h6>
+              <h5></h5>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <h6>المدير التنفيذي</h6>
+              <h5></h5>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <h6>المدير العام</h6>
+            </div>
+          </div>
+        </div>
+      </table>
+
+    </div>
     </div>
 
 
