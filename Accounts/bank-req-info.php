@@ -293,14 +293,7 @@ if (isset($_GET['bank_req'])) {
       </div>
     </nav> -->
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
-      <div class="block-header bg-warning rounded col-md-3 col-sm-6 col-xs-6">
-
-        <?php require_once('../components/notification.php'); ?>
-      </div>
-      <!-- Button trigger modal -->
-
-      <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal">
         تغير حالة الطلب
       </button>
       
@@ -317,6 +310,14 @@ if (isset($_GET['bank_req'])) {
         إرفاق \ عرض الملف
       </button>
       </div>
+    <div class="container-fluid py-4">
+      <div class="block-header bg-warning rounded col-md-3 col-sm-6 col-xs-6">
+
+        <?php require_once('../components/notification.php'); ?>
+      </div>
+      <!-- Button trigger modal -->
+
+      
 
 
       <script>
