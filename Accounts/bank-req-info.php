@@ -300,25 +300,20 @@ if (isset($_GET['bank_req'])) {
       </div>
       <!-- Button trigger modal -->
       <div class="button">
-      <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal">
-        تغير حالة الطلب
-      </button>
-      </div>
-      <div class="button">
-      <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill  " onclick="printDiv('printableArea')">
-        طباعة الطلب
-        <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
+        <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal">
+          تغير حالة الطلب
+        </button>
+        <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill  " onclick="printDiv('printableArea')">
+          طباعة الطلب
+          <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
-      </button>
+        </button>
+        <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+          إرفاق \ عرض الملف
+        </button>
       </div>
 
-     
-      <div class="button">
-      <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
-        إرفاق \ عرض الملف
-      </button>
-      </div>
-      
+
 
 
 
