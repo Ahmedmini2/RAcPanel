@@ -386,7 +386,7 @@ if (isset($_GET['bank_req'])) {
       <div class="row">
                     <div class="col-12">
                         <div class="text-center text-150">
-                            <i class="fa fa-book fa-2x text-success-m2 mr-1"></i>
+                          
                             <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
                         </div>
                     </div>
@@ -397,9 +397,7 @@ if (isset($_GET['bank_req'])) {
             <td colspan="2">
               <table>
                 <tr>
-                  <td class="title">
-                    <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
-                  </td>
+                  
 
                   <td class="row1">
                     فاتورة رقم :#<?= $id ?><br />
