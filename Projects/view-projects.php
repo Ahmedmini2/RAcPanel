@@ -537,8 +537,8 @@ $_SESSION['sidebar'] = "Projects";
 
 
                     </div>
-                    <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        تغير حالة الطلب
+                    <button type="button" id="btnD" class=" btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 ">
+                        حذف المشروع 
                     </button>
                 </div>
 

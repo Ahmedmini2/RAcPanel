@@ -424,7 +424,7 @@ if (isset($_GET['bank_req'])) {
               </table>
             </td>
           </tr>
-          <hr class="row brc-default-l1 mx-n1 mb-4" />
+          
           <tr class="information">
             <td colspan="2">
               <table>
