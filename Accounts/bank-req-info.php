@@ -313,6 +313,19 @@ if (isset($_GET['bank_req'])) {
         إرفاق \ عرض الملف
       </button>
 
+      <div class="page-tools">
+            <div class="action-buttons">
+                <a class="btn bg-white btn-light mx-1px text-95" href="#" data-title="Print">
+                    <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
+                    Print
+                </a>
+                <a class="btn bg-white btn-light mx-1px text-95" href="#" data-title="PDF">
+                    <i class="mr-1 fa fa-file-pdf-o text-danger-m1 text-120 w-2"></i>
+                    Export
+                </a>
+            </div>
+        </div>
+
       <script>
         function printDiv(divName) {
 
