@@ -395,48 +395,9 @@ if (isset($_GET['bank_req'])) {
             </div>
           </div>
         </div>
-        <!-- .row -->
 
         <hr class="row brc-default-l1 mx-n1 mb-4" />
 
-        <div class="row">
-          <div class="col-sm-6">
-          <table>
-                <tr>
-
-
-                  <td class="row1">
-                    فاتورة رقم :#<?= $id ?><br />
-                    بتاريخ : <?= $created_at ?><br />
-                    تم التحديث بتاريخ : <?= $updated_at ?><br />
-                    حالة الطلب : <?php if ($status == 1) {
-                                    echo "<span class='badge badge-sm bg-gradient-success'>طلب تعميد جديد</span>";
-                                  } elseif ($status == 2) {
-                                    echo "<span class='badge badge-sm bg-gradient-success'>تم تأكيد الطلب عن طريق المحاسب</span>";
-                                  } else {
-                                    echo "<span class='badge badge-sm bg-gradient-success'>تم التأكيد </span>";
-                                  } ?><br />
-                  </td>
-                </tr>
-              </table>
-          </div>
-          <!-- /.col -->
-          <div class="text-95 col-sm-6 align-self-start d-sm-flex justify-content-end">
-            <hr class="d-sm-none" />
-            <div class="text-grey-m2">
-              <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
-                Invoice
-              </div>
-
-              <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">ID:</span> #111-222</div>
-
-              <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Issue Date:</span> Oct 12, 2019</div>
-
-              <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Status:</span> <span class="badge badge-warning badge-pill px-25">Unpaid</span></div>
-            </div>
-          </div>
-          <!-- /.col -->
-        </div>
         <table cellpadding="0" cellspacing="0">
 
           <tr class="top">
