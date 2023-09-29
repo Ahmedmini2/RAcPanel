@@ -387,7 +387,7 @@ if (isset($_GET['bank_req'])) {
                     <div class="col-12">
                         <div class="text-center text-150">
                             <i class="fa fa-book fa-2x text-success-m2 mr-1"></i>
-                            <span class="text-default-d3">Bootdey.com</span>
+                            <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
                         </div>
                     </div>
                 </div>
