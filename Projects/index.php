@@ -181,7 +181,7 @@ $_SESSION['sidebar'] = "Projects";
                 </div>
                 <div class="card-body px-1 pb-0">
                   <p class="text-gradient text-dark mb-2 text-sm">Project #2</p>
-                  <a href="view-projects.php">
+                  <a href="">
                     <h5>
                       Modern
                     </h5>
@@ -189,10 +189,12 @@ $_SESSION['sidebar'] = "Projects";
                   <p class="mb-4 text-sm">
                     As Uber works through a huge amount of internal management turmoil.
                   </p>
+                  <a href="view-projects.php"> 
                   <div class="d-flex align-items-center justify-content-between">
-                    <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-
+                    <button  type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
                   </div>
+                  </a>
+                  
                 </div>
               </div>
             </div>
