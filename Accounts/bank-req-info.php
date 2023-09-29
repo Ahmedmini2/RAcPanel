@@ -305,6 +305,8 @@ if (isset($_GET['bank_req'])) {
 
       <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill  " onclick="printDiv('printableArea')">
         طباعة الطلب
+        <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
+
       </button>
 
       <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
