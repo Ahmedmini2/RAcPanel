@@ -417,19 +417,24 @@ if (isset($_GET['bank_req'])) {
           </div>
           <!-- /.col -->
           <div class="col-sm-6">
-            <div>
-              <span class="text-sm text-grey-m2 align-middle">To:</span>
-              <span class="text-600 text-110 text-blue align-middle">Alex Doe</span>
-            </div>
-            <div class="text-grey-m2">
-              <div class="my-1">
-                Street, City
-              </div>
-              <div class="my-1">
-                State, Country
-              </div>
-              <div class="my-1"><i class="fa fa-phone fa-flip-horizontal text-secondary"></i> <b class="text-600">111-111-111</b></div>
-            </div>
+          <table>
+                <tr>
+
+
+                  <td class="row1">
+                    فاتورة رقم :#<?= $id ?><br />
+                    بتاريخ : <?= $created_at ?><br />
+                    تم التحديث بتاريخ : <?= $updated_at ?><br />
+                    حالة الطلب : <?php if ($status == 1) {
+                                    echo "<span class='badge badge-sm bg-gradient-success'>طلب تعميد جديد</span>";
+                                  } elseif ($status == 2) {
+                                    echo "<span class='badge badge-sm bg-gradient-success'>تم تأكيد الطلب عن طريق المحاسب</span>";
+                                  } else {
+                                    echo "<span class='badge badge-sm bg-gradient-success'>تم التأكيد </span>";
+                                  } ?><br />
+                  </td>
+                </tr>
+              </table>
           </div>
             <!-- /.col -->
           <div class="text-95 col-sm-6 align-self-start d-sm-flex justify-content-end">
