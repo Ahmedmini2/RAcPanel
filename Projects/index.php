@@ -181,7 +181,7 @@ $_SESSION['sidebar'] = "Projects";
                 </div>
                 <div class="card-body px-1 pb-0">
                   <p class="text-gradient text-dark mb-2 text-sm">Project #2</p>
-                  <a href="javascript:;">
+                  <a href="view-projects.php">
                     <h5>
                       Modern
                     </h5>
