@@ -299,32 +299,21 @@ if (isset($_GET['bank_req'])) {
         <?php require_once('../components/notification.php'); ?>
       </div>
       <!-- Button trigger modal -->
-      <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill col-sm-6" data-bs-toggle="modal" data-bs-target="#exampleModal">
         تغير حالة الطلب
       </button>
 
-      <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill  " onclick="printDiv('printableArea')">
+      <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-sm-6 " onclick="printDiv('printableArea')">
         طباعة الطلب
         <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
       </button>
 
-      <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+      <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-sm-6 " data-bs-toggle="modal" data-bs-target="#exampleModal2">
         إرفاق \ عرض الملف
       </button>
 
-      <div class="page-tools">
-            <div class="action-buttons">
-                <a class="btn bg-white btn-light mx-1px text-95" href="#" data-title="Print">
-                    <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
-                    Print
-                </a>
-                <a class="btn bg-white btn-light mx-1px text-95" href="#" data-title="PDF">
-                    <i class="mr-1 fa fa-file-pdf-o text-danger-m1 text-120 w-2"></i>
-                    Export
-                </a>
-            </div>
-        </div>
+     
 
       <script>
         function printDiv(divName) {
