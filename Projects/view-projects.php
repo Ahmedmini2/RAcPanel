@@ -151,7 +151,7 @@ $_SESSION['sidebar'] = "Projects";
             </div>
         </nav>
         <!-- End Navbar -->
-        <div class="row">
+        <div class="row mt-4">
 
 
             <div class="container-fluid py-4">
@@ -537,7 +537,7 @@ $_SESSION['sidebar'] = "Projects";
 
 
                     </div>
-                    <button type="button" id="btnD" class=" btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 ">
+                    <button type="button" id="btnD" class=" btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 mt-4 ">
                         حذف المشروع 
                     </button>
                 </div>
