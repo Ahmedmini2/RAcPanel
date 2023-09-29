@@ -151,394 +151,400 @@ $_SESSION['sidebar'] = "Projects";
             </div>
         </nav>
         <!-- End Navbar -->
+        <div class="row">
 
-        <div class="container-fluid py-4">
-            <div class="block-header bg-gradient-dark  col-md-3 col-sm-6 col-xs-6  rounded-pill">
 
-                <?php require_once('../components/notification.php'); ?>
-            </div>
-            <!--********* -->
-            <div class="col-12 mt-4">
-                <div class="card mb-4 p-3">
-                    <div class="card-header">
-                        <h3 class="mb-1">عرض مشروع</h3>
-                    </div>
-                    <!-- Card Header  -->
+            <div class="container-fluid py-4">
+                <div class="block-header bg-gradient-dark  col-md-3 col-sm-6 col-xs-6  rounded-pill">
 
-                    <div class="row ">
-                        <div class="text-right col-lg-10 col-sm-6">
-                            <button type="button" id="btn2" class="btn bg-gradient-dark rounded-pill ">
-                                طباعة امر الشراء
-                            </button>
-
-                            <button type="button" id="btn3" class=" btn bg-gradient-dark rounded-pill ">
-                                تعديل بيانات المشروع
-                            </button>
+                    <?php require_once('../components/notification.php'); ?>
+                </div>
+                <!--********* -->
+                <div class="col-12 mt-4">
+                    <div class="card mb-4 p-3">
+                        <div class="card-header">
+                            <h3 class="mb-1">عرض مشروع</h3>
                         </div>
-                        <div class="text-left col-lg-2 col-sm-6">
-                            <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                تغير حالة المشروع
-                            </button>
+                        <!-- Card Header  -->
+
+                        <div class="row ">
+                            <div class="text-right col-lg-10 col-sm-6">
+                                <button type="button" id="btn2" class="btn bg-gradient-dark rounded-pill ">
+                                    طباعة امر الشراء
+                                </button>
+
+                                <button type="button" id="btn3" class=" btn bg-gradient-dark rounded-pill ">
+                                    تعديل بيانات المشروع
+                                </button>
+                            </div>
+                            <div class="text-left col-lg-2 col-sm-6">
+                                <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    تغير حالة المشروع
+                                </button>
+                            </div>
                         </div>
-                    </div>
 
-                    <script>
-                        function printDiv(divName) {
+                        <script>
+                            function printDiv(divName) {
 
-                            document.getElementById('btn1').style.display = "none";
-                            document.getElementById('btn2').style.display = "none";
-                            document.getElementById('btn3').style.display = "none";
-                            window.print();
-                            document.getElementById('btn1').style.display = "inline";
-                            document.getElementById('btn2').style.display = "inline";
-                            document.getElementById('btn3').style.display = "inline";
+                                document.getElementById('btn1').style.display = "none";
+                                document.getElementById('btn2').style.display = "none";
+                                document.getElementById('btn3').style.display = "none";
+                                window.print();
+                                document.getElementById('btn1').style.display = "inline";
+                                document.getElementById('btn2').style.display = "inline";
+                                document.getElementById('btn3').style.display = "inline";
 
-                        }
-                    </script>
-                    <!-- Change Status Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">حالة المشروع</h5>
-                                    <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>">
-                                        <?php if ($position == 'Admin' || $position == 'Accounts' && $status == 1) { ?> <button type="submit" name="account" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                تأكيد المشروع عن طريق المحاسب
-                                            </button>
-                                        <?php } ?>
-                                        <br>
-                                        <?php if ($position == 'Admin' || $position == 'Manager' && $status == 2) { ?> <button type="submit" name="manager" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                تأكيد المشروع عن طريق طريق المدير العام
-                                            </button>
-                                        <?php } ?>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+                            }
+                        </script>
+                        <!-- Change Status Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">حالة المشروع</h5>
+                                        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>">
+                                            <?php if ($position == 'Admin' || $position == 'Accounts' && $status == 1) { ?> <button type="submit" name="account" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    تأكيد المشروع عن طريق المحاسب
+                                                </button>
+                                            <?php } ?>
+                                            <br>
+                                            <?php if ($position == 'Admin' || $position == 'Manager' && $status == 2) { ?> <button type="submit" name="manager" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    تأكيد المشروع عن طريق طريق المدير العام
+                                                </button>
+                                            <?php } ?>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
 
 
                 </div>
+                <div class="col-12 mt-4">
+                    <!--********* -->
+                    <div class="container-fluid py-4">
+                        <div class="row">
+                            <div class="col-xl-6 mb-xl-0 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body p-3">
 
+                                        <dl class="dl-horizontal">
 
-            </div>
-            <div class="col-12 mt-4">
-                <!--********* -->
-                <div class="container-fluid py-4">
-                    <div class="row">
-                        <div class="col-xl-6 mb-xl-0 mb-4">
-                            <div class="card h-100">
-                                <div class="card-body p-3">
+                                            <dt>اسم المشروع :</dt>
+                                            <dd>ركن اميال للمقاولات</dd>
 
-                                    <dl class="dl-horizontal">
+                                            <dt>تفاصيل المشروع:</dt>
+                                            <dd> ركن اميال للمقاولات</dd>
 
-                                        <dt>اسم المشروع :</dt>
-                                        <dd>ركن اميال للمقاولات</dd>
+                                            <dt>مدة الموافقة على المشروع:</dt>
+                                            <dd> 2 ايام</dd>
 
-                                        <dt>تفاصيل المشروع:</dt>
-                                        <dd> ركن اميال للمقاولات</dd>
+                                            <dt>مدة تنفيذ المشروع:</dt>
+                                            <dd> 7 ايام </dd>
 
-                                        <dt>مدة الموافقة على المشروع:</dt>
-                                        <dd> 2 ايام</dd>
+                                            <dt>طريقة الدفع :</dt>
+                                            <dd>شيكك</dd>
 
-                                        <dt>مدة تنفيذ المشروع:</dt>
-                                        <dd> 7 ايام </dd>
+                                        </dl>
 
-                                        <dt>طريقة الدفع :</dt>
-                                        <dd>شيكك</dd>
-
-                                    </dl>
-
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card ">
-                                        <div class="card-header mx-4 p-3 text-center">
-                                            <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                                <i class="fas fa-landmark opacity-10"></i>
+                            <div class="col-xl-6">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="card-body pt-0 p-3 text-center">
-                                            <h6 class="text-center mb-0">تكلفة المشروع</h6>
-                                            <span class="text-xs">ركن اميال</span>
-                                            <hr class="horizontal dark my-3">
-                                            <h5 class="mb-0">+$2000</h5>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">تكلفة المشروع</h6>
+                                                <span class="text-xs">ركن اميال</span>
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">+$2000</h5>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 mt-md-0 mt-4">
-                                    <div class="card ">
-                                        <div class="card-header mx-4 p-3 text-center">
-                                            <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                                <i class="fas fa-landmark opacity-10"></i>
+                                    <div class="col-md-4 mt-md-0 mt-4">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="card-body pt-0 p-3 text-center">
-                                            <h6 class="text-center mb-0">صافي الربح</h6>
-                                            <span class="text-xs">ركن اميال</span>
-                                            <hr class="horizontal dark my-3">
-                                            <h5 class="mb-0">+$2000</h5>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">صافي الربح</h6>
+                                                <span class="text-xs">ركن اميال</span>
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">+$2000</h5>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 mt-md-0 mt-4">
-                                    <div class="card ">
-                                        <div class="card-header mx-4 p-3 text-center">
-                                            <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                                <i class="fas fa-landmark opacity-10"></i>
+                                    <div class="col-md-4 mt-md-0 mt-4">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="card-body pt-0 p-3 text-center">
-                                            <h6 class="text-center mb-0">حاله المشروع</h6>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">حاله المشروع</h6>
 
-                                            <td class="align-middle">
-                                                <div class="progress-wrapper w-75 mx-auto">
-                                                    <div class="progress-info">
-                                                        <div class="progress-percentage">
-                                                            <span class="text-xs font-weight-bold">60%</span>
+                                                <td class="align-middle">
+                                                    <div class="progress-wrapper w-75 mx-auto">
+                                                        <div class="progress-info">
+                                                            <div class="progress-percentage">
+                                                                <span class="text-xs font-weight-bold">60%</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="progress">
+                                                            <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>
                                                     </div>
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
+                                                </td>
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">قيد التنفيد</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!--Table-->
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <div class="card mb-4">
+                                    <div class="card-header pb-0">
+                                        <h6>الاصناف</h6>
+                                    </div>
+                                    <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                        <div class="table-responsive p-0">
+                                            <table class="table table-hover table-fixed">
+
+                                                <!--Table head-->
+                                                <thead class="bg-dark text-light">
+                                                    <tr>
+                                                        <th>الرقم</th>
+                                                        <th>الاسم</th>
+                                                        <th>الابعاد</th>
+                                                        <th>التوصيل</th>
+                                                        <th>التكلفة</th>
+                                                        <th>صافي الربح</th>
+                                                        <th>الكمية</th>
+                                                        <th>تم الانتاج</th>
+                                                    </tr>
+                                                </thead>
+                                                <!--Table head-->
+
+                                                <!--Table body-->
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>خرسانه</td>
+                                                        <td>6*6</td>
+                                                        <td>200</td>
+                                                        <td>3460</td>
+                                                        <td>6000</td>
+                                                        <td>12</td>
+                                                        <td>اليوم</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>خرسانه</td>
+                                                        <td>4*4</td>
+                                                        <td>800</td>
+                                                        <td>4675</td>
+                                                        <td>8000</td>
+                                                        <td>5</td>
+                                                        <td>اليوم</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Gary</td>
+                                                        <td>Winogrand</td>
+                                                        <td>Germany</td>
+                                                        <td>Berlin</td>
+                                                        <td>Photographer</td>
+                                                        <td>37</td>
+                                                        <td>41</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">4</th>
+                                                        <td>Angie</td>
+                                                        <td>Smith</td>
+                                                        <td>USA</td>
+                                                        <td>San Francisco</td>
+                                                        <td>Teacher</td>
+                                                        <td>52</td>
+                                                        <td>41</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">5</th>
+                                                        <td>John</td>
+                                                        <td>Mattis</td>
+                                                        <td>France</td>
+                                                        <td>Paris</td>
+                                                        <td>Actor</td>
+                                                        <td>28</td>
+                                                        <td>41</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">6</th>
+                                                        <td>Otto</td>
+                                                        <td>Morris</td>
+                                                        <td>Germany</td>
+                                                        <td>Munich</td>
+                                                        <td>Singer</td>
+                                                        <td>35</td>
+                                                        <td>41</td>
+                                                    </tr>
+                                                </tbody>
+                                                <!--Table body-->
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Table -->
+
+                        <div class="row">
+                            <div class="col-lg-8 mt-4">
+                                <div class="card">
+                                    <div class="card-header pb-0 px-3">
+                                        <h6 class="mb-0 text-lg">البنود</h6>
+                                    </div>
+                                    <div class="card-body pt-4 p-3">
+                                        <ul class="list-group">
+                                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                                                <div class="d-flex flex-column">
+                                                    <h6 class="mb-3 text-lg">الصنف الاول </h6>
+                                                    <span class="mb-2 text-lg">الحديد: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
+
                                                 </div>
-                                            </td>
-                                            <hr class="horizontal dark my-3">
-                                            <h5 class="mb-0">قيد التنفيد</h5>
-                                        </div>
+
+                                            </li>
+                                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                                                <div class="d-flex flex-column">
+                                                    <h6 class="mb-3 text-lg">الصنف التاني </h6>
+                                                    <span class="mb-2 text-lg">الاغطية: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
+
+                                                </div>
+
+                                            </li>
+                                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                                                <div class="d-flex flex-column">
+                                                    <h6 class="mb-3 text-lg">الصنف الثالث </h6>
+                                                    <span class="mb-2 text-lg">الاكسسوارات: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
+
+                                                </div>
+
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-
-                    </div>
-
-                    <!--Table-->
-                    <div class="row mt-5">
-                        <div class="col-12">
-                            <div class="card mb-4">
-                                <div class="card-header pb-0">
-                                    <h6>الاصناف</h6>
-                                </div>
-                                <div class="card-body px-0 pt-0 pb-2 mx-3">
-                                    <div class="table-responsive p-0">
-                                        <table class="table table-hover table-fixed">
-
-                                            <!--Table head-->
-                                            <thead class="bg-dark text-light">
-                                                <tr>
-                                                    <th>الرقم</th>
-                                                    <th>الاسم</th>
-                                                    <th>الابعاد</th>
-                                                    <th>التوصيل</th>
-                                                    <th>التكلفة</th>
-                                                    <th>صافي الربح</th>
-                                                    <th>الكمية</th>
-                                                    <th>تم الانتاج</th>
-                                                </tr>
-                                            </thead>
-                                            <!--Table head-->
-
-                                            <!--Table body-->
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>خرسانه</td>
-                                                    <td>6*6</td>
-                                                    <td>200</td>
-                                                    <td>3460</td>
-                                                    <td>6000</td>
-                                                    <td>12</td>
-                                                    <td>اليوم</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>خرسانه</td>
-                                                    <td>4*4</td>
-                                                    <td>800</td>
-                                                    <td>4675</td>
-                                                    <td>8000</td>
-                                                    <td>5</td>
-                                                    <td>اليوم</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Gary</td>
-                                                    <td>Winogrand</td>
-                                                    <td>Germany</td>
-                                                    <td>Berlin</td>
-                                                    <td>Photographer</td>
-                                                    <td>37</td>
-                                                    <td>41</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">4</th>
-                                                    <td>Angie</td>
-                                                    <td>Smith</td>
-                                                    <td>USA</td>
-                                                    <td>San Francisco</td>
-                                                    <td>Teacher</td>
-                                                    <td>52</td>
-                                                    <td>41</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">5</th>
-                                                    <td>John</td>
-                                                    <td>Mattis</td>
-                                                    <td>France</td>
-                                                    <td>Paris</td>
-                                                    <td>Actor</td>
-                                                    <td>28</td>
-                                                    <td>41</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">6</th>
-                                                    <td>Otto</td>
-                                                    <td>Morris</td>
-                                                    <td>Germany</td>
-                                                    <td>Munich</td>
-                                                    <td>Singer</td>
-                                                    <td>35</td>
-                                                    <td>41</td>
-                                                </tr>
-                                            </tbody>
-                                            <!--Table body-->
-
-                                        </table>
+                            <div class="col-lg-4  mt-4">
+                                <div class="card h-100">
+                                    <div class="card-header pb-0 p-3">
+                                        <div class="row">
+                                            <div class="col-6 d-flex align-items-center">
+                                                <h6 class="mb-0 text-lg">الفواتير</h6>
+                                            </div>
+                                            <div class="col-6 text-end">
+                                                <button class="btn btn-outline-primary btn-sm mb-0">View All</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body p-3 pb-0">
+                                        <ul class="list-group">
+                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                <div class="d-flex flex-column">
+                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm">March, 01, 2020</h6>
+                                                    <span class="text-xs">#MS-415646</span>
+                                                </div>
+                                                <div class="d-flex align-items-center text-sm">
+                                                    $180
+                                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                <div class="d-flex flex-column">
+                                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">February, 10, 2021</h6>
+                                                    <span class="text-xs">#RV-126749</span>
+                                                </div>
+                                                <div class="d-flex align-items-center text-sm">
+                                                    $250
+                                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                <div class="d-flex flex-column">
+                                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">April, 05, 2020</h6>
+                                                    <span class="text-xs">#FB-212562</span>
+                                                </div>
+                                                <div class="d-flex align-items-center text-sm">
+                                                    $560
+                                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                <div class="d-flex flex-column">
+                                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">June, 25, 2019</h6>
+                                                    <span class="text-xs">#QW-103578</span>
+                                                </div>
+                                                <div class="d-flex align-items-center text-sm">
+                                                    $120
+                                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
+                                                <div class="d-flex flex-column">
+                                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">March, 01, 2019</h6>
+                                                    <span class="text-xs">#AR-803481</span>
+                                                </div>
+                                                <div class="d-flex align-items-center text-sm">
+                                                    $300
+                                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
+
+
                     </div>
-                    <!--Table -->
-
-                    <div class="row">
-                        <div class="col-lg-8 mt-4">
-                            <div class="card">
-                                <div class="card-header pb-0 px-3">
-                                    <h6 class="mb-0 text-lg">البنود</h6>
-                                </div>
-                                <div class="card-body pt-4 p-3">
-                                    <ul class="list-group">
-                                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                            <div class="d-flex flex-column">
-                                                <h6 class="mb-3 text-lg">الصنف الاول </h6>
-                                                <span class="mb-2 text-lg">الحديد: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
-
-                                            </div>
-
-                                        </li>
-                                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                            <div class="d-flex flex-column">
-                                                <h6 class="mb-3 text-lg">الصنف التاني </h6>
-                                                <span class="mb-2 text-lg">الاغطية: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
-
-                                            </div>
-
-                                        </li>
-                                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                            <div class="d-flex flex-column">
-                                                <h6 class="mb-3 text-lg">الصنف الثالث </h6>
-                                                <span class="mb-2 text-lg">الاكسسوارات: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
-
-                                            </div>
-
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4  mt-4">
-                            <div class="card h-100">
-                                <div class="card-header pb-0 p-3">
-                                    <div class="row">
-                                        <div class="col-6 d-flex align-items-center">
-                                            <h6 class="mb-0 text-lg">الفواتير</h6>
-                                        </div>
-                                        <div class="col-6 text-end">
-                                            <button class="btn btn-outline-primary btn-sm mb-0">View All</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body p-3 pb-0">
-                                    <ul class="list-group">
-                                        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                            <div class="d-flex flex-column">
-                                                <h6 class="mb-1 text-dark font-weight-bold text-sm">March, 01, 2020</h6>
-                                                <span class="text-xs">#MS-415646</span>
-                                            </div>
-                                            <div class="d-flex align-items-center text-sm">
-                                                $180
-                                                <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                            <div class="d-flex flex-column">
-                                                <h6 class="text-dark mb-1 font-weight-bold text-sm">February, 10, 2021</h6>
-                                                <span class="text-xs">#RV-126749</span>
-                                            </div>
-                                            <div class="d-flex align-items-center text-sm">
-                                                $250
-                                                <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                            <div class="d-flex flex-column">
-                                                <h6 class="text-dark mb-1 font-weight-bold text-sm">April, 05, 2020</h6>
-                                                <span class="text-xs">#FB-212562</span>
-                                            </div>
-                                            <div class="d-flex align-items-center text-sm">
-                                                $560
-                                                <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                            <div class="d-flex flex-column">
-                                                <h6 class="text-dark mb-1 font-weight-bold text-sm">June, 25, 2019</h6>
-                                                <span class="text-xs">#QW-103578</span>
-                                            </div>
-                                            <div class="d-flex align-items-center text-sm">
-                                                $120
-                                                <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
-                                            <div class="d-flex flex-column">
-                                                <h6 class="text-dark mb-1 font-weight-bold text-sm">March, 01, 2019</h6>
-                                                <span class="text-xs">#AR-803481</span>
-                                            </div>
-                                            <div class="d-flex align-items-center text-sm">
-                                                $300
-                                                <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
+                    <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        تغير حالة الطلب
+                    </button>
                 </div>
-                <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    تغير حالة الطلب
-                </button>
+
             </div>
+
+
             <footer class="footer pt-3  ">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-lg-between">
@@ -569,6 +575,7 @@ $_SESSION['sidebar'] = "Projects";
                     </div>
             </footer>
         </div>
+
     </main>
 
     <!--   Core JS Files   -->
