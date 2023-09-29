@@ -303,6 +303,11 @@ if (isset($_GET['bank_req'])) {
       <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal">
         تغير حالة الطلب
       </button>
+      
+
+
+
+      <div class="d-grid gap-2 col-6 mx-auto">
       <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill  " onclick="printDiv('printableArea')">
         طباعة الطلب
         <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
@@ -311,10 +316,7 @@ if (isset($_GET['bank_req'])) {
       <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
         إرفاق \ عرض الملف
       </button>
-
-
-
-
+      </div>
 
 
       <script>
@@ -424,7 +426,7 @@ if (isset($_GET['bank_req'])) {
               </table>
             </td>
           </tr>
-          
+
           <tr class="information">
             <td colspan="2">
               <table>
