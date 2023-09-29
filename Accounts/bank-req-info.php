@@ -1,6 +1,6 @@
 <?php
 include('../cookies/session2.php');
-$_SESSION['sidebar']="Accounts";
+$_SESSION['sidebar'] = "Accounts";
 if (isset($_GET['bank_req'])) {
 
   $id = $_GET['bank_req'];
@@ -47,8 +47,8 @@ if (isset($_GET['bank_req'])) {
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -174,8 +174,8 @@ if (isset($_GET['bank_req'])) {
 
   <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
-      <!-- End Of side Bar -->
-      
+  <!-- End Of side Bar -->
+
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
     <!-- <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
@@ -299,21 +299,21 @@ if (isset($_GET['bank_req'])) {
         <?php require_once('../components/notification.php'); ?>
       </div>
       <!-- Button trigger modal -->
-      <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill col-sm-6" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal">
         تغير حالة الطلب
       </button>
 
-      <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-sm-6 " onclick="printDiv('printableArea')">
+      <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill  " onclick="printDiv('printableArea')">
         طباعة الطلب
         <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
       </button>
 
-      <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-sm-6 " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+      <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
         إرفاق \ عرض الملف
       </button>
 
-     
+
 
       <script>
         function printDiv(divName) {
@@ -387,21 +387,59 @@ if (isset($_GET['bank_req'])) {
         </div>
       </div>
       <div class="invoice-box">
-      <div class="row">
-                    <div class="col-12">
-                        <div class="text-center text-150">
-                          
-                            <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
-                        </div>
-                    </div>
-                </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="text-center text-150">
+
+              <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
+            </div>
+          </div>
+        </div>
+        <!-- .row -->
+
+        <hr class="row brc-default-l1 mx-n1 mb-4" />
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div>
+              <span class="text-sm text-grey-m2 align-middle">To:</span>
+              <span class="text-600 text-110 text-blue align-middle">Alex Doe</span>
+            </div>
+            <div class="text-grey-m2">
+              <div class="my-1">
+                Street, City
+              </div>
+              <div class="my-1">
+                State, Country
+              </div>
+              <div class="my-1"><i class="fa fa-phone fa-flip-horizontal text-secondary"></i> <b class="text-600">111-111-111</b></div>
+            </div>
+          </div>
+          <!-- /.col -->
+
+          <div class="text-95 col-sm-6 align-self-start d-sm-flex justify-content-end">
+            <hr class="d-sm-none" />
+            <div class="text-grey-m2">
+              <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
+                Invoice
+              </div>
+
+              <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">ID:</span> #111-222</div>
+
+              <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Issue Date:</span> Oct 12, 2019</div>
+
+              <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Status:</span> <span class="badge badge-warning badge-pill px-25">Unpaid</span></div>
+            </div>
+          </div>
+          <!-- /.col -->
+        </div>
         <table cellpadding="0" cellspacing="0">
 
           <tr class="top">
             <td colspan="2">
               <table>
                 <tr>
-                  
+
 
                   <td class="row1">
                     فاتورة رقم :#<?= $id ?><br />
