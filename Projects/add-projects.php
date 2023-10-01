@@ -635,7 +635,7 @@ if(isset($_POST['add-project'])){
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
-                          <label for="iron_tot">السعر الكلي</label>
+                          <label for="iron_tot">السعر</label>
                           <input type="text" class="form-control" name='iron_tot_<?=$coco?>' id="iron_tot_<?=$coco?>" readonly>
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
                           <input type="hidden" name="iron-rr" id="iron-rr" readonly>
@@ -681,9 +681,10 @@ if(isset($_POST['add-project'])){
                       });
                     
                     </script>
-                <div class="row">
-                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button> 
                 
+                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button> 
+                <div class="row">
+                    السعر الكلي
                   <input type="text" class="form-control" placeholder="Total" name="total-iron" id="total-iron" readonly>
                 </div>
                 <hr>
@@ -711,7 +712,7 @@ if(isset($_POST['add-project'])){
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
-                          <label for="acc_tot">السعر الكلي</label>
+                          <label for="acc_tot">السعر</label>
                           <input type="text" class="form-control" name='acc_tot_<?=$coco?>' id="acc_tot_<?=$coco?>" readonly>
                           <input type="hidden" name="rowcount_ac" value="<?php echo $numberofrows; ?>" id="rowcount_ac" readonly>
                           <input type="hidden" name="ac-rr" id="ac-rr" readonly>
