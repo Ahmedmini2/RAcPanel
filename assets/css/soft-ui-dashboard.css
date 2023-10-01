@@ -24946,3 +24946,7 @@ pre[class*="language-"] {
   background: gray;
   color: white;
 }
+
+.dataTables_length .example_length{
+width: 100px;
+}
