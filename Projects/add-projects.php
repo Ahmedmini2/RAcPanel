@@ -852,7 +852,6 @@ if(isset($_POST['add-project'])){
                         peice = peice.toLocaleString("en-US");
                         $("#band_tot_"+z).val(peice);
                           }
-                          window.grand_tot += total_bands;
                           total_bands = total_bands.toLocaleString("en-US");
                           $("#accessory_band").val(total_bands);
                       })
@@ -919,9 +918,8 @@ if(isset($_POST['add-project'])){
                         var acce = parseFloat($("#accessory-iron").val());
                         var cov = parseFloat($("#cover_tot").val());
                         var exband = parseFloat($("#accessory_band").val());
-
+                        
                         var grand_tot = kh + iro + acce + cov + exband ;
-                        grand_tot = grand_tot.toLocaleString("en_US");
                         $("#prod_peice").val(grand_tot);
                         
                       })
