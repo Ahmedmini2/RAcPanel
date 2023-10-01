@@ -24954,31 +24954,31 @@ width: 100px;
 }
 
 
+.center {
+  text-align: center;
+  font-family: monospace;
+}
 
-.dataTables_paginate .pagination .next a{
-  text-decoration: none !important;
-  display: inline-block !important;
-  color: white !important;
-  padding: 0px 5px !important;
+.pagination {
+  display: inline-block;
 }
-.dataTables_paginate .pagination .next a:hover{
-  background-color: #ddd !important;
-  color: black !important;
+.pagination a {
+  color: #000000;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .5s;
+  border: 1px solid #DDD;
+  margin: 0 4px;
+  font-size: 20px;
 }
-.dataTables_paginate .pagination .next{
-  background-color: #80808036 !important;
-  color: white !important;
-  border-radius: 10% !important;
-  padding: 8px !important;
+
+.pagination a.active {
+  background-color: #0096FF;
+  color: #FFFFFF;
+  border: 1px solid #0096FF;
 }
-.dataTables_paginate .previous{
-  background-color: #80808036 !important;
-  color: black !important;
-  border-radius: 10% !important;
-}
-.dataTables_paginate .pagination .active{
-  padding: 8px !important;
-}
-.dataTables_paginate .pagination .paginate_button {
-  padding: 8px !important;
+
+.pagination a:hover:not(.active) {
+  background-color: #DDD;
 }
