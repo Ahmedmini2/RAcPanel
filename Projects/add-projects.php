@@ -652,7 +652,7 @@ if(isset($_POST['add-project'])){
                      
                       
                       
-                      $(document).on('change', 'input', 'select', function() {
+                      $(document).on('change', 'input , select', function() {
                         for (var z = 1; z <= i ; z++) {
                         var iron = $("#iron_"+z).val();
                         var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
