@@ -24970,11 +24970,14 @@ width: 100px;
   border-radius: 10%;
   padding: 8px;
 }
-.dataTables_paginate .pagination .disabled{
+.dataTables_paginate .previousdisabled{
   background-color: #f1f1f1;
   color: black;
   border-radius: 10%;
 }
 .dataTables_paginate .pagination .active{
+  padding: 8px;
+}
+.dataTables_paginate .pagination .paginate_button {
   padding: 8px;
 }
