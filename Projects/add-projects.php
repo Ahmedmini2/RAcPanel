@@ -684,7 +684,7 @@ if(isset($_POST['add-project'])){
                 
                 <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button> 
                 <div class="row">
-                    السعر الكلي
+                    السعر الكلي للحديد
                   <input type="text" class="form-control" placeholder="Total" name="total-iron" id="total-iron" readonly>
                 </div>
                 <hr>
@@ -752,6 +752,10 @@ if(isset($_POST['add-project'])){
 
                 </div>
                 <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
+                <div class="row">
+                    السعر الكلي للحديد
+                  <input type="text" class="form-control" placeholder="Total" name="accessory-iron" id="accessory-iron" readonly>
+                </div>
                 <hr>
 
                 <div class="accessory_details">
@@ -846,7 +850,10 @@ if(isset($_POST['add-project'])){
 
                 </div>
                 <button type="button"  class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
-                
+                <div class="row">
+                    السعر الكلي للبنود الاضافية
+                  <input type="text" class="form-control" placeholder="Total" name="accessory-iron" id="accessory-iron" readonly>
+                </div>
                 <hr>
                 <!-- Item End -->
 
