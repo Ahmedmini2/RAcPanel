@@ -24965,12 +24965,12 @@ width: 100px;
   color: black;
 }
 .dataTables_paginate .pagination .next{
-  background-color: #04AA6D;
+  background-color: #80808036;
   color: white;
   border-radius: 10%;
   padding: 2px;
 }
-.dataTables_paginate .pagination .previous .disabled{
+.dataTables_paginate .pagination .disabled{
   background-color: #f1f1f1;
   color: black;
   border-radius: 10%;
