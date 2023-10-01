@@ -656,6 +656,7 @@ if(isset($_POST['add-project'])){
                       
                       $(document).on('change', 'input , select', function() {
                         var total_iron = 0;
+                        window.grand_tot = 0;
                         for (var z = 1; z <= i ; z++) {
                         var iron = $("#iron_"+z).val();
                         var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
@@ -668,7 +669,9 @@ if(isset($_POST['add-project'])){
                         $("#iron_tot_"+z).val(total);
                         
                         }
+                        window.grand_tot += total_iron;
                         total_iron = total_iron.toLocaleString("en-US");
+                        
                         $("#total-iron").val(total_iron);
                       });
 
@@ -739,6 +742,7 @@ if(isset($_POST['add-project'])){
                             peice = peice.toLocaleString("en-US");
                             $("#acc_tot_"+z).val(peice);
                           }
+                          window.grand_tot += total_accessory;
                           total_accessory = total_accessory.toLocaleString("en-US");
                         $("#accessory-iron").val(total_accessory);
                         })
@@ -801,6 +805,7 @@ if(isset($_POST['add-project'])){
                     <script>
                       $("input").on("change", function() {
                         var peice = (parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val() || '0'))
+                        window.grand_tot += peice;
                         peice = peice.toLocaleString("en-US");
                         $("#cover_tot").val(peice);
                       })
@@ -846,6 +851,7 @@ if(isset($_POST['add-project'])){
                         peice = peice.toLocaleString("en-US");
                         $("#band_tot_"+z).val(peice);
                           }
+                          window.grand_tot += total_bands;
                           total_bands = total_bands.toLocaleString("en-US");
                           $("#accessory-band").val(total_bands);
                       })
@@ -873,7 +879,49 @@ if(isset($_POST['add-project'])){
                 </div>
                 <hr>
                 <!-- Item End -->
+                
+                <div class="Final_details">
+                  <h5>الحساب النهائي</h5>
+                  <div class="final">
+                    <div class="row">
+                      
 
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_price">سعر الصنف الواحد </label>
+                          <input type="text" class="form-control" name='prod_peice' id="prod_peice" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_tot">السعر البيع</label>
+                          <input type="text" class="form-control" name='sell_price' id="sell_price" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_tot">نسبة الربح للصنف الواحد</label>
+                          <input type="text" class="form-control" name='net_peice' id="net_peice" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_tot">إجمالي الربح</label>
+                          <input type="text" class="form-control" name='net-toti' id="net-toti" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                      $("input").on("change", function() {
+                        var qunt = $("#quantity").val();
+                        var peice_price = qunt / window.grand_tot;
+                        peice_price = peice_price.toLocaleString("en_US");
+                        
+                      })
+                    </script>
+
+                  </div>
+                </div>
 
 
 
