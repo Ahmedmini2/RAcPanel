@@ -58,9 +58,6 @@ $select = mysqli_query($conn, "select * from bank_request");
               <input type="text" class="form-control" placeholder="أكتب هنا...">
             </div>
           </div>
-          <button onclick="history.back()"
-          
-          class="btn btn-lg text-center"><span><i class="fa fa-arrow-left fa-3x"></i></span></button>
            
           
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
