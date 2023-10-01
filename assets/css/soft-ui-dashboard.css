@@ -24969,8 +24969,8 @@ width: 100px;
   color: white;
   border-radius: 50%;
 }
-.dataTables_paginate .pagination .previous {
+.dataTables_paginate .pagination .previous .disabled{
   background-color: #f1f1f1;
   color: black;
-  border-radius: 50%;
+  border-radius: 10%;
 }
