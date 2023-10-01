@@ -913,15 +913,15 @@ if(isset($_POST['add-project'])){
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var kh = parseFloat($("#kh_tot").val().replace(/\,/g, "."));
+                        var kh = parseFloat($("#kh_tot").val().replace(/\,/g, ""));
                         console.log("Kharasana: "+kh);
-                        var iro = parseFloat($("#total_iron").val().replace(/\,/g, ".")) ;
+                        var iro = parseFloat($("#total_iron").val().replace(/\,/g, "")) ;
                         console.log("Kharasana: "+iro);
-                        var acce = parseFloat($("#accessory_iron").val().replace(/\,/g, "."));
+                        var acce = parseFloat($("#accessory_iron").val().replace(/\,/g, ""));
                         console.log("Kharasana: "+acce);
-                        var cov = parseFloat($("#cover_tot").val().replace(/\,/g, "."));
+                        var cov = parseFloat($("#cover_tot").val().replace(/\,/g, ""));
                         console.log("Kharasana: "+cov);
-                        var exband = parseFloat($("#accessory_band").val().replace(/\,/g, "."));  
+                        var exband = parseFloat($("#accessory_band").val().replace(/\,/g, ""));  
                         console.log("Kharasana: "+exband);                     
                         var grand_tot = (kh + iro + acce + cov) ;
                         $("#prod_peice").val(grand_tot);
