@@ -673,7 +673,7 @@ if(isset($_POST['add-project'])){
                         
                         total_iron = total_iron.toLocaleString("en-US");
                         
-                        $("#total-iron").val(total_iron);
+                        $("#total_iron").val(total_iron);
                       });
 
                      
@@ -695,7 +695,7 @@ if(isset($_POST['add-project'])){
                 <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button> 
                 <div class="row">
                     السعر الكلي للحديد
-                  <input type="text" class="form-control" placeholder="Total" name="total-iron" id="total-iron" readonly>
+                  <input type="text" class="form-control" placeholder="Total" name="total_iron" id="total_iron" readonly>
                 </div>
                 <hr>
                 <div class="accessory_details">
@@ -745,7 +745,7 @@ if(isset($_POST['add-project'])){
                           }
                           
                           total_accessory = total_accessory.toLocaleString("en-US");
-                        $("#accessory-iron").val(total_accessory);
+                        $("#accessory_iron").val(total_accessory);
                         })
                         console.log("Before Accessory Rows : <?=$accessory_raws?>");
                       document.addEventListener("DOMContentLoaded", function () {
@@ -770,7 +770,7 @@ if(isset($_POST['add-project'])){
                 <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <div class="row">
                     السعر الكلي للحديد
-                  <input type="text" class="form-control" placeholder="Total" name="accessory-iron" id="accessory-iron" readonly>
+                  <input type="text" class="form-control" placeholder="Total" name="accessory_iron" id="accessory_iron" readonly>
                 </div>
                 <hr>
 
@@ -913,11 +913,11 @@ if(isset($_POST['add-project'])){
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var kh = parseFloat($("#kh_tot").val());
+                        var kh = parseFloatFromLocale($("#kh_tot").val());
                         console.log("Kharasana: "+kh);
-                        var iro = parseFloat($("#total-iron").val()) ;
+                        var iro = parseFloat($("#total_iron").val()) ;
                         console.log("Kharasana: "+iro);
-                        var acce = parseFloat($("#accessory-iron").val());
+                        var acce = parseFloat($("#accessory_iron").val());
                         console.log("Kharasana: "+acce);
                         var cov = parseFloat($("#cover_tot").val());
                         console.log("Kharasana: "+cov);
