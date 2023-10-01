@@ -24943,6 +24943,9 @@ pre[class*="language-"] {
   top: 0;
   right: 0;
 }
+.borderless{
+  border: 0;
+}
 
 .read-notification {
   background: gray;
