@@ -852,9 +852,8 @@ if(isset($_POST['add-project'])){
                         peice = peice.toLocaleString("en-US");
                         $("#band_tot_"+z).val(peice);
                           }
-                          window.grand_tot += total_bands;
                           total_bands = total_bands.toLocaleString("en-US");
-                          $("#accessory-band").val(total_bands);
+                          $("#accessory_band").val(total_bands);
                       })
 
                       document.addEventListener("DOMContentLoaded", function () {
@@ -876,7 +875,7 @@ if(isset($_POST['add-project'])){
                 <button type="button"  class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
                 <div class="row">
                     السعر الكلي للبنود الاضافية
-                  <input type="text" class="form-control" placeholder="Total" name="accessory-band" id="accessory-band" readonly>
+                  <input type="text" class="form-control" placeholder="Total" name="accessory_band" id="accessory_band" readonly>
                 </div>
                 <hr>
                 <!-- Item End -->
@@ -914,14 +913,13 @@ if(isset($_POST['add-project'])){
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var kh = $("#kh_tot").val();
-                        var iro = $("#total-iron").val();
-                        var acce = $("#accessory-iron").val();
-                        var cov = $("#cover_tot").val();
-                        var exband = $("#accessory-band").val();
-
+                        var kh = parseFloat($("#kh_tot").val());
+                        var iro = parseFloat($("#total-iron").val()) ;
+                        var acce = parseFloat($("#accessory-iron").val());
+                        var cov = parseFloat($("#cover_tot").val());
+                        var exband = parseFloat($("#accessory_band").val());
+                        
                         var grand_tot = kh + iro + acce + cov + exband ;
-                        grand_tot = grand_tot.toLocaleString("en_US");
                         $("#prod_peice").val(grand_tot);
                         
                       })
