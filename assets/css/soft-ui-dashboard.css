@@ -21555,11 +21555,13 @@ hr.horizontal.gray-light {
 }
 
 .sidenav .navbar-brand {
-  padding: 1.5rem 2rem;
+  padding: 0rem;
+  position: relative;
+  top: -47px;
 }
 
 .sidenav-header {
-  height: 4.875rem;
+  height: 6.875rem;
 }
 
 .sidenav-footer .card.card-background:after {
