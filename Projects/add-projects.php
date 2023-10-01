@@ -919,7 +919,7 @@ if(isset($_POST['add-project'])){
                         var cov = parseFloat($("#cover_tot").val());
                         var exband = parseFloat($("#accessory_band").val());
                         
-                        var grand_tot = kh + iro + acce + cov + exband ;
+                        var grand_tot = kh + iro + acce + cov  ;
                         $("#prod_peice").val(grand_tot);
                         
                       })
