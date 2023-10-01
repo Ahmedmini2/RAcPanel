@@ -226,9 +226,8 @@ $select = mysqli_query($conn, "select * from bank_request");
 
                         <td><a href="bank-req-info.php?bank_req=<?php echo $r['id']; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
                          <a href="edit-bank-req.php?req_id=<?php echo $r['id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-trash" aria-hidden="true"></i></button> <?php } ?></td>
-                                <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<?=$r['id']?>"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        <div class="modal fade" id="exampleModal<?=$r['id']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                   <div class="modal-header">
@@ -248,7 +247,9 @@ $select = mysqli_query($conn, "select * from bank_request");
                                   </div>
                               </div>
                             </div>
-                        </div>
+                        </div> <?php } ?></td>
+                                <!-- Modal -->
+                        
                     </tr>
 
                   <?php } ?>
