@@ -56,10 +56,22 @@ $sidebar = $_SESSION['sidebar'];
         </a>
       </li>
       <?php if ($position == 'Admin') { ?><li class="nav-item">
+        <li>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              المستخدمين
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </li>
         <li class="nav-item">
           <a class="nav-link <?php if ($sidebar == "Users") echo 'active'; ?>" href="../Users/users.php">
-            <div class="dropdown">
-              <div class="icon icon-shape icon-sm dropdown-toggle shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>credit-card</title>
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -74,14 +86,6 @@ $sidebar = $_SESSION['sidebar'];
                 </g>
               </svg>
             </div>
-          
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
-            
             <span class="nav-link-text me-1">المستخدمين</span>
           </a>
         </li>
