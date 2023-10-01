@@ -24966,18 +24966,18 @@ width: 100px;
 .pagination a {
   color: #000000;
   float: left;
-  padding: 8px 16px;
+  padding: 5px 15px;
   text-decoration: none;
   transition: background-color .5s;
-  border: 1px solid #DDD;
-  margin: 0 4px;
-  font-size: 14px;
+  border: 1px solid #c1c1c1;
+  /* margin: 0 4px; */
+  font-size: 16px;
 }
 
 .pagination .active {
   background-color: #0096FF;
   color: #FFFFFF;
-  border: 1px solid #0096FF;
+  
 }
 
 .pagination a:hover:not(.active) {
