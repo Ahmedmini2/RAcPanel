@@ -24959,7 +24959,7 @@ width: 100px;
   text-decoration: none !important;
   display: inline-block !important;
   color: white !important;
-  padding: 8px 16px !important;
+  padding: 0px 5px !important;
 }
 .dataTables_paginate .pagination .next a:hover{
   background-color: #ddd !important;
