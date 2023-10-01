@@ -816,7 +816,7 @@ if(isset($_POST['add-project'])){
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
-                          <label for="band_tot">السعر الكلي</label>
+                          <label for="band_tot">السعر </label>
                           <input type="text" class="form-control" name="band_tot_<?=$coco?>" id="band_tot_<?=$coco?>" readonly>
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_band" disabled>
                           <input type="hidden" name="band-rr" id="band-rr" readonly>
