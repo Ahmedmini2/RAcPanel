@@ -418,18 +418,7 @@ if (isset($_GET['bank_req'])) {
                                     echo "<span class='badge badge-sm bg-gradient-success'>تم التأكيد </span>";
                                   } ?><br />
                   </td>
-                  <td class="row-2">
-                    فاتورة رقم :#<?= $id ?><br />
-                    بتاريخ : <?= $created_at ?><br />
-                    تم التحديث بتاريخ : <?= $updated_at ?><br />
-                    حالة الطلب : <?php if ($status == 1) {
-                                    echo "<span class='badge badge-sm bg-gradient-success'>طلب تعميد جديد</span>";
-                                  } elseif ($status == 2) {
-                                    echo "<span class='badge badge-sm bg-gradient-success'>تم تأكيد الطلب عن طريق المحاسب</span>";
-                                  } else {
-                                    echo "<span class='badge badge-sm bg-gradient-success'>تم التأكيد </span>";
-                                  } ?><br />
-                  </td>
+                  
                 </tr>
               </table>
             </td>
