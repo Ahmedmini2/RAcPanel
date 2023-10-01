@@ -1,6 +1,6 @@
 <?php
 include('../cookies/session2.php');
-$_SESSION['sidebar']="Accounts";
+$_SESSION['sidebar'] = "Accounts";
 $select = mysqli_query($conn, "select * from bank_request");
 
 ?>
@@ -17,8 +17,8 @@ $select = mysqli_query($conn, "select * from bank_request");
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -30,16 +30,16 @@ $select = mysqli_query($conn, "select * from bank_request");
   <!-- Extar js  -->
 
 
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-<script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
 
   <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
-      <!-- End Of side Bar --> 
+  <!-- End Of side Bar -->
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
@@ -159,30 +159,28 @@ $select = mysqli_query($conn, "select * from bank_request");
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row">
-      
+
         <?php if ($position == 'Admin') { ?> <a href="add-bank-req.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6"> أضافة طلب تعميد جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
         <?php } ?>
         <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
-            <div class="content">
+          <div class="content">
             <div class="block-header col-md-3 col-sm-6 col-xs-6  rounded">
-                                    
-                                    <?php require_once('../components/notification.php'); ?>
-                                  </div> 
-                
-                <div class="block">
-                    <?php if(!empty($_GET['bank_req']))
-                    {
-                        $id = $_GET['bank_req'];
-                        $del= mysqli_query($conn, "delete from bank_request where id = '$id'");
-                        if($del)
-                        {
-                            echo '<div class="alert alert-success"> تم حذف التعميد </div>';
-                        }
-                    }
-                    ?>
-                    <table class="table align-items-center mb-0" id="example">
-                    <thead>
-                    <tr>
+
+              <?php require_once('../components/notification.php'); ?>
+            </div>
+
+            <div class="block">
+              <?php if (!empty($_GET['bank_req'])) {
+                $id = $_GET['bank_req'];
+                $del = mysqli_query($conn, "delete from bank_request where id = '$id'");
+                if ($del) {
+                  echo '<div class="alert alert-success"> تم حذف التعميد </div>';
+                }
+              }
+              ?>
+              <table class="table align-items-center mb-0" id="example">
+                <thead>
+                  <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">نوع الطلب</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الوصف</th>
@@ -230,39 +228,40 @@ $select = mysqli_query($conn, "select * from bank_request");
                             echo '<span class="badge badge-sm bg-gradient-primary">تم التأكيد</span>';
                           } ?></td>
 
-                        <td><a href="bank-req-info.php?bank_req=<?php echo $r['id']; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
-                         <a href="edit-bank-req.php?req_id=<?php echo $r['id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<?=$r['id']?>"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                        <div class="modal fade" id="exampleModal<?=$r['id']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <td><a href="bank-req-info.php?bank_req=<?php echo $r['id']; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
+                          <a href="edit-bank-req.php?req_id=<?php echo $r['id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                          <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
-                                  <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalLabel">إضافة صنف جديد</h5>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body">
-                                      الرجاء ادخال كلمة المرور للتأكيد
-                                      <form action="../scripts/accounts/delete.php?bank_req=<?php echo $r['id']; ?>" method="post">
-                                      <input type="password" name="pas" class="form-control">
-                                      
-                                  </div>
-                                  <div class="modal-footer">
-                                      
-                                      <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
-                                      </form>
-                                  </div>
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">إضافة صنف جديد</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  الرجاء ادخال كلمة المرور للتأكيد
+                                  <form action="../scripts/accounts/delete.php?bank_req=<?php echo $r['id']; ?>" method="post">
+                                    <input type="password" name="pas" class="form-control">
+
+                                </div>
+                                <div class="modal-footer">
+
+                                  <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                  </form>
+                                </div>
                               </div>
                             </div>
-                        </div> <?php } ?></td>
-                                <!-- Modal -->
-                        
+                          </div> <?php } ?>
+                      </td>
+                      <!-- Modal -->
+
                     </tr>
 
                   <?php } ?>
                 </tbody>
               </table>
 
-             
+
 
             </div>
           </div>
@@ -301,7 +300,7 @@ $select = mysqli_query($conn, "select * from bank_request");
       </footer>
     </div>
   </main>
-  
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -310,10 +309,9 @@ $select = mysqli_query($conn, "select * from bank_request");
   <script src="../assets/js/plugins/fullcalendar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
   <script>
-
     $(document).ready(function() {
-        $('#example').dataTable();
-    } );
+      $('#example').dataTable();
+    });
 
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
