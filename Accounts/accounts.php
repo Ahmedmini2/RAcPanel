@@ -219,7 +219,7 @@ $select = mysqli_query($conn, "select * from bank_request");
                       <td class="mb-0 text-sm"><?php echo $r['amount_number']; ?></td>
                       <td class="text-xs text-secondary mb-0">
                         <?php echo 'من حساب : ' . $r['our_bank_name'] . '<br><br>';
-                        echo 'الى شركة : ' . $r['transfer_to']; ?></td>
+                        echo 'الى المستفيد : ' . $r['transfer_to']; ?></td>
                       <!-- <td class="text-xs text-secondary mb-0"><?php echo $r['transfer_to']; ?></td> -->
                       <td class="text-xs text-secondary mb-0"><?php echo $r['created_at']; ?></td>
                       <td><?php if ($r['status'] == 1) {
