@@ -580,6 +580,7 @@ if(isset($_POST['add-project'])){
                       $("input").on("change", function() {
                         var peice = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0'))
                         var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0')) * parseFloat($("#quantity").val())
+                        var qunt = parseFloat($("#quantity").val());
                         ret = ret.toLocaleString("en-US");
                         peice = peice.toLocaleString("en-US");
                         $("#kh_tot").val(ret);
@@ -913,10 +914,15 @@ if(isset($_POST['add-project'])){
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var qunt = $("#quantity").val();
-                        var peice_price = qunt / window.grand_tot;
-                        peice_price = peice_price.toLocaleString("en_US");
-                        $("#prod_peice").val(peice_price);
+                        var kh = $("#kh_tot").val();
+                        var iro = $("#total-iron").val();
+                        var acce = $("#accessory-iron").val();
+                        var cov = $("#cover_tot").val();
+                        var exband = $("#accessory-band").val();
+
+                        var grand_tot = kh + iro + acce + cov + exband ;
+                        grand_tot = grand_tot.toLocaleString("en_US");
+                        $("#prod_peice").val(grand_tot);
                         
                       })
                     </script>
