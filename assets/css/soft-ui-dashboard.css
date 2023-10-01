@@ -24964,3 +24964,7 @@ width: 100px;
   display: inline-block;
   padding: 8px 16px;
 }
+.dataTables_paginate  .paginate_button .a:hover{
+  background-color: #ddd;
+  color: black;
+}
