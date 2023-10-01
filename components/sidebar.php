@@ -37,7 +37,7 @@ $sidebar = $_SESSION['sidebar'];
       </li>
       <ul class="navbar-nav active">
         <li class="nav-item ">
-          <a href="#submenu1" data-bs-toggle="collapse" class="nav-link active">
+          <a href="#submenu1" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar == "Accounts") echo 'active'; ?>"">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
@@ -56,40 +56,7 @@ $sidebar = $_SESSION['sidebar'];
             <span class="ms-1 d-none d-sm-inline">الحسابات</span>
           </a>
           <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-            <li class="w-100">
-              <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <?php if ($position == 'Admin') { ?><li class="nav-item">
-
-        <li class="nav-item">
-          <a class="nav-link <?php if ($sidebar == "Users") echo 'active'; ?>" href="../Users/users.php">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
-              <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>credit-card</title>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                    <g transform="translate(1716.000000, 291.000000)">
-                      <g transform="translate(453.000000, 454.000000)">
-                        <path class="color-background opacity-6" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
-                        <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
-            </div>
-            <span class="nav-link-text me-1">المستخدمين</span>
-          </a>
-
-        </li>
-      <?php } ?>
-      <li class="nav-item">
+          <li class="nav-item">
         <a class="nav-link <?php if ($sidebar == "Banks") echo 'active'; ?>" href="../Company/company-banks.php">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -131,6 +98,34 @@ $sidebar = $_SESSION['sidebar'];
           <span class="nav-link-text me-1">أضافة حساب بنك للمستفيدين</span>
         </a>
       </li>
+          </ul>
+        </li>
+      </ul>
+      <?php if ($position == 'Admin') { ?><li class="nav-item">
+
+        <li class="nav-item">
+          <a class="nav-link <?php if ($sidebar == "Users") echo 'active'; ?>" href="../Users/users.php">
+            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+              <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>credit-card</title>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <g transform="translate(1716.000000, 291.000000)">
+                      <g transform="translate(453.000000, 454.000000)">
+                        <path class="color-background opacity-6" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
+                        <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <span class="nav-link-text me-1">المستخدمين</span>
+          </a>
+
+        </li>
+      <?php } ?>
+      
       <li class="nav-item">
         <a class="nav-link <?php if ($sidebar == "Calender") echo 'active'; ?>" href="../Calendar/index.php">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
