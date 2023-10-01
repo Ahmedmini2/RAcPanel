@@ -154,7 +154,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
     <div class="container-fluid py-4">
         <div class="row">
         <a href="add-beneficiary-bank.php"
-         class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">تفيد جديد&nbsp;&nbsp; 
+         class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">مستفيد جديد&nbsp;&nbsp; 
          <i class="fas fa-plus">
          </i>
         </a>
