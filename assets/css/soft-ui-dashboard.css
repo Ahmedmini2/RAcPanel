@@ -24952,3 +24952,11 @@ pre[class*="language-"] {
 .dataTables_length .form-control{
 width: 100px;
 }
+
+.dataTables_paginate .paginate_button{
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #04AA6D;
+  color: white;
+}
