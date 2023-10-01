@@ -73,14 +73,16 @@ if (isset($_GET['bank_req'])) {
     .row1 {
       padding-top: 40px !important;
       position: relative;
-
+      font-size :small;
       text-align: right !important;
     }
 
     .row2 {
       position: relative;
       left: 5%;
-      text-align: left !important;
+      text-align: right !important;
+      padding-top: 40px !important;
+      font-size :small;
     }
 
     .invoice-box table {
@@ -92,6 +94,7 @@ if (isset($_GET['bank_req'])) {
     .invoice-box table td {
       padding: 5px;
       vertical-align: top;
+      font-size :small;
     }
 
     .invoice-box table tr td:nth-child(2) {
