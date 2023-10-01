@@ -24958,7 +24958,7 @@ width: 100px;
 .dataTables_paginate .pagination .next a{
   text-decoration: none !important;
   display: inline-block !important;
-  
+  color: white !important;
   padding: 0px 5px !important;
 }
 .dataTables_paginate .pagination .next a:hover{
