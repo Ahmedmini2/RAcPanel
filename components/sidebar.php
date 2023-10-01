@@ -76,11 +76,11 @@ $sidebar = $_SESSION['sidebar'];
             </div>
             <span class="nav-link-text me-1">المستخدمين</span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
             <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+          
         </li>
       <?php } ?>
       <li class="nav-item">
