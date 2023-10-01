@@ -189,15 +189,15 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                   <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم '.$r["id"].'</p>
                   <a href="">
                     <h5>
-                      Modern
+                    '.$r["name"].'
                     </h5>
                   </a>
                   <p class="mb-4 text-sm">
-                    As Uber works through a huge amount of internal management turmoil.
+                  '.$r["description"].'
                   </p>
-                  <a href="view-projects.php"> 
+                  <a href="view-projects.php?id='.$r["id"].'"> 
                   <div class="d-flex align-items-center justify-content-between">
-                    <button  type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
+                    <button  type="button" class="btn btn-outline-primary btn-sm mb-0">عرض التفاصيل</button>
                   </div>
                   </a>
                   
