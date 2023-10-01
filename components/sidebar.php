@@ -35,8 +35,8 @@ $sidebar = $_SESSION['sidebar'];
           <span class="nav-link-text me-1">الرئيسية</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link <?php if ($sidebar == "Accounts") echo 'active'; ?>" href="../Accounts/accounts.php">
+      <ul class="nav-item">
+        <a class="nav-link <?php if ($sidebar == "Accounts") echo 'active'; ?>" href="#submenu1" data-bs-toggle="collapse">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>office</title>
@@ -51,10 +51,18 @@ $sidebar = $_SESSION['sidebar'];
                 </g>
               </g>
             </svg>
+            <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="../Accounts/accounts.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
+                            </li>
+            </ul>
           </div>
           <span class="nav-link-text me-1">الحسابات</span>
         </a>
-      </li>
+      </ul>
       <?php if ($position == 'Admin') { ?><li class="nav-item">
 
         <li class="nav-item">
