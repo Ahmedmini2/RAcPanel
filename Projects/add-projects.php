@@ -648,11 +648,12 @@ if(isset($_POST['add-project'])){
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                       var i = 1;
-                      var total = 0;
+                     
                      
                       
                       
                       $(document).on('change', 'input , select', function() {
+                        var total_iron = 0;
                         for (var z = 1; z <= i ; z++) {
                         var iron = $("#iron_"+z).val();
                         var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
@@ -660,9 +661,12 @@ if(isset($_POST['add-project'])){
                         var total = tn * parseFloat($("#iron_price_"+z).val())
                         $("#iron_tn_"+z).val(tn);
                         $("#iron_tot_"+z).val(total);
+                        total_iron += total;
                         }
+                        $("#total-iron").val(total_iron);
                       });
 
+                     
                       
 
                       document.addEventListener("DOMContentLoaded", function () {
@@ -677,10 +681,10 @@ if(isset($_POST['add-project'])){
                       });
                     
                     </script>
-
+                <div class="row">
                 <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button> 
-                <div class="col-6">
-                  <input type="text" class="form-control" placeholder="Total" name="total-iron">
+                
+                  <input type="text" class="form-control" placeholder="Total" name="total-iron" id="total-iron" readonly>
                 </div>
                 <hr>
                 <div class="accessory_details">
