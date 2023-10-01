@@ -24983,3 +24983,9 @@ width: 100px;
 .pagination a:hover:not(.active) {
   background-color: #DDD;
 }
+.dataTables_wrapper .row .col-sm-5{
+  padding-top: 20px;
+}
+.dataTables_wrapper .row .col-sm-7{
+  padding-top: 20px;
+}
