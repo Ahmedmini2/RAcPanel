@@ -53,17 +53,17 @@ $sidebar = $_SESSION['sidebar'];
                 </g>
               </svg>
             </div>
-            <span class="ms-1 d-none d-sm-inline">الحسابات</span>
+            <span class="ms-1  d-sm-inline">الحسابات</span>
           </a>
           <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
             <li class="w-100">
-              <a href="../Accounts/accounts.php" class="nav-link px-0"> <span class="d-none d-sm-inline">التعاميد</span></a>
+              <a href="../Accounts/accounts.php" class="nav-link px-0"> <span class=" d-sm-inline">التعاميد</span></a>
             </li>
             <li class="w-100">
-              <a href="../Company/company-banks.php" class="nav-link px-0"> <span class="d-none d-sm-inline">حسابات بنوك الشركة </span></a>
+              <a href="../Company/company-banks.php" class="nav-link px-0"> <span class=" d-sm-inline">حسابات بنوك الشركة </span></a>
             </li>
             <li>
-              <a href="../Beneficiary/beneficiary-banks.php" class="nav-link px-0"> <span class="d-none d-sm-inline">أضافة حساب بنك للمستفيدين </span></a>
+              <a href="../Beneficiary/beneficiary-banks.php" class="nav-link px-0"> <span class=" d-sm-inline">أضافة حساب بنك للمستفيدين </span></a>
             </li>
           </ul>
         </li>
