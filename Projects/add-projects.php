@@ -580,8 +580,8 @@ if(isset($_POST['add-project'])){
                       $("input").on("change", function() {
                         var peice = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0'))
                         var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0')) * parseFloat($("#quantity").val())
-                        $("#kh_tot").val(ret).toLocaleString("en-US");;
-                        $("#kh_peice").val(peice).toLocaleString("en-US");;
+                        $("#kh_tot").val(ret).toLocaleString("en-US");
+                        $("#kh_peice").val(peice).toLocaleString("en-US");
                       })
                     </script>
 
