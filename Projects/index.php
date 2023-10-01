@@ -2,6 +2,9 @@
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
 
+$projects = mysqli_query($conn, "SELECT * FROM projects");
+
+
 
 ?>
 <!DOCTYPE html>
@@ -172,7 +175,10 @@ $_SESSION['sidebar'] = "Projects";
     
         <div class="card-body p-3  ">
           <div class="row">
-            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
+          <?php
+          while ($r = mysqli_fetch_array($projects)) {
+
+            echo '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
               <div class="card card-blog card-plain py-3">
                 <div class="position-relative">
                   <a class="d-block shadow-xl border-radius-xl">
@@ -180,7 +186,7 @@ $_SESSION['sidebar'] = "Projects";
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
-                  <p class="text-gradient text-dark mb-2 text-sm">Project #2</p>
+                  <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم '.$r["id"].'</p>
                   <a href="">
                     <h5>
                       Modern
@@ -197,9 +203,9 @@ $_SESSION['sidebar'] = "Projects";
                   
                 </div>
               </div>
-            </div>
-            
-
+            </div>';
+          }
+            ?>
           </div>
         </div>
       </div>
