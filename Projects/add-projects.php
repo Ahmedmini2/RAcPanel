@@ -914,11 +914,11 @@ if(isset($_POST['add-project'])){
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var kh = parseFloat($("#kh_tot").val()) || 0;
-                        var iro = parseFloat($("#total-iron").val())  || 0;
-                        var acce = parseFloat($("#accessory-iron").val()) || 0;
-                        var cov = parseFloat($("#cover_tot").val()) || 0;
-                        var exband = parseFloat($("#accessory_band").val()) || 0;
+                        var kh = parseFloat($("#kh_tot").val());
+                        var iro = parseFloat($("#total-iron").val()) ;
+                        var acce = parseFloat($("#accessory-iron").val());
+                        var cov = parseFloat($("#cover_tot").val());
+                        var exband = parseFloat($("#accessory_band").val());
 
                         var grand_tot = kh + iro + acce + cov + exband ;
                         grand_tot = grand_tot.toLocaleString("en_US");
