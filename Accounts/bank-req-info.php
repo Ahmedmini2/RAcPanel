@@ -73,7 +73,7 @@ if (isset($_GET['bank_req'])) {
     .row1 {
       padding-top: 40px !important;
       position: relative;
-      
+
       text-align: right !important;
     }
 
@@ -314,7 +314,7 @@ if (isset($_GET['bank_req'])) {
 
 
 
-    
+
 
 
       <script>
@@ -418,18 +418,7 @@ if (isset($_GET['bank_req'])) {
                                     echo "<span class='badge badge-sm bg-gradient-success'>تم التأكيد </span>";
                                   } ?><br />
                   </td>
-                  
-                </tr>
-              </table>
-            </td>
-          </tr>
-          
-          <tr class="information">
-            <td colspan="2">
-              <table>
-                <tr>
-
-                <td class="row2" style="width:30%">
+                  <td class="row2" style="width:30%">
 
                     <?php if ($to_account_type != '0') {
                       echo "الى المستفيد : " . $transfer_to; ?><br />
@@ -438,7 +427,18 @@ if (isset($_GET['bank_req'])) {
                     <?php echo "رقم الأيبان : " . $iban;
                     } ?>
                   </td>
-                  
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr class="information">
+            <td colspan="2">
+              <table>
+                <tr>
+
+
+
                   <td style="width:65%">
                     نوع الطلب : <?php if ($name == '1') {
                                   echo "طلب تحويل";
@@ -452,7 +452,7 @@ if (isset($_GET['bank_req'])) {
                     <p class="pt-2">ملاحظات الطلب : <?= $description ?> </p>
                   </td>
 
-                  
+
                 </tr>
               </table>
 
