@@ -681,10 +681,10 @@ if(isset($_POST['add-project'])){
                       });
                     
                     </script>
-
+                <div class="row">
                 <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button> 
-                <div class="col-6">
-                  <input type="text" class="form-control" placeholder="Total" name="total-iron" id="total-iron">
+                
+                  <input type="text" class="form-control" placeholder="Total" name="total-iron" id="total-iron" readonly>
                 </div>
                 <hr>
                 <div class="accessory_details">
