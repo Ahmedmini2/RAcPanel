@@ -924,6 +924,7 @@ if(isset($_POST['add-project'])){
                         var exband = parseFloat($("#accessory_band").val().replace(/\,/g, ""));  
                         console.log("Kharasana: "+exband);                     
                         var grand_tot = (kh + iro + acce + cov) ;
+                        var grand_tot = grand_tot.toLocaleString("en-US");
                         $("#prod_peice").val(grand_tot);
                       })
                     </script>
