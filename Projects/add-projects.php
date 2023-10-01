@@ -854,7 +854,7 @@ if(isset($_POST['add-project'])){
                           }
                           window.grand_tot += total_bands;
                           total_bands = total_bands.toLocaleString("en-US");
-                          $("#accessory-band").val(total_bands);
+                          $("#accessory_band").val(total_bands);
                       })
 
                       document.addEventListener("DOMContentLoaded", function () {
@@ -876,7 +876,7 @@ if(isset($_POST['add-project'])){
                 <button type="button"  class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
                 <div class="row">
                     السعر الكلي للبنود الاضافية
-                  <input type="text" class="form-control" placeholder="Total" name="accessory-band" id="accessory-band" readonly>
+                  <input type="text" class="form-control" placeholder="Total" name="accessory_band" id="accessory_band" readonly>
                 </div>
                 <hr>
                 <!-- Item End -->
@@ -914,11 +914,11 @@ if(isset($_POST['add-project'])){
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var kh = $("#kh_tot").val();
-                        var iro = $("#total-iron").val();
-                        var acce = $("#accessory-iron").val();
-                        var cov = $("#cover_tot").val();
-                        var exband = $("#accessory-band").val();
+                        var kh = parseFloat($("#kh_tot").val()) || 0;
+                        var iro = parseFloat($("#total-iron").val())  || 0;
+                        var acce = parseFloat($("#accessory-iron").val()) || 0;
+                        var cov = parseFloat($("#cover_tot").val()) || 0;
+                        var exband = parseFloat($("#accessory_band").val()) || 0;
 
                         var grand_tot = kh + iro + acce + cov + exband ;
                         grand_tot = grand_tot.toLocaleString("en_US");
