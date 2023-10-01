@@ -74,6 +74,7 @@ if (!empty($_GET['edit'])) {
     }
   } else {
     $_SESSION['notification'] = "يوجد خلل في النظام";
+    header('location: accounts.php');
   }
 } else {
   $name = "";
