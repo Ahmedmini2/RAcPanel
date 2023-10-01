@@ -630,13 +630,13 @@ if(isset($_POST['add-project'])){
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
-                          <input type="number" class="form-control" name='iron_tn_<?=$coco?>' id="iron_tn_<?=$coco?>" readonly>
+                          <input type="text" class="form-control" name='iron_tn_<?=$coco?>' id="iron_tn_<?=$coco?>" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tot">السعر</label>
-                          <input type="number" class="form-control" name='iron_tot_<?=$coco?>' id="iron_tot_<?=$coco?>" readonly>
+                          <input type="text" class="form-control" name='iron_tot_<?=$coco?>' id="iron_tot_<?=$coco?>" readonly>
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
                           <input type="hidden" name="iron-rr" id="iron-rr" readonly>
                         </div>
@@ -659,8 +659,8 @@ if(isset($_POST['add-project'])){
                         var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
                         var tn = kg / 1000;
                         var total = tn * parseFloat($("#iron_price_"+z).val())
-                        $("#iron_tn_"+z).val(tn).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-                        $("#iron_tot_"+z).val(total).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                        $("#iron_tn_"+z).val(tn).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                        $("#iron_tot_"+z).val(total).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
                         total_iron += total;
                         }
                         $("#total-iron").val(total_iron);
