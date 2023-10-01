@@ -630,13 +630,13 @@ if(isset($_POST['add-project'])){
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
-                          <input type="text" class="form-control" name='iron_tn_<?=$coco?>' id="iron_tn_<?=$coco?>" readonly>
+                          <input type="number" class="form-control" name='iron_tn_<?=$coco?>' id="iron_tn_<?=$coco?>" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tot">السعر</label>
-                          <input type="text" class="form-control" name='iron_tot_<?=$coco?>' id="iron_tot_<?=$coco?>" readonly>
+                          <input type="number" class="form-control" name='iron_tot_<?=$coco?>' id="iron_tot_<?=$coco?>" readonly>
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
                           <input type="hidden" name="iron-rr" id="iron-rr" readonly>
                         </div>
