@@ -24970,8 +24970,8 @@ width: 100px;
   border-radius: 10%;
   padding: 8px;
 }
-.dataTables_paginate .previousdisabled{
-  background-color: #f1f1f1;
+.dataTables_paginate .previous{
+  background-color: #80808036;
   color: black;
   border-radius: 10%;
 }
