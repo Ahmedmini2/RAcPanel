@@ -731,12 +731,16 @@ if(isset($_POST['add-project'])){
                       var a = 1;
                       
                        $(document).on('change', 'input', function() {
+                        var total_accessory = 0;
                           for (var z = 1; z <= a ; z++) {
                             
-                            var peice = (parseFloat($("#acc_quantity_"+z).val()) * parseFloat($("#acc_price_"+z).val() || '0'))
-                            peice += peice.toLocaleString("en-US");
+                            var peice = (parseFloat($("#acc_quantity_"+z).val()) * parseFloat($("#acc_price_"+z).val() || '0'));
+                            total_accessory += peice
+                            peice = peice.toLocaleString("en-US");
                             $("#acc_tot_"+z).val(peice);
                           }
+                          total_accessory = total_accessory.toLocaleString("en-US");
+                        $("#accessory-iron").val(total_accessory);
                         })
                         console.log("Before Accessory Rows : <?=$accessory_raws?>");
                       document.addEventListener("DOMContentLoaded", function () {
@@ -835,11 +839,15 @@ if(isset($_POST['add-project'])){
                     <script>
                       b = 1; 
                       $(document).on('change', 'input', function() {
+                        var total_bands = 0;
                           for (var z = 1; z <= b ; z++) {
                         var peice = (parseFloat($("#band_price_"+z).val()) * parseFloat($("#quantity").val() || '0'))
+                        total_bands += peice
                         peice = peice.toLocaleString("en-US");
                         $("#band_tot_"+z).val(peice);
                           }
+                          total_bands = total_bands.toLocaleString("en-US");
+                          $("#accessory-band").val(total_bands);
                       })
 
                       document.addEventListener("DOMContentLoaded", function () {
@@ -861,7 +869,7 @@ if(isset($_POST['add-project'])){
                 <button type="button"  class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
                 <div class="row">
                     السعر الكلي للبنود الاضافية
-                  <input type="text" class="form-control" placeholder="Total" name="accessory-iron" id="accessory-iron" readonly>
+                  <input type="text" class="form-control" placeholder="Total" name="accessory-band" id="accessory-band" readonly>
                 </div>
                 <hr>
                 <!-- Item End -->
