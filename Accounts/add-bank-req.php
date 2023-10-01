@@ -71,9 +71,11 @@ if (!empty($_GET['edit'])) {
     if ($insertResultNotification) {
       $_SESSION['notification'] = "تم اضافة التعميد بنجاح";
       header('location: accounts.php');
+      exit();
     }
     $_SESSION['notification'] = "تم اضافة التعميد بنجاح";
     header('location: accounts.php');
+    exit();
   } else {
     $_SESSION['notification'] = "يوجد خلل في النظام";
     header('location: accounts.php');
