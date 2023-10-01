@@ -58,9 +58,8 @@ $sidebar = $_SESSION['sidebar'];
       <?php if ($position == 'Admin') { ?><li class="nav-item">
 
         <li class="nav-item">
-          <div class="dropdown">
-
-            <div type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center ">
+          <a class="nav-link <?php if ($sidebar == "Users") echo 'active'; ?>" href="../Users/users.php">
+            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>credit-card</title>
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -75,18 +74,13 @@ $sidebar = $_SESSION['sidebar'];
                 </g>
               </svg>
             </div>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <button class="dropdown-item" type="button">Action</button>
-              <button class="dropdown-item" type="button">Another action</button>
-              <button class="dropdown-item" type="button">Something else here</button>
-            </div>
-          </div>
-          <a class="nav-link <?php if ($sidebar == "Users") echo 'active'; ?>" href="../Users/users.php">
-
-
             <span class="nav-link-text me-1">المستخدمين</span>
           </a>
-
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
         </li>
       <?php } ?>
       <li class="nav-item">
