@@ -916,6 +916,7 @@ if(isset($_POST['add-project'])){
                         var qunt = $("#quantity").val();
                         var peice_price = qunt / window.grand_tot;
                         peice_price = peice_price.toLocaleString("en_US");
+                        $("#prod_peice").val(peice_price);
                         
                       })
                     </script>
