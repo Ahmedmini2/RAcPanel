@@ -24959,9 +24959,7 @@ width: 100px;
   font-family: monospace;
 }
 
-.pagination {
-  display: inline-block;
-}
+
 .pagination a {
   color: #000000;
   float: left;
