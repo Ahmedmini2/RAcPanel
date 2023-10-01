@@ -657,7 +657,7 @@ if(isset($_POST['add-project'])){
                       
                       $(document).on('change', 'input , select', function() {
                         var total_iron = 0;
-                        window.grand_tot = 0;
+                        
                         for (var z = 1; z <= i ; z++) {
                         var iron = $("#iron_"+z).val();
                         var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
@@ -670,7 +670,7 @@ if(isset($_POST['add-project'])){
                         $("#iron_tot_"+z).val(total);
                         
                         }
-                        window.grand_tot += total_iron;
+                        
                         total_iron = total_iron.toLocaleString("en-US");
                         
                         $("#total-iron").val(total_iron);
@@ -743,7 +743,7 @@ if(isset($_POST['add-project'])){
                             peice = peice.toLocaleString("en-US");
                             $("#acc_tot_"+z).val(peice);
                           }
-                          window.grand_tot += total_accessory;
+                          
                           total_accessory = total_accessory.toLocaleString("en-US");
                         $("#accessory-iron").val(total_accessory);
                         })
@@ -806,7 +806,7 @@ if(isset($_POST['add-project'])){
                     <script>
                       $("input").on("change", function() {
                         var peice = (parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val() || '0'))
-                        window.grand_tot += peice;
+                        
                         peice = peice.toLocaleString("en-US");
                         $("#cover_tot").val(peice);
                       })
@@ -914,14 +914,17 @@ if(isset($_POST['add-project'])){
                     <script>
                       $("input").on("change", function() {
                         var kh = parseFloat($("#kh_tot").val());
+                        console.log("Kharasana: "+kh);
                         var iro = parseFloat($("#total-iron").val()) ;
+                        console.log("Kharasana: "+iro);
                         var acce = parseFloat($("#accessory-iron").val());
+                        console.log("Kharasana: "+acce);
                         var cov = parseFloat($("#cover_tot").val());
-                        var exband = parseFloat($("#accessory_band").val());
-                        
-                        var grand_tot = kh + iro + acce + cov  ;
+                        console.log("Kharasana: "+cov);
+                        var exband = parseFloat($("#accessory_band").val());  
+                        console.log("Kharasana: "+exband);                     
+                        var grand_tot = (kh + iro + acce + cov) ;
                         $("#prod_peice").val(grand_tot);
-                        
                       })
                     </script>
 
