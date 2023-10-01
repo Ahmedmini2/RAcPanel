@@ -648,20 +648,11 @@ if(isset($_POST['add-project'])){
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                       var i = 1;
-                      $(document).on('change', 'select', function() {
-                        for (var z = 1; z <= i ; z++) {
-                          var iron = $("#iron_"+z).val();
-                          var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
-                          var tn = kg / 1000;
-                          var total = tn * parseFloat($("#iron_price_"+z).val())
-                          $("#iron_tn_"+z).val(tn);
-                          $("#iron_tot_"+z).val(total);
-                        
-                        }
-                      });
+                      var total = 0;
+                     
                       
                       
-                      $(document).on('change', 'input', function() {
+                      $(document).on('change', 'input select', function() {
                         for (var z = 1; z <= i ; z++) {
                         var iron = $("#iron_"+z).val();
                         var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
@@ -671,6 +662,8 @@ if(isset($_POST['add-project'])){
                         $("#iron_tot_"+z).val(total);
                         }
                       });
+
+                      
 
                       document.addEventListener("DOMContentLoaded", function () {
                         const productDetails = document.querySelector("#product_details");
@@ -685,7 +678,10 @@ if(isset($_POST['add-project'])){
                     
                     </script>
 
-                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
+                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button> 
+                <div class="col-6">
+                  <input type="text" class="form-control" placeholder="Total" name="total-iron">
+                </div>
                 <hr>
                 <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
