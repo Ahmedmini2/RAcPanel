@@ -224,8 +224,31 @@ $select = mysqli_query($conn, "select * from bank_request");
                             echo '<span class="badge badge-sm bg-gradient-primary">تم التأكيد</span>';
                           } ?></td>
 
-                      <td><a href="bank-req-info.php?bank_req=<?php echo $r['id']; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> | <a href="edit-bank-req.php?req_id=<?php echo $r['id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="../scripts/accounts/delete.php?bank_req=<?php echo $r['id']; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a> <?php } ?></td>
-
+                        <td><a href="bank-req-info.php?bank_req=<?php echo $r['id']; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
+                         <a href="edit-bank-req.php?req_id=<?php echo $r['id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-trash" aria-hidden="true"></i></button> <?php } ?></td>
+                                <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">إضافة صنف جديد</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                      الرجاء ادخال كلمة المرور للتأكيد
+                                      <form action="../scripts/accounts/delete.php?bank_req=<?php echo $r['id']; ?>" method="post">
+                                      <input type="password" name="pas" class="form-control">
+                                      
+                                  </div>
+                                  <div class="modal-footer">
+                                      
+                                      <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                      </form>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
                     </tr>
 
                   <?php } ?>

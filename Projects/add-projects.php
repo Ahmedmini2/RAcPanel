@@ -891,7 +891,7 @@ if(isset($_POST['add-project'])){
                             هل لديك المزيد من الاصناف تود اضافتها ؟
                           </div>
                           <div class="modal-footer">
-                            <button type="button" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" data-bs-dismiss="modal">لا</button>
+                            <button type="button" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" >لا</button>
                             <button type="submit" name="add-project2" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">نعم اريد اضافة صنف جديد لنفس المشروع</button>
                           </div>
                         </div>

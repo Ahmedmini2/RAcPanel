@@ -15,12 +15,24 @@ include '../../db/connection.php';
 
     if(!empty($_GET['bank_req']))
                     {
-                        $id = $_GET['bank_req'];
-                        $del= mysqli_query($conn, "delete from bank_request where id = '$id'");
-                        if($del)
+                        if(isset($_POST['del']))
                         {
-                            $_SESSION['notification'] = "تم حذف الطلب";
-                            header('location:../../Accounts/accounts.php');
+                            $password = $_POST['pas'];
+                            $password=  md5($password);
+                            if($password == $_SESSION['password']){
+                                
+                                $id = $_GET['bank_req'];
+                                $del= mysqli_query($conn, "delete from bank_request where id = '$id'");
+                                if($del)
+                                {
+                                    $_SESSION['notification'] = "تم حذف الطلب";
+                                    header('location:../../Accounts/accounts.php');
+                                }
+                            }else{
+                                $_SESSION['notification'] = "كلمة مرور خاطئة";
+                                header('location:../../Accounts/accounts.php');
+                            }
+                        
                         }
                     }
 
