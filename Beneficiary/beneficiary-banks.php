@@ -1,6 +1,6 @@
 <?php 
 include ('../cookies/session2.php');
-$_SESSION['sidebar']="Beneficiary";
+$_SESSION['sidebar'] = "Accounts";
 $select =mysqli_query($conn, "select * from beneficiary_info");
 
 ?>

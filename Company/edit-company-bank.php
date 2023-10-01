@@ -1,6 +1,6 @@
 <?php 
 include ('../cookies/session2.php');
-$_SESSION['sidebar']="Banks";
+$_SESSION['sidebar'] = "Accounts";
 
     $id= $_GET['bank_id'];
     $query="SELECT * FROM bank_info WHERE id=$id";
