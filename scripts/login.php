@@ -78,6 +78,7 @@ function login($db,$email,$password){
       $_SESSION['id']=$row['id'];
       $_SESSION['role']=$row['role'];
       $_SESSION['username']=$row['username'];
+      $_SESSION['password']=$row['password'];
       $_SESSION['position']=$row['position'];
       $_SESSION['full_name']=$row['full_name'];
       $_SESSION['sidebar']="Home";
