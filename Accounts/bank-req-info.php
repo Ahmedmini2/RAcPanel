@@ -428,6 +428,17 @@ if (isset($_GET['bank_req'])) {
             <td colspan="2">
               <table>
                 <tr>
+
+                <td class="row2" style="width:30%">
+
+                    <?php if ($to_account_type != '0') {
+                      echo "الى المستفيد : " . $transfer_to; ?><br />
+                      <?php echo "أسم الحساب: " . $beneficiary_bank; ?><br />
+                      <?php echo "رقم الحساب : " . $account_number; ?><br />
+                    <?php echo "رقم الأيبان : " . $iban;
+                    } ?>
+                  </td>
+                  
                   <td style="width:65%">
                     نوع الطلب : <?php if ($name == '1') {
                                   echo "طلب تحويل";
@@ -441,15 +452,7 @@ if (isset($_GET['bank_req'])) {
                     <p class="pt-2">ملاحظات الطلب : <?= $description ?> </p>
                   </td>
 
-                  <td class="row2" style="width:30%">
-
-                    <?php if ($to_account_type != '0') {
-                      echo "الى المستفيد : " . $transfer_to; ?><br />
-                      <?php echo "أسم الحساب: " . $beneficiary_bank; ?><br />
-                      <?php echo "رقم الحساب : " . $account_number; ?><br />
-                    <?php echo "رقم الأيبان : " . $iban;
-                    } ?>
-                  </td>
+                  
                 </tr>
               </table>
 
