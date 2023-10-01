@@ -580,8 +580,8 @@ if(isset($_POST['add-project'])){
                       $("input").on("change", function() {
                         var peice = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0'))
                         var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0')) * parseFloat($("#quantity").val())
-                        $("#kh_tot").val(ret);
-                        $("#kh_peice").val(peice);
+                        $("#kh_tot").val(ret).toLocaleString("en-US");;
+                        $("#kh_peice").val(peice).toLocaleString("en-US");;
                       })
                     </script>
 
@@ -653,7 +653,7 @@ if(isset($_POST['add-project'])){
                       
                       
                       $(document).on('change', 'input , select', function() {
-                        var total_iron = 0;
+                        var total_iron;
                         for (var z = 1; z <= i ; z++) {
                         var iron = $("#iron_"+z).val();
                         var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
@@ -730,7 +730,7 @@ if(isset($_POST['add-project'])){
                           for (var z = 1; z <= a ; z++) {
                             
                             var peice = (parseFloat($("#acc_quantity_"+z).val()) * parseFloat($("#acc_price_"+z).val() || '0'))
-                            $("#acc_tot_"+z).val(peice);
+                            $("#acc_tot_"+z).val(peice).toLocaleString("en-US");;
                           }
                         })
                         console.log("Before Accessory Rows : <?=$accessory_raws?>");
@@ -792,7 +792,7 @@ if(isset($_POST['add-project'])){
                     <script>
                       $("input").on("change", function() {
                         var peice = (parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val() || '0'))
-                        $("#cover_tot").val(peice);
+                        $("#cover_tot").val(peice).toLocaleString("en-US");;
                       })
                     </script>
 
@@ -831,7 +831,7 @@ if(isset($_POST['add-project'])){
                       $(document).on('change', 'input', function() {
                           for (var z = 1; z <= b ; z++) {
                         var peice = (parseFloat($("#band_price_"+z).val()) * parseFloat($("#quantity").val() || '0'))
-                        $("#band_tot_"+z).val(peice);
+                        $("#band_tot_"+z).val(peice).toLocaleString("en-US");;
                           }
                       })
 
