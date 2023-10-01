@@ -659,8 +659,8 @@ if(isset($_POST['add-project'])){
                         var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
                         var tn = kg / 1000;
                         var total = tn * parseFloat($("#iron_price_"+z).val())
-                        $("#iron_tn_"+z).val(tn).toLocaleString();
-                        $("#iron_tot_"+z).val(total).toLocaleString();
+                        $("#iron_tn_"+z).val(tn).toLocaleString("en-US");
+                        $("#iron_tot_"+z).val(total).toLocaleString("en-US");
                         total_iron += total;
                         }
                         $("#total-iron").val(total_iron);
