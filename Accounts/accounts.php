@@ -27,6 +27,12 @@ $select = mysqli_query($conn, "select * from bank_request");
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+  <!-- Extar js  -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
@@ -174,7 +180,7 @@ $select = mysqli_query($conn, "select * from bank_request");
                         }
                     }
                     ?>
-                    <table class="table align-items-center mb-0" id="myTable">
+                    <table class="table table-striped align-items-center mb-0" id="myTable">
                     <thead>
                     <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
@@ -304,6 +310,11 @@ $select = mysqli_query($conn, "select * from bank_request");
   <script src="../assets/js/plugins/fullcalendar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
   <script>
+
+    $(document).ready(function() {
+        $('#example').dataTable();
+    } );
+
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
     new Chart(ctx, {
