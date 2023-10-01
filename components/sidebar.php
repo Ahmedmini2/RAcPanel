@@ -162,7 +162,7 @@ $sidebar = $_SESSION['sidebar'];
           <span class="nav-link-text me-1">المشاريع</span>
         </a>
       </li>
-      <li class="nav-item">
+      
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown button
@@ -174,7 +174,7 @@ $sidebar = $_SESSION['sidebar'];
           </div>
         </div>
         
-      </li>
+    
       <!-- <li class="nav-item">
               <a class="nav-link " href="pages/sign-up.html">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
