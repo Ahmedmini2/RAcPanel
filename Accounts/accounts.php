@@ -180,7 +180,7 @@ $select = mysqli_query($conn, "select * from bank_request");
                         }
                     }
                     ?>
-                    <table class="table table-striped align-items-center mb-0" id="myTable">
+                    <table class="table table-striped align-items-center mb-0" id="example">
                     <thead>
                     <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
