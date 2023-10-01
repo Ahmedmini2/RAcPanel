@@ -18,7 +18,7 @@ include '../../db/connection.php';
                         if(isset($_POST['del']))
                         {
                             $password = $_POST['pas'];
-                            $password=  legal_input(md5($password));
+                            $password=  md5($password);
                             if($password == $_SESSION['password']){
                                 
                                 $id = $_GET['bank_req'];
