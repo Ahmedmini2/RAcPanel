@@ -476,6 +476,45 @@ if (isset($_GET['bank_req'])) {
                                 </tbody>
                             </table>
                         </tr>
+                        <div class="row mt-5 justify-content-center">
+                            <div class="col-12">
+                                <div class="table-responsive p-0">
+                                    <table class="table table-hover table-fixed">
+
+                                        <!--Table head-->
+                                        <thead class="bg-dark text-light">
+                                            <tr>
+                                                <th style="color: white;" scope="col">REQUISITIONER</th>
+                                                <th style="color: white;" scope="col">SHIP VIA</th>
+                                                <th style="color: white;" scope="col">F.O.B</th>
+                                                <th style="color: white;" Ascope="col">SHIPPING TERMS</th>
+                                            </tr>
+                                        </thead>
+                                        <!--Table head-->
+
+                                        <!--Table body-->
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+
+
+                                        </tbody>
+                                        <!--Table body-->
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="row mt-5 justify-content-center">
                             <div class="col-12">
