@@ -78,7 +78,7 @@ if (isset($_GET['bank_req'])) {
         }
 
         .row2 {
-            text-align: center !important;
+            text-align: left !important;
             font-size: small;
         }
 
@@ -87,10 +87,7 @@ if (isset($_GET['bank_req'])) {
             line-height: inherit;
 
         }
-        .invoice-box table thead {
-           color: white;
-
-        }
+        
 
         .invoice-box table td {
             padding: 5px;
@@ -428,8 +425,8 @@ if (isset($_GET['bank_req'])) {
                                 <table class="table table-bordered">
                                     <thead class="thead" style="background:#3A416F">
                                         <tr>
-                                            <th scope="col">VENDOR</th>
-                                            <th scope="col">SHIP TO</th>
+                                            <th scope="col" style="color: white;">VENDOR</th>
+                                            <th scope="col" style="color: white;"a>SHIP TO</th>
 
                                         </tr>
                                     </thead>
