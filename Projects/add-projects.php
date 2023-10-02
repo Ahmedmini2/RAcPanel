@@ -853,7 +853,7 @@ if(isset($_POST['add-project'])){
                         $("#band_tot_"+z).val(peice);
                           }
                           total_bands = total_bands.toLocaleString("en-US");
-                          $("#accessory_band").val(total_bands);
+                          $("#accessory_tot").val(total_bands);
                       })
 
                       document.addEventListener("DOMContentLoaded", function () {
@@ -875,7 +875,7 @@ if(isset($_POST['add-project'])){
                 <button type="button"  class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
                 <div class="row">
                     السعر الكلي للبنود الاضافية
-                  <input type="text" class="form-control" placeholder="Total" name="accessory_band" id="accessory_band" readonly>
+                  <input type="text" class="form-control" placeholder="Total" name="accessory_tot" id="accessory_tot" readonly>
                 </div>
                 <hr>
                 <!-- Item End -->
@@ -921,7 +921,7 @@ if(isset($_POST['add-project'])){
                        
                         var cov = parseFloat($("#cover_tot").val().replace(/\,/g, ""));
                        
-                        var exband = parseFloat($("#accessory_band").val().replace(/\,/g, ""));  
+                        var exband = parseFloat($("#accessory_tot").val().replace(/\,/g, ""));  
                         var quan = parseFloat($("#quantity").val());
                        
                         var grand_tot = (kh + iro + acce + cov + exband) / quan ;
