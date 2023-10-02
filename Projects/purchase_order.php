@@ -460,10 +460,10 @@ if (isset($_GET['bank_req'])) {
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
+                                        <th scope="col">REQUISITIONER</th>
+                                        <th scope="col">SHIP VIA</th>
+                                        <th scope="col">F.O.B</th>
+                                        <th scope="col">SHIPPING TERMS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -472,17 +472,6 @@ if (isset($_GET['bank_req'])) {
                                         <td>Mark</td>
                                         <td>Otto</td>
                                         <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
                                     </tr>
                                 </tbody>
                             </table>
