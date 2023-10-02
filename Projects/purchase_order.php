@@ -479,11 +479,9 @@ if (isset($_GET['bank_req'])) {
 
                         <div class="row mt-5">
                             <div class="col-12">
-                                <div class="card mb-4">
-                                    <div class="card-header pb-0">
-                                        <h6>الاصناف</h6>
-                                    </div>
-                                    <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                
+                                    
+                                   
                                         <div class="table-responsive p-0">
                                             <table class="table table-hover table-fixed">
 
@@ -571,8 +569,7 @@ if (isset($_GET['bank_req'])) {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            
 
                         <tr class="col col-md-2 col-sm-6 col-xs-6">
                         <div class="row my-2 mx-1 justify-content-center">
