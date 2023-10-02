@@ -924,7 +924,7 @@ if(isset($_POST['add-project'])){
                         var exband = parseFloat($("#accessory_band").val().replace(/\,/g, ""));  
                         var quan = parseFloat($("#quantity").val());
                        
-                        var grand_tot = (kh + iro + acce + cov) / quan ;
+                        var grand_tot = (kh + iro + acce + cov + exband) / quan ;
                         var grand_tot = grand_tot.toLocaleString("en-US");
                         $("#prod_peice").val(grand_tot);
                       })
