@@ -457,8 +457,8 @@ if (isset($_GET['bank_req'])) {
                         </tr>
 
                         <tr class="heading">
-                                 <div class="col-12">
-                                    <table class="table-responsive p-0 table-hover table-fixed">
+                            
+                                <table class="table-responsive p-0 table-hover table-fixed">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light">
@@ -495,7 +495,6 @@ if (isset($_GET['bank_req'])) {
                                     <!--Table body-->
 
                                 </table>
-                                </div>
                             
                         </tr>
 
@@ -595,6 +594,209 @@ if (isset($_GET['bank_req'])) {
                 </table>
 
             </div>
+            <div class="invoice-box">
+                <table cellpadding="0" cellspacing="0">
+
+                    <tbody>
+                        <tr class="top">
+                            <td colspan="2">
+                                <table>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="row1">
+                                                شركة ركن اميال للمقاولات<br>
+                                                شارع الرياض <br>
+                                                السعودية-الرياض<br>
+                                                الهاتف :055628295<br>
+                                            </td>
+                                            <td class="title">
+                                                <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px">
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr class="information">
+                            <td colspan="2">
+                                <table class="table table-bordered">
+                                    <thead class="thead" style="background:#3A416F">
+                                        <tr>
+                                            <th scope="col" style="color: white;">VENDOR</th>
+                                            <th scope="col" style="color: white;" a>SHIP TO</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:50%">
+                                                اسم الشركة<br>
+                                                الاتصال أو القسم <br>
+                                                شارع الرياض <br>
+                                                السعودية-الرياض<br>
+                                                الهاتف :055628295<br>
+
+                                            </td>
+
+                                            <td class="row2" style="width:50%">
+                                                اسم <br>
+                                                اسم الشركة<br>
+                                                الاتصال أو القسم <br>
+                                                شارع الرياض <br>
+                                                السعودية-الرياض<br>
+                                                الهاتف :055628295<br>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </td>
+                        </tr>
+
+                        <tr class="heading">
+                            
+                                <table class="table-responsive p-0 table-hover table-fixed">
+
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light">
+                                        <tr>
+                                            <th style="color: white;">TOTAL</th>
+                                            <th style="color: white;">UNIT PRICE</th>
+                                            <th style="color: white;">QTY</th>
+                                            <th style="color: white;">DESCRIPTION</th>
+                                           
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+
+                                    <!--Table body-->
+                                    <tbody>
+                                        <tr>
+                                            <td>2.250.00</td>
+                                            <td>150.00</td>
+                                            <td>15</td>
+                                            <td>Product AAA</td>
+                                            
+
+                                        </tr>
+                                        <tr>
+                                            <td>75.00</td>
+                                            <td>75.00</td>
+                                            <td>1</td>
+                                            <td>Product zzz</td>
+
+                                        </tr>
+
+
+                                    </tbody>
+                                    <!--Table body-->
+
+                                </table>
+                            
+                        </tr>
+
+
+                        <div class="row mt-5 justify-content-center">
+                            <div class="col-12">
+                                <div class="table-responsive p-0">
+                                    <table class="table table-hover table-fixed">
+
+                                        <!--Table head-->
+                                        <thead class="bg-dark text-light">
+                                            <tr>
+                                                <th style="color: white;">TOTAL</th>
+                                                <th style="color: white;">UNIT PRICE</th>
+                                                <th style="color: white;">QTY</th>
+                                                <th style="color: white;">DESCRIPTION</th>
+                                                <th style="color: white;">ITEM#</th>
+                                            </tr>
+                                        </thead>
+                                        <!--Table head-->
+
+                                        <!--Table body-->
+                                        <tbody>
+                                            <tr>
+                                                <td>2.250.00</td>
+                                                <td>150.00</td>
+                                                <td>15</td>
+                                                <td>Product AAA</td>
+                                                <td>[561382]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>75.00</td>
+                                                <td>75.00</td>
+                                                <td>1</td>
+                                                <td>Product zzz</td>
+                                                <td>[6564213]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2.250.00</td>
+                                                <td>150.00</td>
+                                                <td>15</td>
+                                                <td>Product AAA</td>
+                                                <td>[561382]</td>
+                                            </tr>
+
+                                        </tbody>
+                                        <!--Table body-->
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-7">
+                                <ul class="list-unstyled">
+                                    <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
+                                    <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
+                                </ul>
+                                <p class="text-black float-end"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;">$1221</span></p>
+                            </div>
+                            <div class="col-xl-5">
+                                <p class="ms-3">Add additional notes and payment information</p>
+
+                            </div>
+
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-xl-10">
+                                <p>Thank you for your purchase</p>
+                            </div>
+                        </div>
+                    </tbody>
+                </table>
+
+                <div class="row p-5 text-center">
+                    <div class="col-4">
+                        <div class="row">
+                            <h6>المحاسب</h6>
+                            <h5></h5>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <h6>المدير التنفيذي</h6>
+                            <h5></h5>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <h6>المدير العام</h6>
+                        </div>
+                    </div>
+                </div>
+                <table>
+
+                </table>
+
+            </div>
+
 
 
 
