@@ -303,6 +303,7 @@ if (isset($_GET['bank_req'])) {
       </div>
       <!-- Button trigger modal -->
 
+      <div class="div col-md-3 col-sm-6 col-xs-6">
       <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill  " onclick="printDiv('printableArea')">
         طباعة الطلب
         <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
@@ -311,6 +312,8 @@ if (isset($_GET['bank_req'])) {
       <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
         إرفاق \ عرض الملف
       </button>
+      </div>
+      
 
 
 
@@ -330,6 +333,38 @@ if (isset($_GET['bank_req'])) {
 
         }
       </script>
+
+      <!-- Change Status Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">حالة الطلب</h5>
+              <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>">
+                <?php if ($position == 'Admin' || $position == 'Accounts' && $status == 1) { ?> <button type="submit" name="account" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    تأكيد التعميد عن طريق المحاسب
+                  </button>
+                <?php } ?>
+                <br>
+                <?php if ($position == 'Admin' || $position == 'Manager' && $status == 2) { ?> <button type="submit" name="manager" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    تأكيد التعميد عن طريق طريق المدير العام
+                  </button>
+                <?php } ?>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Doc Modal -->
       <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
