@@ -467,7 +467,7 @@ if (isset($_GET['bank_req'])) {
                                             <th style="color: white;">UNIT PRICE</th>
                                             <th style="color: white;">QTY</th>
                                             <th style="color: white;">DESCRIPTION</th>
-
+                                            <th style="color: white;"></th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
