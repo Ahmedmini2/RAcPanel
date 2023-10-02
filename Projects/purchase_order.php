@@ -476,41 +476,44 @@ if (isset($_GET['bank_req'])) {
                                 </tbody>
                             </table>
                         </tr>
-                        <tr class="heading">
+
+                        <tr class="heading2">
                             <table class="table table-bordered">
                                 <thead style="background:#3A416F">
                                     <tr>
-                                        <th style="color: white;" scope="col">REQUISITIONER</th>
-                                        <th style="color: white;" scope="col">SHIP VIA</th>
-                                        <th style="color: white;"  scope="col">F.O.B</th>
-                                        <th style="color: white;" Ascope="col">SHIPPING TERMS</th>
+                                        <th style="color: white;" scope="col">ITEM#</th>
+                                        <th style="color: white;" scope="col">DESCRIPTION</th>
+                                        <th style="color: white;" scope="col">QTY</th>
+                                        <th style="color: white;" scope="col">UNIT PRICE</th>
+                                        <th style="color: white;" scope="col">TOTAL</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <td>[561382]</td>
+                                        <td>Product AAA</td>
+                                        <td>15</td>
+                                        <td>150.00</td>
+                                        <td>2.250.00</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <td>[6564213]</td>
+                                        <td>Product zzz</td>
+                                        <td>1</td>
+                                        <td>75.00</td>
+                                        <td>75.00</td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
+                                    
                                     
                                 </tbody>
                             </table>
                         </tr>
 
-                        
+                        <tr class="item">
+                            <td>SUBTOTAL =  2,325,00</td>
+
+                            <td class="row2"></td>
+                        </tr>
 
 
 
