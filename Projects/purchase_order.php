@@ -296,14 +296,7 @@ if (isset($_GET['bank_req'])) {
       </div>
     </nav> -->
         <!-- End Navbar -->
-        <div class="container-fluid py-4">
-            <div class="block-header bg-warning rounded col-md-3 col-sm-6 col-xs-6">
-
-                <?php require_once('../components/notification.php'); ?>
-            </div>
-            <!-- Button trigger modal -->
-
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 
                 <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill me-md-2 " onclick="printDiv('printableArea')">
                     طباعة الطلب
@@ -314,6 +307,14 @@ if (isset($_GET['bank_req'])) {
                     إرفاق \ عرض الملف
                 </button>
             </div>
+        <div class="container-fluid py-4">
+            <div class="block-header bg-warning rounded col-md-3 col-sm-6 col-xs-6">
+
+                <?php require_once('../components/notification.php'); ?>
+            </div>
+            <!-- Button trigger modal -->
+
+            
             
 
 
