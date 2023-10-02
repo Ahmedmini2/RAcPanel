@@ -393,7 +393,7 @@ if (isset($_GET['bank_req'])) {
 
 
             <div class="invoice-box">
-                  <!--  <table cellpadding="0" cellspacing="0">
+                    <table cellpadding="0" cellspacing="0">
 
                     <tbody>
                         <tr class="top">
@@ -420,7 +420,7 @@ if (isset($_GET['bank_req'])) {
                             </td>
                         </tr>
 
-                        <tr class="information">
+                        <!-- <tr class="information">
                             <td colspan="2">
                                 <table class="table table-bordered">
                                     <thead class="thead" style="background:#3A416F">
@@ -455,8 +455,9 @@ if (isset($_GET['bank_req'])) {
 
                             </td>
                         </tr>
+                        -->
                     </tbody>
-                </table> -->
+                </table> 
 
                 <!-- == -->
                 <div class="row  justify-content-center">
