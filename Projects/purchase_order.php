@@ -109,6 +109,7 @@ if (isset($_GET['bank_req'])) {
             font-size: 45px;
             line-height: 45px;
             color: #333;
+            text-align: center;
         }
 
         .invoice-box table tr.information table td {
@@ -395,7 +396,7 @@ if (isset($_GET['bank_req'])) {
                                 <table>
                                     <thead class="table-dark">
                                         <tr>
-                                            <th scope="col">اسم الشركة</th>
+                                            <th scope="col">شركة ركن اميال للمقاولات</th>
                                        
                                         </tr>
                                     </thead>
