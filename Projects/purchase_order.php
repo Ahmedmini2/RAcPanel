@@ -476,24 +476,28 @@ if (isset($_GET['bank_req'])) {
                                 </tbody>
                             </table>
                         </tr>
-
-                        <tr class="details">
-                            <td>خمسة الاف ريال فقط لا غير </td>
-
-                            <td class="row2"></td>
-                        </tr>
-
                         <tr class="heading">
-                            <td>المبلغ بالأرقام</td>
-
-                            <td class="row2"></td>
+                            <table class="table table-bordered">
+                                <thead style="background:#3A416F">
+                                    <tr>
+                                        <th style="color: white;" scope="col">REQUISITIONER</th>
+                                        <th style="color: white;" scope="col">SHIP VIA</th>
+                                        <th style="color: white;"  scope="col">F.O.B</th>
+                                        <th style="color: white;" Ascope="col">SHIPPING TERMS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </tr>
 
-                        <tr class="item">
-                            <td>5000.00</td>
-
-                            <td class="row2"></td>
-                        </tr>
+                        
 
 
 
