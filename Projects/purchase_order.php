@@ -409,11 +409,11 @@ if (isset($_GET['bank_req'])) {
                         <h5 class="card-header">شركة ركن اميال للمقاولات</h5>
                         <div class="card-body">
                             
-                            <p class="card-text">السعودية-الرياض</p>
-                            <p class="card-text">شارع ملك فهد</p>
-                            <p class="card-text">الرقم:05+++++++</p>
-                            <p class="card-text">السعودية-الرياض</p>
-                            <p class="card-text">الموقع <a href="https://test.app.ruknamial.com/index.php" class="text-warning stretched-link">https://test.app.ruknamial.com/index.php</a></p>
+                            <h2 class="card-text">السعودية-الرياض</h2>
+                            <h2 class="card-text">شارع ملك فهد</h2>
+                            <h2 class="card-text">الرقم:05+++++++</h2>
+                            <h2 class="card-text">السعودية-الرياض</h2>
+                            <h2 class="card-text">الموقع <a href="https://test.app.ruknamial.com/index.php" class="text-warning stretched-link">https://test.app.ruknamial.com/index.php</a></p>
                            
                         </div>
 
