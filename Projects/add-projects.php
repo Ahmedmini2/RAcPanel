@@ -27,6 +27,7 @@ if(isset($_POST['add-project'])){
     $quantity = $_POST['quantity'];
     $sell_price = $_POST['sell_price'];
     $cost_price = $_POST['prod_peice'];
+    $cost_price = str_replace(',', '', $cost_price);
     $net_perc = $_POST['net_peice'];
     $net_toti = $_POST['net_toti'] / $quantity;
     
