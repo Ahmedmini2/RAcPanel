@@ -442,7 +442,7 @@ if (isset($_GET['bank_req'])) {
                                             </td>
 
                                             <td class="row2" style="width:50%">
-                                                اسم <br>
+                                                محمد جمال ابوبكر <br>
                                                 اسم الشركة<br>
                                                 الاتصال أو القسم <br>
                                                 شارع الرياض <br>
@@ -460,7 +460,7 @@ if (isset($_GET['bank_req'])) {
 
                 <!-- == -->
                 <div class="row  justify-content-center">
-                    <div class="col-sm-6 col-lg-4 mx-7">
+                    <div class="col-sm-6 col-lg-4 mx-5">
                         <div class="card">
                             <div class="card-header text-center text-white" style="background:#3A416F">
                                 SHIP TO
@@ -474,18 +474,23 @@ if (isset($_GET['bank_req'])) {
                             </ul>
                         </div>
                     </div>
-                    <div class=" col-sm-6 col-lg-4 mx-7">
+                    <div class=" col-sm-6 col-lg-4 mx-5">
                         <div class="card">
                             <div class="card-header text-center text-white" style="background:#3A416F">
                                 VENDOR
                             </div>
-                            <ul class="list">
-                                <li class="list-group-item">اسم الشركة</li>
-                                <li class="list-group-item">الاتصال أو القسم</li>
-                                <li class="list-group-item">شارع الرياض</li>
-                                <li class="list-group-item">السعودية-الرياض</li>
-                                <li class="list-group-item">لهاتف :055628295</li>
-                            </ul>
+                            <div class="card-body">
+
+                                <p class="card-text">
+                                    محمد جمال ابوبكر <br>
+                                    اسم الشركة<br>
+                                    الاتصال أو القسم <br>
+                                    شارع الرياض <br>
+                                    السعودية-الرياض<br>
+                                    الهاتف :055628295<br>
+                                </p>
+
+                            </div>
                         </div>
                     </div>
 
