@@ -511,9 +511,9 @@ if (isset($_GET['bank_req'])) {
                         </tr>
 
                         <tr class="item">
-                            <td>SUBTOTAL =  2,325,00</td>
+                            <td>  2,325,00</td>
 
-                            <td class="row2"></td>
+                            <td class="row2">SUBTOTAL =</td>
                         </tr>
 
 
