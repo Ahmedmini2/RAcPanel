@@ -477,11 +477,8 @@ if (isset($_GET['bank_req'])) {
                             </table>
                         </tr>
 
-                        
-
-                        
-
-                        <div class="row my-2 mx-1 justify-content-left">
+                        <tr class="heading">
+                        <div class="row my-2 mx-1 justify-content-center">
                             <table class="table table-striped table-borderless">
                                 <thead style="background-color:#84B0CA ;" class="text-white">
                                     <tr>
@@ -538,6 +535,13 @@ if (isset($_GET['bank_req'])) {
                                 <p>Thank you for your purchase</p>
                             </div>
                         </div>
+                        </tr>
+
+                        
+
+                        
+
+                        
 
 
 
