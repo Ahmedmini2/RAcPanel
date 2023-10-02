@@ -516,7 +516,7 @@ if (isset($_GET['bank_req'])) {
                             <td class="row2"> 2,325,00 </td>
                         </tr>
 
-                        <div class="row my-2 mx-1 justify-content-center">
+                        <div class="row my-2 mx-1 justify-content-left">
                             <table class="table table-striped table-borderless">
                                 <thead style="background-color:#84B0CA ;" class="text-white">
                                     <tr>
@@ -554,17 +554,18 @@ if (isset($_GET['bank_req'])) {
                             </table>
                         </div>
                         <div class="row">
-                            <div class="col-xl-8">
-                                <p class="ms-3">Add additional notes and payment information</p>
-
-                            </div>
-                            <div class="col-xl-3">
+                        <div class="col-xl-3">
                                 <ul class="list-unstyled">
                                     <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
                                     <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
                                 </ul>
                                 <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;">$1221</span></p>
                             </div>
+                            <div class="col-xl-8">
+                                <p class="ms-3">Add additional notes and payment information</p>
+
+                            </div>
+                            
                         </div>
                         <hr>
                         <div class="row">
