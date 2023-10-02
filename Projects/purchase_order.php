@@ -144,9 +144,7 @@ if (isset($_GET['bank_req'])) {
         }
 
 
-        .invoice-box table .information td .container h5 {
-            color: while !important;
-        }
+
 
         @media only screen and (max-width: 600px) {
             .invoice-box table tr.top table td {
@@ -431,22 +429,28 @@ if (isset($_GET['bank_req'])) {
                                         <tr>
                                             <td style="width:65%">
                                                 <STyle>
-                                                    .container{
+                                                    .container {
                                                         text-align: center !important;
-                                                    background-color: #344767 !important;
-                                                    width: 20%;
-                                                    position: absolute !important;
-                                                    padding-bottom: 5px !important;
-                                                    background: black;
+                                                        background-color: #344767 !important;
+                                                        width: 20%;
+                                                        position: absolute !important;
+                                                        padding-bottom: 5px !important;
+                                                        background: black;
                                                     }
-                                                 
+
+                                                    .container h5 {
+                                                        color: while !important;
+                                                    }
                                                 </STyle>
-                                                <div class="container   text-white">
+                                                <div class="container pt-4   text-white">
                                                     <h5>البائع</h5>
                                                 </div>
-                                                نوع الطلب : طلب تحويل<br>
-                                                <p class="pt-2">ملاحظات الطلب : عهدة عبدالباري
-                                                    ضروري جدا تحول اليوم لتصنيع الزوايا الجديدة ودخولها الجلفنة </p>
+                                                اسم الشركة<br>
+                                                الاتصال أو القسم <br>
+                                                شارع الرياض <br>
+                                                السعودية-الرياض<br>
+                                                الهاتف :055628295<br>
+                                            
                                             </td>
 
                                             <td class="row2" style="width:30%">
