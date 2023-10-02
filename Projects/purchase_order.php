@@ -462,7 +462,7 @@ if (isset($_GET['bank_req'])) {
                                     <tr>
                                         <th style="color: white;" scope="col">REQUISITIONER</th>
                                         <th style="color: white;" scope="col">SHIP VIA</th>
-                                        <th style="color: white;"  scope="col">F.O.B</th>
+                                        <th style="color: white;" scope="col">F.O.B</th>
                                         <th style="color: white;" Ascope="col">SHIPPING TERMS</th>
                                     </tr>
                                 </thead>
@@ -486,26 +486,26 @@ if (isset($_GET['bank_req'])) {
                                         <th style="color: white;" scope="col">QTY</th>
                                         <th style="color: white;" scope="col">DESCRIPTION</th>
                                         <th style="color: white;" scope="col">ITEM#</th>
-                            
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                     <td>2.250.00</td>
+                                        <td>2.250.00</td>
                                         <td>150.00</td>
                                         <td>15</td>
                                         <td>Product AAA</td>
                                         <td>[561382]</td>
-                                     </tr>
+                                    </tr>
                                     <tr>
-                                     <td>75.00</td>
+                                        <td>75.00</td>
                                         <td>75.00</td>
                                         <td>1</td>
                                         <td>Product zzz</td>
                                         <td>[6564213]</td>
                                     </tr>
-                                    
-                                    
+
+
                                 </tbody>
                             </table>
                         </tr>
@@ -515,6 +515,66 @@ if (isset($_GET['bank_req'])) {
 
                             <td class="row2"> 2,325,00 </td>
                         </tr>
+
+                        <div class="row my-2 mx-1 justify-content-center">
+                            <table class="table table-striped table-borderless">
+                                <thead style="background-color:#84B0CA ;" class="text-white">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Qty</th>
+                                        <th scope="col">Unit Price</th>
+                                        <th scope="col">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Pro Package</td>
+                                        <td>4</td>
+                                        <td>$200</td>
+                                        <td>$800</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Web hosting</td>
+                                        <td>1</td>
+                                        <td>$10</td>
+                                        <td>$10</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Consulting</td>
+                                        <td>1 year</td>
+                                        <td>$300</td>
+                                        <td>$300</td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-8">
+                                <p class="ms-3">Add additional notes and payment information</p>
+
+                            </div>
+                            <div class="col-xl-3">
+                                <ul class="list-unstyled">
+                                    <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
+                                    <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
+                                </ul>
+                                <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;">$1221</span></p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-xl-10">
+                                <p>Thank you for your purchase</p>
+                            </div>
+                            <div class="col-xl-2">
+                                <button type="button" class="btn btn-primary text-capitalize" style="background-color:#60bdf3 ;">Pay Now</button>
+                            </div>
+                        </div>
 
 
 
