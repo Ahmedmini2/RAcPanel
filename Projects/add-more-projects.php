@@ -21,8 +21,12 @@ if (isset($_POST['add-project'])) {
         $product_name = $_POST['product_name'];
         $dimensions = $_POST['dimensions'];
         $quantity = $_POST['quantity'];
-
-        $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' , NOW())";
+        $sell_price = $_POST['sell_price'];
+        $cost_price = $_POST['prod_peice'];
+        $net_perc = $_POST['net_peice'];
+        $net_toti = $_POST['net_toti'] / $quantity;
+        
+        $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
         $product_res = $conn->query($insert_product);
 
         if ($product_res) {
@@ -147,9 +151,12 @@ if (isset($_POST['add-project'])) {
 
         $product_name = $_POST['product_name'];
         $dimensions = $_POST['dimensions'];
-        $quantity = $_POST['quantity'];
-
-        $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' , NOW())";
+        $sell_price = $_POST['sell_price'];
+        $cost_price = $_POST['prod_peice'];
+        $net_perc = $_POST['net_peice'];
+        $net_toti = $_POST['net_toti'] / $quantity;
+        
+        $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
         $product_res = $conn->query($insert_product);
 
         if ($product_res) {
@@ -456,398 +463,492 @@ if (isset($_POST['add-project'])) {
                         
 
                         <!-- Product Details -->
-                        <div id="product_details">
-                            <div class="product">
-                                <h4>الأصناف</h4>
-                                <div class="row">
-                                    <div class="col-md-8 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="product_name">أسم الصنف</label>
-                                            <input class="form-control" type="text" name="product_name">
-                                            <!-- Add more fields for product details here -->
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="dimensions">المقاسات</label>
-                                            <input class="form-control" type="text" name="dimensions">
-                                            <!-- Add more fields for product details here -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-8 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="quantity">كمية الصنف</label>
-                                            <input class="form-control" type="text" name='quantity' id="quantity">
-                                            <!-- Add more fields for product details here -->
-                                        </div>
-                                    </div>
-                                </div>
+            <div id="product_details">
+              <div class="product">
+                <h4>الأصناف</h4>
+                <div class="row">
+                  <div class="col-md-8 col-sm-6">
+                    <div class="form-group">
+                      <label for="product_name">أسم الصنف</label>
+                      <input class="form-control" type="text" name="product_name">
+                      <!-- Add more fields for product details here -->
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-sm-6">
+                    <div class="form-group">
+                      <label for="dimensions">المقاسات</label>
+                      <input class="form-control" type="text" name="dimensions">
+                      <!-- Add more fields for product details here -->
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8 col-sm-6">
+                    <div class="form-group">
+                      <label for="quantity">كمية الصنف</label>
+                      <input class="form-control" type="text" name='quantity' id="quantity">
+                      <!-- Add more fields for product details here -->
+                    </div>
+                  </div>
+                </div>
 
-                                <!-- Item Details -->
-                                <div class="kh_details">
-                                    <h5>بند الخرسانة</h5>
-                                    <div class="item">
-                                        <div class="row">
-                                            <div class="col-md-2 col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="kharasana">نوع الخرسانة</label>
-                                                    <select class="form-control" name="kharasana">
-                                                        <option value="خرسانة شركة">خرسانة شركة</option>
-                                                        <option value="خرسانة رجيع">خرسانة رجيع</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6 ">
-                                                <div class="form-group">
-                                                    <label for="kh_price">سعر الخرسانة</label>
-                                                    <input type="text" class="form-control" name='kh_price' id="kh_price">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6 ">
-                                                <div class="form-group">
-                                                    <label for="kh_per">كمية الخرسانة للصنف الواحد</label>
-                                                    <input type="text" class="form-control" name='kh_per' id="kh_per">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6 ">
-                                                <div class="form-group">
-                                                    <label for="kh_peice">السعر للمنتج الفردي</label>
-                                                    <input type="text" class="form-control" name='kh_peice' id="kh_peice" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6 ">
-                                                <div class="form-group">
-                                                    <label for="kh_tot">السعر الكلي</label>
-                                                    <input type="text" class="form-control" name='kh_tot' id="kh_tot" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <script>
-                                            $("input").on("change", function() {
-                                                var peice = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0'))
-                                                var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0')) * parseFloat($("#quantity").val())
-                                                $("#kh_tot").val(ret);
-                                                $("#kh_peice").val(peice);
-                                            })
-                                        </script>
+                <!-- Item Details -->
+                <div class="kh_details">
+                  <h5>بند الخرسانة</h5>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="kharasana">نوع الخرسانة</label>
+                          <select class="form-control" name="kharasana">
+                            <option value="خرسانة شركة">خرسانة شركة</option>
+                            <option value="خرسانة رجيع">خرسانة رجيع</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="kh_price">سعر الخرسانة</label>
+                          <input type="text" class="form-control" name='kh_price' id="kh_price">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="kh_per">كمية الخرسانة للصنف الواحد</label>
+                          <input type="text" class="form-control" name='kh_per' id="kh_per">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="kh_peice">السعر للمنتج الفردي</label>
+                          <input type="text" class="form-control" name='kh_peice' id="kh_peice" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="kh_tot">السعر الكلي</label>
+                          <input type="text" class="form-control" name='kh_tot' id="kh_tot" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                      $("input").on("change", function() {
+                        var peice = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0'))
+                        var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0')) * parseFloat($("#quantity").val())
+                        var qunt = parseFloat($("#quantity").val());
+                        ret = ret.toLocaleString("en-US");
+                        peice = peice.toLocaleString("en-US");
+                        $("#kh_tot").val(ret);
+                        $("#kh_peice").val(peice);
+                      })
+                    </script>
 
-                                    </div>
-                                </div>
-                                <div class="iron_details">
-                                    <hr>
-                                    <h5>بند الحديد</h5>
-                                    <div class="iron" id="main-iron">
-                                        <div class="row" id="row<?= $coco ?>">
-                                            <div class="col-md-2 col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="iron">مقاس الحديد</label>
-                                                    <select class="form-control" name="iron_<?= $coco ?>" id="iron_<?= $coco ?>">
-                                                        <option value="0.395">8مم</option>
-                                                        <option value="0.617">10مم</option>
-                                                        <option value="0.888">12مم</option>
-                                                        <option value="1.21">14مم</option>
-                                                        <option value="1.58">16مم</option>
-                                                        <option value="2">18مم</option>
-                                                        <option value="2.47">20مم</option>
-                                                        <option value="2.984">22مم</option>
-                                                        <option value="3.85">25مم</option>
-                                                        <option value="6.41">32مم</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="iron_price">سعر طن الحديد لليوم</label>
-                                                    <input type="text" class="form-control" name='iron_price_<?= $coco ?>' id="iron_price_<?= $coco ?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="iron_quantity">كمية الحديد</label>
-                                                    <input type="text" class="form-control" name='iron_quantity_<?= $coco ?>' id="iron_quantity_<?= $coco ?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="iron_long">طول الحديد</label>
-                                                    <input type="text" class="form-control" name='iron_long_<?= $coco ?>' id="iron_long_<?= $coco ?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="iron_tn">السعر الطن</label>
-                                                    <input type="text" class="form-control" name='iron_tn_<?= $coco ?>' id="iron_tn_<?= $coco ?>" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="iron_tot">السعر الكلي</label>
-                                                    <input type="text" class="form-control" name='iron_tot_<?= $coco ?>' id="iron_tot_<?= $coco ?>" readonly>
-                                                    <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
-                                                    <input type="hidden" name="iron-rr" id="iron-rr" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr class="new2">
-                                    </div>
-                                </div>
-                                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                                <script>
-                                    var i = 1;
-                                    $(document).on('change', 'select', function() {
-                                        for (var z = 1; z <= i; z++) {
-                                            var iron = $("#iron_" + z).val();
-                                            var kg = (parseFloat($("#iron_quantity_" + z).val()) * parseFloat($("#iron_long_" + z).val() || '0') * iron)
-                                            var tn = kg / 1000;
-                                            var total = tn * parseFloat($("#iron_price_" + z).val())
-                                            $("#iron_tn_" + z).val(tn);
-                                            $("#iron_tot_" + z).val(total);
+                  </div>
+                </div>
+                <div class="iron_details">
+                  <hr>
+                  <h5>بند الحديد</h5>
+                  <div class="iron" id="main-iron">
+                    <div class="row" id="row<?=$coco?>">
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="iron">مقاس الحديد</label>
+                          <select class="form-control" name="iron_<?=$coco?>" id="iron_<?=$coco?>">
+                            <option value="0.395">8مم</option>
+                            <option value="0.617">10مم</option>
+                            <option value="0.888">12مم</option>
+                            <option value="1.21">14مم</option>
+                            <option value="1.58">16مم</option>
+                            <option value="2">18مم</option>
+                            <option value="2.47">20مم</option>
+                            <option value="2.984">22مم</option>
+                            <option value="3.85">25مم</option>
+                            <option value="6.41">32مم</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="iron_price">سعر طن الحديد لليوم</label>
+                          <input type="text" class="form-control" name='iron_price_<?=$coco?>' id="iron_price_<?=$coco?>">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="iron_quantity">كمية الحديد</label>
+                          <input type="text" class="form-control" name='iron_quantity_<?=$coco?>' id="iron_quantity_<?=$coco?>">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="iron_long">طول الحديد</label>
+                          <input type="text" class="form-control" name='iron_long_<?=$coco?>' id="iron_long_<?=$coco?>">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="iron_tn">السعر الطن</label>
+                          <input type="text" class="form-control" name='iron_tn_<?=$coco?>' id="iron_tn_<?=$coco?>" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="iron_tot">السعر</label>
+                          <input type="text" class="form-control" name='iron_tot_<?=$coco?>' id="iron_tot_<?=$coco?>" readonly>
+                          <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
+                          <input type="hidden" name="iron-rr" id="iron-rr" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="new2">
+                  </div>
+                </div>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                      var i = 1;
+                     
+                     
+                      
+                      
+                      $(document).on('change', 'input , select', function() {
+                        var total_iron = 0;
+                        
+                        for (var z = 1; z <= i ; z++) {
+                        var iron = $("#iron_"+z).val();
+                        var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
+                        var tn = kg / 1000;
+                        var total = tn * parseFloat($("#iron_price_"+z).val())
+                        total_iron += total;
+                        tn = tn.toLocaleString("en-US");
+                        total = total.toLocaleString("en-US");
+                        $("#iron_tn_"+z).val(tn);
+                        $("#iron_tot_"+z).val(total);
+                        
+                        }
+                        
+                        total_iron = total_iron.toLocaleString("en-US");
+                        
+                        $("#total_iron").val(total_iron);
+                      });
 
-                                        }
-                                    });
+                     
+                      
 
+                      document.addEventListener("DOMContentLoaded", function () {
+                        const productDetails = document.querySelector("#product_details");
+                        productDetails.addEventListener("click", function (e) {
+                          if (e.target.classList.contains("add_iron")) {
+            
+                            i++;
+                            $("#iron-rr").val(i);
+                          }
+                        });
+                      });
+                    
+                    </script>
+                
+                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button> 
+                <div class="row">
+                    السعر الكلي للحديد
+                  <input type="text" class="form-control" placeholder="Total" name="total_iron" id="total_iron" readonly>
+                </div>
+                <hr>
+                <div class="accessory_details">
+                  <h5>بند الاكسسوارات</h5>
+                  <div class="accessory" id="main-accessory">
+                    <div class="row ">
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="accessory">أسم الاكسسوار</label>
+                          <input type="text" class="form-control" name='accessory_<?=$coco?>' id="accessory_<?=$coco?>">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="acc_quantity">كمية الاكسسوار</label>
+                          <input type="text" class="form-control" name='acc_quantity_<?=$coco?>' id="acc_quantity_<?=$coco?>">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="acc_price">سعر الاكسسوار الفردي</label>
+                          <input type="text" class="form-control" name='acc_price_<?=$coco?>' id="acc_price_<?=$coco?>">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="acc_tot">السعر</label>
+                          <input type="text" class="form-control" name='acc_tot_<?=$coco?>' id="acc_tot_<?=$coco?>" readonly>
+                          <input type="hidden" name="rowcount_ac" value="<?php echo $numberofrows; ?>" id="rowcount_ac" readonly>
+                          <input type="hidden" name="ac-rr" id="ac-rr" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="new2">
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
+                      var a = 1;
+                      
+                       $(document).on('change', 'input', function() {
+                        var total_accessory = 0;
+                          for (var z = 1; z <= a ; z++) {
+                            
+                            var peice = (parseFloat($("#acc_quantity_"+z).val()) * parseFloat($("#acc_price_"+z).val() || '0'));
+                            total_accessory += peice
+                            peice = peice.toLocaleString("en-US");
+                            $("#acc_tot_"+z).val(peice);
+                          }
+                          
+                          total_accessory = total_accessory.toLocaleString("en-US");
+                        $("#accessory_iron").val(total_accessory);
+                        })
+                        console.log("Before Accessory Rows : <?=$accessory_raws?>");
+                      document.addEventListener("DOMContentLoaded", function () {
+                        const productDetails = document.querySelector("#product_details");
+                        productDetails.addEventListener("click", function (e) {
+                          
+                          if (e.target.classList.contains("add_accessory")) {
+            
+                            a++;
+                            $("#ac-rr").val(a);
+                            
+                          }
+                        });
+                      });
+                    </script>
 
-                                    $(document).on('change', 'input', function() {
-                                        for (var z = 1; z <= i; z++) {
-                                            var iron = $("#iron_" + z).val();
-                                            var kg = (parseFloat($("#iron_quantity_" + z).val()) * parseFloat($("#iron_long_" + z).val() || '0') * iron)
-                                            var tn = kg / 1000;
-                                            var total = tn * parseFloat($("#iron_price_" + z).val())
-                                            $("#iron_tn_" + z).val(tn);
-                                            $("#iron_tot_" + z).val(total);
-                                        }
-                                    });
-
-                                    document.addEventListener("DOMContentLoaded", function() {
-                                        const productDetails = document.querySelector("#product_details");
-                                        productDetails.addEventListener("click", function(e) {
-                                            if (e.target.classList.contains("add_iron")) {
-
-                                                i++;
-                                                $("#iron-rr").val(i);
-                                            }
-                                        });
-                                    });
-                                </script>
-
-                                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
-                                <hr>
-                                <div class="accessory_details">
-                                    <h5>بند الاكسسوارات</h5>
-                                    <div class="accessory" id="main-accessory">
-                                        <div class="row ">
-                                            <div class="col-md-2 col-sm-6 ">
-                                                <div class="form-group">
-                                                    <label for="accessory">أسم الاكسسوار</label>
-                                                    <input type="text" class="form-control" name='accessory_<?= $coco ?>' id="accessory_<?= $coco ?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="acc_quantity">كمية الاكسسوار</label>
-                                                    <input type="text" class="form-control" name='acc_quantity_<?= $coco ?>' id="acc_quantity_<?= $coco ?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6 ">
-                                                <div class="form-group">
-                                                    <label for="acc_price">سعر الاكسسوار الفردي</label>
-                                                    <input type="text" class="form-control" name='acc_price_<?= $coco ?>' id="acc_price_<?= $coco ?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6 ">
-                                                <div class="form-group">
-                                                    <label for="acc_tot">السعر الكلي</label>
-                                                    <input type="text" class="form-control" name='acc_tot_<?= $coco ?>' id="acc_tot_<?= $coco ?>" readonly>
-                                                    <input type="hidden" name="rowcount_ac" value="<?php echo $numberofrows; ?>" id="rowcount_ac" readonly>
-                                                    <input type="hidden" name="ac-rr" id="ac-rr" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr class="new2">
-                                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                                        <script>
-                                            var a = 1;
-
-                                            $(document).on('change', 'input', function() {
-                                                for (var z = 1; z <= a; z++) {
-
-                                                    var peice = (parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val() || '0'))
-                                                    $("#acc_tot_" + z).val(peice);
-                                                }
-                                            })
-                                            console.log("Before Accessory Rows : <?= $accessory_raws ?>");
-                                            document.addEventListener("DOMContentLoaded", function() {
-                                                const productDetails = document.querySelector("#product_details");
-                                                productDetails.addEventListener("click", function(e) {
-
-                                                    if (e.target.classList.contains("add_accessory")) {
-
-                                                        a++;
-                                                        $("#ac-rr").val(a);
-
-                                                    }
-                                                });
-                                            });
-                                        </script>
-
-                                    </div>
-
-
-
-                                </div>
-                                <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
-                                <hr>
-
-                                <div class="accessory_details">
-                                    <h5>بند الاغطية</h5>
-                                    <div class="covers">
-                                        <div class="row">
-                                            <div class="col-md-2 col-sm-6 ">
-                                                <div class="form-group">
-                                                    <label for="cover_type">نوع الغطاء</label>
-                                                    <select class="form-control" name="cover_type" id="cover_type">
-                                                        <option value="بدون اغطية">بدون اغطية</option>
-                                                        <option value="غطاء واحد">غطاء واحد</option>
-                                                        <option value="غطائين">غطائين</option>
-                                                        <option value="غطاء دائري">غطاء دائري</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-2 col-sm-6 ">
-                                                <div class="form-group">
-                                                    <label for="cover_price">سعر الغطاء الفردي</label>
-                                                    <input type="text" class="form-control" name='cover_price' id="cover_price">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6 ">
-                                                <div class="form-group">
-                                                    <label for="cover_tot">السعر الكلي</label>
-                                                    <input type="text" class="form-control" name='cover_tot' id="cover_tot" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <script>
-                                            $("input").on("change", function() {
-                                                var peice = (parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val() || '0'))
-                                                $("#cover_tot").val(peice);
-                                            })
-                                        </script>
-
-                                    </div>
-                                </div>
-                                <hr>
-
-                                <div class="band_details">
-                                    <h5>بنود اخرى</h5>
-                                    <div class="band" id="main-band">
-                                        <div class="row">
-                                            <div class="col-md-2 col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="band">أسم البند</label>
-                                                    <input type="text" class="form-control" name="band_<?= $coco ?>" id="band_<?= $coco ?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="band_price">سعر البند</label>
-                                                    <input type="text" class="form-control" name="band_price_<?= $coco ?>" id="band_price_<?= $coco ?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="band_tot">السعر الكلي</label>
-                                                    <input type="text" class="form-control" name="band_tot_<?= $coco ?>" id="band_tot_<?= $coco ?>" readonly>
-                                                    <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_band" disabled>
-                                                    <input type="hidden" name="band-rr" id="band-rr" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr class="new2">
-                                        <script>
-                                            b = 1;
-                                            $(document).on('change', 'input', function() {
-                                                for (var z = 1; z <= b; z++) {
-                                                    var peice = (parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val() || '0'))
-                                                    $("#band_tot_" + z).val(peice);
-                                                }
-                                            })
-
-                                            document.addEventListener("DOMContentLoaded", function() {
-                                                const productDetails = document.querySelector("#product_details");
-                                                productDetails.addEventListener("click", function(e) {
-                                                    if (e.target.classList.contains("add_band")) {
-
-                                                        b++;
-                                                        $("#band-rr").val(b);
-
-                                                    }
-                                                });
-                                            });
-                                        </script>
-
-                                    </div>
-
-                                </div>
-                                <button type="button" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
-
-                                <hr>
-                                <!-- Item End -->
+                  </div>
 
 
 
+                </div>
+                <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
+                <div class="row">
+                    السعر الكلي للحديد
+                  <input type="text" class="form-control" placeholder="Total" name="accessory_iron" id="accessory_iron" readonly>
+                </div>
+                <hr>
 
-                            </div>
-                            <!-- Product End -->
+                <div class="accessory_details">
+                  <h5>بند الاغطية</h5>
+                  <div class="covers">
+                    <div class="row">
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_type">نوع الغطاء</label>
+                          <select class="form-control" name="cover_type" id="cover_type">
+                            <option value="بدون اغطية">بدون اغطية</option>
+                            <option value="غطاء واحد">غطاء واحد</option>
+                            <option value="غطائين">غطائين</option>
+                            <option value="غطاء دائري">غطاء دائري</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_price">سعر الغطاء الفردي</label>
+                          <input type="text" class="form-control" name='cover_price' id="cover_price">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_tot">السعر الكلي</label>
+                          <input type="text" class="form-control" name='cover_tot' id="cover_tot" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                      $("input").on("change", function() {
+                        var peice = (parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val() || '0'))
+                        
+                        peice = peice.toLocaleString("en-US");
+                        $("#cover_tot").val(peice);
+                      })
+                    </script>
+
+                  </div>
+                </div>
+                <hr>
+
+                <div class="band_details">
+                  <h5>بنود اخرى</h5>
+                  <div class="band" id="main-band">
+                    <div class="row">
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="band">أسم البند</label>
+                          <input type="text" class="form-control" name="band_<?=$coco?>" id="band_<?=$coco?>">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="band_price">سعر البند</label>
+                          <input type="text" class="form-control" name="band_price_<?=$coco?>" id="band_price_<?=$coco?>">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6">
+                        <div class="form-group">
+                          <label for="band_tot">السعر </label>
+                          <input type="text" class="form-control" name="band_tot_<?=$coco?>" id="band_tot_<?=$coco?>" readonly>
+                          <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_band" disabled>
+                          <input type="hidden" name="band-rr" id="band-rr" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="new2">
+                    <script>
+                      b = 1; 
+                      $(document).on('change', 'input', function() {
+                        var total_bands = 0;
+                          for (var z = 1; z <= b ; z++) {
+                            var peice = (parseFloat($("#band_price_"+z).val()) * parseFloat($("#quantity").val() || '0'))
+                            total_bands += peice
+                            peice = peice.toLocaleString("en-US");
+                            $("#band_tot_"+z).val(peice);
+                          }
+                          total_bands = total_bands.toLocaleString("en-US");
+                          $("#accessory_tot").val(total_bands);
+                      })
+
+                      document.addEventListener("DOMContentLoaded", function () {
+                        const productDetails = document.querySelector("#product_details");
+                        productDetails.addEventListener("click", function (e) {
+                          if (e.target.classList.contains("add_band")) {
+            
+                            b++;
+                            $("#band-rr").val(b);
+                            
+                          }
+                        });
+                      });
+                    </script>
+
+                  </div>
+
+                </div>
+                <button type="button"  class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
+                <div class="row">
+                    السعر الكلي للبنود الاضافية
+                  <input type="text" class="form-control" placeholder="Total" name="accessory_tot" id="accessory_tot" readonly>
+                </div>
+                <hr>
+                <!-- Item End -->
+                
+                <div class="Final_details">
+                  <h5>الحساب النهائي</h5>
+                  <div class="final">
+                    <div class="row">
+                      
+
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_price">سعر الصنف الواحد </label>
+                          <input type="text" class="form-control" name='prod_peice' id="prod_peice" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_tot">السعر البيع</label>
+                          <input type="text" class="form-control" name='sell_price' id="sell_price">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_tot">نسبة الربح للصنف الواحد</label>
+                          <input type="text" class="form-control" name='net_peice' id="net_peice" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_tot">إجمالي الربح</label>
+                          <input type="text" class="form-control" name='net_toti' id="net_toti" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                      $(document).on("change","input", function() {
+                        var kh = parseFloat($("#kh_tot").val().replace(/\,/g, ""));
+                       
+                        var iro = parseFloat($("#total_iron").val().replace(/\,/g, "")) ;
+                      
+                        var acce = parseFloat($("#accessory_iron").val().replace(/\,/g, ""));
+                       
+                        var cov = parseFloat($("#cover_tot").val().replace(/\,/g, ""));
+                       
+                        var exband = parseFloat($("#accessory_tot").val().replace(/\,/g, ""));  
+                        var quan = parseFloat($("#quantity").val());
+                       
+                        var grand_tot = (kh + iro + acce + cov + exband) / quan ;
+
+                        var sel_price = $("#sell_price").val();
+                        if (sel_price != "") {
+                         var net_peice = (((sel_price - grand_tot) / grand_tot) * 100).toFixed(2);
+                         $("#net_peice").val(net_peice + "%");
+                         net_tot = ((sel_price * quan) - (grand_tot * quan)).toFixed(2);  
+                         $("#net_toti").val(net_tot);
+                        }
+                        var grand_tot = grand_tot.toLocaleString("en-US");
+                        $("#prod_peice").val(grand_tot);
+
+                        
+                        
+                      })
+                    </script>
+
+                  </div>
+                </div>
 
 
-                            <br><br>
 
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <style>
-                                            .myButton {
-                                                border: none;
-                                                cursor: pointer;
-                                                background: #8392AB;
-                                                color: #fff;
-                                                border-radius: 20px;
-                                                transition: 0.5s;
-                                            }
+              </div>
+              <!-- Product End -->
 
-                                            .myButton:hover {
-                                                background: #344767;
-                                                letter-spacing: 1px;
-                                            }
-                                        </style>
-                                        <button type="button" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        إستمرار
-                                        </button>
+              
+              <br><br>
 
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">إضافة صنف جديد</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        هل لديك المزيد من الاصناف تود اضافتها ؟
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" >لا</button>
-                                                        <button type="submit" name="add-project2" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">نعم اريد اضافة صنف جديد لنفس المشروع</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                  <style>
+                      .myButton{
+                        border: none;
+                       cursor: pointer;
+                        background: #8392AB;
+                         color: #fff;
+                          border-radius: 20px;   
+                          transition: 0.5s; 
+                      }
+                      .myButton:hover{
+                         background: #344767;
+                         letter-spacing: 1px;
+                        }
+                    </style>
+                    <button type="button" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      إستمرار
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">إضافة صنف جديد</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            هل لديك المزيد من الاصناف تود اضافتها ؟
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" >لا</button>
+                            <button type="submit" name="add-project2" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">نعم اريد اضافة صنف جديد لنفس المشروع</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
 
                                 </div>
                             </div>
