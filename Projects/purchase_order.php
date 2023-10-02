@@ -394,6 +394,7 @@ if (isset($_GET['bank_req'])) {
 
 
             <div class="invoice-box">
+                <div class="card">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="card">
@@ -413,6 +414,8 @@ if (isset($_GET['bank_req'])) {
                         </div>
                     </div>
                 </div>
+                </div>
+                
 
 
                 <hr class="row brc-default-l1 mx-n1 mb-4" />
