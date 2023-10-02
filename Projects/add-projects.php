@@ -25,8 +25,12 @@ if(isset($_POST['add-project'])){
     $product_name = $_POST['product_name'];
     $dimensions = $_POST['dimensions'];
     $quantity = $_POST['quantity'];
+    $sell_price = $_POST['sell_price'];
+    $cost_price = $_POST['prod_peice'];
+    $net_perc = $_POST['net_peice'];
+    $net_toti = $_POST['net_toti'] / $quantity;
     
-    $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' , NOW())";
+    $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
     $product_res = $conn->query($insert_product);
 
     if($product_res){
@@ -171,8 +175,13 @@ if(isset($_POST['add-project'])){
         $product_name = $_POST['product_name'];
         $dimensions = $_POST['dimensions'];
         $quantity = $_POST['quantity'];
+        $sell_price = $_POST['sell_price'];
+        $cost_price = $_POST['prod_peice'];
+        $net_perc = $_POST['net_peice'];
+        $net_toti = $_POST['net_toti'] / $quantity;
         
-        $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' , NOW())";
+        $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
+        
         $product_res = $conn->query($insert_product);
     
         if($product_res){
