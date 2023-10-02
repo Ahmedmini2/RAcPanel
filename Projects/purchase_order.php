@@ -148,6 +148,7 @@ if (isset($_GET['bank_req'])) {
             background-color: #344767 !important;
             width: 20%;
             position: absolute;
+            padding-bottom: 5px;
         }
         .information .container-sm h5{
             color: while;
