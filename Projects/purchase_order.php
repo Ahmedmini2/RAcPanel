@@ -397,15 +397,11 @@ if (isset($_GET['bank_req'])) {
                         <tr class="top">
                             <td colspan="2">
                                 <table>
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th scope="col">شركة ركن اميال للمقاولات</th>
-                                       
-                                        </tr>
-                                    </thead>
+                                   
                                     <tbody>
                                         <tr>
                                         <td class="row1">
+                                                 شركة ركن اميال للمقاولات<br>
                                                 شارع الرياض <br>
                                                 السعودية-الرياض<br>
                                                 الهاتف :055628295<br>
