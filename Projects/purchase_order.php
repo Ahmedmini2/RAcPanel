@@ -74,7 +74,7 @@ if (isset($_GET['bank_req'])) {
             padding-top: 40px !important;
             position: relative;
             font-size: small;
-            text-align: right !important;
+            text-align: left !important;
         }
 
         .row2 {
@@ -400,6 +400,12 @@ if (isset($_GET['bank_req'])) {
                         <tr class="top">
                             <td colspan="2">
                                 <table>
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th scope="col">اسم الشركة</th>
+                                       
+                                        </tr>
+                                    </thead>
                                     <tbody>
                                         <tr>
                                             <td class="title">
@@ -414,6 +420,7 @@ if (isset($_GET['bank_req'])) {
                                             </td>
                                         </tr>
                                     </tbody>
+                                   
                                 </table>
                             </td>
                         </tr>
