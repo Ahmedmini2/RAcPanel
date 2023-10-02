@@ -433,17 +433,15 @@ if (isset($_GET['bank_req'])) {
                                                         text-align: center !important;
                                                         background-color: #344767 !important;
                                                         width: 20%;
-                                                        position: absolute !important;
+                                                        position: inherit !important;
                                                         padding-bottom: 5px !important;
-                                                        background: black;
+                                                        
                                                     }
 
-                                                    h5 {
-                                                        color: while !important;
-                                                    }
+                                            
                                                 </STyle>
                                                 <div class="container-sm   text-white">
-                                                    <h5>البائع</h5>
+                                                    البائع
                                                 </div>
                                                 اسم الشركة<br>
                                                 الاتصال أو القسم <br>
