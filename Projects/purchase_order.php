@@ -96,8 +96,9 @@ if (isset($_GET['bank_req'])) {
             vertical-align: top;
             font-size: small;
         }
+
         .invoice-box table tr th {
-           color: black;
+            color: black;
         }
 
         .invoice-box table tr td:nth-child(2) {
@@ -397,11 +398,11 @@ if (isset($_GET['bank_req'])) {
                         <tr class="top">
                             <td colspan="2">
                                 <table>
-                                   
+
                                     <tbody>
                                         <tr>
-                                        <td class="row1">
-                                                 شركة ركن اميال للمقاولات<br>
+                                            <td class="row1">
+                                                شركة ركن اميال للمقاولات<br>
                                                 شارع الرياض <br>
                                                 السعودية-الرياض<br>
                                                 الهاتف :055628295<br>
@@ -410,10 +411,10 @@ if (isset($_GET['bank_req'])) {
                                                 <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px">
                                             </td>
 
-                                            
+
                                         </tr>
                                     </tbody>
-                                   
+
                                 </table>
                             </td>
                         </tr>
@@ -424,6 +425,9 @@ if (isset($_GET['bank_req'])) {
                                     <tbody>
                                         <tr>
                                             <td style="width:65%">
+                                                <div class="container p-5 my-5 bg-dark text-white">
+                                                    <h5>البائع</h5>
+                                                </div>
                                                 نوع الطلب : طلب تحويل<br>
                                                 <p class="pt-2">ملاحظات الطلب : عهدة عبدالباري
                                                     ضروري جدا تحول اليوم لتصنيع الزوايا الجديدة ودخولها الجلفنة </p>
