@@ -481,27 +481,28 @@ if (isset($_GET['bank_req'])) {
                             <table class="table table-bordered">
                                 <thead style="background:#3A416F">
                                     <tr>
-                                        <th style="color: white;" scope="col">ITEM#</th>
-                                        <th style="color: white;" scope="col">DESCRIPTION</th>
-                                        <th style="color: white;" scope="col">QTY</th>
-                                        <th style="color: white;" scope="col">UNIT PRICE</th>
                                         <th style="color: white;" scope="col">TOTAL</th>
+                                        <th style="color: white;" scope="col">UNIT PRICE</th>
+                                        <th style="color: white;" scope="col">QTY</th>
+                                        <th style="color: white;" scope="col">DESCRIPTION</th>
+                                        <th style="color: white;" scope="col">ITEM#</th>
+                            
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>[561382]</td>
-                                        <td>Product AAA</td>
-                                        <td>15</td>
+                                     <td>2.250.00</td>
                                         <td>150.00</td>
-                                        <td>2.250.00</td>
-                                    </tr>
+                                        <td>15</td>
+                                        <td>Product AAA</td>
+                                        <td>[561382]</td>
+                                     </tr>
                                     <tr>
-                                        <td>[6564213]</td>
-                                        <td>Product zzz</td>
+                                     <td>75.00</td>
+                                        <td>75.00</td>
                                         <td>1</td>
-                                        <td>75.00</td>
-                                        <td>75.00</td>
+                                        <td>Product zzz</td>
+                                        <td>[6564213]</td>
                                     </tr>
                                     
                                     
