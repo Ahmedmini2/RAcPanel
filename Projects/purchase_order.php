@@ -424,18 +424,17 @@ if (isset($_GET['bank_req'])) {
 
                         <tr class="information">
                             <td colspan="2">
-                                <table  class="table table-sm ">
+                                <table class="table table-sm ">
                                     <thead class="thead-dark">
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
+                                            <th scope="col">VENDOR</th>
+                                            <th scope="col">SHIP TO</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td style="width:30%">
+                                            <td style="width:50%">
                                                 اسم الشركة<br>
                                                 الاتصال أو القسم <br>
                                                 شارع الرياض <br>
@@ -444,12 +443,14 @@ if (isset($_GET['bank_req'])) {
 
                                             </td>
 
-                                            <td class="row2" style="width:30%">
-
-                                                الى المستفيد : عبدالباري المطيري <br>
-                                                أسم الحساب: مصرف الراجحي <br>
-                                                رقم الحساب : 660608016024458<br>
-                                                رقم الأيبان : SA4680000660608016024458 </td>
+                                            <td class="row2" style="width:50%">
+                                                اسم <br>
+                                                اسم الشركة<br>
+                                                الاتصال أو القسم <br>
+                                                شارع الرياض <br>
+                                                السعودية-الرياض<br>
+                                                الهاتف :055628295<br>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
