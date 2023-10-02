@@ -408,9 +408,7 @@ if (isset($_GET['bank_req'])) {
                                                 السعودية-الرياض<br>
                                                 الهاتف :055628295<br>
                                             </td>
-                                            <td class="title">
-                                                <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px">
-                                            </td>
+                                            
 
 
                                         </tr>
