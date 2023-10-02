@@ -475,7 +475,7 @@ if (isset($_GET['bank_req'])) {
                         </div>
                     </div>
                     <div class=" col-sm-6 col-lg-4 mx-7">
-                        <div class="container">
+                        <div class="card">
                             <div class="card-header text-center text-white" style="background:#3A416F">
                                 VENDOR
                             </div>
