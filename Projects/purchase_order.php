@@ -456,54 +456,47 @@ if (isset($_GET['bank_req'])) {
                             </td>
                         </tr>
 
-                        <div class="row mt-5 justify-content-center">
-                            <div class="col-12">
-                                <div class="table-responsive p-0">
-                                    <table class="table table-hover table-fixed">
+                        <tr class="row mt-5 justify-content-center">
+                            
+                                <table class="table-responsive p-0 table-hover table-fixed">
 
-                                        <!--Table head-->
-                                        <thead class="bg-dark text-light">
-                                            <tr>
-                                                <th style="color: white;">TOTAL</th>
-                                                <th style="color: white;">UNIT PRICE</th>
-                                                <th style="color: white;">QTY</th>
-                                                <th style="color: white;">DESCRIPTION</th>
-                                                <th style="color: white;">ITEM#</th>
-                                            </tr>
-                                        </thead>
-                                        <!--Table head-->
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light">
+                                        <tr>
+                                            <th style="color: white;">TOTAL</th>
+                                            <th style="color: white;">UNIT PRICE</th>
+                                            <th style="color: white;">QTY</th>
+                                            <th style="color: white;">DESCRIPTION</th>
+                                           
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
 
-                                        <!--Table body-->
-                                        <tbody>
-                                            <tr>
-                                                <td>2.250.00</td>
-                                                <td>150.00</td>
-                                                <td>15</td>
-                                                <td>Product AAA</td>
-                                                <td>[561382]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>75.00</td>
-                                                <td>75.00</td>
-                                                <td>1</td>
-                                                <td>Product zzz</td>
-                                                <td>[6564213]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2.250.00</td>
-                                                <td>150.00</td>
-                                                <td>15</td>
-                                                <td>Product AAA</td>
-                                                <td>[561382]</td>
-                                            </tr>
+                                    <!--Table body-->
+                                    <tbody>
+                                        <tr>
+                                            <td>2.250.00</td>
+                                            <td>150.00</td>
+                                            <td>15</td>
+                                            <td>Product AAA</td>
+                                            
 
-                                        </tbody>
-                                        <!--Table body-->
+                                        </tr>
+                                        <tr>
+                                            <td>75.00</td>
+                                            <td>75.00</td>
+                                            <td>1</td>
+                                            <td>Product zzz</td>
 
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                                        </tr>
+
+
+                                    </tbody>
+                                    <!--Table body-->
+
+                                </table>
+                            
+                        </tr>
                         <div class="row mt-5 justify-content-center">
                             <div class="col-12">
                                 <div class="table-responsive p-0">
