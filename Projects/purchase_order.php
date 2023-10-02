@@ -96,6 +96,9 @@ if (isset($_GET['bank_req'])) {
             vertical-align: top;
             font-size: small;
         }
+        .invoice-box table tr th {
+           color: black;
+        }
 
         .invoice-box table tr td:nth-child(2) {
             text-align: right;
