@@ -424,7 +424,7 @@ if (isset($_GET['bank_req'])) {
 
                         <tr class="information">
                             <td colspan="2">
-                                <table>
+                                <table  class="table table-sm ">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th scope="col">#</th>
