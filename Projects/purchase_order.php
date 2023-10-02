@@ -394,27 +394,33 @@ if (isset($_GET['bank_req'])) {
 
 
             <div class="invoice-box">
-                
+
                 <div class="row">
                     <div class="col-sm-6">
-                       
-                            <div class="text-center text-150">
 
-                                <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
-                            </div>
-                        
+                        <div class="text-center text-150">
+
+                            <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
+                        </div>
+
                     </div>
                     <div class="col-sm-6">
-                        
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                        <h5 class="card-header">شركة ركن اميال للمقاولات</h5>
+                        <div class="card-body">
+                            
+                            <p class="card-text">السعودية-الرياض</p>
+                            <p class="card-text">شارع ملك فهد</p>
+                            <p class="card-text">الرقم:05+++++++</p>
+                            <p class="card-text">السعودية-الرياض</p>
+                            <p class="card-text">الموقع <a href="https://test.app.ruknamial.com/index.php" class="text-warning stretched-link">https://test.app.ruknamial.com/index.php</a></p>
                            
-                        
+                        </div>
+
                     </div>
                 </div>
-                
-                
+
+
 
 
                 <hr class="row brc-default-l1 mx-n1 mb-4" />
