@@ -74,7 +74,7 @@ if (isset($_GET['bank_req'])) {
             padding-top: 40px !important;
             position: relative;
             font-size: small;
-            text-align: left !important;
+            text-align: right !important;
         }
 
         .row2 {
@@ -313,13 +313,6 @@ if (isset($_GET['bank_req'])) {
                 </button>
             </div>
 
-
-
-
-
-
-
-
             <script>
                 function printDiv(divName) {
 
@@ -408,16 +401,17 @@ if (isset($_GET['bank_req'])) {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="title">
-                                                <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px">
-                                            </td>
-
-                                            <td class="row1">
+                                        <td class="row1">
                                                 فاتورة رقم :#35<br>
                                                 بتاريخ : 2023-09-18 11:20:20<br>
                                                 تم التحديث بتاريخ : 0000-00-00 00:00:00<br>
                                                 حالة الطلب : <span class="badge badge-sm bg-gradient-success">تم التأكيد </span><br>
                                             </td>
+                                            <td class="title">
+                                                <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px">
+                                            </td>
+
+                                            
                                         </tr>
                                     </tbody>
                                    
