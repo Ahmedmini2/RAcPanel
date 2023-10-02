@@ -58,6 +58,8 @@ $select = mysqli_query($conn, "select * from bank_request");
               <input type="text" class="form-control" placeholder="أكتب هنا...">
             </div>
           </div>
+           
+          
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -230,9 +232,9 @@ $select = mysqli_query($conn, "select * from bank_request");
 
                       <td><a href="bank-req-info.php?bank_req=<?php echo $r['id']; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
                           <a href="edit-bank-req.php?req_id=<?php echo $r['id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
-                          
-                          
-                          <button  type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
+
+
+                          <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
                           <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
