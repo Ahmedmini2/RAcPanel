@@ -157,10 +157,8 @@ if (isset($_GET['bank_req'])) {
             margin: 0mm;
         }
 
-        .printing {
-            position: absolute;
-           
-        }
+        
+       
 
         @page {
             size: auto;
@@ -305,12 +303,12 @@ if (isset($_GET['bank_req'])) {
 
             <div class=" justify-content-md-end">
                 
-                <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill me-md-2 " onclick="printDiv('printableArea')">
+                <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
                     طباعة الطلب
                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
                 </button>
-                <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
                     إرفاق \ عرض الملف
                 </button>
             </div>
