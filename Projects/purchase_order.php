@@ -88,7 +88,7 @@ if (isset($_GET['bank_req'])) {
 
         }
         .invoice-box table thead {
-           color: wheat;
+           color: white;
 
         }
 
