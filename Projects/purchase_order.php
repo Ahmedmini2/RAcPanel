@@ -479,138 +479,54 @@ if (isset($_GET['bank_req'])) {
 
                         <div class="row mt-5">
                             <div class="col-12">
-                                
-                                    
-                                   
-                                        <div class="table-responsive p-0">
-                                            <table class="table table-hover table-fixed">
+                                <div class="table-responsive p-0">
+                                    <table class="table table-hover table-fixed">
 
-                                                <!--Table head-->
-                                                <thead class="bg-dark text-light">
-                                                    <tr>
-                                                        <th>الرقم</th>
-                                                        <th>الاسم</th>
-                                                        <th>الابعاد</th>
-                                                        <th>التوصيل</th>
-                                                        <th>التكلفة</th>
-                                                        <th>صافي الربح</th>
-                                                        <th>الكمية</th>
-                                                        <th>تم الانتاج</th>
-                                                    </tr>
-                                                </thead>
-                                                <!--Table head-->
+                                        <!--Table head-->
+                                        <thead class="bg-dark text-light">
+                                            <tr>
+                                                <th style="color: white;">TOTAL</th>
+                                                <th style="color: white;">UNIT PRICE</th>
+                                                <th style="color: white;">QTY</th>
+                                                <th style="color: white;">DESCRIPTION</th>
+                                                <th style="color: white;">ITEM#</th>
+                                            </tr>
+                                        </thead>
+                                        <!--Table head-->
 
-                                                <!--Table body-->
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>خرسانه</td>
-                                                        <td>6*6</td>
-                                                        <td>200</td>
-                                                        <td>3460</td>
-                                                        <td>6000</td>
-                                                        <td>12</td>
-                                                        <td>اليوم</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>خرسانه</td>
-                                                        <td>4*4</td>
-                                                        <td>800</td>
-                                                        <td>4675</td>
-                                                        <td>8000</td>
-                                                        <td>5</td>
-                                                        <td>اليوم</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Gary</td>
-                                                        <td>Winogrand</td>
-                                                        <td>Germany</td>
-                                                        <td>Berlin</td>
-                                                        <td>Photographer</td>
-                                                        <td>37</td>
-                                                        <td>41</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Angie</td>
-                                                        <td>Smith</td>
-                                                        <td>USA</td>
-                                                        <td>San Francisco</td>
-                                                        <td>Teacher</td>
-                                                        <td>52</td>
-                                                        <td>41</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>John</td>
-                                                        <td>Mattis</td>
-                                                        <td>France</td>
-                                                        <td>Paris</td>
-                                                        <td>Actor</td>
-                                                        <td>28</td>
-                                                        <td>41</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">6</th>
-                                                        <td>Otto</td>
-                                                        <td>Morris</td>
-                                                        <td>Germany</td>
-                                                        <td>Munich</td>
-                                                        <td>Singer</td>
-                                                        <td>35</td>
-                                                        <td>41</td>
-                                                    </tr>
-                                                </tbody>
-                                                <!--Table body-->
+                                        <!--Table body-->
+                                        <tbody>
+                                            <tr>
+                                                <td>2.250.00</td>
+                                                <td>150.00</td>
+                                                <td>15</td>
+                                                <td>Product AAA</td>
+                                                <td>[561382]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>75.00</td>
+                                                <td>75.00</td>
+                                                <td>1</td>
+                                                <td>Product zzz</td>
+                                                <td>[6564213]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2.250.00</td>
+                                                <td>150.00</td>
+                                                <td>15</td>
+                                                <td>Product AAA</td>
+                                                <td>[561382]</td>
+                                            </tr>
 
-                                            </table>
-                                        </div>
-                                    </div>
+                                        </tbody>
+                                        <!--Table body-->
+
+                                    </table>
                                 </div>
-                            
-
-                        <tr class="col col-md-2 col-sm-6 col-xs-6">
-                        <div class="row my-2 mx-1 justify-content-center">
-                            <table class="table table-striped table-borderless">
-                                <thead style="background-color:#84B0CA ;" class="text-white">
-                                    <tr>
-                                        <th style="color: white;" scope="col">TOTAL</th>
-                                        <th style="color: white;" scope="col">UNIT PRICE</th>
-                                        <th style="color: white;" scope="col">QTY</th>
-                                        <th style="color: white;" scope="col">DESCRIPTION</th>
-                                        <th style="color: white;" scope="col">ITEM#</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>2.250.00</td>
-                                        <td>150.00</td>
-                                        <td>15</td>
-                                        <td>Product AAA</td>
-                                        <td>[561382]</td>
-                                    </tr>
-                                    <tr>
-                                    <td>75.00</td>
-                                        <td>75.00</td>
-                                        <td>1</td>
-                                        <td>Product zzz</td>
-                                        <td>[6564213]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2.250.00</td>
-                                        <td>150.00</td>
-                                        <td>15</td>
-                                        <td>Product AAA</td>
-                                        <td>[561382]</td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
+                            </div>
                         </div>
                         <div class="row">
-                        <div class="col-xl-7">
+                            <div class="col-xl-7">
                                 <ul class="list-unstyled">
                                     <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
                                     <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
@@ -621,7 +537,7 @@ if (isset($_GET['bank_req'])) {
                                 <p class="ms-3">Add additional notes and payment information</p>
 
                             </div>
-                            
+
                         </div>
                         <hr>
                         <div class="row">
@@ -629,17 +545,6 @@ if (isset($_GET['bank_req'])) {
                                 <p>Thank you for your purchase</p>
                             </div>
                         </div>
-                        </tr>
-
-                        
-
-                        
-
-                        
-
-
-
-
                     </tbody>
                 </table>
 
