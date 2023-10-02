@@ -459,10 +459,10 @@ if (isset($_GET['bank_req'])) {
                 </table>
 
                 <!-- == -->
-                <div class="row">
-                    <div class="col-sm-6 col-lg-4">
+                <div class="row  justify-content-center">
+                    <div class="col-sm-6 col-lg-4 mx-7">
                         <div class="card">
-                            <div class="card-header  text-white" style="background:#3A416F">
+                            <div class="card-header text-center text-white" style="background:#3A416F">
                                 SHIP TO
                             </div>
                             <ul class="list-group list-group-flush">
@@ -474,12 +474,12 @@ if (isset($_GET['bank_req'])) {
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-header  text-white" style="background:#3A416F">
+                    <div class="col-sm-6 col-lg-4 mx-7">
+                        <div class="container">
+                            <div class="card-header text-center text-white" style="background:#3A416F">
                                 VENDOR
                             </div>
-                            <ul class="list-group list-group-flush">
+                            <ul class="list">
                                 <li class="list-group-item">اسم الشركة</li>
                                 <li class="list-group-item">الاتصال أو القسم</li>
                                 <li class="list-group-item">شارع الرياض</li>
