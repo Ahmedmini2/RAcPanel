@@ -496,7 +496,7 @@ if (isset($_GET['bank_req'])) {
                 </table>
 
             </div>
-            
+
         </div>
 
 
