@@ -394,27 +394,26 @@ if (isset($_GET['bank_req'])) {
 
 
             <div class="invoice-box">
-                <div class="card">
+                
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="card">
+                       
                             <div class="text-center text-150">
 
                                 <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
                             </div>
-                        </div>
+                        
                     </div>
                     <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
+                        
                                 <h5 class="card-title">Special title treatment</h5>
                                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
+                           
+                        
                     </div>
                 </div>
-                </div>
+                
                 
 
 
