@@ -423,8 +423,8 @@ if (isset($_GET['bank_req'])) {
                         </tr>
 
                         <tr class="information">
-                            <td colspan="2">
-                                <table class="table table-sm ">
+                            <td colspan="1">
+                                <table class="table">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th scope="col">VENDOR</th>
