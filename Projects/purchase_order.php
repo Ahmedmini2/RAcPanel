@@ -143,6 +143,16 @@ if (isset($_GET['bank_req'])) {
             font-weight: bold;
         }
 
+        .information .container-sm {
+            text-align: center;
+            background-color: #344767 !important;
+            width: 20%;
+            position: absolute;
+        }
+        .information .container-sm h5{
+            color: while;
+        }
+
         @media only screen and (max-width: 600px) {
             .invoice-box table tr.top table td {
                 width: 100%;
