@@ -457,8 +457,8 @@ if (isset($_GET['bank_req'])) {
                         </tr>
 
                         <tr class="heading">
-                            <div class="table-responsive p-0">
-                                <table class="table table-hover table-fixed">
+                            
+                                <table class="table-responsive p-0 table-hover table-fixed">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light">
@@ -494,7 +494,7 @@ if (isset($_GET['bank_req'])) {
                                     <!--Table body-->
 
                                 </table>
-                            </div>
+                            
                         </tr>
 
 
