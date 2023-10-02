@@ -427,7 +427,7 @@ if (isset($_GET['bank_req'])) {
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td style="width:65%">
+                                            <td class="pt-4" style="width:65%">
                                                 <STyle>
                                                     .container {
                                                         text-align: center !important;
@@ -438,7 +438,7 @@ if (isset($_GET['bank_req'])) {
                                                         background: black;
                                                     }
 
-                                                    .container h5 {
+                                                    h5 {
                                                         color: while !important;
                                                     }
                                                 </STyle>
