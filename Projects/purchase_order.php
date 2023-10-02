@@ -393,7 +393,7 @@ if (isset($_GET['bank_req'])) {
 
 
             <div class="invoice-box">
-                <table cellpadding="0" cellspacing="0">
+                  <!--  <table cellpadding="0" cellspacing="0">
 
                     <tbody>
                         <tr class="top">
@@ -456,26 +456,30 @@ if (isset($_GET['bank_req'])) {
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table> -->
 
                 <!-- == -->
                 <div class="row  justify-content-center">
                     <div class="col-sm-6 col-lg-4 mx-5">
-                        <div class="card">
+                        <div class="container">
                             <div class="card-header text-center text-white" style="background:#3A416F">
                                 SHIP TO
                             </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">اسم الشركة</li>
-                                <li class="list-group-item">الاتصال أو القسم</li>
-                                <li class="list-group-item">شارع الرياض</li>
-                                <li class="list-group-item">السعودية-الرياض</li>
-                                <li class="list-group-item">لهاتف :055628295</li>
-                            </ul>
+                            <div class="card-body">
+
+                                <p class="card-text">
+                                    اسم الشركة<br>
+                                    الاتصال أو القسم <br>
+                                    شارع الرياض <br>
+                                    السعودية-الرياض<br>
+                                    الهاتف :055628295<br>
+                                </p>
+
+                            </div>
                         </div>
                     </div>
                     <div class=" col-sm-6 col-lg-4 mx-5">
-                        <div class="card">
+                        <div class="container">
                             <div class="card-header text-center text-white" style="background:#3A416F">
                                 VENDOR
                             </div>
