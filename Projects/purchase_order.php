@@ -143,15 +143,15 @@ if (isset($_GET['bank_req'])) {
             font-weight: bold;
         }
 
-        .invoice-box table .information .container-sm {
-            text-align: center;
+        .invoice-box table tr.information table td .container-sm {
+            text-align: center !important;
             background-color: #344767 !important;
             width: 20%;
-            position: absolute;
-            padding-bottom: 5px;
+            position: absolute !important;
+            padding-bottom: 5px !important;
         }
-        .invoice-box table .information .container-sm h5{
-            color: while;
+        .invoice-box table .information td .container-sm h5{
+            color: while !important;
         }
 
         @media only screen and (max-width: 600px) {
