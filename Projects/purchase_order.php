@@ -157,8 +157,8 @@ if (isset($_GET['bank_req'])) {
             margin: 0mm;
         }
 
-        
-       
+
+
 
         @page {
             size: auto;
@@ -302,7 +302,7 @@ if (isset($_GET['bank_req'])) {
             <!-- Button trigger modal -->
 
             <div class=" justify-content-md-end">
-                
+
                 <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
                     طباعة الطلب
                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
@@ -312,7 +312,7 @@ if (isset($_GET['bank_req'])) {
                     إرفاق \ عرض الملف
                 </button>
             </div>
-            
+
 
 
 
@@ -391,36 +391,46 @@ if (isset($_GET['bank_req'])) {
                     </div>
                 </div>
             </div>
+
+
             <div class="invoice-box">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="text-center text-150">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="text-center text-150">
 
-                            <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
+                                <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+
                 <hr class="row brc-default-l1 mx-n1 mb-4" />
 
                 <table cellpadding="0" cellspacing="0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Company Name</th>
 
+                        </tr>
+                    </thead>
                     <tr class="top">
                         <td colspan="2">
                             <table>
                                 <tr>
-                                    <td class="row1">
-                                        فاتورة رقم :#<?= $id ?><br />
-                                        بتاريخ : <?= $created_at ?><br />
-                                        تم التحديث بتاريخ : <?= $updated_at ?><br />
-                                        حالة الطلب : <?php if ($status == 1) {
-                                                            echo "<span class='badge badge-sm bg-gradient-success'>طلب تعميد جديد</span>";
-                                                        } elseif ($status == 2) {
-                                                            echo "<span class='badge badge-sm bg-gradient-success'>تم تأكيد الطلب عن طريق المحاسب</span>";
-                                                        } else {
-                                                            echo "<span class='badge badge-sm bg-gradient-success'>تم التأكيد </span>";
-                                                        } ?><br />
-                                    </td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
                                     <td class="row2" style="width:30%">
 
                                         <?php if ($to_account_type != '0') {
