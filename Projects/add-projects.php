@@ -181,7 +181,7 @@ if(isset($_POST['add-project'])){
         $net_toti = $_POST['net_toti'] / $quantity;
         
         $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
-        
+
         $product_res = $conn->query($insert_product);
     
         if($product_res){
@@ -940,6 +940,7 @@ if(isset($_POST['add-project'])){
                          var net_peice = (((sel_price - grand_tot) / grand_tot) * 100).toFixed(2);
                          $("#net_peice").val(net_peice + "%");
                          net_tot = ((sel_price * quan) - (grand_tot * quan)).toFixed(2);  
+                         net_tot = net_tot.toLocaleString("en-US");
                          $("#net_toti").val(net_tot);
                         }
                         var grand_tot = grand_tot.toLocaleString("en-US");
@@ -994,7 +995,7 @@ if(isset($_POST['add-project'])){
                             هل لديك المزيد من الاصناف تود اضافتها ؟
                           </div>
                           <div class="modal-footer">
-                            <button type="button" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" >لا</button>
+                            <button type="submit" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" >لا</button>
                             <button type="submit" name="add-project2" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">نعم اريد اضافة صنف جديد لنفس المشروع</button>
                           </div>
                         </div>

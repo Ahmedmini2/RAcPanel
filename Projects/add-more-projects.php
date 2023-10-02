@@ -151,6 +151,7 @@ if (isset($_POST['add-project'])) {
 
         $product_name = $_POST['product_name'];
         $dimensions = $_POST['dimensions'];
+        $quantity = $_POST['quantity'];
         $sell_price = $_POST['sell_price'];
         $cost_price = $_POST['prod_peice'];
         $net_perc = $_POST['net_peice'];
@@ -885,7 +886,8 @@ if (isset($_POST['add-project'])) {
                         if (sel_price != "") {
                          var net_peice = (((sel_price - grand_tot) / grand_tot) * 100).toFixed(2);
                          $("#net_peice").val(net_peice + "%");
-                         net_tot = ((sel_price * quan) - (grand_tot * quan)).toFixed(2);  
+                         net_tot = ((sel_price * quan) - (grand_tot * quan)).toFixed(2); 
+                         net_tot = net_tot.toLocaleString("en-US"); 
                          $("#net_toti").val(net_tot);
                         }
                         var grand_tot = grand_tot.toLocaleString("en-US");
@@ -940,7 +942,7 @@ if (isset($_POST['add-project'])) {
                             هل لديك المزيد من الاصناف تود اضافتها ؟
                           </div>
                           <div class="modal-footer">
-                            <button type="button" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" >لا</button>
+                            <button type="submit" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">لا</button>
                             <button type="submit" name="add-project2" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">نعم اريد اضافة صنف جديد لنفس المشروع</button>
                           </div>
                         </div>
