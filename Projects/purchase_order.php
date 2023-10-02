@@ -435,20 +435,7 @@ if (isset($_GET['bank_req'])) {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td style="width:65%">
-                                                <STyle>
-                                                    .container-sm {
-                                                        text-align: center !important;
-                                                        background-color: #344767 !important;
-                                                        width: 20%;
-                                                        position: inherit !important;
-                                                        padding-bottom: 5px !important;
-
-                                                    }
-                                                </STyle>
-                                                <div class="container-sm mb-4  text-white">
-                                                    البائع
-                                                </div>
+                                            <td style="width:30%">
                                                 اسم الشركة<br>
                                                 الاتصال أو القسم <br>
                                                 شارع الرياض <br>
