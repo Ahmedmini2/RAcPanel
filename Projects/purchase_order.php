@@ -457,54 +457,6 @@ if (isset($_GET['bank_req'])) {
                         </tr>
 
                         <tr class="heading">
-                            table class="table table-hover table-fixed">
-
-                            <!--Table head-->
-                            <thead class="bg-dark text-light">
-                                <tr>
-                                    <th style="color: white;">TOTAL</th>
-                                    <th style="color: white;">UNIT PRICE</th>
-                                    <th style="color: white;">QTY</th>
-                                    <th style="color: white;">DESCRIPTION</th>
-                                    <th style="color: white;">ITEM#</th>
-                                </tr>
-                            </thead>
-                            <!--Table head-->
-
-                            <!--Table body-->
-                     <tbody>
-                        <tr>
-                            <td>2.250.00</td>
-                            <td>150.00</td>
-                            <td>15</td>
-                            <td>Product AAA</td>
-                            <td>[561382]</td>
-                        </tr>
-                        <tr>
-                            <td>75.00</td>
-                            <td>75.00</td>
-                            <td>1</td>
-                            <td>Product zzz</td>
-                            <td>[6564213]</td>
-                        </tr>
-                        <tr>
-                            <td>2.250.00</td>
-                            <td>150.00</td>
-                            <td>15</td>
-                            <td>Product AAA</td>
-                            <td>[561382]</td>
-                        </tr>
-
-                    </tbody>
-                    <!--Table body-->
-
-                </table>
-                </tr>
-
-
-                <div class="row mt-5 justify-content-center">
-                    <div class="col-12">
-                        <div class="table-responsive p-0">
                             <table class="table table-hover table-fixed">
 
                                 <!--Table head-->
@@ -514,7 +466,7 @@ if (isset($_GET['bank_req'])) {
                                         <th style="color: white;">UNIT PRICE</th>
                                         <th style="color: white;">QTY</th>
                                         <th style="color: white;">DESCRIPTION</th>
-                                        <th style="color: white;">ITEM#</th>
+                                   
                                     </tr>
                                 </thead>
                                 <!--Table head-->
@@ -526,51 +478,93 @@ if (isset($_GET['bank_req'])) {
                                         <td>150.00</td>
                                         <td>15</td>
                                         <td>Product AAA</td>
-                                        <td>[561382]</td>
+                                        
                                     </tr>
                                     <tr>
                                         <td>75.00</td>
                                         <td>75.00</td>
                                         <td>1</td>
                                         <td>Product zzz</td>
-                                        <td>[6564213]</td>
+                                        
                                     </tr>
-                                    <tr>
-                                        <td>2.250.00</td>
-                                        <td>150.00</td>
-                                        <td>15</td>
-                                        <td>Product AAA</td>
-                                        <td>[561382]</td>
-                                    </tr>
+                                    
 
                                 </tbody>
                                 <!--Table body-->
 
                             </table>
+                        </tr>
+
+
+                        <div class="row mt-5 justify-content-center">
+                            <div class="col-12">
+                                <div class="table-responsive p-0">
+                                    <table class="table table-hover table-fixed">
+
+                                        <!--Table head-->
+                                        <thead class="bg-dark text-light">
+                                            <tr>
+                                                <th style="color: white;">TOTAL</th>
+                                                <th style="color: white;">UNIT PRICE</th>
+                                                <th style="color: white;">QTY</th>
+                                                <th style="color: white;">DESCRIPTION</th>
+                                                <th style="color: white;">ITEM#</th>
+                                            </tr>
+                                        </thead>
+                                        <!--Table head-->
+
+                                        <!--Table body-->
+                                        <tbody>
+                                            <tr>
+                                                <td>2.250.00</td>
+                                                <td>150.00</td>
+                                                <td>15</td>
+                                                <td>Product AAA</td>
+                                                <td>[561382]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>75.00</td>
+                                                <td>75.00</td>
+                                                <td>1</td>
+                                                <td>Product zzz</td>
+                                                <td>[6564213]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2.250.00</td>
+                                                <td>150.00</td>
+                                                <td>15</td>
+                                                <td>Product AAA</td>
+                                                <td>[561382]</td>
+                                            </tr>
+
+                                        </tbody>
+                                        <!--Table body-->
+
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-7">
-                        <ul class="list-unstyled">
-                            <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
-                            <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
-                        </ul>
-                        <p class="text-black float-end"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;">$1221</span></p>
-                    </div>
-                    <div class="col-xl-5">
-                        <p class="ms-3">Add additional notes and payment information</p>
+                        <div class="row">
+                            <div class="col-xl-7">
+                                <ul class="list-unstyled">
+                                    <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
+                                    <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
+                                </ul>
+                                <p class="text-black float-end"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;">$1221</span></p>
+                            </div>
+                            <div class="col-xl-5">
+                                <p class="ms-3">Add additional notes and payment information</p>
 
-                    </div>
+                            </div>
 
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-xl-10">
-                        <p>Thank you for your purchase</p>
-                    </div>
-                </div>
-                </tbody>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-xl-10">
+                                <p>Thank you for your purchase</p>
+                            </div>
+                        </div>
+                    </tbody>
                 </table>
 
                 <div class="row p-5 text-center">
