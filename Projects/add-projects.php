@@ -847,10 +847,10 @@ if(isset($_POST['add-project'])){
                       $(document).on('change', 'input', function() {
                         var total_bands = 0;
                           for (var z = 1; z <= b ; z++) {
-                        var peice = (parseFloat($("#band_price_"+z).val()) * parseFloat($("#quantity").val() || '0'))
-                        total_bands += peice
-                        peice = peice.toLocaleString("en-US");
-                        $("#band_tot_"+z).val(peice);
+                            var peice = (parseFloat($("#band_price_"+z).val()) * parseFloat($("#quantity").val() || '0'))
+                            total_bands += peice
+                            peice = peice.toLocaleString("en-US");
+                            $("#band_tot_"+z).val(peice);
                           }
                           total_bands = total_bands.toLocaleString("en-US");
                           $("#accessory_tot").val(total_bands);
@@ -895,7 +895,7 @@ if(isset($_POST['add-project'])){
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_tot">السعر البيع</label>
-                          <input type="text" class="form-control" name='sell_price' id="sell_price" readonly>
+                          <input type="text" class="form-control" name='sell_price' id="sell_price">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -907,12 +907,12 @@ if(isset($_POST['add-project'])){
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_tot">إجمالي الربح</label>
-                          <input type="text" class="form-control" name='net-toti' id="net-toti" readonly>
+                          <input type="text" class="form-control" name='net_toti' id="net_toti" readonly>
                         </div>
                       </div>
                     </div>
                     <script>
-                      $("input").on("change", function() {
+                      $(document).on("change","input", function() {
                         var kh = parseFloat($("#kh_tot").val().replace(/\,/g, ""));
                        
                         var iro = parseFloat($("#total_iron").val().replace(/\,/g, "")) ;
@@ -925,8 +925,19 @@ if(isset($_POST['add-project'])){
                         var quan = parseFloat($("#quantity").val());
                        
                         var grand_tot = (kh + iro + acce + cov + exband) / quan ;
+
+                        var sel_price = $("#sell_price").val();
+                        if (sel_price != "") {
+                         var net_peice = ((sel_price / grand_tot) * 100).toFixed(2);
+                         $("#net_peice").val(net_peice + "%");
+                         net_tot = net_peice * quan ;
+                         $("#net_toti").val(net_tot + "%");
+                        }
                         var grand_tot = grand_tot.toLocaleString("en-US");
                         $("#prod_peice").val(grand_tot);
+
+                        
+                        
                       })
                     </script>
 
