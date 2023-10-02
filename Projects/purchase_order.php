@@ -477,7 +477,7 @@ if (isset($_GET['bank_req'])) {
                             </table>
                         </tr>
 
-                        <tr class="heading">
+                        <tr class="col col-md-2 col-sm-6 col-xs-6">
                         <div class="row my-2 mx-1 justify-content-center">
                             <table class="table table-striped table-borderless">
                                 <thead style="background-color:#84B0CA ;" class="text-white">
