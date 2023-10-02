@@ -78,10 +78,7 @@ if (isset($_GET['bank_req'])) {
         }
 
         .row2 {
-            position: relative;
-            left: 5%;
-            text-align: right !important;
-            padding-top: 40px !important;
+            text-align: center !important;
             font-size: small;
         }
 
@@ -423,9 +420,9 @@ if (isset($_GET['bank_req'])) {
                         </tr>
 
                         <tr class="information">
-                            <td colspan="1">
-                                <table class="table">
-                                    <thead class="thead-dark">
+                            <td colspan="2">
+                                <table class="table table-bordered">
+                                    <thead class="thead-dark" style="background:#3A416F">
                                         <tr>
                                             <th scope="col">VENDOR</th>
                                             <th scope="col">SHIP TO</th>
