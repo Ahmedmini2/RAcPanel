@@ -931,7 +931,7 @@ if(isset($_POST['add-project'])){
                          var net_peice = (((sel_price - grand_tot) / grand_tot) * 100).toFixed(2);
                          $("#net_peice").val(net_peice + "%");
                          net_tot = (sel_price * quan) - (grand_tot * quan);  ;
-                         $("#net_toti").val(net_tot + "%");
+                         $("#net_toti").val(net_tot);
                         }
                         var grand_tot = grand_tot.toLocaleString("en-US");
                         $("#prod_peice").val(grand_tot);
