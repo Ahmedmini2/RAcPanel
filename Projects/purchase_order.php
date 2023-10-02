@@ -456,7 +456,7 @@ if (isset($_GET['bank_req'])) {
                             </td>
                         </tr>
 
-                        <tr class="row mt-5 justify-content-center">
+                        <tr class="heading">
                             
                                 <table class="table-responsive p-0 table-hover table-fixed">
 
@@ -497,6 +497,56 @@ if (isset($_GET['bank_req'])) {
                                 </table>
                             
                         </tr>
+                    </tbody>
+                </table>
+                <div class="row mt-5 justify-content-center">
+                            <div class="col-12">
+                                <div class="table-responsive p-0">
+                                    <table class="table table-hover table-fixed">
+
+                                        <!--Table head-->
+                                        <thead class="bg-dark text-light">
+                                            <tr>
+                                                <th style="color: white;">TOTAL</th>
+                                                <th style="color: white;">UNIT PRICE</th>
+                                                <th style="color: white;">QTY</th>
+                                                <th style="color: white;">DESCRIPTION</th>
+                                                <th style="color: white;">ITEM#</th>
+                                            </tr>
+                                        </thead>
+                                        <!--Table head-->
+
+                                        <!--Table body-->
+                                        <tbody>
+                                            <tr>
+                                                <td>2.250.00</td>
+                                                <td>150.00</td>
+                                                <td>15</td>
+                                                <td>Product AAA</td>
+                                                <td>[561382]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>75.00</td>
+                                                <td>75.00</td>
+                                                <td>1</td>
+                                                <td>Product zzz</td>
+                                                <td>[6564213]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2.250.00</td>
+                                                <td>150.00</td>
+                                                <td>15</td>
+                                                <td>Product AAA</td>
+                                                <td>[561382]</td>
+                                            </tr>
+
+                                        </tbody>
+                                        <!--Table body-->
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row mt-5 justify-content-center">
                             <div class="col-12">
                                 <div class="table-responsive p-0">
@@ -565,8 +615,6 @@ if (isset($_GET['bank_req'])) {
                                 <p>Thank you for your purchase</p>
                             </div>
                         </div>
-                    </tbody>
-                </table>
 
                 <div class="row p-5 text-center">
                     <div class="col-4">
