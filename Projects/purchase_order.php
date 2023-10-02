@@ -405,18 +405,25 @@ if (isset($_GET['bank_req'])) {
 
                     </div>
                     <div class="col-sm-6">
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">شركة ركن اميال للمقاولات</th>
 
-                        <h5 class="card-header">شركة ركن اميال للمقاولات</h5>
-                        <div class="card-body">
-                            
-                            <h2 class="card-text">السعودية-الرياض</h2>
-                            <h2 class="card-text">شارع ملك فهد</h2>
-                            <h2 class="card-text">الرقم:05+++++++</h2>
-                            <h2 class="card-text">السعودية-الرياض</h2>
-                            <h2 class="card-text">الموقع <a href="https://test.app.ruknamial.com/index.php" class="text-warning stretched-link">https://test.app.ruknamial.com/index.php</a></p>
-                           
-                        </div>
-
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" >1</th>
+                                    <td>السعودية-الرياض</td>
+                                    <td>شارع ملك فهد</td>
+                                    <td>السعودية-الرياض</td>
+                                    
+                                </tr>
+                                
+                                
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -436,9 +443,7 @@ if (isset($_GET['bank_req'])) {
                         <td colspan="2">
                             <table>
                                 <tr>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+
                                     <td class="row2" style="width:30%">
 
                                         <?php if ($to_account_type != '0') {
