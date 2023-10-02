@@ -458,12 +458,12 @@ if (isset($_GET['bank_req'])) {
 
                         <tr class="heading">
                             <table class="table table-bordered">
-                                <thead>
+                                <thead style="background:#3A416F">
                                     <tr>
-                                        <th scope="col">REQUISITIONER</th>
-                                        <th scope="col">SHIP VIA</th>
-                                        <th scope="col">F.O.B</th>
-                                        <th scope="col">SHIPPING TERMS</th>
+                                        <th style="color: white;" scope="col">REQUISITIONER</th>
+                                        <th style="color: white;" scope="col">SHIP VIA</th>
+                                        <th style="color: white;"  scope="col">F.O.B</th>
+                                        <th style="color: white;" Ascope="col">SHIPPING TERMS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
