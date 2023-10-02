@@ -456,8 +456,6 @@ if (isset($_GET['bank_req'])) {
                             </td>
                         </tr>
 
-                        
-
                         <div class="row mt-5 justify-content-center">
                             <div class="col-12">
                                 <div class="table-responsive p-0">
