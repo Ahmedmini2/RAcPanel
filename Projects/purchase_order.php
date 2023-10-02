@@ -457,8 +457,8 @@ if (isset($_GET['bank_req'])) {
                         </tr>
 
                         <tr class="heading">
-                            
-                                <table class="table-responsive p-0 table-hover table-fixed">
+                                 <div class="col-12">
+                                    <table class="table-responsive p-0 table-hover table-fixed">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light">
@@ -467,7 +467,7 @@ if (isset($_GET['bank_req'])) {
                                             <th style="color: white;">UNIT PRICE</th>
                                             <th style="color: white;">QTY</th>
                                             <th style="color: white;">DESCRIPTION</th>
-                                            <th style="color: white;">DESCRIPTION</th>
+                                           
                                         </tr>
                                     </thead>
                                     <!--Table head-->
@@ -479,7 +479,7 @@ if (isset($_GET['bank_req'])) {
                                             <td>150.00</td>
                                             <td>15</td>
                                             <td>Product AAA</td>
-                                            <td>Product AAA</td>
+                                            
 
                                         </tr>
                                         <tr>
@@ -495,6 +495,7 @@ if (isset($_GET['bank_req'])) {
                                     <!--Table body-->
 
                                 </table>
+                                </div>
                             
                         </tr>
 
