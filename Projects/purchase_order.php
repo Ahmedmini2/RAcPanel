@@ -143,7 +143,7 @@ if (isset($_GET['bank_req'])) {
             font-weight: bold;
         }
 
-        .invoice-box table tr.information table td .container-sm {
+         .container-sm {
             text-align: center !important;
             background-color: #344767 !important;
             width: 20%;
