@@ -425,9 +425,17 @@ if (isset($_GET['bank_req'])) {
                         <tr class="information">
                             <td colspan="2">
                                 <table>
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">First</th>
+                                            <th scope="col">Last</th>
+                                            <th scope="col">Handle</th>
+                                        </tr>
+                                    </thead>
                                     <tbody>
                                         <tr>
-                                            <td  style="width:65%">
+                                            <td style="width:65%">
                                                 <STyle>
                                                     .container-sm {
                                                         text-align: center !important;
@@ -435,12 +443,10 @@ if (isset($_GET['bank_req'])) {
                                                         width: 20%;
                                                         position: inherit !important;
                                                         padding-bottom: 5px !important;
-                                                        
-                                                    }
 
-                                            
+                                                    }
                                                 </STyle>
-                                                <div class="container-sm   text-white">
+                                                <div class="container-sm mb-4  text-white">
                                                     البائع
                                                 </div>
                                                 اسم الشركة<br>
@@ -448,7 +454,7 @@ if (isset($_GET['bank_req'])) {
                                                 شارع الرياض <br>
                                                 السعودية-الرياض<br>
                                                 الهاتف :055628295<br>
-                                            
+
                                             </td>
 
                                             <td class="row2" style="width:30%">
