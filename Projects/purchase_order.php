@@ -420,42 +420,18 @@ if (isset($_GET['bank_req'])) {
                             </td>
                         </tr>
 
-                        <!-- <tr class="information">
+                         <tr class="information">
                             <td colspan="2">
                                 <table class="table table-bordered">
-                                    <thead class="thead" style="background:#3A416F">
-                                        <tr>
-                                            <th scope="col" style="color: white;">VENDOR</th>
-                                            <th scope="col" style="color: white;" a>SHIP TO</th>
-
-                                        </tr>
-                                    </thead>
+                                    
                                     <tbody>
-                                        <tr>
-                                            <td style="width:50%">
-                                                اسم الشركة<br>
-                                                الاتصال أو القسم <br>
-                                                شارع الرياض <br>
-                                                السعودية-الرياض<br>
-                                                الهاتف :055628295<br>
-
-                                            </td>
-
-                                            <td class="row2" style="width:50%">
-                                                محمد جمال ابوبكر <br>
-                                                اسم الشركة<br>
-                                                الاتصال أو القسم <br>
-                                                شارع الرياض <br>
-                                                السعودية-الرياض<br>
-                                                الهاتف :055628295<br>
-                                            </td>
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
 
                             </td>
                         </tr>
-                        -->
+                        
                     </tbody>
                 </table> 
 
