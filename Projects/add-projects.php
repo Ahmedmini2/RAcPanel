@@ -914,16 +914,17 @@ if(isset($_POST['add-project'])){
                     <script>
                       $("input").on("change", function() {
                         var kh = parseFloat($("#kh_tot").val().replace(/\,/g, ""));
-                        console.log("Kharasana: "+kh);
+                       
                         var iro = parseFloat($("#total_iron").val().replace(/\,/g, "")) ;
-                        console.log("Kharasana: "+iro);
+                      
                         var acce = parseFloat($("#accessory_iron").val().replace(/\,/g, ""));
-                        console.log("Kharasana: "+acce);
+                       
                         var cov = parseFloat($("#cover_tot").val().replace(/\,/g, ""));
-                        console.log("Kharasana: "+cov);
+                       
                         var exband = parseFloat($("#accessory_band").val().replace(/\,/g, ""));  
-                        console.log("Kharasana: "+exband);                     
-                        var grand_tot = (kh + iro + acce + cov) ;
+                        var quan = parseFloat($("#quantity").val());
+                       
+                        var grand_tot = (kh + iro + acce + cov) / quan ;
                         var grand_tot = grand_tot.toLocaleString("en-US");
                         $("#prod_peice").val(grand_tot);
                       })
