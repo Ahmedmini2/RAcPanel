@@ -441,7 +441,7 @@ if (isset($_GET['bank_req'])) {
                                                     }
                                                  
                                                 </STyle>
-                                                <div class="container p-5 my-5  text-white">
+                                                <div class="container   text-white">
                                                     <h5>البائع</h5>
                                                 </div>
                                                 نوع الطلب : طلب تحويل<br>
