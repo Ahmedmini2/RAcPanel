@@ -143,14 +143,8 @@ if (isset($_GET['bank_req'])) {
             font-weight: bold;
         }
 
-        .invoice-box table tr.information table td.container {
-            text-align: center !important;
-            background-color: #344767 !important;
-            width: 20%;
-            position: absolute !important;
-            padding-bottom: 5px !important;
-        }
-        .invoice-box table .information td .container h5{
+
+        .invoice-box table .information td .container h5 {
             color: while !important;
         }
 
@@ -436,7 +430,18 @@ if (isset($_GET['bank_req'])) {
                                     <tbody>
                                         <tr>
                                             <td style="width:65%">
-                                                <div class="container p-5 my-5 bg-dark text-white">
+                                                <STyle>
+                                                    .container{
+                                                        text-align: center !important;
+                                                    background-color: #344767 !important;
+                                                    width: 20%;
+                                                    position: absolute !important;
+                                                    padding-bottom: 5px !important;
+                                                    background: black;
+                                                    }
+                                                 
+                                                </STyle>
+                                                <div class="container p-5 my-5  text-white">
                                                     <h5>البائع</h5>
                                                 </div>
                                                 نوع الطلب : طلب تحويل<br>
