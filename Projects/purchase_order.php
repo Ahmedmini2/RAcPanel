@@ -78,7 +78,7 @@ if (isset($_GET['bank_req'])) {
         }
 
         .row2 {
-            text-align: left !important;
+            text-align: right !important;
             font-size: small;
         }
 
