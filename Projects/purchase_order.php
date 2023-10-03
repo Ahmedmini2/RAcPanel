@@ -484,7 +484,7 @@ if (isset($_GET['bank_req'])) {
                             <table class="table table-hover table-fixed text-center">
 
                                 <!--Table head-->
-                                <thead class="bg-gradient-dark text-light custom-font-m">
+                                <thead class="text-light header-color custom-font-m">
                                     <tr>
                                         <th style="color: white;">S.No.</th>
                                         <th style="color: white;">DESCRIPTION</th>
