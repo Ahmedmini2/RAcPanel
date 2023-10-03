@@ -529,7 +529,7 @@ if (isset($_GET['bank_req'])) {
                     </div>
                     <div class="row d-flex justify-content-end">
 
-                        <div class="col-md-3">
+                        <div class="col-md-5">
 
                             <table class="table table-borderless">
 
