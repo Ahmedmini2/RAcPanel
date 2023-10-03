@@ -390,15 +390,18 @@ if (isset($_GET['bank_req'])) {
 
 
             <div class="invoice-box" dir="ltr">
-               
+
 
                 <!-- == -->
                 <div class="row ">
-                    <div class="col-6 ">
+                    <div class="card">
+                        <div class="card-header text-center text-white bg-gradient-dark" >
+                            Purchase Order
+                        </div>
+                    </div>
+                     <div class="col-6 ">
                         <div>
-                            <div class="card-header text-center text-white" style="background:#3A416F">
-                                SHIP TO
-                            </div>
+                           
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4">
@@ -429,7 +432,7 @@ if (isset($_GET['bank_req'])) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6"> 
                         <div>
 
                             <div>
@@ -469,150 +472,150 @@ if (isset($_GET['bank_req'])) {
                         </div>
                     </div>
 
-                        <!-- == -->
-                        <div class="row mt-5 justify-content-center">
-                            <div class="col-12">
-                                <div class="table-responsive p-0">
-                                    <table class="table table-hover table-fixed">
+                    <!-- == -->
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-12">
+                            <div class="table-responsive p-0">
+                                <table class="table table-hover table-fixed">
 
-                                        <!--Table head-->
-                                        <thead class="bg-dark text-light">
-                                            <tr>
-                                                <th style="color: white;">SHIPPING TERMS</th>
-                                                <th style="color: white;">F.O.B</th>
-                                                <th style="color: white;">SHIP VIA</th>
-                                                <th style="color: white;">REQUISITIONER</th>
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light">
+                                        <tr>
+                                            <th style="color: white;">SHIPPING TERMS</th>
+                                            <th style="color: white;">F.O.B</th>
+                                            <th style="color: white;">SHIP VIA</th>
+                                            <th style="color: white;">REQUISITIONER</th>
 
-                                            </tr>
-                                        </thead>
-                                        <!--Table head-->
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
 
-                                        <!--Table body-->
-                                        <tbody>
-                                            <tr>
-                                                <td>2.250.00</td>
-                                                <td>150.00</td>
-                                                <td>15</td>
-                                                <td>Product AAA</td>
+                                    <!--Table body-->
+                                    <tbody>
+                                        <tr>
+                                            <td>2.250.00</td>
+                                            <td>150.00</td>
+                                            <td>15</td>
+                                            <td>Product AAA</td>
 
-                                            </tr>
-                                            <tr>
-                                                <td>75.00</td>
-                                                <td>75.00</td>
-                                                <td>1</td>
-                                                <td>Product zzz</td>
+                                        </tr>
+                                        <tr>
+                                            <td>75.00</td>
+                                            <td>75.00</td>
+                                            <td>1</td>
+                                            <td>Product zzz</td>
 
-                                            </tr>
+                                        </tr>
 
-                                        </tbody>
-                                        <!--Table body-->
+                                    </tbody>
+                                    <!--Table body-->
 
-                                    </table>
-                                </div>
+                                </table>
                             </div>
                         </div>
-                        <div class="row mt-5 justify-content-center">
-                            <div class="col-12">
-                                <div class="table-responsive p-0">
-                                    <table class="table table-hover table-fixed">
+                    </div>
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-12">
+                            <div class="table-responsive p-0">
+                                <table class="table table-hover table-fixed">
 
-                                        <!--Table head-->
-                                        <thead class="bg-dark text-light">
-                                            <tr>
-                                                <th style="color: white;">TOTAL</th>
-                                                <th style="color: white;">UNIT PRICE</th>
-                                                <th style="color: white;">QTY</th>
-                                                <th style="color: white;">DESCRIPTION</th>
-                                                <th style="color: white;">ITEM#</th>
-                                            </tr>
-                                        </thead>
-                                        <!--Table head-->
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light">
+                                        <tr>
+                                            <th style="color: white;">TOTAL</th>
+                                            <th style="color: white;">UNIT PRICE</th>
+                                            <th style="color: white;">QTY</th>
+                                            <th style="color: white;">DESCRIPTION</th>
+                                            <th style="color: white;">ITEM#</th>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
 
-                                        <!--Table body-->
-                                        <tbody>
-                                            <tr>
-                                                <td>2.250.00</td>
-                                                <td>150.00</td>
-                                                <td>15</td>
-                                                <td>Product AAA</td>
-                                                <td>[561382]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>75.00</td>
-                                                <td>75.00</td>
-                                                <td>1</td>
-                                                <td>Product zzz</td>
-                                                <td>[6564213]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2.250.00</td>
-                                                <td>150.00</td>
-                                                <td>15</td>
-                                                <td>Product AAA</td>
-                                                <td>[561382]</td>
-                                            </tr>
+                                    <!--Table body-->
+                                    <tbody>
+                                        <tr>
+                                            <td>2.250.00</td>
+                                            <td>150.00</td>
+                                            <td>15</td>
+                                            <td>Product AAA</td>
+                                            <td>[561382]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>75.00</td>
+                                            <td>75.00</td>
+                                            <td>1</td>
+                                            <td>Product zzz</td>
+                                            <td>[6564213]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.250.00</td>
+                                            <td>150.00</td>
+                                            <td>15</td>
+                                            <td>Product AAA</td>
+                                            <td>[561382]</td>
+                                        </tr>
 
-                                        </tbody>
-                                        <!--Table body-->
+                                    </tbody>
+                                    <!--Table body-->
 
-                                    </table>
-                                </div>
+                                </table>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xl-7">
-                                <ul class="list-unstyled">
-                                    <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
-                                    <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
-                                </ul>
-                                <p class="text-black float-end"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;">$1221</span></p>
-                            </div>
-                            <div class="col-xl-5">
-                                <p class="ms-3">Add additional notes and payment information</p>
-
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-7">
+                            <ul class="list-unstyled">
+                                <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
+                                <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
+                            </ul>
+                            <p class="text-black float-end"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;">$1221</span></p>
+                        </div>
+                        <div class="col-xl-5">
+                            <p class="ms-3">Add additional notes and payment information</p>
 
                         </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-xl-10">
-                                <p>Thank you for your purchase</p>
-                            </div>
-                        </div>
-
-                        <div class="row p-5 text-center">
-                            <div class="col-4">
-                                <div class="row">
-                                    <h6>المحاسب</h6>
-                                    <h5></h5>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="row">
-                                    <h6>المدير التنفيذي</h6>
-                                    <h5></h5>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="row">
-                                    <h6>المدير العام</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <table>
-
-                        </table>
 
                     </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-xl-10">
+                            <p>Thank you for your purchase</p>
+                        </div>
+                    </div>
 
+                    <div class="row p-5 text-center">
+                        <div class="col-4">
+                            <div class="row">
+                                <h6>المحاسب</h6>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <h6>المدير التنفيذي</h6>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <h6>المدير العام</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <table>
 
-
-
+                    </table>
 
                 </div>
 
 
+
+
+
             </div>
+
+
+        </div>
     </main>
     <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
