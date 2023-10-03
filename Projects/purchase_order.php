@@ -441,17 +441,11 @@ if (isset($_GET['bank_req'])) {
                             </div>
                             <div class="card-body">
                                 <div class="row">
-<<<<<<< HEAD
-<<<<<<< HEAD
                                     <div class="col-4">
                                         <p class="card-text">
-=======
                                     <div class="col-5">
-=======
                                     <div class="col-4">
->>>>>>> 16236469503dc43b979cb9b0462cc25be0fe7b10
                                         <p class="card-text custom-font-small">
->>>>>>> bbf24dd8e081f824dbfd5f630715a4fd99f06d5b
                                             Buyer:<br>
                                             Receiver name:<br>
                                             Tel / mobile:<br>
@@ -479,11 +473,9 @@ if (isset($_GET['bank_req'])) {
                         </div>
                     </div>
                     <div class="col-6">
-<<<<<<< HEAD
                         <div >
-=======
+
                         <div>
->>>>>>> 16236469503dc43b979cb9b0462cc25be0fe7b10
                             <div class="card-header text-center text-white" style="background:#3A416F">
                                 VENDOR
                             </div>
