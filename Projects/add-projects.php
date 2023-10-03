@@ -555,7 +555,7 @@ if (isset($_POST['add-project'])) {
               </div>
               <div class="col-md-4 col-sm-6">
                 <div class="form-group">
-                  <label> فترة صلاحية امر الشراء</label>
+                  <label> فترة صلاحية التسعيرة</label>
                   <input type="date" placeholder="" class="form-control" name="valid_till">
                 </div>
               </div>
