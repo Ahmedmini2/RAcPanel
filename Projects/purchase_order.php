@@ -390,47 +390,7 @@ if (isset($_GET['bank_req'])) {
 
 
             <div class="invoice-box" dir="ltr">
-                <table cellpadding="0" cellspacing="0">
-
-                    <tbody>
-                        <tr class="top">
-                            <td colspan="2">
-                                <table>
-
-                                    <tbody>
-                                        <tr>
-                                            <td class="row1">
-                                                شركة ركن اميال للمقاولات<br>
-                                                شارع الرياض <br>
-                                                السعودية-الرياض<br>
-                                                الهاتف :055628295<br>
-                                            </td>
-                                            <td class="title">
-                                                <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px">
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                            </td>
-                        </tr>
-
-                        <tr class="information">
-                            <td colspan="2">
-                                <table class="table table-bordered">
-
-                                    <tbody>
-
-                                    </tbody>
-                                </table>
-
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
+               
 
                 <!-- == -->
                 <div class="row ">
