@@ -321,12 +321,9 @@ if (isset($_GET['bank_req'])) {
 
             <script>
                 function printDiv(divName) {
-
-                    document.getElementById('btn1').style.display = "none";
                     document.getElementById('btn2').style.display = "none";
                     document.getElementById('btn3').style.display = "none";
                     window.print();
-                    document.getElementById('btn1').style.display = "inline";
                     document.getElementById('btn2').style.display = "inline";
                     document.getElementById('btn3').style.display = "inline";
 

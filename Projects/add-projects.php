@@ -502,18 +502,38 @@ if(isset($_POST['add-project'])){
           </div>
           <form id="<?php echo $idAttr; ?>" action="#" method="post">
             <div class="row">
-              <div class="col-md-8 col-sm-6">
+              <div class="col-md-12 col-sm-6">
                 <div class="form-group">
                   <label>أسم الجهة الطالبة للمشروع</label>
-                  <input type="text" placeholder="الرجاء كتابة أسم مشروع" class="form-control" name="project_name" value="<?php echo $name; ?>">
+                  <input type="text" placeholder="الرجاء كتابة أسم مشروع" class="form-control" name="project_name">
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-8 col-sm-6">
+              <div class="col-md-12 col-sm-6">
                 <div class="form-group">
                   <label> تفاصيل المشروع</label>
-                  <input type="text" placeholder="الرجاء كتابة تفاصيل" class="form-control" name="project_description" value="<?php echo $beneficiary_bank; ?>">
+                  <input type="text" placeholder="الرجاء كتابة تفاصيل" class="form-control" name="project_description">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label> مدة تنفيذ المشروع</label>
+                  <input type="text" placeholder="مثلا خلال 4 شهور" class="form-control" name="duration">
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label> طريقة الدفع</label>
+                  <input type="text" placeholder="40 \ 60" class="form-control" name="payment_type">
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label> فترة صلاحية امر الشراء</label>
+                  <input type="text" placeholder="5 أيام" class="form-control" name="valid_till">
                 </div>
               </div>
             </div>
