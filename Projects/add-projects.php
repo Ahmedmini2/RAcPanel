@@ -16,7 +16,7 @@ if (isset($_POST['add-project'])) {
   $project_name = $_POST['project_name'];
   $project_description = $_POST['project_description'];
 
-  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`created_at`) VALUES(NULL, '$project_name', '$project_description' ,NOW())";
+  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`valid_till`,`duration`,`payment_type`,`created_at`) VALUES(NULL, '$project_name', '$project_description' ,NOW())";
   $project_res = $conn->query($insert_project);
   if ($project_res) {
 
@@ -525,7 +525,7 @@ if (isset($_POST['add-project'])) {
               <div class="col-md-4 col-sm-6">
                 <div class="form-group">
                   <label> فترة صلاحية امر الشراء</label>
-                  <input type="text" placeholder="5 أيام" class="form-control" name="valid_till">
+                  <input type="date" placeholder="" class="form-control" name="valid_till">
                 </div>
               </div>
             </div>
