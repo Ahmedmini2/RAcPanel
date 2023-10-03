@@ -473,7 +473,7 @@ if (isset($_GET['bank_req'])) {
                             </div>
                         </div>
                     </div>
-
+                </div>
                     <!-- == -->
 
                     <div class="row mt-5 justify-content-center">
