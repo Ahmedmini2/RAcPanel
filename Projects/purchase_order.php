@@ -442,9 +442,6 @@ if (isset($_GET['bank_req'])) {
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4">
-                                        <p class="card-text">
-                                    <div class="col-5">
-                                    <div class="col-4">
                                         <p class="card-text custom-font-small">
                                             Buyer:<br>
                                             Receiver name:<br>
@@ -482,7 +479,7 @@ if (isset($_GET['bank_req'])) {
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4">
-                                        <p class="card-text">
+                                        <p class="card-text custom-font-small">
                                             Data: <br>
                                             P.O number:<br>
                                             Supplier name:<br>
@@ -492,7 +489,7 @@ if (isset($_GET['bank_req'])) {
                                         </p>
                                     </div>
                                     <div class="col-8">
-                                        <p class="card-text">
+                                        <p class="card-text custom-font-small">
                                             June 11,2023 <br>
                                             RA11-06-2023B <br>
                                             Dorat Al Tal Company <br>
