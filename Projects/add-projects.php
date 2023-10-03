@@ -995,16 +995,17 @@ if (isset($_POST['add-project'])) {
 
 
                       <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="cover_price">تكلفة جميع الاصناف</label>
-                          <input type="text" class="form-control" name='prod_peice_tot' id="prod_peice_tot" readonly>
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
+                      <div class="form-group">
                           <label for="cover_price">تكلفة الصنف الواحد</label>
                           <input type="text" class="form-control" name='prod_peice' id="prod_peice" readonly>
                         </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                      <div class="form-group">
+                          <label for="cover_price">تكلفة جميع الاصناف</label>
+                          <input type="text" class="form-control" name='prod_peice_tot' id="prod_peice_tot" readonly>
+                        </div>
+                        
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
@@ -1022,6 +1023,12 @@ if (isset($_POST['add-project'])) {
                         <div class="form-group">
                           <label for="cover_tot">نسبة الربح</label>
                           <input type="text" class="form-control" name='net_peice' id="net_peice" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_tot">الربح للصنف الواحد</label>
+                          <input type="text" class="form-control" name='net_toti_peice' id="net_toti_peice" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -1058,8 +1065,11 @@ if (isset($_POST['add-project'])) {
                           var net_peice = (((sel_price - grand_tot) / grand_tot) * 100).toFixed(2);
                           $("#net_peice").val(net_peice + "%");
                           net_tot = ((sel_price * quan) - (grand_tot * quan)).toFixed(2);
+                          net_tot_piece = ((sel_price) - (grand_tot)).toFixed(2);
                           net_tot = net_tot.toLocaleString("en-US");
+                          net_tot_piece = net_tot_piece.toLocaleString("en-US");
                           $("#net_toti").val(net_tot);
+                          $("#net_toti_peice").val(net_tot_piece);
                         }
                         grand_tot = grand_tot.toLocaleString("en-US");
                         grand_tot2 = grand_tot2.toLocaleString("en-US");
