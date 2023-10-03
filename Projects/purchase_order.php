@@ -527,25 +527,7 @@ if (isset($_GET['bank_req'])) {
                             </div>
                         </div>
                     </div>
-                    <div class="total text-right">
-                        <p class="extra-notes">
-                            <strong>Extra Notes</strong>
-                            Please send all items at the same time to shipping address by next week.
-                            Thanks a lot.
-                        </p>
-                        <div class="field">
-                            Subtotal <span>$379.00</span>
-                        </div>
-                        <div class="field">
-                            Shipping <span>$0.00</span>
-                        </div>
-                        <div class="field">
-                            Discount <span>4.5%</span>
-                        </div>
-                        <div class="field grand-total">
-                            Total <span>$312.00</span>
-                        </div>
-                    </div>
+                    
                     <div class="row">
 
                         <div class="col-xl-5">
