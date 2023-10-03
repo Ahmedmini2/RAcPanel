@@ -479,7 +479,7 @@ if (isset($_GET['bank_req'])) {
                     <div class="row mt-5 justify-content-center">
                         <div class="col-12">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-fixed">
+                                <table class="table table-hover table-fixed text-center">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light">
@@ -528,16 +528,17 @@ if (isset($_GET['bank_req'])) {
                         </div>
                     </div>
                     <div class="row">
+                        
+                        <div class="col-xl-5">
+                            <p class="ms-3">Add additional notes and payment information</p>
+
+                        </div>
                         <div class="col-xl-7">
                             <ul class="list-unstyled">
                                 <li class="text-muted ms-3"><span class="text-black me-4">Total : </span>$60,800.00</li>
                                 <li class="text-muted ms-3 mt-2"><span class="text-black me-4">VAT(15%)</span>$9,120.00</li>
                             </ul>
                             <p class="text-black float-end"><span class="text-black me-3">Grand total(SAR)</span><span style="font-size: 25px;">$69,920.00</span></p>
-                        </div>
-                        <div class="col-xl-5">
-                            <p class="ms-3">Add additional notes and payment information</p>
-
                         </div>
 
                     </div>
