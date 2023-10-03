@@ -1,6 +1,6 @@
 <?php
 include('../cookies/session2.php');
-$_SESSION['sidebar'] = "Accounts";
+$_SESSION['sidebar'] = "Projects";
 if (isset($_GET['bank_req'])) {
 
     $id = $_GET['bank_req'];
@@ -71,17 +71,14 @@ if (isset($_GET['bank_req'])) {
         }
 
         .row1 {
-            padding-top: 40px !important;
+            padding-top: 10px !important;
             position: relative;
             font-size: small;
             text-align: right !important;
         }
 
         .row2 {
-            position: relative;
-            left: 5%;
             text-align: right !important;
-            padding-top: 40px !important;
             font-size: small;
         }
 
@@ -91,10 +88,15 @@ if (isset($_GET['bank_req'])) {
 
         }
 
+
         .invoice-box table td {
             padding: 5px;
             vertical-align: top;
             font-size: small;
+        }
+
+        .invoice-box table tr th {
+            color: black;
         }
 
         .invoice-box table tr td:nth-child(2) {
@@ -109,6 +111,7 @@ if (isset($_GET['bank_req'])) {
             font-size: 45px;
             line-height: 45px;
             color: #333;
+            text-align: center;
         }
 
         .invoice-box table tr.information table td {
@@ -138,6 +141,9 @@ if (isset($_GET['bank_req'])) {
             font-weight: bold;
         }
 
+
+
+
         @media only screen and (max-width: 600px) {
             .invoice-box table tr.top table td {
                 width: 100%;
@@ -157,8 +163,8 @@ if (isset($_GET['bank_req'])) {
             margin: 0mm;
         }
 
-        
-       
+
+
 
         @page {
             size: auto;
@@ -302,7 +308,7 @@ if (isset($_GET['bank_req'])) {
             <!-- Button trigger modal -->
 
             <div class=" justify-content-md-end">
-                
+
                 <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
                     طباعة الطلب
                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
@@ -312,13 +318,6 @@ if (isset($_GET['bank_req'])) {
                     إرفاق \ عرض الملف
                 </button>
             </div>
-            
-
-
-
-
-
-
 
             <script>
                 function printDiv(divName) {
@@ -391,129 +390,233 @@ if (isset($_GET['bank_req'])) {
                     </div>
                 </div>
             </div>
-            <div class="invoice-box">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="text-center text-150">
 
-                            <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px" />
+
+            <div class="invoice-box">
+                    <table cellpadding="0" cellspacing="0">
+
+                    <tbody>
+                        <tr class="top">
+                            <td colspan="2">
+                                <table>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="row1">
+                                                شركة ركن اميال للمقاولات<br>
+                                                شارع الرياض <br>
+                                                السعودية-الرياض<br>
+                                                الهاتف :055628295<br>
+                                            </td>
+                                            <td class="title">
+                                                <img src="../assets/img/logos/logo-gold.png" style="width: 100%; max-width: 200px">
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                         <tr class="information">
+                            <td colspan="2">
+                                <table class="table table-bordered">
+                                    
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table> 
+
+                <!-- == -->
+                <div class="row  justify-content-center">
+                    <div class="col-sm-6 col-lg-4 mx-5">
+                        <div class="container">
+                            <div class="card-header text-center text-white" style="background:#3A416F">
+                                SHIP TO
+                            </div>
+                            <div class="card-body">
+
+                                <p class="card-text">
+                                    اسم الشركة<br>
+                                    الاتصال أو القسم <br>
+                                    شارع الرياض <br>
+                                    السعودية-الرياض<br>
+                                    الهاتف :055628295<br>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-sm-6 col-lg-4 mx-5">
+                        <div class="container">
+                            <div class="card-header text-center text-white" style="background:#3A416F">
+                                VENDOR
+                            </div>
+                            <div class="card-body">
+
+                                <p class="card-text">
+                                    محمد جمال ابوبكر <br>
+                                    اسم الشركة<br>
+                                    الاتصال أو القسم <br>
+                                    شارع الرياض <br>
+                                    السعودية-الرياض<br>
+                                    الهاتف :055628295<br>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- == -->
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-12">
+                        <div class="table-responsive p-0">
+                            <table class="table table-hover table-fixed">
+
+                                <!--Table head-->
+                                <thead class="bg-dark text-light">
+                                    <tr>
+                                        <th style="color: white;">SHIPPING TERMS</th>
+                                        <th style="color: white;">F.O.B</th>
+                                        <th style="color: white;">SHIP VIA</th>
+                                        <th style="color: white;">REQUISITIONER</th>
+
+                                    </tr>
+                                </thead>
+                                <!--Table head-->
+
+                                <!--Table body-->
+                                <tbody>
+                                    <tr>
+                                        <td>2.250.00</td>
+                                        <td>150.00</td>
+                                        <td>15</td>
+                                        <td>Product AAA</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>75.00</td>
+                                        <td>75.00</td>
+                                        <td>1</td>
+                                        <td>Product zzz</td>
+
+                                    </tr>
+
+                                </tbody>
+                                <!--Table body-->
+
+                            </table>
                         </div>
                     </div>
                 </div>
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-12">
+                        <div class="table-responsive p-0">
+                            <table class="table table-hover table-fixed">
 
-                <hr class="row brc-default-l1 mx-n1 mb-4" />
+                                <!--Table head-->
+                                <thead class="bg-dark text-light">
+                                    <tr>
+                                        <th style="color: white;">TOTAL</th>
+                                        <th style="color: white;">UNIT PRICE</th>
+                                        <th style="color: white;">QTY</th>
+                                        <th style="color: white;">DESCRIPTION</th>
+                                        <th style="color: white;">ITEM#</th>
+                                    </tr>
+                                </thead>
+                                <!--Table head-->
 
-                <table cellpadding="0" cellspacing="0">
+                                <!--Table body-->
+                                <tbody>
+                                    <tr>
+                                        <td>2.250.00</td>
+                                        <td>150.00</td>
+                                        <td>15</td>
+                                        <td>Product AAA</td>
+                                        <td>[561382]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>75.00</td>
+                                        <td>75.00</td>
+                                        <td>1</td>
+                                        <td>Product zzz</td>
+                                        <td>[6564213]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2.250.00</td>
+                                        <td>150.00</td>
+                                        <td>15</td>
+                                        <td>Product AAA</td>
+                                        <td>[561382]</td>
+                                    </tr>
 
-                    <tr class="top">
-                        <td colspan="2">
-                            <table>
-                                <tr>
-                                    <td class="row1">
-                                        فاتورة رقم :#<?= $id ?><br />
-                                        بتاريخ : <?= $created_at ?><br />
-                                        تم التحديث بتاريخ : <?= $updated_at ?><br />
-                                        حالة الطلب : <?php if ($status == 1) {
-                                                            echo "<span class='badge badge-sm bg-gradient-success'>طلب تعميد جديد</span>";
-                                                        } elseif ($status == 2) {
-                                                            echo "<span class='badge badge-sm bg-gradient-success'>تم تأكيد الطلب عن طريق المحاسب</span>";
-                                                        } else {
-                                                            echo "<span class='badge badge-sm bg-gradient-success'>تم التأكيد </span>";
-                                                        } ?><br />
-                                    </td>
-                                    <td class="row2" style="width:30%">
+                                </tbody>
+                                <!--Table body-->
 
-                                        <?php if ($to_account_type != '0') {
-                                            echo "الى المستفيد : " . $transfer_to; ?><br />
-                                            <?php echo "أسم الحساب: " . $beneficiary_bank; ?><br />
-                                            <?php echo "رقم الحساب : " . $account_number; ?><br />
-                                        <?php echo "رقم الأيبان : " . $iban;
-                                        } ?>
-                                    </td>
-                                </tr>
                             </table>
-                        </td>
-                    </tr>
-
-                    <tr class="information">
-                        <td colspan="2">
-                            <table>
-                                <tr>
-
-
-
-                                    <td style="width:65%">
-                                        نوع الطلب : <?php if ($name == '1') {
-                                                        echo "طلب تحويل";
-                                                    } elseif ($name == 2) {
-                                                        echo "طلب سحب مبلغ";
-                                                    } elseif ($name == 3) {
-                                                        echo "طلب شيك بنكي";
-                                                    } elseif ($name == 4) {
-                                                        echo "تسديد فاتورة إلكترونية";
-                                                    } ?><br />
-                                        <p class="pt-2">ملاحظات الطلب : <?= $description ?> </p>
-                                    </td>
-
-
-                                </tr>
-                            </table>
-
-                        </td>
-                    </tr>
-
-                    <tr class="heading">
-                        <td>المبلغ كتابة</td>
-
-                        <td class="row2"></td>
-                    </tr>
-
-                    <tr class="details">
-                        <td><?= $amount_text ?></td>
-
-                        <td class="row2"></td>
-                    </tr>
-
-                    <tr class="heading">
-                        <td>المبلغ بالأرقام</td>
-
-                        <td class="row2"></td>
-                    </tr>
-
-                    <tr class="item">
-                        <td><?= $amount_number ?></td>
-
-                        <td class="row2"></td>
-                    </tr>
-
-
-
-
-                </table>
-
-                <table>
-                    <div class="row p-5 text-center">
-                        <div class="col-4">
-                            <div class="row">
-                                <h6>المحاسب</h6>
-                                <h5></h5>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="row">
-                                <h6>المدير التنفيذي</h6>
-                                <h5></h5>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="row">
-                                <h6>المدير العام</h6>
-                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-7">
+                        <ul class="list-unstyled">
+                            <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
+                            <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
+                        </ul>
+                        <p class="text-black float-end"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;">$1221</span></p>
+                    </div>
+                    <div class="col-xl-5">
+                        <p class="ms-3">Add additional notes and payment information</p>
+
+                    </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-xl-10">
+                        <p>Thank you for your purchase</p>
+                    </div>
+                </div>
+
+                <div class="row p-5 text-center">
+                    <div class="col-4">
+                        <div class="row">
+                            <h6>المحاسب</h6>
+                            <h5></h5>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <h6>المدير التنفيذي</h6>
+                            <h5></h5>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <h6>المدير العام</h6>
+                        </div>
+                    </div>
+                </div>
+                <table>
+
                 </table>
 
             </div>
+
+
+
+
+
         </div>
 
 
