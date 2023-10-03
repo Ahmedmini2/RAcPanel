@@ -601,7 +601,7 @@ if (isset($_GET['bank_req'])) {
                 <hr>
                 <figure>
                     <blockquote class="blockquote">
-                        <p><u>Specil terms: </u></p>
+                        <p>Specil terms: s</p>
                     </blockquote>
                     <figcaption class="blockquote-footer">
                         All materials should be as per approved.
