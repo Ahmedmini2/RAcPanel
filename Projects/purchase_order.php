@@ -608,7 +608,7 @@ if (isset($_GET['bank_req'])) {
                         document.getElementById("con").value = numToWords(value);
                         console.log(value);
                     }
-                    window.addEventListner("load", changeVal);
+                    window.addEventListener("load", changeVal);
                 </script>
                 <hr>
                 <ul class="list-unstyled">
