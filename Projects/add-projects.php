@@ -685,8 +685,8 @@ if (isset($_POST['add-project'])) {
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var peice = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val()) || 0))
-                        var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || 0)) * parseFloat($("#quantity").val())
+                        var peice = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0)
+                        var ret = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0) * parseFloat($("#quantity").val())
                         var qunt = (parseFloat($("#quantity").val()) || 0);
                         var qty_tot = ((parseFloat($("#quantity").val()) * parseFloat($("#kh_per").val())) || 0)
                         $("#kh_quantity_tot").val(qty_tot);
