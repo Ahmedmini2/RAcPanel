@@ -441,8 +441,13 @@ if (isset($_GET['bank_req'])) {
                             </div>
                             <div class="card-body">
                                 <div class="row">
+<<<<<<< HEAD
                                     <div class="col-4">
                                         <p class="card-text">
+=======
+                                    <div class="col-5">
+                                        <p class="card-text custom-font-small">
+>>>>>>> bbf24dd8e081f824dbfd5f630715a4fd99f06d5b
                                             Buyer:<br>
                                             Receiver name:<br>
                                             Tel / mobile:<br>
@@ -452,7 +457,7 @@ if (isset($_GET['bank_req'])) {
                                         </p>
                                     </div>
                                     <div class="col-7">
-                                        <p class="card-text">
+                                        <p class="card-text custom-font-small">
                                             Rukn Amial Co.Company <br>
                                             Abbas Al Jafari <br>
                                             591022703 <br>
