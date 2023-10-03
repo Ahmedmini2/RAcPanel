@@ -603,6 +603,7 @@ if (isset($_GET['bank_req'])) {
                     </div>
                 </div>
                 <script>
+                    const sleep = ms => new Promise(res => setTimeout(res, ms));
                     async function changeVal() {
                         await sleep(3000);
                         var value = document.getElementById("total").value;
