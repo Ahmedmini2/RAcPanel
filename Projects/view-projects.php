@@ -2,6 +2,11 @@
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
 
+if(isset($_GET['id'])){
+
+}
+
+
 
 ?>
 <!DOCTYPE html>
