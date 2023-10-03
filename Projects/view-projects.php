@@ -294,7 +294,7 @@ while ($r = mysqli_fetch_array($res2)) {
                                                 <h6 class="text-center mb-0">تكلفة المشروع</h6>
                                                 <hr class="horizontal dark my-3">
                                                 
-                                                <h5 class="mb-0"><?=$project_cost?> ريال</h5>
+                                                <h5 class="mb-0"><?=number_format($project_cost)?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
