@@ -529,7 +529,7 @@ if (isset($_GET['bank_req'])) {
                     </div>
                     <div class="row d-flex justify-content-end">
 
-                        <div class="col-md-5">
+                        <div class="col-md-3">
 
                             <table class="table table-borderless">
 
@@ -539,7 +539,7 @@ if (isset($_GET['bank_req'])) {
                                         <td>
                                             <div class="text-left">
 
-                                                <span class="text-muted">Total</span>
+                                                <span class="text-muted">Total :</span>
 
                                             </div>
                                         </td>
@@ -557,7 +557,7 @@ if (isset($_GET['bank_req'])) {
                                         <td>
                                             <div class="text-left">
 
-                                                <span class="text-muted">VAT %15 </span>
+                                                <span class="text-muted">VAT %15 :</span>
 
                                             </div>
                                         </td>
@@ -573,7 +573,7 @@ if (isset($_GET['bank_req'])) {
                                         <td>
                                             <div class="text-left">
 
-                                                <span class="font-weight-bold">Grand total(SAR)</span>
+                                                <span class="font-weight-bold">Grand total(SAR) :</span>
 
                                             </div>
                                         </td>
@@ -593,21 +593,10 @@ if (isset($_GET['bank_req'])) {
 
 
                     </div>
-
                     <div class="row">
-
-                        <div class="col-xl-5">
-                            <p class="ms-3">Add additional notes and payment information</p>
-
+                        <div class="col text-center">
+                            <p>The total value is SAR69,920 sixty-nine thousand nine hundred twenty riyals only.</p>
                         </div>
-                        <div class="col-xl-7" dir="rtl">
-                            <ul class="list-unstyled">
-                                <li class="text-muted ms-3"><span class="text-black me-4">Total : </span>$60,800.00</li>
-                                <li class="text-muted ms-3 mt-2"><span class="text-black me-4">VAT(15%)</span>$9,120.00</li>
-                            </ul>
-                            <p class="text-black float-end"><span class="text-black me-3">Grand total(SAR)</span><span style="font-size: 25px;">$69,920.00</span></p>
-                        </div>
-
                     </div>
                     <hr>
                     <div class="row">
