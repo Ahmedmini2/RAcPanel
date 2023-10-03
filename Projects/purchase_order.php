@@ -601,7 +601,7 @@ if (isset($_GET['bank_req'])) {
                 <hr>
                 <figure>
                     <blockquote class="blockquote">
-                        <p>Specil terms: s</p>
+                        <p class="font-weight-bold">Specil terms: </p>
                     </blockquote>
                     <figcaption class="blockquote-footer">
                         All materials should be as per approved.
@@ -611,7 +611,7 @@ if (isset($_GET['bank_req'])) {
                     </figcaption>
                 </figure>
                 <ul class="list-unstyled">
-                    <li>Specil terms:
+                    <li class="font-weight-bold">Specil terms:
                         <ul>
                             <li>All materials should be as per approved.</li>
                             <li>Advanced Payment 50%</li>
