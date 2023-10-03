@@ -435,13 +435,13 @@ if (isset($_GET['bank_req'])) {
                 <!-- == -->
                 <div class="row ">
                     <div class="col-6 ">
-                        <div  style="width: 493px;">
+                        <div >
                             <div class="card-header text-center text-white" style="background:#3A416F">
                                 SHIP TO
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-5">
+                                    <div class="col-4">
                                         <p class="card-text">
                                             Buyer:<br>
                                             Receiver name:<br>
@@ -470,13 +470,13 @@ if (isset($_GET['bank_req'])) {
                         </div>
                     </div>
                     <div class="col-6">
-                        <div  style="width: 493px;">
+                        <div >
                             <div class="card-header text-center text-white" style="background:#3A416F">
                                 VENDOR
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-5">
+                                    <div class="col-4">
                                         <p class="card-text">
                                             Data: <br>
                                             P.O number:<br>
