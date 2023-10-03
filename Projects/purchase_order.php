@@ -599,36 +599,16 @@ if (isset($_GET['bank_req'])) {
                     </div>
                 </div>
                 <hr>
-                <figure>
-                    <blockquote class="blockquote">
-                        <p class="font-weight-bold">Specil terms: </p>
-                    </blockquote>
-                    <figcaption class="blockquote-footer">
-                        All materials should be as per approved.
-                    </figcaption>
-                    <figcaption class="blockquote-footer">
-                        Advanced Payment 50%
-                    </figcaption>
-                </figure>
                 <ul class="list-unstyled">
                     <li class="font-weight-bold">Specil terms:
                         <ul>
                             <li>All materials should be as per approved.</li>
                             <li>Advanced Payment 50%</li>
-                            
                         </ul>
                     </li>
                     
                 </ul>
-                <div class="row">
-                    <div class="col-xl-10">
-                        <p class="font-weight-bold"><u>Specil terms: </u></p>
-                        All materials should be as per approved.<br>
-                        Advanced Payment 50%
-                        <br>
-                    </div>
-                </div>
-
+            
                 <div class="row p-5 text-center">
 
                     <div class="col-6">
