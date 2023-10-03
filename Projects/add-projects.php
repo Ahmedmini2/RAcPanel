@@ -636,7 +636,7 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="kh_quantity_tot">كمية الخرسانة لجميع الاصناف</label>
-                          <input type="text" class="form-control" name='kh_quantity_tot' id="kh_quantity_tot">
+                          <input type="text" class="form-control" name='kh_quantity_tot' id="kh_quantity_tot" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -1020,7 +1020,9 @@ if (isset($_POST['add-project'])) {
 
 
                         var sel_price = $("#sell_price").val();
-                        $("#sell_price_tot").val(sel_price * quan).toLocaleString("en-US");
+                        var ful_price = sel_price * quantity;
+                        ful_price = ful_price.toLocaleString("en-US");
+                        $("#sell_price_tot").val(sel_price * quan);
                         if (sel_price != "") {
                           var net_peice = (((sel_price - grand_tot) / grand_tot) * 100).toFixed(2);
                           $("#net_peice").val(net_peice + "%");
@@ -1028,9 +1030,10 @@ if (isset($_POST['add-project'])) {
                           net_tot = net_tot.toLocaleString("en-US");
                           $("#net_toti").val(net_tot);
                         }
-                       
-                        $("#prod_peice").val(grand_tot).toLocaleString("en-US");
-                        $("#prod_peice_tot").val(grand_tot2).toLocaleString("en-US");
+                        grand_tot = grand_tot.toLocaleString("en-US");
+                        grand_tot2 = grand_tot2.toLocaleString("en-US");
+                        $("#prod_peice").val(grand_tot);
+                        $("#prod_peice_tot").val(grand_tot2);
 
 
                       })
