@@ -395,7 +395,7 @@ if (isset($_GET['bank_req'])) {
                 <!-- == -->
                 <div class="row">
                     <div>
-                        <div class="card-header text-center text-white bg-gradient-dark">
+                        <div class="card-header text-center text-white bg-gradient-dark" style="margin-top: 120px;">
                             Purchase Order
                         </div>
 
