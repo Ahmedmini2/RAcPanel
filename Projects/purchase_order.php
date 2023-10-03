@@ -609,16 +609,17 @@ if (isset($_GET['bank_req'])) {
                     </li>
                     
                 </ul>
-            
+               
+
                 <div class="row p-5 text-center">
 
-                    <div class="col-6">
+                    <div class="col-4">
                         <div class="row">
                             <h6>Prepared by</h6>
                             <h5></h5>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <div class="row">
                             <h6>Approved by</h6>
                         </div>
