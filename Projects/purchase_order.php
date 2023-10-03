@@ -482,7 +482,7 @@ if (isset($_GET['bank_req'])) {
                                 <table class="table table-hover table-fixed text-center">
 
                                     <!--Table head-->
-                                    <thead class="bg-dark text-light">
+                                    <thead class="bg-dark text-light custom-font-m">
                                         <tr>
                                             <th style="color: white;">S.No.</th>
                                             <th style="color: white;">DESCRIPTION</th>
@@ -497,26 +497,26 @@ if (isset($_GET['bank_req'])) {
                                     <tbody>
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td>Supply of handhole 1 cover with frame</td>
-                                            <td>92</td>
-                                            <td>550</td>
-                                            <td>50,600.00</td>
+                                            <td class="custom-font-m">Supply of handhole 1 cover with frame</td>
+                                            <td class="custom-font-m">92</td>
+                                            <td class="custom-font-m">550</td>
+                                            <td class="custom-font-m">50,600.00</td>
 
                                         </tr>
                                         <tr>
                                             <th scope="row">2</th>
-                                            <td>Supply of handhole 2 cover with frame</td>
-                                            <td>8</td>
-                                            <td>1100</td>
-                                            <td>8,800.00</td>
+                                            <td class="custom-font-m">Supply of handhole 2 cover with frame</td>
+                                            <td class="custom-font-m">8</td>
+                                            <td class="custom-font-m">1100</td>
+                                            <td class="custom-font-m">8,800.00</td>
 
                                         </tr>
                                         <tr>
                                             <th scope="row">3</th>
-                                            <td>Supply of mini manhol round cover with frame</td>
-                                            <td>2</td>
-                                            <td>700</td>
-                                            <td>1,400.00</td>
+                                            <td class="custom-font-m">Supply of mini manhol round cover with frame</td>
+                                            <td class="custom-font-m">2</td>
+                                            <td class="custom-font-m">700</td>
+                                            <td class="custom-font-m">1,400.00</td>
 
                                         </tr>
 
