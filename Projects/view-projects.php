@@ -261,19 +261,19 @@ while ($r = mysqli_fetch_array($res2)) {
 
                                         <dl class="dl-horizontal">
 
-                                            <dt>اسم المشروع :</dt>
+                                            <dt>اسم المشروع: </dt>
                                             <dd><?=$project['name']?></dd>
 
-                                            <dt>تفاصيل المشروع:</dt>
+                                            <dt>تفاصيل المشروع: </dt>
                                             <dd> <?=$project['description']?></dd>
 
-                                            <dt>مدة الموافقة على المشروع:</dt>
-                                            <dd><?=$project['valid_till']?> للموافقة قبل</dd>
+                                            <dt>مدة الموافقة على المشروع: </dt>
+                                            <dd>للموافقة قبل: <?=$project['valid_till']?></dd>
 
-                                            <dt>مدة تنفيذ المشروع:</dt>
+                                            <dt>مدة تنفيذ المشروع: </dt>
                                             <dd><?=$project['duration']?></dd>
 
-                                            <dt>طريقة الدفع :</dt>
+                                            <dt>طريقة الدفع: </dt>
                                             <dd><?=$project['payment_type']?></dd>
 
                                         </dl>
@@ -363,9 +363,10 @@ while ($r = mysqli_fetch_array($res2)) {
                                                         <th>الرقم</th>
                                                         <th>الاسم</th>
                                                         <th>الابعاد</th>
-                                                        <th>التوصيل</th>
                                                         <th>التكلفة</th>
+                                                        <th>سعر البيع</th>
                                                         <th>صافي الربح</th>
+                                                        <th>نسبة الربح</th>
                                                         <th>الكمية</th>
                                                         <th>تم الانتاج</th>
                                                     </tr>
@@ -374,66 +375,26 @@ while ($r = mysqli_fetch_array($res2)) {
 
                                                 <!--Table body-->
                                                 <tbody>
+                                                    <?php 
+                                                    $i = 0;
+                                                    while ($r = mysqli_fetch_array($res2)) {
+                                                    $i++;
+                                                          
+                                                    ?>
                                                     <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>خرسانه</td>
-                                                        <td>6*6</td>
-                                                        <td>200</td>
-                                                        <td>3460</td>
-                                                        <td>6000</td>
-                                                        <td>12</td>
-                                                        <td>اليوم</td>
+                                                        <th scope="row"><?=$i?></th>
+                                                        <td><?=$r['product_name']?></td>
+                                                        <td><?=$r['dimensions']?></td>
+                                                        <td><?=$r['cost_price']?></td>
+                                                        <td><?=$r['sell_price']?></td>
+                                                        <td><?=$r['net_profit']?></td>
+                                                        <td><?=$r['net_perc']?></td>
+                                                        <td><?=$r['quantity']?></td>
+
+                                                        <td><?=$r['quantity']?></td>
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>خرسانه</td>
-                                                        <td>4*4</td>
-                                                        <td>800</td>
-                                                        <td>4675</td>
-                                                        <td>8000</td>
-                                                        <td>5</td>
-                                                        <td>اليوم</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Gary</td>
-                                                        <td>Winogrand</td>
-                                                        <td>Germany</td>
-                                                        <td>Berlin</td>
-                                                        <td>Photographer</td>
-                                                        <td>37</td>
-                                                        <td>41</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Angie</td>
-                                                        <td>Smith</td>
-                                                        <td>USA</td>
-                                                        <td>San Francisco</td>
-                                                        <td>Teacher</td>
-                                                        <td>52</td>
-                                                        <td>41</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>John</td>
-                                                        <td>Mattis</td>
-                                                        <td>France</td>
-                                                        <td>Paris</td>
-                                                        <td>Actor</td>
-                                                        <td>28</td>
-                                                        <td>41</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">6</th>
-                                                        <td>Otto</td>
-                                                        <td>Morris</td>
-                                                        <td>Germany</td>
-                                                        <td>Munich</td>
-                                                        <td>Singer</td>
-                                                        <td>35</td>
-                                                        <td>41</td>
-                                                    </tr>
+                                                    <?php } ?>
+                                                   
                                                 </tbody>
                                                 <!--Table body-->
 
