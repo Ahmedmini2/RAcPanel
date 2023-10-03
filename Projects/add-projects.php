@@ -7,7 +7,7 @@ $numberofrows = 1;
 $iron_raws = $_POST['iron-rr'];
 $accessory_raws = $_POST['ac-rr'];
 $band_raws = $_POST['band-rr'];
-if(isset($_POST['add-project'])){
+if (isset($_POST['add-project'])) {
 
   $iron1 = 1;
   $accessory1 = 1;
@@ -16,12 +16,12 @@ if(isset($_POST['add-project'])){
   $project_name = $_POST['project_name'];
   $project_description = $_POST['project_description'];
 
-  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`created_at`) VALUES(NULL, '$project_name', '$project_description' ,NOW())";
+  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`valid_till`,`duration`,`payment_type`,`created_at`) VALUES(NULL, '$project_name', '$project_description' ,NOW())";
   $project_res = $conn->query($insert_project);
-  if($project_res){
-    
+  if ($project_res) {
+
     $project_id = $conn->insert_id;
-    
+
     $product_name = $_POST['product_name'];
     $dimensions = $_POST['dimensions'];
     $quantity = $_POST['quantity'];
@@ -30,13 +30,13 @@ if(isset($_POST['add-project'])){
     $cost_price = str_replace(',', '', $cost_price);
     $net_perc = $_POST['net_peice'];
     $net_toti = $_POST['net_toti'] / $quantity;
-    
+
     $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
     $product_res = $conn->query($insert_product);
 
-    if($product_res){
+    if ($product_res) {
       $product_id = $conn->insert_id;
-      
+
       $kharasana = $_POST['kharasana'];
       $kh_price = $_POST['kh_price'];
       $kh_per = $_POST['kh_per'];
@@ -46,17 +46,19 @@ if(isset($_POST['add-project'])){
       $insert_kh = "INSERT INTO kharasana (`id`, `product_id`, `type`, `price`, `quantity_per_piece`, `price_per_piece` , `total_price`, `created_at`) 
       VALUES(NULL, $product_id, '$kharasana', '$kh_price', '$kh_per', '$kh_peice' , '$kh_tot' , NOW())";
       $kh_res = $conn->query($insert_kh);
-      if($kh_res){
+      if ($kh_res) {
 
         $iron_raws = $_POST['iron-rr'];
-        if ($iron_raws == ""){$iron_raws = 1;}
-        while ($iron1 <= $iron_raws){
-          $iron = $_POST['iron_'.$iron1];
-          $iron_price = $_POST['iron_price_'.$iron1];
-          $iron_quantity = $_POST['iron_quantity_'.$iron1];
-          $iron_long = $_POST['iron_long_'.$iron1];
-          $iron_tn = $_POST['iron_tn_'.$iron1];
-          $iron_tot = $_POST['iron_tot_'.$iron1];
+        if ($iron_raws == "") {
+          $iron_raws = 1;
+        }
+        while ($iron1 <= $iron_raws) {
+          $iron = $_POST['iron_' . $iron1];
+          $iron_price = $_POST['iron_price_' . $iron1];
+          $iron_quantity = $_POST['iron_quantity_' . $iron1];
+          $iron_long = $_POST['iron_long_' . $iron1];
+          $iron_tn = $_POST['iron_tn_' . $iron1];
+          $iron_tot = $_POST['iron_tot_' . $iron1];
 
           $sizeText = [
             "0.395" => "8مم",
@@ -76,27 +78,29 @@ if(isset($_POST['add-project'])){
           $insert_iron = "INSERT INTO iron_band (`id`, `product_id`, `size`, `price_today`, `quantity`, `iron_height`, `tn_price`, `total_price`, `created_at`)
           VALUES (NULL, '$product_id' , '$selectedSizeText' , '$iron_price' , '$iron_quantity' , '$iron_long' , '$iron_tn' ,'$iron_tot', NOW())";
           $iron_res = $conn->query($insert_iron);
-          if($iron_res){
+          if ($iron_res) {
             $_SESSION['notification'] = "One Addes";
-          }else{
+          } else {
             $_SESSION['notification'] = "One Error";
           }
           $iron1++;
         }
         $accessory_raws = $_POST['ac-rr'];
-        if ($accessory_raws == ""){$accessory_raws = 1;}
-        while ($accessory1 <= $accessory_raws){
-          $accessory = $_POST['accessory_'.$accessory1];
-          $acc_quantity = $_POST['acc_quantity_'.$accessory1];
-          $acc_price = $_POST['acc_price_'.$accessory1];
-          $acc_tot = $_POST['acc_tot_'.$accessory1];
+        if ($accessory_raws == "") {
+          $accessory_raws = 1;
+        }
+        while ($accessory1 <= $accessory_raws) {
+          $accessory = $_POST['accessory_' . $accessory1];
+          $acc_quantity = $_POST['acc_quantity_' . $accessory1];
+          $acc_price = $_POST['acc_price_' . $accessory1];
+          $acc_tot = $_POST['acc_tot_' . $accessory1];
 
           $insert_accessory = "INSERT INTO `accessory_band` (`id`, `product_id`, `name`, `quantity`, `price_per_piece`, `total_price`, `created_at`) 
           VALUES (NULL, '$product_id' , '$accessory' , '$acc_quantity' , '$acc_price' , '$acc_tot' , NOW())";
           $accessory_res = $conn->query($insert_accessory);
-          if($accessory_res){
+          if ($accessory_res) {
             $_SESSION['notification'] = "One Addes";
-          }else{
+          } else {
             $_SESSION['notification'] = "One Error";
           }
           $accessory1++;
@@ -109,21 +113,22 @@ if(isset($_POST['add-project'])){
         $insert_cover = "INSERT INTO `covers_band` (`id`, `product_id`, `type`, `price_per_piece`, `total_price`, `created_at`) 
         VALUES (NULL , '$product_id' , '$cover_type' , '$cover_price' , '$cover_tot' , NOW())";
         $cover_res = $conn->query($insert_cover);
-        if($cover_res){
-          
+        if ($cover_res) {
+
           $band_raws = $_POST['band-rr'];
-          if ($band_raws == ""){$band_raws = 1;}
-          while ($band1 <= $band_raws){
-            $band = $_POST['band_'.$band1];
-            $band_price = $_POST['band_price_'.$band1];
-            $band_tot = $_POST['band_tot_'.$band1];
+          if ($band_raws == "") {
+            $band_raws = 1;
+          }
+          while ($band1 <= $band_raws) {
+            $band = $_POST['band_' . $band1];
+            $band_price = $_POST['band_price_' . $band1];
+            $band_tot = $_POST['band_tot_' . $band1];
 
             $insert_band = "INSERT INTO `extra_band` (`id`, `product_id`, `name`, `price_per_piece`, `total_price`, `created_at`) 
             VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
             $band_res = $conn->query($insert_band);
-            if($band_res){
-              
-            }else{
+            if ($band_res) {
+            } else {
               $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
               header('location: index.php');
             }
@@ -133,184 +138,170 @@ if(isset($_POST['add-project'])){
           unset($_SESSION['last_insert_project']);
           header('location: index.php');
           exit();
-
-        }else{
+        } else {
           $_SESSION['notification'] = "يوجد خلل في ادخال الاغطية";
           header('location: index.php');
         }
-        
-
-      }else{
+      } else {
         $_SESSION['notification'] = "يوجد خلل في ادخال الخرسانة";
         header('location: index.php');
       }
-
-    }else{
+    } else {
       $_SESSION['notification'] = "يوجد خلل في ادخال الصنف";
       header('location: index.php');
     }
-
-  }else{
+  } else {
     $_SESSION['notification'] = "يوجد خلل في ادخال المشروع";
     header('location: index.php');
   }
-  
-  
-  
-  
-  }else if(isset($_POST['add-project2'])) {
-      $iron1 = 1;
-      $accessory1 = 1;
-      $band1 = 1;
-    
-      $project_name = $_POST['project_name'];
-      $project_description = $_POST['project_description'];
-    
-      $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`created_at`) VALUES(NULL, '$project_name', '$project_description' ,NOW())";
-      $project_res = $conn->query($insert_project);
-      if($project_res){
-        
-        $project_id = $conn->insert_id;
-        $_SESSION['last_insert_project'] = $project_id;
-        
-        $product_name = $_POST['product_name'];
-        $dimensions = $_POST['dimensions'];
-        $quantity = $_POST['quantity'];
-        $sell_price = $_POST['sell_price'];
-        $cost_price = $_POST['prod_peice'];
-        $cost_price = str_replace(',', '', $cost_price);
-        $net_perc = $_POST['net_peice'];
-        $net_toti = $_POST['net_toti'] / $quantity;
-        
-        $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
+} else if (isset($_POST['add-project2'])) {
+  $iron1 = 1;
+  $accessory1 = 1;
+  $band1 = 1;
 
-        $product_res = $conn->query($insert_product);
-    
-        if($product_res){
-          $product_id = $conn->insert_id;
-          
-          $kharasana = $_POST['kharasana'];
-          $kh_price = $_POST['kh_price'];
-          $kh_per = $_POST['kh_per'];
-          $kh_peice = $_POST['kh_peice'];
-          $kh_tot = $_POST['kh_tot'];
-    
-          $insert_kh = "INSERT INTO kharasana (`id`, `product_id`, `type`, `price`, `quantity_per_piece`, `price_per_piece` , `total_price`, `created_at`) 
+  $project_name = $_POST['project_name'];
+  $project_description = $_POST['project_description'];
+
+  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`created_at`) VALUES(NULL, '$project_name', '$project_description' ,NOW())";
+  $project_res = $conn->query($insert_project);
+  if ($project_res) {
+
+    $project_id = $conn->insert_id;
+    $_SESSION['last_insert_project'] = $project_id;
+
+    $product_name = $_POST['product_name'];
+    $dimensions = $_POST['dimensions'];
+    $quantity = $_POST['quantity'];
+    $sell_price = $_POST['sell_price'];
+    $cost_price = $_POST['prod_peice'];
+    $cost_price = str_replace(',', '', $cost_price);
+    $net_perc = $_POST['net_peice'];
+    $net_toti = $_POST['net_toti'] / $quantity;
+
+    $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
+
+    $product_res = $conn->query($insert_product);
+
+    if ($product_res) {
+      $product_id = $conn->insert_id;
+
+      $kharasana = $_POST['kharasana'];
+      $kh_price = $_POST['kh_price'];
+      $kh_per = $_POST['kh_per'];
+      $kh_peice = $_POST['kh_peice'];
+      $kh_tot = $_POST['kh_tot'];
+
+      $insert_kh = "INSERT INTO kharasana (`id`, `product_id`, `type`, `price`, `quantity_per_piece`, `price_per_piece` , `total_price`, `created_at`) 
           VALUES(NULL, $product_id, '$kharasana', '$kh_price', '$kh_per', '$kh_peice' , '$kh_tot' , NOW())";
-          $kh_res = $conn->query($insert_kh);
-          if($kh_res){
-    
-            $iron_raws = $_POST['iron-rr'];
-            if ($iron_raws == ""){$iron_raws = 1;}
-            while ($iron1 <= $iron_raws){
-              $iron = $_POST['iron_'.$iron1];
-              $iron_price = $_POST['iron_price_'.$iron1];
-              $iron_quantity = $_POST['iron_quantity_'.$iron1];
-              $iron_long = $_POST['iron_long_'.$iron1];
-              $iron_tn = $_POST['iron_tn_'.$iron1];
-              $iron_tot = $_POST['iron_tot_'.$iron1];
-    
-              $sizeText = [
-                "0.395" => "8مم",
-                "0.617" => "10مم",
-                "0.888" => "12مم",
-                "1.21" => "14مم",
-                "1.58" => "16مم",
-                "2" => "18مم",
-                "2.47" => "20مم",
-                "2.984" => "22مم",
-                "3.85" => "25مم",
-                "6.41" => "32مم",
-              ];
-    
-              $selectedSizeText = $sizeText[$iron];
-    
-              $insert_iron = "INSERT INTO iron_band (`id`, `product_id`, `size`, `price_today`, `quantity`, `iron_height`, `tn_price`, `total_price`, `created_at`)
+      $kh_res = $conn->query($insert_kh);
+      if ($kh_res) {
+
+        $iron_raws = $_POST['iron-rr'];
+        if ($iron_raws == "") {
+          $iron_raws = 1;
+        }
+        while ($iron1 <= $iron_raws) {
+          $iron = $_POST['iron_' . $iron1];
+          $iron_price = $_POST['iron_price_' . $iron1];
+          $iron_quantity = $_POST['iron_quantity_' . $iron1];
+          $iron_long = $_POST['iron_long_' . $iron1];
+          $iron_tn = $_POST['iron_tn_' . $iron1];
+          $iron_tot = $_POST['iron_tot_' . $iron1];
+
+          $sizeText = [
+            "0.395" => "8مم",
+            "0.617" => "10مم",
+            "0.888" => "12مم",
+            "1.21" => "14مم",
+            "1.58" => "16مم",
+            "2" => "18مم",
+            "2.47" => "20مم",
+            "2.984" => "22مم",
+            "3.85" => "25مم",
+            "6.41" => "32مم",
+          ];
+
+          $selectedSizeText = $sizeText[$iron];
+
+          $insert_iron = "INSERT INTO iron_band (`id`, `product_id`, `size`, `price_today`, `quantity`, `iron_height`, `tn_price`, `total_price`, `created_at`)
               VALUES (NULL, '$product_id' , '$selectedSizeText' , '$iron_price' , '$iron_quantity' , '$iron_long' , '$iron_tn' ,'$iron_tot', NOW())";
-              $iron_res = $conn->query($insert_iron);
-              if($iron_res){
-                $_SESSION['notification'] = "One Addes";
-              }else{
-                $_SESSION['notification'] = "One Error";
-              }
-              $iron1++;
-            }
-            $accessory_raws = $_POST['ac-rr'];
-            if ($accessory_raws == ""){$accessory_raws = 1;}
-            while ($accessory1 <= $accessory_raws){
-              $accessory = $_POST['accessory_'.$accessory1];
-              $acc_quantity = $_POST['acc_quantity_'.$accessory1];
-              $acc_price = $_POST['acc_price_'.$accessory1];
-              $acc_tot = $_POST['acc_tot_'.$accessory1];
-    
-              $insert_accessory = "INSERT INTO `accessory_band` (`id`, `product_id`, `name`, `quantity`, `price_per_piece`, `total_price`, `created_at`) 
+          $iron_res = $conn->query($insert_iron);
+          if ($iron_res) {
+            $_SESSION['notification'] = "One Addes";
+          } else {
+            $_SESSION['notification'] = "One Error";
+          }
+          $iron1++;
+        }
+        $accessory_raws = $_POST['ac-rr'];
+        if ($accessory_raws == "") {
+          $accessory_raws = 1;
+        }
+        while ($accessory1 <= $accessory_raws) {
+          $accessory = $_POST['accessory_' . $accessory1];
+          $acc_quantity = $_POST['acc_quantity_' . $accessory1];
+          $acc_price = $_POST['acc_price_' . $accessory1];
+          $acc_tot = $_POST['acc_tot_' . $accessory1];
+
+          $insert_accessory = "INSERT INTO `accessory_band` (`id`, `product_id`, `name`, `quantity`, `price_per_piece`, `total_price`, `created_at`) 
               VALUES (NULL, '$product_id' , '$accessory' , '$acc_quantity' , '$acc_price' , '$acc_tot' , NOW())";
-              $accessory_res = $conn->query($insert_accessory);
-              if($accessory_res){
-                $_SESSION['notification'] = "One Addes";
-              }else{
-                $_SESSION['notification'] = "One Error";
-              }
-              $accessory1++;
-            }
-    
-            $cover_type = $_POST['cover_type'];
-            $cover_price = $_POST['cover_price'];
-            $cover_tot = $_POST['cover_tot'];
-    
-            $insert_cover = "INSERT INTO `covers_band` (`id`, `product_id`, `type`, `price_per_piece`, `total_price`, `created_at`) 
+          $accessory_res = $conn->query($insert_accessory);
+          if ($accessory_res) {
+            $_SESSION['notification'] = "One Addes";
+          } else {
+            $_SESSION['notification'] = "One Error";
+          }
+          $accessory1++;
+        }
+
+        $cover_type = $_POST['cover_type'];
+        $cover_price = $_POST['cover_price'];
+        $cover_tot = $_POST['cover_tot'];
+
+        $insert_cover = "INSERT INTO `covers_band` (`id`, `product_id`, `type`, `price_per_piece`, `total_price`, `created_at`) 
             VALUES (NULL , '$product_id' , '$cover_type' , '$cover_price' , '$cover_tot' , NOW())";
-            $cover_res = $conn->query($insert_cover);
-            if($cover_res){
-              
-              $band_raws = $_POST['band-rr'];
-              if ($band_raws == ""){$band_raws = 1;}
-              while ($band1 <= $band_raws){
-                $band = $_POST['band_'.$band1];
-                $band_price = $_POST['band_price_'.$band1];
-                $band_tot = $_POST['band_tot_'.$band1];
-    
-                $insert_band = "INSERT INTO `extra_band` (`id`, `product_id`, `name`, `price_per_piece`, `total_price`, `created_at`) 
+        $cover_res = $conn->query($insert_cover);
+        if ($cover_res) {
+
+          $band_raws = $_POST['band-rr'];
+          if ($band_raws == "") {
+            $band_raws = 1;
+          }
+          while ($band1 <= $band_raws) {
+            $band = $_POST['band_' . $band1];
+            $band_price = $_POST['band_price_' . $band1];
+            $band_tot = $_POST['band_tot_' . $band1];
+
+            $insert_band = "INSERT INTO `extra_band` (`id`, `product_id`, `name`, `price_per_piece`, `total_price`, `created_at`) 
                 VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
-                $band_res = $conn->query($insert_band);
-                if($band_res){
-                  
-                }else{
-                  $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
-                  header('location: index.php');
-                }
-                $band1++;
-              }
-              $_SESSION['notification'] = "الصنف بنجاح";
-              header('location: add-more-projects.php');
-              exit();
-    
-            }else{
-              $_SESSION['notification'] = "يوجد خلل في ادخال الاغطية";
+            $band_res = $conn->query($insert_band);
+            if ($band_res) {
+            } else {
+              $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
               header('location: index.php');
             }
-            
-    
-          }else{
-            $_SESSION['notification'] = "يوجد خلل في ادخال الخرسانة";
-            header('location: index.php');
+            $band1++;
           }
-    
-        }else{
-          $_SESSION['notification'] = "يوجد خلل في ادخال الصنف";
+          $_SESSION['notification'] = "الصنف بنجاح";
+          header('location: add-more-projects.php');
+          exit();
+        } else {
+          $_SESSION['notification'] = "يوجد خلل في ادخال الاغطية";
           header('location: index.php');
         }
-    
-      }else{
-        $_SESSION['notification'] = "يوجد خلل في ادخال المشروع";
+      } else {
+        $_SESSION['notification'] = "يوجد خلل في ادخال الخرسانة";
         header('location: index.php');
       }
-      
-      
-      
-      
-      
+    } else {
+      $_SESSION['notification'] = "يوجد خلل في ادخال الصنف";
+      header('location: index.php');
+    }
+  } else {
+    $_SESSION['notification'] = "يوجد خلل في ادخال المشروع";
+    header('location: index.php');
   }
+}
 
 ?>
 <!DOCTYPE html>
@@ -501,6 +492,7 @@ if(isset($_POST['add-project'])){
             <h5 class="block-title text-white py-2 px-4 ">طلب إعتماد مشروع جديد</h5>
           </div>
           <form id="<?php echo $idAttr; ?>" action="#" method="post">
+            <h4>بيانات المشروع</h4>
             <div class="row">
               <div class="col-md-12 col-sm-6">
                 <div class="form-group">
@@ -533,7 +525,52 @@ if(isset($_POST['add-project'])){
               <div class="col-md-4 col-sm-6">
                 <div class="form-group">
                   <label> فترة صلاحية امر الشراء</label>
-                  <input type="text" placeholder="5 أيام" class="form-control" name="valid_till">
+                  <input type="date" placeholder="" class="form-control" name="valid_till">
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Detials -->
+            <div class="contact_details">
+              <h5>بيانات التواصل</h5>
+              <div class="contact">
+                <div class="row">
+                  <div class="col-md-2 col-sm-6">
+                    <div class="form-group">
+                      <label for="contact_name">الأسم</label>
+                      <input type="text" class="form-control" name='contact_name' id="contact_name">
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-sm-6 ">
+                    <div class="form-group">
+                      <label for="mobile">رقم الهاتف</label>
+                      <input type="text" class="form-control" name='mobile' id="mobile">
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-sm-6 ">
+                    <div class="form-group">
+                      <label for="address">العنوان</label>
+                      <input type="text" class="form-control" name='address' id="address">
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-sm-6 ">
+                    <div class="form-group">
+                      <label for="email">البريد الإلكتروني</label>
+                      <input type="text" class="form-control" name='email' id="email">
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-sm-6 ">
+                    <div class="form-group">
+                      <label for="vat">الرقم الضريبي</label>
+                      <input type="text" class="form-control" name='vat' id="vat">
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-sm-6 ">
+                    <div class="form-group">
+                      <label for="trade">رقم السجل التجاري</label>
+                      <input type="text" class="form-control" name='trade' id="trade">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -568,6 +605,8 @@ if(isset($_POST['add-project'])){
                   </div>
                 </div>
 
+
+
                 <!-- Item Details -->
                 <div class="kh_details">
                   <h5>بند الخرسانة</h5>
@@ -596,6 +635,12 @@ if(isset($_POST['add-project'])){
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
+                          <label for="kh_quantity_tot">كمية الخرسانة لجميع الاصناف</label>
+                          <input type="text" class="form-control" name='kh_quantity_tot' id="kh_quantity_tot" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
                           <label for="kh_peice">السعر للمنتج الفردي</label>
                           <input type="text" class="form-control" name='kh_peice' id="kh_peice" readonly>
                         </div>
@@ -612,6 +657,8 @@ if(isset($_POST['add-project'])){
                         var peice = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0'))
                         var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0')) * parseFloat($("#quantity").val())
                         var qunt = parseFloat($("#quantity").val());
+                        var qty_tot = (parseFloat($("#quantity").val()) * parseFloat($("#kh_per").val()));
+                        $("#kh_quantity_tot").val(qty_tot);
                         ret = ret.toLocaleString("en-US");
                         peice = peice.toLocaleString("en-US");
                         $("#kh_tot").val(ret);
@@ -625,11 +672,11 @@ if(isset($_POST['add-project'])){
                   <hr>
                   <h5>بند الحديد</h5>
                   <div class="iron" id="main-iron">
-                    <div class="row" id="row<?=$coco?>">
+                    <div class="row" id="row<?= $coco ?>">
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron">مقاس الحديد</label>
-                          <select class="form-control" name="iron_<?=$coco?>" id="iron_<?=$coco?>">
+                          <select class="form-control" name="iron_<?= $coco ?>" id="iron_<?= $coco ?>">
                             <option value="0.395">8مم</option>
                             <option value="0.617">10مم</option>
                             <option value="0.888">12مم</option>
@@ -646,31 +693,31 @@ if(isset($_POST['add-project'])){
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_price">سعر طن الحديد لليوم</label>
-                          <input type="text" class="form-control" name='iron_price_<?=$coco?>' id="iron_price_<?=$coco?>">
+                          <input type="text" class="form-control" name='iron_price_<?= $coco ?>' id="iron_price_<?= $coco ?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_quantity">كمية الحديد</label>
-                          <input type="text" class="form-control" name='iron_quantity_<?=$coco?>' id="iron_quantity_<?=$coco?>">
+                          <input type="text" class="form-control" name='iron_quantity_<?= $coco ?>' id="iron_quantity_<?= $coco ?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_long">طول الحديد</label>
-                          <input type="text" class="form-control" name='iron_long_<?=$coco?>' id="iron_long_<?=$coco?>">
+                          <input type="text" class="form-control" name='iron_long_<?= $coco ?>' id="iron_long_<?= $coco ?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
-                          <input type="text" class="form-control" name='iron_tn_<?=$coco?>' id="iron_tn_<?=$coco?>" readonly>
+                          <input type="text" class="form-control" name='iron_tn_<?= $coco ?>' id="iron_tn_<?= $coco ?>" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tot">السعر</label>
-                          <input type="text" class="form-control" name='iron_tot_<?=$coco?>' id="iron_tot_<?=$coco?>" readonly>
+                          <input type="text" class="form-control" name='iron_tot_<?= $coco ?>' id="iron_tot_<?= $coco ?>" readonly>
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
                           <input type="hidden" name="iron-rr" id="iron-rr" readonly>
                         </div>
@@ -681,51 +728,50 @@ if(isset($_POST['add-project'])){
                 </div>
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
-                      var i = 1;
-                     
-                     
-                      
-                      
-                      $(document).on('change', 'input , select', function() {
-                        var total_iron = 0;
-                        
-                        for (var z = 1; z <= i ; z++) {
-                        var iron = $("#iron_"+z).val();
-                        var kg = (parseFloat($("#iron_quantity_"+z).val()) * parseFloat($("#iron_long_"+z).val() || '0') * iron)
-                        var tn = kg / 1000;
-                        var total = tn * parseFloat($("#iron_price_"+z).val())
-                        total_iron += total;
-                        tn = tn.toLocaleString("en-US");
-                        total = total.toLocaleString("en-US");
-                        $("#iron_tn_"+z).val(tn);
-                        $("#iron_tot_"+z).val(total);
-                        
-                        }
-                        
-                        total_iron = total_iron.toLocaleString("en-US");
-                        
-                        $("#total_iron").val(total_iron);
-                      });
+                  var i = 1;
 
-                     
-                      
 
-                      document.addEventListener("DOMContentLoaded", function () {
-                        const productDetails = document.querySelector("#product_details");
-                        productDetails.addEventListener("click", function (e) {
-                          if (e.target.classList.contains("add_iron")) {
-            
-                            i++;
-                            $("#iron-rr").val(i);
-                          }
-                        });
-                      });
-                    
-                    </script>
-                
-                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button> 
+
+
+                  $(document).on('change', 'input , select', function() {
+                    var total_iron = 0;
+
+                    for (var z = 1; z <= i; z++) {
+                      var iron = $("#iron_" + z).val();
+                      var kg = (parseFloat($("#iron_quantity_" + z).val()) * parseFloat($("#iron_long_" + z).val() || '0') * iron)
+                      var tn = kg / 1000;
+                      var total = tn * parseFloat($("#iron_price_" + z).val())
+                      total_iron += total;
+                      tn = tn.toLocaleString("en-US");
+                      total = total.toLocaleString("en-US");
+                      $("#iron_tn_" + z).val(tn);
+                      $("#iron_tot_" + z).val(total);
+
+                    }
+
+                    total_iron = total_iron.toLocaleString("en-US");
+
+                    $("#total_iron").val(total_iron);
+                  });
+
+
+
+
+                  document.addEventListener("DOMContentLoaded", function() {
+                    const productDetails = document.querySelector("#product_details");
+                    productDetails.addEventListener("click", function(e) {
+                      if (e.target.classList.contains("add_iron")) {
+
+                        i++;
+                        $("#iron-rr").val(i);
+                      }
+                    });
+                  });
+                </script>
+
+                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
                 <div class="row">
-                    السعر الكلي للحديد
+                  السعر الكلي للحديد
                   <input type="text" class="form-control" placeholder="Total" name="total_iron" id="total_iron" readonly>
                 </div>
                 <hr>
@@ -736,25 +782,25 @@ if(isset($_POST['add-project'])){
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="accessory">أسم الاكسسوار</label>
-                          <input type="text" class="form-control" name='accessory_<?=$coco?>' id="accessory_<?=$coco?>">
+                          <input type="text" class="form-control" name='accessory_<?= $coco ?>' id="accessory_<?= $coco ?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="acc_quantity">كمية الاكسسوار</label>
-                          <input type="text" class="form-control" name='acc_quantity_<?=$coco?>' id="acc_quantity_<?=$coco?>">
+                          <input type="text" class="form-control" name='acc_quantity_<?= $coco ?>' id="acc_quantity_<?= $coco ?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="acc_price">سعر الاكسسوار الفردي</label>
-                          <input type="text" class="form-control" name='acc_price_<?=$coco?>' id="acc_price_<?=$coco?>">
+                          <input type="text" class="form-control" name='acc_price_<?= $coco ?>' id="acc_price_<?= $coco ?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="acc_tot">السعر</label>
-                          <input type="text" class="form-control" name='acc_tot_<?=$coco?>' id="acc_tot_<?=$coco?>" readonly>
+                          <input type="text" class="form-control" name='acc_tot_<?= $coco ?>' id="acc_tot_<?= $coco ?>" readonly>
                           <input type="hidden" name="rowcount_ac" value="<?php echo $numberofrows; ?>" id="rowcount_ac" readonly>
                           <input type="hidden" name="ac-rr" id="ac-rr" readonly>
                         </div>
@@ -764,30 +810,30 @@ if(isset($_POST['add-project'])){
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
                       var a = 1;
-                      
-                       $(document).on('change', 'input', function() {
+
+                      $(document).on('change', 'input', function() {
                         var total_accessory = 0;
-                          for (var z = 1; z <= a ; z++) {
-                            
-                            var peice = (parseFloat($("#acc_quantity_"+z).val()) * parseFloat($("#acc_price_"+z).val() || '0'));
-                            total_accessory += peice
-                            peice = peice.toLocaleString("en-US");
-                            $("#acc_tot_"+z).val(peice);
-                          }
-                          
-                          total_accessory = total_accessory.toLocaleString("en-US");
+                        for (var z = 1; z <= a; z++) {
+
+                          var peice = (parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val() || '0'));
+                          total_accessory += peice
+                          peice = peice.toLocaleString("en-US");
+                          $("#acc_tot_" + z).val(peice);
+                        }
+
+                        total_accessory = total_accessory.toLocaleString("en-US");
                         $("#accessory_iron").val(total_accessory);
-                        })
-                        console.log("Before Accessory Rows : <?=$accessory_raws?>");
-                      document.addEventListener("DOMContentLoaded", function () {
+                      })
+                      console.log("Before Accessory Rows : <?= $accessory_raws ?>");
+                      document.addEventListener("DOMContentLoaded", function() {
                         const productDetails = document.querySelector("#product_details");
-                        productDetails.addEventListener("click", function (e) {
-                          
+                        productDetails.addEventListener("click", function(e) {
+
                           if (e.target.classList.contains("add_accessory")) {
-            
+
                             a++;
                             $("#ac-rr").val(a);
-                            
+
                           }
                         });
                       });
@@ -800,7 +846,7 @@ if(isset($_POST['add-project'])){
                 </div>
                 <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <div class="row">
-                    السعر الكلي للحديد
+                  السعر الكلي للحديد
                   <input type="text" class="form-control" placeholder="Total" name="accessory_iron" id="accessory_iron" readonly>
                 </div>
                 <hr>
@@ -837,7 +883,7 @@ if(isset($_POST['add-project'])){
                     <script>
                       $("input").on("change", function() {
                         var peice = (parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val() || '0'))
-                        
+
                         peice = peice.toLocaleString("en-US");
                         $("#cover_tot").val(peice);
                       })
@@ -854,19 +900,19 @@ if(isset($_POST['add-project'])){
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="band">أسم البند</label>
-                          <input type="text" class="form-control" name="band_<?=$coco?>" id="band_<?=$coco?>">
+                          <input type="text" class="form-control" name="band_<?= $coco ?>" id="band_<?= $coco ?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="band_price">سعر البند</label>
-                          <input type="text" class="form-control" name="band_price_<?=$coco?>" id="band_price_<?=$coco?>">
+                          <input type="text" class="form-control" name="band_price_<?= $coco ?>" id="band_price_<?= $coco ?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="band_tot">السعر </label>
-                          <input type="text" class="form-control" name="band_tot_<?=$coco?>" id="band_tot_<?=$coco?>" readonly>
+                          <input type="text" class="form-control" name="band_tot_<?= $coco ?>" id="band_tot_<?= $coco ?>" readonly>
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_band" disabled>
                           <input type="hidden" name="band-rr" id="band-rr" readonly>
                         </div>
@@ -874,27 +920,27 @@ if(isset($_POST['add-project'])){
                     </div>
                     <hr class="new2">
                     <script>
-                      b = 1; 
+                      b = 1;
                       $(document).on('change', 'input', function() {
                         var total_bands = 0;
-                          for (var z = 1; z <= b ; z++) {
-                            var peice = (parseFloat($("#band_price_"+z).val()) * parseFloat($("#quantity").val() || '0'))
-                            total_bands += peice
-                            peice = peice.toLocaleString("en-US");
-                            $("#band_tot_"+z).val(peice);
-                          }
-                          total_bands = total_bands.toLocaleString("en-US");
-                          $("#accessory_tot").val(total_bands);
+                        for (var z = 1; z <= b; z++) {
+                          var peice = (parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val() || '0'))
+                          total_bands += peice
+                          peice = peice.toLocaleString("en-US");
+                          $("#band_tot_" + z).val(peice);
+                        }
+                        total_bands = total_bands.toLocaleString("en-US");
+                        $("#accessory_tot").val(total_bands);
                       })
 
-                      document.addEventListener("DOMContentLoaded", function () {
+                      document.addEventListener("DOMContentLoaded", function() {
                         const productDetails = document.querySelector("#product_details");
-                        productDetails.addEventListener("click", function (e) {
+                        productDetails.addEventListener("click", function(e) {
                           if (e.target.classList.contains("add_band")) {
-            
+
                             b++;
                             $("#band-rr").val(b);
-                            
+
                           }
                         });
                       });
@@ -903,35 +949,47 @@ if(isset($_POST['add-project'])){
                   </div>
 
                 </div>
-                <button type="button"  class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
+                <button type="button" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
                 <div class="row">
-                    السعر الكلي للبنود الاضافية
+                  السعر الكلي للبنود الاضافية
                   <input type="text" class="form-control" placeholder="Total" name="accessory_tot" id="accessory_tot" readonly>
                 </div>
                 <hr>
                 <!-- Item End -->
-                
+
                 <div class="Final_details">
                   <h5>الحساب النهائي</h5>
                   <div class="final">
                     <div class="row">
-                      
+
 
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
-                          <label for="cover_price">سعر الصنف الواحد </label>
+                          <label for="cover_price">تكلفة جميع الاصناف</label>
+                          <input type="text" class="form-control" name='prod_peice_tot' id="prod_peice_tot" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_price">تكلفة الصنف الواحد</label>
                           <input type="text" class="form-control" name='prod_peice' id="prod_peice" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
-                          <label for="cover_tot">السعر البيع</label>
+                          <label for="cover_tot">سعر البيع للصنف</label>
                           <input type="text" class="form-control" name='sell_price' id="sell_price">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
-                          <label for="cover_tot">نسبة الربح للصنف الواحد</label>
+                          <label for="cover_tot">مجموع سعر البيع</label>
+                          <input type="text" class="form-control" name='sell_price_tot' id="sell_price_tot" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_tot">نسبة الربح</label>
                           <input type="text" class="form-control" name='net_peice' id="net_peice" readonly>
                         </div>
                       </div>
@@ -943,33 +1001,41 @@ if(isset($_POST['add-project'])){
                       </div>
                     </div>
                     <script>
-                      $(document).on("change","input", function() {
+                      $(document).on("change", "input", function() {
                         var kh = parseFloat($("#kh_tot").val().replace(/\,/g, ""));
-                       
-                        var iro = parseFloat($("#total_iron").val().replace(/\,/g, "")) ;
-                      
+
+                        var iro = parseFloat($("#total_iron").val().replace(/\,/g, ""));
+
                         var acce = parseFloat($("#accessory_iron").val().replace(/\,/g, ""));
-                       
+
                         var cov = parseFloat($("#cover_tot").val().replace(/\,/g, ""));
-                       
-                        var exband = parseFloat($("#accessory_tot").val().replace(/\,/g, ""));  
+
+                        var exband = parseFloat($("#accessory_tot").val().replace(/\,/g, ""));
                         var quan = parseFloat($("#quantity").val());
-                       
-                        var grand_tot = (kh + iro + acce + cov + exband) / quan ;
+
+                        var grand_tot = (kh + iro + acce + cov + exband) / quan;
+                        var grand_tot2 = (kh + iro + acce + cov + exband);
+
+
+
 
                         var sel_price = $("#sell_price").val();
+                        var ful_price = sel_price * quantity;
+                        ful_price = ful_price.toLocaleString("en-US");
+                        $("#sell_price_tot").val(sel_price * quan);
                         if (sel_price != "") {
-                         var net_peice = (((sel_price - grand_tot) / grand_tot) * 100).toFixed(2);
-                         $("#net_peice").val(net_peice + "%");
-                         net_tot = ((sel_price * quan) - (grand_tot * quan)).toFixed(2);  
-                         net_tot = net_tot.toLocaleString("en-US");
-                         $("#net_toti").val(net_tot);
+                          var net_peice = (((sel_price - grand_tot) / grand_tot) * 100).toFixed(2);
+                          $("#net_peice").val(net_peice + "%");
+                          net_tot = ((sel_price * quan) - (grand_tot * quan)).toFixed(2);
+                          net_tot = net_tot.toLocaleString("en-US");
+                          $("#net_toti").val(net_tot);
                         }
-                        var grand_tot = grand_tot.toLocaleString("en-US");
+                        grand_tot = grand_tot.toLocaleString("en-US");
+                        grand_tot2 = grand_tot2.toLocaleString("en-US");
                         $("#prod_peice").val(grand_tot);
+                        $("#prod_peice_tot").val(grand_tot2);
 
-                        
-                        
+
                       })
                     </script>
 
@@ -981,25 +1047,26 @@ if(isset($_POST['add-project'])){
               </div>
               <!-- Product End -->
 
-              
+
               <br><br>
 
               <div class="row">
                 <div class="col">
                   <div class="form-group">
-                  <style>
-                      .myButton{
+                    <style>
+                      .myButton {
                         border: none;
-                       cursor: pointer;
+                        cursor: pointer;
                         background: #8392AB;
-                         color: #fff;
-                          border-radius: 20px;   
-                          transition: 0.5s; 
+                        color: #fff;
+                        border-radius: 20px;
+                        transition: 0.5s;
                       }
-                      .myButton:hover{
-                         background: #344767;
-                         letter-spacing: 1px;
-                        }
+
+                      .myButton:hover {
+                        background: #344767;
+                        letter-spacing: 1px;
+                      }
                     </style>
                     <button type="button" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                       إستمرار
@@ -1017,7 +1084,7 @@ if(isset($_POST['add-project'])){
                             هل لديك المزيد من الاصناف تود اضافتها ؟
                           </div>
                           <div class="modal-footer">
-                            <button type="submit" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" >لا</button>
+                            <button type="submit" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">لا</button>
                             <button type="submit" name="add-project2" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">نعم اريد اضافة صنف جديد لنفس المشروع</button>
                           </div>
                         </div>
