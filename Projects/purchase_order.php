@@ -394,7 +394,7 @@ if (isset($_GET['bank_req'])) {
 
                 <!-- == -->
                 <div class="row">
-                    <div >
+                    <div>
                         <div class="card-header text-center text-white bg-gradient-dark">
                             Purchase Order
                         </div>
@@ -440,7 +440,7 @@ if (isset($_GET['bank_req'])) {
                         <div>
 
                             <div>
-                            
+
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-4">
@@ -475,7 +475,7 @@ if (isset($_GET['bank_req'])) {
                     </div>
 
                     <!-- == -->
-                
+
                     <div class="row mt-5 justify-content-center">
                         <div class="col-12">
                             <div class="table-responsive p-0">
@@ -501,7 +501,7 @@ if (isset($_GET['bank_req'])) {
                                             <td>92</td>
                                             <td>550</td>
                                             <td>50,600.00</td>
-                                            
+
                                         </tr>
                                         <tr>
                                             <th scope="row">2</th>
@@ -509,15 +509,15 @@ if (isset($_GET['bank_req'])) {
                                             <td>8</td>
                                             <td>1100</td>
                                             <td>8,800.00</td>
-                                            
+
                                         </tr>
                                         <tr>
                                             <th scope="row">3</th>
-                                            <td>Supply of mini manhol round  cover with frame</td>
+                                            <td>Supply of mini manhol round cover with frame</td>
                                             <td>2</td>
                                             <td>700</td>
                                             <td>1,400.00</td>
-                                            
+
                                         </tr>
 
                                     </tbody>
@@ -527,8 +527,27 @@ if (isset($_GET['bank_req'])) {
                             </div>
                         </div>
                     </div>
+                    <div class="total text-right">
+                        <p class="extra-notes">
+                            <strong>Extra Notes</strong>
+                            Please send all items at the same time to shipping address by next week.
+                            Thanks a lot.
+                        </p>
+                        <div class="field">
+                            Subtotal <span>$379.00</span>
+                        </div>
+                        <div class="field">
+                            Shipping <span>$0.00</span>
+                        </div>
+                        <div class="field">
+                            Discount <span>4.5%</span>
+                        </div>
+                        <div class="field grand-total">
+                            Total <span>$312.00</span>
+                        </div>
+                    </div>
                     <div class="row">
-                        
+
                         <div class="col-xl-5">
                             <p class="ms-3">Add additional notes and payment information</p>
 
