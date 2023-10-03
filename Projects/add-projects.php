@@ -1040,16 +1040,16 @@ if (isset($_POST['add-project'])) {
                     </div>
                     <script>
                       $(document).on("change", "input", function() {
-                        var kh = (parseFloat($("#kh_tot").val().replace(/\,/g, "")) || '0');
+                        var kh = (parseFloat($("#kh_tot").val().replace(/\,/g, "")) || 0);
 
-                        var iro = (parseFloat($("#total_iron").val().replace(/\,/g, "")) || '0');
+                        var iro = (parseFloat($("#total_iron").val().replace(/\,/g, "")) || 0);
 
-                        var acce = (parseFloat($("#accessory_iron").val().replace(/\,/g, "")) || '0');
+                        var acce = (parseFloat($("#accessory_iron").val().replace(/\,/g, "")) || 0);
 
-                        var cov = (parseFloat($("#cover_tot").val().replace(/\,/g, "")) || '0');
+                        var cov = (parseFloat($("#cover_tot").val().replace(/\,/g, "")) || 0);
 
-                        var exband = (parseFloat($("#accessory_tot").val().replace(/\,/g, "")) || '0');
-                        var quan = (parseFloat($("#quantity").val()) || '0');
+                        var exband = (parseFloat($("#accessory_tot").val().replace(/\,/g, "")) || 0);
+                        var quan = (parseFloat($("#quantity").val()) || 0);
 
                         var grand_tot = (kh + iro + acce + cov + exband) / quan;
                         var grand_tot2 = (kh + iro + acce + cov + exband);
