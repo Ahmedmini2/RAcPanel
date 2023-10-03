@@ -604,29 +604,40 @@ if (isset($_GET['bank_req'])) {
                         <p><u>Specil terms: </u></p>
                     </blockquote>
                     <figcaption class="blockquote-footer">
-                      All materials should be as per approved.
+                        All materials should be as per approved.
                     </figcaption>
                     <figcaption class="blockquote-footer">
-                    Advanced Payment 50%
+                        Advanced Payment 50%
                     </figcaption>
                 </figure>
+                <ul class="list-unstyled">
+                    <li>Specil terms:
+                        <ul>
+                            <li>All materials should be as per approved.</li>
+                            <li>Advanced Payment 50%</li>
+                            
+                        </ul>
+                    </li>
+                    
+                </ul>
                 <div class="row">
                     <div class="col-xl-10">
                         <p class="font-weight-bold"><u>Specil terms: </u></p>
                         All materials should be as per approved.<br>
-                         <br>
+                        Advanced Payment 50%
+                        <br>
                     </div>
                 </div>
 
                 <div class="row p-5 text-center">
 
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="row">
                             <h6>Prepared by</h6>
                             <h5></h5>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="row">
                             <h6>Approved by</h6>
                         </div>
