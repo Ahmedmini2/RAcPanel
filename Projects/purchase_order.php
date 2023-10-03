@@ -482,7 +482,7 @@ if (isset($_GET['bank_req'])) {
                             <table class="table table-hover table-fixed text-center">
 
                                 <!--Table head-->
-                                <thead class="bg-dark text-light custom-font-m">
+                                <thead class="bg-gradient-dark text-light custom-font-m">
                                     <tr>
                                         <th style="color: white;">S.No.</th>
                                         <th style="color: white;">DESCRIPTION</th>
@@ -599,17 +599,7 @@ if (isset($_GET['bank_req'])) {
                     </div>
                 </div>
                 <hr>
-                <ul class="list-unstyled">
-                    <li class="font-weight-bold">Specil terms:
-                        <ul>
-                            <li>All materials should be as per approved.</li>
-                            <li>Advanced Payment 50%</li>
-                            
-                        </ul>
-                    </li>
-                    
-                </ul>
-               
+                
 
                 <div class="row p-5 text-center">
 
