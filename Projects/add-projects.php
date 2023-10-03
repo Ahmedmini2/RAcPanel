@@ -984,7 +984,7 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_tot">مجموع سعر البيع</label>
-                          <input type="text" class="form-control" name='sell_price_tot' id="sell_price_tot">
+                          <input type="text" class="form-control" name='sell_price_tot' id="sell_price_tot" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
