@@ -601,26 +601,23 @@ if (isset($_GET['bank_req'])) {
                     <hr>
                     <div class="row">
                         <div class="col-xl-10">
-                            <p>Thank you for your purchase</p>
+                            <p>Specil terms: </p>
+                            All materials should be as per approved.<br>
+                            Advanced Payment 50% <br>
                         </div>
                     </div>
 
                     <div class="row p-5 text-center">
+                        
                         <div class="col-4">
                             <div class="row">
-                                <h6>المحاسب</h6>
+                                <h6>Prepared by</h6>
                                 <h5></h5>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="row">
-                                <h6>المدير التنفيذي</h6>
-                                <h5></h5>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="row">
-                                <h6>المدير العام</h6>
+                                <h6>Approved by</h6>
                             </div>
                         </div>
                     </div>
