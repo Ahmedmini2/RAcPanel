@@ -24989,3 +24989,7 @@ width: 100px;
 .dataTables_wrapper .row .col-sm-7{
   padding-top: 20px;
 }
+
+.index-1500{
+  z-index: 1500;
+}

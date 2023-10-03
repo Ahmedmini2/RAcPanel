@@ -6,7 +6,7 @@ $sidebar = $_SESSION['sidebar'];
 <!-- Side Bar -->
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-end me-3 rotate-caret" id="sidenav-main">
   <div class="sidenav-header">
-    <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute start-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+    <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute start-0 top-0 d-none d-xl-none index-1500" aria-hidden="true" id="iconSidenav"></i>
     <a class="navbar-brand m-0" href="https://test.app.ruknamial.com/index.php">
       <img src="../assets/img/logos/logo-gold.png" class="navbar-brand-img " alt="main_logo">
 
