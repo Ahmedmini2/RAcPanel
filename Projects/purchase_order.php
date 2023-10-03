@@ -605,6 +605,7 @@ if (isset($_GET['bank_req'])) {
                 <script>
                     function changeVal() {
                         var value = document.getElementById("total").value;
+                        if(!value) return
                         value = value.replace(/[.,\s]/g, "")
                         document.getElementById("con").value = numToWords(value);
                         console.log(value);
