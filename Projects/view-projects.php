@@ -377,21 +377,22 @@ while ($r = mysqli_fetch_array($res2)) {
                                                 <tbody>
                                                     <?php 
                                                     $i = 0;
-                                                    while ($r = mysqli_fetch_array($res2)) {
+                                                    $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+                                                    while ($products = mysqli_fetch_array($res3)) {
                                                     $i++;
                                                           
                                                     ?>
                                                     <tr>
                                                         <th scope="row"><?=$i?></th>
-                                                        <td><?=$r['product_name']?></td>
-                                                        <td><?=$r['dimensions']?></td>
-                                                        <td><?=$r['cost_price']?></td>
-                                                        <td><?=$r['sell_price']?></td>
-                                                        <td><?=$r['net_profit']?></td>
-                                                        <td><?=$r['net_perc']?></td>
-                                                        <td><?=$r['quantity']?></td>
+                                                        <td><?=$products['product_name']?></td>
+                                                        <td><?=$products['dimensions']?></td>
+                                                        <td><?=$products['cost_price']?></td>
+                                                        <td><?=$products['sell_price']?></td>
+                                                        <td><?=$products['net_profit']?></td>
+                                                        <td><?=$products['net_perc']?></td>
+                                                        <td><?=$products['quantity']?></td>
 
-                                                        <td><?=$r['quantity']?></td>
+                                                        <td><?=$products['quantity']?></td>
                                                     </tr>
                                                     <?php } ?>
                                                    
