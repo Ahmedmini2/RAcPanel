@@ -768,10 +768,10 @@ if (isset($_POST['add-project'])) {
                     var total_iron = 0;
 
                     for (var z = 1; z <= i; z++) {
-                      var iron = $("#iron_" + z).val();
+                      var iron = ($("#iron_" + z).val() || 0);
                       var kg = (parseFloat($("#iron_quantity_" + z).val()) * parseFloat($("#iron_long_" + z).val() || 0) * iron)
                       var tn = kg / 1000;
-                      var total = tn * parseFloat($("#iron_price_" + z).val())
+                      var total = tn * (parseFloat($("#iron_price_" + z).val()) || 0)
                       total_iron += total;
                       tn = tn.toLocaleString("en-US");
                       total = total.toLocaleString("en-US");
@@ -845,7 +845,7 @@ if (isset($_POST['add-project'])) {
                         var total_accessory = 0;
                         for (var z = 1; z <= a; z++) {
 
-                          var peice = (parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val() || 0));
+                          var peice = ((parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val()) || 0));
                           total_accessory += peice
                           peice = peice.toLocaleString("en-US");
                           $("#acc_tot_" + z).val(peice);
@@ -912,7 +912,7 @@ if (isset($_POST['add-project'])) {
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var peice = (parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val() || 0))
+                        var peice = ((parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val()) || 0))
 
                         peice = peice.toLocaleString("en-US");
                         $("#cover_tot").val(peice);
@@ -954,7 +954,7 @@ if (isset($_POST['add-project'])) {
                       $(document).on('change', 'input', function() {
                         var total_bands = 0;
                         for (var z = 1; z <= b; z++) {
-                          var peice = (parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val() || 0))
+                          var peice = ((parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val()) || 0))
                           total_bands += peice
                           peice = peice.toLocaleString("en-US");
                           $("#band_tot_" + z).val(peice);
