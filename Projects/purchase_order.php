@@ -613,7 +613,7 @@ if (isset($_GET['bank_req'])) {
                 </ul>
 
 
-                <div class="row p-5 text-center">
+                <div class="row text-center">
 
                     <div class="col-6">
                         <div class="row">
