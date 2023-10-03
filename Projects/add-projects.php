@@ -985,6 +985,60 @@ if (isset($_POST['add-project'])) {
                   <input type="text" class="form-control" placeholder="Total" name="accessory_tot" id="accessory_tot" readonly>
                 </div>
                 <hr>
+
+                <div class="Delivery-details">
+                  <h5>التوصيل</h5>
+                  <div class="delivery">
+                    <div class="row">
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="cover_type">عدد القطع للتريلة</label>
+                          <input type="text" class="form-control" name='peice_per_track' id="peice_per_track">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="quantity_of_track">عدد التريلات</label>
+                          <input type="text" class="form-control" name='quantity_of_track' id="quantity_of_track" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="delivery_to">التوصيل الى</label>
+                          <input type="text" class="form-control" name='delivery_to' id="delivery_to">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="track_price">سعر توصيل التريلة</label>
+                          <input type="text" class="form-control" name='track_price' id="track_price">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="piece_price">سعر توصيل القطعة</label>
+                          <input type="text" class="form-control" name='piece_price' id="piece_price" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="total_price">سعر التوصيل الكلي</label>
+                          <input type="text" class="form-control" name='total_price' id="total_price" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                      $("input").on("change", function() {
+                        var peice = ((parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val()) || 0))
+
+                        peice = peice.toLocaleString("en-US");
+                        $("#cover_tot").val(peice);
+                      })
+                    </script>
+
+                  </div>
+                </div>
+
                 <!-- Item End -->
 
                 <div class="Final_details">

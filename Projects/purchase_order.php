@@ -179,6 +179,8 @@ if (isset($_GET['bank_req'])) {
 
 <body class="g-sidenav-show rtl bg-gray-100">
 
+    <script src="../assets/js/numtowords/numtowords.js"></script>
+
     <!-- Side Bar -->
     <?php require_once('../components/sidebar.php'); ?>
     <!-- End Of side Bar -->
@@ -580,7 +582,7 @@ if (isset($_GET['bank_req'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span class="font-weight-bold text-success">$69,920.00</span>
+                                            <span class="font-weight-bold text-success" id="total">69,920.00</span>
                                         </div>
                                     </td>
                                 </tr>
@@ -597,9 +599,16 @@ if (isset($_GET['bank_req'])) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <p>The total value is SAR69,920 sixty-nine thousand nine hundred twenty riyals only.</p>
+                        <p>The total value is SAR69,920 <span id="con"></span> riyals only.</p>
                     </div>
                 </div>
+                <script>
+                    function changeVal() {
+                        var value = document.getElementById("total").value.replace(/[.,\s]/g, "");
+                        document.getElementById("con").value = numToWords(value);
+                    }
+                    window.addEventListner("load", changeVal);
+                </script>
                 <hr>
                 <ul class="list-unstyled">
                     <li class="font-weight-bold">Specil terms:
@@ -886,6 +895,7 @@ if (isset($_GET['bank_req'])) {
         });
     </script>
     <script src="../assets/js/plugins/choices.min.js"></script>
+
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
