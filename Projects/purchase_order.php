@@ -594,7 +594,7 @@ if (isset($_GET['bank_req'])) {
 
 
                 </div>
-                
+
                 <div class="row">
                     <div class="col text-center">
                         <p>The total value is SAR69,920 sixty-nine thousand nine hundred twenty riyals only.</p>
@@ -615,13 +615,13 @@ if (isset($_GET['bank_req'])) {
 
                 <div class="row p-5 text-center">
 
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="row">
                             <h6>Prepared by</h6>
                             <h5></h5>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="row">
                             <h6>Approved by</h6>
                         </div>
