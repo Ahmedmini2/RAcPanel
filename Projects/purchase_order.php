@@ -563,7 +563,7 @@ if (isset($_GET['bank_req'])) {
                                         </td>
                                         <td>
                                             <div class="text-right">
-                                                <span class="text-success">$9,120.00</span>
+                                                <span>$9,120.00</span>
                                             </div>
                                         </td>
                                     </tr>
@@ -579,7 +579,7 @@ if (isset($_GET['bank_req'])) {
                                         </td>
                                         <td>
                                             <div class="text-right">
-                                                <span class="font-weight-bold">$69,920.00</span>
+                                                <span class="font-weight-bold text-success" >$69,920.00</span>
                                             </div>
                                         </td>
                                     </tr>
@@ -601,7 +601,7 @@ if (isset($_GET['bank_req'])) {
                     <hr>
                     <div class="row">
                         <div class="col-xl-10">
-                            <p>Specil terms: </p>
+                            <p class="font-weight-bold">Specil terms: </p>
                             All materials should be as per approved.<br>
                             Advanced Payment 50% <br>
                         </div>
