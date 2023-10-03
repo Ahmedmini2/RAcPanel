@@ -476,7 +476,7 @@ if (isset($_GET['bank_req'])) {
                 </div>
                 <!-- == -->
 
-                <div class="row mt-3 justify-content-center">
+                <div class="row mt-5 justify-content-center">
                     <div class="col-12">
                         <div class="table-responsive p-0">
                             <table class="table table-hover table-fixed text-center">
@@ -527,7 +527,7 @@ if (isset($_GET['bank_req'])) {
                         </div>
                     </div>
                 </div>
-                <div class="row d-flex justify-content-end mb-2">
+                <div class="row d-flex justify-content-end">
 
                     <div class="col-md-5">
 
@@ -604,12 +604,13 @@ if (isset($_GET['bank_req'])) {
                         <ul>
                             <li>All materials should be as per approved.</li>
                             <li>Advanced Payment 50%</li>
+                            
                         </ul>
                     </li>
                     
                 </ul>
             
-                <div class="row p-3 text-center">
+                <div class="row p-5 text-center">
 
                     <div class="col-6">
                         <div class="row">
