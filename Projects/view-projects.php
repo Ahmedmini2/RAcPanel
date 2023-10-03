@@ -5,7 +5,7 @@ $_SESSION['sidebar'] = "Projects";
 if(isset($_GET['id'])){
 $id = $_GET['id'];
 
-$query = "SELECT * FROM project WHERE `id` = $id";
+$query = "SELECT * FROM projects WHERE `id` = $id";
 $res = $conn->query($query);
 $project = $res->fetch_assoc();
 
