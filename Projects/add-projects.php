@@ -15,12 +15,28 @@ if (isset($_POST['add-project'])) {
 
   $project_name = $_POST['project_name'];
   $project_description = $_POST['project_description'];
+  $duration = $_POST['duration'];
+  $payment_type = $_POST['payment_type'];
+  $valid_till = $_POST['valid_till'];
 
-  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`valid_till`,`duration`,`payment_type`,`created_at`) VALUES(NULL, '$project_name', '$project_description' ,NOW())";
+  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`valid_till`,`duration`,`payment_type`,`created_at`)
+   VALUES(NULL, '$project_name', '$project_description','$valid_till','$duration','$payment_type' ,NOW())";
   $project_res = $conn->query($insert_project);
   if ($project_res) {
 
     $project_id = $conn->insert_id;
+
+    $contact_name = $_POST['contact_name'];
+    $mobile = $_POST['mobile'];
+    $address = $_POST['address'];
+    $email = $_POST['email'];
+    $vat = $_POST['vat'];
+    $trade = $_POST['trade'];
+
+    $insert_contact = "INSERT INTO `contact_projects` (`id`, `project_id`, `supplier_name`, `contact_person`, `mobile`, `address`, `email`, `vat`, `company_trade`, `created_at`)
+     VALUES (NULL, '$project_id', '$project_name', '$contact_name', '$mobile', '$address', '$email', '$vat', '$trade', NOW())";
+    $contact_res = $conn->query($insert_contact);
+    
 
     $product_name = $_POST['product_name'];
     $dimensions = $_POST['dimensions'];
@@ -161,12 +177,27 @@ if (isset($_POST['add-project'])) {
 
   $project_name = $_POST['project_name'];
   $project_description = $_POST['project_description'];
+  $duration = $_POST['duration'];
+  $payment_type = $_POST['payment_type'];
+  $valid_till = $_POST['valid_till'];
 
-  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`created_at`) VALUES(NULL, '$project_name', '$project_description' ,NOW())";
+  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`valid_till`,`duration`,`payment_type`,`created_at`) VALUES(NULL, '$project_name', '$project_description','$valid_till','$duration','$payment_type' ,NOW())";
   $project_res = $conn->query($insert_project);
   if ($project_res) {
 
     $project_id = $conn->insert_id;
+
+    $contact_name = $_POST['contact_name'];
+    $mobile = $_POST['mobile'];
+    $address = $_POST['address'];
+    $email = $_POST['email'];
+    $vat = $_POST['vat'];
+    $trade = $_POST['trade'];
+
+    $insert_contact = "INSERT INTO `contact_projects` (`id`, `project_id`, `supplier_name`, `contact_person`, `mobile`, `address`, `email`, `vat`, `company_trade`, `created_at`)
+     VALUES (NULL, '$project_id', '$project_name', '$contact_name', '$mobile', '$address', '$email', '$vat', '$trade', NOW())";
+    $contact_res = $conn->query($insert_contact);
+    
     $_SESSION['last_insert_project'] = $project_id;
 
     $product_name = $_POST['product_name'];
