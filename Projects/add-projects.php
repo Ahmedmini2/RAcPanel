@@ -685,10 +685,10 @@ if (isset($_POST['add-project'])) {
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var peice = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0'))
-                        var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || '0')) * parseFloat($("#quantity").val())
+                        var peice = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val()) || 0))
+                        var ret = (parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val() || 0)) * parseFloat($("#quantity").val())
                         var qunt = parseFloat($("#quantity").val());
-                        var qty_tot = (parseFloat($("#quantity").val()) * parseFloat($("#kh_per").val()));
+                        var qty_tot = ((parseFloat($("#quantity").val()) * parseFloat($("#kh_per").val())) || 0)
                         $("#kh_quantity_tot").val(qty_tot);
                         ret = ret.toLocaleString("en-US");
                         peice = peice.toLocaleString("en-US");
@@ -769,7 +769,7 @@ if (isset($_POST['add-project'])) {
 
                     for (var z = 1; z <= i; z++) {
                       var iron = $("#iron_" + z).val();
-                      var kg = (parseFloat($("#iron_quantity_" + z).val()) * parseFloat($("#iron_long_" + z).val() || '0') * iron)
+                      var kg = (parseFloat($("#iron_quantity_" + z).val()) * parseFloat($("#iron_long_" + z).val() || 0) * iron)
                       var tn = kg / 1000;
                       var total = tn * parseFloat($("#iron_price_" + z).val())
                       total_iron += total;
@@ -777,7 +777,6 @@ if (isset($_POST['add-project'])) {
                       total = total.toLocaleString("en-US");
                       $("#iron_tn_" + z).val(tn);
                       $("#iron_tot_" + z).val(total);
-
                     }
 
                     total_iron = total_iron.toLocaleString("en-US");
@@ -846,7 +845,7 @@ if (isset($_POST['add-project'])) {
                         var total_accessory = 0;
                         for (var z = 1; z <= a; z++) {
 
-                          var peice = (parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val() || '0'));
+                          var peice = (parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val() || 0));
                           total_accessory += peice
                           peice = peice.toLocaleString("en-US");
                           $("#acc_tot_" + z).val(peice);
@@ -913,7 +912,7 @@ if (isset($_POST['add-project'])) {
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var peice = (parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val() || '0'))
+                        var peice = (parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val() || 0))
 
                         peice = peice.toLocaleString("en-US");
                         $("#cover_tot").val(peice);
@@ -955,7 +954,7 @@ if (isset($_POST['add-project'])) {
                       $(document).on('change', 'input', function() {
                         var total_bands = 0;
                         for (var z = 1; z <= b; z++) {
-                          var peice = (parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val() || '0'))
+                          var peice = (parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val() || 0))
                           total_bands += peice
                           peice = peice.toLocaleString("en-US");
                           $("#band_tot_" + z).val(peice);
