@@ -469,94 +469,48 @@ if (isset($_GET['bank_req'])) {
                             </div>
                         </div>
                     </div>
-                    <div class=" col-sm-6 col-lg-4 mx-5">
+
+                    <!-- == -->
+                <div class="row  justify-content-center">
+                    <div class="col-sm-6 col-lg-4 mx-5">
                         <div class="container" style="width: 493px;">
                             <div class="card-header text-center text-white" style="background:#3A416F">
-                                VENDOR
+                            VENDOR
                             </div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4">
-                                    <div class="table-responsive p-0">
-                                    <table class="table table-hover table-fixed">
-                                        <!--Table body-->
-                                        <tbody>
-                                            <tr>
-                                                <td>Data</td>
-                                                <td>P.O number</td>
-                                                <td>Supplier name</td>
-                                                <td>Contact person</td>
-                                                <td>Tel / mobile</td>
-                                                <td>Address</td>
-
-                                            </tr>
-                                            
-                                        </tbody>
-                                        <!--Table body-->
-
-                                    </table>
-                                </div>
+                                        <p class="card-text">
+                                         Data : <br>
+                                         P.O number : <br>
+                                         Supplier name : <br>
+                                         Contact person : <br>
+                                         Tel / mobile : <br>
+                                         Address : <br>
+                                        </p>
                                     </div>
                                     <div class="col-7">
-                                    <div class="row">
-                                    <div class="col-4">
-                                    <div class="table-responsive p-0">
-                                    <table class="table table-hover table-fixed">
-                                        <!--Table body-->
-                                        <tbody>
-                                           
-                                            <tr>
-                                                <td>June 11,2023</td>
-                                                <td>RA11-06-2023B</td>
-                                                <td>Dorat Al Tal Company</td>
-                                                <td>Mr. Zakraia</td>
-                                                <td>552857000</td>
-                                                <td>Riyadh - Al Dabab street</td>
+                                        <p class="card-text">
+                                        June 11,2023 <br>
+                                        RA11-06-2023B <br>
+                                        Dorat Al Tal Company <br>
+                                        Mr. Zakraia <br>
+                                        552857000<br>
+                                        Riyadh - Al Dabab street<br>
 
-
-                                            </tr>
-
-                                        </tbody>
-                                        <!--Table body-->
-
-                                    </table>
-                                </div>
+                                
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="table-responsive p-0">
-                                    <table class="table table-hover table-fixed">
-                                        <!--Table body-->
-                                        <tbody>
-                                            <tr>
-                                                <td>Data</td>
-                                                <td>P.O number</td>
-                                                <td>Supplier name</td>
-                                                <td>Contact person</td>
-                                                <td>Tel / mobile</td>
-                                                <td>Address</td>
 
-                                            </tr>
-                                            <tr>
-                                                <td>June 11,2023</td>
-                                                <td>RA11-06-2023B</td>
-                                                <td>Dorat Al Tal Company</td>
-                                                <td>Mr. Zakraia</td>
-                                                <td>552857000</td>
-                                                <td>Riyadh - Al Dabab street</td>
-
-
-                                            </tr>
-
-                                        </tbody>
-                                        <!--Table body-->
-
-                                    </table>
-                                </div>
 
 
                             </div>
                         </div>
                     </div>
+
+
+                    
 
                 </div>
 
