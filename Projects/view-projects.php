@@ -386,9 +386,9 @@ while ($r = mysqli_fetch_array($res2)) {
                                                         <th scope="row"><?=$i?></th>
                                                         <td><?=$products['product_name']?></td>
                                                         <td><?=$products['dimensions']?></td>
-                                                        <td><?=$products['cost_price']?></td>
-                                                        <td><?=$products['sell_price']?></td>
-                                                        <td><?=$products['net_profit']?></td>
+                                                        <td><?=number_format($products['cost_price'])?></td>
+                                                        <td><?=number_format($products['sell_price'])?></td>
+                                                        <td><?=number_format($products['net_profit'])?></td>
                                                         <td><?=$products['net_perc']?></td>
                                                         <td><?=$products['quantity']?></td>
 
