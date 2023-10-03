@@ -58,7 +58,7 @@ if (isset($_GET['bank_req'])) {
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     <style>
-        .purchase-box {
+        .invoice-box {
             max-width: 1200px;
             margin: auto;
             padding: 30px;
@@ -82,61 +82,61 @@ if (isset($_GET['bank_req'])) {
             font-size: small;
         }
 
-        .purchase-box table {
+        .invoice-box table {
             width: 100%;
             line-height: inherit;
 
         }
 
 
-        .purchase-box table td {
+        .invoice-box table td {
             padding: 5px;
             vertical-align: top;
             font-size: small;
         }
 
-        .purchase-box table tr th {
+        .invoice-box table tr th {
             color: black;
         }
 
-        .purchase-box table tr td:nth-child(2) {
+        .invoice-box table tr td:nth-child(2) {
             text-align: right;
         }
 
-        .purchase-box table tr.top table td {
+        .invoice-box table tr.top table td {
             padding-bottom: 20px;
         }
 
-        .purchase-box table tr.top table td.title {
+        .invoice-box table tr.top table td.title {
             font-size: 45px;
             line-height: 45px;
             color: #333;
             text-align: center;
         }
 
-        .purchase-box table tr.information table td {
+        .invoice-box table tr.information table td {
             padding-bottom: 40px;
         }
 
-        .purchase-box table tr.heading td {
+        .invoice-box table tr.heading td {
             background: #eee;
             border-bottom: 1px solid #ddd;
             font-weight: bold;
         }
 
-        .purchase-box table tr.details td {
+        .invoice-box table tr.details td {
             padding-bottom: 20px;
         }
 
-        .purchase-box table tr.item td {
+        .invoice-box table tr.item td {
             border-bottom: 1px solid #eee;
         }
 
-        .purchase-box table tr.item.last td {
+        .invoice-box table tr.item.last td {
             border-bottom: none;
         }
 
-        .purchase-box table tr.total td:nth-child(2) {
+        .invoice-box table tr.total td:nth-child(2) {
             border-top: 2px solid #eee;
             font-weight: bold;
         }
@@ -145,13 +145,13 @@ if (isset($_GET['bank_req'])) {
 
 
         @media only screen and (max-width: 600px) {
-            .purchase-box table tr.top table td {
+            .invoice-box table tr.top table td {
                 width: 100%;
                 display: block;
                 text-align: center;
             }
 
-            .purchase-box table tr.information table td {
+            .invoice-box table tr.information table td {
                 width: 100%;
                 display: block;
                 text-align: center;
@@ -178,6 +178,8 @@ if (isset($_GET['bank_req'])) {
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
+
+    <script src="../assets/js/numtowords/numtowords.js"></script>
 
     <!-- Side Bar -->
     <?php require_once('../components/sidebar.php'); ?>
@@ -321,12 +323,9 @@ if (isset($_GET['bank_req'])) {
 
             <script>
                 function printDiv(divName) {
-
-                    document.getElementById('btn1').style.display = "none";
                     document.getElementById('btn2').style.display = "none";
                     document.getElementById('btn3').style.display = "none";
                     window.print();
-                    document.getElementById('btn1').style.display = "inline";
                     document.getElementById('btn2').style.display = "inline";
                     document.getElementById('btn3').style.display = "inline";
 
@@ -392,10 +391,267 @@ if (isset($_GET['bank_req'])) {
             </div>
 
 
-            <div class="purchase-box">
-                <div class="div">
-                    
+            <div class="invoice-box" dir="ltr">
+
+
+                <!-- == -->
+                <div class="row">
+                    <div>
+                        <div class="card-header text-center text-white header-color" style="margin-top: 120px;">
+                            Purchase Order
+                        </div>
+
+                    </div>
                 </div>
+
+                <div class="row ">
+                    <div class="col-6 ">
+                        <div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="card-text custom-font-small">
+                                            Buyer:<br>
+                                            Receiver name:<br>
+                                            Tel / mobile:<br>
+                                            Address:<br>
+                                            E-mail:<br>
+                                            Vat:<br>
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p class="card-text custom-font-small">
+                                            Rukn Amial Co.Company <br>
+                                            Abbas Al Jafari <br>
+                                            591022703 <br>
+                                            Al Malaz-Jareer Street <br>
+                                            info@ruknamyal.com<br>
+                                            311523029300003<br>
+
+                                        </p>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+
+                            <div>
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p class="card-text custom-font-small">
+                                                Data: <br>
+                                                P.O number:<br>
+                                                Supplier name:<br>
+                                                Contact person:<br>
+                                                Tel / mobile:<br>
+                                                Address:<br>
+                                            </p>
+                                        </div>
+                                        <div class="col-8">
+                                            <p class="card-text custom-font-small">
+                                                June 11,2023 <br>
+                                                RA11-06-2023B <br>
+                                                Dorat Al Tal Company <br>
+                                                Mr. Zakraia <br>
+                                                552857000<br>
+                                                Riyadh - Al Dabab street<br>
+
+
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- == -->
+
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-12">
+                        <div class="table-responsive p-0">
+                            <table class="table table-hover table-fixed text-center">
+
+                                <!--Table head-->
+                                <thead class="text-light header-color custom-font-m">
+                                    <tr>
+                                        <th style="color: white;">S.No.</th>
+                                        <th style="color: white;">DESCRIPTION</th>
+                                        <th style="color: white;">QTY</th>
+                                        <th style="color: white;">U price</th>
+                                        <th style="color: white;">Total price</th>
+                                    </tr>
+                                </thead>
+                                <!--Table head-->
+
+                                <!--Table body-->
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td class="custom-font-m">Supply of handhole 1 cover with frame</td>
+                                        <td class="custom-font-m">92</td>
+                                        <td class="custom-font-m">550</td>
+                                        <td class="custom-font-m">50,600.00</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td class="custom-font-m">Supply of handhole 2 cover with frame</td>
+                                        <td class="custom-font-m">8</td>
+                                        <td class="custom-font-m">1100</td>
+                                        <td class="custom-font-m">8,800.00</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td class="custom-font-m">Supply of mini manhol round cover with frame</td>
+                                        <td class="custom-font-m">2</td>
+                                        <td class="custom-font-m">700</td>
+                                        <td class="custom-font-m">1,400.00</td>
+
+                                    </tr>
+
+                                </tbody>
+                                <!--Table body-->
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-end">
+
+                    <div class="col-md-5">
+
+                        <table class="table table-borderless">
+
+                            <tbody class="totals">
+
+                                <tr>
+                                    <td>
+                                        <div class="text-left">
+
+                                            <span class="text-muted">Total :</span>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-right">
+                                            <span>$60,800.00</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="text-left">
+
+                                            <span class="text-muted">VAT %15 :</span>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-right">
+                                            <span>$9,120.00</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="text-left">
+
+                                            <span class="text-muted">Delivery</span>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-right">
+                                            <span>2,800.00</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="border-top border-bottom">
+                                    <td>
+                                        <div class="text-left">
+
+                                            <span class="font-weight-bold">Grand total(SAR) :</span>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-right">
+                                            <span class="font-weight-bold text-success" id="total">69,920.00</span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col text-center">
+                        <p>The total value is SAR69,920 <span id="con"></span> riyals only.</p>
+                    </div>
+                </div>
+                <script>
+                    const sleep = ms => new Promise(res => setTimeout(res, ms));
+                    async function changeVal() {
+                        await sleep(3000);
+                        var value = document.getElementById("total").value;
+                        value = value.replace(/[.,\s]/g, "")
+                        document.getElementById("con").value = numToWords(value);
+                        console.log(value);
+                    }
+                    window.onload=changeVal;
+                </script>
+                <hr>
+                <ul class="list-unstyled">
+                    <li class="font-weight-bold">Specil terms:
+                        <ul>
+                            <li>All materials should be as per approved.</li>
+                            <li>Advanced Payment 50%</li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+
+
+                <div class="row text-center">
+
+                    <div class="col-6">
+                        <div class="row">
+                            <h6>Prepared by</h6>
+                            <h5></h5>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <h6>Approved by</h6>
+                        </div>
+                    </div>
+                </div>
+                <table>
+
+                </table>
+
             </div>
 
 
@@ -651,6 +907,7 @@ if (isset($_GET['bank_req'])) {
         });
     </script>
     <script src="../assets/js/plugins/choices.min.js"></script>
+
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
