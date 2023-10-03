@@ -468,239 +468,185 @@ if (isset($_GET['bank_req'])) {
 
                             </div>
                         </div>
-                    </div>
-                    <div class=" col-sm-6 col-lg-4 mx-5">
-                        <div class="container" style="width: 493px;">
-                            <div class="card-header text-center text-white" style="background:#3A416F">
-                                VENDOR
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-4">
-                                    <div class="table-responsive p-0">
-                                    <table class="table table-hover table-fixed">
-                                        <!--Table body-->
-                                        <tbody>
-                                            <tr>
-                                                <td>Data</td>
-                                                <td>P.O number</td>
-                                                <td>Supplier name</td>
-                                                <td>Contact person</td>
-                                                <td>Tel / mobile</td>
-                                                <td>Address</td>
-
-                                            </tr>
-                                            
-                                        </tbody>
-                                        <!--Table body-->
-
-                                    </table>
+                        <div class="col-sm-6 col-lg-4 mx-5">
+                            <div class="container" style="width: 493px;">
+                                <div class="card-header text-center text-white" style="background:#3A416F">
+                                    VENDOR
                                 </div>
-                                    </div>
-                                    <div class="col-7">
+                                <div class="card-body">
                                     <div class="row">
-                                    <div class="col-4">
-                                    <div class="table-responsive p-0">
-                                    <table class="table table-hover table-fixed">
-                                        <!--Table body-->
-                                        <tbody>
-                                           
-                                            <tr>
-                                                <td>June 11,2023</td>
-                                                <td>RA11-06-2023B</td>
-                                                <td>Dorat Al Tal Company</td>
-                                                <td>Mr. Zakraia</td>
-                                                <td>552857000</td>
-                                                <td>Riyadh - Al Dabab street</td>
+                                        <div class="col-4">
+                                            <p class="card-text">
+                                                Data : <br>
+                                                P.O number : <br>
+                                                Supplier name : <br>
+                                                Contact person : <br>
+                                                Tel / mobile : <br>
+                                                Address : <br>
+                                            </p>
+                                        </div>
+                                        <div class="col-7">
+                                            <p class="card-text">
+                                                June 11,2023 <br>
+                                                RA11-06-2023B <br>
+                                                Dorat Al Tal Company <br>
+                                                Mr. Zakraia <br>
+                                                552857000<br>
+                                                Riyadh - Al Dabab street<br>
 
 
-                                            </tr>
-
-                                        </tbody>
-                                        <!--Table body-->
-
-                                    </table>
-                                </div>
+                                            </p>
+                                        </div>
                                     </div>
+
+
+
                                 </div>
-                                <div class="table-responsive p-0">
-                                    <table class="table table-hover table-fixed">
-                                        <!--Table body-->
-                                        <tbody>
-                                            <tr>
-                                                <td>Data</td>
-                                                <td>P.O number</td>
-                                                <td>Supplier name</td>
-                                                <td>Contact person</td>
-                                                <td>Tel / mobile</td>
-                                                <td>Address</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>June 11,2023</td>
-                                                <td>RA11-06-2023B</td>
-                                                <td>Dorat Al Tal Company</td>
-                                                <td>Mr. Zakraia</td>
-                                                <td>552857000</td>
-                                                <td>Riyadh - Al Dabab street</td>
-
-
-                                            </tr>
-
-                                        </tbody>
-                                        <!--Table body-->
-
-                                    </table>
-                                </div>
-
-
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- == -->
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-12">
+                            <div class="table-responsive p-0">
+                                <table class="table table-hover table-fixed">
 
-                </div>
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light">
+                                        <tr>
+                                            <th style="color: white;">SHIPPING TERMS</th>
+                                            <th style="color: white;">F.O.B</th>
+                                            <th style="color: white;">SHIP VIA</th>
+                                            <th style="color: white;">REQUISITIONER</th>
 
-                <!-- == -->
-                <div class="row mt-5 justify-content-center">
-                    <div class="col-12">
-                        <div class="table-responsive p-0">
-                            <table class="table table-hover table-fixed">
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
 
-                                <!--Table head-->
-                                <thead class="bg-dark text-light">
-                                    <tr>
-                                        <th style="color: white;">SHIPPING TERMS</th>
-                                        <th style="color: white;">F.O.B</th>
-                                        <th style="color: white;">SHIP VIA</th>
-                                        <th style="color: white;">REQUISITIONER</th>
+                                    <!--Table body-->
+                                    <tbody>
+                                        <tr>
+                                            <td>2.250.00</td>
+                                            <td>150.00</td>
+                                            <td>15</td>
+                                            <td>Product AAA</td>
 
-                                    </tr>
-                                </thead>
-                                <!--Table head-->
+                                        </tr>
+                                        <tr>
+                                            <td>75.00</td>
+                                            <td>75.00</td>
+                                            <td>1</td>
+                                            <td>Product zzz</td>
 
-                                <!--Table body-->
-                                <tbody>
-                                    <tr>
-                                        <td>2.250.00</td>
-                                        <td>150.00</td>
-                                        <td>15</td>
-                                        <td>Product AAA</td>
+                                        </tr>
 
-                                    </tr>
-                                    <tr>
-                                        <td>75.00</td>
-                                        <td>75.00</td>
-                                        <td>1</td>
-                                        <td>Product zzz</td>
+                                    </tbody>
+                                    <!--Table body-->
 
-                                    </tr>
-
-                                </tbody>
-                                <!--Table body-->
-
-                            </table>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row mt-5 justify-content-center">
-                    <div class="col-12">
-                        <div class="table-responsive p-0">
-                            <table class="table table-hover table-fixed">
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-12">
+                            <div class="table-responsive p-0">
+                                <table class="table table-hover table-fixed">
 
-                                <!--Table head-->
-                                <thead class="bg-dark text-light">
-                                    <tr>
-                                        <th style="color: white;">TOTAL</th>
-                                        <th style="color: white;">UNIT PRICE</th>
-                                        <th style="color: white;">QTY</th>
-                                        <th style="color: white;">DESCRIPTION</th>
-                                        <th style="color: white;">ITEM#</th>
-                                    </tr>
-                                </thead>
-                                <!--Table head-->
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light">
+                                        <tr>
+                                            <th style="color: white;">TOTAL</th>
+                                            <th style="color: white;">UNIT PRICE</th>
+                                            <th style="color: white;">QTY</th>
+                                            <th style="color: white;">DESCRIPTION</th>
+                                            <th style="color: white;">ITEM#</th>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
 
-                                <!--Table body-->
-                                <tbody>
-                                    <tr>
-                                        <td>2.250.00</td>
-                                        <td>150.00</td>
-                                        <td>15</td>
-                                        <td>Product AAA</td>
-                                        <td>[561382]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>75.00</td>
-                                        <td>75.00</td>
-                                        <td>1</td>
-                                        <td>Product zzz</td>
-                                        <td>[6564213]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2.250.00</td>
-                                        <td>150.00</td>
-                                        <td>15</td>
-                                        <td>Product AAA</td>
-                                        <td>[561382]</td>
-                                    </tr>
+                                    <!--Table body-->
+                                    <tbody>
+                                        <tr>
+                                            <td>2.250.00</td>
+                                            <td>150.00</td>
+                                            <td>15</td>
+                                            <td>Product AAA</td>
+                                            <td>[561382]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>75.00</td>
+                                            <td>75.00</td>
+                                            <td>1</td>
+                                            <td>Product zzz</td>
+                                            <td>[6564213]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.250.00</td>
+                                            <td>150.00</td>
+                                            <td>15</td>
+                                            <td>Product AAA</td>
+                                            <td>[561382]</td>
+                                        </tr>
 
-                                </tbody>
-                                <!--Table body-->
+                                    </tbody>
+                                    <!--Table body-->
 
-                            </table>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-7">
-                        <ul class="list-unstyled">
-                            <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
-                            <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
-                        </ul>
-                        <p class="text-black float-end"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;">$1221</span></p>
-                    </div>
-                    <div class="col-xl-5">
-                        <p class="ms-3">Add additional notes and payment information</p>
+                    <div class="row">
+                        <div class="col-xl-7">
+                            <ul class="list-unstyled">
+                                <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
+                                <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
+                            </ul>
+                            <p class="text-black float-end"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;">$1221</span></p>
+                        </div>
+                        <div class="col-xl-5">
+                            <p class="ms-3">Add additional notes and payment information</p>
+
+                        </div>
 
                     </div>
-
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-xl-10">
-                        <p>Thank you for your purchase</p>
-                    </div>
-                </div>
-
-                <div class="row p-5 text-center">
-                    <div class="col-4">
-                        <div class="row">
-                            <h6>المحاسب</h6>
-                            <h5></h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-xl-10">
+                            <p>Thank you for your purchase</p>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="row">
-                            <h6>المدير التنفيذي</h6>
-                            <h5></h5>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="row">
-                            <h6>المدير العام</h6>
-                        </div>
-                    </div>
-                </div>
-                <table>
 
-                </table>
+                    <div class="row p-5 text-center">
+                        <div class="col-4">
+                            <div class="row">
+                                <h6>المحاسب</h6>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <h6>المدير التنفيذي</h6>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <h6>المدير العام</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <table>
+
+                    </table>
+
+                </div>
+
+
+
+
 
             </div>
-
-
-
-
-
-        </div>
 
 
         </div>
