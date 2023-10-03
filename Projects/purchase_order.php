@@ -527,6 +527,7 @@ if (isset($_GET['bank_req'])) {
                         </div>
                     </div>
                 </div>
+
                 <div class="row d-flex justify-content-end">
 
                     <div class="col-md-5">
@@ -593,13 +594,24 @@ if (isset($_GET['bank_req'])) {
 
 
                 </div>
+                
                 <div class="row">
                     <div class="col text-center">
                         <p>The total value is SAR69,920 sixty-nine thousand nine hundred twenty riyals only.</p>
                     </div>
                 </div>
                 <hr>
-                
+                <ul class="list-unstyled">
+                    <li class="font-weight-bold">Specil terms:
+                        <ul>
+                            <li>All materials should be as per approved.</li>
+                            <li>Advanced Payment 50%</li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+
 
                 <div class="row p-5 text-center">
 
