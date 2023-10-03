@@ -3,6 +3,7 @@ include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
 
 if(isset($_GET['id'])){
+$project_cost = 0;
 $id = $_GET['id'];
 
 $query = "SELECT * FROM projects WHERE `id` = $id";
@@ -10,7 +11,10 @@ $res = $conn->query($query);
 $project = $res->fetch_assoc();
 
 $res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
-
+while ($r = mysqli_fetch_array($res2)) {
+    $project_cost += $r['cost_price'] * $r['quantity'];
+      
+}
 
 }
 
@@ -288,9 +292,9 @@ $res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
                                             </div>
                                             <div class="card-body pt-0 p-3 text-center">
                                                 <h6 class="text-center mb-0">تكلفة المشروع</h6>
-                                                <span class="text-xs">ركن اميال</span>
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">+$2000</h5>
+                                                
+                                                <h5 class="mb-0"><?=$project_cost?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
