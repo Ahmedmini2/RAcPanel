@@ -264,7 +264,7 @@ $res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
                                             <dd> <?=$project['description']?></dd>
 
                                             <dt>مدة الموافقة على المشروع:</dt>
-                                            <dd><?=$project['valid']?> للموافقة قبل</dd>
+                                            <dd><?=$project['valid_till']?> للموافقة قبل</dd>
 
                                             <dt>مدة تنفيذ المشروع:</dt>
                                             <dd><?=$project['duration']?></dd>
