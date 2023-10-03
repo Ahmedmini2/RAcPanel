@@ -24993,3 +24993,7 @@ width: 100px;
 .index-1500{
   z-index: 1500;
 }
+
+.custom-font-small{
+  font-size: 13px !important;
+}
