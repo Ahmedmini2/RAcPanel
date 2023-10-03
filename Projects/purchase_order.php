@@ -527,14 +527,80 @@ if (isset($_GET['bank_req'])) {
                             </div>
                         </div>
                     </div>
-                    
+                    <div class="row d-flex justify-content-end">
+
+                        <div class="col-md-5">
+
+                            <table class="table table-borderless">
+
+                                <tbody class="totals">
+
+                                    <tr>
+                                        <td>
+                                            <div class="text-left">
+
+                                                <span class="text-muted">Total</span>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-right">
+                                                <span>$60,800.00</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+                                
+
+                                    <tr>
+                                        <td>
+                                            <div class="text-left">
+
+                                                <span class="text-muted">VAT %15 </span>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-right">
+                                                <span class="text-success">$9,120.00</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr class="border-top border-bottom">
+                                        <td>
+                                            <div class="text-left">
+
+                                                <span class="font-weight-bold">Grand total(SAR)</span>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-right">
+                                                <span class="font-weight-bold">$69,920.00</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+
+
+                    </div>
+
                     <div class="row">
 
                         <div class="col-xl-5">
                             <p class="ms-3">Add additional notes and payment information</p>
 
                         </div>
-                        <div class="col-xl-7">
+                        <div class="col-xl-7" dir="rtl">
                             <ul class="list-unstyled">
                                 <li class="text-muted ms-3"><span class="text-black me-4">Total : </span>$60,800.00</li>
                                 <li class="text-muted ms-3 mt-2"><span class="text-black me-4">VAT(15%)</span>$9,120.00</li>
