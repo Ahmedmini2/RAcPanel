@@ -36,7 +36,7 @@ if (isset($_POST['add-project'])) {
     $insert_contact = "INSERT INTO `contact_projects` (`id`, `project_id`, `supplier_name`, `contact_person`, `mobile`, `address`, `email`, `vat`, `company_trade`, `created_at`)
      VALUES (NULL, '$project_id', '$project_name', '$contact_name', '$mobile', '$address', '$email', '$vat', '$trade', NOW())";
     $contact_res = $conn->query($insert_contact);
-    
+
 
     $product_name = $_POST['product_name'];
     $dimensions = $_POST['dimensions'];
@@ -197,7 +197,7 @@ if (isset($_POST['add-project'])) {
     $insert_contact = "INSERT INTO `contact_projects` (`id`, `project_id`, `supplier_name`, `contact_person`, `mobile`, `address`, `email`, `vat`, `company_trade`, `created_at`)
      VALUES (NULL, '$project_id', '$project_name', '$contact_name', '$mobile', '$address', '$email', '$vat', '$trade', NOW())";
     $contact_res = $conn->query($insert_contact);
-    
+
     $_SESSION['last_insert_project'] = $project_id;
 
     $product_name = $_POST['product_name'];
