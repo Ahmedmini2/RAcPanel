@@ -474,164 +474,175 @@ if (isset($_GET['bank_req'])) {
                         </div>
                     </div>
                 </div>
-                    <!-- == -->
+                <!-- == -->
 
-                    <div class="row mt-5 justify-content-center">
-                        <div class="col-12">
-                            <div class="table-responsive p-0">
-                                <table class="table table-hover table-fixed text-center">
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-12">
+                        <div class="table-responsive p-0">
+                            <table class="table table-hover table-fixed text-center">
 
-                                    <!--Table head-->
-                                    <thead class="bg-dark text-light custom-font-m">
-                                        <tr>
-                                            <th style="color: white;">S.No.</th>
-                                            <th style="color: white;">DESCRIPTION</th>
-                                            <th style="color: white;">QTY</th>
-                                            <th style="color: white;">U price</th>
-                                            <th style="color: white;">Total price</th>
-                                        </tr>
-                                    </thead>
-                                    <!--Table head-->
-
-                                    <!--Table body-->
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td class="custom-font-m">Supply of handhole 1 cover with frame</td>
-                                            <td class="custom-font-m">92</td>
-                                            <td class="custom-font-m">550</td>
-                                            <td class="custom-font-m">50,600.00</td>
-
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td class="custom-font-m">Supply of handhole 2 cover with frame</td>
-                                            <td class="custom-font-m">8</td>
-                                            <td class="custom-font-m">1100</td>
-                                            <td class="custom-font-m">8,800.00</td>
-
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td class="custom-font-m">Supply of mini manhol round cover with frame</td>
-                                            <td class="custom-font-m">2</td>
-                                            <td class="custom-font-m">700</td>
-                                            <td class="custom-font-m">1,400.00</td>
-
-                                        </tr>
-
-                                    </tbody>
-                                    <!--Table body-->
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-end">
-
-                        <div class="col-md-5">
-
-                            <table class="table table-borderless">
-
-                                <tbody class="totals">
-
+                                <!--Table head-->
+                                <thead class="bg-dark text-light custom-font-m">
                                     <tr>
-                                        <td>
-                                            <div class="text-left">
-
-                                                <span class="text-muted">Total :</span>
-
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="text-right">
-                                                <span>$60,800.00</span>
-                                            </div>
-                                        </td>
+                                        <th style="color: white;">S.No.</th>
+                                        <th style="color: white;">DESCRIPTION</th>
+                                        <th style="color: white;">QTY</th>
+                                        <th style="color: white;">U price</th>
+                                        <th style="color: white;">Total price</th>
                                     </tr>
+                                </thead>
+                                <!--Table head-->
 
-
-                                
-
+                                <!--Table body-->
+                                <tbody>
                                     <tr>
-                                        <td>
-                                            <div class="text-left">
+                                        <th scope="row">1</th>
+                                        <td class="custom-font-m">Supply of handhole 1 cover with frame</td>
+                                        <td class="custom-font-m">92</td>
+                                        <td class="custom-font-m">550</td>
+                                        <td class="custom-font-m">50,600.00</td>
 
-                                                <span class="text-muted">VAT %15 :</span>
-
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="text-right">
-                                                <span>$9,120.00</span>
-                                            </div>
-                                        </td>
                                     </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td class="custom-font-m">Supply of handhole 2 cover with frame</td>
+                                        <td class="custom-font-m">8</td>
+                                        <td class="custom-font-m">1100</td>
+                                        <td class="custom-font-m">8,800.00</td>
 
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td class="custom-font-m">Supply of mini manhol round cover with frame</td>
+                                        <td class="custom-font-m">2</td>
+                                        <td class="custom-font-m">700</td>
+                                        <td class="custom-font-m">1,400.00</td>
 
-                                    <tr class="border-top border-bottom">
-                                        <td>
-                                            <div class="text-left">
-
-                                                <span class="font-weight-bold">Grand total(SAR) :</span>
-
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="text-right">
-                                                <span class="font-weight-bold text-success" >$69,920.00</span>
-                                            </div>
-                                        </td>
                                     </tr>
 
                                 </tbody>
+                                <!--Table body-->
 
                             </table>
-
-                        </div>
-
-
-
-                    </div>
-                    <div class="row">
-                        <div class="col text-center">
-                            <p>The total value is SAR69,920 sixty-nine thousand nine hundred twenty riyals only.</p>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-xl-10">
-                            <p class="font-weight-bold">Specil terms: </p>
-                            All materials should be as per approved.<br>
-                            Advanced Payment 50% <br>
-                        </div>
+                </div>
+                <div class="row d-flex justify-content-end">
+
+                    <div class="col-md-5">
+
+                        <table class="table table-borderless">
+
+                            <tbody class="totals">
+
+                                <tr>
+                                    <td>
+                                        <div class="text-left">
+
+                                            <span class="text-muted">Total :</span>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-right">
+                                            <span>$60,800.00</span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <td>
+                                        <div class="text-left">
+
+                                            <span class="text-muted">VAT %15 :</span>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-right">
+                                            <span>$9,120.00</span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="border-top border-bottom">
+                                    <td>
+                                        <div class="text-left">
+
+                                            <span class="font-weight-bold">Grand total(SAR) :</span>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-right">
+                                            <span class="font-weight-bold text-success">$69,920.00</span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
                     </div>
 
-                    <div class="row p-5 text-center">
-                        
-                        <div class="col-4">
-                            <div class="row">
-                                <h6>Prepared by</h6>
-                                <h5></h5>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="row">
-                                <h6>Approved by</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <table>
 
-                    </table>
 
                 </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <p>The total value is SAR69,920 sixty-nine thousand nine hundred twenty riyals only.</p>
+                    </div>
+                </div>
+                <hr>
+                <figure>
+                    <blockquote class="blockquote">
+                        <p><u>Specil terms: </u></p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                      All materials should be as per approved.
+                    </figcaption>
+                    <figcaption class="blockquote-footer">
+                    Advanced Payment 50%
+                    </figcaption>
+                </figure>
+                <div class="row">
+                    <div class="col-xl-10">
+                        <p class="font-weight-bold"><u>Specil terms: </u></p>
+                        All materials should be as per approved.<br>
+                         <br>
+                    </div>
+                </div>
 
+                <div class="row p-5 text-center">
 
+                    <div class="col-4">
+                        <div class="row">
+                            <h6>Prepared by</h6>
+                            <h5></h5>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <h6>Approved by</h6>
+                        </div>
+                    </div>
+                </div>
+                <table>
 
-
+                </table>
 
             </div>
+
+
+
+
+
+        </div>
 
 
         </div>
