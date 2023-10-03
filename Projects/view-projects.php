@@ -3,6 +3,14 @@ include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
 
 if(isset($_GET['id'])){
+$id = $_GET['id'];
+
+$query = "SELECT * FROM project WHERE `id` = $id";
+$res = $conn->query($query);
+$project = $res->fetch_assoc();
+
+$res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+
 
 }
 
@@ -250,19 +258,19 @@ if(isset($_GET['id'])){
                                         <dl class="dl-horizontal">
 
                                             <dt>اسم المشروع :</dt>
-                                            <dd>ركن اميال للمقاولات</dd>
+                                            <dd><?=$project['name']?></dd>
 
                                             <dt>تفاصيل المشروع:</dt>
-                                            <dd> ركن اميال للمقاولات</dd>
+                                            <dd> <?=$project['description']?></dd>
 
                                             <dt>مدة الموافقة على المشروع:</dt>
-                                            <dd> 2 ايام</dd>
+                                            <dd><?=$project['valid']?> للموافقة قبل</dd>
 
                                             <dt>مدة تنفيذ المشروع:</dt>
-                                            <dd> 7 ايام </dd>
+                                            <dd><?=$project['duration']?></dd>
 
                                             <dt>طريقة الدفع :</dt>
-                                            <dd>شيكك</dd>
+                                            <dd><?=$project['payment_type']?></dd>
 
                                         </dl>
 
