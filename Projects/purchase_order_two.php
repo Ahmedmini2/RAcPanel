@@ -590,7 +590,7 @@ if (isset($_GET['bank_req'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span class="font-weight-bold text-success" id="total">69,920.00</span>
+                                            <span class="font-weight-bold text-success" id="total">72,720.00</span>
                                         </div>
                                     </td>
                                 </tr>
