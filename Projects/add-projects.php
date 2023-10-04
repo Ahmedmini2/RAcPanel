@@ -1027,7 +1027,7 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="delivery_to">التوصيل الى</label>
-                          <input type="text" class="form-control" name='delivery_to' id="delivery_to" value="0">
+                          <input type="text" class="form-control" name='delivery_to' id="delivery_to">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -1052,10 +1052,18 @@ if (isset($_POST['add-project'])) {
                     <script>
                       $("input").on("change", function() {
                         var quan = ($("#quantity").val() || 0) ;
-                        var del_peice = ($("#peice_per_track").val()) || 0 ;
+                        var del_peice = ($("#peice_per_track").val() || 0) ;
                         var tracks = quan / del_peice ;
                         tracks = Math.ceil(tracks);
-                        $("#quantity_of_track").val(tracks) ;
+                         $("#quantity_of_track").val(tracks) ;
+                        var track_price = ($("#track_price").val() || 0) ;
+                        var del_peice_price = track_price / del_peice;
+                        $("#piece_price").val(del_peice_price);
+                        var del_total = track_price * tracks ; 
+                        var del_total = del_total.toLocaleString("en_US") ;
+                        $("#total_price").val(del_total);
+
+                       
                         
                       })
                     </script>
