@@ -286,7 +286,7 @@ if (isset($_GET['id'])) {
                             </div>
                             <div class="col-xl-6">
                                 <div class="row">
-                                    <div class="col-md-4 col-sm-2">
+                                    <div class="col-md-4 col-sm-2 mb-3">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
