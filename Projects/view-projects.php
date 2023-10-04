@@ -253,7 +253,7 @@ if (isset($_GET['id'])) {
                     <!--********* -->
                     <div class="container-fluid py-4">
                         <div class="row">
-                            <div class="col-xl-2 mb-xl-0 mb-4">
+                            <div class="col-xl-6 mb-xl-0 mb-4">
                                 <div class="card h-100">
                                     <div class="card-body p-3">
 
@@ -284,9 +284,9 @@ if (isset($_GET['id'])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-10">
+                            <div class="col-xl-6">
                                 <div class="row">
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
@@ -301,7 +301,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2 mt-md-0 mt-4">
+                                    <div class="col-md-3 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
@@ -316,7 +316,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2 mt-md-0 mt-4">
+                                    <div class="col-md-3 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
@@ -331,7 +331,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2 mt-md-0 mt-4">
+                                    <div class="col-md-3 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
@@ -346,7 +346,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2 mt-md-0 mt-4">
+                                    <div class="col-md-3 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
