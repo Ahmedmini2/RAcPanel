@@ -499,7 +499,7 @@ if (isset($_GET['bank_req'])) {
                                 <!--Table body-->
                                 <tbody>
                                     <tr>
-                                        <th class="custom-font-m"> scope="row">1</th>
+                                        <th class="custom-font-m" scope="row">1</th>
                                         <td class="custom-font-m">Supply of handhole 1 cover with frame</td>
                                         <td class="custom-font-m">92</td>
                                         <td class="custom-font-m">550</td>
@@ -508,7 +508,7 @@ if (isset($_GET['bank_req'])) {
 
                                     </tr>
                                     <tr>
-                                        <th class="custom-font-m"> scope="row">2</th>
+                                        <th class="custom-font-m" scope="row">2</th>
                                         <td class="custom-font-m">Supply of handhole 2 cover with frame</td>
                                         <td class="custom-font-m">8</td>
                                         <td class="custom-font-m">1100</td>
@@ -517,7 +517,7 @@ if (isset($_GET['bank_req'])) {
 
                                     </tr>
                                     <tr>
-                                        <th class="custom-font-m"> scope="row">3</th>
+                                        <th class="custom-font-m" scope="row">3</th>
                                         <td class="custom-font-m">Supply of mini manhol round cover with frame</td>
                                         <td class="custom-font-m">2</td>
                                         <td class="custom-font-m">700</td>
