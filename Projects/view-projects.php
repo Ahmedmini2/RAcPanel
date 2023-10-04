@@ -432,15 +432,15 @@ if (isset($_GET['id'])) {
                                                     ?>
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
-                                                            <td><?= $products['product_name'] ?></td>
-                                                            <td><?= $products['dimensions'] ?></td>
-                                                            <td><?= number_format($products['cost_price']) ?></td>
-                                                            <td><?= number_format($products['sell_price']) ?></td>
-                                                            <td><?= number_format($products['net_profit']) ?></td>
-                                                            <td><?= $products['net_perc'] ?></td>
-                                                            <td><?= $products['quantity'] ?></td>
+                                                            <td class="align-middle"><?= $products['product_name'] ?></td>
+                                                            <td class="align-middle"><?= $products['dimensions'] ?></td>
+                                                            <td class="align-middle"><?= number_format($products['cost_price']) ?></td>
+                                                            <td class="align-middle"><?= number_format($products['sell_price']) ?></td>
+                                                            <td class="align-middle"><?= number_format($products['net_profit']) ?></td>
+                                                            <td class="align-middle"><?= $products['net_perc'] ?></td>
+                                                            <td class="align-middle"><?= $products['quantity'] ?></td>
 
-                                                            <td><?= $products['quantity'] ?></td>
+                                                            <td class="align-middle"><?= $products['quantity'] ?></td>
                                                         </tr>
                                                     <?php } ?>
 
