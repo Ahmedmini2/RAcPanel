@@ -409,14 +409,13 @@ if (isset($_GET['id'])) {
                                                 <thead class="bg-dark text-light">
                                                     <tr>
                                                         <th>الرقم</th>
-                                                        <th>الاسم</th>
-                                                        <th>الابعاد</th>
-                                                        <th>التكلفة</th>
-                                                        <th>سعر البيع</th>
-                                                        <th>صافي الربح</th>
-                                                        <th>نسبة الربح</th>
-                                                        <th>الكمية</th>
-                                                        <th>تم الانتاج</th>
+                                                        <th>الصنف</th>
+                                                        <th>الكمية الكلية للصنف</th>
+                                                        <th>موجود في المستودع</th>
+                                                        <th>تم انتاج</th>
+                                                        <th>تم الاستلام</th>
+                                                        <th>المتبقي</th>
+                                                    
                                                     </tr>
                                                 </thead>
                                                 <!--Table head-->
