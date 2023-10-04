@@ -253,87 +253,7 @@ if (isset($_GET['id'])) {
                     <!--********* -->
                     <div class="container-fluid py-4">
                         <div class="row">
-                        <div class="col-xl-12">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="card ">
-                                            <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                                    <i class="fas fa-landmark opacity-10"></i>
-                                                </div>
-                                            </div>
-                                            <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">القيمة الاجمالية للمشروع</h6>
-                                                <hr class="horizontal dark my-3">
-
-                                                <h5 class="mb-0"><?= number_format($project_cost) ?> ريال</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mt-md-0 mt-4">
-                                        <div class="card ">
-                                            <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                                    <i class="fas fa-landmark opacity-10"></i>
-                                                </div>
-                                            </div>
-                                            <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">القيمة المضافة </h6>
-                                               
-                                                <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">+$2000</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mt-md-0 mt-4">
-                                        <div class="card ">
-                                            <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                                    <i class="fas fa-landmark opacity-10"></i>
-                                                </div>
-                                            </div>
-                                            <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">تكلفة المشروع الكلية</h6>
-                                                
-                                                <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">+$2000</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mt-md-0 mt-4">
-                                        <div class="card ">
-                                            <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                                    <i class="fas fa-landmark opacity-10"></i>
-                                                </div>
-                                            </div>
-                                            <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">تكلفة المشروع الكلية</h6>
-                                                
-                                                <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">+$2000</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mt-md-0 mt-4">
-                                        <div class="card ">
-                                            <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                                    <i class="fas fa-landmark opacity-10"></i>
-                                                </div>
-                                            </div>
-                                            <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">تكلفة المشروع الكلية</h6>
-                                                
-                                                <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">+$2000</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-xl-6 mb-xl-0 mb-4">
+                            <div class="col-xl-2 mb-xl-0 mb-4">
                                 <div class="card h-100">
                                     <div class="card-body p-3">
 
@@ -364,7 +284,86 @@ if (isset($_GET['id'])) {
                                     </div>
                                 </div>
                             </div>
-                            
+                            <div class="col-xl-10">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">القيمة الاجمالية للمشروع</h6>
+                                                <hr class="horizontal dark my-3">
+
+                                                <h5 class="mb-0"><?= number_format($project_cost) ?> ريال</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 mt-md-0 mt-4">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">القيمة المضافة </h6>
+                                               
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">+$2000</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 mt-md-0 mt-4">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">تكلفة المشروع الكلية</h6>
+                                                
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">+$2000</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 mt-md-0 mt-4">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">تكلفة المشروع الكلية</h6>
+                                                
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">+$2000</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 mt-md-0 mt-4">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">تكلفة المشروع الكلية</h6>
+                                                
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">+$2000</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
 
                         </div>
 
