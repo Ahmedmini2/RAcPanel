@@ -991,11 +991,11 @@ if (isset($_POST['add-project'])) {
                   <div class="delivery">
                     <div class="row">
                     <label for="peice_per_track">هل الصنف قابل للتوصيل ؟</label>
-                    <div class="form-check mb-3">
+                    <div class="form-check mb-3 col-md-2 col-sm-6">
                       <input class="form-check-input" type="radio" name="del_yes" id="yes">
                       <label class="custom-control-label" for="del_yes">نعم</label>
                     </div>
-                    <div class="form-check">
+                    <div class="form-check col-md-2 col-sm-6">
                       <input class="form-check-input" type="radio" name="del_no" >
                       <label class="custom-control-label" for="del_no">لا</label>
                     </div>
