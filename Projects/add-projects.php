@@ -998,7 +998,7 @@ if (isset($_POST['add-project'])) {
                     <script>
                       $(document).ready(function() {
                       $('input[type="checkbox"]').click(function() {
-                        console.log('Checked switch : ' + $(this).attr('checked'));
+                        console.log('Checked switch : ' + $(this).value('checked'));
                           if($(this).attr('checked') == '') {
                                 $('#delivery-div').show();           
                           }
