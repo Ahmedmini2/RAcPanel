@@ -991,10 +991,32 @@ if (isset($_POST['add-project'])) {
                   <h5>التوصيل</h5>
                   <div class="delivery">
                     <div class="row">
+                    <label for="">هل الصنف قابل للتوصيل ؟</label>
+                    <div class="form-check form-switch col-md-2 col-sm-6">
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                      <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
+                    </div>
+                    <script>
+                      $(document).ready(function() {
+                      $('input[type="checkbox"]').click(function() {
+                          if(document.getElementById("flexSwitchCheckDefault").checked  == true) {
+                                $('#delivery-div').show();  
+                                document.getElementById("toggle_ch").innerText ="نعم";         
+                          }
+
+                          else {
+                                $('#delivery-div').hide(); 
+                                document.getElementById("toggle_ch").innerText ="لا";  
+                          }
+                      });
+                    });
+                    </script>
+                    </div>
+                    <div class="row" id="delivery-div" style='display:none'>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
-                          <label for="cover_type">عدد القطع للتريلة</label>
-                          <input type="text" class="form-control" name='peice_per_track' id="peice_per_track">
+                          <label for="peice_per_track">عدد القطع للتريلة</label>
+                          <input type="text" class="form-control" name='peice_per_track' id="peice_per_track" value="0">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -1012,7 +1034,7 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="track_price">سعر توصيل التريلة</label>
-                          <input type="text" class="form-control" name='track_price' id="track_price">
+                          <input type="text" class="form-control" name='track_price' id="track_price" value="0">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -1030,10 +1052,20 @@ if (isset($_POST['add-project'])) {
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var peice = ((parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val()) || 0))
+                        var quan = ($("#quantity").val() || 0) ;
+                        var del_peice = ($("#peice_per_track").val() || 0) ;
+                        var tracks = quan / del_peice ;
+                        tracks = Math.ceil(tracks);
+                         $("#quantity_of_track").val(tracks) ;
+                        var track_price = ($("#track_price").val() || 0) ;
+                        var del_peice_price = track_price / del_peice;
+                        $("#piece_price").val(del_peice_price);
+                        var del_total = track_price * tracks ; 
+                        var del_total = del_total.toLocaleString("en_US") ;
+                        $("#total_price").val(del_total);
 
-                        peice = peice.toLocaleString("en-US");
-                        $("#cover_tot").val(peice);
+                       
+                        
                       })
                     </script>
 
