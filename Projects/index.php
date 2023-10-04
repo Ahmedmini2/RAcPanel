@@ -152,7 +152,10 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
           </ul>
           
         </div>
+        <div class="div bg-red">
         <i class="bi bi-arrow-left"></i>
+        </div>
+        
       </div>
     </nav>
     <!-- End Navbar -->
