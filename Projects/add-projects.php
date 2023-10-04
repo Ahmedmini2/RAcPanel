@@ -698,7 +698,7 @@ if (isset($_POST['add-project'])) {
                     </script>
 
                   </div>
-                  <hr>
+                 
                 </div>
                 <div class="iron_details">
                   <hr>
