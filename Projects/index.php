@@ -150,8 +150,9 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
               </ul>
             </li>
           </ul>
-          <i class="bi bi-arrow-left"></i>
+          
         </div>
+        <i class="bi bi-arrow-left"></i>
       </div>
     </nav>
     <!-- End Navbar -->
