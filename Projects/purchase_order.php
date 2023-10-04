@@ -607,7 +607,7 @@ if (isset($_GET['bank_req'])) {
                     async function changeVal() {
                         await sleep(3000);
                         var value = document.getElementById("total").value;
-                        value = value.replace(/[.,\s]/g, "")
+                        value =  69920
                         document.getElementById("con").value = numToWords(value);
                         console.log(value);
                     }
