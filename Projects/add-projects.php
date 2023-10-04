@@ -998,13 +998,14 @@ if (isset($_POST['add-project'])) {
                     <script>
                       $(document).ready(function() {
                       $('input[type="checkbox"]').click(function() {
-                        console.log('Checked switch : ' + $(this).attr('checked'));
-                          if($(this).attr('checked') == '') {
-                                $('#delivery-div').show();           
+                          if($(this).attr('checked')) {
+                                $('#delivery-div').show();  
+                                document.getElementById("toggle_ch").innerText ="نعم";         
                           }
 
                           else {
-                                $('#delivery-div').hide();   
+                                $('#delivery-div').hide(); 
+                                document.getElementById("toggle_ch").innerText ="لا";  
                           }
                       });
                     });
