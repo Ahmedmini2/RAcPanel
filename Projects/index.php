@@ -77,9 +77,9 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
               </a>
             </li>
             <li class="nav-item dropdown ps-2 d-flex align-items-center">
-              <button onclick="history.go(-1)">
-              <i class="bi bi-arrow-left-circle-fill"></i>
-              </button>
+            
+              <i class="bi bi-arrow-left-circle-fill" onclick="history.go(-1)"></i>
+              
             </li>
           </ul>
         </div>
