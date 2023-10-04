@@ -607,9 +607,9 @@ if (isset($_GET['bank_req'])) {
                      function changeVal() {
                         var value = document.getElementById("total").value;
                         value =  69920
-                        document.getElementById("con").value = numToWords(value);
+                        document.getElementById("con").innerText = numToWords(value);
                         console.log(value);
-                        console.log(numToWords(value));
+                        
                     }
                     window.onload=changeVal;
                 </script>
