@@ -258,8 +258,7 @@ if (isset($_GET['id'])) {
                                     <div class="card-body p-3">
 
                                         <dl class="dl-horizontal">
-                                            <dt>معلومات المشروع</dt>
-                                            <dd></dd>
+                                            <h6>معلومات المشروع</h6>
 
                                             <dt>الجهة الطالبة المشروع: </dt>
                                             <dd><?= $project['name'] ?></dd>
