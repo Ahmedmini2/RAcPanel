@@ -1022,7 +1022,7 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="quantity_of_track">عدد التريلات</label>
-                          <input type="text" class="form-control" name='quantity_of_track' id="quantity_of_track" readonly>
+                          <input type="text" class="form-control" name='quantity_of_track' id="quantity_of_track" value="0" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -1040,13 +1040,13 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="piece_price">سعر توصيل القطعة</label>
-                          <input type="text" class="form-control" name='piece_price' id="piece_price" readonly>
+                          <input type="text" class="form-control" name='piece_price' id="piece_price" value="0" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="total_price">سعر التوصيل الكلي</label>
-                          <input type="text" class="form-control" name='total_price' id="total_price" readonly>
+                          <input type="text" class="form-control" name='total_price' id="total_price" value="0" readonly>
                         </div>
                       </div>
                     </div>
@@ -1054,14 +1054,14 @@ if (isset($_POST['add-project'])) {
                       $("input").on("change", function() {
                         var quan = ($("#quantity").val() || 0) ;
                         var del_peice = ($("#peice_per_track").val() || 0) ;
-                        var tracks = quan / del_peice ;
+                        var tracks = ((quan / del_peice) || 0) ;
                         tracks = Math.ceil(tracks);
                          $("#quantity_of_track").val(tracks) ;
                         var track_price = ($("#track_price").val() || 0) ;
-                        var del_peice_price = track_price / del_peice;
+                        var del_peice_price = ((track_price / del_peice)|| 0);
                         $("#piece_price").val(del_peice_price);
                         var del_total = track_price * tracks ; 
-                        var del_total = del_total.toLocaleString("en_US") ;
+                        del_total = del_total.toLocaleString("en_US") ;
                         $("#total_price").val(del_total);
 
                        
