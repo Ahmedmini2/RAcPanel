@@ -603,13 +603,13 @@ if (isset($_GET['bank_req'])) {
                     </div>
                 </div>
                 <script>
-                    const sleep = ms => new Promise(res => setTimeout(res, ms));
-                    async function changeVal() {
-                        await sleep(3000);
+                    
+                     function changeVal() {
                         var value = document.getElementById("total").value;
-                        value = value.replace(/[.,\s]/g, "")
-                        document.getElementById("con").value = numToWords(value);
+                        value =  69920
+                        document.getElementById("con").innerText = numToWords(value);
                         console.log(value);
+                        
                     }
                     window.onload=changeVal;
                 </script>
