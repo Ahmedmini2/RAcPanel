@@ -267,7 +267,7 @@ if (isset($_GET['id'])) {
                                             <dt>تفاصيل المشروع: </dt>
                                             <dd> <?= $project['description'] ?></dd>
 
-                                             <!--  <dt>مدة الموافقة على المشروع: </dt>
+                                            <!--  <dt>مدة الموافقة على المشروع: </dt>
                                               <dd>للموافقة قبل:
                                                    <?= $project['valid_till'] ?> 
                                                 </dd> 
@@ -286,7 +286,7 @@ if (isset($_GET['id'])) {
                             </div>
                             <div class="col-xl-6">
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4 col-sm-2">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
@@ -301,7 +301,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 mt-md-0 mt-4">
+                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
@@ -309,14 +309,14 @@ if (isset($_GET['id'])) {
                                                 </div>
                                             </div>
                                             <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">القيمة المضافة </h6>
-                                               
+                                                <h6 class="text-center mb-0">القيمة المضافة</h6>
+
                                                 <hr class="horizontal dark my-3">
                                                 <h5 class="mb-0">+$2000</h5>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 mt-md-0 mt-4">
+                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
@@ -324,14 +324,14 @@ if (isset($_GET['id'])) {
                                                 </div>
                                             </div>
                                             <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">تكلفة المشروع الكلية</h6>
-                                                
+                                                <h6 class="text-center mb-0">تكلفة المشروع </h6>
+
                                                 <hr class="horizontal dark my-3">
                                                 <h5 class="mb-0">+$2000</h5>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 mt-md-0 mt-4">
+                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
@@ -339,14 +339,14 @@ if (isset($_GET['id'])) {
                                                 </div>
                                             </div>
                                             <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">تكلفة المشروع الكلية</h6>
-                                                
+                                                <h6 class="text-center mb-0">صافي الربح</h6>
+
                                                 <hr class="horizontal dark my-3">
                                                 <h5 class="mb-0">+$2000</h5>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 mt-md-0 mt-4">
+                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
@@ -354,13 +354,41 @@ if (isset($_GET['id'])) {
                                                 </div>
                                             </div>
                                             <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">تكلفة المشروع الكلية</h6>
-                                                
+                                                <h6 class="text-center mb-0">نسبة الربح</h6>
+
                                                 <hr class="horizontal dark my-3">
                                                 <h5 class="mb-0">+$2000</h5>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">حاله المشروع</h6>
+
+                                                <td class="align-middle">
+                                                    <div class="progress-wrapper w-75 mx-auto">
+                                                        <div class="progress-info">
+                                                            <div class="progress-percentage">
+                                                                <span class="text-xs font-weight-bold">60%</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="progress">
+                                                            <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">قيد التنفيد</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                             </div>
