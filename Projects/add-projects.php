@@ -559,8 +559,9 @@ if (isset($_POST['add-project'])) {
                   <input type="date" placeholder="" class="form-control" name="valid_till">
                 </div>
               </div>
+              <hr>
             </div>
-
+            
             <!-- Contact Detials -->
             <div class="contact_details">
               <h5>بيانات التواصل</h5>
@@ -604,8 +605,9 @@ if (isset($_POST['add-project'])) {
                   </div>
                 </div>
               </div>
+              <hr>
             </div>
-
+            
             <!-- Product Details -->
             <div id="product_details">
               <div class="product">
@@ -635,10 +637,8 @@ if (isset($_POST['add-project'])) {
                     </div>
                   </div>
                 </div>
-
-
-
-                <!-- Item Details -->
+                <hr>
+               <!-- Item Details -->
                 <div class="kh_details">
                   <h5>بند الخرسانة</h5>
                   <div class="item">
@@ -698,6 +698,7 @@ if (isset($_POST['add-project'])) {
                     </script>
 
                   </div>
+                  <hr>
                 </div>
                 <div class="iron_details">
                   <hr>
@@ -1139,6 +1140,7 @@ if (isset($_POST['add-project'])) {
 
 
 
+             
               </div>
               <!-- Product End -->
 
