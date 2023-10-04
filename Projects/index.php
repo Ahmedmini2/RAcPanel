@@ -62,6 +62,12 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                 <span class="d-sm-inline d-none">تسجيل الخروج</span>
               </a>
             </li>
+            <li class="nav-item d-flex align-items-center">
+              <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
+                <i class="fa fa-arrow-left me-sm-1"></i>
+                
+              </a>
+            </li>
             <li class="nav-item d-xl-none pe-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
