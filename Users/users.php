@@ -1,7 +1,7 @@
 <?php
-include ('../cookies/session2.php');
-$_SESSION['sidebar']="Users";
-$select =mysqli_query($conn, "select * from users");
+include('../cookies/session2.php');
+$_SESSION['sidebar'] = "Users";
+$select = mysqli_query($conn, "select * from users");
 
 ?>
 <!DOCTYPE html>
@@ -17,23 +17,23 @@ $select =mysqli_query($conn, "select * from users");
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
-      
-      <!-- Side Bar -->
+
+  <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
-      <!-- End Of side Bar -->
+  <!-- End Of side Bar -->
 
   <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
@@ -60,6 +60,15 @@ $select =mysqli_query($conn, "select * from users");
                 <span class="d-sm-inline d-none">تسجيل الخروج</span>
               </a>
             </li>
+
+            <li class="nav-item d-xl-none pe-3 d-flex align-items-center">
+              <a href="javascript:history.go(-1)">
+                <button type="button">
+                  Back
+                </button>
+              </a>
+            </li>
+
             <li class="nav-item d-xl-none pe-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
@@ -153,19 +162,18 @@ $select =mysqli_query($conn, "select * from users");
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-        <div class="row">
-        
-        <a href="add-user.php" 
-        class="btn bg-gradient-dark rounded-pill content-link col-md-2 col-sm-6 col-xs-6"> أضافة مستخدم</a>
+      <div class="row">
+
+        <a href="add-user.php" class="btn bg-gradient-dark rounded-pill content-link col-md-2 col-sm-6 col-xs-6"> أضافة مستخدم</a>
         <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
-            <div class="content">
-                    
-                
-                <div class="block">
-                    
-                    <table class="table align-items-center mb-0" id="myTable">
-                    <thead>
-                    <tr>
+          <div class="content">
+
+
+            <div class="block">
+
+              <table class="table align-items-center mb-0" id="myTable">
+                <thead>
+                  <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Sr.#</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Email</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">User Name</th>
@@ -176,34 +184,44 @@ $select =mysqli_query($conn, "select * from users");
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Created at</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Action</th>
 
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php $i=0; while($r=mysqli_fetch_array($select)){$i++; ?>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $i = 0;
+                  while ($r = mysqli_fetch_array($select)) {
+                    $i++; ?>
 
 
                     <tr>
-                    <td><?php echo $i;?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $custem =  $r['email'];?></td>
-                    <td class="mb-0 text-sm"><?php echo $r['username'];?></td>
-                    <td class="mb-0 text-sm"><?php echo $r['full_name'];?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['phone'];?></td>
-                    <td class="text-secondary mb-0"><?php if($r['position']=="Admin") {echo '<span class="badge badge-sm bg-gradient-success">Admin</span>';} elseif ($r['position']=="Manager"){echo '<span class="badge badge-sm bg-gradient-warning">Manager</span>';} elseif($r['position'] == "Accounts") {echo '<span class="badge badge-sm bg-gradient-primary">Accounts</span>';}  elseif($r['position'] == "Reception") {echo '<span class="badge badge-sm bg-gradient-danger">Reception</span>';}?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['status'];?></td>
-                    <td class="text-secondary text-xs font-weight-bold"><?php echo $r['created_at']; ?></td>
-                    <td><a href="../scripts/users/delete.php?id=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                      <td><?php echo $i; ?></td>
+                      <td class="text-xs text-secondary mb-0"><?php echo $custem =  $r['email']; ?></td>
+                      <td class="mb-0 text-sm"><?php echo $r['username']; ?></td>
+                      <td class="mb-0 text-sm"><?php echo $r['full_name']; ?></td>
+                      <td class="text-xs text-secondary mb-0"><?php echo $r['phone']; ?></td>
+                      <td class="text-secondary mb-0"><?php if ($r['position'] == "Admin") {
+                                                        echo '<span class="badge badge-sm bg-gradient-success">Admin</span>';
+                                                      } elseif ($r['position'] == "Manager") {
+                                                        echo '<span class="badge badge-sm bg-gradient-warning">Manager</span>';
+                                                      } elseif ($r['position'] == "Accounts") {
+                                                        echo '<span class="badge badge-sm bg-gradient-primary">Accounts</span>';
+                                                      } elseif ($r['position'] == "Reception") {
+                                                        echo '<span class="badge badge-sm bg-gradient-danger">Reception</span>';
+                                                      } ?></td>
+                      <td class="text-xs text-secondary mb-0"><?php echo $r['status']; ?></td>
+                      <td class="text-secondary text-xs font-weight-bold"><?php echo $r['created_at']; ?></td>
+                      <td><a href="../scripts/users/delete.php?id=<?php echo $r['id']; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
                     </tr>
 
-                    <?php } ?>
-                    </tbody>
-                    </table>
+                  <?php } ?>
+                </tbody>
+              </table>
 
-                </div>
-            </div>    
+            </div>
+          </div>
         </div>
-        </div>
-        
+      </div>
+
       <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
@@ -214,7 +232,7 @@ $select =mysqli_query($conn, "select * from users");
                 </script>,
                 Made by
                 <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
-                
+
               </div>
             </div>
             <div class="col-lg-6">
@@ -228,7 +246,7 @@ $select =mysqli_query($conn, "select * from users");
                 <li class="nav-item">
                   <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
                 </li>
-                
+
               </ul>
             </div>
           </div>
