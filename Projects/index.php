@@ -78,7 +78,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
             </li>
             <li class="nav-item dropdown ps-2 d-flex align-items-center">
               <button onclick="history.go(-1)">
-                Click here to go back
+              <i class="bi bi-arrow-left-circle-fill"></i>
               </button>
             </li>
           </ul>
