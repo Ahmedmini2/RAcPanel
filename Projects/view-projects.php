@@ -188,7 +188,7 @@ while ($r = mysqli_fetch_array($res2)) {
                         <div class="row ">
                             <div class="text-right col-lg-10 col-sm-6">
                                 <button type="button" id="btn2" class="btn bg-gradient-dark rounded-pill ">
-                                    طباعة امر الشراء
+                                    طباعة التسعيرة
                                 </button>
 
                                 <button type="button" id="btn3" class=" btn bg-gradient-dark rounded-pill ">
