@@ -433,7 +433,8 @@ if (isset($_POST['add-project'])) {
             </li>
             <li class="nav-item px-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0">
-                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+               
+                <i class="fa fa-arrow-left me-sm-1 cursor-pointer"  onclick="history.back()" ></i>
               </a>
             </li>
             <li class="nav-item dropdown ps-2 d-flex align-items-center">
