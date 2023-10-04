@@ -1015,7 +1015,7 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="peice_per_track">عدد القطع للتريلة</label>
-                          <input type="text" class="form-control" name='peice_per_track' id="peice_per_track">
+                          <input type="text" class="form-control" name='peice_per_track' id="peice_per_track" value="0">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -1027,13 +1027,13 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="delivery_to">التوصيل الى</label>
-                          <input type="text" class="form-control" name='delivery_to' id="delivery_to">
+                          <input type="text" class="form-control" name='delivery_to' id="delivery_to" value="0">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="track_price">سعر توصيل التريلة</label>
-                          <input type="text" class="form-control" name='track_price' id="track_price">
+                          <input type="text" class="form-control" name='track_price' id="track_price" value="0">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -1051,10 +1051,12 @@ if (isset($_POST['add-project'])) {
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var peice = ((parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val()) || 0))
-
-                        peice = peice.toLocaleString("en-US");
-                        $("#cover_tot").val(peice);
+                        var quan = ($("#quantity").val() || 0) ;
+                        var del_peice = ($("#peice_per_track").val()) || 0 ;
+                        var tracks = quan / del_peice ;
+                        tracks = Math.ceil(tracks);
+                        $("#quantity_of_track").val(tracks) ;
+                        
                       })
                     </script>
 
