@@ -992,13 +992,13 @@ if (isset($_POST['add-project'])) {
                     <div class="row">
                     <label for="">هل الصنف قابل للتوصيل ؟</label>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="">
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                       <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
                     </div>
                     <script>
                       $(document).ready(function() {
                       $('input[type="checkbox"]').click(function() {
-                        console.log('Checked switch : ' + $(this).value('checked'));
+                        console.log('Checked switch : ' + $(this).attr('checked'));
                           if($(this).attr('checked') == '') {
                                 $('#delivery-div').show();           
                           }
