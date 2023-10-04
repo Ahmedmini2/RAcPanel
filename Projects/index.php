@@ -64,7 +64,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
             </li>
             <li class="nav-item d-flex align-items-center">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
-                <i class="bi bi-arrow-left me-sm-1"></i>
+                <i class="fa fa-arrow-left me-sm-1"></i>
                 
               </a>
             </li>
