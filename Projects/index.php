@@ -62,12 +62,6 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                 <span class="d-sm-inline d-none">تسجيل الخروج</span>
               </a>
             </li>
-            <li class="nav-item d-flex align-items-center">
-              <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
-                <i class="fa fa-arrow-left me-sm-1"></i>
-                
-              </a>
-            </li>
             <li class="nav-item d-xl-none pe-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
@@ -77,10 +71,10 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                 </div>
               </a>
             </li>
+           
+            
             <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0">
-                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-              </a>
+            <i class="fa fa-arrow-left me-sm-1"  onclick="history.back()" ></i>
             </li>
             <li class="nav-item dropdown ps-2 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
