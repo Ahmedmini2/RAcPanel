@@ -1054,11 +1054,11 @@ if (isset($_POST['add-project'])) {
                       $("input").on("change", function() {
                         var quan = ($("#quantity").val() || 0) ;
                         var del_peice = ($("#peice_per_track").val() || 0) ;
-                        var tracks = quan / del_peice ;
+                        var tracks = ((quan / del_peice) || 0) ;
                         tracks = Math.ceil(tracks);
                          $("#quantity_of_track").val(tracks) ;
                         var track_price = ($("#track_price").val() || 0) ;
-                        var del_peice_price = track_price / del_peice;
+                        var del_peice_price = ((track_price / del_peice)|| 0);
                         $("#piece_price").val(del_peice_price);
                         var del_total = track_price * tracks ; 
                         del_total = del_total.toLocaleString("en_US") ;
