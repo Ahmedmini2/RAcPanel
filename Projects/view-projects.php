@@ -253,38 +253,7 @@ if (isset($_GET['id'])) {
                     <!--********* -->
                     <div class="container-fluid py-4">
                         <div class="row">
-                            <div class="col-xl-6 mb-xl-0 mb-4">
-                                <div class="card h-100">
-                                    <div class="card-body p-3">
-
-                                        <dl class="dl-horizontal">
-                                            <dt>معلومات المشروع</dt>
-                                            <dd></dd>
-
-                                            <dt>الجهة الطالبة المشروع: </dt>
-                                            <dd><?= $project['name'] ?></dd>
-
-                                            <dt>تفاصيل المشروع: </dt>
-                                            <dd> <?= $project['description'] ?></dd>
-
-                                             <!--  <dt>مدة الموافقة على المشروع: </dt>
-                                              <dd>للموافقة قبل:
-                                                   <?= $project['valid_till'] ?> 
-                                                </dd> 
-                                              -->
-
-                                            <dt>مدة تنفيذ المشروع: </dt>
-                                            <dd><?= $project['duration'] ?></dd>
-
-                                            <dt>طريقة الدفع: </dt>
-                                            <dd><?= $project['payment_type'] ?></dd>
-
-                                        </dl>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
+                        <div class="col-xl-12">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="card ">
@@ -364,6 +333,38 @@ if (isset($_GET['id'])) {
                                 </div>
 
                             </div>
+                            <div class="col-xl-6 mb-xl-0 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body p-3">
+
+                                        <dl class="dl-horizontal">
+                                            <dt>معلومات المشروع</dt>
+                                            <dd></dd>
+
+                                            <dt>الجهة الطالبة المشروع: </dt>
+                                            <dd><?= $project['name'] ?></dd>
+
+                                            <dt>تفاصيل المشروع: </dt>
+                                            <dd> <?= $project['description'] ?></dd>
+
+                                             <!--  <dt>مدة الموافقة على المشروع: </dt>
+                                              <dd>للموافقة قبل:
+                                                   <?= $project['valid_till'] ?> 
+                                                </dd> 
+                                              -->
+
+                                            <dt>مدة تنفيذ المشروع: </dt>
+                                            <dd><?= $project['duration'] ?></dd>
+
+                                            <dt>طريقة الدفع: </dt>
+                                            <dd><?= $project['payment_type'] ?></dd>
+
+                                        </dl>
+
+                                    </div>
+                                </div>
+                            </div>
+                            
 
                         </div>
 
