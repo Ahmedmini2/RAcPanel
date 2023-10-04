@@ -990,19 +990,16 @@ if (isset($_POST['add-project'])) {
                   <h5>التوصيل</h5>
                   <div class="delivery">
                     <div class="row">
-                    <label for="peice_per_track">هل الصنف قابل للتوصيل ؟</label>
-                    <div class="form-check mb-3 col-md-2 col-sm-6">
-                      <input class="form-check-input" type="radio" name="del_yes" id="yes">
-                      <label class="custom-control-label" for="yes">نعم</label>
-                    </div>
-                    <div class="form-check col-md-2 col-sm-6">
-                      <input class="form-check-input" type="radio" name="del_no" id="no">
-                      <label class="custom-control-label" for="no">لا</label>
+                    <label for="">هل الصنف قابل للتوصيل ؟</label>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="">
+                      <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
                     </div>
                     <script>
                       $(document).ready(function() {
-                      $('input[type="radio"]').click(function() {
-                          if($(this).attr('id') == 'yes') {
+                      $('input[type="checkbox"]').click(function() {
+                        console.log('Checked switch : ' + $(this).attr('checked'));
+                          if($(this).attr('checked') == '') {
                                 $('#delivery-div').show();           
                           }
 
