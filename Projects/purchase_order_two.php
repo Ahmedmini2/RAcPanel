@@ -570,20 +570,6 @@ if (isset($_GET['bank_req'])) {
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="text-left">
-
-                                            <span class="text-muted">Delivery</span>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-right">
-                                            <span>2,800.00</span>
-                                        </div>
-                                    </td>
-                                </tr>
                                 <tr class="border-top border-bottom">
                                     <td>
                                         <div class="text-left">
