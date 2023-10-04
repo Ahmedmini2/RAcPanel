@@ -990,9 +990,27 @@ if (isset($_POST['add-project'])) {
                   <h5>التوصيل</h5>
                   <div class="delivery">
                     <div class="row">
+                    <label for="peice_per_track">هل المشروع قابل  للتوصيل ؟</label>
+                    <input id='yes' name='yes_del' class="form-control" type='radio' /> نعم 
+                    <input name='del_no' class="form-control" type='radio' />
+                    <script>
+                      $(document).ready(function() {
+                      $('input[type="radio"]').click(function() {
+                          if($(this).attr('id') == 'yes') {
+                                $('#show-me').show();           
+                          }
+
+                          else {
+                                $('#show-me').hide();   
+                          }
+                      });
+                    });
+                    </script>
+                    </div>
+                    <div class="row">
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
-                          <label for="cover_type">عدد القطع للتريلة</label>
+                          <label for="peice_per_track">عدد القطع للتريلة</label>
                           <input type="text" class="form-control" name='peice_per_track' id="peice_per_track">
                         </div>
                       </div>
