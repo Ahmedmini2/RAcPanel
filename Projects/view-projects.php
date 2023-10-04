@@ -2,20 +2,18 @@
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
 
-if(isset($_GET['id'])){
-$project_cost = 0;
-$id = $_GET['id'];
+if (isset($_GET['id'])) {
+    $project_cost = 0;
+    $id = $_GET['id'];
 
-$query = "SELECT * FROM projects WHERE `id` = $id";
-$res = $conn->query($query);
-$project = $res->fetch_assoc();
+    $query = "SELECT * FROM projects WHERE `id` = $id";
+    $res = $conn->query($query);
+    $project = $res->fetch_assoc();
 
-$res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
-while ($r = mysqli_fetch_array($res2)) {
-    $project_cost += $r['cost_price'] * $r['quantity'];
-      
-}
-
+    $res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+    while ($r = mysqli_fetch_array($res2)) {
+        $project_cost += $r['cost_price'] * $r['quantity'];
+    }
 }
 
 
@@ -260,21 +258,25 @@ while ($r = mysqli_fetch_array($res2)) {
                                     <div class="card-body p-3">
 
                                         <dl class="dl-horizontal">
+                                            <h6>معلومات المشروع</h6>
 
-                                            <dt>اسم المشروع: </dt>
-                                            <dd><?=$project['name']?></dd>
+                                            <dt>الجهة الطالبة المشروع: </dt>
+                                            <dd><?= $project['name'] ?></dd>
 
                                             <dt>تفاصيل المشروع: </dt>
-                                            <dd> <?=$project['description']?></dd>
+                                            <dd> <?= $project['description'] ?></dd>
 
-                                            <dt>مدة الموافقة على المشروع: </dt>
-                                            <dd>للموافقة قبل: <?=$project['valid_till']?></dd>
+                                            <!--  <dt>مدة الموافقة على المشروع: </dt>
+                                              <dd>للموافقة قبل:
+                                                   <?= $project['valid_till'] ?> 
+                                                </dd> 
+                                              -->
 
                                             <dt>مدة تنفيذ المشروع: </dt>
-                                            <dd><?=$project['duration']?></dd>
+                                            <dd><?= $project['duration'] ?></dd>
 
                                             <dt>طريقة الدفع: </dt>
-                                            <dd><?=$project['payment_type']?></dd>
+                                            <dd><?= $project['payment_type'] ?></dd>
 
                                         </dl>
 
@@ -283,7 +285,7 @@ while ($r = mysqli_fetch_array($res2)) {
                             </div>
                             <div class="col-xl-6">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-sm-2 mb-3">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
@@ -291,14 +293,44 @@ while ($r = mysqli_fetch_array($res2)) {
                                                 </div>
                                             </div>
                                             <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">تكلفة المشروع</h6>
+                                                <h6 class="text-center mb-0">القيمة الاجمالية للمشروع</h6>
                                                 <hr class="horizontal dark my-3">
-                                                
-                                                <h5 class="mb-0"><?=number_format($project_cost)?> ريال</h5>
+
+                                                <h5 class="mb-0"><?= number_format($project_cost) ?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 mt-md-0 mt-4">
+                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">القيمة المضافة</h6>
+
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">+$2000</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">تكلفة المشروع </h6>
+
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">+$2000</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
@@ -307,13 +339,28 @@ while ($r = mysqli_fetch_array($res2)) {
                                             </div>
                                             <div class="card-body pt-0 p-3 text-center">
                                                 <h6 class="text-center mb-0">صافي الربح</h6>
-                                                <span class="text-xs">ركن اميال</span>
+
                                                 <hr class="horizontal dark my-3">
                                                 <h5 class="mb-0">+$2000</h5>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 mt-md-0 mt-4">
+                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">نسبة الربح</h6>
+
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">+$2000</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
@@ -340,6 +387,7 @@ while ($r = mysqli_fetch_array($res2)) {
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
                             </div>
@@ -351,7 +399,7 @@ while ($r = mysqli_fetch_array($res2)) {
                             <div class="col-12">
                                 <div class="card mb-4">
                                     <div class="card-header pb-0">
-                                        <h6>الاصناف</h6>
+                                        <h6>خط سير تنفيد المشروع</h6>
                                     </div>
                                     <div class="card-body px-0 pt-0 pb-2 mx-3">
                                         <div class="table-responsive p-0">
@@ -375,27 +423,27 @@ while ($r = mysqli_fetch_array($res2)) {
 
                                                 <!--Table body-->
                                                 <tbody>
-                                                    <?php 
+                                                    <?php
                                                     $i = 0;
                                                     $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
                                                     while ($products = mysqli_fetch_array($res3)) {
-                                                    $i++;
-                                                          
-                                                    ?>
-                                                    <tr>
-                                                        <th scope="row"><?=$i?></th>
-                                                        <td><?=$products['product_name']?></td>
-                                                        <td><?=$products['dimensions']?></td>
-                                                        <td><?=number_format($products['cost_price'])?></td>
-                                                        <td><?=number_format($products['sell_price'])?></td>
-                                                        <td><?=number_format($products['net_profit'])?></td>
-                                                        <td><?=$products['net_perc']?></td>
-                                                        <td><?=$products['quantity']?></td>
+                                                        $i++;
 
-                                                        <td><?=$products['quantity']?></td>
-                                                    </tr>
+                                                    ?>
+                                                        <tr>
+                                                            <th scope="row"><?= $i ?></th>
+                                                            <td><?= $products['product_name'] ?></td>
+                                                            <td><?= $products['dimensions'] ?></td>
+                                                            <td><?= number_format($products['cost_price']) ?></td>
+                                                            <td><?= number_format($products['sell_price']) ?></td>
+                                                            <td><?= number_format($products['net_profit']) ?></td>
+                                                            <td><?= $products['net_perc'] ?></td>
+                                                            <td><?= $products['quantity'] ?></td>
+
+                                                            <td><?= $products['quantity'] ?></td>
+                                                        </tr>
                                                     <?php } ?>
-                                                   
+
                                                 </tbody>
                                                 <!--Table body-->
 
@@ -522,11 +570,11 @@ while ($r = mysqli_fetch_array($res2)) {
 
             </div>
             <button type="button" id="btnD" class=" btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 mx-4 ">
-            حذف المشروع
-        </button>
+                حذف المشروع
+            </button>
         </div>
 
-        
+
         <footer class="footer pt-3  ">
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-lg-between">
