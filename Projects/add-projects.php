@@ -1061,7 +1061,6 @@ if (isset($_POST['add-project'])) {
                         var del_peice_price = ((track_price / del_peice)|| 0);
                         $("#piece_price").val(del_peice_price);
                         var del_total = track_price * tracks ; 
-                        del_total = del_total.toLocaleString("en_US") ;
                         $("#total_price").val(del_total);
 
                        
