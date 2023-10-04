@@ -997,17 +997,17 @@ if (isset($_POST['add-project'])) {
                       $(document).ready(function() {
                       $('input[type="radio"]').click(function() {
                           if($(this).attr('id') == 'yes') {
-                                $('#show-me').show();           
+                                $('#delivery-div').show();           
                           }
 
                           else {
-                                $('#show-me').hide();   
+                                $('#delivery-div').hide();   
                           }
                       });
                     });
                     </script>
                     </div>
-                    <div class="row">
+                    <div class="row" id="delivery-div">
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="peice_per_track">عدد القطع للتريلة</label>
