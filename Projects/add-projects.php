@@ -991,8 +991,8 @@ if (isset($_POST['add-project'])) {
                   <div class="delivery">
                     <div class="row">
                     <label for="peice_per_track">هل المشروع قابل  للتوصيل ؟</label>
-                    <input id='yes' name='yes_del' class="form-control" type='radio' /> نعم 
-                    <input name='del_no' class="form-control" type='radio' />
+                    <input id='yes' name='yes_del'  type='radio' /> نعم 
+                    <input name='del_no'  type='radio' />
                     <script>
                       $(document).ready(function() {
                       $('input[type="radio"]').click(function() {
