@@ -408,15 +408,15 @@ if (isset($_GET['id'])) {
                                                 <!--Table head-->
                                                 <thead class="bg-dark text-light">
                                                     <tr>
-                                                        <th>الرقم</th>
-                                                        <th>الاسم</th>
-                                                        <th>الابعاد</th>
-                                                        <th>التكلفة</th>
-                                                        <th>سعر البيع</th>
-                                                        <th>صافي الربح</th>
-                                                        <th>نسبة الربح</th>
-                                                        <th>الكمية</th>
-                                                        <th>تم الانتاج</th>
+                                                        <th class="text-center">الرقم</th>
+                                                        <th class="text-center">الاسم</th>
+                                                        <th class="text-center">الابعاد</th>
+                                                        <th class="text-center">التكلفة</th>
+                                                        <th class="text-center">سعر البيع</th>
+                                                        <th class="text-center">صافي الربح</th>
+                                                        <th class="text-center">نسبة الربح</th>
+                                                        <th class="text-center">الكمية</th>
+                                                        <th class="text-center">تم الانتاج</th>
                                                     </tr>
                                                 </thead>
                                                 <!--Table head-->
