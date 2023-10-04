@@ -990,10 +990,14 @@ if (isset($_POST['add-project'])) {
                   <h5>التوصيل</h5>
                   <div class="delivery">
                     <div class="row">
-                    <div class="col-md-2 col-sm-6 ">
-                    <label for="peice_per_track">هل المشروع قابل  للتوصيل ؟</label>
-                    <input id='yes' name='yes_del' class="form-control" type='radio' /> نعم 
-                    <input name='del_no' class="form-control" type='radio' /> لا
+                    <label for="peice_per_track">هل الصنف قابل للتوصيل ؟</label>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="radio" name="del_yes" id="yes">
+                      <label class="custom-control-label" for="del_yes">نعم</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="del_no" >
+                      <label class="custom-control-label" for="del_no">لا</label>
                     </div>
                     <script>
                       $(document).ready(function() {
