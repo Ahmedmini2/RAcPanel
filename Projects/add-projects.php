@@ -1038,6 +1038,7 @@ if (isset($_POST['add-project'])) {
 
                   </div>
                 </div>
+                <hr>
 
                 <!-- Item End -->
 
