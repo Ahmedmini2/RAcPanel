@@ -998,7 +998,7 @@ if (isset($_POST['add-project'])) {
                     <script>
                       $(document).ready(function() {
                       $('input[type="checkbox"]').click(function() {
-                          if(document.getElementById("flexSwitchCheckDefault").checked = true) {
+                          if(document.getElementById("flexSwitchCheckDefault").checked  == true) {
                                 $('#delivery-div').show();  
                                 document.getElementById("toggle_ch").innerText ="نعم";         
                           }
