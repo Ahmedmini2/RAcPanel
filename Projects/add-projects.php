@@ -991,7 +991,7 @@ if (isset($_POST['add-project'])) {
                   <div class="delivery">
                     <div class="row">
                     <label for="">هل الصنف قابل للتوصيل ؟</label>
-                    <div class="form-check form-switch col-2 col-sm-6">
+                    <div class="form-check form-switch col-md-2 col-sm-6">
                       <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                       <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
                     </div>
