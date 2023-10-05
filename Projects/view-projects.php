@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
 
     $res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
     while ($r = mysqli_fetch_array($res2)) {
-        $project_cost += $r['cost_price'] * $r['quantity'];
+        $sell_price += $r['sell_price'] * $r['quantity'];
     }
 }
 
@@ -297,7 +297,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">القيمة الاجمالية للمشروع</h6>
                                                 <hr class="horizontal dark my-3">
 
-                                                <h5 class="mb-0"><?= number_format($project_cost) ?> ريال</h5>
+                                                <h5 class="mb-0"><?= number_format($project['total_without_tax']) ?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -312,7 +312,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">القيمة المضافة</h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">+$2000</h5>
+                                                <h5 class="mb-0"><?= number_format($project['total_with_tax']) ?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -327,7 +327,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">تكلفة المشروع </h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">+$2000</h5>
+                                                <h5 class="mb-0"><?= number_format($project['project_cost']) ?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -342,7 +342,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">صافي الربح</h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">+$2000</h5>
+                                                <h5 class="mb-0"><?= number_format($project['net_total']) ?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -357,7 +357,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">نسبة الربح</h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">+$2000</h5>
+                                                <h5 class="mb-0"><?php echo (($sell_price - $project['total_without_tax']) / $project['total_without_tax']) * 100 ;  ?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
