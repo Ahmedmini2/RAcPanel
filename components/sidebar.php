@@ -137,7 +137,7 @@ $sidebar = $_SESSION['sidebar'];
       </li>
       <li class="nav-item">
         <a class="nav-link <?php if ($sidebar == "Factory") echo 'active'; ?>" href="../Factory/index.php">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-wrench-adjustable icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -152,7 +152,7 @@ $sidebar = $_SESSION['sidebar'];
               </g>
             </svg>
           </div>
-          <span class="nav-link-text me-1">المشاريع</span>
+          <span class="nav-link-text me-1">المصنع</span>
         </a>
 
       </li>
