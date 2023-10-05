@@ -198,52 +198,164 @@ if (!empty($_GET['edit'])) {
         <!-- End Navbar -->
         <div class="container-fluid py-4">
             <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label>اختيار الصنف </label>
-                        <select class="select" placeholder="الصنف">
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-
-
+                <div class="block block-themed">
+                    <div class="block-header bg-warning col-md-3 col-sm-6 col-xs-6 rounded">
+                        <?php require_once('../components/notification.php'); ?>
                     </div>
-                </div>
-            </div>
-        </div>
+                    <div class="block-header bg-gradient-dark col-md-2 col-sm-6 col-xs-6  rounded-pill">
+                        <h6 class="block-title text-white py-2 px-4 ">إضافة طلب تعميد جديد</h6>
+                    </div>
+                    <form id="<?php echo $idAttr; ?>" action="" method="post">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>نوع التعميد</label>
+                                    <select name="name" id="name" class="form-control" placeholder="نوع التعميد" onchange="showDiv(this)">
+                                        <option value="0"></option>
+                                        <option value="1">طلب تحويل بنكي</option>
+                                        <option value="2">طلب سحب مبلغ مالي</option>
+                                        <option value="3">طلب اصدار شيك بنكي</option>
+                                        <option value="4">تسديد فاتورة إلكترونية</option>
+                                    </select>
 
-        <footer class="footer pt-3  ">
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6 mb-lg-0 mb-4">
-                        <div class="copyright text-center text-sm text-muted text-lg-end">
-                            © <script>
-                                document.write(new Date().getFullYear())
-                            </script>,
-                            made with <i class="fa fa-heart"></i> by
-                            <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
+                                    <script type="text/javascript">
+                                        function showDiv(select) {
+                                            if (select.value == 1) {
+                                                document.getElementById('hidden_div').style.display = "block";
+                                            } else {
+                                                document.getElementById('hidden_div').style.display = "none";
+                                                document.getElementById('hidden_div2').style.display = "none";
+                                                document.getElementById('hidden_div3').style.display = "none";
+                                            }
+                                        }
+                                    </script>
+
+                                </div>
+                            </div>
 
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-                            </li>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>التفاصيل و الملاحظات</label>
+                                    <textarea placeholder="التفاصيل" class="form-control" name="description" value="<?php echo $description; ?>"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="form-group">
+                                    <label>المبلغ المالي كتابة</label>
+                                    <input type="text" placeholder="الرجاء كتابة المبلغ المالي نصا" class="form-control" name="amount_text" value="<?php echo $amount_text; ?>">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>المبلغ المالي ارقام</label>
+                                    <input type="number" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="amount_number" value="<?php echo $amount_number; ?>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>من حساب الشركة بنك</label>
+                                    <select name="our_bank_name" id="our_bank_name" class="form-control" placeholder="نوع التعميد">
+                                        <?php
+                                        $select = mysqli_query($conn, "select * from bank_info");
+                                        while ($r = mysqli_fetch_array($select)) {
 
-                        </ul>
-                    </div>
+                                            echo '<option value="' . $r['name'] . '">' . $r['name'] . '</option>';
+                                        }
+                                        ?>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col" id="hidden_div" style="display:none">
+                                <div class="form-group">
+                                    <label>نوع الحساب</label>
+                                    <select name="to_account_type" id="to_account_type" class="form-control" placeholder="نوع التعميد" onchange="showDiv2(this)">
+                                        <option value="0"></option>
+                                        <option value="حساب مسجل">حساب مسجل</option>
+                                        <option value="حساب جديد">حساب جديد</option>
+                                    </select>
+                                    <script type="text/javascript">
+                                        function showDiv2(select) {
+                                            if (select.value == "حساب جديد") {
+                                                document.getElementById('hidden_div2').style.display = "block";
+                                                document.getElementById('hidden_div3').style.display = "none";
+                                            } else {
+                                                document.getElementById('hidden_div2').style.display = "none";
+                                                document.getElementById('hidden_div3').style.display = "block";
+                                            }
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col" id="hidden_div3" style="display:none">
+                                <div class="form-group">
+                                    <label>الى حساب شركة</label>
+                                    <select name="transfer_to" id="transfer_to" class="form-control" placeholder="نوع التعميد">
+                                        <option value=""></option>
+                                        <?php
+                                        $select = mysqli_query($conn, "select * from beneficiary_info");
+                                        while ($r = mysqli_fetch_array($select)) {
+
+                                            echo '<option value="' . $r['name'] . '">' . $r['name'] . ' ( ' . $r['beneficiary_bank'] . ' )</option>';
+                                        }
+                                        ?>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" id="hidden_div2" style="display:none">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>أسم الجهة</label>
+                                    <input type="text" placeholder="الرجاء كتابة أسم الجهة" class="form-control" name="to_name">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>أسم البنك</label>
+                                    <input type="text" placeholder="الرجاء كتابة أسم البنك المحول له" class="form-control" name="to_bank_name">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>رقم الحساب</label>
+                                    <input type="text" placeholder="الرجاء كتابة أسم رقم حساب البنك المحول له" class="form-control" name="to_bank_number">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>رقم الأيبان</label>
+                                    <input type="text" placeholder="الرجاء كتابة أسم رقم حساب البنك المحول له" class="form-control" name="to_bank_iban">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <button type="submit" name="submit" class="btn btn-secondary">تقديم طلب التعميد</button>
+                                </div>
+                            </div>
+                            <div class="col">
+
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </footer>
         </div>
+
     </main>
     <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
