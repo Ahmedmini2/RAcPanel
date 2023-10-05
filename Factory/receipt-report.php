@@ -188,7 +188,7 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> الكمية الموجودة في المستودع </label>
-                                    <input type="text" placeholder="الرجاء كتابة الكميةالموجودة في المستودع    " class="form-control" name="branch" value="">
+                                    <input type="text" placeholder="الرجاء كتابة الكميةالموجودة في المستودع    " class="form-control" name="branch" value="" readonly>
 
                                 </div>
                             </div>
