@@ -182,7 +182,7 @@ if (isset($_GET['id'])) {
 
                         <div class="row ">
                             <div class="text-right col-lg-10 col-sm-6">
-                                <a href="project-report.php" 
+                                <a href="project-report.php?project_id=<?=$id?>" 
                                 class="btn bg-gradient-dark mb-0  col-lg-3 col-md-2 col-sm-6 col-xs-6">
                                  رفع التقرير عن الانتاج
                                  <i class="fas fa-plus" aria-hidden="true"></i>
