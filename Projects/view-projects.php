@@ -378,13 +378,15 @@ if (isset($_GET['id'])) {
                                                                 <span class="text-xs font-weight-bold">60%</span>
                                                             </div>
                                                         </div>
+                                                        <?php if ($project['total_without_tax'] == "قيد التنفيذ") { ?>
                                                         <div class="progress">
                                                             <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>
+                                                        <?php } ?>
                                                     </div>
                                                 </td>
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">قيد التنفيد</h5>
+                                                <h5 class="mb-0"><?=$project['status']?></h5>
                                             </div>
                                         </div>
                                     </div>
