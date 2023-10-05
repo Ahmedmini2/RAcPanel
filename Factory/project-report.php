@@ -206,6 +206,9 @@ if (!empty($_GET['edit'])) {
                         <h6 class="block-title text-white py-2 px-4 ">إضافة تقرير يومي جديد</h6>
                     </div>
                     <form>
+                        <div class="row col-lg-6">
+
+                        
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
@@ -279,6 +282,7 @@ if (!empty($_GET['edit'])) {
                                     <input type="text" placeholder="الرجاء كتابة المبلغ" class="form-control" name="amount_text" >
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </form>
                 </div>
