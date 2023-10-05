@@ -1,48 +1,8 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Factory";
-$select = mysqli_query($conn, "select * from users");
-
-
-
-if (!empty($_GET['edit'])) {
-
-    $editId = $_GET['edit'];
-    $query = "SELECT * FROM users WHERE id=$editId";
-    $res = $conn->query($query);
-    $editData = $res->fetch_assoc();
-    $fullName = $editData['full_name'];
-    $username = $editData['username'];
-    $email = $editData['email'];
-    $phone = $editData['phone'];
-    $position = $editData['position'];
-    $role = $editData['role'];
-    $password = $editData['password'];
-
-
-    $idAttr = "updateForm";
-
-    // }else if(isset($_POST['submit'])){
-    //   $fullName=$_POST['full_name'];
-    //   $email=$_POST['email'];
-    //   $phone=$_POST['phone'];
-    //   $role=$_POST['role'];
-    //   $password=$_POST['password'];
-    //   $cpassword=$_POST['cpassword'];
-    //   $username=$_POST['username'];
-    //   $position=$_POST['position'];
-
-    //   if($password == $cpassword){
-    //     $query="INSERT INTO users ('')";
-    //   }
-} else {
-
-    $password = "";
-    $username = "";
-
-
-    $editId = '';
-    $idAttr = "adminForm";
+if(isset($_GET['project_id'])){
+    $id = $_GET['project_id'];
 }
 
 ?>
@@ -212,12 +172,17 @@ if (!empty($_GET['edit'])) {
                                 <div class="form-group">
                                     <label>اختيار الصنف</label>
                                     <select name="name" id="name" class="form-control" placeholder="اختيار النوع">
-                                        <option value="0"></option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                       
+                                        <?php
+                                        $s_items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
+                                        while ($item = mysqli_fetch_array($s_items)){
+                                            echo '<option value="'.$item['product_name'].'">'.$item['product_name'].'</option>';
+                                        }
+
+                                        ?>
+
                                     </select>
-                                  
+
                                 </div>
                             </div>
                             <div class="col">
