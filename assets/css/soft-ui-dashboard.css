@@ -3987,8 +3987,8 @@ fieldset:disabled .btn {
 .btn-outline-primary.active,
 .btn-outline-primary.dropdown-toggle.show {
   color: #fff;
-  background-color: #39cb0c;
-  border-color: #ffffff;
+  background-color: #cb0c9f;
+  border-color: #cb0c9f;
 }
 
 .btn-check:checked+.btn-outline-primary:focus,
@@ -4001,7 +4001,7 @@ fieldset:disabled .btn {
 
 .btn-outline-primary:disabled,
 .btn-outline-primary.disabled {
-  color: #cb0c9f;
+  color:  #fff;
   background-color: transparent;
 }
 
