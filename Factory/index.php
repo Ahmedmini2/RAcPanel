@@ -200,7 +200,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                   </p>
                   <a href="view-factory.php?id=' . $r["id"] . '"> 
                   <div class="d-flex align-items-center justify-content-between">
-                    <button  type="button" class="btn btn-outline-primary font-weight-bold btn-sm mb-0">عرض التفاصيل</button>
+                    <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
                   </div>
                   </a>
                   
