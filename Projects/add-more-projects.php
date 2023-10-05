@@ -13,10 +13,17 @@ if (isset($_POST['add-project'])) {
   $accessory1 = 1;
   $band1 = 1;
 
-
-
+  $total_cost = $_SESSION['total_cost'] + str_replace(',','',$_POST['prod_peice_tot']);
+  $total_net = $_SESSION['total_net'] + $_POST['net_toti'];
+  $total_without_tax = $_SESSION['total_without_tax'] + $total_cost + $total_net;
+  $total_with_tax = $_SESSION['total_with_tax'] + (($total_without_tax * 15) /100);
 
   $project_id = $_SESSION['last_insert_project'];
+  
+  $insert_project = "UPDATE `projects` SET `project_cost` = '$total_cost', `total_without_tax` = '$total_without_tax', `total_with_tax` = '$total_with_tax', `net_total` = '$total_net ' WHERE `projects`.`id` = $project_id";
+  $project_res = $conn->query($insert_project);
+
+  
 
   $product_name = $_POST['product_name'];
   $dimensions = $_POST['dimensions'];
@@ -27,10 +34,10 @@ if (isset($_POST['add-project'])) {
   $net_perc = $_POST['net_peice'];
   $net_toti = $_POST['net_toti'] / $quantity;
 
-  $total_cost = $_SESSION['total_cost'] + str_replace(',','',$_POST['prod_peice_tot']);
+  $total_cost = $_SESSION['total_cost'] + str_replace(',', '', $_POST['prod_peice_tot']);
   $total_net = $_SESSION['total_net'] + $_POST['net_toti'];
   $total_without_tax = $_SESSION['total_without_tax'] + $total_cost + $total_net;
-  $total_with_tax = $_SESSION['total_with_tax'] + (($total_without_tax * 15) /100);
+  $total_with_tax = $_SESSION['total_with_tax'] + (($total_without_tax * 15) / 100);
 
   $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
   $product_res = $conn->query($insert_product);
@@ -157,6 +164,10 @@ if (isset($_POST['add-project'])) {
   $band1 = 1;
 
 
+  $_SESSION['total_cost'] += str_replace(',', '', $_POST['prod_peice_tot']);
+  $_SESSION['total_net'] += $_POST['net_toti'];
+  $_SESSION['total_without_tax'] += $total_cost + $total_net;
+  $_SESSION['total_with_tax'] += (($total_without_tax * 15) / 100);
 
   $project_id = $_SESSION['last_insert_project'];
 
@@ -266,6 +277,34 @@ if (isset($_POST['add-project'])) {
                 VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
           $band_res = $conn->query($insert_band);
           if ($band_res) {
+            if (isset($_POST['deliverable'])) {
+              $deliverable = 1;
+              $quantity_of_track = $_POST['quantity_of_track'];
+              $delivery_to = $_POST['delivery_to'];
+              $track_price = $_POST['track_price'];
+              $piece_price = $_POST['piece_price'];
+              $total_track_price = $_POST['total_price'];
+              $peice_per_track = $_POST['peice_per_track'];
+
+
+              $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`, `peice_per_track`, `quantity_of_track`, `delivery_to`, `piece_price`, `track_price`, `total_price`,
+              `created_at`) VALUES (NULL, '$product_id', '$deliverable', '$peice_per_track', '$quantity_of_track', '$delivery_to', '$piece_price', '$track_price', '$total_track_price', NOW())";
+              $delivery_res = $conn->query($insert_delivery);
+              if ($delivery_res) {
+                $_SESSION['notification'] = "الصنف بنجاح";
+                header('location: add-more-projects.php');
+                exit();
+              }
+            } else {
+              $deliverable = 0;
+              $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`,`created_at`) VALUES (NULL, '$product_id', '$deliverable',NOW())";
+              $delivery_res = $conn->query($insert_delivery);
+              if ($delivery_res) {
+                $_SESSION['notification'] = "الصنف بنجاح";
+                header('location: add-more-projects.php');
+                exit();
+              }
+            }
           } else {
             $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
             header('location: index.php');
@@ -388,8 +427,8 @@ if (isset($_POST['add-project'])) {
             </li>
             <li class="nav-item px-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0">
-               
-                <i class="fa fa-arrow-left me-sm-1 cursor-pointer"  onclick="history.back()" ></i>
+
+                <i class="fa fa-arrow-left me-sm-1 cursor-pointer" onclick="history.back()"></i>
               </a>
             </li>
             <li class="nav-item dropdown ps-2 d-flex align-items-center">
@@ -786,7 +825,7 @@ if (isset($_POST['add-project'])) {
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var peice = (parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val() || '0'))
+                        var peice = ((parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val()) || 0))
 
                         peice = peice.toLocaleString("en-US");
                         $("#cover_tot").val(peice);
@@ -828,7 +867,7 @@ if (isset($_POST['add-project'])) {
                       $(document).on('change', 'input', function() {
                         var total_bands = 0;
                         for (var z = 1; z <= b; z++) {
-                          var peice = (parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val() || '0'))
+                          var peice = ((parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val()) || 0))
                           total_bands += peice
                           peice = peice.toLocaleString("en-US");
                           $("#band_tot_" + z).val(peice);
@@ -859,6 +898,90 @@ if (isset($_POST['add-project'])) {
                   <input type="text" class="form-control" placeholder="Total" name="accessory_tot" id="accessory_tot" readonly>
                 </div>
                 <hr>
+
+                <div class="Delivery-details">
+                  <h5>التوصيل</h5>
+                  <div class="delivery">
+                    <div class="row">
+                      <label for="">هل الصنف قابل للتوصيل ؟</label>
+                      <div class="form-check form-switch col-md-2 col-sm-6">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable">
+                        <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
+                      </div>
+                      <script>
+                        $(document).ready(function() {
+                          $('input[type="checkbox"]').click(function() {
+                            if (document.getElementById("flexSwitchCheckDefault").checked == true) {
+                              $('#delivery-div').show();
+                              document.getElementById("toggle_ch").innerText = "نعم";
+                            } else {
+                              $('#delivery-div').hide();
+                              document.getElementById("toggle_ch").innerText = "لا";
+                            }
+                          });
+                        });
+                      </script>
+                    </div>
+                    <div class="row" id="delivery-div" style='display:none'>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="peice_per_track">عدد القطع للتريلة</label>
+                          <input type="text" class="form-control" name='peice_per_track' id="peice_per_track" value="0">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="quantity_of_track">عدد التريلات</label>
+                          <input type="text" class="form-control" name='quantity_of_track' id="quantity_of_track" value="0" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="delivery_to">التوصيل الى</label>
+                          <input type="text" class="form-control" name='delivery_to' id="delivery_to">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="track_price">سعر توصيل التريلة</label>
+                          <input type="text" class="form-control" name='track_price' id="track_price" value="0">
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="piece_price">سعر توصيل القطعة</label>
+                          <input type="text" class="form-control" name='piece_price' id="piece_price" value="0" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
+                          <label for="total_price">سعر التوصيل الكلي</label>
+                          <input type="text" class="form-control" name='total_price' id="total_price" value="0" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                      $("input").on("change", function() {
+                        var quan = ($("#quantity").val() || 0);
+                        var del_peice = ($("#peice_per_track").val() || 0);
+                        var tracks = ((quan / del_peice) || 0);
+                        tracks = Math.ceil(tracks);
+                        $("#quantity_of_track").val(tracks);
+                        var track_price = ($("#track_price").val() || 0);
+                        var del_peice_price = ((track_price / del_peice) || 0);
+                        $("#piece_price").val(del_peice_price);
+                        var del_total = track_price * tracks;
+                        $("#total_price").val(del_total);
+
+
+
+                      })
+                    </script>
+
+                  </div>
+                </div>
+                <hr>
+
                 <!-- Item End -->
 
                 <div class="Final_details">
@@ -869,15 +992,16 @@ if (isset($_POST['add-project'])) {
 
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
-                          <label for="cover_price">تكلفة جميع الاصناف</label>
-                          <input type="text" class="form-control" name='prod_peice_tot' id="prod_peice_tot" readonly>
+                          <label for="cover_price">تكلفة الصنف الواحد</label>
+                          <input type="text" class="form-control" name='prod_peice' id="prod_peice" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
-                          <label for="cover_price">تكلفة الصنف الواحد</label>
-                          <input type="text" class="form-control" name='prod_peice' id="prod_peice" readonly>
+                          <label for="cover_price">تكلفة جميع الاصناف</label>
+                          <input type="text" class="form-control" name='prod_peice_tot' id="prod_peice_tot" readonly>
                         </div>
+
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
@@ -899,6 +1023,12 @@ if (isset($_POST['add-project'])) {
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
+                          <label for="cover_tot">الربح للصنف الواحد</label>
+                          <input type="text" class="form-control" name='net_toti_peice' id="net_toti_peice" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-6 ">
+                        <div class="form-group">
                           <label for="cover_tot">إجمالي الربح</label>
                           <input type="text" class="form-control" name='net_toti' id="net_toti" readonly>
                         </div>
@@ -906,16 +1036,16 @@ if (isset($_POST['add-project'])) {
                     </div>
                     <script>
                       $(document).on("change", "input", function() {
-                        var kh = parseFloat($("#kh_tot").val().replace(/\,/g, ""));
+                        var kh = (parseFloat($("#kh_tot").val().replace(/\,/g, "")) || 0);
 
-                        var iro = parseFloat($("#total_iron").val().replace(/\,/g, ""));
+                        var iro = (parseFloat($("#total_iron").val().replace(/\,/g, "")) || 0);
 
-                        var acce = parseFloat($("#accessory_iron").val().replace(/\,/g, ""));
+                        var acce = (parseFloat($("#accessory_iron").val().replace(/\,/g, "")) || 0);
 
-                        var cov = parseFloat($("#cover_tot").val().replace(/\,/g, ""));
+                        var cov = (parseFloat($("#cover_tot").val().replace(/\,/g, "")) || 0);
 
-                        var exband = parseFloat($("#accessory_tot").val().replace(/\,/g, ""));
-                        var quan = parseFloat($("#quantity").val());
+                        var exband = (parseFloat($("#accessory_tot").val().replace(/\,/g, "")) || 0);
+                        var quan = (parseFloat($("#quantity").val()) || 0);
 
                         var grand_tot = (kh + iro + acce + cov + exband) / quan;
                         var grand_tot2 = (kh + iro + acce + cov + exband);
@@ -931,8 +1061,11 @@ if (isset($_POST['add-project'])) {
                           var net_peice = (((sel_price - grand_tot) / grand_tot) * 100).toFixed(2);
                           $("#net_peice").val(net_peice + "%");
                           net_tot = ((sel_price * quan) - (grand_tot * quan)).toFixed(2);
+                          net_tot_piece = ((sel_price) - (grand_tot)).toFixed(2);
                           net_tot = net_tot.toLocaleString("en-US");
+                          net_tot_piece = net_tot_piece.toLocaleString("en-US");
                           $("#net_toti").val(net_tot);
+                          $("#net_toti_peice").val(net_tot_piece);
                         }
                         grand_tot = grand_tot.toLocaleString("en-US");
                         grand_tot2 = grand_tot2.toLocaleString("en-US");
@@ -945,6 +1078,7 @@ if (isset($_POST['add-project'])) {
 
                   </div>
                 </div>
+
 
 
 
