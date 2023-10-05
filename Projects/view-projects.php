@@ -372,18 +372,21 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">حاله المشروع</h6>
 
                                                 <td class="align-middle">
+                                                    <?php if ($project['total_without_tax'] == "قيد التنفيذ") { ?>
                                                     <div class="progress-wrapper w-75 mx-auto">
+
                                                         <div class="progress-info">
                                                             <div class="progress-percentage">
                                                                 <span class="text-xs font-weight-bold">60%</span>
                                                             </div>
                                                         </div>
-                                                        <?php if ($project['total_without_tax'] == "قيد التنفيذ") { ?>
+                                                        
                                                         <div class="progress">
                                                             <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>
-                                                        <?php } ?>
+                                                       
                                                     </div>
+                                                    <?php } ?>
                                                 </td>
                                                 <hr class="horizontal dark my-3">
                                                 <h5 class="mb-0"><?=$project['status']?></h5>
