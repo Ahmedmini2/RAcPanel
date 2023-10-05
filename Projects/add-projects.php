@@ -7,6 +7,9 @@ $numberofrows = 1;
 $iron_raws = $_POST['iron-rr'];
 $accessory_raws = $_POST['ac-rr'];
 $band_raws = $_POST['band-rr'];
+$total_cost = 0 ; 
+$total_net = 0 ; 
+$total_without_tax = 0 ; 
 if (isset($_POST['add-project'])) {
 
   $iron1 = 1;
@@ -18,9 +21,14 @@ if (isset($_POST['add-project'])) {
   $duration = $_POST['duration'];
   $payment_type = $_POST['payment_type'];
   $valid_till = $_POST['valid_till'];
+  $total_cost = $_POST['prod_peice_tot'];
+  $total_cost = str_replace(',','',$total_cost);
+  $total_net = $_POST['net_toti'];
+  $total_without_tax = $total_cost + $total_net;
+  $total_with_tax = ($total_without_tax * 15) /100;
 
-  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`valid_till`,`duration`,`payment_type`,`created_at`)
-   VALUES(NULL, '$project_name', '$project_description','$valid_till','$duration','$payment_type' ,NOW())";
+  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`project_cost`,`total_without_tax`,`total_with_tax`,`net_total`,`valid_till`,`duration`,`payment_type`,`created_at`)
+   VALUES(NULL, '$project_name', '$project_description','$total_cost','$total_without_tax','$total_with_tax','$total_net','$valid_till','$duration','$payment_type' ,NOW())";
   $project_res = $conn->query($insert_project);
   if ($project_res) {
 
@@ -144,6 +152,34 @@ if (isset($_POST['add-project'])) {
             VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
             $band_res = $conn->query($insert_band);
             if ($band_res) {
+              if (isset($_POST['deliverable'])) {
+                $deliverable = 1;
+                $quantity_of_track = $_POST['quantity_of_track'];
+                $delivery_to = $_POST['delivery_to'];
+                $track_price = $_POST['track_price'];
+                $piece_price = $_POST['piece_price'];
+                $total_track_price = $_POST['total_price'];
+                $peice_per_track = $_POST['peice_per_track'];
+                
+                
+                $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`, `peice_per_track`, `quantity_of_track`, `delivery_to`, `piece_price`, `track_price`, `total_price`,
+                `created_at`) VALUES (NULL, '$product_id', '$deliverable', '$peice_per_track', '$quantity_of_track', '$delivery_to', '$piece_price', '$track_price', '$total_track_price', NOW())";
+                $delivery_res = $conn->query($insert_delivery);
+                if ($delivery_res){
+                  $_SESSION['notification'] = "الصنف بنجاح";
+                  header('location: index.php');
+                  exit();
+                }
+              } else {
+                $deliverable = 0;
+                $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`,`created_at`) VALUES (NULL, '$product_id', '$deliverable',NOW())";
+                $delivery_res = $conn->query($insert_delivery);
+                if ($delivery_res){
+                  $_SESSION['notification'] = "الصنف بنجاح";
+                  header('location: index.php');
+                  exit();
+                }
+              }
             } else {
               $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
               header('location: index.php');
@@ -180,6 +216,11 @@ if (isset($_POST['add-project'])) {
   $duration = $_POST['duration'];
   $payment_type = $_POST['payment_type'];
   $valid_till = $_POST['valid_till'];
+
+  $_SESSION['total_cost'] += str_replace(',','',$_POST['prod_peice_tot']);
+  $_SESSION['total_net'] += $_POST['net_toti'];
+  $_SESSION['total_without_tax'] += $total_cost + $total_net;
+  $_SESSION['total_with_tax'] += ($total_without_tax * 15) /100;
 
   $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`valid_till`,`duration`,`payment_type`,`created_at`) VALUES(NULL, '$project_name', '$project_description','$valid_till','$duration','$payment_type' ,NOW())";
   $project_res = $conn->query($insert_project);
@@ -307,15 +348,42 @@ if (isset($_POST['add-project'])) {
                 VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
             $band_res = $conn->query($insert_band);
             if ($band_res) {
+              if (isset($_POST['deliverable'])) {
+                $deliverable = 1;
+                $quantity_of_track = $_POST['quantity_of_track'];
+                $delivery_to = $_POST['delivery_to'];
+                $track_price = $_POST['track_price'];
+                $piece_price = $_POST['piece_price'];
+                $total_track_price = $_POST['total_price'];
+                $peice_per_track = $_POST['peice_per_track'];
+                
+                
+                $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`, `peice_per_track`, `quantity_of_track`, `delivery_to`, `piece_price`, `track_price`, `total_price`,
+                `created_at`) VALUES (NULL, '$product_id', '$deliverable', '$peice_per_track', '$quantity_of_track', '$delivery_to', '$piece_price', '$track_price', '$total_track_price', NOW())";
+                $delivery_res = $conn->query($insert_delivery);
+                if ($delivery_res){
+                  $_SESSION['notification'] = "الصنف بنجاح";
+                  header('location: add-more-projects.php');
+                  exit();
+                }
+              } else {
+                $deliverable = 0;
+                $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`,`created_at`) VALUES (NULL, '$product_id', '$deliverable',NOW())";
+                $delivery_res = $conn->query($insert_delivery);
+                if ($delivery_res){
+                  $_SESSION['notification'] = "الصنف بنجاح";
+                  header('location: add-more-projects.php');
+                  exit();
+                }
+              }
             } else {
+             
               $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
               header('location: index.php');
             }
             $band1++;
           }
-          $_SESSION['notification'] = "الصنف بنجاح";
-          header('location: add-more-projects.php');
-          exit();
+          
         } else {
           $_SESSION['notification'] = "يوجد خلل في ادخال الاغطية";
           header('location: index.php');
@@ -994,7 +1062,7 @@ if (isset($_POST['add-project'])) {
                     <div class="row">
                     <label for="">هل الصنف قابل للتوصيل ؟</label>
                     <div class="form-check form-switch col-md-2 col-sm-6">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable">
                       <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
                     </div>
                     <script>
