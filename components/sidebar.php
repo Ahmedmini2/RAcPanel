@@ -17,7 +17,7 @@ $sidebar = $_SESSION['sidebar'];
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link <?php if ($sidebar == "Home") echo 'active'; ?>" href="https://test.app.ruknamial.com/index.php">
-          <div class="color-bg-icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -38,7 +38,7 @@ $sidebar = $_SESSION['sidebar'];
       <ul class="navbar-nav active">
         <li class="nav-item ">
           <a href="#submenu1" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar == "Accounts") echo 'active'; ?>"">
-            <div class="color-bg-icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -72,7 +72,7 @@ $sidebar = $_SESSION['sidebar'];
 
         <li class="nav-item">
           <a class="nav-link <?php if ($sidebar == "Users") echo 'active'; ?>" href="../Users/users.php">
-            <div class="color-bg-icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>credit-card</title>
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -95,7 +95,7 @@ $sidebar = $_SESSION['sidebar'];
       
       <li class="nav-item">
         <a class="nav-link <?php if ($sidebar == "Calender") echo 'active'; ?>" href="../Calendar/index.php">
-          <div class="color-bg-icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>customer-support</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -116,7 +116,7 @@ $sidebar = $_SESSION['sidebar'];
       </li>
       <li class="nav-item">
         <a class="nav-link <?php if ($sidebar == "Projects") echo 'active'; ?>" href="../Projects/index.php">
-          <div class="color-bg-icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -137,7 +137,7 @@ $sidebar = $_SESSION['sidebar'];
       </li>
       <li class="nav-item">
         <a class="nav-link <?php if ($sidebar == "Factory") echo 'active'; ?>" href="../Factory/index.php">
-          <div class="color-bg-icon icon-wrench-adjustable icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-factory icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
