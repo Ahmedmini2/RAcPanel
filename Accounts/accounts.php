@@ -1,7 +1,7 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Accounts";
-$select = mysqli_query($conn, "select * from bank_request ORDER BY id ASC");
+$select = mysqli_query($conn, "select * from bank_request ORDER BY id DESC");
 
 ?>
 <!DOCTYPE html>
