@@ -213,30 +213,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card">
-                 
-                    <img class="card-img-top" src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow">
-
-                    <div class="card-header px-4 pt-4">
-                    <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم :2</p>
-                         <h5>مشروع اراميكس</h5>
-                        <div class="badge bg-warning my-2">In progress</div>
-                    </div>
-                    <div class="card-body px-4 pt-2">
-                        <p>توصيل سيارات</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item px-4 pb-4">
-                            <p class="mb-2 font-weight-bold">Progress <span class="float-right">65%</span></p>
-                            <div class="progress progress-sm">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%;">
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            
             <footer class="footer pt-3  ">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-lg-between">
