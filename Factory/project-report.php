@@ -202,7 +202,7 @@ if(isset($_GET['project_id'])){
                     <div class="block-header bg-gradient-dark col-md-3 col-sm-6 col-xs-6  rounded-pill">
                         <h6 class="block-title text-center text-white py-2 px-4 ">اضافة تقرير جديد عن الانتاج</h6>
                     </div>
-                    <form>
+                    <form method="post" action="">
 
                         <div class="row">
                             <div class="col">
