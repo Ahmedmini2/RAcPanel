@@ -56,7 +56,7 @@
       </div>
       <input id="calAdd" 
       type="button" 
-      class="btn bg-gradient-dark rounded-pill mb-0 col-md-2 col-sm-6 col-xs-6" 
+      class="btn bg-gradient-dark  text-white rounded-pill mb-0 col-md-2 col-sm-6 col-xs-6" 
       value="أضافة موعد جديد">
     </div>
 
@@ -69,7 +69,7 @@
     <!-- (D) EVENT FORM -->
     <dialog id="calForm"><form method="dialog">
       <div id="evtCX">X</div>
-      <h2 class="evt100">إضافة اجتماع</h2>
+      <h2 class="evt100 ">إضافة اجتماع</h2>
       <div class="evt50">
         <label>البداية</label>
         <input id="evtStart" type="datetime-local" required>

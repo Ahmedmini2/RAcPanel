@@ -1,22 +1,23 @@
-<?php 
-include ('../cookies/session2.php');
-$_SESSION['sidebar'] = "Accounts";
-if(!empty($_GET['edit'])){
+<?php
+include('../cookies/session2.php');
+$_SESSION['sidebar'] = "Projects";
+if (!empty($_GET['edit'])) {
 
-    $id= $_GET['edit'];
-    $query="SELECT * FROM bank_request WHERE id=$id";
-    $res= $conn->query($query);
-    $editData=$res->fetch_assoc();
-    $name=$editData['name'];
-    $description=$editData['description'];
-    $amount_text=$editData['amount_text'];
-    $our_bank_name=$editData['our_bank_name'];
-    $to_account_type=$editData['to_account_type'];
-    $transfer_to=$editData['transfer_to'];
-  
-    
-    $idAttr="updateForm";
-    
+  $id = $_GET['edit'];
+  $query = "SELECT * FROM beneficiary_info WHERE id=$id";
+  $res = $conn->query($query);
+  $editData = $res->fetch_assoc();
+  $name = $editData['name'];
+  $beneficiary_bank = $editData['beneficiary_bank'];
+  $description = $editData['description'];
+  $amount_text = $editData['amount_text'];
+  $our_bank_name = $editData['our_bank_name'];
+  $to_account_type = $editData['to_account_type'];
+  $transfer_to = $editData['transfer_to'];
+
+
+  $idAttr = "updateForm";
+
   // }else if(isset($_POST['submit'])){
   //   $name=$_POST['full_name'];
   //   $email=$_POST['email'];
@@ -26,42 +27,42 @@ if(!empty($_GET['edit'])){
   //   $cpassword=$_POST['cpassword'];
   //   $username=$_POST['username'];
   //   $position=$_POST['position'];
-  
+
   //   if($password == $cpassword){
   //     $query="INSERT INTO users ('')";
   //   }
-  } else if(isset($_POST['submit'])){
+} else if (isset($_POST['submit'])) {
 
-    $name=$_POST['name'];
-    $account_number=$_POST['account_number'];
-    $branch=$_POST['branch'];
-    $iban=$_POST['iban'];
-    $swift=$_POST['swift'];
-    
-    if (empty($name) || empty($account_number) || empty($iban)) {
-      $_SESSION['notification'] = "الرجاء ادخال رقم الحساب ورقم الايبان واسم البنك";
-      header('location: company-banks.php');
-      exit(); // Stop further execution of the script
+  $name = $_POST['name'];
+  $beneficiary_bank = $_POST['beneficiary_bank'];
+  $account_number = $_POST['account_number'];
+  $branch = $_POST['branch'];
+  $iban = $_POST['iban'];
+  $swift = $_POST['swift'];
+
+  if (empty($name) || empty($beneficiary_bank) || empty($iban)) {
+    $_SESSION['notification'] = "الرجاء ادخال رقم الحساب و الايبان و اسم المستفيد";
+    header('location: beneficiary-banks.php');
+    exit(); // Stop further execution of the script
   }
 
-    $insert = "INSERT INTO `bank_info` (`id`, `name`, `branch`, `account_number`, `iban`, `swift`,`created_at`) VALUES (NULL, '$name','$branch','$account_number','$iban','$swift',NOW())";
-     $insertResult=$conn->query($insert);
-     if($insertResult){
-      $_SESSION['notification'] = "تم اضافة الحساب بنجاح";
-      
-    }else{
-      $_SESSION['notification'] = "يوجد خلل في النظام";
-    }
-    header('location: company-banks.php');
-    exit();
-  }else{
-    $name="";
-    $account_number="";
-    $iban="";
-    $swift="";
-    $branch="";
-  
+  $insert = "INSERT INTO `beneficiary_info` (`id`, `name`,`beneficiary_bank`, `branch`, `account_number`, `iban`, `swift`,`created_at`) VALUES (NULL, '$name','$beneficiary_bank','$branch','$account_number','$iban','$swift',NOW())";
+  $insertResult = $conn->query($insert);
+  if ($insertResult) {
+    $_SESSION['notification'] = "تم اضافة المستفيد بنجاح";
+  } else {
+    $_SESSION['notification'] = "يوجد خلل في النظام";
   }
+  header('location: beneficiary-banks.php');
+  exit();
+} else {
+  $name = "";
+  $beneficiary_bank = "";
+  $account_number = "";
+  $iban = "";
+  $swift = "";
+  $branch = "";
+}
 
 ?>
 <!DOCTYPE html>
@@ -72,36 +73,68 @@ if(!empty($_GET['edit'])){
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
   <title>
-  أضافة حساب شركة جديد
+    اضافة فاتورة جديد
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+  <style>
+/* Red border */
+hr.new1 {
+  border-top: 1px solid red;
+}
+
+/* Dashed red border */
+hr.new2 {
+  border-top: 3px dashed black;
+  background: blanchedalmond;
+  
+}
+
+/* Dotted red border */
+hr.new3 {
+  border-top: 1px dotted red;
+}
+
+/* Thick red border */
+hr.new4 {
+  border: 1px solid red;
+}
+
+/* Large rounded green border */
+hr.new5 {
+  border: 10px solid green;
+  border-radius: 5px;
+}
+</style>
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
-      
-     <!-- Side Bar -->
+
+  <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
-      <!-- End Of side Bar -->
+  <!-- End Of side Bar -->
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;"> أضافة حساب شركة جديد</a></li>
-            
+            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">  اضافة فاتورة جديد</a></li>
+
           </ol>
 
         </nav>
@@ -213,77 +246,121 @@ if(!empty($_GET['edit'])){
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-        <div class="row">
+      <div class="row">
         <div class="block block-themed">
-          
-                                <div class="block-header bg-gradient-dark  col-md-2 col-sm-6 col-xs-6 rounded-pill">
-                                    
-                                    <h6  class="block-title text-white  py-2 px-4">إضافة حساب شركة جديد</h6>
-                                </div>
-                                <form id="<?php echo $idAttr; ?>" action="" method="post">
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="form-group">
-                                      <label>أسم البنك</label>
-                                      <input type="text" placeholder="الرجاء كتابة أسم البنك" class="form-control" name="name" value="<?php echo $name; ?>">
-                                          
-                                      
-                                     
-                                    </div>
-                                  </div>
-                                 
-                                </div>
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="form-group">
-                                      <label> أسم الفرع</label>
-                                      <input type="text" placeholder="الرجاء كتابةأسم الفرع " class="form-control" name="branch" value="<?php echo $branch; ?>">
-                                     
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-6">
-                                    <div class="form-group">
-                                      <label>رقم الحساب</label>
-                                      <input type="text" placeholder="الرجاء كتابة رقم الحساب" class="form-control" name="account_number" value="<?php echo $account_number; ?>">
-                                    </div>
-                                  </div>
-                                  <div class="col">
-                                    <div class="form-group">
-                                      <label>الأيبان</label>
-                                      <input type="text" placeholder="ادخل رقم الايبان" class="form-control" name="iban" value="<?php echo $iban; ?>">
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="form-group">
-                                    <label>السويفت</label>
-                                      <input type="text" placeholder="ادخل السويفت كود" class="form-control" name="swift" value="<?php echo $swift; ?>">
-                                    </div>
-                                  </div>
-                                  
-                                </div>
 
-                                
-                                
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="form-group">
-                                      <button type="submit" name="submit"  class="btn btn-secondary">تقديم طلب تسجيل حساب بنك</button>
-                                    </div>
-                                  </div>
-                                  <div class="col">
-                                    
-                                  </div>
-                                </div>
-                                </form>
+          <div class="block-header bg-gradient-dark col-lg-3 col-md-5 col-sm-5 col-xs-4  rounded-pill">
+
+            <h5 class="block-title text-white py-2 px-4 ">اضافة فاتورة جديد</h5>
+          </div>
+          <form id="<?php echo $idAttr; ?>" action="" method="post">
+          
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label>أسم الفاتورة</label>
+                  <input type="text" placeholder="الرجاء كتابة أسم فاتورة" class="form-control" name="bill" value="<?php echo $name; ?>">
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label> مقدم الفاتورة</label>
+                  <input type="text" placeholder="الرجاء كتابة مقدم الفاتورة" class="form-control" name="user_bill" value="<?php echo $beneficiary_bank; ?>">
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label> سعر الفاتورة</label>
+                  <input type="text" placeholder="الرجاء كتابة سعر الفاتورة" class="form-control" name="price_bill" value="<?php echo $beneficiary_bank; ?>">
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label> تاريخ الفاتورة</label>
+                  <input type="text" placeholder="الرجاء كتابة تاريخ الفاتورة" class="form-control" name="date_bill" value="<?php echo $beneficiary_bank; ?>">
+                </div>
+              </div>
+
+              
+
+              <label> اضافة صورة الفاتورة </label>
+
+              
+              <button type="button" id="btn3" class=" col-md-4 col-sm-6 text-white printing printing2 btn bg-secondary rounded-pill " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                  الرجاء اضافة صورة الفاتورة
+                </button>
+               
+                
+                  
+               
+                
+              
+
+                <!-- Doc Modal -->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                   <div class="modal-dialog modal-dialog-centered" role="document">
+                     <div class="modal-content">
+                     <div class="modal-header">
+                       <h5 class="modal-title" id="exampleModalLabel">أرفاق مستند</h5>
+                       <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                         <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                         <div class="modal-body">
+                                       <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>" enctype="multipart/form-data">
+                                       <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
+                             <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
+                      <?php if ($doc != '') {
+                  echo '<a href="../Signed-Docs/' . $id . '/' . $doc . '" target="_blank"><img src="../Signed-Docs/' . $id . '/' . $doc . '" class="img-fluid rounded-top" alt="' . $doc . '"></a>';
+                } ?>
+              </form>
+               </div>
+               <div class="modal-footer">
+              <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal2">Close</button>
+              <button type="button" class="btn bg-gradient-dark rounded-pill">Save changes</button>
+               </div>
+               </div>
+            </div>
+            </div>
+            </div>
+            
+          </div>
         </div>
-</div>
-</div>
+      </div>
+ </div>
+              <!-- Product End -->
+
+              
+                <div class="col text-center">
+                  
+                    <style>
+                      .myButton{
+                        border: none;
+                       cursor: pointer;
+                        background: #8392AB;
+                         color: #fff;
+                          border-radius: 20px;   
+                          transition: 0.5s; 
+                      }
+                      .myButton:hover{
+                         background: #344767;
+                         letter-spacing: 1px;
+                        }
+                    </style>
+                    <button type="submit" name="submit" class="myButton col-md-4 col-sm-9 mt-5 btn btn-secondary rounded-pill"> حفظ </button>
+                  
+                </div>
+              
+          </form>
+
+        </div>
+      </div>
+    </div>
   </main>
-  
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -291,7 +368,7 @@ if(!empty($_GET['edit'])){
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/fullcalendar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
-  
+  <script src="script.js"></script>
   <script src="../assets/js/plugins/choices.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
