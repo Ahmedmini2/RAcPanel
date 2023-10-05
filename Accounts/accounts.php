@@ -389,7 +389,7 @@ $select = mysqli_query($conn, "select * from bank_request");
                           echo "تسديد فاتورة إلكترونية";
                         } ?></td>
                       <td class="mb-0 text-sm"><?php echo $r['description']; ?></td>
-                      <td class="mb-0 text-sm"><?php echo number_format($r['amount_number'], 2, '.', ''); ?></td>
+                      <td class="mb-0 text-sm"><?php echo number_format($r['amount_number']); ?></td>
                       <td class="text-xs text-secondary mb-0">
                         <?php echo 'من حساب : ' . $r['our_bank_name'] . '<br><br>';
                         echo 'الى شركة : ' . $r['transfer_to']; ?></td>
