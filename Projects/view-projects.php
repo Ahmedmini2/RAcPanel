@@ -289,7 +289,7 @@ if (isset($_GET['id'])) {
                                     <div class="col-md-4 col-sm-2 mb-3">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
                                                     <i class="fas fa-landmark opacity-10"></i>
                                                 </div>
                                             </div>
@@ -304,7 +304,7 @@ if (isset($_GET['id'])) {
                                     <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
                                                     <i class="fas fa-landmark opacity-10"></i>
                                                 </div>
                                             </div>
@@ -319,7 +319,7 @@ if (isset($_GET['id'])) {
                                     <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
                                                     <i class="fas fa-landmark opacity-10"></i>
                                                 </div>
                                             </div>
@@ -334,7 +334,7 @@ if (isset($_GET['id'])) {
                                     <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
                                                     <i class="fas fa-landmark opacity-10"></i>
                                                 </div>
                                             </div>
@@ -349,7 +349,7 @@ if (isset($_GET['id'])) {
                                     <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
                                                     <i class="fas fa-landmark opacity-10"></i>
                                                 </div>
                                             </div>
@@ -364,7 +364,7 @@ if (isset($_GET['id'])) {
                                     <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
                                                     <i class="fas fa-landmark opacity-10"></i>
                                                 </div>
                                             </div>
