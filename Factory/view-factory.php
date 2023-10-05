@@ -192,13 +192,13 @@ if (isset($_GET['id'])) {
                                  رفع التقرير عن الاستلام
                                  <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
-                                
+                                <a href="" 
+                                class="btn bg-gradient-dark text-start mb-0  col-lg-3 col-md-2 col-sm-6 col-xs-6">
+                                 رفع رفع الفواتير
+                                 <i class="fas fa-plus" aria-hidden="true"></i>
+                                </a>
                             </div>
-                            <div class="text-left col-lg-2 col-sm-6">
-                                <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    رفع فواتير
-                                </button>
-                            </div>
+                            
                         </div>
 
                         <script>
