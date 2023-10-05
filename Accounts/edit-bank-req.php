@@ -31,7 +31,7 @@ include ('../cookies/session2.php');
         $name=$_POST['name'];
     $description=$_POST['description'];
     $amount_text=$_POST['amount_text'];
-    $amount_number=$_POST['amount_number'];
+    $amount_number=  str_replace(',','',$_POST['amount_number']);
     $our_bank_name=$_POST['our_bank_name'];
     $to_account_type=$_POST['to_account_type'];
     $transfer_to=$_POST['transfer_to'];
@@ -436,7 +436,7 @@ include ('../cookies/session2.php');
                                   <div class="col">
                                     <div class="form-group">
                                       <label>المبلغ المالي ارقام</label>
-                                      <input type="text" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="amount_number" value="<?php echo $amount_number; ?>">
+                                      <input type="text" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="amount_number" value="<?=$amount_number?>">
                                     </div>
                                   </div>
                                 </div>
