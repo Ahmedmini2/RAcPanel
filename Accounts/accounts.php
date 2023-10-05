@@ -315,7 +315,9 @@ $select = mysqli_query($conn, "select * from bank_request ORDER BY id DESC");
   <script src="../assets/js/plugins/chartjs.min.js"></script>
   <script>
     $(document).ready(function() {
-      $('#example').dataTable();
+      $('#example').dataTable({
+      "order": [ 0, 'desc' ]
+      } );
     });
 
     var ctx = document.getElementById("chart-bars").getContext("2d");
