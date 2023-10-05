@@ -3965,19 +3965,20 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-primary {
-  color: #cb0c9f;
-  border-color: #cb0c9f;
+  color: #ffffff;
+  border-color: #ffffff;
+  background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
 }
 
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #cb0c9f;
-  border-color: #cb0c9f;
+  background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
+  border-color: #ffffff;
 }
 
 .btn-check:focus+.btn-outline-primary,
 .btn-outline-primary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(203, 12, 159, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(48, 211, 7, 0.5);
 }
 
 .btn-check:checked+.btn-outline-primary,
@@ -21626,7 +21627,8 @@ hr.horizontal.gray-light {
 }
 
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active .icon {
-  background-image: linear-gradient(310deg, #cb0c9f 0%, #cb0c9f 100%);
+  
+  background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
 }
 
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active .icon svg .color-background,
