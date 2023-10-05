@@ -357,7 +357,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">نسبة الربح</h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0"><?php echo (($sell_price - $project['total_without_tax']) / $project['total_without_tax']) * 100 ;  ?> ريال</h5>
+                                                <h5 class="mb-0"><?php echo number_format((($project['total_without_tax'] - $project['project_cost'] ) / $project['project_cost']) * 100,2) ;  ?> %</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -372,19 +372,24 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">حاله المشروع</h6>
 
                                                 <td class="align-middle">
+                                                    <?php if ($project['total_without_tax'] == "قيد التنفيذ") { ?>
                                                     <div class="progress-wrapper w-75 mx-auto">
+
                                                         <div class="progress-info">
                                                             <div class="progress-percentage">
                                                                 <span class="text-xs font-weight-bold">60%</span>
                                                             </div>
                                                         </div>
+                                                        
                                                         <div class="progress">
                                                             <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>
+                                                       
                                                     </div>
+                                                    <?php } ?>
                                                 </td>
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">قيد التنفيد</h5>
+                                                <h5 class="mb-0"><?=$project['status']?></h5>
                                             </div>
                                         </div>
                                     </div>
