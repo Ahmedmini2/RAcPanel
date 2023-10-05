@@ -449,10 +449,10 @@ if (isset($_GET['id'])) {
                                 <div class="card h-100">
                                     <div class="card-header pb-0 p-3">
                                         <div class="row">
-                                            <div class="col-6 d-flex align-items-center">
+                                            <div class="col-10 d-flex align-items-center">
                                                 <h6 class="mb-0 text-lg">الفواتير المشروع</h6>
                                             </div>
-                                            <div class="col-6 text-end">
+                                            <div class="col-2 text-end">
                                                 <button class="btn btn-outline-primary btn-sm mb-0">View All</button>
                                             </div>
                                         </div>
