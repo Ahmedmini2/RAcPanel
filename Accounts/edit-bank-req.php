@@ -10,7 +10,7 @@ include ('../cookies/session2.php');
     $name=$editData['name'];
     $description=$editData['description'];
     $amount_text=$editData['amount_text'];
-    $amount_number=$_POST['amount_number'];
+    $amount_number=$editData['amount_number'];
     $our_bank_name=$editData['our_bank_name'];
     $to_account_type=$editData['to_account_type'];
     $transfer_to=$editData['transfer_to'];
