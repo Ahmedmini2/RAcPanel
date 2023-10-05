@@ -27,10 +27,10 @@ if (isset($_POST['add-project'])) {
   $net_perc = $_POST['net_peice'];
   $net_toti = $_POST['net_toti'] / $quantity;
 
-  $total_cost = $_SESSION['total_cost'] + $_POST['prod_peice_tot'];
+  $total_cost = $_SESSION['total_cost'] + str_replace(',','',$_POST['prod_peice_tot']);
   $total_net = $_SESSION['total_net'] + $_POST['net_toti'];
   $total_without_tax = $_SESSION['total_without_tax'] + $total_cost + $total_net;
-  $total_with_tax = $_SESSION['total_with_tax'] + ($total_without_tax * 15) /100;
+  $total_with_tax = $_SESSION['total_with_tax'] + (($total_without_tax * 15) /100);
 
   $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
   $product_res = $conn->query($insert_product);
