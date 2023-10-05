@@ -18954,7 +18954,8 @@ fieldset:disabled .btn {
   background-color: transparent;
   opacity: .75;
   box-shadow: none;
-  color: #cb0c9f;
+  /*h*/
+  
 }
 
 .btn-secondary:hover,
