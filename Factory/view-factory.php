@@ -172,7 +172,7 @@ if (isset($_GET['id'])) {
 
         <div class="container-fluid py-4">
             <div class="row">
-                <div class="">
+                <div class="col-md-3 col-sm-6 col-xs-6">
 
                     <?php require_once('../components/notification.php'); ?>
                 </div>
