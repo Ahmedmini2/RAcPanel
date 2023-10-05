@@ -28,7 +28,7 @@ if (isset($_GET['id'])) {
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-      المصنع
+        المصنع
     </title>
     <!--     Fonts and icons     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -179,20 +179,22 @@ if (isset($_GET['id'])) {
                 <!--********* -->
                 <div class="col-12 mt-4">
                     <div class="card mx-4 p-3">
-        
+
                         <div class="row ">
                             <div class="text-right col-lg-10 col-sm-6">
-                                <button type="button" id="btn2" class="btn bg-gradient-dark rounded-pill ">
-                                  رفع التقرير عن الانتاج 
-                                </button>
-
+                                <a href="project-report.php" 
+                                class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">
+                                 رفع التقرير عن الانتاج
+                                 <i class="fas fa-plus" aria-hidden="true"></i>
+                                </a>
+                            
                                 <button type="button" id="btn3" class=" btn bg-gradient-dark rounded-pill ">
-                                  رفع تقرير عن الاستلام 
+                                    رفع تقرير عن الاستلام
                                 </button>
                             </div>
                             <div class="text-left col-lg-2 col-sm-6">
                                 <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                  رفع فواتير 
+                                    رفع فواتير
                                 </button>
                             </div>
                         </div>
@@ -327,7 +329,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                
+
 
                                 </div>
 
@@ -375,7 +377,7 @@ if (isset($_GET['id'])) {
                                                             <td><?= number_format($products['cost_price']) ?></td>
                                                             <td><?= number_format($products['sell_price']) ?></td>
                                                             <td><?= number_format($products['net_profit']) ?></td>
-                                                            
+
                                                         </tr>
                                                     <?php } ?>
 
@@ -428,7 +430,7 @@ if (isset($_GET['id'])) {
                                                             <td><?= number_format($products['sell_price']) ?></td>
                                                             <td><?= number_format($products['net_profit']) ?></td>
                                                             <td><?= $products['net_perc'] ?></td>
-                                                        
+
                                                         </tr>
                                                     <?php } ?>
 
@@ -444,7 +446,7 @@ if (isset($_GET['id'])) {
                         <!--Table -->
 
                         <div class="row">
-                            
+
                             <div class="col-lg-10  mt-4">
                                 <div class="card h-100">
                                     <div class="card-header pb-0 p-3">
