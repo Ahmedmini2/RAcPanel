@@ -22,8 +22,9 @@ if (isset($_POST['add-project'])) {
   $payment_type = $_POST['payment_type'];
   $valid_till = $_POST['valid_till'];
   $total_cost = $_POST['prod_peice_tot'];
+  $total_cost = str_replace(',','',$total_cost);
   $total_net = $_POST['net_toti'];
-  $total_without_tax = $total_cost +$total_net;
+  $total_without_tax = $total_cost + $total_net;
   $total_with_tax = ($total_without_tax * 15) /100;
 
   $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`project_cost`,`total_without_tax`,`total_with_tax`,`net_total`,`valid_till`,`duration`,`payment_type`,`created_at`)
@@ -166,7 +167,7 @@ if (isset($_POST['add-project'])) {
                 $delivery_res = $conn->query($insert_delivery);
                 if ($delivery_res){
                   $_SESSION['notification'] = "الصنف بنجاح";
-                  header('location: add-more-projects.php');
+                  header('location: index.php');
                   exit();
                 }
               } else {
@@ -175,7 +176,7 @@ if (isset($_POST['add-project'])) {
                 $delivery_res = $conn->query($insert_delivery);
                 if ($delivery_res){
                   $_SESSION['notification'] = "الصنف بنجاح";
-                  header('location: add-more-projects.php');
+                  header('location: index.php');
                   exit();
                 }
               }
@@ -216,7 +217,7 @@ if (isset($_POST['add-project'])) {
   $payment_type = $_POST['payment_type'];
   $valid_till = $_POST['valid_till'];
 
-  $_SESSION['total_cost'] += $_POST['prod_peice_tot'];
+  $_SESSION['total_cost'] += str_replace(',','',$_POST['prod_peice_tot']);
   $_SESSION['total_net'] += $_POST['net_toti'];
   $_SESSION['total_without_tax'] += $total_cost + $total_net;
   $_SESSION['total_with_tax'] += ($total_without_tax * 15) /100;
