@@ -206,7 +206,7 @@ if (!empty($_GET['edit'])) {
                         <h6 class="block-title text-white py-2 px-4 ">إضافة تقرير يومي جديد</h6>
                     </div>
                     <form>
-                       
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
@@ -223,22 +223,23 @@ if (!empty($_GET['edit'])) {
                                 <div class="form-group">
                                     <label>نوع الاجراء</label>
                                     <select name="name" id="name" class="form-control" placeholder="نوع الاجراء">
-                                        <option value="0">صب ارضية</option>
-                                        <option value="1">صب جوانب</option>
-                                        <option value="2">صب سقفية</option>
-                                        <option value="3">صب رقبية</option>
-                                        <option value="4">صب كامل</option>
+                                        <option value="0"></option>
+                                        <option value="1">صب ارضية</option>
+                                        <option value="2">صب جوانب</option>
+                                        <option value="3">صب سقفية</option>
+                                        <option value="4">صب رقبية</option>
+                                        <option value="5">صب كامل</option>
                                     </select>
                                 </div>
                             </div>
 
                         </div>
-                        
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label>كميةالاصناف</label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية الاصناف" class="form-control" name="amount_text" >
+                                    <input type="text" placeholder="الرجاء كتابة كمية الاصناف" class="form-control" name="amount_text">
                                 </div>
                             </div>
                             <div class="col">
@@ -248,36 +249,37 @@ if (!empty($_GET['edit'])) {
                                         <option value="0"></option>
                                         <option value="1">خرسانة شركة</option>
                                         <option value="2">خرسانة رجيع</option>
-                                        
+
                                     </select>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label>سعر الخرسانة</label>
-                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة" class="form-control" name="amount_text" >
+                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة" class="form-control" name="amount_text">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label>كمية الخرسانة</label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية الخرسانة" class="form-control" name="amount_text" >
+                                    <label> كميةالخرسانة </label>
+                                    <input type="text" placeholder="الرجاء كتابة كمية الخرسانة " class="form-control" name="branch" value="">
+
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>مبلغ اضافي</label>
-                                    <input type="text" placeholder="الرجاء كتابة المبلغ" class="form-control" name="amount_text" >
+                                    <input type="text" placeholder="الرجاء كتابة المبلغ" class="form-control" name="amount_text">
                                 </div>
                             </div>
                         </div>
-                       
+
                     </form>
                 </div>
             </div>
