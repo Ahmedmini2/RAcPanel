@@ -199,11 +199,11 @@ if (!empty($_GET['edit'])) {
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="block block-themed">
-                    <div class="block-header bg-warning col-md-3 col-sm-6 col-xs-6 rounded">
+                    <div class="block-header bg-warning col-lg-3 col-md-4 col-sm-6 col-xs-6 rounded">
                         <?php require_once('../components/notification.php'); ?>
                     </div>
-                    <div class="block-header bg-gradient-dark col-md-4 col-sm-6 col-xs-6  rounded-pill">
-                        <h6 class="block-title text-white py-2 px-4 ">إضافة تقرير يومي جديد</h6>
+                    <div class="block-header bg-gradient-dark col-md-3 col-sm-6 col-xs-6  rounded-pill">
+                        <h6 class="block-title text-white py-2 px-4 ">إضافة تقرير يومي جديد </h6>
                     </div>
                     <form>
 
@@ -275,7 +275,7 @@ if (!empty($_GET['edit'])) {
                         </div>
 
                         <div class="row">
-                            <div class="col">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label> مبلغ اضافي </label>
                                     <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="branch" value="">
@@ -283,7 +283,16 @@ if (!empty($_GET['edit'])) {
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <button type="submit" name="submit" class="btn btn-secondary"> اضافه التقرير اليومي</button>
+                                </div>
+                            </div>
+                            <div class="col">
 
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
