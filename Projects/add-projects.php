@@ -153,7 +153,6 @@ if (isset($_POST['add-project'])) {
             if ($band_res) {
               if (isset($_POST['deliverable'])) {
                 $deliverable = 1;
-                $deliverable = $_POST['deliverable'];
                 $quantity_of_track = $_POST['quantity_of_track'];
                 $delivery_to = $_POST['delivery_to'];
                 $track_price = $_POST['track_price'];
@@ -350,7 +349,6 @@ if (isset($_POST['add-project'])) {
             if ($band_res) {
               if (isset($_POST['deliverable'])) {
                 $deliverable = 1;
-                $deliverable = $_POST['deliverable'];
                 $quantity_of_track = $_POST['quantity_of_track'];
                 $delivery_to = $_POST['delivery_to'];
                 $track_price = $_POST['track_price'];
