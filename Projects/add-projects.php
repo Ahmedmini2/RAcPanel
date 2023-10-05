@@ -220,7 +220,7 @@ if (isset($_POST['add-project'])) {
   $_SESSION['total_cost'] += str_replace(',','',$_POST['prod_peice_tot']);
   $_SESSION['total_net'] += $_POST['net_toti'];
   $_SESSION['total_without_tax'] += $total_cost + $total_net;
-  $_SESSION['total_with_tax'] += ($total_without_tax * 15) /100;
+  $_SESSION['total_with_tax'] += (($total_without_tax * 15) /100);
 
   $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`valid_till`,`duration`,`payment_type`,`created_at`) VALUES(NULL, '$project_name', '$project_description','$valid_till','$duration','$payment_type' ,NOW())";
   $project_res = $conn->query($insert_project);
