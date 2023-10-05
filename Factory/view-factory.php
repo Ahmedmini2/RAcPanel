@@ -182,23 +182,28 @@ if (isset($_GET['id'])) {
 
                         <div class="row ">
                             <div class="text-right col-lg-10 col-sm-6">
-                                <a href="project-report.php" 
-                                class="btn bg-gradient-dark mb-0  col-lg-3 col-md-2 col-sm-6 col-xs-6">
-                                 رفع التقرير عن الانتاج
-                                 <i class="fas fa-plus" aria-hidden="true"></i>
+                                <a href="project-report.php" class="btn bg-gradient-dark mb-0  col-lg-3 col-md-2 col-sm-6 col-xs-6">
+                                    رفع التقرير عن الانتاج
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
-                                <a href="" 
-                                class="btn bg-gradient-dark mb-0  col-lg-3 col-md-2 col-sm-6 col-xs-6">
-                                 رفع التقرير عن الاستلام
-                                 <i class="fas fa-plus" aria-hidden="true"></i>
+                                <a href="" class="btn bg-gradient-dark mb-0  col-lg-3 col-md-2 col-sm-6 col-xs-6">
+                                    رفع التقرير عن الاستلام
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
-                                <a href="" 
-                                class="btn bg-gradient-dark text-start mb-0  col-lg-3 col-md-2 col-sm-6 col-xs-6">
-                                 رفع رفع الفواتير
-                                 <i class="fas fa-plus" aria-hidden="true"></i>
+                                <div class="text-left col-lg-2 col-sm-6">
+                                <a href="" class="btn bg-gradient-dark mb-0  col-lg-3 col-md-2 col-sm-6 col-xs-6">
+                                    رفع الفواتير
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
                             </div>
-                            
+
+                            </div>
+                            <div class="text-left col-lg-2 col-sm-6">
+                                <a href="" class="btn bg-gradient-dark mb-0  col-lg-3 col-md-2 col-sm-6 col-xs-6">
+                                    رفع التقرير عن الاستلام
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                </a>
+                            </div>
                         </div>
 
                         <script>
