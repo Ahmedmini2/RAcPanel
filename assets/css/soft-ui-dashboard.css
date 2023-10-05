@@ -3965,14 +3965,15 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-primary {
-  color: #cb0c9f;
-  border-color: #cb0c9f;
+  color: #ffffff;
+  border-color: #ffffff;
+  background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
 }
 
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #cb0c9f;
-  border-color: #cb0c9f;
+  background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
+  border-color: #ffffff;
 }
 
 .btn-check:focus+.btn-outline-primary,

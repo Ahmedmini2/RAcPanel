@@ -215,7 +215,7 @@ if (isset($_GET['project_id'])) {
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <button type="submit" name="submit" class="btn btn-secondary"> اضافه التقرير اليومي</button>
+                                    <button type="submit" name="submit" class="btn btn-secondary"> اضافه التقريرالاستلام</button>
                                 </div>
                             </div>
                             <div class="col">
