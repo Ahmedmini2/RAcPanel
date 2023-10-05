@@ -203,7 +203,7 @@ if (!empty($_GET['edit'])) {
                         <?php require_once('../components/notification.php'); ?>
                     </div>
                     <div class="block-header bg-gradient-dark col-md-3 col-sm-6 col-xs-6  rounded-pill">
-                        <h6 class="block-title text-white py-2 px-4 ">إضافة تقرير يومي جديد </h6>
+                        <h6 class="block-title text-center text-white py-2 px-4 ">اضافة تقرير جديد</h6>
                     </div>
                     <form>
 
@@ -217,6 +217,7 @@ if (!empty($_GET['edit'])) {
                                         <option value="2">Two</option>
                                         <option value="3">Three</option>
                                     </select>
+                                  
                                 </div>
                             </div>
                             <div class="col">
