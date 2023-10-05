@@ -3966,19 +3966,19 @@ fieldset:disabled .btn {
 
 .btn-outline-primary {
   color: #ffffff;
-  border-color: #ffffff;
+  border-color: #f5f4f5;
   background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
 }
 
 .btn-outline-primary:hover {
   color: #fff;
-  background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
-  border-color: #ffffff;
+  background-color: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
+  border-color:  #fff;
 }
 
 .btn-check:focus+.btn-outline-primary,
 .btn-outline-primary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(48, 211, 7, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
 
 .btn-check:checked+.btn-outline-primary,
