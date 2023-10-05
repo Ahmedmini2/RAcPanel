@@ -198,12 +198,7 @@ if (isset($_GET['id'])) {
                             </div>
 
                             </div>
-                            <div class="text-left col-lg-2 col-sm-6">
-                                <a href="" class="btn bg-gradient-dark mb-0  col-lg-3 col-md-2 col-sm-6 col-xs-6">
-                                    رفع التقرير عن الاستلام
-                                    <i class="fas fa-plus" aria-hidden="true"></i>
-                                </a>
-                            </div>
+                            
                         </div>
 
                         <script>
