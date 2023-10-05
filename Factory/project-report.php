@@ -238,8 +238,9 @@ if (!empty($_GET['edit'])) {
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label>كميةالاصناف</label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية الاصناف" class="form-control" name="amount_text">
+                                    <label> كمية الاصناف </label>
+                                    <input type="text" placeholder="الرجاء كتابة كمية الاصناف    " class="form-control" name="branch" value="">
+
                                 </div>
                             </div>
                             <div class="col">
@@ -258,13 +259,15 @@ if (!empty($_GET['edit'])) {
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label>سعر الخرسانة</label>
-                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة" class="form-control" name="amount_text">
+                                    <label> سعر الخرسانة </label>
+                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة " class="form-control" name="branch" value="">
+
                                 </div>
                             </div>
+
                             <div class="col">
                                 <div class="form-group">
-                                    <label> كميةالخرسانة </label>
+                                    <label> كمية الخرسانة </label>
                                     <input type="text" placeholder="الرجاء كتابة كمية الخرسانة " class="form-control" name="branch" value="">
 
                                 </div>
@@ -272,10 +275,11 @@ if (!empty($_GET['edit'])) {
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col">
                                 <div class="form-group">
-                                    <label>مبلغ اضافي</label>
-                                    <input type="text" placeholder="الرجاء كتابة المبلغ" class="form-control" name="amount_text">
+                                    <label> مبلغ اضافي </label>
+                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="branch" value="">
+
                                 </div>
                             </div>
                         </div>
