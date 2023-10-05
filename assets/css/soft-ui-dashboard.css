@@ -21627,7 +21627,7 @@ hr.horizontal.gray-light {
 
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active .icon {
   
-  background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%);
+  background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
 }
 
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active .icon svg .color-background,
