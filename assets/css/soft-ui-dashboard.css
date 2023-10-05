@@ -25005,3 +25005,7 @@ width: 100px;
   background: #6c6879 !important;
   
 }
+.color-bg-icon{
+  background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%);
+  /* bg-gradient-primary */
+}

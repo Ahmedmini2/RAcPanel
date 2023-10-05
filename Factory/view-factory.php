@@ -285,12 +285,12 @@ if (isset($_GET['id'])) {
                                     <div class="col-md-4 col-sm-2 mb-3">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
                                                     <i class="fas fa-landmark opacity-10"></i>
                                                 </div>
                                             </div>
                                             <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">القيمة الاجمالية للمشروع</h6>
+                                                <h6 class="text-center mb-0">تكلفة المشروع</h6>
                                                 <hr class="horizontal dark my-3">
 
                                                 <h5 class="mb-0"><?= number_format($project_cost) ?> ريال</h5>
@@ -300,12 +300,12 @@ if (isset($_GET['id'])) {
                                     <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
                                                     <i class="fas fa-landmark opacity-10"></i>
                                                 </div>
                                             </div>
                                             <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">القيمة المضافة</h6>
+                                                <h6 class="text-center mb-0">متبقي من تكلفة المشروع</h6>
 
                                                 <hr class="horizontal dark my-3">
                                                 <h5 class="mb-0">+$2000</h5>
@@ -315,75 +315,19 @@ if (isset($_GET['id'])) {
                                     <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
                                                     <i class="fas fa-landmark opacity-10"></i>
                                                 </div>
                                             </div>
                                             <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">تكلفة المشروع </h6>
+                                                <h6 class="text-center mb-0"> ما تم صرفه </h6>
 
                                                 <hr class="horizontal dark my-3">
                                                 <h5 class="mb-0">+$2000</h5>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
-                                        <div class="card ">
-                                            <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                                    <i class="fas fa-landmark opacity-10"></i>
-                                                </div>
-                                            </div>
-                                            <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">صافي الربح</h6>
-
-                                                <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">+$2000</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
-                                        <div class="card ">
-                                            <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                                    <i class="fas fa-landmark opacity-10"></i>
-                                                </div>
-                                            </div>
-                                            <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">نسبة الربح</h6>
-
-                                                <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">+$2000</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
-                                        <div class="card ">
-                                            <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                                    <i class="fas fa-landmark opacity-10"></i>
-                                                </div>
-                                            </div>
-                                            <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">حاله المشروع</h6>
-
-                                                <td class="align-middle">
-                                                    <div class="progress-wrapper w-75 mx-auto">
-                                                        <div class="progress-info">
-                                                            <div class="progress-percentage">
-                                                                <span class="text-xs font-weight-bold">60%</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">قيد التنفيد</h5>
-                                            </div>
-                                        </div>
-                                    </div>
+                                
 
                                 </div>
 
@@ -396,7 +340,57 @@ if (isset($_GET['id'])) {
                             <div class="col-12">
                                 <div class="card mb-4">
                                     <div class="card-header pb-0">
-                                        <h6>خط سير تنفيد المشروع</h6>
+                                        <h6>خرسانة المشروع</h6>
+                                    </div>
+                                    <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                        <div class="table-responsive p-0">
+                                            <table class="table table-hover table-fixed">
+
+                                                <!--Table head-->
+                                                <thead class="bg-dark text-light">
+                                                    <tr>
+                                                        <th>الرقم</th>
+                                                        <th>الصنف</th>
+                                                        <th>كمية الخرسانة</th>
+                                                        <th>سعر الخرسانة</th>
+                                                        <th>كمية الخرسانة المستخدمة</th>
+                                                        <th>سعر الخرسانة المستخدمة</th>
+                                                    </tr>
+                                                </thead>
+                                                <!--Table head-->
+
+                                                <!--Table body-->
+                                                <tbody>
+                                                    <?php
+                                                    $i = 0;
+                                                    $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+                                                    while ($products = mysqli_fetch_array($res3)) {
+                                                        $i++;
+
+                                                    ?>
+                                                        <tr>
+                                                            <th scope="row"><?= $i ?></th>
+                                                            <td><?= $products['product_name'] ?></td>
+                                                            <td><?= $products['dimensions'] ?></td>
+                                                            <td><?= number_format($products['cost_price']) ?></td>
+                                                            <td><?= number_format($products['sell_price']) ?></td>
+                                                            <td><?= number_format($products['net_profit']) ?></td>
+                                                            
+                                                        </tr>
+                                                    <?php } ?>
+
+                                                </tbody>
+                                                <!--Table body-->
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card mb-4">
+                                    <div class="card-header pb-0">
+                                        <h6>اصناف المشروع</h6>
                                     </div>
                                     <div class="card-body px-0 pt-0 pb-2 mx-3">
                                         <div class="table-responsive p-0">
@@ -434,9 +428,7 @@ if (isset($_GET['id'])) {
                                                             <td><?= number_format($products['sell_price']) ?></td>
                                                             <td><?= number_format($products['net_profit']) ?></td>
                                                             <td><?= $products['net_perc'] ?></td>
-                                                            <td><?= $products['quantity'] ?></td>
-
-                                                            <td><?= $products['quantity'] ?></td>
+                                                        
                                                         </tr>
                                                     <?php } ?>
 
@@ -452,42 +444,8 @@ if (isset($_GET['id'])) {
                         <!--Table -->
 
                         <div class="row">
-                            <div class="col-lg-8 mt-4">
-                                <div class="card">
-                                    <div class="card-header pb-0 px-3">
-                                        <h6 class="mb-0 text-lg">البنود</h6>
-                                    </div>
-                                    <div class="card-body pt-4 p-3">
-                                        <ul class="list-group">
-                                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="mb-3 text-lg">الصنف الاول </h6>
-                                                    <span class="mb-2 text-lg">الحديد: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
-
-                                                </div>
-
-                                            </li>
-                                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="mb-3 text-lg">الصنف التاني </h6>
-                                                    <span class="mb-2 text-lg">الاغطية: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
-
-                                                </div>
-
-                                            </li>
-                                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="mb-3 text-lg">الصنف الثالث </h6>
-                                                    <span class="mb-2 text-lg">الاكسسوارات: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
-
-                                                </div>
-
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4  mt-4">
+                            
+                            <div class="col-lg-10  mt-4">
                                 <div class="card h-100">
                                     <div class="card-header pb-0 p-3">
                                         <div class="row">
