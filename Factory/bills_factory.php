@@ -221,7 +221,7 @@ if (isset($_GET['project_id'])) {
                             
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="formFileLg" class="form-label">صورة مستند التسليم</label>
+                                    <label for="formFileLg" class="form-label">صورة الفاتورة</label>
                                     <input class="form-control form-control-lg" id="formFileLg" type="file" />
                                 </div>
                             </div>
