@@ -178,7 +178,7 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label for="date" class="">تاريخ الفاتورة</label>
-                                    <div class="col-5">
+                                    <div class="">
                                         <div class="input-group date" id="datepicker">
                                             <input type="text" class="form-control" id="date" />
                                             <span class="custom-date">
