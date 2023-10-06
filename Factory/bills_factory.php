@@ -170,21 +170,27 @@ if (isset($_GET['project_id'])) {
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label>اختيار الصنف</label>
-                                    <select name="name" id="name" class="form-control" placeholder="اختيار النوع">
-
-                                        <?php
-                                        $s_items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
-                                        while ($item = mysqli_fetch_array($s_items)) {
-                                            echo '<option value="' . $item['product_name'] . '">' . $item['product_name'] . '</option>';
-                                        }
-
-                                        ?>
-
-                                    </select>
+                                    <label>تاريخ الفاتورة</label>
+                                    <section class="container">
+                                        
+                                        <form class="row">
+                                            <label for="date" class="col-1 col-form-label">Date</label>
+                                            <div class="col-5">
+                                                <div class="input-group date" id="datepicker">
+                                                    <input type="text" class="form-control" id="date" />
+                                                    <span class="input-group-append">
+                                                        <span class="input-group-text bg-light d-block">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </section>
 
                                 </div>
                             </div>
+
                             <div class="col">
                                 <div class="form-group">
                                     <label> الكمية الموجودة في المستودع </label>
@@ -228,7 +234,7 @@ if (isset($_GET['project_id'])) {
         </div>
 
     </main>
-    
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -236,7 +242,7 @@ if (isset($_GET['project_id'])) {
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/fullcalendar.min.js"></script>
     <script src="../assets/js/plugins/chartjs.min.js"></script>
-    
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
