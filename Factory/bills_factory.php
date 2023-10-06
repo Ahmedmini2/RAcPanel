@@ -168,6 +168,13 @@ if (isset($_GET['project_id'])) {
                     <form>
 
                         <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                    <label> اسم الفاتورة</label>
+                                    <input type="text" placeholder="الرجاء كتابة اسم الفاتورة    " class="form-control" name="branch" value="">
+
+                                </div>
+                            </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="date" class="">تاريخ الفاتورة</label>
@@ -190,24 +197,28 @@ if (isset($_GET['project_id'])) {
                                 </div>
                             </div>
 
-                            <div class="col">
-                                <div class="form-group">
-                                    <label> الكمية الموجودة في المستودع </label>
-                                    <input type="text" placeholder="الرجاء كتابة الكميةالموجودة في المستودع    " class="form-control" name="branch" value="" readonly>
-
-                                </div>
-                            </div>
+                            
 
                         </div>
 
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label> الكمية التي سيتم تسليمها </label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية التي سيتم تسليمها    " class="form-control" name="branch" value="">
+                                    <label> مقدم الفاتورة  </label>
+                                    <input type="text" placeholder="الرجاء كتابة مقدم الفاتورة    " class="form-control" name="branch" value="">
 
                                 </div>
                             </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> تكلفة الفاتورة  </label>
+                                    <input type="text" placeholder="الرجاء كتابة تكلفة الفاتورة    " class="form-control" name="branch" value="">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            
                             <div class="col">
                                 <div class="form-group">
                                     <label for="formFileLg" class="form-label">صورة مستند التسليم</label>
