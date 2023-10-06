@@ -25012,3 +25012,6 @@ width: 100px;
   background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%);
   /* bg-gradient-primary */
 }
+.custom-date{
+  cursor: pointer;
+}
