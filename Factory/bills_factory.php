@@ -177,21 +177,16 @@ if (isset($_GET['project_id'])) {
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="date" class="">تاريخ الفاتورة</label>
-                                    <div class="">
-                                        <div class="form-group">
-                                            <label class="control-label col-sm-2" for="datetimepicker">Datetime</label>
-                                            <div class="col-sm-10">
-                                                <input class="form-control" type="text" id="datetimepicker" name="datetimepicker" placeholder="Enter Date Time" />
-                                            </div>
-                                        </div>
-                                        
+                                    <label for="datetimepicker" class="control-label col-sm-2">تاريخ الفاتورة</label>
+
+
+
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" id="datetimepicker" name="datetimepicker" placeholder="Enter Date Time" />
                                     </div>
-                                    <script>
-                                        $(function() {
-                                            $('#datepicker').datepicker();
-                                        });
-                                    </script>
+
+
+
 
                                 </div>
                             </div>
