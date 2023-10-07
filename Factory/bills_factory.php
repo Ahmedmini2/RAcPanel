@@ -178,16 +178,19 @@ if (isset($_GET['project_id'])) {
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="datetimepicker" class="control-label col-sm-2">تاريخ الفاتورة</label>
+                                    <div class="col-lg-3 col-sm-6">
+                                        <label for="startDate">تاريخ الفاتورة</label>
+                                        <input id="startDate" class="form-control" type="date" />
+                                        <script>
+                                        let startDate = document.getElementById('startDate')
 
 
-
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" id="datetimepicker" name="datetimepicker" placeholder="Enter Date Time" />
+                                        startDate.addEventListener('change', (e) => {
+                                            let startDateVal = e.target.value
+                                            document.getElementById('startDateSelected').innerText = startDateVal
+                                        })
+                                    </script>
                                     </div>
-
-
-
 
                                 </div>
                             </div>
@@ -221,31 +224,7 @@ if (isset($_GET['project_id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class='col'>
-                                <div class="form-group">
-                                    <label>Select Date: </label>
-                                    <input id="startDate" class="form-control" type="date" />
-                                    <span id="startDateSelected"></span>
-                                    <script>
-                                        let startDate = document.getElementById('startDate')
-
-
-                                        startDate.addEventListener('change', (e) => {
-                                            let startDateVal = e.target.value
-                                            document.getElementById('startDateSelected').innerText = startDateVal
-                                        })
-                                    </script>
-
-                                </div>
-                            </div>
-                            <script type="text/javascript">
-                                $(function() {
-                                    $('#datetimepicker1').datetimepicker();
-                                });
-                            </script>
-                        </div>
-
+                       
 
                         <div class="row">
                             <div class="col">
