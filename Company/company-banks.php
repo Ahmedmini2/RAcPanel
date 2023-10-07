@@ -155,12 +155,11 @@ $select =mysqli_query($conn, "select * from bank_info");
     <div class="container-fluid py-4">
         <div class="row">
         <a href="add-company-bank.php" 
-                                class="btn bg-gradient-dark mb-0">
-                                أضافة حساب بنك جديد
+                                class="btn bg-gradient-dark col-md-2 col-sm-6 col-xs-6 mb-0">
+                                أضافة حساب بنك جديد&nbsp;&nbsp;
                                  <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
-        <a href="add-company-bank.php" 
-        class="btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6">أضافة حساب بنك جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
+        
         <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
             <div class="content">
             <div class="block-header bg-warning  col-md-3 col-sm-6 col-xs-6  rounded">
