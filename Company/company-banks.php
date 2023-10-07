@@ -77,7 +77,7 @@ $select =mysqli_query($conn, "select * from bank_info");
             <li class="nav-item dropdown ps-2 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-bell cursor-pointer"></i>
-              </a>
+              </a> 
               <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                 <li class="mb-2">
                   <a class="dropdown-item border-radius-md" href="javascript:;">
@@ -154,6 +154,11 @@ $select =mysqli_query($conn, "select * from bank_info");
     <!-- End Navbar -->
     <div class="container-fluid py-4">
         <div class="row">
+        <a href="add-company-bank.php" 
+                                class="btn bg-gradient-dark mb-0">
+                                أضافة حساب بنك جديد
+                                 <i class="fas fa-plus" aria-hidden="true"></i>
+                                </a>
         <a href="add-company-bank.php" 
         class="btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6">أضافة حساب بنك جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
         <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
