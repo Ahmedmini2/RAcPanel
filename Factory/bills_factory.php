@@ -29,7 +29,7 @@ if (isset($_GET['project_id'])) {
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
-   
+
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 
 
@@ -223,6 +223,23 @@ if (isset($_GET['project_id'])) {
                                     <input class="form-control form-control-lg" id="formFileLg" type="file" />
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class='col-sm-6'>
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker1'>
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                $(function() {
+                                    $('#datetimepicker1').datetimepicker();
+                                });
+                            </script>
                         </div>
 
 
