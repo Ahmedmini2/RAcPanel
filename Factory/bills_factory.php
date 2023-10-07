@@ -225,17 +225,16 @@ if (isset($_GET['project_id'])) {
                             <div class='col'>
                                 <div class="form-group">
                                     <label>Select Date: </label>
-                                    <div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
-                                        <input class="form-control" type="text" readonly />
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                    </div>
+                                    <input id="startDate" class="form-control" type="date" />
+                                    <span id="startDateSelected"></span>
                                     <script>
-                                        $(function() {
-                                            $("#datepicker").datepicker({
-                                                autoclose: true,
-                                                todayHighlight: true
-                                            }).datepicker('update', new Date());
-                                        });
+                                        let startDate = document.getElementById('startDate')
+
+
+                                        startDate.addEventListener('change', (e) => {
+                                            let startDateVal = e.target.value
+                                            document.getElementById('startDateSelected').innerText = startDateVal
+                                        })
                                     </script>
 
                                 </div>
@@ -267,7 +266,7 @@ if (isset($_GET['project_id'])) {
 
 
 
-    
+
 
 
 
