@@ -224,24 +224,30 @@ if (isset($_GET['project_id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class='col-sm-6'>
-                                    <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker1'>
-                                            <input type='text' class="form-control" />
-                                            <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                        </div>
+                        <div class="row">
+                            <div class='col'>
+                                <div class="form-group">
+                                    <label>Select Date: </label>
+                                    <div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
+                                        <input class="form-control" type="text" readonly />
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                     </div>
+                                    <script>
+                                        $(function() {
+                                            $("#datepicker").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker('update', new Date());
+                                        });
+                                    </script>
+
                                 </div>
-                                <script type="text/javascript">
-                                    $(function() {
-                                        $('#datetimepicker1').datetimepicker();
-                                    });
-                                </script>
                             </div>
+                            <script type="text/javascript">
+                                $(function() {
+                                    $('#datetimepicker1').datetimepicker();
+                                });
+                            </script>
                         </div>
 
 
