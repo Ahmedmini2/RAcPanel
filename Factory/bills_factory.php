@@ -168,8 +168,8 @@ if (isset($_GET['project_id'])) {
                     <form>
 
                         <div class="row">
-                        <div class="col">
-                            <div class="form-group">
+                            <div class="col">
+                                <div class="form-group">
                                     <label> اسم الفاتورة</label>
                                     <input type="text" placeholder="الرجاء كتابة اسم الفاتورة    " class="form-control" name="branch" value="">
 
@@ -179,14 +179,13 @@ if (isset($_GET['project_id'])) {
                                 <div class="form-group">
                                     <label for="date" class="">تاريخ الفاتورة</label>
                                     <div class="">
-                                        <div class="input-group date" id="datepicker">
-                                            <input type="text" class="form-control" id="date" />
-                                            <span class="custom-date">
-                                                <span class="input-group-text bg-light d-block">
-                                                    <i class="fa fa-calendar"></i>
-                                                </span>
-                                            </span>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="datetimepicker">Datetime</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" id="datetimepicker" name="datetimepicker" placeholder="Enter Date Time" />
+                                            </div>
                                         </div>
+                                        
                                     </div>
                                     <script>
                                         $(function() {
@@ -197,28 +196,28 @@ if (isset($_GET['project_id'])) {
                                 </div>
                             </div>
 
-                            
+
 
                         </div>
 
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label> مقدم الفاتورة  </label>
+                                    <label> مقدم الفاتورة </label>
                                     <input type="text" placeholder="الرجاء كتابة مقدم الفاتورة    " class="form-control" name="branch" value="">
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label> تكلفة الفاتورة  </label>
+                                    <label> تكلفة الفاتورة </label>
                                     <input type="text" placeholder="الرجاء كتابة تكلفة الفاتورة    " class="form-control" name="branch" value="">
 
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col">
                                 <div class="form-group">
                                     <label for="formFileLg" class="form-label">صورة الفاتورة</label>
@@ -244,6 +243,55 @@ if (isset($_GET['project_id'])) {
         </div>
 
     </main>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+
+            /* setting date */
+            $("#datepicker").datetimepicker({
+                format: "YYYY-MM-DD"
+            });
+
+            /* setting time */
+            $("#timepicker").datetimepicker({
+                format: "HH:mm:ss"
+            });
+
+            /* setting datetime */
+            $("#datetimepicker").datetimepicker({
+                format: "YYYY-MM-DD HH:mm:ss"
+            });
+
+            /* range */
+            $(".input-daterange").datetimepicker({
+                format: "YYYY-MM-DD"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(function() {
+
+            $("#datetimeStartPicker").datetimepicker();
+            $("#datetimeEndPicker").datetimepicker({
+                useCurrent: false //Important! See issue #1075
+            });
+
+            $("#datetimeStartPicker").on("dp.change", function(e) {
+                $("#datetimeEndPicker").data("DateTimePicker").minDate(e.date);
+            });
+
+            $("#datetimeEndPicker").on("dp.change", function(e) {
+                $("#datetimeStartPicker").data("DateTimePicker").maxDate(e.date);
+            });
+
+        });
+    </script>
+
 
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
