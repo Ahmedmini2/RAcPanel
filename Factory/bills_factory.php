@@ -31,9 +31,6 @@ if (isset($_GET['project_id'])) {
     <!-- CSS Files -->
 
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
-
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
@@ -268,53 +265,10 @@ if (isset($_GET['project_id'])) {
 
     </main>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <script>
-        $(function() {
 
-            /* setting date */
-            $("#datepicker").datetimepicker({
-                format: "YYYY-MM-DD"
-            });
+    
 
-            /* setting time */
-            $("#timepicker").datetimepicker({
-                format: "HH:mm:ss"
-            });
-
-            /* setting datetime */
-            $("#datetimepicker").datetimepicker({
-                format: "YYYY-MM-DD HH:mm:ss"
-            });
-
-            /* range */
-            $(".input-daterange").datetimepicker({
-                format: "YYYY-MM-DD"
-            });
-
-        });
-    </script>
-
-    <script>
-        $(function() {
-
-            $("#datetimeStartPicker").datetimepicker();
-            $("#datetimeEndPicker").datetimepicker({
-                useCurrent: false //Important! See issue #1075
-            });
-
-            $("#datetimeStartPicker").on("dp.change", function(e) {
-                $("#datetimeEndPicker").data("DateTimePicker").minDate(e.date);
-            });
-
-            $("#datetimeEndPicker").on("dp.change", function(e) {
-                $("#datetimeStartPicker").data("DateTimePicker").maxDate(e.date);
-            });
-
-        });
-    </script>
 
 
     <!--   Core JS Files   -->
