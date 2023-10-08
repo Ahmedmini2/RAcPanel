@@ -107,7 +107,7 @@
   
   .container:nth-child(1),
   .container:nth-child(4) {
-    & .f: :before,
+    & .f::before,
     & .r::before,
     & .l::before {
       position: absolute;
@@ -118,7 +118,7 @@
     top: 25%;
     border: 1px solid #fbcf33;
     overflow: hidden;
-  }
+    }
   }
   
   .container:nth-child(1) .b::before,
