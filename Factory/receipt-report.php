@@ -3,6 +3,38 @@ include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Factory";
 if (isset($_GET['project_id'])) {
     $id = $_GET['project_id'];
+
+    if(isset($_POST['submit'])){
+        $str = explode(",",$_POST['name']);
+        $product_id = $str[0];
+        $quantity = $_POST['quantity'];
+        $del_quantity = $_POST['del_quantity'];
+        $del_image = $_POST['del_image'];
+
+        $target_dir = "../Projects/Delivery-Reports/".$id."/";
+        if(!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }else{
+
+        }
+        $target_file = $target_dir . basename($_FILES["del_image"]["name"]);
+        $filename = basename($_FILES["del_image"]["name"]);
+        $uploadOk = 1;
+        move_uploaded_file($_FILES["del_image"]["tmp_name"], $target_file);
+
+        $insert_product_del= "INSERT INTO `product_delivery` (`id`, `product_id`, `quantity`, `image`, `created_at`) VALUES (NULL, '$product_id', '$del_quantity', '$filename', NOW())";
+        $res = $conn->query($insert_product_del);
+        if ($res) {
+            $_SESSION['notification'] = "تم اضافة تقرير الانتاج بنجاح";
+            header('location: view-factory.php?id='.$id.'');
+            exit();
+          } else {
+            $_SESSION['notification'] = "خطأ في الادخال";
+            header('location: view-factory.php?id='.$id.'');
+            exit();
+          }
+   
+    }
 }
 
 ?>
@@ -165,7 +197,7 @@ if (isset($_GET['project_id'])) {
                     <div class="block-header bg-gradient-dark col-md-3 col-sm-6 col-xs-6  rounded-pill">
                         <h6 class="block-title text-center text-white py-2 px-4 ">اضافة تقرير جديد عن الاستلام</h6>
                     </div>
-                    <form>
+                    <form method="post" action="" enctype="multipart/form-data">
 
                         <div class="row">
                             <div class="col">
@@ -211,7 +243,7 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> الكمية الموجودة في المستودع </label>
-                                    <input type="text" placeholder="الرجاء كتابة الكميةالموجودة في المستودع    " class="form-control" name="quantity" id="quantity" value="" readonly>
+                                    <input type="text" placeholder="الرجاء كتابة الكميةالموجودة في المستودع" class="form-control" name="quantity" id="quantity" value="" readonly>
 
                                 </div>
                             </div>
@@ -222,14 +254,14 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> الكمية التي سيتم تسليمها </label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية التي سيتم تسليمها    " class="form-control" name="branch" value="">
+                                    <input type="text" placeholder="الرجاء كتابة كمية التي سيتم تسليمها" class="form-control" name="del_quantity" value="">
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="formFileLg" class="form-label">صورة مستند التسليم</label>
-                                    <input class="form-control form-control-lg" id="formFileLg" type="file" />
+                                    <input class="form-control form-control-lg" id="formFileLg" name="del_image" type="file" />
                                 </div>
                             </div>
                         </div>
