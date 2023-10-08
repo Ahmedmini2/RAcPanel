@@ -597,7 +597,7 @@ if (isset($_GET['project_id'])) {
                     
                      function changeVal() {
                         
-                        value =  <?=$total_without_tax+$total_with_tax+$project_cost?> ;
+                        value =  <?=number_format($total_without_tax+$total_with_tax+$project_cost,0)?> ;
                         document.getElementById("con").innerText = numToWords(value);
                         console.log(value);
                         
