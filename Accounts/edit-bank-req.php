@@ -10,7 +10,7 @@ $_SESSION['sidebar']="Accounts";
     $name=$editData['name'];
     $description=$editData['description'];
     $amount_text=$editData['amount_text'];
-    $amount_number=$_POST['amount_number'];
+    $amount_number=$editData['amount_number'];
     $our_bank_name=$editData['our_bank_name'];
     $to_account_type=$editData['to_account_type'];
     $transfer_to=$editData['transfer_to'];
@@ -31,19 +31,19 @@ $_SESSION['sidebar']="Accounts";
         $name=$_POST['name'];
     $description=$_POST['description'];
     $amount_text=$_POST['amount_text'];
-    $amount_number=$_POST['amount_number'];
+    $amount_number=  str_replace(',','',$_POST['amount_number']);
     $our_bank_name=$_POST['our_bank_name'];
     $to_account_type=$_POST['to_account_type'];
     $transfer_to=$_POST['transfer_to'];
     
-    $update = "UPDATE `bank_request` SET `name' = '$name' , `description' = '$description' , `amount_text' = '$amount_text', `amount_number`= '$amount_number' , `our_bank_name` = '$our_bank_name'
-    ,`to_account_type`='$to_account_type', `transfer_to' = '$transfer_to' WHERE `id` = $id";
+    $update = "UPDATE `bank_request` SET `name` = '$name' , `description` = '$description' , `amount_text` = '$amount_text', `amount_number`= '$amount_number' , `our_bank_name` = '$our_bank_name'
+    ,`to_account_type`='$to_account_type', `transfer_to` = '$transfer_to' WHERE `id` = $id";
     $updateResult=$conn->query($update);
     $idAttr="updateForm";
     if($updateResult){
       $_SESSION['notification'] = "تم تعديل التعميد بنجاح";
     }else{
-      $_SESSION['notification'] = "يوجد خلل في النظام";
+      $_SESSION['notification'] = "يوجد خلل في النظام" .  $conn->error;;
     }
   }
     
@@ -216,6 +216,7 @@ $_SESSION['sidebar']="Accounts";
                                     <div class="form-group">
                                       <label>نوع التعميد</label>
                                       <select name="name" id="name" class="form-control" placeholder="نوع التعميد" onchange="showDiv(this)">
+                                            <option value="<?=$name?>" selected><?php if($name == 1 ) {  echo 'طلب تحويل بنكي'; }else if ($name == 2) {echo 'طلب سحب مبلغ مالي';} else if ($name == 3){ echo 'طلب اصدار شيك بنكي';} ?></option>
                                             <option value="0"></option>
                                             <option value="1" <?php if($name==1) echo 'selected="selected"'; ?>>طلب تحويل بنكي</option>
                                             <option value="2" <?php if($name==2) echo 'selected="selected"'; ?>>طلب سحب مبلغ مالي</option>
@@ -257,7 +258,7 @@ $_SESSION['sidebar']="Accounts";
                                   <div class="col">
                                     <div class="form-group">
                                       <label>المبلغ المالي ارقام</label>
-                                      <input type="text" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="amount_number" value="<?php echo $amount_number; ?>">
+                                      <input type="text" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="amount_number" value="<?=$amount_number?>">
                                     </div>
                                   </div>
                                 </div>
@@ -296,7 +297,7 @@ $_SESSION['sidebar']="Accounts";
                                      <div class="form-group">
                                         <label>الى حساب شركة</label>
                                         <select name="transfer_to" id="transfer_to" class="form-control" placeholder="نوع التعميد">
-                                        <option value=""></option>  
+                                        <option value="<?=$transfer_to?>"><?=$transfer_to?></option>  
                                         <?php
                                             $select =mysqli_query($conn, "select name from beneficiary_info");
                                             $i=0; while($r=mysqli_fetch_array($select)){

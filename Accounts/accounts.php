@@ -1,7 +1,7 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Accounts";
-$select = mysqli_query($conn, "select * from bank_request");
+$select = mysqli_query($conn, "select * from bank_request ORDER BY id DESC");
 
 ?>
 <!DOCTYPE html>
@@ -217,7 +217,7 @@ $select = mysqli_query($conn, "select * from bank_request");
                           echo "تسديد فاتورة إلكترونية";
                         } ?></td>
                       <td class="mb-0 text-sm"><?php echo $r['description']; ?></td>
-                      <td class="mb-0 text-sm"><?php echo $r['amount_number']; ?></td>
+                      <td class="mb-0 text-sm"><?php echo number_format($r['amount_number']); ?></td>
                       <td class="text-xs text-secondary mb-0">
                         <?php echo 'من حساب : ' . $r['our_bank_name'] . '<br><br>';
                         echo 'الى المستفيد : ' . $r['transfer_to']; ?></td>
@@ -315,7 +315,9 @@ $select = mysqli_query($conn, "select * from bank_request");
   <script src="../assets/js/plugins/chartjs.min.js"></script>
   <script>
     $(document).ready(function() {
-      $('#example').dataTable();
+      $('#example').dataTable({
+      "order": [ 0, 'desc' ]
+      } );
     });
 
     var ctx = document.getElementById("chart-bars").getContext("2d");

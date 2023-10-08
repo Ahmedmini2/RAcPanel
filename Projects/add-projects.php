@@ -27,8 +27,19 @@ if (isset($_POST['add-project'])) {
   $total_without_tax = $total_cost + $total_net;
   $total_with_tax = ($total_without_tax * 15) /100; 
 
-  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`project_cost`,`total_without_tax`,`total_with_tax`,`net_total`,`valid_till`,`duration`,`payment_type`,`created_at`)
-   VALUES(NULL, '$project_name', '$project_description','$total_cost','$total_without_tax','$total_with_tax','$total_net','$valid_till','$duration','$payment_type' ,NOW())";
+  $target_dir = "Images/".$project_name."/";
+  if(!is_dir($target_dir)) {
+    mkdir($target_dir, 0777, true);
+  }
+  $target_file = $target_dir . basename($_FILES["project_image"]["name"]);
+  $filename = basename($_FILES["project_image"]["name"]);
+  $uploadOk = 1;
+  if (move_uploaded_file($_FILES["project_image"]["tmp_name"], $target_file)) {
+  echo "<script> console.log($uploadOk);</script>";
+  }
+
+  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`image`,`project_cost`,`total_without_tax`,`total_with_tax`,`net_total`,`valid_till`,`duration`,`payment_type`,`created_at`)
+   VALUES(NULL, '$project_name', '$project_description','$filename','$total_cost','$total_without_tax','$total_with_tax','$total_net','$valid_till','$duration','$payment_type' ,NOW())";
   $project_res = $conn->query($insert_project);
   if ($project_res) {
 
@@ -222,7 +233,19 @@ if (isset($_POST['add-project'])) {
   $_SESSION['total_without_tax'] += $total_cost + $total_net;
   $_SESSION['total_with_tax'] += (($total_without_tax * 15) /100);
 
-  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`valid_till`,`duration`,`payment_type`,`created_at`) VALUES(NULL, '$project_name', '$project_description','$valid_till','$duration','$payment_type' ,NOW())";
+  $target_dir = "Images/".$project_name."/";
+  if(!is_dir($target_dir)) {
+    mkdir($target_dir, 0777, true);
+  }
+  $target_file = $target_dir . basename($_FILES["project_image"]["name"]);
+  $filename = basename($_FILES["project_image"]["name"]);
+  $uploadOk = 1;
+  if (move_uploaded_file($_FILES["project_image"]["tmp_name"], $target_file)) {
+  echo "<script> console.log($uploadOk);</script>";
+  }
+
+  $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`image`,`valid_till`,`duration`,`payment_type`,`created_at`) VALUES(NULL, '$project_name', '$project_description',
+  '$filename','$valid_till','$duration','$payment_type' ,NOW())";
   $project_res = $conn->query($insert_project);
   if ($project_res) {
 
@@ -594,10 +617,16 @@ if (isset($_POST['add-project'])) {
           <form id="<?php echo $idAttr; ?>" action="#" method="post">
             <h4>بيانات المشروع</h4>
             <div class="row">
-              <div class="col-md-12 col-sm-6">
+              <div class="col-md-6 col-sm-6">
                 <div class="form-group">
                   <label>أسم الجهة الطالبة للمشروع</label>
                   <input type="text" placeholder="الرجاء كتابة أسم مشروع" class="form-control" name="project_name">
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label>صورة المشروع</label>
+                  <input type="file"  class="form-control" name="project_image">
                 </div>
               </div>
             </div>
