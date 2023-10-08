@@ -2,8 +2,8 @@
     $(document).ready(function() {
  
     setTimeout(function(){
-        $('#loader-wrapper').addClass('d-none');
         
+        $("#loader-wrapper").fadeOut("slow");
     }, 3000);
 
     });
