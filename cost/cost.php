@@ -1,6 +1,6 @@
 <?php
 include('../cookies/session2.php');
-$_SESSION['sidebar'] = "Cost";
+$_SESSION['sidebar'] = "cost";
 $select = mysqli_query($conn, "select * from bank_request");
 
 ?>
