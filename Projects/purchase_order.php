@@ -539,7 +539,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span>SAR <?=number_format($total_without_tax)?></span>
+                                            <span>SAR <?=number_format($total_without_tax+$project_cost)?></span>
                                         </div>
                                     </td>
                                 </tr>
