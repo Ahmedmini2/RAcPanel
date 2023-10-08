@@ -179,7 +179,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
                     </tr>
                     </thead>
                     <tbody>
-                    <?php $i=0; while($r=mysqli_fetch_array($select)){$i++; ?>
+                    
 
 
                     <tr>
@@ -187,12 +187,12 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
                     <td class="text-xs text-secondary mb-0">1</td>
                     <td class="text-xs text-secondary mb-0">صيانة</td>
                    
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['created_at'];?></td>
+                    <td class="text-xs text-secondary mb-0"></td>
                     <td><a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href=""><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
                     </tr>
 
-                    <?php } ?>
+                    
                     </tbody>
                     </table>
 
