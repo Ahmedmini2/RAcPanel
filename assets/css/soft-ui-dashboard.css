@@ -25015,3 +25015,6 @@ width: 100px;
 .custom-date{
   cursor: pointer;
 }
+.inside-card{
+  width: -webkit-fill-available;
+}
