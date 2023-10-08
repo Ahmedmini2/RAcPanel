@@ -442,7 +442,7 @@ if (isset($_GET['id'])) {
                                                             <td><?= $products['product_name'] ?></td>
                                                             <td><?= $products['quantity'] ?></td>
                                                             <?php 
-                                                            $inv_id =  $product['id'];
+                                                            $inv_id =  $products['id'];
                                                             $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id");
                                                             
                                                             while ($inv = mysqli_fetch_array($inv_res)) {
@@ -454,7 +454,7 @@ if (isset($_GET['id'])) {
                                                             <td><?= number_format($production) ?></td>
 
                                                             <?php 
-                                                            $del_id =  $product['id'];
+                                                            $del_id =  $products['id'];
                                                             $del_res = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `product_id` = $del_id");
                                                             
                                                             while ($del = mysqli_fetch_array($del_res)) {
