@@ -30,7 +30,7 @@ if (isset($_POST['add-project'])) {
   $target_dir = "Images/".$project_name."/";
   if(!is_dir($target_dir)) {
     mkdir($target_dir, 0777, true);
-    $_SESSION['notification'] = "ddddddddddddddddddddddd";
+    $_SESSION['notification'] = "ddddddddddddddddddddddd".$target_dir."/";
                   header('location: index.php');
                   exit();
   }else{
