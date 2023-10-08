@@ -590,14 +590,14 @@ if (isset($_GET['project_id'])) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <p>The total value is SAR<?=number_format($total_without_tax+$total_with_tax+$project_cost)?> <span id="con"></span> riyals only.</p>
+                        <p>The total value is SAR <?=number_format($total_without_tax+$total_with_tax+$project_cost)?> <span id="con"></span> riyals only.</p>
                     </div>
                 </div>
                 <script>
                     
                      function changeVal() {
                         
-                        value =  <?=$total_without_tax+$total_with_tax+$project_cost?>
+                        value =  <?=$total_without_tax+$total_with_tax+$project_cost?> ;
                         document.getElementById("con").innerText = numToWords(value);
                         console.log(value);
                         
