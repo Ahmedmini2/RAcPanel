@@ -172,23 +172,46 @@ if (isset($_GET['project_id'])) {
                                 <div class="form-group">
                                     <label>اختيار الصنف</label>
                                     <select name="name" id="name" class="form-control" placeholder="اختيار النوع">
-
+                                        <option value="0"></option>
                                         <?php
                                         $s_items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                         while ($item = mysqli_fetch_array($s_items)) {
-                                            echo '<option value="' . $item['product_name'] . '">' . $item['product_name'] . '</option>';
+                                            $inv_id = $item['id'];
+                                            $warehouse = 0 ;
+                                            $inv_items = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id ");
+                                            while ($inv_item = mysqli_fetch_array($inv_items)) {
+                                                $warehouse += $inv_item['warehouse'];
+                                            }
+                                            echo '<option value="'.$item['id'].','.$warehouse.'">' . $item['product_name'] . '</option>';
                                         }
-
                                         ?>
 
                                     </select>
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script>
+                                    var i = 1;
+
+
+
+
+                                    $(document).on('change', 'input , select', function() {
+                                       var name = $('#name').val();
+                                       const myArray = name.split(",");
+                                       $('#quantity').val(myArray[1]);
+                                    });
+
+
+
+
+                                   
+                                    </script>
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label> الكمية الموجودة في المستودع </label>
-                                    <input type="text" placeholder="الرجاء كتابة الكميةالموجودة في المستودع    " class="form-control" name="branch" value="" readonly>
+                                    <input type="text" placeholder="الرجاء كتابة الكميةالموجودة في المستودع    " class="form-control" name="quantity" id="quantity" value="" readonly>
 
                                 </div>
                             </div>

@@ -187,7 +187,7 @@ if (isset($_GET['id'])) {
                                  رفع التقرير عن الانتاج
                                  <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
-                                <a href="receipt-report.php" 
+                                <a href="receipt-report.php?project_id=<?=$id?>"  
                                 class="btn bg-gradient-dark mb-0">
                                  رفع التقرير عن الاستلام
                                  <i class="fas fa-plus" aria-hidden="true"></i>
@@ -195,7 +195,7 @@ if (isset($_GET['id'])) {
                                 
                             </div>
                             <div class="text-left col-lg-2 col-sm-6">
-                            <a href="bills_factory.php" 
+                            <a href="bills_factory.php?project_id=<?=$id?>" 
                                 class="btn bg-gradient-dark mb-0 ">
                                  رفع الفواتير
                                  <i class="fas fa-plus" aria-hidden="true"></i>
@@ -299,7 +299,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">تكلفة المشروع</h6>
                                                 <hr class="horizontal dark my-3">
 
-                                                <h5 class="mb-0"><?= number_format($project_cost) ?> ريال</h5>
+                                                <h5 class="mb-0"><?= number_format($project['project_cost']) ?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -424,22 +424,46 @@ if (isset($_GET['id'])) {
                                                     $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
                                                     while ($products = mysqli_fetch_array($res3)) {
                                                         $i++;
-
+                                                        $inventory = 0;
+                                                        $production = 0;
+                                                        $deliverd = 0;
                                                     ?>
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
                                                             <td><?= $products['product_name'] ?></td>
-                                                            <td><?= $products['dimensions'] ?></td>
-                                                            <td><?= number_format($products['cost_price']) ?></td>
-                                                            <td><?= number_format($products['sell_price']) ?></td>
-                                                            <td><?= number_format($products['net_profit']) ?></td>
-                                                            <td><?= $products['net_perc'] ?></td>
+                                                            <td><?= $products['quantity'] ?></td>
+                                                            <?php 
+                                                            $inv_id =  $products['id'];
+                                                            $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id");
+                                                            
+                                                            while ($inv = mysqli_fetch_array($inv_res)) {
+                                                                $inventory += $inv['warehouse'];
+                                                                $production += $inv['production'];
+                                                            }
+                                                            ?>
+                                                            <td><?= number_format($inventory) ?></td>
+                                                            <td><?= number_format($production) ?></td>
 
+                                                            <?php 
+                                                            $del_id =  $products['id'];
+                                                            $del_res = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `product_id` = $del_id");
+                                                            
+                                                            while ($del = mysqli_fetch_array($del_res)) {
+                                                                
+                                                                $deliverd += $inv['quantity'];
+                                                                
+                                                            }
+                                                            ?>
+
+                                                            <td><?= number_format($deliverd) ?></td>
+
+                                                            <td><?=$products['quantity']-$production?></td>
                                                         </tr>
                                                     <?php } ?>
 
                                                 </tbody>
                                                 <!--Table body-->
+
 
                                             </table>
                                         </div>
