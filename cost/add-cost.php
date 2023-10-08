@@ -256,8 +256,12 @@ if (!empty($_GET['edit'])) {
               <div class="col">
                 <div class="form-group">
                   <label>نوع التكلفة</label>
-                  <input type="text" placeholder="الرجاء كتابة نوع التكلفة " class="form-control" name="type" value="">
+                  <select name="type" id="type" class="form-control" placeholder="نوع التكلفة">
+                    <option value="0"></option>
+                    <option value="بنزين">بنزين </option>
+                    <option value="مشتريات خارجية">مشتريات خارجية</option>
 
+                  </select>
                 </div>
               </div>
 
@@ -271,39 +275,17 @@ if (!empty($_GET['edit'])) {
               </div>
             </div>
             <div class="row">
-              <div class="col-8">
-                <div class="form-group">
-                  <label>المبلغ المالي كتابة</label>
-                  <input type="text" placeholder="الرجاء كتابة المبلغ المالي نصا" class="form-control" name="amount_text" value="<?php echo $amount_text; ?>">
-                </div>
-              </div>
+
               <div class="col">
                 <div class="form-group">
-                  <label>المبلغ المالي ارقام</label>
+                  <label>سعر التكلفة</label>
                   <input type="number" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="amount_number" value="<?php echo $amount_number; ?>">
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col">
-                <div class="form-group">
-                  <label>من حساب الشركة بنك</label>
-                  <select name="our_bank_name" id="our_bank_name" class="form-control" placeholder="نوع التعميد">
-                    <?php
-                    $select = mysqli_query($conn, "select * from bank_info");
-                    while ($r = mysqli_fetch_array($select)) {
 
-                      echo '<option value="' . $r['name'] . '">' . $r['name'] . '</option>';
-                    }
-                    ?>
 
-                  </select>
-                </div>
-              </div>
-              
-            </div>
 
-          
 
             <div class="row">
               <div class="col">

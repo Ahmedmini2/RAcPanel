@@ -213,8 +213,8 @@ $select = mysqli_query($conn, "select * from bank_request");
                             echo '<span class="badge badge-sm bg-gradient-primary">تم التأكيد</span>';
                           } ?></td>
 
-                      <td><a href="bank-req-info.php?bank_req=<?php echo $r['id']; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
-                          <a href="edit-bank-req.php?req_id=<?php echo $r['id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                      <td><a href=""><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
+                          <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
                           <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
