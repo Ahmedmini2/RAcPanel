@@ -24,12 +24,15 @@ $_SESSION['sidebar']="Home";
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="assets/css/custom.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
   
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
+
+<?php require_once('components/loader.php'); ?>
       
       <!-- Side Bar -->
       <?php require_once('components/sidebar.php'); ?>
