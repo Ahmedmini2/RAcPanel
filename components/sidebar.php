@@ -158,7 +158,7 @@ $sidebar = $_SESSION['sidebar'];
       </li>
       <ul class="navbar-nav active">
         <li class="nav-item ">
-          <a href="#submenu2" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar == "Cost") echo 'active'; ?>"">
+          <a href="#submenu2" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar == "cost") echo 'active'; ?>"">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
@@ -180,12 +180,7 @@ $sidebar = $_SESSION['sidebar'];
             <li class="w-100">
               <a href="../cost/cost.php" class="nav-link px-0"> <span class=" d-sm-inline">تكلفة</span></a>
             </li>
-            <li class="w-100">
-              <a href="../Company/company-banks.php" class="nav-link px-0"> <span class=" d-sm-inline">حسابات بنوك الشركة </span></a>
-            </li>
-            <li>
-              <a href="../Beneficiary/beneficiary-banks.php" class="nav-link px-0"> <span class=" d-sm-inline">أضافة حساب بنك للمستفيدين </span></a>
-            </li>
+            
           </ul>
         </li>
       </ul>
