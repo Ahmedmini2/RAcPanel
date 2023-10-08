@@ -27,16 +27,9 @@ if (isset($_POST['add-project'])) {
   $total_without_tax = $total_cost + $total_net;
   $total_with_tax = ($total_without_tax * 15) /100; 
 
-  $target_dir = "Images/".$project_name."/";
+  $target_dir = "../Projects/Images/".$project_name."/";
   if(!is_dir($target_dir)) {
     mkdir($target_dir, 0777, true);
-    $_SESSION['notification'] = "ddddddddddddddddddddddd".$target_dir."/";
-                  header('location: index.php');
-                  exit();
-  }else{
-    $_SESSION['notification'] = "ffffffffffffffffff ".$target_dir."/";
-                  header('location: index.php');
-                  exit();
   }
   $target_file = $target_dir . basename($_FILES["project_image"]["name"]);
   $filename = basename($_FILES["project_image"]["name"]);
