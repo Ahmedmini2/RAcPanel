@@ -176,18 +176,36 @@ if (isset($_GET['project_id'])) {
                                         <?php
                                         $s_items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                         while ($item = mysqli_fetch_array($s_items)) {
-                                            echo '<option value="'. $item['id'] .'">' . $item['product_name'] . '</option>';
+                                            echo '<option value="'.$item['id'].','.$item['warehouse'].'">' . $item['product_name'] . '</option>';
                                         }
                                         ?>
 
                                     </select>
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script>
+                                    var i = 1;
+
+
+
+
+                                    $(document).on('change', 'input , select', function() {
+                                       var name = $('#name').val();
+                                       const myArray = name.split(",");
+                                       $('#quantity').val(myArray[1]);
+                                    });
+
+
+
+
+                                   
+                                    </script>
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label> الكمية الموجودة في المستودع </label>
-                                    <input type="text" placeholder="الرجاء كتابة الكميةالموجودة في المستودع    " class="form-control" name="branch" value="" readonly>
+                                    <input type="text" placeholder="الرجاء كتابة الكميةالموجودة في المستودع    " class="form-control" name="quantity" id="quantity" value="" readonly>
 
                                 </div>
                             </div>
