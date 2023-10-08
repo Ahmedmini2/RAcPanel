@@ -172,7 +172,7 @@ if (isset($_GET['project_id'])) {
                                 <div class="form-group">
                                     <label>اختيار الصنف</label>
                                     <select name="name" id="name" class="form-control" placeholder="اختيار النوع">
-
+                                        <option value="0"></option>
                                         <?php
                                         $s_items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                         while ($item = mysqli_fetch_array($s_items)) {
