@@ -7,9 +7,9 @@ $numberofrows = 1;
 $iron_raws = $_POST['iron-rr'];
 $accessory_raws = $_POST['ac-rr'];
 $band_raws = $_POST['band-rr'];
-$total_cost = 0 ; 
-$total_net = 0 ; 
-$total_without_tax = 0 ; 
+$total_cost = 0;
+$total_net = 0;
+$total_without_tax = 0;
 if (isset($_POST['add-project'])) {
 
   $iron1 = 1;
@@ -22,20 +22,20 @@ if (isset($_POST['add-project'])) {
   $payment_type = $_POST['payment_type'];
   $valid_till = $_POST['valid_till'];
   $total_cost = $_POST['prod_peice_tot'];
-  $total_cost = str_replace(',','',$total_cost);
+  $total_cost = str_replace(',', '', $total_cost);
   $total_net = $_POST['net_toti'];
   $total_without_tax = $total_cost + $total_net;
-  $total_with_tax = ($total_without_tax * 15) /100; 
+  $total_with_tax = ($total_without_tax * 15) / 100;
 
-  $target_dir = "../Projects/Images/".$project_name."/";
-  if(!is_dir($target_dir)) {
+  $target_dir = "../Projects/Images/" . $project_name . "/";
+  if (!is_dir($target_dir)) {
     mkdir($target_dir, 0777, true);
   }
   $target_file = $target_dir . basename($_FILES["project_image"]["name"]);
   $filename = basename($_FILES["project_image"]["name"]);
   $uploadOk = 1;
   move_uploaded_file($_FILES["project_image"]["tmp_name"], $target_file);
-  
+
 
   $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`image`,`project_cost`,`total_without_tax`,`total_with_tax`,`net_total`,`valid_till`,`duration`,`payment_type`,`created_at`)
    VALUES(NULL, '$project_name', '$project_description','$filename','$total_cost','$total_without_tax','$total_with_tax','$total_net','$valid_till','$duration','$payment_type' ,NOW())";
@@ -170,12 +170,12 @@ if (isset($_POST['add-project'])) {
                 $piece_price = $_POST['piece_price'];
                 $total_track_price = $_POST['total_price'];
                 $peice_per_track = $_POST['peice_per_track'];
-                
-                
+
+
                 $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`, `peice_per_track`, `quantity_of_track`, `delivery_to`, `piece_price`, `track_price`, `total_price`,
                 `created_at`) VALUES (NULL, '$product_id', '$deliverable', '$peice_per_track', '$quantity_of_track', '$delivery_to', '$piece_price', '$track_price', '$total_track_price', NOW())";
                 $delivery_res = $conn->query($insert_delivery);
-                if ($delivery_res){
+                if ($delivery_res) {
                   $_SESSION['notification'] = "الصنف بنجاح";
                   header('location: index.php');
                   exit();
@@ -184,7 +184,7 @@ if (isset($_POST['add-project'])) {
                 $deliverable = 0;
                 $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`,`created_at`) VALUES (NULL, '$product_id', '$deliverable',NOW())";
                 $delivery_res = $conn->query($insert_delivery);
-                if ($delivery_res){
+                if ($delivery_res) {
                   $_SESSION['notification'] = "الصنف بنجاح";
                   header('location: index.php');
                   exit();
@@ -227,20 +227,20 @@ if (isset($_POST['add-project'])) {
   $payment_type = $_POST['payment_type'];
   $valid_till = $_POST['valid_till'];
 
-  $_SESSION['total_cost'] += str_replace(',','',$_POST['prod_peice_tot']);
+  $_SESSION['total_cost'] += str_replace(',', '', $_POST['prod_peice_tot']);
   $_SESSION['total_net'] += $_POST['net_toti'];
   $_SESSION['total_without_tax'] += $total_cost + $total_net;
-  $_SESSION['total_with_tax'] += (($total_without_tax * 15) /100);
+  $_SESSION['total_with_tax'] += (($total_without_tax * 15) / 100);
 
-  $target_dir = "../Projects/Images/".$project_name."/";
-  if(!is_dir($target_dir)) {
+  $target_dir = "../Projects/Images/" . $project_name . "/";
+  if (!is_dir($target_dir)) {
     mkdir($target_dir, 0777, true);
   }
   $target_file = $target_dir . basename($_FILES["project_image"]["name"]);
   $filename = basename($_FILES["project_image"]["name"]);
   $uploadOk = 1;
   if (move_uploaded_file($_FILES["project_image"]["tmp_name"], $target_file)) {
-  echo "<script> console.log($uploadOk);</script>";
+    echo "<script> console.log($uploadOk);</script>";
   }
 
   $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`image`,`valid_till`,`duration`,`payment_type`,`created_at`) VALUES(NULL, '$project_name', '$project_description',
@@ -378,12 +378,12 @@ if (isset($_POST['add-project'])) {
                 $piece_price = $_POST['piece_price'];
                 $total_track_price = $_POST['total_price'];
                 $peice_per_track = $_POST['peice_per_track'];
-                
-                
+
+
                 $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`, `peice_per_track`, `quantity_of_track`, `delivery_to`, `piece_price`, `track_price`, `total_price`,
                 `created_at`) VALUES (NULL, '$product_id', '$deliverable', '$peice_per_track', '$quantity_of_track', '$delivery_to', '$piece_price', '$track_price', '$total_track_price', NOW())";
                 $delivery_res = $conn->query($insert_delivery);
-                if ($delivery_res){
+                if ($delivery_res) {
                   $_SESSION['notification'] = "الصنف بنجاح";
                   header('location: add-more-projects.php');
                   exit();
@@ -392,20 +392,19 @@ if (isset($_POST['add-project'])) {
                 $deliverable = 0;
                 $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`,`created_at`) VALUES (NULL, '$product_id', '$deliverable',NOW())";
                 $delivery_res = $conn->query($insert_delivery);
-                if ($delivery_res){
+                if ($delivery_res) {
                   $_SESSION['notification'] = "الصنف بنجاح";
                   header('location: add-more-projects.php');
                   exit();
                 }
               }
             } else {
-             
+
               $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
               header('location: index.php');
             }
             $band1++;
           }
-          
         } else {
           $_SESSION['notification'] = "يوجد خلل في ادخال الاغطية";
           header('location: index.php');
@@ -523,8 +522,8 @@ if (isset($_POST['add-project'])) {
             </li>
             <li class="nav-item px-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0">
-               
-                <i class="fa fa-arrow-left me-sm-1 cursor-pointer"  onclick="history.back()" ></i>
+
+                <i class="fa fa-arrow-left me-sm-1 cursor-pointer" onclick="history.back()"></i>
               </a>
             </li>
             <li class="nav-item dropdown ps-2 d-flex align-items-center">
@@ -625,7 +624,7 @@ if (isset($_POST['add-project'])) {
               <div class="col-md-6 col-sm-6">
                 <div class="form-group">
                   <label>صورة المشروع</label>
-                  <input type="file"  class="form-control" name="project_image">
+                  <input type="file" class="form-control" name="project_image">
                 </div>
               </div>
             </div>
@@ -658,7 +657,7 @@ if (isset($_POST['add-project'])) {
               </div>
               <hr>
             </div>
-            
+
             <!-- Contact Detials -->
             <div class="contact_details">
               <h5>بيانات التواصل</h5>
@@ -704,7 +703,7 @@ if (isset($_POST['add-project'])) {
               </div>
               <hr>
             </div>
-            
+
             <!-- Product Details -->
             <div id="product_details">
               <div class="product">
@@ -735,7 +734,7 @@ if (isset($_POST['add-project'])) {
                   </div>
                 </div>
                 <hr>
-               <!-- Item Details -->
+                <!-- Item Details -->
                 <div class="kh_details">
                   <h5>بند الخرسانة</h5>
                   <div class="item">
@@ -795,7 +794,7 @@ if (isset($_POST['add-project'])) {
                     </script>
 
                   </div>
-                 
+
                 </div>
                 <div class="iron_details">
                   <hr>
@@ -1084,30 +1083,43 @@ if (isset($_POST['add-project'])) {
                 </div>
                 <hr>
 
+                <label class="plane-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable">
+                <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
+                <div>
+                    <div>
+                      <svg viewBox="0 0 13 13">
+                        <path d="M1.55989957,5.41666667 L5.51582215,5.41666667 L4.47015462,0.108333333 L4.47015462,0.108333333 C4.47015462,0.0634601974 4.49708054,0.0249592654 4.5354546,0.00851337035 L4.57707145,0 L5.36229752,0 C5.43359776,0 5.50087375,0.028779451 5.55026392,0.0782711996 L5.59317877,0.134368264 L7.13659662,2.81558333 L8.29565964,2.81666667 C8.53185377,2.81666667 8.72332694,3.01067661 8.72332694,3.25 C8.72332694,3.48932339 8.53185377,3.68333333 8.29565964,3.68333333 L7.63589819,3.68225 L8.63450135,5.41666667 L11.9308317,5.41666667 C12.5213171,5.41666667 13,5.90169152 13,6.5 C13,7.09830848 12.5213171,7.58333333 11.9308317,7.58333333 L8.63450135,7.58333333 L7.63589819,9.31666667 L8.29565964,9.31666667 C8.53185377,9.31666667 8.72332694,9.51067661 8.72332694,9.75 C8.72332694,9.98932339 8.53185377,10.1833333 8.29565964,10.1833333 L7.13659662,10.1833333 L5.59317877,12.8656317 C5.55725264,12.9280353 5.49882018,12.9724157 5.43174295,12.9907056 L5.36229752,13 L4.57707145,13 L4.55610333,12.9978962 C4.51267695,12.9890959 4.48069792,12.9547924 4.47230803,12.9134397 L4.47223088,12.8704208 L5.51582215,7.58333333 L1.55989957,7.58333333 L0.891288881,8.55114605 C0.853775374,8.60544678 0.798421006,8.64327676 0.73629202,8.65879796 L0.672314689,8.66666667 L0.106844414,8.66666667 L0.0715243949,8.66058466 L0.0715243949,8.66058466 C0.0297243066,8.6457608 0.00275502199,8.60729104 0,8.5651586 L0.00593007386,8.52254537 L0.580855011,6.85813984 C0.64492547,6.67265611 0.6577034,6.47392717 0.619193545,6.28316421 L0.580694768,6.14191703 L0.00601851064,4.48064746 C0.00203480725,4.4691314 0,4.45701613 0,4.44481314 C0,4.39994001 0.0269259152,4.36143908 0.0652999725,4.34499318 L0.106916826,4.33647981 L0.672546853,4.33647981 C0.737865848,4.33647981 0.80011301,4.36066329 0.848265401,4.40322477 L0.89131128,4.45169723 L1.55989957,5.41666667 Z" fill="currentColor"></path>
+                      </svg>
+                    </div>
+                    <span class="street-middle"></span>
+                    <span class="cloud"></span>
+                    <span class="cloud two"></span>
+                  </div>
+                </label>
+
                 <div class="Delivery-details">
                   <h5>التوصيل</h5>
                   <div class="delivery">
                     <div class="row">
-                    <label for="">هل الصنف قابل للتوصيل ؟</label>
-                    <div class="form-check form-switch col-md-2 col-sm-6">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable">
-                      <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
-                    </div>
-                    <script>
-                      $(document).ready(function() {
-                      $('input[type="checkbox"]').click(function() {
-                          if(document.getElementById("flexSwitchCheckDefault").checked  == true) {
-                                $('#delivery-div').show();  
-                                document.getElementById("toggle_ch").innerText ="نعم";         
-                          }
-
-                          else {
-                                $('#delivery-div').hide(); 
-                                document.getElementById("toggle_ch").innerText ="لا";  
-                          }
-                      });
-                    });
-                    </script>
+                      <label for="">هل الصنف قابل للتوصيل ؟</label>
+                      <div class="form-check form-switch col-md-2 col-sm-6">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable">
+                        <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
+                      </div>
+                      <script>
+                        $(document).ready(function() {
+                          $('input[type="checkbox"]').click(function() {
+                            if (document.getElementById("flexSwitchCheckDefault").checked == true) {
+                              $('#delivery-div').show();
+                              document.getElementById("toggle_ch").innerText = "نعم";
+                            } else {
+                              $('#delivery-div').hide();
+                              document.getElementById("toggle_ch").innerText = "لا";
+                            }
+                          });
+                        });
+                      </script>
                     </div>
                     <div class="row" id="delivery-div" style='display:none'>
                       <div class="col-md-2 col-sm-6 ">
@@ -1149,19 +1161,19 @@ if (isset($_POST['add-project'])) {
                     </div>
                     <script>
                       $("input").on("change", function() {
-                        var quan = ($("#quantity").val() || 0) ;
-                        var del_peice = ($("#peice_per_track").val() || 0) ;
-                        var tracks = ((quan / del_peice) || 0) ;
+                        var quan = ($("#quantity").val() || 0);
+                        var del_peice = ($("#peice_per_track").val() || 0);
+                        var tracks = ((quan / del_peice) || 0);
                         tracks = Math.ceil(tracks);
-                         $("#quantity_of_track").val(tracks) ;
-                        var track_price = ($("#track_price").val() || 0) ;
-                        var del_peice_price = ((track_price / del_peice)|| 0);
+                        $("#quantity_of_track").val(tracks);
+                        var track_price = ($("#track_price").val() || 0);
+                        var del_peice_price = ((track_price / del_peice) || 0);
                         $("#piece_price").val(del_peice_price);
-                        var del_total = track_price * tracks ; 
+                        var del_total = track_price * tracks;
                         $("#total_price").val(del_total);
 
-                       
-                        
+
+
                       })
                     </script>
 
@@ -1178,17 +1190,17 @@ if (isset($_POST['add-project'])) {
 
 
                       <div class="col-md-2 col-sm-6 ">
-                      <div class="form-group">
+                        <div class="form-group">
                           <label for="cover_price">تكلفة الصنف الواحد</label>
                           <input type="text" class="form-control" name='prod_peice' id="prod_peice" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
-                      <div class="form-group">
+                        <div class="form-group">
                           <label for="cover_price">تكلفة جميع الاصناف</label>
                           <input type="text" class="form-control" name='prod_peice_tot' id="prod_peice_tot" readonly>
                         </div>
-                        
+
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
@@ -1268,7 +1280,7 @@ if (isset($_POST['add-project'])) {
 
 
 
-             
+
               </div>
               <!-- Product End -->
 
