@@ -539,7 +539,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span>SAR <?number_format($total_without_tax)?></span>
+                                            <span>SAR <?=number_format($total_without_tax)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -557,7 +557,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span>SAR <?number_format($total_with_tax)?></span>
+                                            <span>SAR <?=number_format($total_with_tax)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -573,7 +573,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span class="font-weight-bold text-success" id="total"><?number_format($total_without_tax+$total_with_tax)?></span>
+                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -590,7 +590,7 @@ if (isset($_GET['project_id'])) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <p>The total value is SAR<?number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p>
+                        <p>The total value is SAR<?=number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p>
                     </div>
                 </div>
                 <script>
