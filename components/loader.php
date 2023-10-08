@@ -1,3 +1,14 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+ 
+    setTimeout(function(){
+        $('#loader-wrapper').addClass('d-none');
+        
+    }, 3000);
+
+    });
+</script>
+
 <div id="loader-wrapper">
     <div class="loader">
       <div class="tars">
