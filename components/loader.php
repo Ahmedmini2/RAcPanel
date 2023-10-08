@@ -4,7 +4,7 @@
     setTimeout(function(){
         
         $("#loader-wrapper").fadeOut("slow");
-    }, 3000);
+    }, 2000);
 
     });
 </script>
