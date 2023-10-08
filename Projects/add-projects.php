@@ -34,9 +34,8 @@ if (isset($_POST['add-project'])) {
   $target_file = $target_dir . basename($_FILES["project_image"]["name"]);
   $filename = basename($_FILES["project_image"]["name"]);
   $uploadOk = 1;
-  if (move_uploaded_file($_FILES["project_image"]["tmp_name"], $target_file)) {
-  echo "<script> console.log($uploadOk);</script>";
-  }
+  move_uploaded_file($_FILES["project_image"]["tmp_name"], $target_file);
+  
 
   $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`image`,`project_cost`,`total_without_tax`,`total_with_tax`,`net_total`,`valid_till`,`duration`,`payment_type`,`created_at`)
    VALUES(NULL, '$project_name', '$project_description','$filename','$total_cost','$total_without_tax','$total_with_tax','$total_net','$valid_till','$duration','$payment_type' ,NOW())";
