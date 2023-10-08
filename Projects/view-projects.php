@@ -186,7 +186,7 @@ if (isset($_GET['id'])) {
 
                         <div class="row ">
                             <div class="text-right col-lg-10 col-sm-6">
-                                <a href="purchase_order.php" id="btn2" class="btn bg-gradient-dark mb-0">
+                                <a href="purchase_order.php?project_id=<?=$id?>" id="btn2" class="btn bg-gradient-dark mb-0">
                                     طباعة التسعيرة
                                     <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>

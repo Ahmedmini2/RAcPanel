@@ -238,7 +238,7 @@ if (isset($_POST['add-project'])) {
   if(!is_dir($target_dir)) {
     mkdir($target_dir, 0777, true);
   }else{
-    
+
   }
   $target_file = $target_dir . basename($_FILES["project_image"]["name"]);
   $filename = basename($_FILES["project_image"]["name"]);
@@ -977,7 +977,7 @@ if (isset($_POST['add-project'])) {
                 </div>
                 <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <div class="row">
-                  السعر الكلي للحديد
+                  السعر الكلي للإكسسوارات
                   <input type="text" class="form-control" placeholder="Total" name="accessory_iron" id="accessory_iron" readonly>
                 </div>
                 <hr>
