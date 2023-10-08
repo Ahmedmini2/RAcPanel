@@ -186,13 +186,15 @@ if (isset($_GET['id'])) {
 
                         <div class="row ">
                             <div class="text-right col-lg-10 col-sm-6">
-                                <button type="button" id="btn2" class="btn bg-gradient-dark rounded-pill ">
+                                <a href="purchase_order.php" id="btn2" class="btn bg-gradient-dark mb-0">
                                     طباعة التسعيرة
-                                </button>
-
-                                <button type="button" id="btn3" class=" btn bg-gradient-dark rounded-pill ">
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                </a>
+                                <a href="" id="btn3" class="btn bg-gradient-dark mb-0">
                                     تعديل بيانات المشروع
-                                </button>
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                </a>
+
                             </div>
                             <div class="text-left col-lg-2 col-sm-6">
                                 <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -200,6 +202,8 @@ if (isset($_GET['id'])) {
                                 </button>
                             </div>
                         </div>
+
+                       
 
                         <script>
                             function printDiv(divName) {
@@ -357,7 +361,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">نسبة الربح</h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0"><?php echo number_format((($project['total_without_tax'] - $project['project_cost'] ) / $project['project_cost']) * 100,2) ;  ?> %</h5>
+                                                <h5 class="mb-0"><?php echo number_format((($project['total_without_tax'] - $project['project_cost']) / $project['project_cost']) * 100, 2);  ?> %</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -373,23 +377,23 @@ if (isset($_GET['id'])) {
 
                                                 <td class="align-middle">
                                                     <?php if ($project['total_without_tax'] == "قيد التنفيذ") { ?>
-                                                    <div class="progress-wrapper w-75 mx-auto">
+                                                        <div class="progress-wrapper w-75 mx-auto">
 
-                                                        <div class="progress-info">
-                                                            <div class="progress-percentage">
-                                                                <span class="text-xs font-weight-bold">60%</span>
+                                                            <div class="progress-info">
+                                                                <div class="progress-percentage">
+                                                                    <span class="text-xs font-weight-bold">60%</span>
+                                                                </div>
                                                             </div>
+
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+
                                                         </div>
-                                                        
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                       
-                                                    </div>
                                                     <?php } ?>
                                                 </td>
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0"><?=$project['status']?></h5>
+                                                <h5 class="mb-0"><?= $project['status'] ?></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -689,7 +693,7 @@ if (isset($_GET['id'])) {
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/fullcalendar.min.js"></script>
     <script src="../assets/js/plugins/chartjs.min.js"></script>
-    
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
