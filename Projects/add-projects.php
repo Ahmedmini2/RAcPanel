@@ -30,6 +30,13 @@ if (isset($_POST['add-project'])) {
   $target_dir = "Images/".$project_name."/";
   if(!is_dir($target_dir)) {
     mkdir($target_dir, 0777, true);
+    $_SESSION['notification'] = "ddddddddddddddddddddddd";
+                  header('location: index.php');
+                  exit();
+  }else{
+    $_SESSION['notification'] = "ffffffffffffffffff";
+                  header('location: index.php');
+                  exit();
   }
   $target_file = $target_dir . basename($_FILES["project_image"]["name"]);
   $filename = basename($_FILES["project_image"]["name"]);
