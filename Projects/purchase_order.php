@@ -1,34 +1,32 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
-if (isset($_GET['bank_req'])) {
+if (isset($_GET['project_id'])) {
 
-    $id = $_GET['bank_req'];
-    $query = "SELECT * FROM bank_request WHERE id=$id";
+    $id = $_GET['project_id'];
+    $query = "SELECT * FROM projects WHERE id=$id";
     $res = $conn->query($query);
     $editData = $res->fetch_assoc();
     $name = $editData['name'];
     $description = $editData['description'];
-    $amount_text = $editData['amount_text'];
-    $amount_number = $editData['amount_number'];
-    $our_bank_name = $editData['our_bank_name'];
-    $to_account_type = $editData['to_account_type'];
-    $transfer_to = $editData['transfer_to'];
-    $status = $editData['status'];
+    $project_cost = $editData['project_cost'];
+    $total_without_tax = $editData['total_without_tax'];
+    $total_with_tax = $editData['total_with_tax'];
     $created_at = $editData['created_at'];
-    $updated_at = $editData['updated_at'];
-    $accepted_at = $editData['accepted_at'];
-    $doc = $editData['doc'];
 
-    if ($to_account_type != '0') {
-        $benf_info = "SELECT * FROM beneficiary_info WHERE name = '$transfer_to'";
-        $res2 = $conn->query($benf_info);
-        $editData2 = $res2->fetch_assoc();
 
-        $beneficiary_bank = $editData2['beneficiary_bank'];
-        $account_number = $editData2['account_number'];
-        $iban = $editData2['iban'];
-    }
+    $query3 = "SELECT * FROM contact_projects WHERE project_id=$id";
+    $res3 = $conn->query($query3);
+    $editData3 = $res3->fetch_assoc();
+    $supplier_name = $editData3['supplier_name'];
+    $contact_person = $editData3['contact_person'];
+    $mobile = $editData3['mobile'];
+    $address = $editData3['address'];
+    $email = $editData3['email'];
+    $vat = $editData3['vat'];
+    $company_trade = $editData3['company_trade'];
+
+   
 }
 
 
@@ -427,7 +425,7 @@ if (isset($_GET['bank_req'])) {
                                             591022703 <br>
                                             Al Malaz-Jareer Street <br>
                                             info@ruknamyal.com<br>
-                                            311523029300003<br>
+                                            <?=$vat?><br>
 
                                         </p>
                                     </div>
@@ -457,12 +455,12 @@ if (isset($_GET['bank_req'])) {
                                         </div>
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
-                                                June 11,2023 <br>
-                                                RA11-06-2023B <br>
-                                                Dorat Al Tal Company <br>
-                                                Mr. Zakraia <br>
-                                                552857000<br>
-                                                Riyadh - Al Dabab street<br>
+                                            <?=$created_at?><br>
+                                                RA<?=$id?> <br>
+                                                <?=$supplier_name?><br>
+                                                <?=$contact_person?><br>
+                                                <?=$mobile?><br>
+                                                <?=$address?><br>
 
 
                                             </p>
@@ -497,31 +495,24 @@ if (isset($_GET['bank_req'])) {
 
                                 <!--Table body-->
                                 <tbody>
+
+                                    <?php 
+                                    $i = 0;
+                                    $items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
+                                    while ($item = mysqli_fetch_array($items)) {
+                                        $i++;
+                                    ?>
+   
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td class="custom-font-m">Supply of handhole 1 cover with frame</td>
-                                        <td class="custom-font-m">92</td>
-                                        <td class="custom-font-m">550</td>
-                                        <td class="custom-font-m">50,600.00</td>
+                                        <th scope="row"><?=$i?></th>
+                                        <td class="custom-font-m"><?=$itme['product_name']?></td>
+                                        <td class="custom-font-m"><?=$itme['quantity']?></td>
+                                        <td class="custom-font-m"><?=number_format($itme['cost_price']+$itme['sell_price'])?></td>
+                                        <td class="custom-font-m"><?=number_format(($itme['cost_price']+$itme['sell_price'])*$itme['quantity'])?></td>
 
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td class="custom-font-m">Supply of handhole 2 cover with frame</td>
-                                        <td class="custom-font-m">8</td>
-                                        <td class="custom-font-m">1100</td>
-                                        <td class="custom-font-m">8,800.00</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td class="custom-font-m">Supply of mini manhol round cover with frame</td>
-                                        <td class="custom-font-m">2</td>
-                                        <td class="custom-font-m">700</td>
-                                        <td class="custom-font-m">1,400.00</td>
-
-                                    </tr>
-
+                                    
+                                    <?php } ?>
                                 </tbody>
                                 <!--Table body-->
 
@@ -548,7 +539,7 @@ if (isset($_GET['bank_req'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span>$60,800.00</span>
+                                            <span>SAR <?number_format($total_without_tax)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -566,7 +557,7 @@ if (isset($_GET['bank_req'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span>$9,120.00</span>
+                                            <span>SAR <?number_format($total_with_tax)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -582,7 +573,7 @@ if (isset($_GET['bank_req'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span class="font-weight-bold text-success" id="total">69,920.00</span>
+                                            <span class="font-weight-bold text-success" id="total"><?number_format($total_without_tax+$total_with_tax)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -599,7 +590,7 @@ if (isset($_GET['bank_req'])) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <p>The total value is SAR69,920 <span id="con"></span> riyals only.</p>
+                        <p>The total value is SAR<?number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p>
                     </div>
                 </div>
                 <script>
