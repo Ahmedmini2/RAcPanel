@@ -150,7 +150,7 @@
   .f,.b {
     width: 30px;
     height: 100px;
-    background: #212121;
+    background: #6c6879;
     box-shadow: inset 0 0 0 2px #fbcf33;
     border: 2px solid #fbcf33;
   }
@@ -171,7 +171,7 @@
     left: 15px;
     position: relative;
     z-index: -1;
-    background: #212121;
+    background: #6c6879;
     box-shadow: inset 0 0 0 2px #fbcf33;
     border: 2px solid #fbcf33;
   }
@@ -192,7 +192,7 @@
     top: 25px;
     position: relative;
     z-index: -1;
-    background: #212121;
+    background: #6c6879;
     box-shadow: inset 0 0 0 2px #fbcf33;
     border: 2px solid #fbcf33;
   }
