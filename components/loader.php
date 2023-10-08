@@ -1,10 +1,11 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
  
     setTimeout(function(){
-        $('#loader-wrapper').addClass('d-none');
         
-    }, 3000);
+        $("#loader-wrapper").fadeOut("slow");
+    }, 2000);
 
     });
 </script>
