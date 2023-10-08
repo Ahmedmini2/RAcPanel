@@ -187,6 +187,7 @@ $_SESSION['sidebar']="Home";
                     <h5 class="font-weight-bolder mb-0">
                       $103,430
                       <span class="text-success text-sm font-weight-bolder">+5%</span>
+                      <Button Color="ButtonColor.Dark" Outline="true"> Dark </Button>
                     </h5>
                   </div>
                 </div>
