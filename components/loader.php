@@ -1,4 +1,5 @@
-<div class="loader">
+<div id="loader-wrapper">
+    <div class="loader">
       <div class="tars">
         <div class="container 1">
           <div class="shape">
@@ -42,3 +43,4 @@
         </div>
       </div>
     </div>
+</div>

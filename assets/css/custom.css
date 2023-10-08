@@ -1,3 +1,11 @@
+#loader-wrapper  {
+  position: fixed;
+  top: 0;
+  width: 51%;
+  height: 100%;
+  background: #222222;
+  z-index: 2000;
+}
 .loader {
     margin: 0 auto;
     display: flex;
