@@ -187,7 +187,7 @@ if (isset($_GET['id'])) {
                                  رفع التقرير عن الانتاج
                                  <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
-                                <a href="receipt-report.php" 
+                                <a href="receipt-report.php?project_id=<?=$id?>"  
                                 class="btn bg-gradient-dark mb-0">
                                  رفع التقرير عن الاستلام
                                  <i class="fas fa-plus" aria-hidden="true"></i>
@@ -195,7 +195,7 @@ if (isset($_GET['id'])) {
                                 
                             </div>
                             <div class="text-left col-lg-2 col-sm-6">
-                            <a href="bills_factory.php" 
+                            <a href="bills_factory.php?project_id=<?=$id?>" 
                                 class="btn bg-gradient-dark mb-0 ">
                                  رفع الفواتير
                                  <i class="fas fa-plus" aria-hidden="true"></i>

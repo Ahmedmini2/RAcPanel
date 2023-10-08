@@ -176,9 +176,8 @@ if (isset($_GET['project_id'])) {
                                         <?php
                                         $s_items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                         while ($item = mysqli_fetch_array($s_items)) {
-                                            echo '<option value="' . $item['product_name'] . '">' . $item['product_name'] . '</option>';
+                                            echo '<option value="'. $item['id'] .'">' . $item['product_name'] . '</option>';
                                         }
-
                                         ?>
 
                                     </select>
