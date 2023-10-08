@@ -590,7 +590,7 @@ if (isset($_GET['project_id'])) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <p>The total value is SAR<?=number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p>
+                        <p>The total value is SAR<?=number_format($total_without_tax+$total_with_tax+$project_cost)?> <span id="con"></span> riyals only.</p>
                     </div>
                 </div>
                 <script>
