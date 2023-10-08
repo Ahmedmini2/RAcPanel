@@ -433,7 +433,9 @@ if (isset($_GET['id'])) {
                                                     $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
                                                     while ($products = mysqli_fetch_array($res3)) {
                                                         $i++;
-
+                                                        $inventory = 0;
+                                                        $production = 0;
+                                                        $deliverd = 0;
                                                     ?>
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
@@ -442,8 +444,7 @@ if (isset($_GET['id'])) {
                                                             <?php 
                                                             $inv_id =  $product['id'];
                                                             $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $id");
-                                                            $inventory = 0;
-                                                            $production = 0;
+                                                            
                                                             while ($inv = mysqli_fetch_array($inv_res)) {
                                                                 $inventory += $inv['warehouse'];
                                                                 $production += $inv['production'];
@@ -455,7 +456,7 @@ if (isset($_GET['id'])) {
                                                             <?php 
                                                             $del_id =  $product['id'];
                                                             $del_res = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `product_id` = $id");
-                                                            $deliverd = 0;
+                                                            
                                                             while ($del = mysqli_fetch_array($del_res)) {
                                                                 
                                                                 $deliverd += $inv['quantity'];
