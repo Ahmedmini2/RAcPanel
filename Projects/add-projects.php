@@ -34,7 +34,7 @@ if (isset($_POST['add-project'])) {
                   header('location: index.php');
                   exit();
   }else{
-    $_SESSION['notification'] = "ffffffffffffffffff";
+    $_SESSION['notification'] = "ffffffffffffffffff ".$target_dir."/";
                   header('location: index.php');
                   exit();
   }
