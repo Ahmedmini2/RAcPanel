@@ -30,19 +30,18 @@ if (isset($_POST['add-project'])) {
   $target_dir = "Images/".$project_name."/";
   if(!is_dir($target_dir)) {
     mkdir($target_dir, 0777, true);
-    $_SESSION['notification'] = "ddddddddddddddddddddddd".$target_dir."/";
-                  header('location: index.php');
-                  exit();
-  }else{
-    $_SESSION['notification'] = "ffffffffffffffffff ".$target_dir."/";
-                  header('location: index.php');
-                  exit();
   }
   $target_file = $target_dir . basename($_FILES["project_image"]["name"]);
   $filename = basename($_FILES["project_image"]["name"]);
   $uploadOk = 1;
   if (move_uploaded_file($_FILES["project_image"]["tmp_name"], $target_file)) {
-  echo "<script> console.log($uploadOk);</script>";
+    $_SESSION['notification'] = "dddddddddddddddddddd ".$target_dir."/";
+    header('location: index.php');
+    exit();
+  }else{
+    $_SESSION['notification'] = "ffffffffffffffffff ".$target_dir."/";
+                  header('location: index.php');
+                  exit();
   }
 
   $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`image`,`project_cost`,`total_without_tax`,`total_with_tax`,`net_total`,`valid_till`,`duration`,`payment_type`,`created_at`)
