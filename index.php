@@ -29,10 +29,10 @@ $_SESSION['sidebar']="Home";
   <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
   
 </head>
-
+<?php require_once('components/loader.php'); ?>
 <body class="g-sidenav-show rtl bg-gray-100">
 
-<?php require_once('components/loader.php'); ?>
+
       
       <!-- Side Bar -->
       <?php require_once('components/sidebar.php'); ?>
