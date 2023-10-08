@@ -7,7 +7,7 @@ $sidebar = $_SESSION['sidebar'];
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-end me-3 rotate-caret" id="sidenav-main">
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute start-0 top-0 d-none d-xl-none index-1500" aria-hidden="true" id="iconSidenav"></i>
-    <a class="navbar-brand m-0" href="https://app.ruknamial.com/index.php">
+    <a class="navbar-brand m-0" href="https://test.app.ruknamial.com/index.php">
       <img src="../assets/img/logos/logo-gold.png" class="navbar-brand-img " alt="main_logo">
 
     </a>
@@ -16,7 +16,7 @@ $sidebar = $_SESSION['sidebar'];
   <div class="collapse navbar-collapse px-0 w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link <?php if ($sidebar == "Home") echo 'active'; ?>" href="https://app.ruknamial.com/index.php">
+        <a class="nav-link <?php if ($sidebar == "Home") echo 'active'; ?>" href="https://test.app.ruknamial.com/index.php">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
@@ -172,13 +172,13 @@ $sidebar = $_SESSION['sidebar'];
                     </g>
                   </g>
                 </g>
-              </svg>
+              </svg> 
             </div>
             <span class="ms-1  d-sm-inline">مركز التكلفة</span>
           </a>
           <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
             <li class="w-100">
-              <a href="../Cost/cost.php" class="nav-link px-0"> <span class=" d-sm-inline">تكلفة</span></a>
+              <a href="../cost/cost.php" class="nav-link px-0"> <span class=" d-sm-inline">تكلفة</span></a>
             </li>
             <li class="w-100">
               <a href="../Company/company-banks.php" class="nav-link px-0"> <span class=" d-sm-inline">حسابات بنوك الشركة </span></a>
