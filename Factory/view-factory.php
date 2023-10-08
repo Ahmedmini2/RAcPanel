@@ -353,7 +353,7 @@ if (isset($_GET['id'])) {
                                             <table class="table table-hover table-fixed">
 
                                                 <!--Table head-->
-                                                <thead class="bg-dark text-light">
+                                                <thead class="bg-dark text-light text-center">
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>الصنف</th>
@@ -366,7 +366,7 @@ if (isset($_GET['id'])) {
                                                 <!--Table head-->
 
                                                 <!--Table body-->
-                                                <tbody>
+                                                <tbody class="text-center">
                                                     <?php
                                                     $i = 0;
                                                     $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
@@ -403,7 +403,7 @@ if (isset($_GET['id'])) {
                                             <table class="table table-hover table-fixed">
 
                                                 <!--Table head-->
-                                                <thead class="bg-dark text-light">
+                                                <thead class="bg-dark text-light text-center">
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>الصنف</th>
@@ -418,7 +418,7 @@ if (isset($_GET['id'])) {
                                                 <!--Table head-->
 
                                                 <!--Table body-->
-                                                <tbody>
+                                                <tbody class="text-center">
                                                     <?php
                                                     $i = 0;
                                                     $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
