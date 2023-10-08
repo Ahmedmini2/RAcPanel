@@ -188,39 +188,21 @@ $select = mysqli_query($conn, "select * from bank_request");
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">نوع الطلب</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الوصف</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">القيمة المطلوبة</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">المسار</th>
-                    <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الى الجهة</th> -->
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">تاريخ الطلب</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">حالة الطلب</th>
-
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 
                   </tr>
                 </thead>
                 <tbody>
-                  <?php $i = 0;
-                  while ($r = mysqli_fetch_array($select)) {
-                    $i++; ?>
+                 
 
 
                     <tr>
 
-                      <td class="text-xs text-secondary mb-0"><?php echo $custem =  $r['id']; ?></td>
-                      <td class="text-xs text-secondary mb-0">
-                        <?php if ($r['name'] == 1) {
-                          echo "طلب تحويل";
-                        } elseif ($r['name'] == 2) {
-                          echo "طلب سحب مبلغ";
-                        } elseif ($r['name'] == 3) {
-                          echo "طلب شيك بنكي";
-                        } elseif ($r['name'] == 4) {
-                          echo "تسديد فاتورة إلكترونية";
-                        } ?></td>
-                      <td class="mb-0 text-sm"><?php echo $r['description']; ?></td>
-                      <td class="mb-0 text-sm"><?php echo $r['amount_number']; ?></td>
-                      <td class="text-xs text-secondary mb-0">
-                        <?php echo 'من حساب : ' . $r['our_bank_name'] . '<br><br>';
-                        echo 'الى المستفيد : ' . $r['transfer_to']; ?></td>
+                      <td class="text-xs text-secondary mb-0">1</td>
+                      <td class="text-xs text-secondary mb-0">مشتريات</td>
+                      <td class="mb-0 text-sm">بنزين</td>
+                      <td class="mb-0 text-sm">150</td>
                       <!-- <td class="text-xs text-secondary mb-0"><?php echo $r['transfer_to']; ?></td> -->
                       <td class="text-xs text-secondary mb-0"><?php echo $r['created_at']; ?></td>
                       <td><?php if ($r['status'] == 1) {
@@ -262,7 +244,7 @@ $select = mysqli_query($conn, "select * from bank_request");
 
                     </tr>
 
-                  <?php } ?>
+                 
                 </tbody>
               </table>
 
