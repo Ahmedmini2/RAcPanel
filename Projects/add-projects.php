@@ -232,7 +232,7 @@ if (isset($_POST['add-project'])) {
   $_SESSION['total_without_tax'] += $total_cost + $total_net;
   $_SESSION['total_with_tax'] += (($total_without_tax * 15) /100);
 
-  $target_dir = "Images/".$project_name."/";
+  $target_dir = "../Projects/Images/".$project_name."/";
   if(!is_dir($target_dir)) {
     mkdir($target_dir, 0777, true);
   }
