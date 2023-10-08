@@ -1086,7 +1086,7 @@ if (isset($_POST['add-project'])) {
                   <input type="text" class="form-control" placeholder="Total" name="accessory_tot" id="accessory_tot" readonly>
                 </div>
                 <hr>
-
+                        
                 <div class="Delivery-details">
                   <h5>التوصيل</h5>
                   <div class="delivery">

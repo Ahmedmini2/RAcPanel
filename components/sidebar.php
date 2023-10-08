@@ -180,6 +180,9 @@ $sidebar = $_SESSION['sidebar'];
             <li class="w-100">
               <a href="../cost/cost.php" class="nav-link px-0"> <span class=" d-sm-inline">تكلفة</span></a>
             </li>
+            <li class="w-100">
+              <a href="../cost/type-cost.php" class="nav-link px-0"> <span class=" d-sm-inline">نوع التكلفة</span></a>
+            </li>
             
           </ul>
         </li>
