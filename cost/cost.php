@@ -183,7 +183,7 @@ $select = mysqli_query($conn, "select * from bank_request");
               ?>
               <table class="table align-items-center mb-0" id="example">
                 <thead>
-                  <tr>
+                  <tr  class="text-center">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">نوع الطلب</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الوصف</th>
@@ -197,7 +197,7 @@ $select = mysqli_query($conn, "select * from bank_request");
                  
 
 
-                    <tr>
+                    <tr class="text-center">
 
                       <td class="text-xs text-secondary mb-0">1</td>
                       <td class="text-xs text-secondary mb-0">مشتريات</td>
