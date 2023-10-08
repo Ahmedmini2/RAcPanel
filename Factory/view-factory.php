@@ -299,7 +299,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">تكلفة المشروع</h6>
                                                 <hr class="horizontal dark my-3">
 
-                                                <h5 class="mb-0"><?= number_format($project_cost) ?> ريال</h5>
+                                                <h5 class="mb-0"><?= number_format($project['project_cost']) ?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
