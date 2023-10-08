@@ -35,11 +35,11 @@ if (isset($_POST['add-project'])) {
   $filename = basename($_FILES["project_image"]["name"]);
   $uploadOk = 1;
   if (move_uploaded_file($_FILES["project_image"]["tmp_name"], $target_file)) {
-    $_SESSION['notification'] = "dddddddddddddddddddd ".$target_dir."/";
+    $_SESSION['notification'] = "dddddddddddddddddddd ".$$target_file."/";
     header('location: index.php');
     exit();
   }else{
-    $_SESSION['notification'] = "ffffffffffffffffff ".$target_dir."/";
+    $_SESSION['notification'] = "ffffffffffffffffff ".$$target_file."/";
                   header('location: index.php');
                   exit();
   }
