@@ -391,6 +391,8 @@ if (isset($_GET['id'])) {
                                                             <td><?= number_format($kh_total) ?></td>
                                                     <?php
                                                     $status_id = $products['id'];
+                                                    $kh_used = 0;
+                                                    $kh_used_price = 0;
                                                      $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id");
                                                      while ($status = mysqli_fetch_array($res5)) {
                                                         $kh_used += $status['kharasana_used'];
