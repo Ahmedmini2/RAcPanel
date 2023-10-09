@@ -25016,5 +25016,10 @@ width: 100px;
   cursor: pointer;
 }
 .inside-card{
-  width: 150%;
+  float: left;
+  width: 100px;
+  position: relative;
+  left: 40%;
+  height: 100px;
+  object-fit: cover;
 }
