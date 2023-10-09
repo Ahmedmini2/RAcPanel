@@ -401,7 +401,7 @@ if (isset($_GET['id'])) {
                                                      }
                                                     ?>
                                                     
-                                                            <td><?= number_format($kh_used) ?></td>
+                                                            <td><?= number_format($kh_used,2) ?></td>
                                                             <td><?= number_format($kh_used_price) ?></td>
 
                                                         </tr>
