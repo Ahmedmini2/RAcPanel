@@ -173,11 +173,41 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                         <h3 class="mb-1">المصنع</h3>
                     </div>
 
-
+                    
 
 
                     <div class="card-body p-3  ">
                         <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                        <!-- Card -->
+                        <div class="card">
+
+                            <!--Card image-->
+                            <div class="view overlay">
+                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+                                <a href="#!">
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+
+                            <!--Card content-->
+                            <div class="card-body">
+
+                                <!--Title-->
+                                <h4 class="card-title">1 Card title</h4>
+                                <!--Text-->
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+
+                            </div>
+
+                        </div>
+                        <!-- Card -->
+                    </div>
+
+
+
                             <?php
                             while ($r = mysqli_fetch_array($projects)) {
 
@@ -213,7 +243,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                     </div>
                 </div>
             </div>
-            
+
             <footer class="footer pt-3  ">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-lg-between">
@@ -254,7 +284,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/fullcalendar.min.js"></script>
     <script src="../assets/js/plugins/chartjs.min.js"></script>
-    
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
