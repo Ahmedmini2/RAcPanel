@@ -464,7 +464,7 @@ if (isset($_GET['id'])) {
                                                             
                                                             while ($del = mysqli_fetch_array($del_res)) {
                                                                 
-                                                                $deliverd += $inv['quantity'];
+                                                                $deliverd += $del['quantity'];
                                                                 
                                                             }
                                                             ?>
