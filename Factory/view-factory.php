@@ -389,8 +389,18 @@ if (isset($_GET['id'])) {
                                                     ?>
                                                             <td><?= $kh_quan ?></td>
                                                             <td><?= number_format($kh_total) ?></td>
-                                                            <td><?= number_format($products['sell_price']) ?></td>
-                                                            <td><?= number_format($products['net_profit']) ?></td>
+                                                    <?php
+                                                    $status_id = $products['id'];
+                                                     $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id");
+                                                     while ($status = mysqli_fetch_array($res5)) {
+                                                        $kh_used += $status['kharasana_used'];
+                                                        $kh_used_price += $status['kharasana_price'];
+                                                        
+                                                     }
+                                                    ?>
+                                                    
+                                                            <td><?= number_format($kh_used) ?></td>
+                                                            <td><?= number_format($kh_used_price) ?></td>
 
                                                         </tr>
                                                     <?php } ?>
