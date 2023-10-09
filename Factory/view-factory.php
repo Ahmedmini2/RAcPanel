@@ -502,7 +502,7 @@ if (isset($_GET['id'])) {
                                                 </div>
                                                 <div class="d-flex align-items-center text-sm">
                                                     ريال <?=$bill['price']?>
-                                                    <a href="../Signed-Docs/Project-Bills/<?=$bill['id']?>/<?=$bill['bill_img']?>" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
+                                                    <a href="../Signed-Docs/Project-Bills/<?=$bill['project_id']?>/<?=$bill['bill_img']?>" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
                                                 </div>
                                             </li>
                                            <?php } ?>
