@@ -189,7 +189,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
                          
                             <div class="view overlay">
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="Card image cap">
                                 <a href="#!">
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -198,12 +198,17 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                            
                             <div class="card-body">
 
+                                <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم ' . $r["id"] . '</p>
+
+                                <h4 class="card-title"> ' . $r["name"] . '</h4>
                                 
-                                <h4 class="card-title">1 Card title</h4>
+                                <p class="card-text">' . $r["description"] . '</p>
                                 
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                                
-                                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                                <a href="view-factory.php?id=' . $r["id"] . '"> 
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
+                                    </div>
+                                </a>
 
                             </div>
 
@@ -223,20 +228,18 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
-                  <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم ' . $r["id"] . '</p>
+                  
                   <a href="">
                     <h5>
                     ' . $r["name"] . '
                     </h5>
                   </a>
                   <p class="mb-4 text-sm">
-                  ' . $r["description"] . '
+                  
                   </p>
-                  <a href="view-factory.php?id=' . $r["id"] . '"> 
-                  <div class="d-flex align-items-center justify-content-between">
-                    <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
-                  </div>
-                  </a>
+                  
+                   
+                  
                   
                 </div>
               </div>
