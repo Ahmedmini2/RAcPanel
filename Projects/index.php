@@ -71,11 +71,11 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                 </div>
               </a>
             </li>
-           
+
             <li class="nav-item px-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0">
-               
-                <i class="fa fa-arrow-left me-sm-1 cursor-pointer"  onclick="history.back()" ></i>
+
+                <i class="fa fa-arrow-left me-sm-1 cursor-pointer" onclick="history.back()"></i>
               </a>
             </li>
             <li class="nav-item dropdown ps-2 d-flex align-items-center">
@@ -152,102 +152,135 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
               </ul>
             </li>
           </ul>
-          
+
         </div>
-       
+
         <i class="bi bi-arrow-left"></i>
-       
-        
+
+
       </div>
     </nav>
     <!-- End Navbar -->
 
     <div class="container-fluid py-4">
-    <div class="block-header bg-gradient-dark  col-md-3 col-sm-6 col-xs-6  rounded-pill">
-                                    
-                                    <?php require_once('../components/notification.php'); ?>
-                                  </div>
-      <div class="col-12 mt-4">
-      <div class="card mb-4 p-3">
-        <div class="card-header">
-          <h3 class="mb-1">المشاريع</h3>
-        </div>
+      <div class="block-header bg-gradient-dark  col-md-3 col-sm-6 col-xs-6  rounded-pill">
 
-        <a href="add-projects.php"
-         class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة مشروع جديد&nbsp;&nbsp; 
-         <i class="fas fa-plus">
-         </i>
-        </a>
-
-    
-        <div class="card-body p-3  ">
-          <div class="row">
-            
-          <?php
-          while ($r = mysqli_fetch_array($projects)) {
-
-            echo '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
-              <div class="card card-blog card-plain py-3">
-                <div class="position-relative">
-                  <a class="d-block shadow-xl border-radius-xl">
-                  <img src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl inside-card">
-                  </a>
-                </div>
-                <div class="card-body px-1 pb-0">
-                  <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم '.$r["id"].'</p>
-                  <a href="">
-                    <h5>
-                    '.$r["name"].'
-                    </h5>
-                  </a>
-                  <p class="mb-4 text-sm">
-                  '.$r["description"].'
-                  </p>
-                  <a href="view-projects.php?id='.$r["id"].'"> 
-                  <div class="d-flex align-items-center justify-content-between">
-                    <button  type="button" class="btn btn-outline-primary btn-sm mb-0">عرض التفاصيل</button>
-                  </div>
-                  </a>
-                  
-                </div>
-              </div>
-            </div>';
-          }
-            ?>
-          </div>
-        </div>
+        <?php require_once('../components/notification.php'); ?>
       </div>
-    </div>
-    <footer class="footer pt-3  ">
-      <div class="container-fluid">
-        <div class="row align-items-center justify-content-lg-between">
-          <div class="col-lg-6 mb-lg-0 mb-4">
-            <div class="copyright text-center text-sm text-muted text-lg-end">
-              © <script>
-                document.write(new Date().getFullYear())
-              </script>,
-              made with <i class="fa fa-heart"></i> by
-              <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
+      <div class="col-12 mt-4">
+        <div class="card mb-4 p-3">
+          <div class="card-header">
+            <h3 class="mb-1">المشاريع</h3>
+          </div>
 
+          <a href="add-projects.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة مشروع جديد&nbsp;&nbsp;
+            <i class="fas fa-plus">
+            </i>
+          </a>
+
+
+          <div class="card-body p-3  ">
+            <div class="row">
+
+              <!-- Card -->
+
+              <?php
+              while ($r = mysqli_fetch_array($projects)) {
+
+                echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
+                        <div class="card">
+
+                         
+                            <div class="view overlay">
+                                <img class="inside-card card-img-top" src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="Card image cap">
+                               
+                                    <div class=" rgba-white-slight"></div>
+                                
+                            </div>
+
+                           
+                            <div class="card-body">
+
+                                <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم ' . $r["id"] . '</p>
+
+                                <h4 class="card-title"> ' . $r["name"] . '</h4>
+                                
+                                <p class="card-text">' . $r["description"] . '</p>
+                                
+                                <a href="view-factory.php?id=' . $r["id"] . '"> 
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                            </div>
+                            </div>';
+              }
+              ?>
+
+
+
+
+              <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
+                            <div class="card card-blog card-plain py-3">
+                                <div class="position-relative">
+                                <a class="d-block shadow-xl border-radius-xl">
+                                    <img src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl inside-card">
+                                </a>
+                                </div>
+                                <div class="card-body px-1 pb-0">
+                                
+                                <a href="">
+                                    <h5>
+                                    ' . $r["name"] . '
+                                    </h5>
+                                </a>
+                                <p class="mb-4 text-sm">
+                                
+                                </p>
+                                
+                                
+                                
+                                
+                                </div>
+                            </div>
+                            </div> -->
             </div>
           </div>
-          <div class="col-lg-6">
-            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-              <li class="nav-item">
-                <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-              </li>
-
-            </ul>
-          </div>
         </div>
       </div>
-    </footer>
+      <footer class="footer pt-3  ">
+        <div class="container-fluid">
+          <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-6 mb-lg-0 mb-4">
+              <div class="copyright text-center text-sm text-muted text-lg-end">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>,
+                made with <i class="fa fa-heart"></i> by
+                <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
+
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                <li class="nav-item">
+                  <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   </main>
 
@@ -258,7 +291,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/fullcalendar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
-  
+
   <script src="../assets/js/plugins/choices.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;

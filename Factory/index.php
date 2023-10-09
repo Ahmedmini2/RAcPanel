@@ -221,29 +221,29 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
 
                             <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
-              <div class="card card-blog card-plain py-3">
-                <div class="position-relative">
-                  <a class="d-block shadow-xl border-radius-xl">
-                    <img src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl inside-card">
-                  </a>
-                </div>
-                <div class="card-body px-1 pb-0">
-                  
-                  <a href="">
-                    <h5>
-                    ' . $r["name"] . '
-                    </h5>
-                  </a>
-                  <p class="mb-4 text-sm">
-                  
-                  </p>
-                  
-                   
-                  
-                  
-                </div>
-              </div>
-            </div> -->
+                            <div class="card card-blog card-plain py-3">
+                                <div class="position-relative">
+                                <a class="d-block shadow-xl border-radius-xl">
+                                    <img src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl inside-card">
+                                </a>
+                                </div>
+                                <div class="card-body px-1 pb-0">
+                                
+                                <a href="">
+                                    <h5>
+                                    ' . $r["name"] . '
+                                    </h5>
+                                </a>
+                                <p class="mb-4 text-sm">
+                                
+                                </p>
+                                
+                                
+                                
+                                
+                                </div>
+                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
