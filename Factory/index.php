@@ -173,16 +173,21 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                         <h3 class="mb-1">المصنع</h3>
                     </div>
 
-                    
+
 
 
                     <div class="card-body p-3  ">
                         <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-4">
-                        <!-- Card -->
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <!-- Card -->
+
+                                <?php
+                                while ($r = mysqli_fetch_array($projects)) {
+
+                                    echo '
                         <div class="card">
 
-                            <!--Card image-->
+                         
                             <div class="view overlay">
                                 <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
                                 <a href="#!">
@@ -190,28 +195,26 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                 </a>
                             </div>
 
-                            <!--Card content-->
+                           
                             <div class="card-body">
 
-                                <!--Title-->
+                                
                                 <h4 class="card-title">1 Card title</h4>
-                                <!--Text-->
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
+                                
                                 <button type="button" class="btn btn-light-blue btn-md">Read more</button>
 
                             </div>
 
-                        </div>
-                        <!-- Card -->
-                    </div>
+                            </div>';
+                                }
+                                ?>
+                                <!-- Card -->
+                            </div>
 
 
-
-                            <?php
-                            while ($r = mysqli_fetch_array($projects)) {
-
-                                echo '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
+                            <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
               <div class="card card-blog card-plain py-3">
                 <div class="position-relative">
                   <a class="d-block shadow-xl border-radius-xl">
@@ -236,9 +239,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                   
                 </div>
               </div>
-            </div>';
-                            }
-                            ?>
+            </div> -->
                         </div>
                     </div>
                 </div>
