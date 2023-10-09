@@ -3,6 +3,39 @@ include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Factory";
 if (isset($_GET['project_id'])) {
     $id = $_GET['project_id'];
+
+    if(isset($_POST['submit'])) {
+      
+        $name = $_POST['name'];
+        $bill_date = $_POST['bill_date'];
+        $price = $_POST['price'];
+        $added_by = $_POST['added_by'];
+       
+        $target_dir = "../Signed-Docs/Project-Bills/".$id."/";
+        if(!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }else{
+
+        }
+        $target_file = $target_dir . basename($_FILES["bill_img"]["name"]);
+        $filename = basename($_FILES["bill_img"]["name"]);
+        $uploadOk = 1;
+        move_uploaded_file($_FILES["bill_img"]["tmp_name"], $target_file);
+
+        $insert_bill= "INSERT INTO `projects_bills` (`id`, `project_id`, `name`, `added_by`,`price`,`bill_date`,`bill_img`, `created_at`) 
+        VALUES (NULL, '$id', '$name', '$added_by','$price','$bill_date','$filename', NOW())";
+        $res = $conn->query($insert_bill);
+        if ($res) {
+            $_SESSION['notification'] = "تم اضافة الفاتورة بنجاح";
+            header('location: view-factory.php?id='.$id.'');
+            exit();
+          } else {
+            $_SESSION['notification'] = "خطأ في الادخال";
+            header('location: view-factory.php?id='.$id.'');
+            exit();
+          }
+
+    }
 }
 
 ?>
@@ -16,7 +49,7 @@ if (isset($_GET['project_id'])) {
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-        تقرير المشروع
+        فواتير المشروع
     </title>
     <!--     Fonts and icons     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -164,15 +197,15 @@ if (isset($_GET['project_id'])) {
                         <?php require_once('../components/notification.php'); ?>
                     </div>
                     <div class="block-header bg-gradient-dark col-md-3 col-sm-6 col-xs-6  rounded-pill">
-                        <h6 class="block-title text-center text-white py-2 px-4 ">رفع التقرير</h6>
+                        <h6 class="block-title text-center text-white py-2 px-4 ">رفع فاتورة</h6>
                     </div>
-                    <form>
+                    <form method="post" action="" enctype="multipart/form-data">
 
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label> اسم الفاتورة</label>
-                                    <input type="text" placeholder="الرجاء كتابة اسم الفاتورة    " class="form-control" name="branch" value="">
+                                    <input type="text" placeholder="الرجاء كتابة اسم الفاتورة    " class="form-control" name="name" value="">
 
                                 </div>
                             </div>
@@ -180,7 +213,7 @@ if (isset($_GET['project_id'])) {
                                 <div class="form-group">
                                     <div class="col-lg-8 col-sm-6">
                                         <label for="startDate">تاريخ الفاتورة</label>
-                                        <input id="startDate" class="form-control" type="date" />
+                                        <input id="startDate" class="form-control" name="bill_date" type="date" />
                                         <script>
                                         let startDate = document.getElementById('startDate')
 
@@ -203,14 +236,14 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> مقدم الفاتورة </label>
-                                    <input type="text" placeholder="الرجاء كتابة مقدم الفاتورة    " class="form-control" name="branch" value="">
+                                    <input type="text" placeholder="الرجاء كتابة مقدم الفاتورة    " class="form-control" name="added_by" value="">
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label> تكلفة الفاتورة </label>
-                                    <input type="text" placeholder="الرجاء كتابة تكلفة الفاتورة    " class="form-control" name="branch" value="">
+                                    <input type="text" placeholder="الرجاء كتابة تكلفة الفاتورة    " class="form-control" name="price" value="">
 
                                 </div>
                             </div>
@@ -220,7 +253,7 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label for="formFileLg" class="form-label">صورة الفاتورة</label>
-                                    <input class="form-control form-control-lg" id="formFileLg" type="file" />
+                                    <input class="form-control form-control-lg" id="bill_img" name="bill_img" type="file" />
                                 </div>
                             </div>
                         </div>
