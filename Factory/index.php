@@ -178,13 +178,14 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
                     <div class="card-body p-3  ">
                         <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <!-- Card -->
-
-                                <?php
+                        <?php
                                 while ($r = mysqli_fetch_array($projects)) {
 
                                     echo '
+                                            <div class="col-xs-4 col-sm-3 col-md-2">
+                               
+
+                               
                         <div class="card">
 
                          
