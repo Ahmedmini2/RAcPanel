@@ -497,7 +497,7 @@ if (isset($_GET['id'])) {
                                         ?>
                                             <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                                                 <div class="d-flex flex-column">
-                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm"><?=$bill['bill_date']?> <span class="badge badge-success"> Added by: <?=$bill['added_by']?> </span></h6>
+                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm"><?=$bill['bill_date']?> <span class="badge text-dark badge-success"> Added by: <?=$bill['added_by']?> </span></h6>
                                                     <span class="text-xs">#<?=$bill['id']?></span>
                                                 </div>
                                                 <div class="d-flex align-items-center text-sm">
