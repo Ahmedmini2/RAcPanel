@@ -469,7 +469,7 @@ if (isset($_GET['id'])) {
                                                             }
                                                             ?>
 
-                                                            <td><?= number_format($deliverd) ?></td>
+                                                            <td><?= number_format($deliverd - $production) ?></td>
 
                                                             <td><?=$products['quantity']-$production?></td>
                                                         </tr>
