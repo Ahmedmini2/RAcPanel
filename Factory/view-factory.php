@@ -10,9 +10,9 @@ if (isset($_GET['id'])) {
     $res = $conn->query($query);
     $project = $res->fetch_assoc();
 
-    $res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+    $res2 = mysqli_query($conn, "SELECT * FROM projects_bills WHERE `project_id` = $id");
     while ($r = mysqli_fetch_array($res2)) {
-        $project_cost += $r['cost_price'] * $r['quantity'];
+        $total_bills += $r['price'];
     }
 }
 
@@ -314,7 +314,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">متبقي من تكلفة المشروع</h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">+$2000</h5>
+                                                <h5 class="mb-0"><?=number_format($project['project_cost'] - $total_bills)?></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -329,7 +329,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0"> ما تم صرفه </h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0">+$2000</h5>
+                                                <h5 class="mb-0"><?=number_format($total_bills)?></h5>
                                             </div>
                                         </div>
                                     </div>
