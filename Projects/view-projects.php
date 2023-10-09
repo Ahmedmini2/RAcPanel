@@ -486,8 +486,8 @@ if (isset($_GET['id'])) {
                         </div>
                         <!--Table -->
 
-                        <div class="row">
-                            <div class="col-lg-8 mt-4">
+                        
+                            <div class="col mt-4">
                                 <div class="card">
                                     <div class="card-header pb-0 px-3">
                                         <h6 class="mb-0 text-lg">البنود</h6>
@@ -522,7 +522,7 @@ if (isset($_GET['id'])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4  mt-4">
+                            <div class="col mt-4">
                                 <div class="card h-100">
                                     <div class="card-header pb-0 p-3">
                                         <div class="row">
@@ -554,7 +554,7 @@ if (isset($_GET['id'])) {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                     
                         <div class="col-lg-4 col-md-6 my-4">
                             <div class="card h-100">
                                 <div class="card-header pb-0">
