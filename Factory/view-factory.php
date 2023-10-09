@@ -382,7 +382,7 @@ if (isset($_GET['id'])) {
                                                     $kh_id = $products['id'];
                                                      $res4 = mysqli_query($conn, "SELECT * FROM kharasana WHERE `product_id` = $kh_id");
                                                      while ($kh = mysqli_fetch_array($res4)) {
-                                                        $kh_quan = $kh['quantity_per_piece'] * $kh['price_per_piece'];
+                                                        $kh_quan = $kh['quantity_per_piece'] * $products['quantity'];
                                                         $kh_total = $kh['total_price'];
                                                         
                                                      }
