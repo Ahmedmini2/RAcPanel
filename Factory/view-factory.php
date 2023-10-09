@@ -491,7 +491,7 @@ if (isset($_GET['id'])) {
                                         <ul class="list-group">
 
                                         <?php 
-                                          $get_bills = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
+                                          $get_bills = mysqli_query($conn, "SELECT * FROM projects_bills WHERE `project_id` = $id ");
                                           while ($bill = mysqli_fetch_array($get_bills)){
 
                                         ?>
