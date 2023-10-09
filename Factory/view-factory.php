@@ -369,16 +369,26 @@ if (isset($_GET['id'])) {
                                                 <tbody class="text-center">
                                                     <?php
                                                     $i = 0;
+                                                    
                                                     $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
                                                     while ($products = mysqli_fetch_array($res3)) {
                                                         $i++;
-
+                                                        $kh_quan = 0;
                                                     ?>
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
                                                             <td><?= $products['product_name'] ?></td>
-                                                            <td><?= $products['dimensions'] ?></td>
-                                                            <td><?= number_format($products['cost_price']) ?></td>
+                                                    <?php
+                                                    $kh_id = $products['id'];
+                                                     $res4 = mysqli_query($conn, "SELECT * FROM kharasana WHERE `product_id` = $kh_id");
+                                                     while ($kh = mysqli_fetch_array($res4)) {
+                                                        $kh_quan = $kh['quantity_per_piece'] * $kh['price_per_piece'];
+                                                        $kh_total = $kh['total_price'];
+                                                        
+                                                     }
+                                                    ?>
+                                                            <td><?= $kh_quan ?></td>
+                                                            <td><?= number_format($kh_total) ?></td>
                                                             <td><?= number_format($products['sell_price']) ?></td>
                                                             <td><?= number_format($products['net_profit']) ?></td>
 

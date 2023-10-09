@@ -76,8 +76,8 @@ if (isset($_POST['add-project'])) {
       $kharasana = $_POST['kharasana'];
       $kh_price = $_POST['kh_price'];
       $kh_per = $_POST['kh_per'];
-      $kh_peice = $_POST['kh_peice'];
-      $kh_tot = $_POST['kh_tot'];
+      $kh_peice = str_replace(',','',$_POST['kh_peice']);
+      $kh_tot = str_replace(',','',$_POST['kh_tot']);
 
       $insert_kh = "INSERT INTO kharasana (`id`, `product_id`, `type`, `price`, `quantity_per_piece`, `price_per_piece` , `total_price`, `created_at`) 
       VALUES(NULL, $product_id, '$kharasana', '$kh_price', '$kh_per', '$kh_peice' , '$kh_tot' , NOW())";
@@ -285,8 +285,8 @@ if (isset($_POST['add-project'])) {
       $kharasana = $_POST['kharasana'];
       $kh_price = $_POST['kh_price'];
       $kh_per = $_POST['kh_per'];
-      $kh_peice = $_POST['kh_peice'];
-      $kh_tot = $_POST['kh_tot'];
+      $kh_peice = str_replace(',','',$_POST['kh_peice']);
+      $kh_tot = str_replace(',','',$_POST['kh_tot']);
 
       $insert_kh = "INSERT INTO kharasana (`id`, `product_id`, `type`, `price`, `quantity_per_piece`, `price_per_piece` , `total_price`, `created_at`) 
           VALUES(NULL, $product_id, '$kharasana', '$kh_price', '$kh_per', '$kh_peice' , '$kh_tot' , NOW())";
