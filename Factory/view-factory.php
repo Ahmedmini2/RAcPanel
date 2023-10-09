@@ -473,8 +473,8 @@ if (isset($_GET['id'])) {
                                                                 
                                                             }
                                                             ?>
-                                                            <td><?= number_format($inventory) ?></td>
-                                                            <td><?= number_format($production - $deliverd) ?></td>
+                                                            <td><?= number_format($inventory - $deliverd) ?></td>
+                                                            <td><?= number_format($production ) ?></td>
 
                                                             
 
