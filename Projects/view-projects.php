@@ -536,56 +536,22 @@ if (isset($_GET['id'])) {
                                     </div>
                                     <div class="card-body p-3 pb-0">
                                         <ul class="list-group">
+                                        <?php 
+                                          $get_bills = mysqli_query($conn, "SELECT * FROM projects_bills WHERE `project_id` = $id ");
+                                          while ($bill = mysqli_fetch_array($get_bills)){
+
+                                        ?>
                                             <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                                                 <div class="d-flex flex-column">
-                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm">March, 01, 2020</h6>
-                                                    <span class="text-xs">#MS-415646</span>
+                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm"><?=$bill['bill_date']?> <span class="badge text-dark badge-success"> Added by: <?=$bill['added_by']?> </span></h6>
+                                                    <span class="text-xs">#<?=$bill['id']?></span>
                                                 </div>
                                                 <div class="d-flex align-items-center text-sm">
-                                                    $180
-                                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
+                                                    ريال <?=$bill['price']?>
+                                                    <a href="../Signed-Docs/Project-Bills/<?=$bill['project_id']?>/<?=$bill['bill_img']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
                                                 </div>
                                             </li>
-                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">February, 10, 2021</h6>
-                                                    <span class="text-xs">#RV-126749</span>
-                                                </div>
-                                                <div class="d-flex align-items-center text-sm">
-                                                    $250
-                                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">April, 05, 2020</h6>
-                                                    <span class="text-xs">#FB-212562</span>
-                                                </div>
-                                                <div class="d-flex align-items-center text-sm">
-                                                    $560
-                                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">June, 25, 2019</h6>
-                                                    <span class="text-xs">#QW-103578</span>
-                                                </div>
-                                                <div class="d-flex align-items-center text-sm">
-                                                    $120
-                                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">March, 01, 2019</h6>
-                                                    <span class="text-xs">#AR-803481</span>
-                                                </div>
-                                                <div class="d-flex align-items-center text-sm">
-                                                    $300
-                                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                                </div>
-                                            </li>
+                                           <?php } ?>
                                         </ul>
                                     </div>
                                 </div>
