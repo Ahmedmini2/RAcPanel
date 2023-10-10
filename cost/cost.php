@@ -213,7 +213,7 @@ $select = mysqli_query($conn, "select * from cost_center");
                                 </div>
                                 <div class="modal-body">
                                   الرجاء ادخال كلمة المرور للتأكيد
-                                  <form action="../scripts/accounts/delete.php?bank_req=<?php echo $r['id']; ?>" method="post">
+                                  <form action="../scripts/cost/delete.php?id=<?php echo $r['id']; ?>" method="post">
                                     <input type="password" name="pas" class="form-control">
 
                                 </div>
