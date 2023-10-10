@@ -4,65 +4,55 @@ $_SESSION['sidebar'] = "cost";
 if (!empty($_GET['edit'])) {
 
     $id = $_GET['edit'];
-    $query = "SELECT * FROM beneficiary_info WHERE id=$id";
+    $query = "SELECT * FROM cost_type WHERE id=$id";
     $res = $conn->query($query);
     $editData = $res->fetch_assoc();
     $name = $editData['name'];
-    $beneficiary_bank = $editData['beneficiary_bank'];
-    $description = $editData['description'];
-    $amount_text = $editData['amount_text'];
-    $our_bank_name = $editData['our_bank_name'];
-    $to_account_type = $editData['to_account_type'];
-    $transfer_to = $editData['transfer_to'];
-
-
-    $idAttr = "updateForm";
-
-    // }else if(isset($_POST['submit'])){
-    //   $name=$_POST['full_name'];
-    //   $email=$_POST['email'];
-    //   $phone=$_POST['phone'];
-    //   $role=$_POST['role'];
-    //   $password=$_POST['password'];
-    //   $cpassword=$_POST['cpassword'];
-    //   $username=$_POST['username'];
-    //   $position=$_POST['position'];
-
-    //   if($password == $cpassword){
-    //     $query="INSERT INTO users ('')";
-    //   }
-} else if (isset($_POST['submit'])) {
-
-    $name = $_POST['name'];
-    $beneficiary_bank = $_POST['beneficiary_bank'];
-    $account_number = $_POST['account_number'];
-    $branch = $_POST['branch'];
-    $iban = $_POST['iban'];
-    $swift = $_POST['swift'];
-
-    if (empty($name) || empty($beneficiary_bank) || empty($iban)) {
-        $_SESSION['notification'] = "الرجاء ادخال رقم الحساب و الايبان و اسم المستفيد";
-        header('location: beneficiary-banks.php');
-        exit(); // Stop further execution of the script
+    
+  
+    if(isset($_POST['submit'])){
+  
+      $name = $_POST['name'];
+      
+      $update = "UPDATE `cost_type` SET `name` = '$name' WHERE `id` = $id";
+      $updateResult = $conn->query($update);
+      if ($updateResult) {
+  
+        $_SESSION['notification'] = "تم تعديل نوع التكلفة بنجاح";
+        header('location: cost.php');
+        exit();
+  
+        } else {
+        $_SESSION['notification'] = "يوجد خلل في النظام";
+        header('location: cost.php');
+        exit();
+  
+        }
     }
-
-    $insert = "INSERT INTO `beneficiary_info` (`id`, `name`,`beneficiary_bank`, `branch`, `account_number`, `iban`, `swift`,`created_at`) VALUES (NULL, '$name','$beneficiary_bank','$branch','$account_number','$iban','$swift',NOW())";
+  
+  } else if (isset($_POST['submit'])) {
+  
+    $name = $_POST['name'];
+    
+  
+    $insert = "INSERT INTO cost_center (`id`, `name`, `created_at`) VALUES (NULL, '$name', NOW())";
     $insertResult = $conn->query($insert);
     if ($insertResult) {
-        $_SESSION['notification'] = "تم اضافة المستفيد بنجاح";
+  
+        $_SESSION['notification'] = "تم اضافة نوع التكلفة بنجاح";
+        header('location: cost.php');
+        exit();
+  
     } else {
-        $_SESSION['notification'] = "يوجد خلل في النظام";
+      $_SESSION['notification'] = "يوجد خلل في النظام";
+      header('location: cost.php');
+      exit();
+  
     }
-    header('location: beneficiary-banks.php');
-    exit();
-} else {
+  } else {
     $name = "";
-    $beneficiary_bank = "";
-    $account_number = "";
-    $iban = "";
-    $swift = "";
-    $branch = "";
-}
+    
+  }
 
 ?>
 <!DOCTYPE html>
