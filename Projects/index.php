@@ -182,13 +182,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
           <div class="card-body p-3  ">
             <div class="row">
 
-              <!-- Card -->
-              <div class="card-o">
-                <h2>CARD</h2>
-              </div>
-              <hr>
-
-
+             
               <?php
               while ($r = mysqli_fetch_array($projects)) {
 
