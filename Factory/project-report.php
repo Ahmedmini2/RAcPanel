@@ -285,6 +285,13 @@ if(isset($_GET['project_id'])){
 
                                 </div>
                             </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>المجموع</label>
+                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="total_price" id="total_price" value="">
+
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col">

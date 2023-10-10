@@ -259,7 +259,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                 © <script>
                   document.write(new Date().getFullYear())
                 </script>,
-                made with <i class="fa fa-heart"></i> by
+               by
                 <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
 
               </div>
