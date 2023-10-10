@@ -1,7 +1,7 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "cost";
-$select = mysqli_query($conn, "select * from bank_request");
+$select = mysqli_query($conn, "select * from cost_center");
 
 ?>
 <!DOCTYPE html>
@@ -195,23 +195,17 @@ $select = mysqli_query($conn, "select * from bank_request");
                 </thead>
                 <tbody>
                  
-
+                <?php 
+                  while ($r = mysqli_fetch_array($select)) {
+                     ?>
 
                     <tr class="text-center">
 
-                      <td class="text-xs text-secondary mb-0">1</td>
-                      <td class="text-xs text-secondary mb-0">مشتريات</td>
-                      <td class="mb-0 text-sm">بنزين</td>
-                      <td class="mb-0 text-sm">150</td>
-                      <!-- <td class="text-xs text-secondary mb-0"><?php echo $r['transfer_to']; ?></td> -->
-                      <td class="text-xs text-secondary mb-0"><?php echo $r['created_at']; ?></td>
-                      <td><?php if ($r['status'] == 1) {
-                            echo '<span class="badge badge-sm bg-gradient-success">طلب تعميد جديد</span>';
-                          } elseif ($r['status'] == 2) {
-                            echo '<span class="badge badge-sm bg-gradient-warning">تم التعميد من قبل المحاسب في انتظار التأكيد</span>';
-                          } else {
-                            echo '<span class="badge badge-sm bg-gradient-primary">تم التأكيد</span>';
-                          } ?></td>
+                      <td class="text-xs text-secondary mb-0"><?=$r['id']?></td>
+                      <td class="text-xs text-secondary mb-0"><?=$r['type']?></td>
+                      <td class="mb-0 text-sm"><?=$r['description']?></td>
+                      <td class="mb-0 text-sm"><?=$r['price']?></td>
+                      <td class="text-xs text-secondary mb-0"><?=$r['created_at']?></td>
 
                       <td><a href=""><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
                           <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a> |
@@ -243,7 +237,7 @@ $select = mysqli_query($conn, "select * from bank_request");
                       <!-- Modal -->
 
                     </tr>
-
+                        <?php } ?>
                  
                 </tbody>
               </table>
