@@ -215,7 +215,7 @@ $select = mysqli_query($conn, "select * from bank_request");
                             echo '<span class="badge badge-sm bg-gradient-primary">تم التأكيد</span>';
                           } ?></td>
 
-                      <td><a href=""><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
+                      <td><a href="purchase_cover.php"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
                           <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
