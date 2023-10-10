@@ -25,8 +25,8 @@ if(isset($_GET['project_id'])){
             $res = $conn->query($insert_product_status);
         }else{
             $status = "قيد التصنيع";
-            $insert_product_status = "INSERT INTO product_status (`id`, `product_id`, `status`, `name`, `description`, `quantity`, `kharasana_type`, `kharasana_price`, `kharasana_used`,`kh_text`,`extra_price`,`production`,`warehouse`, `created_at`)
-          VALUES (NULL, '$product_id' ,'$status', '$product_name' , '$description' , '$product_quantity' , '$type' , '$price' ,'$quantity','$kh_text','$extra','0','0', NOW())";
+            $insert_product_status = "INSERT INTO product_status (`id`, `product_id`, `status`, `name`, `description`, `quantity`, `kharasana_type`, `kharasana_price`,`kh_text`,`extra_price`,`production`,`warehouse`, `created_at`)
+          VALUES (NULL, '$product_id' ,'$status', '$product_name' , '$description' , '$product_quantity' , '$type' , '$price' ,'$kh_text','$extra','0','0', NOW())";
           $res = $conn->query($insert_product_status);
         }
         if ($res) {

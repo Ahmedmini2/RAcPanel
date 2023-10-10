@@ -396,7 +396,7 @@ if (isset($_GET['id'])) {
                                                      $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id AND `status` ='إنتاج'");
                                                      while ($status = mysqli_fetch_array($res5)) {
                                                         $kh_used += $status['kharasana_used'];
-                                                        $kh_used_price += $status['kharasana_price'];
+                                                        $kh_used_price += $status['total_price'];
                                                         
                                                      }
                                                     ?>
