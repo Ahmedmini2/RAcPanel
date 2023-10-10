@@ -187,7 +187,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
               while ($r = mysqli_fetch_array($projects)) {
 
                 echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
-                        <div class="card">
+                        <div class="card-f">
 
                          
                             <div class="view overlay">
@@ -198,7 +198,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                             </div>
 
                            
-                            <div class="card-body">
+                            <div class="card-body bg-f">
 
                                 <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم ' . $r["id"] . '</p>
 
