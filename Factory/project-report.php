@@ -238,9 +238,11 @@ if(isset($_GET['project_id'])){
                                             if (select.value == "صب كامل") {
                                                 document.getElementById('kh-row1').style.display = "block";
                                                 document.getElementById('kh-row2').style.display = "block";
+                                                document.getElementById('kh-row3').style.display = "hidden";
                                             } else {
                                                 document.getElementById('kh-row1').style.display = "none";
                                                 document.getElementById('kh-row2').style.display = "none";
+                                                document.getElementById('kh-row3').style.display = "show";
                                             }
                                         }
                                     </script>
@@ -279,6 +281,14 @@ if(isset($_GET['project_id'])){
                                 </div>
                             </div>
 
+                            <div class="col" id="kh-row3" style="display:none">
+                                <div class="form-group">
+                                    <label> وصف كمية الخرسانة المستخدمة</label>
+                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة " class="form-control" name="kh_text" name="kh_text" value="">
+
+                                </div>
+                            </div>
+
                             <div class="col" id="kh-row1" style="display:none">
                                 <div class="form-group" >
                                     <label> كمية الخرسانة </label>
@@ -289,14 +299,14 @@ if(isset($_GET['project_id'])){
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col">
                                 <div class="form-group">
                                     <label> مبلغ اضافي </label>
                                     <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="extra" id="extra" value="">
 
                                 </div>
                             </div>
-                            <div class="col-lg-6"  id="kh-row2" style="display:none">
+                            <div class="col"  id="kh-row2" style="display:none">
                                 <div class="form-group">
                                     <label>المجموع</label>
                                     <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="total_price" id="total_price" value="" readonly>
