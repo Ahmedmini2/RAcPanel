@@ -19,12 +19,12 @@ if (!empty($_GET['edit'])) {
       if ($updateResult) {
   
         $_SESSION['notification'] = "تم تعديل نوع التكلفة بنجاح";
-        header('location: cost.php');
+        header('location: type-cost.php');
         exit();
   
         } else {
         $_SESSION['notification'] = "يوجد خلل في النظام";
-        header('location: cost.php');
+        header('location: type-cost.php');
         exit();
   
         }
@@ -40,12 +40,12 @@ if (!empty($_GET['edit'])) {
     if ($insertResult) {
   
         $_SESSION['notification'] = "تم اضافة نوع التكلفة بنجاح";
-        header('location: cost.php');
+        header('location: type-cost.php');
         exit();
   
     } else {
       $_SESSION['notification'] = "يوجد خلل في النظام";
-      header('location: cost.php');
+      header('location: type-cost.php');
       exit();
   
     }

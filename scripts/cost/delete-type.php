@@ -20,7 +20,7 @@ include '../../db/connection.php';
                         if($del)
                         {
                             $_SESSION['notification'] = "تم حذف نوع التكلفة بنجاح";
-                            header('location:../../cost/cost.php');
+                            header('location:../../cost/type-cost.php');
                         }
                     }
 
