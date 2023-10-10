@@ -4,93 +4,39 @@ $_SESSION['sidebar'] = "cost";
 if (!empty($_GET['edit'])) {
 
   $id = $_GET['edit'];
-  $query = "SELECT * FROM bank_request WHERE id=$id";
+  $query = "SELECT * FROM cost_center WHERE id=$id";
   $res = $conn->query($query);
   $editData = $res->fetch_assoc();
-  $name = $editData['name'];
+  $type = $editData['type'];
   $description = $editData['description'];
-  $amount_text = $editData['amount_text'];
-  $our_bank_name = $editData['our_bank_name'];
-  $to_account_type = $editData['to_account_type'];
-  $transfer_to = $editData['transfer_to'];
+  $price = $editData['price'];
+  
 
-
-  $idAttr = "updateForm";
-
-  // }else if(isset($_POST['submit'])){
-  //   $name=$_POST['full_name'];
-  //   $email=$_POST['email'];
-  //   $phone=$_POST['phone'];
-  //   $role=$_POST['role'];
-  //   $password=$_POST['password'];
-  //   $cpassword=$_POST['cpassword'];
-  //   $username=$_POST['username'];
-  //   $position=$_POST['position'];
-
-  //   if($password == $cpassword){
-  //     $query="INSERT INTO users ('')";
-  //   }
 } else if (isset($_POST['submit'])) {
 
-  $name = $_POST['name'];
+  $type = $_POST['type'];
   $description = $_POST['description'];
-  $amount_text = $_POST['amount_text'];
-  $amount_number = $_POST['amount_number'];
-  $our_bank_name = $_POST['our_bank_name'];
-  $to_account_type = $_POST['to_account_type'];
-  $transfer_to = $_POST['transfer_to'];
+  $price = $_POST['price'];
 
-  $to_name = $_POST['to_name'];
-  $to_bank_name = $_POST['to_bank_name'];
-  $to_bank_number = $_POST['to_bank_number'];
-  $to_bank_iban = $_POST['to_bank_iban'];
-
-  if ($transfer_to == "") {
-    $transfer_to = $to_name;
-  }
-
-
-  $insert = "INSERT INTO `bank_request` (`id`, `name`, `description`, `amount_text`, `amount_number`, `our_bank_name`, `to_account_type`, `transfer_to`,
-     `status`, `created_at`, `updated_at`, `accepted_at`) VALUES (NULL, '$name','$description','$amount_text','$amount_number','$our_bank_name','$to_account_type','$transfer_to',
-     '1',NOW(),'0000-00-00 00:00','0000-00-00 00:00')";
-
-  if ($to_name != "") {
-    $insert2 = "INSERT INTO `beneficiary_info` (`id`, `name`, `beneficiary_bank`, `branch`, `account_number`, `iban`, `swift`, `created_at`) VALUES (NULL, '$to_name','$to_bank_name','','$to_bank_number','$to_bank_iban','', NOW())";
-    $insertResult2 = $conn->query($insert2);
-  }
+  $insert = "INSERT INTO cost_center (`id`, `type`, `description`, `price`, `created_at`) VALUES (NULL, $type, $description, $price , NOW())";
   $insertResult = $conn->query($insert);
   if ($insertResult) {
-    $notificationMessage = "New bank request created by " . $_SESSION['username'];
-    $showToAccounts = "Accounts"; // Use the text "Accounts" to indicate the target audience.
-    $created_by = $_SESSION['id'];
 
-    // Insert the notification into the database.
-    $insertNotification = "INSERT INTO notifications (user_id, message, created_at, show_to) VALUES ('$created_by', '$notificationMessage', NOW(), '$showToAccounts')";
-    $insertResultNotification = $conn->query($insertNotification);
-
-    if ($insertResultNotification) {
-      $_SESSION['notification'] = "تم اضافة التعميد بنجاح";
-      header('location: accounts.php');
+      $_SESSION['notification'] = "تم اضافة التكلفة بنجاح";
+      header('location: cost.php');
       exit();
-    }
-    $_SESSION['notification'] = "تم اضافة التعميد بنجاح";
-    header('location: accounts.php');
-    exit();
+
   } else {
     $_SESSION['notification'] = "يوجد خلل في النظام";
-    header('location: accounts.php');
+    header('location: cost.php');
+    exit();
+
   }
 } else {
-  $name = "";
+  $type = "";
   $description = "";
-  $amount_text = "";
-  $our_bank_name = "";
-  $to_account_type = "";
-  $transfer_to = "";
-  $status = "";
-  $created_at = "";
-  $updated_at = "";
-  $accepted_at = "";
+  $price = "";
+  
 }
 
 ?>
@@ -279,7 +225,7 @@ if (!empty($_GET['edit'])) {
               <div class="col">
                 <div class="form-group">
                   <label>سعر التكلفة</label>
-                  <input type="number" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="amount_number" value="<?php echo $amount_number; ?>">
+                  <input type="number" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="price" value="<?php echo $price; ?>">
                 </div>
               </div>
             </div>
@@ -302,73 +248,7 @@ if (!empty($_GET['edit'])) {
       </div>
     </div>
   </main>
-  <!--<div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
-    </a>
-    <div class="card shadow-lg ">
-      <div class="card-header pb-0 pt-3 ">
-        <div class="float-end">
-          <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
-          <p>See our dashboard options.</p>
-        </div>
-        <div class="float-start mt-4">
-          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-            <i class="fa fa-close"></i>
-          </button>
-        </div>
-         End Toggle Button 
-      </div>
-      <hr class="horizontal dark my-1">
-      <div class="card-body pt-sm-3 pt-0">
-         Sidebar Backgrounds
-        <div>
-          <h6 class="mb-0">Sidebar Colors</h6>
-        </div>
-        <a href="javascript:void(0)" class="switch-trigger background-color">
-          <div class="badge-colors my-2 text-end">
-            <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
-          </div>
-        </a>
-        Sidenav Type
-        <div class="mt-3">
-          <h6 class="mb-0">Sidenav Type</h6>
-          <p class="text-sm">Choose between 2 different sidenav types.</p>
-        </div>
-        <div class="d-flex">
-          <button class="btn bg-gradient-primary w-100 px-3 mb-2 active" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
-          <button class="btn bg-gradient-primary w-100 px-3 mb-2 me-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
-        </div>
-        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        Navbar Fixed
-        <div class="mt-3">
-          <h6 class="mb-0">Navbar Fixed</h6>
-        </div>
-        <div class="form-check form-switch ps-0">
-          <input class="form-check-input mt-1 float-end me-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
-        </div>
-        <hr class="horizontal dark my-sm-4">
-        <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard-pro">Free Download</a>
-        <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard">View documentation</a>
-        <div class="w-100 text-center">
-          <a class="github-button" href="https://github.com/creativetimofficial/soft-ui-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/soft-ui-dashboard on GitHub">Star</a>
-          <h6 class="mt-3">Thank you for sharing!</h6>
-          <a href="https://twitter.com/intent/tweet?text=Check%20Soft%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
-          </a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-   Core JS Files   -->
+ 
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>

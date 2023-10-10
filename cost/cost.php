@@ -173,14 +173,6 @@ $select = mysqli_query($conn, "select * from cost_center");
             </div>
 
             <div class="block">
-              <?php if (!empty($_GET['bank_req'])) {
-                $id = $_GET['bank_req'];
-                $del = mysqli_query($conn, "delete from bank_request where id = '$id'");
-                if ($del) {
-                  echo '<div class="alert alert-success"> تم حذف التعميد </div>';
-                }
-              }
-              ?>
               <table class="table align-items-center mb-0" id="example">
                 <thead>
                   <tr  class="text-center">
@@ -216,7 +208,7 @@ $select = mysqli_query($conn, "select * from cost_center");
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">حذف التعميد</h5>
+                                  <h5 class="modal-title" id="exampleModalLabel">حذف التكلفة</h5>
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
