@@ -506,7 +506,7 @@ if (isset($_GET['project_id'])) {
    
                                     <tr>
                                         <th scope="row"><?=$i?></th>
-                                        <td class="custom-font-m">نوع الاغطية</td>
+                                        <td class="custom-font-m text-center">نوع الاغطية</td>
                                         <td class="custom-font-m">250</td>
                                         <td class="custom-font-m">3*4</td>
                                         <td class="custom-font-m">7</td>
