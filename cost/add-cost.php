@@ -203,7 +203,7 @@ if (!empty($_GET['edit'])) {
                 <div class="form-group">
                   <label>نوع التكلفة</label>
                   <select name="type" id="type" class="form-control" placeholder="نوع التكلفة">
-                    <option value="0"></option>
+                    <option value="<?php echo $description; ?>"><?php echo $description; ?></option>
                     <option value="بنزين">بنزين </option>
                     <option value="مشتريات خارجية">مشتريات خارجية</option>
 
@@ -216,7 +216,7 @@ if (!empty($_GET['edit'])) {
               <div class="col">
                 <div class="form-group">
                   <label>التفاصيل و الملاحظات</label>
-                  <textarea placeholder="التفاصيل" class="form-control" name="description" value="<?php echo $description; ?>"></textarea>
+                  <textarea placeholder="التفاصيل" class="form-control" name="description"><?php echo $description; ?></textarea>
                 </div>
               </div>
             </div>
