@@ -238,11 +238,11 @@ if(isset($_GET['project_id'])){
                                             if (select.value == "صب كامل") {
                                                 document.getElementById('kh-row1').style.display = "block";
                                                 document.getElementById('kh-row2').style.display = "block";
-                                                document.getElementById('kh-row3').style.display = "hidden";
+                                                document.getElementById('kh-row3').style.display = "none";
                                             } else {
                                                 document.getElementById('kh-row1').style.display = "none";
                                                 document.getElementById('kh-row2').style.display = "none";
-                                                document.getElementById('kh-row3').style.display = "show";
+                                                document.getElementById('kh-row3').style.display = "block";
                                             }
                                         }
                                     </script>
@@ -255,7 +255,7 @@ if(isset($_GET['project_id'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label> كمية الاصناف </label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية الاصناف    " class="form-control" name="product_quantity" id="product_quantity" value="">
+                                    <input type="text" placeholder="الرجاء كتابة كمية الاصناف    " class="form-control" name="product_quantity" id="product_quantity" value="0">
                                     <input type="text" placeholder="" class="form-control" name="kh_per_peice" id="kh_per_peice" hidden>
                                 </div>
                             </div>
@@ -276,15 +276,15 @@ if(isset($_GET['project_id'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label> سعر الخرسانة </label>
-                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة " class="form-control" name="price" name="price" value="">
+                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة " class="form-control" name="price" name="price" value="0">
 
                                 </div>
                             </div>
 
-                            <div class="col" id="kh-row3" style="display:none">
+                            <div class="col" id="kh-row3">
                                 <div class="form-group">
                                     <label> وصف كمية الخرسانة المستخدمة</label>
-                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة " class="form-control" name="kh_text" name="kh_text" value="">
+                                    <input type="text" placeholder="الرجاء كتابة وصف كمية الخرسانة المستخدمة " class="form-control" name="kh_text" name="kh_text" value="">
 
                                 </div>
                             </div>
@@ -292,7 +292,7 @@ if(isset($_GET['project_id'])){
                             <div class="col" id="kh-row1" style="display:none">
                                 <div class="form-group" >
                                     <label> كمية الخرسانة </label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية الخرسانة " class="form-control" name="quantity" id="quantity" value="">
+                                    <input type="text" placeholder="الرجاء كتابة كمية الخرسانة " class="form-control" name="quantity" id="quantity" value="0" readonly>
 
                                 </div>
                             </div>
@@ -302,7 +302,7 @@ if(isset($_GET['project_id'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label> مبلغ اضافي </label>
-                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="extra" id="extra" value="">
+                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="extra" id="extra" value="0">
 
                                 </div>
                             </div>
@@ -347,7 +347,18 @@ if(isset($_GET['project_id'])){
                            
 
                             $(document).on('change', 'input , select', function() {
+                            var quantity = $('#product_quantity').val();
+                            var kh_per_peice = $('#kh_per_peice').val();
+                            var price = $('#price').val();
+                            var extra = $('#extra').val();
+
+                            $('#quantity').val(quantity*kh_per_peice);
+                            var used_quantity = $('#quantity').val();   
+
+                            $('#total_price').val((used_quantity * price) + extra);
                             
+                            
+
 
                             
                             });
