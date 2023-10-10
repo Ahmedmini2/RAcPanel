@@ -14,6 +14,15 @@ if (isset($_GET['id'])) {
     while ($r = mysqli_fetch_array($res2)) {
         $total_bills += $r['price'];
     }
+    $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+    while ($r2 = mysqli_fetch_array($res3)) {
+        $product_id = $r2['id'];
+
+        $res4 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $product_id AND `status` ='إنتاج'");
+        while ($r3 = mysqli_fetch_array($res4)) {
+            $total_bills += $r3['total_price'];
+        }
+    }
 }
 
 
@@ -393,10 +402,10 @@ if (isset($_GET['id'])) {
                                                     $status_id = $products['id'];
                                                     $kh_used = 0;
                                                     $kh_used_price = 0;
-                                                     $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id");
+                                                     $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id AND `status` ='إنتاج'");
                                                      while ($status = mysqli_fetch_array($res5)) {
                                                         $kh_used += $status['kharasana_used'];
-                                                        $kh_used_price += $status['kharasana_price'];
+                                                        $kh_used_price += $status['total_price'];
                                                         
                                                      }
                                                     ?>
@@ -526,6 +535,43 @@ if (isset($_GET['id'])) {
                                                 <div class="d-flex align-items-center text-sm">
                                                     ريال <?=$bill['price']?>
                                                     <a href="../Signed-Docs/Project-Bills/<?=$bill['project_id']?>/<?=$bill['bill_img']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
+                                                </div>
+                                            </li>
+                                           <?php } ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-lg-12  mt-4">
+                                <div class="card h-100">
+                                    <div class="card-header pb-0 p-3">
+                                        <div class="row">
+                                            <div class="col-12 d-flex align-items-center">
+                                                <h6 class="mb-0 text-lg">عمليات الإستلام</h6>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="card-body p-3 pb-0">
+                                        <ul class="list-group">
+
+                                        <?php 
+                                          $get_delivery = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `project_id` = $id ");
+                                          while ($delivery = mysqli_fetch_array($get_delivery)){
+
+                                        ?>
+                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                <div class="d-flex flex-column">
+                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm"><?=$delivery['created_at']?> <span class="badge text-dark badge-success"> تم استلام: <?=$delivery['quantity']?> </span></h6>
+                                                    <span class="text-xs">#<?=$delivery['id']?></span>
+                                                </div>
+                                                <div class="d-flex align-items-center text-sm">
+                                                    
+                                                    <a href="../Signed-Docs/Delivery-Reports/<?=$delivery['project_id']?>/<?=$delivery['image']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
                                                 </div>
                                             </li>
                                            <?php } ?>
