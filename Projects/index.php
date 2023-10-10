@@ -183,42 +183,9 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
             <div class="row">
 
               <!-- Card -->
-              <?php
-              while ($r = mysqli_fetch_array($projects)) {
-
-                echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
-                        <div class="card-o">
-
-                         
-                            <div class="view overlay">
-                                <img class="inside-card card-img-top" src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="Card image cap">
-                               
-                                    <div class=" rgba-white-slight"></div>
-                                
-                            </div>
-
-                           
-                            <div class="card-body">
-
-                                <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم ' . $r["id"] . '</p>
-
-                                <h4 class="card-title"> ' . $r["name"] . '</h4>
-                                
-                                <p class="card-text">' . $r["description"] . '</p>
-                                
-                                <a href="view-factory.php?id=' . $r["id"] . '"> 
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
-                                    </div>
-                                </a>
-
-                            </div>
-
-                            </div>
-                            </div>';
-                            
-              }
-              ?>
+              <div class="card-o">
+                <h2>CARD</h2>
+              </div>
               <hr>
 
 
