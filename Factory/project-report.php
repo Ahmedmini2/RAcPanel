@@ -208,7 +208,7 @@ if(isset($_GET['project_id'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label>اختيار الصنف</label>
-                                    <select name="name" id="name" class="form-control" placeholder="اختيار النوع" onchange="showDiv2(this)">
+                                    <select name="name" id="name" class="form-control" placeholder="اختيار النوع" >
                                        
                                         <?php
                                         $s_items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
@@ -225,7 +225,7 @@ if(isset($_GET['project_id'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label>نوع الاجراء</label>
-                                    <select name="description" id="description" class="form-control" placeholder="نوع الاجراء">
+                                    <select name="description" id="description" class="form-control" placeholder="نوع الاجراء" onchange="showDiv2(this)">
                                         <option value="0"></option>
                                         <option value="صب ارضية">صب ارضية</option>
                                         <option value="صب جوانب">صب جوانب</option>
@@ -233,6 +233,17 @@ if(isset($_GET['project_id'])){
                                         <option value="صب رقبية">صب رقبية</option>
                                         <option value="صب كامل">صب كامل</option>
                                     </select>
+                                    <script>
+                                        function showDiv2(select) {
+                                            if (select.value == "صب كامل") {
+                                                document.getElementById('kh-row1').style.display = "block";
+                                                document.getElementById('kh-row2').style.display = "block";
+                                            } else {
+                                                document.getElementById('kh-row1').style.display = "none";
+                                                document.getElementById('kh-row2').style.display = "none";
+                                            }
+                                        }
+                                    </script>
                                 </div>
                             </div>
 
@@ -303,15 +314,7 @@ if(isset($_GET['project_id'])){
                         </div>
                         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                         <script>
-                            function showDiv2(select) {
-                                if (select.value == "صب كامل") {
-                                    document.getElementById('kh-row1').style.display = "block";
-                                    document.getElementById('kh-row2').style.display = "block";
-                                } else {
-                                    document.getElementById('kh-row1').style.display = "none";
-                                    document.getElementById('kh-row2').style.display = "none";
-                                }
-                            }
+                           
 
                             $(document).on('change', 'input , select', function() {
                             
