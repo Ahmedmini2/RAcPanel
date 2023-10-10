@@ -209,7 +209,7 @@ if(isset($_GET['project_id'])){
                                 <div class="form-group">
                                     <label>اختيار الصنف</label>
                                     <select name="name" id="name" class="form-control" placeholder="اختيار النوع" >
-                                       
+                                        <option value="0"></option>
                                         <?php
                                         $s_items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                         while ($item = mysqli_fetch_array($s_items)){
@@ -279,8 +279,8 @@ if(isset($_GET['project_id'])){
                                 </div>
                             </div>
 
-                            <div class="col">
-                                <div class="form-group" id="kh-row1" style="display:none">
+                            <div class="col" id="kh-row1" style="display:none">
+                                <div class="form-group" >
                                     <label> كمية الخرسانة </label>
                                     <input type="text" placeholder="الرجاء كتابة كمية الخرسانة " class="form-control" name="quantity" id="quantity" value="">
 
@@ -296,8 +296,8 @@ if(isset($_GET['project_id'])){
 
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group" id="kh-row2" style="display:none">
+                            <div class="col-lg-6"  id="kh-row2" style="display:none">
+                                <div class="form-group">
                                     <label>المجموع</label>
                                     <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="total_price" id="total_price" value="" readonly>
 
@@ -326,7 +326,7 @@ if(isset($_GET['project_id'])){
                                             url: '../ajax/fetch_kh_per_peice.php', // Create this PHP file to handle the AJAX request
                                             data: { product_id: productId },
                                             success: function(response) {
-                                                $('#kh_per_peice').val('Kh Per Peice: ' + response);
+                                                $('#kh_per_peice').val(response);
                                             }
                                         });
                                     } else {
