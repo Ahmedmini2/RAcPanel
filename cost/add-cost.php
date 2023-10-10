@@ -203,7 +203,7 @@ if (!empty($_GET['edit'])) {
                 <div class="form-group">
                   <label>نوع التكلفة</label>
                   <select name="type" id="type" class="form-control" placeholder="نوع التكلفة">
-                    <option value="<?php echo $description; ?>"><?php echo $description; ?></option>
+                    <option value="<?php echo $type; ?>"><?php echo $type; ?></option>
                     <option value="بنزين">بنزين </option>
                     <option value="مشتريات خارجية">مشتريات خارجية</option>
 
