@@ -456,7 +456,7 @@ if (isset($_GET['id'])) {
                                                             <td><?= $products['quantity'] ?></td>
                                                             <?php 
                                                             $inv_id =  $products['id'];
-                                                            $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id");
+                                                            $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id AND `status` ='إنتاج'");
                                                             
                                                             while ($inv = mysqli_fetch_array($inv_res)) {
                                                                 $inventory += $inv['warehouse'];
