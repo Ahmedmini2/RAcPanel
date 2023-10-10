@@ -254,7 +254,7 @@ if(isset($_GET['project_id'])){
                                 <div class="form-group">
                                     <label> كمية الاصناف </label>
                                     <input type="text" placeholder="الرجاء كتابة كمية الاصناف    " class="form-control" name="product_quantity" id="product_quantity" value="">
-
+                                    <input type="text" placeholder="" class="form-control" name="kh_per_peice" id="kh_per_peice">
                                 </div>
                             </div>
                             <div class="col">
@@ -314,6 +314,26 @@ if(isset($_GET['project_id'])){
                         </div>
                         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                         <script>
+
+                            $(document).ready(function() {
+                                $('#name').on('change', function() {
+                                    var selectedOption = $(this).find('option:selected');
+                                    var productId = selectedOption.val().split(',')[0];
+                                    
+                                    if (productId !== "") {
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: '../ajax/fetch_kh_per_peice.php', // Create this PHP file to handle the AJAX request
+                                            data: { product_id: productId },
+                                            success: function(response) {
+                                                $('#kh_per_peice_display').value('Kh Per Peice: ' + response);
+                                            }
+                                        });
+                                    } else {
+                                        $('#kh_per_peice_display').value(''); // Clear the display if no option is selected
+                                    }
+                                });
+                            });
                            
 
                             $(document).on('change', 'input , select', function() {
