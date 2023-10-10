@@ -10,7 +10,21 @@ if (!empty($_GET['edit'])) {
   $type = $editData['type'];
   $description = $editData['description'];
   $price = $editData['price'];
-  
+
+  $update = "UPDATE `cost_center` SET `type` = '$type', `description` = '$description', `price` = '$price' WHERE `id` = $id";
+  $updateResult = $conn->query($update);
+  if ($updateResult) {
+
+    $_SESSION['notification'] = "تم تعديل التكلفة بنجاح";
+    header('location: cost.php');
+    exit();
+
+    } else {
+    $_SESSION['notification'] = "يوجد خلل في النظام";
+    header('location: cost.php');
+    exit();
+
+    }
 
 } else if (isset($_POST['submit'])) {
 
