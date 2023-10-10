@@ -1,7 +1,7 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "cost";
-$select = mysqli_query($conn, "select * from cost_type");
+$select = mysqli_query($conn, "SELECT * from cost_type");
 
 ?>
 <!DOCTYPE html>
