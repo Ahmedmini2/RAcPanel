@@ -254,7 +254,7 @@ if(isset($_GET['project_id'])){
                                 <div class="form-group">
                                     <label> كمية الاصناف </label>
                                     <input type="text" placeholder="الرجاء كتابة كمية الاصناف    " class="form-control" name="product_quantity" id="product_quantity" value="">
-                                    <input type="text" placeholder="" class="form-control" name="kh_per_peice" id="kh_per_peice">
+                                    <input type="text" placeholder="" class="form-control" name="kh_per_peice" id="kh_per_peice" hidden>
                                 </div>
                             </div>
                             <div class="col">
