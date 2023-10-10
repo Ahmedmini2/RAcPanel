@@ -281,7 +281,7 @@ if(isset($_GET['project_id'])){
                                 </div>
                             </div>
 
-                            <div class="col" id="kh-row3" style="display:none">
+                            <div class="col" id="kh-row3">
                                 <div class="form-group">
                                     <label> وصف كمية الخرسانة المستخدمة</label>
                                     <input type="text" placeholder="الرجاء كتابة سعر الخرسانة " class="form-control" name="kh_text" name="kh_text" value="">
