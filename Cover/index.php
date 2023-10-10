@@ -188,8 +188,9 @@ $select = mysqli_query($conn, "select * from bank_request");
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">نوع الاغطية</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">سعر الاغطية</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ابعاد الاغطية</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">كمية الاغطية</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">تاريخ الشراء</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الحالة</th>
 
                   </tr>
                 </thead>
@@ -203,6 +204,7 @@ $select = mysqli_query($conn, "select * from bank_request");
                       <td class="text-xs text-secondary mb-0">اغطية</td>
                       <td class="mb-0 text-sm">250</td>
                       <td class="mb-0 text-sm">4*3</td>
+                      <td class="mb-0 text-sm">12</td>
                       <!-- <td class="text-xs text-secondary mb-0"><?php echo $r['transfer_to']; ?></td> -->
                       <td class="text-xs text-secondary mb-0"><?php echo $r['created_at']; ?></td>
                       <td><?php if ($r['status'] == 1) {

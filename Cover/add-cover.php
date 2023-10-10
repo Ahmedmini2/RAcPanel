@@ -259,28 +259,32 @@ if (!empty($_GET['edit'])) {
                   <select name="type" id="type" class="form-control" placeholder="نوع الاغطية">
                     <option value="0"></option>
                     <option value="اغطية 1">اغطية 1 </option>
-                    <option value="اغطية 2">اغطية</option>
+                    <option value="اغطية 2">اغطية 2</option>
 
                   </select>
                 </div>
               </div>
-
-            </div>
-            <div class="row">
-
               <div class="col">
                 <div class="form-group">
                   <label>سعر الاغطية</label>
                   <input type="number" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="amount_number" value="<?php echo $amount_number; ?>">
                 </div>
               </div>
+
             </div>
+           
             <div class="row">
 
               <div class="col">
                 <div class="form-group">
                   <label>ابعاد الاغطية</label>
                   <input type="number" placeholder="ادخل ابعاد الاغطية" class="form-control" name="amount_number" value="<?php echo $amount_number; ?>">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label>كمية الاغطية</label>
+                  <input type="number" placeholder="ادخل كمية الاغطية" class="form-control" name="amount_number" value="<?php echo $amount_number; ?>">
                 </div>
               </div>
             </div>
