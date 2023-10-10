@@ -276,7 +276,7 @@ if(isset($_GET['project_id'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label> سعر الخرسانة </label>
-                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة " class="form-control" name="price" name="price" value="0">
+                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة " class="form-control" name="price" id="price" value="0">
 
                                 </div>
                             </div>
