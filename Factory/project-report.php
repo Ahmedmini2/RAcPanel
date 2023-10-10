@@ -14,17 +14,19 @@ if(isset($_GET['project_id'])){
         $type = $_POST['type'];
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
+        $kh_text = $_POST['kh_text'];
         $extra = $_POST['extra'];
+        $total_price = $_POST['total_price'];
 
         if($description == "صب كامل"){
             $status = "إنتاج";
-            $insert_product_status = "INSERT INTO product_status (`id`, `product_id`, `status`, `name`, `description`, `quantity`, `kharasana_type`, `kharasana_price`, `kharasana_used`,`extra_price`,`production`,`warehouse`, `created_at`)
-            VALUES (NULL, '$product_id' ,'$status', '$product_name' , '$description' , '$product_quantity' , '$type' , '$price' ,'$quantity','$extra','$product_quantity','$product_quantity', NOW())";
+            $insert_product_status = "INSERT INTO product_status (`id`, `product_id`, `status`, `name`, `description`, `quantity`, `kharasana_type`, `kharasana_price`, `kharasana_used`,`total_price`,`extra_price`,`production`,`warehouse`, `created_at`)
+            VALUES (NULL, '$product_id' ,'$status', '$product_name' , '$description' , '$product_quantity' , '$type' , '$price' ,'$quantity','$total_price','$extra','$product_quantity','$product_quantity', NOW())";
             $res = $conn->query($insert_product_status);
         }else{
             $status = "قيد التصنيع";
-            $insert_product_status = "INSERT INTO product_status (`id`, `product_id`, `status`, `name`, `description`, `quantity`, `kharasana_type`, `kharasana_price`, `kharasana_used`,`extra_price`,`production`,`warehouse`, `created_at`)
-          VALUES (NULL, '$product_id' ,'$status', '$product_name' , '$description' , '$product_quantity' , '$type' , '$price' ,'$quantity','$extra','0','0', NOW())";
+            $insert_product_status = "INSERT INTO product_status (`id`, `product_id`, `status`, `name`, `description`, `quantity`, `kharasana_type`, `kharasana_price`, `kharasana_used`,`kh_text`,`extra_price`,`production`,`warehouse`, `created_at`)
+          VALUES (NULL, '$product_id' ,'$status', '$product_name' , '$description' , '$product_quantity' , '$type' , '$price' ,'$quantity','$kh_text','$extra','0','0', NOW())";
           $res = $conn->query($insert_product_status);
         }
         if ($res) {
