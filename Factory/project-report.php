@@ -269,7 +269,7 @@ if(isset($_GET['project_id'])){
                             </div>
 
                             <div class="col">
-                                <div class="form-group" id="kh-row1">
+                                <div class="form-group" id="kh-row1" style="display:none">
                                     <label> كمية الخرسانة </label>
                                     <input type="text" placeholder="الرجاء كتابة كمية الخرسانة " class="form-control" name="quantity" id="quantity" value="">
 
@@ -286,7 +286,7 @@ if(isset($_GET['project_id'])){
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="form-group" id="kh-row2">
+                                <div class="form-group" id="kh-row2" style="display:none">
                                     <label>المجموع</label>
                                     <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="total_price" id="total_price" value="" readonly>
 
