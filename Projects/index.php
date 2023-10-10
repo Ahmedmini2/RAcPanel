@@ -188,6 +188,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
               while ($r = mysqli_fetch_array($projects)) {
 
                 echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
+                     <div class="card-deck">
                         <div class="card">
 
                          
@@ -215,8 +216,10 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
                             </div>
 
-                            </div>
-                            </div>';
+                          </div>
+                        </div>
+                        </div>';
+                      
               }
               ?>
 
