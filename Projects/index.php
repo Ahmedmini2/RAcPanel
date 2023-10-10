@@ -244,7 +244,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                 
                                 <p class="card-text">' . $r["description"] . '</p>
                                 
-                                <a href="view-factory.php?id=' . $r["id"] . '"> 
+                                <a href="view-projects.php?id=' . $r["id"] . '"> 
                                     <div class="d-flex align-items-center justify-content-between">
                                         <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
                                     </div>
