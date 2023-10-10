@@ -353,9 +353,11 @@ if(isset($_GET['project_id'])){
                             var extra = $('#extra').val();
 
                             $('#quantity').val(quantity*kh_per_peice);
-                            var used_quantity = $('#quantity').val();   
+                            var used_quantity = $('#quantity').val();  
+                            
+                            var total = (used_quantity * price) + extra;
 
-                            $('#total_price').val(used_quantity * price + extra);
+                            $('#total_price').val(total);
                             
                             
 
