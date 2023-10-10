@@ -208,7 +208,7 @@ if(isset($_GET['project_id'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label>اختيار الصنف</label>
-                                    <select name="name" id="name" class="form-control" placeholder="اختيار النوع">
+                                    <select name="name" id="name" class="form-control" placeholder="اختيار النوع" onchange="showDiv2(this)">
                                        
                                         <?php
                                         $s_items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
@@ -242,7 +242,7 @@ if(isset($_GET['project_id'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label> كمية الاصناف </label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية الاصناف    " class="form-control" name="product_quantity" value="">
+                                    <input type="text" placeholder="الرجاء كتابة كمية الاصناف    " class="form-control" name="product_quantity" id="product_quantity" value="">
 
                                 </div>
                             </div>
@@ -263,15 +263,15 @@ if(isset($_GET['project_id'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label> سعر الخرسانة </label>
-                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة " class="form-control" name="price" value="">
+                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة " class="form-control" name="price" name="price" value="">
 
                                 </div>
                             </div>
 
                             <div class="col">
-                                <div class="form-group">
+                                <div class="form-group" id="kh-row1">
                                     <label> كمية الخرسانة </label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية الخرسانة " class="form-control" name="quantity" value="">
+                                    <input type="text" placeholder="الرجاء كتابة كمية الخرسانة " class="form-control" name="quantity" id="quantity" value="">
 
                                 </div>
                             </div>
@@ -281,14 +281,14 @@ if(isset($_GET['project_id'])){
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label> مبلغ اضافي </label>
-                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="extra" value="">
+                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="extra" id="extra" value="">
 
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="form-group">
+                                <div class="form-group" id="kh-row2">
                                     <label>المجموع</label>
-                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="total_price" id="total_price" value="">
+                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="total_price" id="total_price" value="" readonly>
 
                                 </div>
                             </div>
@@ -299,10 +299,26 @@ if(isset($_GET['project_id'])){
                                     <button type="submit" name="submit" class="btn btn-secondary"> اضافه التقرير الانتاج</button>
                                 </div>
                             </div>
-                            <div class="col">
-
-                            </div>
+                           
                         </div>
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                        <script>
+                            function showDiv2(select) {
+                                if (select.value == "صب كامل") {
+                                    document.getElementById('kh-row1').style.display = "block";
+                                    document.getElementById('kh-row2').style.display = "block";
+                                } else {
+                                    document.getElementById('kh-row1').style.display = "none";
+                                    document.getElementById('kh-row2').style.display = "none";
+                                }
+                            }
+
+                            $(document).on('change', 'input , select', function() {
+                            
+
+                            
+                            });
+                        </script>
                     </form>
                 </div>
             </div>
