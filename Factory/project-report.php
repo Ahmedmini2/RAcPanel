@@ -238,11 +238,11 @@ if(isset($_GET['project_id'])){
                                             if (select.value == "صب كامل") {
                                                 document.getElementById('kh-row1').style.display = "block";
                                                 document.getElementById('kh-row2').style.display = "block";
-                                                document.getElementById('kh-row3').style.display = "hidden";
+                                                document.getElementById('kh-row3').style.display = "none";
                                             } else {
                                                 document.getElementById('kh-row1').style.display = "none";
                                                 document.getElementById('kh-row2').style.display = "none";
-                                                document.getElementById('kh-row3').style.display = "show";
+                                                document.getElementById('kh-row3').style.display = "block";
                                             }
                                         }
                                     </script>
@@ -284,7 +284,7 @@ if(isset($_GET['project_id'])){
                             <div class="col" id="kh-row3">
                                 <div class="form-group">
                                     <label> وصف كمية الخرسانة المستخدمة</label>
-                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة " class="form-control" name="kh_text" name="kh_text" value="">
+                                    <input type="text" placeholder="الرجاء كتابة وصف كمية الخرسانة المستخدمة " class="form-control" name="kh_text" name="kh_text" value="">
 
                                 </div>
                             </div>
