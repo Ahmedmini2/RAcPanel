@@ -1,7 +1,7 @@
-<?php 
-include ('../cookies/session2.php');
+<?php
+include('../cookies/session2.php');
 $_SESSION['sidebar'] = "cost";
-$select =mysqli_query($conn, "select * from beneficiary_info");
+$select = mysqli_query($conn, "SELECT * from cost_type");
 
 ?>
 <!DOCTYPE html>
@@ -13,27 +13,27 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-   مركز التكلفة
+    مركز التكلفة
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-100">
-      
-     <!-- Side Bar -->
+
+  <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
-      <!-- End Of side Bar --> 
+  <!-- End Of side Bar -->
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
@@ -41,7 +41,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
             <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">نوع التكلفة</a></li>
-            
+
           </ol>
 
         </nav>
@@ -70,8 +70,8 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
             </li>
             <li class="nav-item px-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0">
-               
-                <i class="fa fa-arrow-left me-sm-1 cursor-pointer"  onclick="history.back()" ></i>
+
+                <i class="fa fa-arrow-left me-sm-1 cursor-pointer" onclick="history.back()"></i>
               </a>
             </li>
             <li class="nav-item dropdown ps-2 d-flex align-items-center">
@@ -153,76 +153,86 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-        <div class="row">
-            
-        <a href="add-type-cost.php"
-         class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">نوع تكلفة جديد&nbsp;&nbsp; 
-         <i class="fas fa-plus">
-         </i>
+      <div class="row">
+
+        <a href="add-type-cost.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">نوع تكلفة جديد&nbsp;&nbsp;
+          <i class="fas fa-plus">
+          </i>
         </a>
         <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
-            <div class="content">
+          <div class="content">
             <div class="block-header bg-warning  col-md-3 col-sm-6 col-xs-6  rounded-pill">
-                                    
-                                    <?php require_once('../components/notification.php'); ?>
-                                  </div>   
-                
-                <div class="block">
-                    
-                    <table class="table align-items-center mb-0" id="myTable">
-                    <thead>
-                    <tr>
+
+              <?php require_once('../components/notification.php'); ?>
+            </div>
+
+            <div class="block">
+
+              <table class="table align-items-center mb-0" id="myTable">
+                <thead>
+                  <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الرقم</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="10%">الأسم</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">انشاء بتاريخ</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <?php
+                  while ($r = mysqli_fetch_array($select)) {
+                  ?>
+
+                    <tr class="text-center">
+
+                      <td class="text-xs text-secondary mb-0"><?= $r['id'] ?></td>
+                      <td class="text-xs text-secondary mb-0"><?= $r['name'] ?></td>
+                      <td class="mb-0 text-sm"><?= $r['created_at	'] ?></td>
+                     
+
+                      <td><?php if ($position == 'Admin') { ?>
+                          <a href="add-type-cost.php?edit=<?= $r['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+
+
+                          <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
+                          <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">حذف التكلفة</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  الرجاء ادخال كلمة المرور للتأكيد
+                                  <form action="../scripts/cost/delete-type.php?id=<?php echo $r['id']; ?>" method="post">
+                                    <input type="password" name="pas" class="form-control">
+
+                                </div>
+                                <div class="modal-footer">
+
+                                  <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div> <?php } ?>
+                      </td>
+                      <!-- Modal -->
+
                     </tr>
-                    </thead>
-                    <tbody>
-                    
+                  <?php } ?>
+
+                </tbody>
+              </table>
 
 
-                    <tr>
-                    
-                    <td class="text-xs text-secondary mb-0">1</td>
-                    <td class="text-xs text-secondary mb-0">صيانة</td>
-                   
-                    <td class="text-xs text-secondary mb-0"></td>
-                    <td><a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href=""><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
-                    </tr>
-
-                    
-                    </tbody>
-                    </table>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            ...
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn bg-gradient-primary">Save changes</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                </div>
-            </div>    
+            </div>
+          </div>
         </div>
-        </div>
-        
+      </div>
+
       <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
@@ -233,7 +243,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
                 </script>,
                 made with <i class="fa fa-heart"></i> by
                 <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
-                
+
               </div>
             </div>
             <div class="col-lg-6">
@@ -247,7 +257,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
                 <li class="nav-item">
                   <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
                 </li>
-                
+
               </ul>
             </div>
           </div>
@@ -255,7 +265,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
       </footer>
     </div>
   </main>
-  
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -263,7 +273,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/fullcalendar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
-  
+
   <script src="../assets/js/plugins/choices.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
