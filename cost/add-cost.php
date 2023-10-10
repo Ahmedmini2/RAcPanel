@@ -18,7 +18,7 @@ if (!empty($_GET['edit'])) {
   $description = $_POST['description'];
   $price = $_POST['price'];
 
-  $insert = "INSERT INTO cost_center (`id`, `type`, `description`, `price`, `created_at`) VALUES (NULL, $type, $description, $price , NOW())";
+  $insert = "INSERT INTO cost_center (`id`, `type`, `description`, `price`, `created_at`) VALUES (NULL, '$type', '$description', '$price' , NOW())";
   $insertResult = $conn->query($insert);
   if ($insertResult) {
 
