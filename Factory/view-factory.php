@@ -14,6 +14,15 @@ if (isset($_GET['id'])) {
     while ($r = mysqli_fetch_array($res2)) {
         $total_bills += $r['price'];
     }
+    $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+    while ($r2 = mysqli_fetch_array($res3)) {
+        $product_id = $r2['id'];
+
+        $res4 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $product_id AND `status` ='إنتاج'");
+        while ($r3 = mysqli_fetch_array($res4)) {
+            $total_bills += $r3['total_price'];
+        }
+    }
 }
 
 
