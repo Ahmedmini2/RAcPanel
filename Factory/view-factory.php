@@ -380,7 +380,7 @@ if (isset($_GET['id'])) {
                                                             <td><?= $products['product_name'] ?></td>
                                                     <?php
                                                     $kh_id = $products['id'];
-                                                     $res4 = mysqli_query($conn, "SELECT * FROM kharasana WHERE `product_id` = $kh_id AND `status` ='إنتاج'");
+                                                     $res4 = mysqli_query($conn, "SELECT * FROM kharasana WHERE `product_id` = $kh_id");
                                                      while ($kh = mysqli_fetch_array($res4)) {
                                                         $kh_quan = $kh['quantity_per_piece'] * $products['quantity'];
                                                         $kh_total = $kh['total_price'];
@@ -393,7 +393,7 @@ if (isset($_GET['id'])) {
                                                     $status_id = $products['id'];
                                                     $kh_used = 0;
                                                     $kh_used_price = 0;
-                                                     $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id");
+                                                     $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id AND `status` ='إنتاج'");
                                                      while ($status = mysqli_fetch_array($res5)) {
                                                         $kh_used += $status['kharasana_used'];
                                                         $kh_used_price += $status['kharasana_price'];
