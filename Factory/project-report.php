@@ -309,7 +309,7 @@ if(isset($_GET['project_id'])){
                             <div class="col"  id="kh-row2" style="display:none">
                                 <div class="form-group">
                                     <label>المجموع</label>
-                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="total_price" id="total_price" value="" readonly>
+                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="total_price" id="total_price" value="0" readonly>
 
                                 </div>
                             </div>
