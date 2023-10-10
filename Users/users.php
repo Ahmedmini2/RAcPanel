@@ -184,7 +184,7 @@ $select =mysqli_query($conn, "select * from users");
 
 
                     <tr>
-                    <td><?php echo $i;?></td>
+                    <td class="text-center"><?php echo $i;?></td>
                     <td class="text-xs text-secondary mb-0"><?php echo $custem =  $r['email'];?></td>
                     <td class="mb-0 text-sm"><?php echo $r['username'];?></td>
                     <td class="mb-0 text-sm"><?php echo $r['full_name'];?></td>
