@@ -11,7 +11,7 @@ if (isset($_GET['project_id'])) {
         $del_quantity = $_POST['del_quantity'];
         $del_image = $_POST['del_image'];
 
-        $target_dir = "../Projects/Delivery-Reports/".$id."/";
+        $target_dir = "../Signed-Docs/Delivery-Reports/".$id."/";
         if(!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
         }else{
@@ -22,7 +22,7 @@ if (isset($_GET['project_id'])) {
         $uploadOk = 1;
         move_uploaded_file($_FILES["del_image"]["tmp_name"], $target_file);
 
-        $insert_product_del= "INSERT INTO `product_delivery` (`id`, `product_id`, `quantity`, `image`, `created_at`) VALUES (NULL, '$product_id', '$del_quantity', '$filename', NOW())";
+        $insert_product_del= "INSERT INTO `product_delivery` (`id`,`project_id`, `product_id`, `quantity`, `image`, `created_at`) VALUES (NULL,'$id', '$product_id', '$del_quantity', '$filename', NOW())";
         $res = $conn->query($insert_product_del);
         if ($res) {
             $_SESSION['notification'] = "تم اضافة تقرير الانتاج بنجاح";
