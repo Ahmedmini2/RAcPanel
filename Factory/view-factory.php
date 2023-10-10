@@ -323,7 +323,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">متبقي من تكلفة المشروع</h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0"><?=number_format($project['project_cost'] - $total_bills)?></h5>
+                                                <h5 class="mb-0"><?=number_format($project['project_cost'] - $total_bills)?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -338,7 +338,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0"> ما تم صرفه </h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0"><?=number_format($total_bills)?></h5>
+                                                <h5 class="mb-0"><?=number_format($total_bills)?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
