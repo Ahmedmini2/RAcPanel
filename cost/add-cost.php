@@ -12,6 +12,10 @@ if (!empty($_GET['edit'])) {
   $price = $editData['price'];
 
   if(isset($_POST['submit'])){
+
+    $type = $_POST['type'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
     $update = "UPDATE `cost_center` SET `type` = '$type', `description` = '$description', `price` = '$price' WHERE `id` = $id";
     $updateResult = $conn->query($update);
     if ($updateResult) {
