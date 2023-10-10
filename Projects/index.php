@@ -189,7 +189,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
                 echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
                     
-                        <div class="card " style="width:18rem; height:20rem">
+                        <div class="card ">
 
                          
                             <div class="view overlay">
