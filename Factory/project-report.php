@@ -326,11 +326,11 @@ if(isset($_GET['project_id'])){
                                             url: '../ajax/fetch_kh_per_peice.php', // Create this PHP file to handle the AJAX request
                                             data: { product_id: productId },
                                             success: function(response) {
-                                                $('#kh_per_peice_display').value('Kh Per Peice: ' + response);
+                                                $('#kh_per_peice_display').val('Kh Per Peice: ' + response);
                                             }
                                         });
                                     } else {
-                                        $('#kh_per_peice_display').value(''); // Clear the display if no option is selected
+                                        $('#kh_per_peice_display').val(''); // Clear the display if no option is selected
                                     }
                                 });
                             });
