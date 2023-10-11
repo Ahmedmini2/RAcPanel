@@ -179,9 +179,7 @@ if (isset($_GET['id'])) {
                 <!--********* -->
                 <div class="col-12 mt-4">
                     <div class="card mx-4 p-3">
-                        <div class="card-header">
-                            <h3 class="mb-1">عرض مشروع</h3>
-                        </div>
+                       
                         <!-- Card Header  -->
 
                         <div class="row ">
