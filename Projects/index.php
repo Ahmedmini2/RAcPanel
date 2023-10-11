@@ -170,7 +170,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
       <div class="col-12 mt-4">
         <div class="card mb-4 p-3">
           <div class="card-header">
-            <h3 class="mb-1">المشاريع</h3>
+            <h5 class="mb-1">المشاريع</h5>
           </div>
 
           <a href="add-projects.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة مشروع جديد&nbsp;&nbsp;
