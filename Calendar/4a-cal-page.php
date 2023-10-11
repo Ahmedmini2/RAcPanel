@@ -69,7 +69,7 @@
     <!-- (D) EVENT FORM -->
     <dialog id="calForm"><form method="dialog">
       <div id="evtCX">X</div>
-      <h2 class="evt100 ">إضافة اجتماع</h2>
+      <h5 class="evt100 ">إضافة اجتماع</h5>
       <div class="evt50">
         <label>البداية</label>
         <input id="evtStart" type="datetime-local" required>
@@ -117,7 +117,7 @@
       <div class="evt100">
         <input type="hidden" id="evtID">
         <input type="button" id="evtDel" value="Delete">
-        <input type="submit" id="evtSave" value="Save">
+        <input type="submit" id="evtSave" value="Save" style="background: black;">
       </div>
     </form></dialog>
   </body>
