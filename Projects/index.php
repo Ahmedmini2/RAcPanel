@@ -215,6 +215,9 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                 </a>
 
                             </div>
+                            <hr>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
 
                           </div>
                         

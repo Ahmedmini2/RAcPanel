@@ -169,7 +169,7 @@ $select = mysqli_query($conn, "SELECT * from cost_type");
             <div class="block">
 
               <table class="table align-items-center mb-0" id="myTable">
-                <thead>
+                <thead class="text-center">
                   <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الرقم</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="10%">الأسم</th>
