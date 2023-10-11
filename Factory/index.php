@@ -177,18 +177,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
 
                     <div class="card-body p-3  ">
-                        <div class="myCard">
-                            <div class="innerCard">
-                                <div class="frontSide">
-                                    <p class="title">مشروع اراميكس</p>
-                                    <p>Hover Me</p>
-                                </div>
-                                <div class="backSide">
-                                    <p class="title">BACK SIDE</p>
-                                    <p>Leave Me</p>
-                                </div>
-                            </div>
-                        </div>
+                       
 
                         <div class="row">
 
