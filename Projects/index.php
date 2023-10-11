@@ -211,15 +211,15 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                 
 
                             </div>
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                <a href="view-projects.php?id=' . $r["id"] . '"> 
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
-                                </div>
-                            </a>
-                                </div>
-                            </div>
+                                   <a href="view-projects.php?id=' . $r["id"] . '"> 
+                                     <div class="d-flex align-items-center justify-content-between">
+                                       <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
+                                      </div>
+                                   </a>
+                                 </div>
+                             </div>
 
                           </div>
                         

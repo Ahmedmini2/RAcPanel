@@ -178,14 +178,14 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
                     <div class="card-body p-3  ">
                         <div class="row">
-                            
-                                <!-- Card -->
 
-                                <?php
-                                while ($r = mysqli_fetch_array($projects)) {
+                            <!-- Card -->
 
-                                    echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
-                        <div class="card">
+                            <?php
+                            while ($r = mysqli_fetch_array($projects)) {
+
+                                echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
+                        <div class="card h-100 shadow-lg">
 
                          
                             <div class="view overlay">
@@ -204,20 +204,24 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                 
                                 <p class="card-text">' . $r["description"] . '</p>
                                 
-                                <a href="view-factory.php?id=' . $r["id"] . '"> 
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
-                                    </div>
-                                </a>
+                               
 
                             </div>
-
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                            <a href="view-factory.php?id=' . $r["id"] . '"> 
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
+                            </div>
+                         </a>
+                             </div>
+                         </div>
                             </div>
                             </div>';
-                                }
-                                ?>
-                                
-                            
+                            }
+                            ?>
+
+
 
 
                             <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
