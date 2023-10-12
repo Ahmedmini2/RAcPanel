@@ -417,9 +417,7 @@ $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm ms-3">
-                          </div>
+                          
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm"><?=$r['name']?></h6>
                           </div>
