@@ -565,7 +565,7 @@ if (isset($_GET['id'])) {
                                 <div class="card-body p-3">
                                     <div class="timeline timeline-one-side">
                                         <?php
-                                        $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
+                                        $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status` WHERE `project_id` =$id");
                                         while ($r = mysqli_fetch_array($show_products_status)) {
                                             $date = new DateTimeImmutable($r['created_at']);
                                         ?>
