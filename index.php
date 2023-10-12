@@ -404,7 +404,7 @@ $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">المشروع</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">تكلفة المشروع </th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">تكلفة</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ميزانية</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">إكمال</th>
                     </tr>
@@ -417,7 +417,7 @@ $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
                             <img src="assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm ms-3">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Soft UI XD الإصدار</h6>
+                            <h6 class="mb-0 text-sm"> Bester Saudi LTD</h6>
                           </div>
                         </div>
                       </td>
