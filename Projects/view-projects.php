@@ -178,7 +178,7 @@ if (isset($_GET['id'])) {
                 </div>
                 <!--********* -->
                 <div class="col-12 mt-4">
-                    <div class="mx-4 p-3">
+                    <div class="mx-4">
 
                         <!-- Card Header  -->
 
@@ -257,7 +257,7 @@ if (isset($_GET['id'])) {
 
 
                 </div>
-                <div class="col-12 mt-4">
+                <div class="col-12 mt-2">
                     <!--********* -->
                     <div class="container-fluid py-4">
                         <div class="row">
