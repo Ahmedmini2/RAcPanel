@@ -20,7 +20,7 @@ $update = "UPDATE projects SET status = ' تم التأكيد ' WHERE id = '$id'
 $up_res = $conn->query($update);
 if($up_res){
   $_SESSION['notification'] = "تم تغير الحالة الى  ّ تم التأكيد ّ بنجاح";
-  header('location:../../Projects/view-projects?id='.$id);
+  header('location:../../Projects/view-projects.php?id='.$id);
 }else{
   $_SESSION['notification'] = "خلل في تغير الحالة";
 }
@@ -33,7 +33,7 @@ $update = "UPDATE projects SET status = 'قيد التنفيذ' WHERE id = '$id'
 $up_res = $conn->query($update);
 if($up_res){
   $_SESSION['notification'] = "تم تغير الحالة الى  ّ قيد التنفيذ ّ بنجاح";
-  header('location:../../Projects/view-projects?id='.$id);
+  header('location:../../Projects/view-projects.php?id='.$id);
 }else{
   $_SESSION['notification'] = "خلل في تغير الحالة";
 }
@@ -46,7 +46,7 @@ if(isset($_POST['done'])){
     $up_res = $conn->query($update);
     if($up_res){
       $_SESSION['notification'] = "تم تغير الحالة الى  ّ تم الإنتهاء  ّ بنجاح";
-      header('location:../../Projects/view-projects?id='.$id);
+      header('location:../../Projects/view-projects.php?id='.$id);
     }else{
       $_SESSION['notification'] = "خلل في تغير الحالة";
     }
