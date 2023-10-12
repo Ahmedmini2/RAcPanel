@@ -187,15 +187,15 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                             while ($r = mysqli_fetch_array($projects)) {
 
                                 echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
-                        <div class="card  h-100 shadow-lg">
+                                <div class="card  h-100 shadow-lg">
 
                          
-                            <div class="view overlay">
-                                <img class="inside-card card-img-top" src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="Card image cap">
+                                     <div class="view overlay">
+                                        <img class="inside-card card-img-top" src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="Card image cap">
                                
                                     <div class=" rgba-white-slight"></div>
                                 
-                            </div>
+                                 </div>
 
                            
                             <div class="card-body">
