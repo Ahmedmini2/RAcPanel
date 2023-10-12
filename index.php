@@ -659,7 +659,7 @@ $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
             <div class="card-body p-3">
               <div class="timeline timeline-one-side">
                 <?php
-                 while ($r = mysqli_fetch_array($select)) {
+                 while ($r = mysqli_fetch_array($show_products_status)) {
                   $product_id = $r['product_id'];
                   $query = "SELECT * FROM `products` WHERE `id`=$product_id";
                   $res = $conn->query($query);
