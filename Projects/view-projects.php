@@ -500,7 +500,7 @@ if (isset($_GET['id'])) {
                                         $get_products = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                         while ($prod = mysqli_fetch_array($get_products)) {
                                         ?>
-                                        <li class="list-group-item border-0 p-4 mb-2 bg-gray-100 border-radius-lg">
+                                        <li class="list-group-item border-0 p-4 mb-2 mt-2 bg-gray-100 border-radius-lg shadow-lg">
                                             <div class="d-flex flex-column">
                                                 <h6 class="mb-3 text-lg">الصنف: <?=$prod['product_name']?> </h6>
                                                 <span class="mb-2 text-lg">الحديد</span>
