@@ -557,7 +557,7 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 my-4">
+                        <div class="col-lg-16 col-md-6 my-4">
                             <div class="card h-100">
                                 <div class="card-header pb-0">
                                     <h6>نظرة عامة على سير العمل</h6>
