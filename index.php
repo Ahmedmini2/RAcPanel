@@ -209,7 +209,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
             <h6 class="mb-1">المشاريع</h6>
             <p class="text-sm">إدارة اخر المشاريع</p>
           </div>
-          <div class="card-body p-3 ">
+          <div class=" p-3 ">
             <div class="row">
 
               <!-- Card -->

@@ -169,7 +169,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
             </div>
             <div class="col-12 mt-4">
                 <div class=" mb-4 p-3">
-                    <div class="card-header">
+                    <div class="">
                         <h5 class="mb-1">المصنع</h5>
                     </div>
 
