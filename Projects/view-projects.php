@@ -529,6 +529,7 @@ if (isset($_GET['id'])) {
                                                     $prod_id = $r['id'];
                                                     $res5 = mysqli_query($conn, "SELECT * FROM iron_band WHERE `product_id` = $prod_id");
                                                     while ($iron = mysqli_fetch_array($res5)) {
+                                                        $i++;
                                                     ?>
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
