@@ -401,12 +401,12 @@ $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
             <div class="card-body p-0 pb-2">
               <div class="table-responsive">
                 <table class="table align-items-center mb-0">
-                  <thead class="text-center">
+                  <thead >
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">المشروع</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">قيمة المشروع</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">التكلفة</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">حالة المشروع</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">قيمة المشروع</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">التكلفة</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">حالة المشروع</th>
                     </tr>
                   </thead>
                   <tbody class="text-center">
