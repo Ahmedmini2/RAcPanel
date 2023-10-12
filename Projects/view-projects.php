@@ -502,7 +502,7 @@ if (isset($_GET['id'])) {
                                         ?>
                                         <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                                             <div class="d-flex flex-column">
-                                                <h6 class="mb-3 text-lg">الصنف الاول: <?=$prod['name']?> </h6>
+                                                <h6 class="mb-3 text-lg">الصنف الاول: <?=$prod['product_name']?> </h6>
                                                 <span class="mb-2 text-lg">الحديد</span>
 
                                                 <table class="table table-hover table-fixed">
@@ -526,7 +526,7 @@ if (isset($_GET['id'])) {
                                                 <tbody class=" text-center">
                                                     <?php
                                                     $i = 0;
-                                                    $prod_id = $r['id'];
+                                                    $prod_id = $prod['id'];
                                                     $res5 = mysqli_query($conn, "SELECT * FROM iron_band WHERE `product_id` = $prod_id");
                                                     while ($iron = mysqli_fetch_array($res5)) {
                                                         $i++;
