@@ -401,7 +401,7 @@ $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
             <div class="card-body p-0 pb-2">
               <div class="table-responsive">
                 <table class="table align-items-center mb-0">
-                  <thead>
+                  <thead class="text-center">
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">المشروع</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">قيمة المشروع</th>
@@ -409,7 +409,7 @@ $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">حالة المشروع</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="text-center">
                     <?php 
                     $show_projects = mysqli_query($conn, "SELECT * FROM `projects`");
                     while ($r = mysqli_fetch_array($show_projects)) {
