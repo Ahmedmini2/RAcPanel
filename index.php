@@ -681,7 +681,7 @@ $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
                   <div class="timeline-content">
                     
                     <h6 class="text-dark text-sm font-weight-bold mb-0">في مشروع <?=$project['name']?> تم <?=$r['description']?> وحالته <?=$r['status']?></h6>
-                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><?=$date->format(DateTimeInterface::RFC2822)?></p>
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><?=$date->format('l jS \o\f F Y h:i:s A')?></p>
                   </div>
                 </div>
 
