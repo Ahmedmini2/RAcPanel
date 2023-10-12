@@ -3,6 +3,7 @@ include('cookies/session.php');
 $_SESSION['sidebar'] = "Home";
 
 $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
+$projects = mysqli_query($conn, "SELECT * FROM projects");
 
 ?>
 
