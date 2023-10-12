@@ -179,12 +179,12 @@ if (isset($_GET['id'])) {
                 <!--********* -->
                 <div class="col-12 mt-4">
                     <div class="card mx-4 p-3">
-                       
+
                         <!-- Card Header  -->
 
                         <div class="row ">
                             <div class="text-right col-lg-10 col-sm-6">
-                                <a href="purchase_order.php?project_id=<?=$id?>" id="btn2" class="btn bg-gradient-dark mb-0">
+                                <a href="purchase_order.php?project_id=<?= $id ?>" id="btn2" class="btn bg-gradient-dark mb-0">
                                     طباعة التسعيرة
                                     <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
@@ -202,7 +202,7 @@ if (isset($_GET['id'])) {
                         </div>
 
 
-                       
+
 
                         <script>
                             function printDiv(divName) {
@@ -444,33 +444,32 @@ if (isset($_GET['id'])) {
                                                             <th scope="row"><?= $i ?></th>
                                                             <td><?= $products['product_name'] ?></td>
                                                             <td><?= $products['quantity'] ?></td>
-                                                            <?php 
+                                                            <?php
                                                             $inv_id =  $products['id'];
                                                             $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id");
-                                                            
+
                                                             while ($inv = mysqli_fetch_array($inv_res)) {
                                                                 $inventory += $inv['warehouse'];
                                                                 $production += $inv['production'];
                                                             }
                                                             ?>
-                                                            <?php 
+                                                            <?php
                                                             $del_id =  $products['id'];
                                                             $del_res = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `product_id` = $del_id");
-                                                            
+
                                                             while ($del = mysqli_fetch_array($del_res)) {
-                                                                
+
                                                                 $deliverd += $del['quantity'];
-                                                                
                                                             }
                                                             ?>
                                                             <td><?= number_format($inventory - $deliverd) ?></td>
                                                             <td><?= number_format($production) ?></td>
 
-                                                            
+
 
                                                             <td><?= number_format($deliverd) ?></td>
 
-                                                            <td><?=$products['quantity']-$production?></td>
+                                                            <td><?= $products['quantity'] - $production ?></td>
                                                         </tr>
                                                     <?php } ?>
 
@@ -485,140 +484,103 @@ if (isset($_GET['id'])) {
                         </div>
                         <!--Table -->
 
-                        
-                            <div class="col mt-4">
-                                <div class="card">
-                                    <div class="card-header pb-0 px-3">
-                                        <h6 class="mb-0 text-lg">البنود</h6>
-                                    </div>
-                                    <div class="card-body pt-4 p-3">
-                                        <ul class="list-group">
-                                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="mb-3 text-lg">الصنف الاول </h6>
-                                                    <span class="mb-2 text-lg">الحديد: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
 
-                                                </div>
+                        <div class="col mt-4">
+                            <div class="card">
+                                <div class="card-header pb-0 px-3">
+                                    <h6 class="mb-0 text-lg">البنود</h6>
+                                </div>
+                                <div class="card-body pt-4 p-3">
+                                    <ul class="list-group">
+                                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                                            <div class="d-flex flex-column">
+                                                <h6 class="mb-3 text-lg">الصنف الاول </h6>
+                                                <span class="mb-2 text-lg">الحديد: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
 
-                                            </li>
-                                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="mb-3 text-lg">الصنف التاني </h6>
-                                                    <span class="mb-2 text-lg">الاغطية: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
+                                            </div>
 
-                                                </div>
+                                        </li>
+                                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                                            <div class="d-flex flex-column">
+                                                <h6 class="mb-3 text-lg">الصنف التاني </h6>
+                                                <span class="mb-2 text-lg">الاغطية: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
 
-                                            </li>
-                                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="mb-3 text-lg">الصنف الثالث </h6>
-                                                    <span class="mb-2 text-lg">الاكسسوارات: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
+                                            </div>
 
-                                                </div>
+                                        </li>
+                                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                                            <div class="d-flex flex-column">
+                                                <h6 class="mb-3 text-lg">الصنف الثالث </h6>
+                                                <span class="mb-2 text-lg">الاكسسوارات: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
 
-                                            </li>
-                                        </ul>
-                                    </div>
+                                            </div>
+
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="col mt-4">
-                                <div class="card h-100">
-                                    <div class="card-header pb-0 p-3">
-                                        <div class="row">
-                                            <div class="col-6 d-flex align-items-center">
-                                                <h6 class="mb-0 text-lg">الفواتير</h6>
-                                            </div>
-                                            
+                        </div>
+                        <div class="col mt-4">
+                            <div class="card h-100">
+                                <div class="card-header pb-0 p-3">
+                                    <div class="row">
+                                        <div class="col-6 d-flex align-items-center">
+                                            <h6 class="mb-0 text-lg">الفواتير</h6>
                                         </div>
+
                                     </div>
-                                    <div class="card-body p-3 pb-0">
-                                        <ul class="list-group">
-                                        <?php 
-                                          $get_bills = mysqli_query($conn, "SELECT * FROM projects_bills WHERE `project_id` = $id ");
-                                          while ($bill = mysqli_fetch_array($get_bills)){
+                                </div>
+                                <div class="card-body p-3 pb-0">
+                                    <ul class="list-group">
+                                        <?php
+                                        $get_bills = mysqli_query($conn, "SELECT * FROM projects_bills WHERE `project_id` = $id ");
+                                        while ($bill = mysqli_fetch_array($get_bills)) {
 
                                         ?>
                                             <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                                                 <div class="d-flex flex-column">
-                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm"><?=$bill['bill_date']?> <span class="badge text-dark badge-success"> Added by: <?=$bill['added_by']?> </span></h6>
-                                                    <span class="text-xs">#<?=$bill['id']?></span>
+                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm"><?= $bill['bill_date'] ?> <span class="badge text-dark badge-success"> Added by: <?= $bill['added_by'] ?> </span></h6>
+                                                    <span class="text-xs">#<?= $bill['id'] ?></span>
                                                 </div>
                                                 <div class="d-flex align-items-center text-sm">
-                                                    ريال <?=$bill['price']?>
-                                                    <a href="../Signed-Docs/Project-Bills/<?=$bill['project_id']?>/<?=$bill['bill_img']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
+                                                    ريال <?= $bill['price'] ?>
+                                                    <a href="../Signed-Docs/Project-Bills/<?= $bill['project_id'] ?>/<?= $bill['bill_img'] ?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
                                                 </div>
                                             </li>
-                                           <?php } ?>
-                                        </ul>
-                                    </div>
+                                        <?php } ?>
+                                    </ul>
                                 </div>
                             </div>
-                     
+                        </div>
+
                         <div class="col-lg-4 col-md-6 my-4">
                             <div class="card h-100">
                                 <div class="card-header pb-0">
-                                    <h6>نظرة عامة على الطلبات</h6>
+                                    <h6>نظرة عامة على سير العمل</h6>
                                     <p class="text-sm">
-                                        <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
-                                        <span class="font-weight-bold">24%</span> هذا الشهر
+
+                                        <span class="font-weight-bold"></span> في الأيام الماضية
                                     </p>
                                 </div>
                                 <div class="card-body p-3">
                                     <div class="timeline timeline-one-side">
-                                        <div class="timeline-block mb-3">
-                                            <span class="timeline-step">
-                                                <i class="ni ni-bell-55 text-success text-gradient"></i>
-                                            </span>
-                                            <div class="timeline-content">
-                                                <h6 class="text-dark text-sm font-weight-bold mb-0">$2400, تغييرات في التصميم</h6>
-                                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">22 DEC 7:20 PM</p>
+                                        <?php
+                                        $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
+                                        while ($r = mysqli_fetch_array($show_products_status)) {
+                                            $date = new DateTimeImmutable($r['created_at']);
+                                        ?>
+                                            <div class="timeline-block mb-3">
+                                                <span class="timeline-step">
+                                                    <i class="fa fa-bell text-success text-gradient"></i>
+                                                </span>
+                                                <div class="timeline-content">
+
+                                                    <h6 class="text-dark text-sm font-weight-bold mb-0">تم <?= $r['description'] ?> وحالته <?= $r['status'] ?></h6>
+                                                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><?= $date->format('D jS \o\f F Y h:i:s A') ?></p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="timeline-block mb-3">
-                                            <span class="timeline-step">
-                                                <i class="ni ni-html5 text-danger text-gradient"></i>
-                                            </span>
-                                            <div class="timeline-content">
-                                                <h6 class="text-dark text-sm font-weight-bold mb-0">طلب جديد #1832412</h6>
-                                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">21 DEC 11 PM</p>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-block mb-3">
-                                            <span class="timeline-step">
-                                                <i class="ni ni-cart text-info text-gradient"></i>
-                                            </span>
-                                            <div class="timeline-content">
-                                                <h6 class="text-dark text-sm font-weight-bold mb-0">مدفوعات الخادم لشهر أبريل</h6>
-                                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">21 DEC 9:34 PM</p>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-block mb-3">
-                                            <span class="timeline-step">
-                                                <i class="ni ni-credit-card text-warning text-gradient"></i>
-                                            </span>
-                                            <div class="timeline-content">
-                                                <h6 class="text-dark text-sm font-weight-bold mb-0">تمت إضافة بطاقة جديدة للطلب #4395133</h6>
-                                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">20 DEC 2:20 AM</p>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-block mb-3">
-                                            <span class="timeline-step">
-                                                <i class="ni ni-key-25 text-primary text-gradient"></i>
-                                            </span>
-                                            <div class="timeline-content">
-                                                <h6 class="text-dark text-sm font-weight-bold mb-0">فتح الحزم من أجل التطوير</h6>
-                                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">18 DEC 4:54 AM</p>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-block">
-                                            <span class="timeline-step">
-                                                <i class="ni ni-money-coins text-dark text-gradient"></i>
-                                            </span>
-                                            <div class="timeline-content">
-                                                <h6 class="text-dark text-sm font-weight-bold mb-0">طلب جديد #9583120</h6>
-                                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">17 DEC</p>
-                                            </div>
-                                        </div>
+
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
