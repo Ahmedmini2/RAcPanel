@@ -404,12 +404,16 @@ $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">المشروع</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">تكلفة</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ميزانية</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">إكمال</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">قيمة المشروع</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">التكلفة</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">حالة المشروع</th>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php 
+                    $show_projects = mysqli_query($conn, "SELECT * FROM `projects`");
+                    while ($r = mysqli_fetch_array($show_projects)) {
+                    ?>
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
@@ -417,21 +421,21 @@ $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
                             <img src="assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm ms-3">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"> Bester Saudi LTD</h6>
+                            <h6 class="mb-0 text-sm"><?=$r['name']?></h6>
                           </div>
                         </div>
                       </td>
                       <td class="align-middle text-center text-sm">
-                      <span class="text-xs font-weight-bold"> $14,000 </span>
+                      <span class="text-xs font-weight-bold"> <?=number_format($r['total_without_tax'])?> </span>
                       </td>
                       <td class="align-middle text-center text-sm">
-                        <span class="text-xs font-weight-bold"> $14,000 </span>
+                        <span class="text-xs font-weight-bold"> <?=number_format($r['project_cost'])?> </span>
                       </td>
                       <td class="align-middle">
                         <div class="progress-wrapper w-75 mx-auto">
                           <div class="progress-info">
                             <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">60%</span>
+                              <span class="text-xs font-weight-bold"><?=$r['status']?></span>
                             </div>
                           </div>
                           <div class="progress">
@@ -440,7 +444,7 @@ $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
                         </div>
                       </td>
                     </tr>
-                   
+                   <?php } ?>
                   </tbody>
                 </table>
               </div>
