@@ -496,30 +496,19 @@ if (isset($_GET['id'])) {
                                 </div>
                                 <div class="card-body pt-4 p-3">
                                     <ul class="list-group">
+                                        <?php 
+                                        $get_products = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
+                                        while ($prod = mysqli_fetch_array($get_products)) {
+                                        ?>
                                         <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                                             <div class="d-flex flex-column">
-                                                <h6 class="mb-3 text-lg">الصنف الاول </h6>
+                                                <h6 class="mb-3 text-lg">الصنف الاول: <?=$prod?> </h6>
                                                 <span class="mb-2 text-lg">الحديد: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
 
                                             </div>
-
+                                        <?php } ?>
                                         </li>
-                                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                            <div class="d-flex flex-column">
-                                                <h6 class="mb-3 text-lg">الصنف التاني </h6>
-                                                <span class="mb-2 text-lg">الاغطية: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
-
-                                            </div>
-
-                                        </li>
-                                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                            <div class="d-flex flex-column">
-                                                <h6 class="mb-3 text-lg">الصنف الثالث </h6>
-                                                <span class="mb-2 text-lg">الاكسسوارات: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
-
-                                            </div>
-
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </div>
