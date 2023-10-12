@@ -666,7 +666,7 @@ $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
                   $product = $res->fetch_assoc();
 
                   $project_id = $product['project_id'];
-                  $query = "SELECT * FROM `products` WHERE `id`=$product_id";
+                  $query = "SELECT * FROM `projects` WHERE `id`=$project_id";
                   $res = $conn->query($query);
                   $project = $res->fetch_assoc();
 
