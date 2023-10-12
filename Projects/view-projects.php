@@ -502,8 +502,49 @@ if (isset($_GET['id'])) {
                                         ?>
                                         <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                                             <div class="d-flex flex-column">
-                                                <h6 class="mb-3 text-lg">الصنف الاول: <?=$prod?> </h6>
-                                                <span class="mb-2 text-lg">الحديد: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
+                                                <h6 class="mb-3 text-lg">الصنف الاول: <?=$prod['name']?> </h6>
+                                                <span class="mb-2 text-lg">الحديد</span>
+
+                                                <table class="table table-hover table-fixed">
+
+                                                <!--Table head-->
+                                                <thead class="bg-dark text-light text-center">
+                                                    <tr>
+                                                        <th>الرقم</th>
+                                                        <th>الحجم</th>
+                                                        <th>سعر اليوم</th>
+                                                        <th>الكمية</th>
+                                                        <th>طول الحديد</th>
+                                                        <th>سعر الطن</th>
+                                                        <th>السعر الكلي</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <!--Table head-->
+
+                                                <!--Table body-->
+                                                <tbody class=" text-center">
+                                                    <?php
+                                                    $i = 0;
+                                                    $prod_id = $r['id'];
+                                                    $res5 = mysqli_query($conn, "SELECT * FROM iron_band WHERE `product_id` = $prod_id");
+                                                    while ($iron = mysqli_fetch_array($res5)) {
+                                                    ?>
+                                                        <tr>
+                                                            <th scope="row"><?= $i ?></th>
+                                                            <td><?=$iron['size']?></td>
+                                                            <td><?=$iron['price_today']?></td>
+                                                            <td><?=$iron['quantity']?></td>
+                                                            <td><?=$iron['iron_height']?></td>
+                                                            <td><?=$iron['tn_price']?></td>
+                                                            <td><?=$iron['total_price']?></td>
+                                                        </tr>
+                                                    <?php } ?>
+
+                                                </tbody>
+                                                <!--Table body-->
+
+                                            </table>
 
                                             </div>
                                         <?php } ?>
