@@ -19388,7 +19388,7 @@ fieldset:disabled .btn {
 }
 
 .card .card-body {
-  font-family: "Open Sans";
+ /* font-family: "Open Sans"; */
   padding: 1.5rem;
 }
 
@@ -24978,7 +24978,7 @@ width: 100px;
 }
 
 .pagination .active {
-  background-color: #0096FF;
+  background-color: #dee2e6;
   color: #FFFFFF;
   
 }
@@ -25017,9 +25017,11 @@ width: 100px;
 }
 .inside-card{
   float: left;
-  width: 100px;
+  width: 220px;
   position: relative;
-  left: 40%;
-  height: 100px;
+  left: 25%;
+  height: 10vw;
   object-fit: cover;
+  
+
 }

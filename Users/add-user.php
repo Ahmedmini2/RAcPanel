@@ -260,9 +260,8 @@ else{
                                      <select name="position" class="form-control">
                                       <option value=""></option>
                                       <option value="Account">Account</option>
-                                      <option value="CEO">CEO</option>
                                       <option value="Manager">Manager</option>
-                                      <option value="Emplyee">Emplyee</option>
+                                      <option value="Worker">Worker</option>
                                       <option value="Admin">Admin</option>
                                       <option value="Reception">Reception</option>
                                       </select>

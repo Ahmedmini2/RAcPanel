@@ -4,93 +4,88 @@ $_SESSION['sidebar'] = "Cover";
 if (!empty($_GET['edit'])) {
 
   $id = $_GET['edit'];
-  $query = "SELECT * FROM bank_request WHERE id=$id";
+  $query = "SELECT * FROM covers_purchase WHERE id=$id";
   $res = $conn->query($query);
   $editData = $res->fetch_assoc();
-  $name = $editData['name'];
-  $description = $editData['description'];
-  $amount_text = $editData['amount_text'];
-  $our_bank_name = $editData['our_bank_name'];
-  $to_account_type = $editData['to_account_type'];
-  $transfer_to = $editData['transfer_to'];
+  $type = $editData['type'];
+  $dimensions = $editData['dimensions'];
+  $quantity = $editData['quantity'];
+  $price_per_peice = $editData['price_per_piece'];
+  $total_price = $editData['total_price'];
+  $seller = $editData['seller'];
+  $address = $editData['address'];
+  $email = $editData['email'];
+  $phone = $editData['phone'];
 
 
-  $idAttr = "updateForm";
+if (isset($_POST['submit'])) {
 
-  // }else if(isset($_POST['submit'])){
-  //   $name=$_POST['full_name'];
-  //   $email=$_POST['email'];
-  //   $phone=$_POST['phone'];
-  //   $role=$_POST['role'];
-  //   $password=$_POST['password'];
-  //   $cpassword=$_POST['cpassword'];
-  //   $username=$_POST['username'];
-  //   $position=$_POST['position'];
+  $type = $_POST['type'];
+  $dimensions = $_POST['dimensions'];
+  $quantity = $_POST['quantity'];
+  $price_per_peice = $_POST['price_per_peice'];
+  $total_price = str_replace(',','',$_POST['total_price']);
+  $seller = $_POST['seller'];
+  $address = $_POST['address'];
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
 
-  //   if($password == $cpassword){
-  //     $query="INSERT INTO users ('')";
-  //   }
+
+  $update = "UPDATE `covers_purchase` SET `type` = '$type', `dimensions` = '$dimensions', `quantity` = '$quantity', `price_per_piece` = '$price_per_peice', `total_price` = '$total_price',
+   `seller` = '$seller', `phone` = '$phone', `email` = '$email', `address` = '$address' WHERE `covers_purchase`.`id` = $id";
+    $updateResult = $conn->query($update);
+    if ($updateResult) {
+
+      $_SESSION['notification'] = "تم تعديل طلب شراء الاغطية بنجاح";
+      header('location: index.php');
+      exit();
+
+      } else {
+      $_SESSION['notification'] = "يوجد خلل في النظام";
+      header('location: index.php');
+      exit();
+
+      }
+}
+
+ 
 } else if (isset($_POST['submit'])) {
 
-  $name = $_POST['name'];
-  $description = $_POST['description'];
-  $amount_text = $_POST['amount_text'];
-  $amount_number = $_POST['amount_number'];
-  $our_bank_name = $_POST['our_bank_name'];
-  $to_account_type = $_POST['to_account_type'];
-  $transfer_to = $_POST['transfer_to'];
-
-  $to_name = $_POST['to_name'];
-  $to_bank_name = $_POST['to_bank_name'];
-  $to_bank_number = $_POST['to_bank_number'];
-  $to_bank_iban = $_POST['to_bank_iban'];
-
-  if ($transfer_to == "") {
-    $transfer_to = $to_name;
-  }
+  $type = $_POST['type'];
+  $dimensions = $_POST['dimensions'];
+  $quantity = $_POST['quantity'];
+  $price_per_peice = $_POST['price_per_peice'];
+  $total_price = str_replace(',','',$_POST['total_price']);
+  $seller = $_POST['seller'];
+  $address = $_POST['address'];
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
 
 
-  $insert = "INSERT INTO `bank_request` (`id`, `name`, `description`, `amount_text`, `amount_number`, `our_bank_name`, `to_account_type`, `transfer_to`,
-     `status`, `created_at`, `updated_at`, `accepted_at`) VALUES (NULL, '$name','$description','$amount_text','$amount_number','$our_bank_name','$to_account_type','$transfer_to',
-     '1',NOW(),'0000-00-00 00:00','0000-00-00 00:00')";
-
-  if ($to_name != "") {
-    $insert2 = "INSERT INTO `beneficiary_info` (`id`, `name`, `beneficiary_bank`, `branch`, `account_number`, `iban`, `swift`, `created_at`) VALUES (NULL, '$to_name','$to_bank_name','','$to_bank_number','$to_bank_iban','', NOW())";
-    $insertResult2 = $conn->query($insert2);
-  }
+  $insert = "INSERT INTO `covers_purchase` (`id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `phone`, `email`, `address`, `created_at`)
+   VALUES (NULL, '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', '$phone', '$email', '$address', NOW())";
   $insertResult = $conn->query($insert);
   if ($insertResult) {
-    $notificationMessage = "New bank request created by " . $_SESSION['username'];
-    $showToAccounts = "Accounts"; // Use the text "Accounts" to indicate the target audience.
-    $created_by = $_SESSION['id'];
 
-    // Insert the notification into the database.
-    $insertNotification = "INSERT INTO notifications (user_id, message, created_at, show_to) VALUES ('$created_by', '$notificationMessage', NOW(), '$showToAccounts')";
-    $insertResultNotification = $conn->query($insertNotification);
-
-    if ($insertResultNotification) {
-      $_SESSION['notification'] = "تم اضافة التعميد بنجاح";
-      header('location: accounts.php');
+      $_SESSION['notification'] = "تم اضافة طلب شراء الاغطية بنجاح";
+      header('location: index.php');
       exit();
-    }
-    $_SESSION['notification'] = "تم اضافة التعميد بنجاح";
-    header('location: accounts.php');
-    exit();
+   
   } else {
     $_SESSION['notification'] = "يوجد خلل في النظام";
-    header('location: accounts.php');
+    header('location: index.php');
+    exit();
   }
 } else {
-  $name = "";
-  $description = "";
-  $amount_text = "";
-  $our_bank_name = "";
-  $to_account_type = "";
-  $transfer_to = "";
-  $status = "";
-  $created_at = "";
-  $updated_at = "";
-  $accepted_at = "";
+  $type = "";
+  $dimensions = "";
+  $quantity = "";
+  $price_per_peice = "";
+  $total_price = "";
+  $seller = "";
+  $address = "";
+  $email = "";
+  $phone = "";
 }
 
 ?>
@@ -257,41 +252,87 @@ if (!empty($_GET['edit'])) {
                 <div class="form-group">
                   <label>نوع الاغطية</label>
                   <select name="type" id="type" class="form-control" placeholder="نوع الاغطية">
-                    <option value="0"></option>
-                    <option value="اغطية 1">اغطية 1 </option>
-                    <option value="اغطية 2">اغطية 2</option>
+                    <option value="<?=$type?>"><?=$type?></option>
+                    <option value="بدون اغطية">بدون اغطية</option>
+                    <option value="غطاء واحد">غطاء واحد</option>
+                    <option value="غطائين">غطائين</option>
+                    <option value="غطاء دائري">غطاء دائري</option>
 
                   </select>
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
-                  <label>سعر الاغطية</label>
-                  <input type="number" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="amount_number" value="<?php echo $amount_number; ?>">
+                  <label>ابعاد الاغطية</label>
+                  <input type="text" placeholder="ادخل ابعاد الاغطية" class="form-control" name="dimensions" value="<?php echo $dimensions; ?>">
                 </div>
               </div>
+             
+              
 
             </div>
            
             <div class="row">
-
-              <div class="col">
-                <div class="form-group">
-                  <label>ابعاد الاغطية</label>
-                  <input type="number" placeholder="ادخل ابعاد الاغطية" class="form-control" name="amount_number" value="<?php echo $amount_number; ?>">
-                </div>
-              </div>
               <div class="col">
                 <div class="form-group">
                   <label>كمية الاغطية</label>
-                  <input type="number" placeholder="ادخل كمية الاغطية" class="form-control" name="amount_number" value="<?php echo $amount_number; ?>">
+                  <input type="number" placeholder="ادخل كمية الاغطية" class="form-control" name="quantity" id="quantity" value="<?php echo $quantity; ?>">
+                </div>
+              </div>
+              
+              <div class="col">
+                <div class="form-group">
+                  <label>سعر الغطاء الواحد</label>
+                  <input type="number" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="price_per_peice" id="price_per_peice" value="<?php echo $price_per_peice; ?>">
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label>السعر الكلي</label>
+                  <input type="number" placeholder="" class="form-control" name="total_price" id="total_price"  value="<?php echo $total_price; ?>" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label>إسم البائع</label>
+                  <input type="text" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="seller" value="<?php echo $seller; ?>">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label>العنوان</label>
+                  <input type="text" placeholder="" class="form-control" name="address"  value="<?php echo $address; ?>">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label>رقم الهاتف</label>
+                  <input type="text" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="phone" value="<?php echo $phone; ?>">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label>البريد</label>
+                  <input type="text" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="email" value="<?php echo $email; ?>">
+                </div>
+              </div>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
+                      var a = 1;
 
-
-
-
+                      $(document).on('change', 'input', function() {
+                       
+                          var peice = (parseFloat($("#quantity").val()) * parseFloat($("#price_per_peice").val() || '0'));
+                          $("#total_price").val(peice);
+                      });
+                    
+                      
+                    </script>
             <div class="row">
               <div class="col">
                 <div class="form-group">

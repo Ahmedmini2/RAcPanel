@@ -505,7 +505,7 @@ if (isset($_GET['project_id'])) {
    
                                     <tr>
                                         <th scope="row"><?=$i?></th>
-                                        <td class="custom-font-m"><?=$item['product_name']?></td>
+                                        <td class="custom-font-m text-center"><?=$item['product_name']?></td>
                                         <td class="custom-font-m"><?=$item['quantity']?></td>
                                         <td class="custom-font-m"><?=number_format($item['cost_price']+$item['sell_price'])?></td>
                                         <td class="custom-font-m"><?=number_format(($item['cost_price']+$item['sell_price'])*$item['quantity'])?></td>

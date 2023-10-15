@@ -168,32 +168,34 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                 <?php require_once('../components/notification.php'); ?>
             </div>
             <div class="col-12 mt-4">
-                <div class="card mb-4 p-3">
-                    <div class="card-header">
-                        <h3 class="mb-1">المصنع</h3>
+                <div class=" mb-4 p-3">
+                    <div class="">
+                        <h5 class="mb-1">المصنع</h5>
                     </div>
 
 
 
 
                     <div class="card-body p-3  ">
+
+
                         <div class="row">
-                            
-                                <!-- Card -->
 
-                                <?php
-                                while ($r = mysqli_fetch_array($projects)) {
+                            <!-- Card -->
 
-                                    echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
-                        <div class="card">
+                            <?php
+                            while ($r = mysqli_fetch_array($projects)) {
+
+                                echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
+                                <div class="card  h-100 shadow-lg">
 
                          
-                            <div class="view overlay">
-                                <img class="inside-card card-img-top" src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="Card image cap">
+                                     <div class="view overlay">
+                                        <img class="inside-card card-img-top" src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="Card image cap">
                                
                                     <div class=" rgba-white-slight"></div>
                                 
-                            </div>
+                                 </div>
 
                            
                             <div class="card-body">
@@ -204,20 +206,24 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                 
                                 <p class="card-text">' . $r["description"] . '</p>
                                 
-                                <a href="view-factory.php?id=' . $r["id"] . '"> 
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
-                                    </div>
-                                </a>
+                               
 
                             </div>
-
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                            <a href="view-factory.php?id=' . $r["id"] . '"> 
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
+                            </div>
+                         </a>
+                             </div>
+                         </div>
                             </div>
                             </div>';
-                                }
-                                ?>
-                                
-                            
+                            }
+                            ?>
+
+
 
 
                             <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">

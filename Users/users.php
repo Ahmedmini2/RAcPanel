@@ -55,7 +55,7 @@ $select =mysqli_query($conn, "select * from users");
           </div>
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+              <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">تسجيل الخروج</span>
               </a>
@@ -184,15 +184,15 @@ $select =mysqli_query($conn, "select * from users");
 
 
                     <tr>
-                    <td><?php echo $i;?></td>
+                    <td class="text-center"><?php echo $i;?></td>
                     <td class="text-xs text-secondary mb-0"><?php echo $custem =  $r['email'];?></td>
                     <td class="mb-0 text-sm"><?php echo $r['username'];?></td>
                     <td class="mb-0 text-sm"><?php echo $r['full_name'];?></td>
                     <td class="text-xs text-secondary mb-0"><?php echo $r['phone'];?></td>
-                    <td class="text-secondary mb-0"><?php if($r['position']=="Admin") {echo '<span class="badge badge-sm bg-gradient-success">Admin</span>';} elseif ($r['position']=="Manager"){echo '<span class="badge badge-sm bg-gradient-warning">Manager</span>';} elseif($r['position'] == "Accounts") {echo '<span class="badge badge-sm bg-gradient-primary">Accounts</span>';}  elseif($r['position'] == "Reception") {echo '<span class="badge badge-sm bg-gradient-danger">Reception</span>';}?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['status'];?></td>
+                    <td class="text-secondary mb-0"><?php if($r['position']=="Admin") {echo '<span class="badge badge-sm bg-gradient-success">Admin</span>';} elseif ($r['position']=="Worker"){echo '<span class="badge badge-sm bg-gradient-warning">Worker</span>';} elseif($r['position'] == "Accounts") {echo '<span class="badge badge-sm bg-gradient-primary">Accounts</span>';}  elseif($r['position'] == "Reception") {echo '<span class="badge badge-sm bg-gradient-danger">Reception</span>';}?></td>
+                    <td class="text-xs text-secondary mb-0 text-center"><?php echo $r['status'];?></td>
                     <td class="text-secondary text-xs font-weight-bold"><?php echo $r['created_at']; ?></td>
-                    <td><a href="../scripts/users/delete.php?id=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                    <td class="text-center"><a href="../scripts/users/delete.php?id=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
                     </tr>
 
