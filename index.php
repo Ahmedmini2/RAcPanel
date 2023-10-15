@@ -4,7 +4,16 @@ $_SESSION['sidebar'] = "Home";
 
 $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
 $projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
- 
+
+$banner = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
+while ($ban = mysqli_fetch_array($banner)) {
+  $total_price += $ban['total_without_tax'];
+  $total_cost += $ban['project_cost'];
+  $net_total += $ban['net_total'];
+  $total_with_tax += $ban['total_with_tax'];
+
+}
+
 ?>
 
 <html lang="ar" dir="rtl">
@@ -120,10 +129,10 @@ $projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">أموال اليوم</p>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">القيمة الإجمالية للمشاريع</p>
                     <h5 class="font-weight-bolder mb-0">
-                      $53,000
-                      <span class="text-success text-sm font-weight-bolder">+55%</span>
+                      <?=$total_price?> ريال
+                      
                     </h5>
                   </div>
                 </div>
@@ -142,10 +151,10 @@ $projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">مستخدمو اليوم</p>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">التكلفة الاجمالية للمشاريع</p>
                     <h5 class="font-weight-bolder mb-0">
-                      2,300
-                      <span class="text-success text-sm font-weight-bolder">+33%</span>
+                    <?=$total_cost?> ريال
+                      
                     </h5>
                   </div>
                 </div>
@@ -164,10 +173,10 @@ $projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">عملاء جدد</p>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">مجموع صافي الربح</p>
                     <h5 class="font-weight-bolder mb-0">
-                      +3,462
-                      <span class="text-danger text-sm font-weight-bolder">-2%</span>
+                    <?=$net_total?> ريال
+                      
                     </h5>
                   </div>
                 </div>
@@ -186,10 +195,10 @@ $projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">مبيعات</p>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">مجموع القيمة المضافة</p>
                     <h5 class="font-weight-bolder mb-0">
-                      $103,430
-                      <span class="text-success text-sm font-weight-bolder">+5%</span>
+                    <?=$total_with_tax?> ريال
+                     
                     </h5>
                   </div>
                 </div>
