@@ -131,7 +131,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">القيمة الإجمالية للمشاريع</p>
                     <h5 class="font-weight-bolder mb-0">
-                      <?=$total_price?> ريال
+                      <?=number_format($total_price)?> ريال
                       
                     </h5>
                   </div>
@@ -153,7 +153,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">التكلفة الاجمالية للمشاريع</p>
                     <h5 class="font-weight-bolder mb-0">
-                    <?=$total_cost?> ريال
+                    <?=number_format($total_cost)?> ريال
                       
                     </h5>
                   </div>
@@ -175,7 +175,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">مجموع صافي الربح</p>
                     <h5 class="font-weight-bolder mb-0">
-                    <?=$net_total?> ريال
+                    <?=number_format($net_total)?> ريال
                       
                     </h5>
                   </div>
@@ -197,7 +197,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">مجموع القيمة المضافة</p>
                     <h5 class="font-weight-bolder mb-0">
-                    <?=$total_with_tax?> ريال
+                    <?=number_format($total_with_tax)?> ريال
                      
                     </h5>
                   </div>
