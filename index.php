@@ -215,9 +215,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
             <div class="row">
 
               <!-- Card -->
-              <div class="cardm">
-        Magic Card
-      </div>
+          
 
               <?php
               while ($r = mysqli_fetch_array($projects)) {
