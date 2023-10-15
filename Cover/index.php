@@ -163,8 +163,8 @@ $select = mysqli_query($conn, "select * from covers_purchase");
     <div class="container-fluid py-4">
       <div class="row">
 
-        <?php if ($position == 'Admin') { ?> <a href="add-cover.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6"> طلب شراء اغطية جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
-        <?php } ?>
+        <a href="add-cover.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6"> طلب شراء اغطية جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
+        
         <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
           <div class="content">
             <div class="block-header col-md-3 col-sm-6 col-xs-6  rounded">
