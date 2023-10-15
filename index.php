@@ -291,7 +291,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
       <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
           <div class="card">
             <div class="card-header p-3 pb-0">
-              <h6 class="mb-0">Upcoming events</h6>
+              <h6 class="mb-0">الاحداث القادمة</h6>
               <p class="text-sm mb-0 text-capitalize font-weight-bold">Joined</p>
             </div>
             <div class="card-body border-radius-lg p-3">
