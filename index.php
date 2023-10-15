@@ -128,7 +128,7 @@ while ($ban = mysqli_fetch_array($banner)) {
 
                 <?php require_once('components/notification.php'); ?>
             </div>
-            <div class="border-radius-xl mt-3 mx-3 position-relative" style="background-image: url('../assets/img/vr-bg.jpg') ; background-size: cover;">
+            <div class="border-radius-xl mt-3 mx-3 position-relative" style="background-image: url('../assets/img/vr-bg.jpg') ; background-size: cover;" dir="ltr">
                
                 <main class="main-content mt-1 border-radius-lg">
                     <div class="section min-vh-85 position-relative transform-scale-0 transform-scale-md-7">
