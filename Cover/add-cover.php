@@ -298,7 +298,6 @@ if (!empty($_GET['edit'])) {
                       $(document).on('change', 'input', function() {
                        
                           var peice = (parseFloat($("#quantity").val()) * parseFloat($("#price_per_peice").val() || '0'));
-                          peice = peice.toLocaleString("en-US");
                           $("#total_price").val(peice);
                       });
                     
