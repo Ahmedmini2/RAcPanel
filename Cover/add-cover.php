@@ -222,7 +222,7 @@ if (!empty($_GET['edit'])) {
                 <div class="form-group">
                   <label>نوع الاغطية</label>
                   <select name="type" id="type" class="form-control" placeholder="نوع الاغطية">
-                    <option value="0"></option>
+                    <option value="<?=$type?>"><?=$type?></option>
                     <option value="بدون اغطية">بدون اغطية</option>
                     <option value="غطاء واحد">غطاء واحد</option>
                     <option value="غطائين">غطائين</option>
