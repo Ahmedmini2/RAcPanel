@@ -51,7 +51,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
   <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 
 </head>
-<?php require_once('components/loader.php'); ?>
+ 
 
 <body class="g-sidenav-show rtl bg-gray-100">
 
