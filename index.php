@@ -4,7 +4,7 @@ $_SESSION['sidebar'] = "Home";
 
 $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
 $projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
-
+ 
 ?>
 
 <html lang="ar" dir="rtl">
