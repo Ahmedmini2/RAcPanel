@@ -191,23 +191,20 @@ if (isset($_GET['id'])) {
 
                         <div class="row ">
                             <div class="text-right col-lg-10 col-sm-6">
-                                <a href="project-report.php?project_id=<?=$id?>" 
-                                class="btn bg-gradient-dark mb-0">
-                                 رفع التقرير عن الانتاج
-                                 <i class="fas fa-plus" aria-hidden="true"></i>
+                                <a href="project-report.php?project_id=<?= $id ?>" class="btn bg-gradient-dark mb-0">
+                                    رفع التقرير عن الانتاج
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
-                                <a href="receipt-report.php?project_id=<?=$id?>"  
-                                class="btn bg-gradient-dark mb-0">
-                                 رفع التقرير عن الاستلام
-                                 <i class="fas fa-plus" aria-hidden="true"></i>
+                                <a href="receipt-report.php?project_id=<?= $id ?>" class="btn bg-gradient-dark mb-0">
+                                    رفع التقرير عن الاستلام
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
-                                
+
                             </div>
                             <div class="text-left col-lg-2 col-sm-6">
-                            <a href="bills_factory.php?project_id=<?=$id?>" 
-                                class="btn bg-gradient-dark mb-0 ">
-                                 رفع الفواتير
-                                 <i class="fas fa-plus" aria-hidden="true"></i>
+                                <a href="bills_factory.php?project_id=<?= $id ?>" class="btn bg-gradient-dark mb-0 ">
+                                    رفع الفواتير
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
@@ -323,7 +320,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">متبقي من تكلفة المشروع</h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0"><?=number_format($project['project_cost'] - $total_bills)?> ريال</h5>
+                                                <h5 class="mb-0"><?= number_format($project['project_cost'] - $total_bills) ?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -338,7 +335,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0"> ما تم صرفه </h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0"><?=number_format($total_bills)?> ريال</h5>
+                                                <h5 class="mb-0"><?= number_format($total_bills) ?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -378,7 +375,7 @@ if (isset($_GET['id'])) {
                                                 <tbody class="text-center">
                                                     <?php
                                                     $i = 0;
-                                                    
+
                                                     $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
                                                     while ($products = mysqli_fetch_array($res3)) {
                                                         $i++;
@@ -387,30 +384,28 @@ if (isset($_GET['id'])) {
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
                                                             <td><?= $products['product_name'] ?></td>
-                                                    <?php
-                                                    $kh_id = $products['id'];
-                                                     $res4 = mysqli_query($conn, "SELECT * FROM kharasana WHERE `product_id` = $kh_id");
-                                                     while ($kh = mysqli_fetch_array($res4)) {
-                                                        $kh_quan = $kh['quantity_per_piece'] * $products['quantity'];
-                                                        $kh_total = $kh['total_price'];
-                                                        
-                                                     }
-                                                    ?>
+                                                            <?php
+                                                            $kh_id = $products['id'];
+                                                            $res4 = mysqli_query($conn, "SELECT * FROM kharasana WHERE `product_id` = $kh_id");
+                                                            while ($kh = mysqli_fetch_array($res4)) {
+                                                                $kh_quan = $kh['quantity_per_piece'] * $products['quantity'];
+                                                                $kh_total = $kh['total_price'];
+                                                            }
+                                                            ?>
                                                             <td><?= $kh_quan ?></td>
                                                             <td><?= number_format($kh_total) ?></td>
-                                                    <?php
-                                                    $status_id = $products['id'];
-                                                    $kh_used = 0;
-                                                    $kh_used_price = 0;
-                                                     $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id AND `status` ='إنتاج'");
-                                                     while ($status = mysqli_fetch_array($res5)) {
-                                                        $kh_used += $status['kharasana_used'];
-                                                        $kh_used_price += $status['total_price'];
-                                                        
-                                                     }
-                                                    ?>
-                                                    
-                                                            <td><?= number_format($kh_used,2) ?></td>
+                                                            <?php
+                                                            $status_id = $products['id'];
+                                                            $kh_used = 0;
+                                                            $kh_used_price = 0;
+                                                            $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id AND `status` ='إنتاج'");
+                                                            while ($status = mysqli_fetch_array($res5)) {
+                                                                $kh_used += $status['kharasana_used'];
+                                                                $kh_used_price += $status['total_price'];
+                                                            }
+                                                            ?>
+
+                                                            <td><?= number_format($kh_used, 2) ?></td>
                                                             <td><?= number_format($kh_used_price) ?></td>
 
                                                         </tr>
@@ -463,35 +458,34 @@ if (isset($_GET['id'])) {
                                                             <th scope="row"><?= $i ?></th>
                                                             <td><?= $products['product_name'] ?></td>
                                                             <td><?= $products['quantity'] ?></td>
-                                                            <?php 
+                                                            <?php
                                                             $inv_id =  $products['id'];
                                                             $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id");
-                                                            
+
                                                             while ($inv = mysqli_fetch_array($inv_res)) {
                                                                 $inventory += $inv['warehouse'];
                                                                 $production += $inv['production'];
                                                             }
                                                             ?>
-                                                            <?php 
+                                                            <?php
                                                             $del_id =  $products['id'];
                                                             $del_res = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `product_id` = $del_id");
-                                                            
+
                                                             while ($del = mysqli_fetch_array($del_res)) {
-                                                                
+
                                                                 $deliverd += $del['quantity'];
-                                                                
                                                             }
                                                             ?>
                                                             <td><?= number_format($inventory - $deliverd) ?></td>
-                                                            <td><?= number_format($production ) ?></td>
+                                                            <td><?= number_format($production) ?></td>
 
-                                                            
+
 
                                                             <td><?= number_format($deliverd) ?></td>
 
 
 
-                                                            <td><?=$products['quantity']-$production?></td>
+                                                            <td><?= $products['quantity'] - $production ?></td>
                                                         </tr>
                                                     <?php } ?>
 
@@ -516,28 +510,28 @@ if (isset($_GET['id'])) {
                                             <div class="col-12 d-flex align-items-center">
                                                 <h6 class="mb-0 text-lg">الفواتير المشروع</h6>
                                             </div>
-                                           
+
                                         </div>
                                     </div>
                                     <div class="card-body p-3 pb-0">
                                         <ul class="list-group">
 
-                                        <?php 
-                                          $get_bills = mysqli_query($conn, "SELECT * FROM projects_bills WHERE `project_id` = $id ");
-                                          while ($bill = mysqli_fetch_array($get_bills)){
+                                            <?php
+                                            $get_bills = mysqli_query($conn, "SELECT * FROM projects_bills WHERE `project_id` = $id ");
+                                            while ($bill = mysqli_fetch_array($get_bills)) {
 
-                                        ?>
-                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm"><?=$bill['bill_date']?> <span class="badge text-dark badge-success"> Added by: <?=$bill['added_by']?> </span></h6>
-                                                    <span class="text-xs">#<?=$bill['id']?></span>
-                                                </div>
-                                                <div class="d-flex align-items-center text-sm">
-                                                    ريال <?=$bill['price']?>
-                                                    <a href="../Signed-Docs/Project-Bills/<?=$bill['project_id']?>/<?=$bill['bill_img']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
-                                                </div>
-                                            </li>
-                                           <?php } ?>
+                                            ?>
+                                                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                    <div class="d-flex flex-column">
+                                                        <h6 class="mb-1 text-dark font-weight-bold text-sm"><?= $bill['bill_date'] ?> <span class="badge text-dark badge-success"> Added by: <?= $bill['added_by'] ?> </span></h6>
+                                                        <span class="text-xs">#<?= $bill['id'] ?></span>
+                                                    </div>
+                                                    <div class="d-flex align-items-center text-sm">
+                                                        ريال <?= $bill['price'] ?>
+                                                        <a href="../Signed-Docs/Project-Bills/<?= $bill['project_id'] ?>/<?= $bill['bill_img'] ?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
+                                                    </div>
+                                                </li>
+                                            <?php } ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -553,28 +547,28 @@ if (isset($_GET['id'])) {
                                             <div class="col-12 d-flex align-items-center">
                                                 <h6 class="mb-0 text-lg">عمليات الإستلام</h6>
                                             </div>
-                                           
+
                                         </div>
                                     </div>
                                     <div class="card-body p-3 pb-0">
                                         <ul class="list-group">
 
-                                        <?php 
-                                          $get_delivery = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `project_id` = $id ");
-                                          while ($delivery = mysqli_fetch_array($get_delivery)){
+                                            <?php
+                                            $get_delivery = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `project_id` = $id ");
+                                            while ($delivery = mysqli_fetch_array($get_delivery)) {
 
-                                        ?>
-                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm"><?=$delivery['created_at']?> <span class="badge text-dark badge-success"> تم استلام: <?=$delivery['quantity']?> </span></h6>
-                                                    <span class="text-xs">#<?=$delivery['id']?></span>
-                                                </div>
-                                                <div class="d-flex align-items-center text-sm">
-                                                    
-                                                    <a href="../Signed-Docs/Delivery-Reports/<?=$delivery['project_id']?>/<?=$delivery['image']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
-                                                </div>
-                                            </li>
-                                           <?php } ?>
+                                            ?>
+                                                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                    <div class="d-flex flex-column">
+                                                        <h6 class="mb-1 text-dark font-weight-bold text-sm"><?= $delivery['created_at'] ?> <span class="badge text-dark badge-success"> تم استلام: <?= $delivery['quantity'] ?> </span></h6>
+                                                        <span class="text-xs">#<?= $delivery['id'] ?></span>
+                                                    </div>
+                                                    <div class="d-flex align-items-center text-sm">
+
+                                                        <a href="../Signed-Docs/Delivery-Reports/<?= $delivery['project_id'] ?>/<?= $delivery['image'] ?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
+                                                    </div>
+                                                </li>
+                                            <?php } ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -582,6 +576,147 @@ if (isset($_GET['id'])) {
                         </div>
                     </div>
 
+                </div>
+                <div class="row">
+                    <div class="col-xl-7">
+                        <div class="card">
+                            <div class="card-header d-flex pb-0 p-3">
+                                <h6 class="my-auto">Cameras</h6>
+                                <div class="nav-wrapper position-relative ms-auto w-50">
+                                    <ul class="nav nav-pills nav-fill p-1" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#cam1" role="tab" aria-controls="cam1" aria-selected="false" tabindex="-1">
+                                                Kitchen
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#cam2" role="tab" aria-controls="cam2" aria-selected="true">
+                                                Living
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#cam3" role="tab" aria-controls="cam3" aria-selected="false" tabindex="-1">
+                                                Attic
+                                            </a>
+                                        </li>
+                                        <div class="moving-tab position-absolute nav-link" aria-selected="false" tabindex="-1" role="tab" style="padding: 0px; transition: all 0.5s ease 0s; transform: translate3d(148px, 0px, 0px); width: 132px;"><a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#cam2" role="tab" aria-controls="cam2" aria-selected="true">-</a></div>
+                                    </ul>
+                                </div>
+                                <div class="dropdown pt-2">
+                                    <a href="javascript:;" class="text-secondary ps-4" id="dropdownCam" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end me-sm-n4 px-2 py-3" aria-labelledby="dropdownCam">
+                                        <li><a class="dropdown-item border-radius-md" href="javascript:;">Pause</a></li>
+                                        <li><a class="dropdown-item border-radius-md" href="javascript:;">Stop</a></li>
+                                        <li><a class="dropdown-item border-radius-md" href="javascript:;">Schedule</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item border-radius-md text-danger" href="javascript:;">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body p-3 mt-2">
+                                <div class="tab-content" id="v-pills-tabContent">
+                                    <div class="tab-pane fade position-relative height-400 border-radius-lg" id="cam1" role="tabpanel" aria-labelledby="cam1" style="background-image: url('../../assets/img/bg-smart-home-1.jpg'); background-size:cover;">
+                                        <div class="position-absolute d-flex top-0 w-100">
+                                            <p class="text-white p-3 mb-0">17.05.2021 4:34PM</p>
+                                            <div class="ms-auto p-3">
+                                                <span class="badge badge-secondary">
+                                                    <i class="fas fa-dot-circle text-danger" aria-hidden="true"></i>
+                                                    Recording</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade position-relative height-400 border-radius-lg active show" id="cam2" role="tabpanel" aria-labelledby="cam2" style="background-image: url('../../assets/img/bg-smart-home-2.jpg'); background-size:cover;">
+                                        <div class="position-absolute d-flex top-0 w-100">
+                                            <p class="text-white p-3 mb-0">17.05.2021 4:35PM</p>
+                                            <div class="ms-auto p-3">
+                                                <span class="badge badge-secondary">
+                                                    <i class="fas fa-dot-circle text-danger" aria-hidden="true"></i>
+                                                    Recording</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade position-relative height-400 border-radius-lg" id="cam3" role="tabpanel" aria-labelledby="cam3" style="background-image: url('../../assets/img/home-decor-3.jpg'); background-size:cover;">
+                                        <div class="position-absolute d-flex top-0 w-100">
+                                            <p class="text-white p-3 mb-0">17.05.2021 4:57PM</p>
+                                            <div class="ms-auto p-3">
+                                                <span class="badge badge-secondary">
+                                                    <i class="fas fa-dot-circle text-danger" aria-hidden="true"></i>
+                                                    Recording</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 ms-auto mt-xl-0 mt-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card bg-gradient-primary">
+                                    <div class="card-body p-3">
+                                        <div class="row">
+                                            <div class="col-8 my-auto">
+                                                <div class="numbers">
+                                                    <p class="text-white text-sm mb-0 text-capitalize font-weight-bold opacity-7">Wheather today</p>
+                                                    <h5 class="text-white font-weight-bolder mb-0">
+                                                        San Francisco - 29°C
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 text-end">
+                                                <img class="w-50" src="../../assets/img/small-logos/icon-sun-cloud.png" alt="image sun">
+                                                <h5 class="mb-0 text-white text-end me-1">Cloudy</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h1 class="text-gradient text-primary"><span id="status1" countto="21">21</span> <span class="text-lg ms-n2">°C</span></h1>
+                                        <h6 class="mb-0 font-weight-bolder">Living Room</h6>
+                                        <p class="opacity-8 mb-0 text-sm">Temperature</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-md-0 mt-4">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h1 class="text-gradient text-primary"> <span id="status2" countto="44">44</span> <span class="text-lg ms-n1">%</span></h1>
+                                        <h6 class="mb-0 font-weight-bolder">Outside</h6>
+                                        <p class="opacity-8 mb-0 text-sm">Humidity</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h1 class="text-gradient text-primary"><span id="status3" countto="87">87</span> <span class="text-lg ms-n2">m³</span></h1>
+                                        <h6 class="mb-0 font-weight-bolder">Water</h6>
+                                        <p class="opacity-8 mb-0 text-sm">Consumption</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-md-0 mt-4">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h1 class="text-gradient text-primary"><span id="status4" countto="417">417</span> <span class="text-lg ms-n2">GB</span></h1>
+                                        <h6 class="mb-0 font-weight-bolder">Internet</h6>
+                                        <p class="opacity-8 mb-0 text-sm">All devices</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -631,7 +766,7 @@ if (isset($_GET['id'])) {
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/fullcalendar.min.js"></script>
     <script src="../assets/js/plugins/chartjs.min.js"></script>
-    
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
