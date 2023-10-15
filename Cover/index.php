@@ -204,7 +204,7 @@ $select = mysqli_query($conn, "select * from covers_purchase");
                       <td class="text-xs text-secondary mb-0"><?php echo $r['created_at']; ?></td>
                       
 
-                      <td><a href="purchase_cover.php"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
+                      <td><a href="purchase_cover.php?id=<?=$r['id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
                           <a href="add-cover.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
