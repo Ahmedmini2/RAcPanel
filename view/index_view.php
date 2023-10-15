@@ -167,56 +167,158 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
                 <?php require_once('../components/notification.php'); ?>
             </div>
-            <div class="col-12 mt-4">
-                <div class=" mb-4 p-3">
-                    <div class="">
-                        <h5 class="mb-1">الرئيسية</h5>
+            <div class="border-radius-xl mt-3 mx-3 position-relative" style="background-image: url('../assets/img/vr-bg.jpg') ; background-size: cover;">
+                <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
+                    <div class="sidenav-header">
+                        <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+                        <a class="navbar-brand m-0" href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html" target="_blank">
+                            <img src="../assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
+                            <span class="ms-1 font-weight-bold">Soft UI Dashboard</span>
+                        </a>
                     </div>
-
-
-
-
-                    <div class="card-body p-3  ">
-
-
-                        <div class="row">
-
-                            <div id="carouselExampleIndicators" class="carousel slide" data-mdb-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="2" aria-label="Slide 3"></button>
+                    <hr class="horizontal dark mt-0">
+                    
+                    <div class="sidenav-footer mx-3 ">
+                        <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
+                            <div class="full-background" style="background-image: url('../assets/img/curved-images/white-curved.jpeg')"></div>
+                            <div class="card-body text-start p-3 w-100">
+                                <div class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
+                                    <i class="ni ni-diamond text-dark text-gradient text-lg top-0" aria-hidden="true" id="sidenavCardIcon"></i>
                                 </div>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape" />
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera" />
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits" />
-                                    </div>
+                                <div class="docs-info">
+                                    <h6 class="text-white up mb-0">Need help?</h6>
+                                    <p class="text-xs font-weight-bold">Please check our docs</p>
+                                    <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard" target="_blank" class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
                             </div>
-
-
-
-
-
-
-
+                        </div>
+                        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+                    </div>
+                </aside>
+                <main class="main-content mt-1 border-radius-lg">
+                    <div class="section min-vh-85 position-relative transform-scale-0 transform-scale-md-7">
+                        <div class="container">
+                            <div class="row pt-10">
+                                
+                                <div class="col-lg-8 col-md-11">
+                                    <div class="d-flex">
+                                        <div class="me-auto">
+                                            <h1 class="display-1 font-weight-bold mt-n4 mb-0">28°C</h1>
+                                            <h6 class="text-uppercase mb-0 ms-1">Cloudy</h6>
+                                        </div>
+                                        <div class="ms-auto">
+                                            <img class="w-50 float-end mt-lg-n4" src="../assets/img/small-logos/icon-sun-cloud.png" alt="image sun">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-lg-4 col-md-4">
+                                            <div class="card move-on-hover overflow-hidden">
+                                                <div class="card-body">
+                                                    <div class="d-flex">
+                                                        <h6 class="mb-0 me-3">08:00</h6>
+                                                        <h6 class="mb-0">Synk up with Mark
+                                                            <small class="text-secondary font-weight-normal">Hangouts</small>
+                                                        </h6>
+                                                    </div>
+                                                    <hr class="horizontal dark">
+                                                    <div class="d-flex">
+                                                        <h6 class="mb-0 me-3">09:30</h6>
+                                                        <h6 class="mb-0">Gym <br />
+                                                            <small class="text-secondary font-weight-normal">World Class</small>
+                                                        </h6>
+                                                    </div>
+                                                    <hr class="horizontal dark">
+                                                    <div class="d-flex">
+                                                        <h6 class="mb-0 me-3">11:00</h6>
+                                                        <h6 class="mb-0">Design Review<br />
+                                                            <small class="text-secondary font-weight-normal">Zoom</small>
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                                <a href="javascript:;" class="bg-gray-100 w-100 text-center py-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Show More">
+                                                    <i class="fas fa-chevron-down text-primary"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 mt-4 mt-sm-0">
+                                            <div class="card bg-gradient-dark move-on-hover">
+                                                <div class="card-body">
+                                                    <div class="d-flex">
+                                                        <h5 class="mb-0 text-white">To Do</h5>
+                                                        <div class="ms-auto">
+                                                            <h1 class="text-white text-end mb-0 mt-n2">7</h1>
+                                                            <p class="text-sm mb-0 text-white">items</p>
+                                                        </div>
+                                                    </div>
+                                                    <p class="text-white mb-0">Shopping</p>
+                                                    <p class="mb-0 text-white">Meeting</p>
+                                                </div>
+                                                <a href="javascript:;" class="w-100 text-center py-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Show More">
+                                                    <i class="fas fa-chevron-down text-white"></i>
+                                                </a>
+                                            </div>
+                                            <div class="card move-on-hover mt-4">
+                                                <div class="card-body">
+                                                    <div class="d-flex">
+                                                        <p class="mb-0">Emails (21)</p>
+                                                        <a href="javascript:;" class="ms-auto" data-bs-toggle="tooltip" data-bs-placement="top" title="Check your emails">
+                                                            Check
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 mt-4 mt-sm-0">
+                                            <div class="card card-background card-background-mask-primary move-on-hover align-items-start">
+                                                <div class="cursor-pointer">
+                                                    <div class="full-background" style="background-image: url('../assets/img/curved-images/curved1.jpg')"></div>
+                                                    <div class="card-body">
+                                                        <h5 class="text-white mb-0">Some Kind Of Blues</h5>
+                                                        <p class="text-white text-sm">Deftones</p>
+                                                        <div class="d-flex mt-5">
+                                                            <button class="btn btn-outline-white rounded-circle p-2 mb-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Prev">
+                                                                <i class="fas fa-backward p-2"></i>
+                                                            </button>
+                                                            <button class="btn btn-outline-white rounded-circle p-2 mx-2 mb-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Pause">
+                                                                <i class="fas fa-play p-2"></i>
+                                                            </button>
+                                                            <button class="btn btn-outline-white rounded-circle p-2 mb-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Next">
+                                                                <i class="fas fa-forward p-2"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card move-on-hover mt-4">
+                                                <div class="card-body">
+                                                    <div class="d-flex">
+                                                        <p class="my-auto">Messages</p>
+                                                        <div class="ms-auto">
+                                                            <div class="avatar-group">
+                                                                <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="2 New Messages">
+                                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
+                                                                </a>
+                                                                <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="1 New Message">
+                                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
+                                                                </a>
+                                                                <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="13 New Messages">
+                                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
+                                                                </a>
+                                                                <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="7 New Messages">
+                                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </main>
             </div>
 
             <footer class="footer pt-3  ">
