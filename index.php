@@ -132,7 +132,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                
                 <main class="main-content mt-1 border-radius-lg">
                     <div class="section min-vh-85 position-relative transform-scale-0 transform-scale-md-7">
-                        <div class="container">
+                        <div class="container-fluid">
                             <div class="row pt-10">
                                 
                                 <div class="col-lg-8 col-md-11">
