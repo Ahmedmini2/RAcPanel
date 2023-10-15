@@ -202,43 +202,44 @@ $projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-4 col-sm-6">
-        <div class="card">
-          <div class="card-header p-3 pb-0">
-            <h6 class="mb-0">Upcoming events</h6>
-            <p class="text-sm mb-0 text-capitalize font-weight-bold">Joined</p>
-          </div>
-          <div class="card-body border-radius-lg p-3">
-            <div class="d-flex">
-              <div>
-                <div class="icon icon-shape bg-info-soft shadow text-center border-radius-md shadow-none">
-                  <i class="ni ni-money-coins text-lg text-info text-gradient opacity-10" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div class="ms-3">
-                <div class="numbers">
-                  <h6 class="mb-1 text-dark text-sm">Cyber Week</h6>
-                  <span class="text-sm">27 March 2020, at 12:30 PM</span>
-                </div>
-              </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="card">
+            <div class="card-header p-3 pb-0">
+              <h6 class="mb-0">Upcoming events</h6>
+              <p class="text-sm mb-0 text-capitalize font-weight-bold">Joined</p>
             </div>
-            <div class="d-flex mt-4">
-              <div>
-                <div class="icon icon-shape bg-primary-soft shadow text-center border-radius-md shadow-none">
-                  <i class="ni ni-bell-55 text-lg text-primary text-gradient opacity-10" aria-hidden="true"></i>
+            <div class="card-body border-radius-lg p-3">
+              <div class="d-flex">
+                <div>
+                  <div class="icon icon-shape bg-info-soft shadow text-center border-radius-md shadow-none">
+                    <i class="ni ni-money-coins text-lg text-info text-gradient opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="ms-3">
+                  <div class="numbers">
+                    <h6 class="mb-1 text-dark text-sm">Cyber Week</h6>
+                    <span class="text-sm">27 March 2020, at 12:30 PM</span>
+                  </div>
                 </div>
               </div>
-              <div class="ms-3">
-                <div class="numbers">
-                  <h6 class="mb-1 text-dark text-sm">Meeting with Marry</h6>
-                  <span class="text-sm">24 March 2020, at 10:00 PM</span>
+              <div class="d-flex mt-4">
+                <div>
+                  <div class="icon icon-shape bg-primary-soft shadow text-center border-radius-md shadow-none">
+                    <i class="ni ni-bell-55 text-lg text-primary text-gradient opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="ms-3">
+                  <div class="numbers">
+                    <h6 class="mb-1 text-dark text-sm">Meeting with Marry</h6>
+                    <span class="text-sm">24 March 2020, at 10:00 PM</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <div class="col-12 mt-4">
         <div class="card mb-4">
           <div class="card-header pb-0 p-3">
