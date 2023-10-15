@@ -464,7 +464,7 @@ if (isset($_GET['id'])) {
                                     
    
                                     <tr>
-                                        <th scope="row"><?=$i?></th>
+                                        <th scope="row">1</th>
                                         <td class="custom-font-m text-center"><?=$type?></td>
                                         <td class="custom-font-m"><?=$dimensions?></td>
                                         <td class="custom-font-m"><?=$quantity?></td>
@@ -534,7 +534,7 @@ if (isset($_GET['id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span class="font-weight-bold text-success" id="total"><?=number_format($$total_price+(($total_price*15)/100))?></span>
+                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_price+(($total_price*15)/100))?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -551,14 +551,14 @@ if (isset($_GET['id'])) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <p>The total value is SAR <?=number_format($$total_price+(($total_price*15)/100))?> <span id="con"></span> riyals only.</p>
+                        <p>The total value is SAR <?=number_format($total_price+(($total_price*15)/100))?> <span id="con"></span> riyals only.</p>
                     </div>
                 </div>
                 <script>
                     
                      function changeVal() {
                         
-                        value =  <?=number_format($$total_price+(($total_price*15)/100) , 0 ,"","")?> ;
+                        value =  <?=number_format($total_price+(($total_price*15)/100) , 0 ,"","")?> ;
                         document.getElementById("con").innerText = numToWords(value);
                         console.log(value);
                         
