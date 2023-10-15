@@ -36,6 +36,7 @@ $sidebar = $_SESSION['sidebar'];
         </a>
       </li>
       <ul class="navbar-nav active">
+      <?php if ($position == 'Admin' || $position == 'Accounts') { ?> 
         <li class="nav-item ">
           <a href="#submenu1" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar == "Accounts") echo 'active'; ?>"">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -67,6 +68,7 @@ $sidebar = $_SESSION['sidebar'];
             </li>
           </ul>
         </li>
+        <?php } ?>
       </ul>
       <?php if ($position == 'Admin') { ?><li class="nav-item">
 
@@ -92,7 +94,7 @@ $sidebar = $_SESSION['sidebar'];
 
         </li>
       <?php } ?>
-      
+      <?php if ($position == 'Admin' || $position == 'Reception') { ?> 
       <li class="nav-item">
         <a class="nav-link <?php if ($sidebar == "Calender") echo 'active'; ?>" href="../Calendar/index.php">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -114,6 +116,8 @@ $sidebar = $_SESSION['sidebar'];
           <span class="nav-link-text me-1">المواعيد</span>
         </a>
       </li>
+      <?php } ?>
+      <?php if ($position == 'Admin') { ?> 
       <li class="nav-item">
         <a class="nav-link <?php if ($sidebar == "Projects") echo 'active'; ?>" href="../Projects/index.php">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -135,6 +139,8 @@ $sidebar = $_SESSION['sidebar'];
         </a>
 
       </li>
+      <?php } ?>
+      <?php if ($position == 'Admin' || $position == 'Worker') { ?> 
       <li class="nav-item">
         <a class="nav-link <?php if ($sidebar == "Factory") echo 'active'; ?>" href="../Factory/index.php">
           <div class="icon icon-factory icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -156,7 +162,9 @@ $sidebar = $_SESSION['sidebar'];
         </a>
 
       </li>
+      <?php } ?> 
       <ul class="navbar-nav active">
+      <?php if ($position == 'Admin' || $position == 'Worker') { ?> 
         <li class="nav-item ">
           <a href="#submenu2" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar == "cost") echo 'active'; ?>"">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -186,7 +194,9 @@ $sidebar = $_SESSION['sidebar'];
             
           </ul>
         </li>
+        <?php } ?>
       </ul>
+      <?php if ($position == 'Admin' || $position == 'Worker') { ?> 
       <li class="nav-item">
         <a class="nav-link <?php if ($sidebar == "Cover") echo 'active'; ?>" href="../Cover/index.php">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -208,6 +218,7 @@ $sidebar = $_SESSION['sidebar'];
         </a>
 
       </li>
+      <?php } ?>
 
       <!-- <li class="nav-item">
               <a class="nav-link " href="pages/sign-up.html">
