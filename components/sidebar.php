@@ -220,7 +220,7 @@ $sidebar = $_SESSION['sidebar'];
       </li>
 
       <li class="nav-item">
-        <a class="nav-link <?php if ($sidebar == "All") echo 'active'; ?>" href="../Factory/index.php">
+        <a class="nav-link <?php if ($sidebar == "All") echo 'active'; ?>" href="../Users/index_all_user.php">
           <div class="icon icon-factory icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
@@ -236,7 +236,7 @@ $sidebar = $_SESSION['sidebar'];
               </g>
             </svg>
           </div>
-          <span class="nav-link-text me-1">المصنع</span>
+          <span class="nav-link-text me-1">Home</span>
         </a>
 
       </li>
