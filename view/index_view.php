@@ -170,7 +170,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
             <div class="col-12 mt-4">
                 <div class=" mb-4 p-3">
                     <div class="">
-                        <h5 class="mb-1">المصنع</h5>
+                        <h5 class="mb-1">الرئيسية</h5>
                     </div>
 
 
@@ -181,75 +181,39 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
                         <div class="row">
 
-                            <!-- Card -->
-
-                            <?php
-                            while ($r = mysqli_fetch_array($projects)) {
-
-                                echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
-                                <div class="card  h-100 shadow-lg">
-
-                         
-                                     <div class="view overlay">
-                                        <img class="inside-card card-img-top" src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="Card image cap">
-                               
-                                    <div class=" rgba-white-slight"></div>
-                                
-                                 </div>
-
-                           
-                            <div class="card-body">
-
-                                <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم ' . $r["id"] . '</p>
-
-                                <h4 class="card-title"> ' . $r["name"] . '</h4>
-                                
-                                <p class="card-text">' . $r["description"] . '</p>
-                                
-                               
-
-                            </div>
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                            <a href="view-factory.php?id=' . $r["id"] . '"> 
-                            <div class="d-flex align-items-center justify-content-between">
-                                <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
-                            </div>
-                         </a>
-                             </div>
-                         </div>
-                            </div>
-                            </div>';
-                            }
-                            ?>
-
-
-
-
-                            <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
-                            <div class="card card-blog card-plain py-3">
-                                <div class="position-relative">
-                                <a class="d-block shadow-xl border-radius-xl">
-                                    <img src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl inside-card">
-                                </a>
+                            <div id="carouselExampleIndicators" class="carousel slide" data-mdb-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="2" aria-label="Slide 3"></button>
                                 </div>
-                                <div class="card-body px-1 pb-0">
-                                
-                                <a href="">
-                                    <h5>
-                                    ' . $r["name"] . '
-                                    </h5>
-                                </a>
-                                <p class="mb-4 text-sm">
-                                
-                                </p>
-                                
-                                
-                                
-                                
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape" />
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera" />
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits" />
+                                    </div>
                                 </div>
+                                <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
-                            </div> -->
+
+
+
+
+
+
+
                         </div>
                     </div>
                 </div>
