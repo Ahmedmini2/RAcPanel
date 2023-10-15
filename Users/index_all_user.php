@@ -1,6 +1,6 @@
 <?php
 include('cookies/session.php');
-$_SESSION['sidebar'] = "Home";
+$_SESSION['sidebar'] = "All";
 
 $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
 $projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
