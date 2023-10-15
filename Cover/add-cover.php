@@ -18,6 +18,36 @@ if (!empty($_GET['edit'])) {
   $phone = $editData['phone'];
 
 
+if (isset($_POST['submit'])) {
+
+  $type = $_POST['type'];
+  $dimensions = $_POST['dimensions'];
+  $quantity = $_POST['quantity'];
+  $price_per_peice = $_POST['price_per_peice'];
+  $total_price = str_replace(',','',$_POST['total_price']);
+  $seller = $_POST['seller'];
+  $address = $_POST['address'];
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+
+
+  $update = "UPDATE `covers_purchase` SET `type` = '$type', `dimensions` = '$dimensions', `quantity` = '$quantity', `price_per_piece` = '$price_per_peice', `total_price` = '$total_price',
+   `seller` = '$seller', `phone` = '$phone', `email` = '$email', `address` = '$address' WHERE `covers_purchase`.`id` = $id";
+    $updateResult = $conn->query($update);
+    if ($updateResult) {
+
+      $_SESSION['notification'] = "تم تعديل طلب شراء الاغطية بنجاح";
+      header('location: cost.php');
+      exit();
+
+      } else {
+      $_SESSION['notification'] = "يوجد خلل في النظام";
+      header('location: cost.php');
+      exit();
+
+      }
+}
+
  
 } else if (isset($_POST['submit'])) {
 
