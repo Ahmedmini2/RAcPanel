@@ -189,7 +189,7 @@ $select =mysqli_query($conn, "select * from users");
                     <td class="mb-0 text-sm"><?php echo $r['username'];?></td>
                     <td class="mb-0 text-sm"><?php echo $r['full_name'];?></td>
                     <td class="text-xs text-secondary mb-0"><?php echo $r['phone'];?></td>
-                    <td class="text-secondary mb-0"><?php if($r['position']=="Admin") {echo '<span class="badge badge-sm bg-gradient-success">Admin</span>';} elseif ($r['position']=="Manager"){echo '<span class="badge badge-sm bg-gradient-warning">Manager</span>';} elseif($r['position'] == "Accounts") {echo '<span class="badge badge-sm bg-gradient-primary">Accounts</span>';}  elseif($r['position'] == "Reception") {echo '<span class="badge badge-sm bg-gradient-danger">Reception</span>';}?></td>
+                    <td class="text-secondary mb-0"><?php if($r['position']=="Admin") {echo '<span class="badge badge-sm bg-gradient-success">Admin</span>';} elseif ($r['position']=="Worker"){echo '<span class="badge badge-sm bg-gradient-warning">Worker</span>';} elseif($r['position'] == "Accounts") {echo '<span class="badge badge-sm bg-gradient-primary">Accounts</span>';}  elseif($r['position'] == "Reception") {echo '<span class="badge badge-sm bg-gradient-danger">Reception</span>';}?></td>
                     <td class="text-xs text-secondary mb-0 text-center"><?php echo $r['status'];?></td>
                     <td class="text-secondary text-xs font-weight-bold"><?php echo $r['created_at']; ?></td>
                     <td class="text-center"><a href="../scripts/users/delete.php?id=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
