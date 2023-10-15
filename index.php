@@ -126,7 +126,7 @@ while ($ban = mysqli_fetch_array($banner)) {
       <div class="container-fluid py-4">
             <div class="block-header bg-gradient-dark  col-md-3 col-sm-6 col-xs-6  rounded-pill">
 
-                <?php require_once('../components/notification.php'); ?>
+                <?php require_once('components/notification.php'); ?>
             </div>
             <div class="border-radius-xl mt-3 mx-3 position-relative" style="background-image: url('../assets/img/vr-bg.jpg') ; background-size: cover;">
                
