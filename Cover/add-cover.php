@@ -10,7 +10,7 @@ if (!empty($_GET['edit'])) {
   $type = $editData['type'];
   $dimensions = $editData['dimensions'];
   $quantity = $editData['quantity'];
-  $price_per_peice = $editData['price_per_peice'];
+  $price_per_peice = $editData['price_per_piece'];
   $total_price = $editData['total_price'];
   $seller = $editData['seller'];
   $address = $editData['address'];
