@@ -1,30 +1,22 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Cover";
-if (isset($_GET['project_id'])) {
+if (isset($_GET['id'])) {
 
-    $id = $_GET['project_id'];
-    $query = "SELECT * FROM projects WHERE id=$id";
+    $id = $_GET['id'];
+    $query = "SELECT * FROM covers_purchase WHERE id=$id";
     $res = $conn->query($query);
     $editData = $res->fetch_assoc();
-    $name = $editData['name'];
-    $description = $editData['description'];
-    $project_cost = $editData['project_cost'];
-    $total_without_tax = $editData['total_without_tax'];
-    $total_with_tax = $editData['total_with_tax'];
+    $type = $editData['type'];
+    $dimensions = $editData['dimensions'];
+    $quantity = $editData['quantity'];
+    $price_per_peice = $editData['price_per_piece'];
+    $total_price = $editData['total_price'];
+    $seller = $editData['seller'];
+    $address = $editData['address'];
+    $email = $editData['email'];
+    $phone = $editData['phone'];
     $created_at = $editData['created_at'];
-
-
-    $query3 = "SELECT * FROM contact_projects WHERE project_id=$id";
-    $res3 = $conn->query($query3);
-    $editData3 = $res3->fetch_assoc();
-    $supplier_name = $editData3['supplier_name'];
-    $contact_person = $editData3['contact_person'];
-    $mobile = $editData3['mobile'];
-    $address = $editData3['address'];
-    $email = $editData3['email'];
-    $vat = $editData3['vat'];
-    $company_trade = $editData3['company_trade'];
 
    
 }
@@ -331,35 +323,7 @@ if (isset($_GET['project_id'])) {
             </script>
 
             <!-- Change Status Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">حالة الطلب</h5>
-                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>">
-                                <?php if ($position == 'Admin' || $position == 'Accounts' && $status == 1) { ?> <button type="submit" name="account" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        تأكيد التعميد عن طريق المحاسب
-                                    </button>
-                                <?php } ?>
-                                <br>
-                                <?php if ($position == 'Admin' || $position == 'Manager' && $status == 2) { ?> <button type="submit" name="manager" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        تأكيد التعميد عن طريق طريق المدير العام
-                                    </button>
-                                <?php } ?>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
 
             <!-- Doc Modal -->
             <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -415,7 +379,7 @@ if (isset($_GET['project_id'])) {
                                             Tel / mobile:<br>
                                             Address:<br>
                                             E-mail:<br>
-                                            Vat:<br>
+                                          
                                         </p>
                                     </div>
                                     <div class="col-8">
@@ -425,7 +389,7 @@ if (isset($_GET['project_id'])) {
                                             591022703 <br>
                                             Al Malaz-Jareer Street <br>
                                             info@ruknamyal.com<br>
-                                            <?=$vat?><br>
+                                            
 
                                         </p>
                                     </div>
@@ -448,7 +412,7 @@ if (isset($_GET['project_id'])) {
                                                 Data: <br>
                                                 P.O number:<br>
                                                 Supplier name:<br>
-                                                Contact person:<br>
+                                                Email:<br>
                                                 Tel / mobile:<br>
                                                 Address:<br>
                                             </p>
@@ -456,10 +420,10 @@ if (isset($_GET['project_id'])) {
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
                                             <?=$created_at?><br>
-                                                RA<?=$id?> <br>
-                                                <?=$supplier_name?><br>
-                                                <?=$contact_person?><br>
-                                                <?=$mobile?><br>
+                                                CO<?=$id?> <br>
+                                                <?=$seller?><br>
+                                                <?=$email?><br>
+                                                <?=$phone?><br>
                                                 <?=$address?><br>
 
 
@@ -486,9 +450,9 @@ if (isset($_GET['project_id'])) {
                                     <tr>
                                         <th style="color: white;">S.No.</th>
                                         <th style="color: white;">TYPE</th>
-                                        <th style="color: white;">PRICE</th>
                                         <th style="color: white;">Dimensions</th>
                                         <th style="color: white;">Quantity</th>
+                                        <th style="color: white;">PRICE</th>
                                         <th style="color: white;">Total price</th>
                                     </tr>
                                 </thead>
@@ -497,24 +461,19 @@ if (isset($_GET['project_id'])) {
                                 <!--Table body-->
                                 <tbody>
 
-                                    <?php 
-                                    $i = 0;
-                                    $items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
-                                    while ($item = mysqli_fetch_array($items)) {
-                                        $i++;
-                                    ?>
+                                    
    
                                     <tr>
                                         <th scope="row"><?=$i?></th>
-                                        <td class="custom-font-m text-center">نوع الاغطية</td>
-                                        <td class="custom-font-m">250</td>
-                                        <td class="custom-font-m">3*4</td>
-                                        <td class="custom-font-m">7</td>
-                                        <td class="custom-font-m">2600</td>
+                                        <td class="custom-font-m text-center"><?=$type?></td>
+                                        <td class="custom-font-m"><?=$dimensions?></td>
+                                        <td class="custom-font-m"><?=$quantity?></td>
+                                        <td class="custom-font-m"><?=$price_per_peice?></td>
+                                        <td class="custom-font-m"><?=$total_price?></td>
 
                                     </tr>
                                     
-                                    <?php } ?>
+                                    
                                 </tbody>
                                 <!--Table body-->
 
@@ -541,7 +500,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span>SAR <?=number_format($total_without_tax+$project_cost)?></span>
+                                            <span>SAR <?=number_format($total_price)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -559,7 +518,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span>SAR <?=number_format($total_with_tax)?></span>
+                                            <span>SAR <?=number_format(($total_price*15)/100)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -575,7 +534,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax+$project_cost)?></span>
+                                            <span class="font-weight-bold text-success" id="total"><?=number_format($$total_price+(($total_price*15)/100))?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -592,14 +551,14 @@ if (isset($_GET['project_id'])) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <p>The total value is SAR <?=number_format($total_without_tax+$total_with_tax+$project_cost)?> <span id="con"></span> riyals only.</p>
+                        <p>The total value is SAR <?=number_format($$total_price+(($total_price*15)/100))?> <span id="con"></span> riyals only.</p>
                     </div>
                 </div>
                 <script>
                     
                      function changeVal() {
                         
-                        value =  <?=number_format($total_without_tax+$total_with_tax+$project_cost,0,"","")?> ;
+                        value =  <?=number_format($$total_price+(($total_price*15)/100) , 0 ,"","")?> ;
                         document.getElementById("con").innerText = numToWords(value);
                         console.log(value);
                         

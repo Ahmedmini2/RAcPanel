@@ -37,12 +37,12 @@ if (isset($_POST['submit'])) {
     if ($updateResult) {
 
       $_SESSION['notification'] = "تم تعديل طلب شراء الاغطية بنجاح";
-      header('location: cost.php');
+      header('location: index.php');
       exit();
 
       } else {
       $_SESSION['notification'] = "يوجد خلل في النظام";
-      header('location: cost.php');
+      header('location: index.php');
       exit();
 
       }
