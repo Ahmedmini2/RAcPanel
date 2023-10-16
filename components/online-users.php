@@ -46,13 +46,16 @@
 }
 .widget-content, .widget-footer {
     padding: .625rem;
-    background: #fff;
     position: relative;
 }
 .rtl .fixed-plugin .fixed-plugin-button {
     left: 5px;
     right: auto;
     bottom: -20px;
+}
+.fixed-plugin .fixed-plugin-button {
+    box-shadow: none;
+    background: none;
 }
     </style>
 
