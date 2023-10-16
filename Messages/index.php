@@ -155,7 +155,8 @@ $select =mysqli_query($conn, "select * from users");
       </div>
     </nav>
     <!-- End Navbar -->
-  <div class="app">
+    <div class="container-fluid py-4">
+    <div class="app">
     <div class="header">
       <div class="logo">
         <svg viewBox="0 0 513 513" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -422,6 +423,8 @@ $select =mysqli_query($conn, "select * from users");
 
     </div>
   </div>
+    </div>
+  
   </main>
 <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
