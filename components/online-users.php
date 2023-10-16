@@ -47,6 +47,9 @@
 .widget-content, .widget-footer {
     padding: .625rem;
     position: relative;
+    border-radius: 20px;
+    background: rgb(255 255 255 / 48%);
+    backdrop-filter: blur(150px);
 }
 .rtl .fixed-plugin .fixed-plugin-button {
     left: 5px;
