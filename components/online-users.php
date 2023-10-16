@@ -51,7 +51,7 @@
     </style>
 
 
-<div class="">
+<!-- <div class="">
     <div class="widget">
         <div class="widget-content">
             <ul class="widget-user-list">
@@ -66,4 +66,12 @@
             </ul>
         </div>
     </div>
-</div>
+</div> -->
+
+
+<div class="fixed-plugin">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+      <i class="fa fa-cog py-2"> </i>
+    </a>
+    
+  </div>

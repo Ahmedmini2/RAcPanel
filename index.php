@@ -68,7 +68,7 @@ while ($ban = mysqli_fetch_array($banner)) {
 
   <!-- Side Bar -->
   <?php require_once('components/sidebar.php'); ?>
-
+  
   
   <!-- End Of side Bar -->
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
@@ -660,6 +660,8 @@ while ($ban = mysqli_fetch_array($banner)) {
     </div>
     <?php } ?>
   </main>
+
+  <?php require_once('components/online-users.php'); ?>
 
   <!--   Core JS Files   -->
   <script src="assets/js/core/popper.min.js"></script>
