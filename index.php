@@ -105,6 +105,12 @@ while ($ban = mysqli_fetch_array($banner)) {
                 </div>
               </a>
             </li>
+            <li class="nav-item px-3 d-flex align-items-center">
+              <a href="Messages/index.php" class="nav-link text-body p-0">
+
+                <i class="far fa-comments me-sm-1 cursor-pointer"></i>
+              </a>
+            </li>
 
             <!-- Notifications -->
             <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
