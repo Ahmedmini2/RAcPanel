@@ -8,7 +8,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 
 <head>
   <meta charset="utf-8" />
@@ -168,7 +168,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
         <?php require_once('../components/notification.php'); ?>
       </div>
-      <div class="app">
+      <div class="app " dir="ltr">
     <div class="header">
       <div class="logo">
         <svg viewBox="0 0 513 513" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
