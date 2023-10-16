@@ -1,3 +1,4 @@
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start">
 <div class="col-md-1">
     <div class="widget">
         <div class="widget-content">
@@ -14,3 +15,4 @@
         </div>
     </div>
 </div>
+</aside>
