@@ -255,7 +255,7 @@ $sidebar = $_SESSION['sidebar'];
                     </a>
                     <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
                         <li><a class="dropdown-item" href="#">الرسائل</a></li>
-                        <li><a class="dropdown-item" href="#">الملف الشخصي</a></li>
+                        <li><a class="dropdown-item" href="../Profile/profile.php">الملف الشخصي</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
