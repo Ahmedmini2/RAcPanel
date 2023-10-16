@@ -476,7 +476,7 @@ while ($ban = mysqli_fetch_array($banner)) {
         </div>
       </div>
 
-      <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+     <!-- <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
         <div class="card">
           <div class="card-header p-3 pb-0">
             <h6 class="mb-0">الاحداث القادمة</h6>
@@ -511,7 +511,7 @@ while ($ban = mysqli_fetch_array($banner)) {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       
 
       <div class="row my-4">
