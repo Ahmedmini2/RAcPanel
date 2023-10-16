@@ -6,7 +6,7 @@ class Calendar {
   public $error = "";
   function __construct () {
     $this->pdo = new PDO(
-      "mysql:host=localhost;dbname=ruknam5_app;charset=".DB_CHARSET,
+      "mysql:host=localhost;dbname=ruknam5_test_app;charset=".DB_CHARSET,
       'ruknam5_root', 'Roek9933@', [
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
