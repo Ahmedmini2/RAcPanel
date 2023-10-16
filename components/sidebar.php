@@ -13,7 +13,7 @@ $sidebar = $_SESSION['sidebar'];
     </a>
   </div>
   <hr class="horizontal dark mt-0">
-  <div class="collapse navbar-collapse px-0 w-auto  max-height-vh-100" id="sidenav-collapse-main">
+  <div class="collapse navbar-collapse px-0 w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link <?php if ($sidebar == "Home") echo 'active'; ?>" href="https://test.app.ruknamial.com/index.php">
