@@ -1,3 +1,10 @@
+<?php
+include ('../cookies/session2.php');
+$_SESSION['sidebar']="Messages";
+$select =mysqli_query($conn, "select * from users");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
