@@ -148,8 +148,7 @@
      </div>
     </div>
    </div>
-   <button class="add"></button>
-   <div class="overlay"></div>
+   
   </div>
   <div class="chat-area">
    <div class="chat-area-header">
