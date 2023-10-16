@@ -317,7 +317,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                 <div class="col-4 text-start">
                 
                   <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="fa-solid fa-money-check-dollar text-lg opacity-10" aria-hidden="true"></i>
+                    <i class="fa-solid fa-money-check-dollar  opacity-10" aria-hidden="true"></i>
                   </div>
                 </div>
               </div>
