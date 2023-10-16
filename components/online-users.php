@@ -22,6 +22,7 @@
     margin-left: -1.125rem;
 }
 .widget-user-list > li a {
+    margin-right: 9px;
     display: block;
     border: 0.125rem solid #fff;
     overflow: hidden;
@@ -48,6 +49,11 @@
     background: #fff;
     position: relative;
 }
+.rtl .fixed-plugin .fixed-plugin-button {
+    left: 5px;
+    right: auto;
+    bottom: -20px;
+}
     </style>
 
 
@@ -57,7 +63,7 @@
 
 
 <div class="fixed-plugin">
-<div class="widget fixed-plugin-button text-dark position-fixed">
+<div class="widget fixed-plugin-button text-dark position-fixed" dir="ltr">
         <div class="widget-content">
             <ul class="widget-user-list">
                 <li><a href="#"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""></a></li>
