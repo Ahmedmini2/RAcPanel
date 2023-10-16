@@ -259,7 +259,7 @@ $sidebar = $_SESSION['sidebar'];
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">تسجيل الخروج</a></li>
+                        <li><a class="dropdown-item" href="../Auth/logout.php">تسجيل الخروج</a></li>
                     </ul>
                 </div>
   </div>
