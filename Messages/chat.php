@@ -8,7 +8,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
 ?>
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
@@ -16,7 +16,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    المشاريع
+    المحادثات
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,7 +44,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">المشاريع</a></li>
+            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">المحادثات</a></li>
 
           </ol>
 
