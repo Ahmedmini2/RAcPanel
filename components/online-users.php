@@ -57,7 +57,7 @@
 
 
 <div class="fixed-plugin">
-<div class="widget">
+<div class="widget fixed-plugin-button text-dark position-fixed">
         <div class="widget-content">
             <ul class="widget-user-list">
                 <li><a href="#"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""></a></li>
@@ -71,5 +71,6 @@
             </ul>
         </div>
     </div>
+    
     
   </div>
