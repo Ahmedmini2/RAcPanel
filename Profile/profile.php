@@ -231,7 +231,7 @@ $select =mysqli_query($conn, "select * from users");
             <div class="card-header pb-0 p-3">
               <div class="row">
                 <div class="col-md-8 d-flex align-items-center">
-                  <h6 class="mb-0">Profile Information</h6>
+                  <h6 class="mb-0">معلومات شخصية</h6>
                 </div>
                 <div class="col-md-4 text-end">
                   <a href="javascript:;">
@@ -246,10 +246,10 @@ $select =mysqli_query($conn, "select * from users");
               </p>
               <hr class="horizontal gray-light my-4">
               <ul class="list-group">
-                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; Alec M. Thompson</li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; (44) 123 1234 123</li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; alecthompson@mail.com</li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp; USA</li>
+                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">الاسم الكامل:</strong> &nbsp; عباس عثمان الجعفري</li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">رقم الهاتف:</strong> &nbsp; (44) 123 1234 123</li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">الايميل:</strong> &nbsp; alecthompson@mail.com</li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">العنوان:</strong> &nbsp; السعودية</li>
                 <li class="list-group-item border-0 ps-0 pb-0">
                   <strong class="text-dark text-sm">Social:</strong> &nbsp;
                   <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
@@ -269,7 +269,7 @@ $select =mysqli_query($conn, "select * from users");
         <div class="col-12 col-xl-4">
           <div class="card h-100">
             <div class="card-header pb-0 p-3">
-              <h6 class="mb-0">Conversations</h6>
+              <h6 class="mb-0">المحادثات</h6>
             </div>
             <div class="card-body p-3">
               <ul class="list-group">
