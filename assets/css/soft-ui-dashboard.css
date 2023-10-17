@@ -25055,3 +25055,7 @@ width: 100px;
   content: "";
   left: 0;
 }
+.card-img-top{
+  border-radius: 50px;
+  padding: 20px;
+}
