@@ -323,9 +323,12 @@ if (isset($_GET['project_id'])) {
                 function printDiv(divName) {
                     document.getElementById('btn2').style.display = "none";
                     document.getElementById('btn3').style.display = "none";
+                    document.getElementById('signture').style.backgroundColor = "none";
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
                     document.getElementById('btn3').style.display = "inline";
+                    document.getElementById('signture').style.backgroundColor = "white";
+
 
                 }
             </script>
@@ -629,7 +632,7 @@ if (isset($_GET['project_id'])) {
                     <div class="col-6">
                         <div class="row">
                             <h6>Approved by</h6>
-                            <input type="text" style="border:none"/>
+                            <input type="text" class="signture" id="signture"/>
                         </div>
                     </div>
                 </div>
