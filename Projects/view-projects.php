@@ -796,11 +796,11 @@ if (isset($_GET['id'])) {
                                                         $deliverd = 0;
                                                     ?>
                                                         <tr>
-                                                            <th scope="row"><?= $i ?></th>
+                                                            <th scope="row"><?= $i ?></th>number_format($products['cost_price'],2,'.',',')
                                                             <td><?= $products['product_name'] ?></td>
-                                                            <td><?= $products['cost_price']  ?></td>
-                                                            <td><?= $products['sell_price']  ?></td>
-                                                            <td><?= $products['net_profit']  ?></td>
+                                                            <td><?= number_format($products['cost_price'],2,'.',',')?></td>
+                                                            <td><?= number_format($products['sell_price'],2,'.',',')?></td>
+                                                            <td><?= $products['net_profit']?></td>
                                                             <td><?= $products['net_perc'] ?></td>
                                                           
                                                         </tr>
