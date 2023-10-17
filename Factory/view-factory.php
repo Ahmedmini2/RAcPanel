@@ -357,7 +357,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
+                                    <div class="col-md-4 col-sm-2 mt-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
@@ -372,7 +372,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
+                                    <div class="col-md-4 col-sm-2 mt- mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
