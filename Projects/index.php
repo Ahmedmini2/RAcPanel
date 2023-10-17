@@ -192,42 +192,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
               ?>
 
-                <div class="col">
-                  <div class="card">
-                    <img class="inside-card card-img-top" src="../Projects/Images/<?= $r['name'] ?>/<?= $r['image'] ?>" alt="Card image cap">
-                    <?php
-                    if ($timeDiff > 0 && $timeDiff <= 3 * 24 * 60 * 60) { // 3 days in seconds
-                      $durationInDays = ceil($timeDiff / (24 * 60 * 60)); // Calculate the number of days left
-
-                      if ($durationInDays == 1) {
-                        $ribbonText = "غدًا";
-                      } else if ($durationInDays == 2) {
-                        $ribbonText = "في يومين";
-                      } else {
-                        $ribbonText = "في " . $durationInDays . " أيام";
-                      }
-                    ?>
-                      <span class="ribbon-pop" dir="ltr">ينتهي <?= $ribbonText ?></span>
-                    <?php  } ?>
-                    <div class=" rgba-white-slight"></div>
-                    <div class="card-body">
-                      <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم <?= $r["id"] ?></p>
-
-                      <h4 class="card-title"> <?= $r["name"] ?> </h4>
-
-                      <p class="card-text"><?= $r["description"] ?></p>
-                    </div>
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center">
-                        <a href="view-projects.php?id=<?= $r["id"] ?>">
-                          <div class="d-flex align-items-center justify-content-between">
-                            <button type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
 
                 <div class=" col-xs-12 col-sm-6 col-md-4 pt-2">
 
