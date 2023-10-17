@@ -363,7 +363,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">الخرسانة الكلية</h6>
                                                 <hr class="horizontal dark my-3">
 
-                                                <h5 class="mb-0"><?=$kh_quan_tot?> ريال</h5>
+                                                <h5 class="mb-0"><?=$kh_quan_tot?> متر</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -378,7 +378,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">ما تم صبه</h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0"><?=$kh_used_total?> ريال</h5>
+                                                <h5 class="mb-0"><?=$kh_used_total?> متر</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -393,7 +393,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0"> متبقي كمية الخرسانة </h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0"><?=$kh_quan_tot - $kh_used_total?> ريال</h5>
+                                                <h5 class="mb-0"><?=$kh_quan_tot - $kh_used_total?> متر</h5>
                                             </div>
                                         </div>
                                     </div>
