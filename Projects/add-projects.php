@@ -644,7 +644,7 @@ if (isset($_POST['add-project'])) {
               <div class="col-md-4 col-sm-6">
                 <div class="form-group">
                   <label> مدة تنفيذ المشروع</label>
-                  <input type="text" placeholder="مثلا خلال 4 شهور" class="form-control" name="duration">
+                  <input type="date" placeholder="" class="form-control" name="duration">
                 </div>
               </div>
               <div class="col-md-4 col-sm-6">
