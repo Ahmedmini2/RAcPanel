@@ -533,7 +533,7 @@ if (isset($_GET['id'])) {
                                                                     <th>طول الحديد</th>
                                                                     <th>سعر الطن</th>
                                                                     <th>السعر الكلي</th>
-                                                                    <th>السعر الكلي</th>
+                                                                    
 
                                                                 </tr>
                                                             </thead>
@@ -559,7 +559,7 @@ if (isset($_GET['id'])) {
                                                                     </tr>
                                                                 <?php } ?>
                                                                     <tr>
-                                                                    <td><?= $iron['size'] ?></td>
+                                                                    <td>8222</td>
                                                                     </tr>
 
                                                             </tbody>
