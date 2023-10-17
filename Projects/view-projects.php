@@ -192,7 +192,11 @@ if (isset($_GET['id'])) {
                                     Sales Quatation
 
                                 </a>
-                                <a href="" id="btn3" class="btn bg-gradient-dark mb-0">
+                                <a href="documents.php?project_id=<?=$id?>" id="btn3" class="btn bg-gradient-dark mb-0">
+                                    مستندات المشروع
+
+                                </a>
+                                <a href="" id="btn4" class="btn bg-gradient-dark mb-0">
                                     تعديل بيانات المشروع
 
                                 </a>
@@ -200,10 +204,10 @@ if (isset($_GET['id'])) {
                             </div>
                             <div class="text-left col-lg-3 col-sm-6">
 
-                                <button type="button" id="btn4" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button type="button" id="btn5" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     تغير حالة المشروع
                                 </button>
-                                <button type="button" id="btn5" class=" printing btn bg-gradient-dark rounded-pill" onclick="printDiv('printableArea')">
+                                <button type="button" id="btn6" class=" printing btn bg-gradient-dark rounded-pill" onclick="printDiv('printableArea')">
                                     طباعة البنود
                                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
@@ -218,6 +222,7 @@ if (isset($_GET['id'])) {
                                 document.getElementById('btn3').style.display = "none";
                                 document.getElementById('btn4').style.display = "none";
                                 document.getElementById('btn5').style.display = "none";
+                                document.getElementById('btn6').style.display = "none";
                                 document.getElementById('information').style.display = "none";
                                 document.getElementById('navbarBlur').style.display = "none";
 
@@ -227,6 +232,7 @@ if (isset($_GET['id'])) {
                                 document.getElementById('btn3').style.display = "inline";
                                 document.getElementById('btn4').style.display = "inline";
                                 document.getElementById('btn5').style.display = "inline";
+                                document.getElementById('btn6').style.display = "inline";
                                 document.getElementById('information').style.display = "flex";
                                 document.getElementById('navbarBlur').style.display = "flex";
 
