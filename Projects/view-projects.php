@@ -325,7 +325,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">القيمة الاجمالية للمشروع</h6>
                                                 <hr class="horizontal dark my-3">
 
-                                                <h5 class="mb-0"><?= number_format($project['total_without_tax']) ?> ريال</h5>
+                                                <h5 class="mb-0"><?= number_format($project['total_without_tax'],2,'.',',') ?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
