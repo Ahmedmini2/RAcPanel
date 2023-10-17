@@ -186,8 +186,10 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
               <?php
               while ($r = mysqli_fetch_array($projects)) {
-                $d = DateTime::createFromFormat('Y-m-d', $r['duration']);
-                $d->modify('-3 days');
+                $endDate = strtotime($r['duration']);  // Convert the duration to a timestamp
+                $currentDate = time();               // Get the current timestamp
+                $timeDiff = $endDate - $currentDate; // Calculate the time difference
+               
                 ?>
                <div class=" col-xs-12 col-sm-6 col-md-4 pt-2">
                     
@@ -196,11 +198,11 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                          
                             <div class="view overlay">
                                 <img class="inside-card card-img-top" src="../Projects/Images/<?=$r['name']?>/<?=$r['image']?>" alt="Card image cap">
-                                <?php if ($d < new DateTime()) { ?>
+                                <?php  if ($timeDiff <= 3 * 24 * 60 * 60) { // 3 days in seconds ?>
                                 <span class="ribbon-pop" dir="ltr">ينتهي في <?=$r['duration']?></span>
-                                <?php } ?>
-                                    <div class=" rgba-white-slight"></div>
-                                
+                                <?php  }?>
+                                    <div class=" rgba-white-slight"><?=$r['duration']?>;</div>
+                               
                             </div>
 
                            
