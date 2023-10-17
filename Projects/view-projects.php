@@ -520,7 +520,7 @@ if (isset($_GET['id'])) {
                                                 <div class="d-flex flex-column">
                                                     <h6 class="mb-3 text-lg">الصنف: <?= $prod['product_name'] ?> </h6>
                                                     <span class="mb-2 text-lg">الحديد</span>
-                                                    <div class="table-responsive p-0">
+                                                    <div class="table-responsive p-0 mb-3">
                                                         <table class="table table-hover table-fixed">
 
                                                             <!--Table head-->
@@ -572,7 +572,7 @@ if (isset($_GET['id'])) {
 
 
                                                     <span class="mb-2 text-lg">الإكسسوارات</span>
-                                                    <div class="table-responsive p-0">
+                                                    <div class="table-responsive p-0 mb-3">
                                                         <table class="table table-hover table-fixed">
 
                                                             <!--Table head-->
@@ -619,7 +619,7 @@ if (isset($_GET['id'])) {
 
 
                                                     <span class="mb-2 text-lg">الاغطية</span>
-                                                    <div class="table-responsive p-0">
+                                                    <div class="table-responsive p-0 mb-3">
                                                         <table class="table table-hover table-fixed">
 
                                                             <!--Table head-->
@@ -659,7 +659,7 @@ if (isset($_GET['id'])) {
                                                     </div>
 
                                                     <span class="mb-2 text-lg">بنود إضافية</span>
-                                                    <div class="table-responsive p-0">
+                                                    <div class="table-responsive p-0 mb-3">
                                                         <table class="table table-hover table-fixed">
 
                                                             <!--Table head-->
@@ -702,7 +702,7 @@ if (isset($_GET['id'])) {
                                                     </div>
 
                                                     <span class="mb-2 text-lg">مجموع الاصناف</span>
-                                                    <div class="table-responsive p-0">
+                                                    <div class="table-responsive p-0 mb-3">
                                                         <table class="table table-hover table-fixed">
 
                                                             <!--Table head-->
