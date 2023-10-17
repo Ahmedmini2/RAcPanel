@@ -586,9 +586,7 @@ if (isset($_GET['id'])) {
                 
 
             </div>
-            <button type="button" id="btnD" class=" btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 mx-4 ">
-                حذف المشروع
-            </button>
+            
         </div>
 
 
