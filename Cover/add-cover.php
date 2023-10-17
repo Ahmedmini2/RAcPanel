@@ -305,7 +305,7 @@ if (isset($_POST['submit'])) {
               <div class="col">
                 <div class="form-group">
                   <label>العنوان</label>
-                  <input type="text" placeholder="" class="form-control" name="address"  value="<?php echo $address; ?>">
+                  <input type="text" placeholder="ادخل العنوان" class="form-control" name="address"  value="<?php echo $address; ?>">
                 </div>
               </div>
               <div class="col">
