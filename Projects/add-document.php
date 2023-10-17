@@ -234,7 +234,7 @@ if (!empty($_GET['edit'])) {
               <div class="col">
                 <div class="form-group">
                   <label>إسم المستند</label>
-                  <input type="number" placeholder="ادخل إسم المستند او تفاصيل عنه" class="form-control" name="name" value="<?php echo $name; ?>">
+                  <input type="text" placeholder="ادخل إسم المستند او تفاصيل عنه" class="form-control" name="name" value="<?php echo $name; ?>">
                 </div>
               </div>
 
