@@ -554,8 +554,9 @@ if (isset($_GET['id'])) {
                                                                 ?>
                                                                     <tr>
                                                                         <th scope="row"><?= $i ?></th>
+                                                                    
                                                                         <td><?= $iron['size'] ?></td>
-                                                                        <td><?= $iron['price_today'] ?></td>
+                                                                        <td><?= number_format($iron['price_today'],2,'.',',')?></td>
                                                                         <td><?= $iron['quantity'] ?></td>
                                                                         <td><?= $iron['iron_height'] ?></td>
                                                                         <td><?= $iron['tn_price'] ?></td>
@@ -798,11 +799,11 @@ if (isset($_GET['id'])) {
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
                                                             <td><?= $products['product_name'] ?></td>
-                                                            <td><?= $products['cost_price']  ?></td>
-                                                            <td><?= $products['sell_price']  ?></td>
-                                                            <td><?= $products['net_profit']  ?></td>
-                                                            <td><?= $products['net_perc'] ?></td>
-                                                          
+                                                            <td><?= number_format($products['cost_price'],2,'.',',')?></td>
+                                                            <td><?= number_format($products['sell_price'],2,'.',',')?></td>
+                                                            <td><?= number_format($products['net_profit'],2,'.',',')?></td>
+                                                            <td><?= number_format($products['net_perc'],2,'.',',')?></td>   
+                                            
                                                         </tr>
                                                     <?php } ?>
 
