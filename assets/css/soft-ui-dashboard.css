@@ -25025,8 +25025,48 @@ width: 100px;
   
 
 }
-.top-left{
+.card__ribbon{
+  width: 12em;
+  height: 12em;
+
   position: absolute;
-  top: 8px;
-  left: 16px;
+  top: -1em;
+  left: -1em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.card__ribbon::after{
+  content: 'Special Offer';
+  position: absolute;
+  width: 150%;
+  height: 3.5em;
+  background-color: var(--color);
+  transform: rotate(-45deg) translateY(-1.7em);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: .1em;
+
+  box-shadow: 0 .3em .6em rgba(0,0,0, .2);
+}
+
+.card__ribbon::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 1em;
+  height: 1em;
+  background-color: #5a3ecc;
+  box-shadow: 11em -11em #5a3ecc;
 }
