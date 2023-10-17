@@ -198,7 +198,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                          
                             <div class="view overlay">
                                 <img class="inside-card card-img-top" src="../Projects/Images/<?=$r['name']?>/<?=$r['image']?>" alt="Card image cap">
-                                <?php  if ($timeDiff <= 3 * 24 * 60 * 60) { // 3 days in seconds ?>
+                                <?php  if ($timeDiff >= 3 * 24 * 60 * 60) { // 3 days in seconds ?>
                                 <span class="ribbon-pop" dir="ltr">ينتهي في <?=$r['duration']?></span>
                                 <?php  }?>
                                     <div class=" rgba-white-slight"><?=$r['duration']?>;</div>
