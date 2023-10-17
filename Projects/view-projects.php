@@ -219,6 +219,7 @@ if (isset($_GET['id'])) {
                                 document.getElementById('btn4').style.display = "none";
                                 document.getElementById('btn5').style.display = "none";
                                 document.getElementById('information').style.display = "none";
+                                document.getElementById('navbarBlur').style.display = "none";
                                 
                                 window.print();
                                 document.getElementById('btn1').style.display = "inline";
@@ -227,6 +228,7 @@ if (isset($_GET['id'])) {
                                 document.getElementById('btn4').style.display = "inline";
                                 document.getElementById('btn5').style.display = "inline";
                                 document.getElementById('information').style.display = "flex";
+                                document.getElementById('navbarBlur').style.display = "flex";
 
                             }
                         </script>
