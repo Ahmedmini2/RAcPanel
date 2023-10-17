@@ -559,7 +559,7 @@ if (isset($_GET['id'])) {
                                                                     </tr>
                                                                 <?php } ?>
                                                                     <tr >
-                                                                    <td colspan="5">Total</td>
+                                                                    <td colspan="6">المجموع</td>
                                                                     <td >89.2554</td>
                                                                     </tr>
 
