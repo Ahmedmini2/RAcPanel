@@ -204,8 +204,10 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                             
                                     if ($durationInDays == 1) {
                                         $ribbonText = "غدًا";
+                                    } else if ($durationInDays == 2) {
+                                        $ribbonText = "في يومين";
                                     } else {
-                                        $ribbonText = "في " . $durationInDays . " يوم";
+                                        $ribbonText = "في " . $durationInDays . " أيام";
                                     }
                                      ?>
                                 <span class="ribbon-pop" dir="ltr">ينتهي <?=$ribbonText?></span>
