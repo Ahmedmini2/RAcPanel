@@ -1,32 +1,39 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
+$project_id = $_GET['project_id'];
 if (!empty($_GET['edit'])) {
 
   $id = $_GET['edit'];
-  $query = "SELECT * FROM project_documents WHERE id=$id";
+  $query = "SELECT * FROM project_documents WHERE `id` = $id";
   $res = $conn->query($query);
   $editData = $res->fetch_assoc();
   $name = $editData['name'];
-  $image = $editData['doc'];
 
   if(isset($_POST['submit'])){
 
     $name = $_POST['name'];
-    
-    
+    $target_dir = "../Signed-Docs/Project-Doc/".$project_id."/";
+    if(!is_dir($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }else{
+    }
+    $target_file = $target_dir . basename($_FILES["doc"]["name"]);
+    $filename = basename($_FILES["doc"]["name"]);
+    $uploadOk = 1;
+    move_uploaded_file($_FILES["doc"]["tmp_name"], $target_file);
 
-    $update = "UPDATE `cost_center` SET `type` = '$type', `description` = '$description', `price` = '$price' WHERE `id` = $id";
+    $update = "UPDATE `project_documents` SET `name` = '$name', `image` = '$filename' WHERE `id` = $id";
     $updateResult = $conn->query($update);
     if ($updateResult) {
 
       $_SESSION['notification'] = "تم تعديل المستند بنجاح";
-      header('location: cost.php');
+      header('location: documents.php'.$project_id.'');
       exit();
 
       } else {
       $_SESSION['notification'] = "يوجد خلل في النظام";
-      header('location: cost.php');
+      header('location: documents.php'.$project_id.'');
       exit();
 
       }
@@ -36,33 +43,31 @@ if (!empty($_GET['edit'])) {
 
     $name = $_POST['name'];
 
-    $target_dir = "../Signed-Docs/Project-Doc/".$id."/";
+    $target_dir = "../Signed-Docs/Project-Doc/".$project_id."/";
     if(!is_dir($target_dir)) {
         mkdir($target_dir, 0777, true);
     }else{
     }
-        $target_file = $target_dir . basename($_FILES["del_image"]["name"]);
-        $filename = basename($_FILES["del_image"]["name"]);
-        $uploadOk = 1;
-        move_uploaded_file($_FILES["del_image"]["tmp_name"], $target_file);
-  $insert = "INSERT INTO cost_center (`id`, `type`, `description`, `price`, `created_at`) VALUES (NULL, '$type', '$description', '$price' , NOW())";
-  $insertResult = $conn->query($insert);
-  if ($insertResult) {
+    $target_file = $target_dir . basename($_FILES["doc"]["name"]);
+    $filename = basename($_FILES["doc"]["name"]);
+    $uploadOk = 1;
+    move_uploaded_file($_FILES["doc"]["tmp_name"], $target_file);
+    $insert = "INSERT INTO project_documents (`id`, `project_id`, `name`, `image`, `created_at`) VALUES (NULL, '$project_id', '$name', '$filename' , NOW())";
+    $insertResult = $conn->query($insert);
+    if ($insertResult) {
 
-      $_SESSION['notification'] = "تم اضافة المستند بنجاح";
-      header('location: cost.php');
-      exit();
+        $_SESSION['notification'] = "تم اضافة المستند بنجاح";
+        header('location: documents.php'.$project_id.'');
+        exit();
 
   } else {
     $_SESSION['notification'] = "يوجد خلل في النظام";
-    header('location: cost.php');
+    header('location: documents.php'.$project_id.'');
     exit();
 
   }
 } else {
-  $type = "";
-  $description = "";
-  $price = "";
+  $name = "";
   
 }
 
@@ -76,7 +81,7 @@ if (!empty($_GET['edit'])) {
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    أضافة تكلفة
+    أضافة مستند
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -103,7 +108,7 @@ if (!empty($_GET['edit'])) {
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">أضافة تكلفة</a></li>
+            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">أضافة مستند</a></li>
 
           </ol>
 
@@ -222,23 +227,14 @@ if (!empty($_GET['edit'])) {
             <?php require_once('../components/notification.php'); ?>
           </div>
           <div class="block-header bg-gradient-dark col-md-2 col-sm-6 col-xs-6  rounded-pill">
-            <h6 class="block-title text-white py-2 px-4 ">إضافة تكلفة جديد</h6>
+            <h6 class="block-title text-white py-2 px-4 ">إضافة مستند جديد</h6>
           </div>
-          <form id="<?php echo $idAttr; ?>" action="" method="post">
+          <form id="<?php echo $idAttr; ?>" action="" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label>نوع التكلفة</label>
-                  <select name="type" id="type" class="form-control" placeholder="نوع التكلفة">
-                    <option value="<?php echo $type; ?>"><?php echo $type; ?></option>
-                    <?php 
-                    $select = mysqli_query($conn, "select * from cost_type");
-                    while ($r = mysqli_fetch_array($select)) {
-
-                      echo '<option value="' . $r['name'] . '">' . $r['name'] . '</option>';
-                    }
-                    ?>
-                  </select>
+                  <label>إسم المستند</label>
+                  <input type="number" placeholder="ادخل إسم المستند او تفاصيل عنه" class="form-control" name="name" value="<?php echo $name; ?>">
                 </div>
               </div>
 
@@ -246,28 +242,19 @@ if (!empty($_GET['edit'])) {
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label>التفاصيل و الملاحظات</label>
-                  <textarea placeholder="التفاصيل" class="form-control" name="description"><?php echo $description; ?></textarea>
+                  <label>صورة المستند</label>
+                  <input type="file"  class="form-control" name="doc"/>
                 </div>
               </div>
             </div>
-            <div class="row">
-
-              <div class="col">
-                <div class="form-group">
-                  <label>سعر التكلفة</label>
-                  <input type="number" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="price" value="<?php echo $price; ?>">
-                </div>
-              </div>
-            </div>
-
+            
 
 
 
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <button type="submit" name="submit" class="btn btn-secondary">تقديم طلب التكلفة</button>
+                  <button type="submit" name="submit" class="btn btn-secondary">تقديم طلب إضافة مستند</button>
                 </div>
               </div>
               <div class="col">
