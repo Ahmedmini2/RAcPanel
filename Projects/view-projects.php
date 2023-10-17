@@ -557,12 +557,12 @@ if (isset($_GET['id'])) {
                                                                         <td><?= $iron['tn_price'] ?></td>
                                                                         <td><?= $iron['total_price'] ?></td>
                                                                     </tr>
-                                                                    <tr class="table-secondary">
+                                                                    
+                                                                <?php } ?>
+                                                                <tr class="table-secondary">
                                                                         <td colspan="6">المجموع</td>
                                                                         <td>89.2554</td>
                                                                     </tr>
-                                                                <?php } ?>
-
 
                                                             </tbody>
                                                             <!--Table body-->
@@ -604,11 +604,12 @@ if (isset($_GET['id'])) {
                                                                         <td><?= $accessory['price_per_piece'] ?></td>
                                                                         <td><?= $accessory['total_price'] ?></td>
                                                                     </tr>
-                                                                    <tr class="table-secondary">
-                                                                        <td colspan="6">المجموع</td>
+                                                                    
+                                                                <?php } ?>
+                                                                <tr class="table-secondary">
+                                                                        <td colspan="4">المجموع</td>
                                                                         <td>89.2554</td>
                                                                     </tr>
-                                                                <?php } ?>
 
 
                                                             </tbody>
