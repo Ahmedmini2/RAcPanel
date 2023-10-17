@@ -202,7 +202,7 @@ if (isset($_GET['id'])) {
                                 <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     تغير حالة المشروع
                                 </button>
-                                <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
+                                <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill" onclick="printDiv('printableArea')">
                                     طباعة البنود
                                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
