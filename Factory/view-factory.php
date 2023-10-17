@@ -275,7 +275,7 @@ if (isset($_GET['id'])) {
                     <!--********* -->
                     <div class="container-fluid py-4">
                         <div class="row">
-                            <div class="col-xl-6 mb-xl-0 mb-4">
+                            <div class="<?php if ($position == 'Admin') { echo 'col-xl-6'; } else { echo 'col-xl-12'; } ?>  mb-xl-0 mb-4">
                                 <div class="card h-100">
                                     <div class="card-body p-3">
 
@@ -305,7 +305,7 @@ if (isset($_GET['id'])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
+                            <div class="col-xl-6" style="display: <?php if ($position == 'Admin') { echo 'flex'; } else { echo 'none'; } ?>;">
                                 <div class="row">
                                     <div class="col-md-4 col-sm-2 mb-3">
                                         <div class="card ">
