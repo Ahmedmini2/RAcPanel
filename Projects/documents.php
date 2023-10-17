@@ -200,7 +200,7 @@ if(isset($_GET['project_id'])){
                       <td class="text-xs text-secondary mb-0"><?=$r['created_at']?></td>
 
                       <td><?php if ($position == 'Admin') { ?> 
-                          <a href="add-document.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                          <a href="add-document.php?edit=<?=$r['id']?>&project_id=<?=$id?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
                           <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
