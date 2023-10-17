@@ -586,6 +586,82 @@ if (isset($_GET['id'])) {
                                                 <!--Table body-->
                                             </table>
 
+                                            <span class="mb-2 text-lg">الاغطية</span>
+
+                                            <table class="table table-hover table-fixed">
+
+                                                <!--Table head-->
+                                                <thead class="bg-dark text-light text-center">
+                                                    <tr>
+                                                        <th>الرقم</th>
+                                                        <th>نوع الغطاء</th>
+                                                        <th>الكمية</th>
+                                                        <th>سعر الحبه</th>
+                                                        <th>السعر الكلي</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <!--Table head-->
+
+                                                <!--Table body-->
+                                                <tbody class=" text-center">
+                                                    <?php
+                                                    $i = 0;
+                                                    $prod_id = $prod['id'];
+                                                    $res7 = mysqli_query($conn, "SELECT * FROM covers_band WHERE `product_id` = $prod_id");
+                                                    while ($cover = mysqli_fetch_array($res7)) {
+                                                        $i++;
+                                                    ?>
+                                                        <tr>
+                                                            <th scope="row"><?= $i ?></th>
+                                                            <td><?=$cover['type']?></td>
+                                                            <td><?=$prod['quantity']?></td>
+                                                            <td><?=$cover['price_per_piece']?></td>
+                                                            <td><?=$cover['total_price']?></td>
+                                                        </tr>
+                                                    <?php } ?>
+
+                                                </tbody>
+                                                <!--Table body-->
+                                            </table>
+
+                                            <span class="mb-2 text-lg">بنود إضافية</span>
+
+                                            <table class="table table-hover table-fixed">
+
+                                                <!--Table head-->
+                                                <thead class="bg-dark text-light text-center">
+                                                    <tr>
+                                                        <th>الرقم</th>
+                                                        <th>إسم البند</th>
+                                                        <th>سعر الفرد</th>
+                                                        <th>السعر الكلي</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <!--Table head-->
+
+                                                <!--Table body-->
+                                                <tbody class=" text-center">
+                                                    <?php
+                                                    $i = 0;
+                                                    $prod_id = $prod['id'];
+                                                    $res8 = mysqli_query($conn, "SELECT * FROM extra_band WHERE `product_id` = $prod_id");
+                                                    while ($extra = mysqli_fetch_array($res8)) {
+                                                        $i++;
+                                                    ?>
+                                                        <tr>
+                                                            <th scope="row"><?= $i ?></th>
+                                                            <td><?=$extra['name']?></td>
+                                                            <td><?=$extra['price_per_piece']?></td>
+                                                            <td><?=$extra['total_price']?></td>
+                                                        </tr>
+                                                    <?php } ?>
+
+                                                </tbody>
+                                                <!--Table body-->
+                                            </table>
+
                                             </div>
                                         <?php } ?>
                                         </li>
