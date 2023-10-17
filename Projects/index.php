@@ -219,7 +219,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                            
                             <div class="card-body">
 
-                                <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم <?=$r["id"]?> '</p>
+                                <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم <?=$r["id"]?></p>
 
                                 <h4 class="card-title"> <?=$r["name"]?> </h4>
                                 
