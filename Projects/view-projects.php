@@ -423,7 +423,7 @@ if (isset($_GET['id'])) {
 
                         </div>
 
-                        <!--Table-->
+                        <!--Table خط سير تنفيد المشروع -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="card mb-4 mt-3">
@@ -502,9 +502,7 @@ if (isset($_GET['id'])) {
                                 </div>
                             </div>
                         </div>
-                        <!--Table -->
-
-                        <!--Table-->
+                        <!--Table البنود -->
                         <div class="col mt-4">
                             <div class="card">
                                 <div class="card-header pb-0 px-3">
@@ -753,9 +751,7 @@ if (isset($_GET['id'])) {
                                 </div>
                             </div>
                         </div>
-                        <!--Table -->
-
-                         <!--Table-->
+                        <!--Table المجموع الكلي لجميع الاصناف -->
                          <div class="row">
                             <div class="col-12">
                                 <div class="card mb-4 mt-3">
@@ -796,10 +792,11 @@ if (isset($_GET['id'])) {
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
                                                             <td><?= $products['product_name'] ?></td>
-                                                            <td><?= $products['cost_price'] - $production ?></td>
-                                                            <td><?= $products['net_profit'] - $production ?></td>
-                                                            <td><?= $products['net_perc'] - $production ?></td>
-                                                            <td><?= $products['quantity'] - $production ?></td>
+                                                            <td><?= $products['cost_price']  ?></td>
+                                                            <td><?= $products['sell_price']  ?></td>
+                                                            <td><?= $products['net_profit']  ?></td>
+                                                            <td><?= $products['net_perc'] ?></td>
+                                                          
                                                         </tr>
                                                     <?php } ?>
 
@@ -813,7 +810,6 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                         <!--Table -->
-
                         <div class="col mt-4">
                             <div class="card h-100">
                                 <div class="card-header pb-0 p-3">
@@ -846,7 +842,7 @@ if (isset($_GET['id'])) {
                                 </div>
                             </div>
                         </div>
-
+                        <!--Table -->
                         <div class="col-lg-16 col-md-6 my-4">
                             <div class="card h-100">
                                 <div class="card-header pb-0">
