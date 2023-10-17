@@ -197,7 +197,7 @@ $select =mysqli_query($conn, "select * from users");
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a  hclass="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="../Messages/index.php" role="tab" aria-selected="false">
+                  <a  hclass="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
                     <svg class="text-dark" width="16px" height="16px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <title>document</title>
                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

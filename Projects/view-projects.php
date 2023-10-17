@@ -353,6 +353,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">

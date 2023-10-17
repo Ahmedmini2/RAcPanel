@@ -105,6 +105,12 @@ while ($ban = mysqli_fetch_array($banner)) {
                 </div>
               </a>
             </li>
+            <li class="nav-item px-3 d-flex align-items-center">
+              <a href="Messages/chat.php" class="nav-link text-body p-0">
+
+                <i class="far fa-comments me-sm-1 cursor-pointer"></i>
+              </a>
+            </li>
 
             <!-- Notifications -->
             <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
@@ -117,6 +123,8 @@ while ($ban = mysqli_fetch_array($banner)) {
               </ul>
             </li>
             <!-- End of Notifications -->
+
+            
 
           </ul>
         </div>
@@ -307,6 +315,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                   </div>
                 </div>
                 <div class="col-4 text-start">
+                  
                   <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
                     <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
                   </div>
@@ -468,7 +477,7 @@ while ($ban = mysqli_fetch_array($banner)) {
         </div>
       </div>
 
-      <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+     <!-- <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
         <div class="card">
           <div class="card-header p-3 pb-0">
             <h6 class="mb-0">الاحداث القادمة</h6>
@@ -503,7 +512,7 @@ while ($ban = mysqli_fetch_array($banner)) {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       
 
       <div class="row my-4">

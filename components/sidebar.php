@@ -254,12 +254,12 @@ $sidebar = $_SESSION['sidebar'];
                         <span class="d-none d-sm-inline mx-1">عباس الجعفري</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">الرسائل</a></li>
+                        <li><a class="dropdown-item" href="../Messages/chat.php">الرسائل</a></li>
                         <li><a class="dropdown-item" href="../Profile/profile.php">الملف الشخصي</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">تسجيل الخروج</a></li>
+                        <li><a class="dropdown-item" href="../Auth/logout.php">تسجيل الخروج</a></li>
                     </ul>
                 </div>
   </div>
