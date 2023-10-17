@@ -556,7 +556,7 @@ if (isset($_GET['id'])) {
                                                                         <th scope="row"><?= $i ?></th>
                                                                     
                                                                         <td><?= $iron['size'] ?></td>
-                                                                        <td><?= number_format($products['price_today'],2,'.',',')?></td>
+                                                                        <td><?= number_format($iron['price_today'],2,'.',',')?></td>
                                                                         <td><?= $iron['quantity'] ?></td>
                                                                         <td><?= $iron['iron_height'] ?></td>
                                                                         <td><?= $iron['tn_price'] ?></td>
