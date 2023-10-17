@@ -625,7 +625,7 @@ if (isset($_GET['project_id'])) {
                     <div class="col-6">
                         <div class="row">
                             <h6>Prepared by</h6>
-                            <input type="text" style="border:none"/>
+                            <input type="text" class="signture" id="signture"/>
                             <h5></h5>
                         </div>
                     </div>
