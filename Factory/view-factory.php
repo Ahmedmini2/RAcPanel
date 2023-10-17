@@ -21,8 +21,18 @@ if (isset($_GET['id'])) {
         $res4 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $product_id AND `status` ='إنتاج'");
         while ($r3 = mysqli_fetch_array($res4)) {
             $total_bills += $r3['total_price'];
+            $kh_used_total += $r3['kharasana_used'];
+        }
+        $res44 = mysqli_query($conn, "SELECT * FROM kharasana WHERE `product_id` = $product_id ");
+        while ($r22 = mysqli_fetch_array($res44)) {
+            $kh_quan_tot += $r22['quantity_per_piece'] * $r2['quantity'];
+            
+            
+       
         }
     }
+    
+
 }
 
 
@@ -353,7 +363,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">الخرسانة الكلية</h6>
                                                 <hr class="horizontal dark my-3">
 
-                                                <h5 class="mb-0"><?= number_format($project['project_cost']) ?> ريال</h5>
+                                                <h5 class="mb-0"><?=$kh_quan_tot?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -368,7 +378,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">ما تم صبه</h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0"><?=number_format($project['project_cost'] - $total_bills)?> ريال</h5>
+                                                <h5 class="mb-0"><?=$kh_used_total?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -383,7 +393,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0"> متبقي كمية الخرسانة </h6>
 
                                                 <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0"><?=number_format($total_bills)?> ريال</h5>
+                                                <h5 class="mb-0"><?=$kh_quan_tot - $kh_used_total?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -446,8 +456,8 @@ if (isset($_GET['id'])) {
                                                     $status_id = $products['id'];
                                                     $kh_used = 0;
                                                     $kh_used_price = 0;
-                                                     $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id AND `status` ='إنتاج'");
-                                                     while ($status = mysqli_fetch_array($res5)) {
+                                                        $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id AND `status` ='إنتاج'");
+                                                        while ($status = mysqli_fetch_array($res5)) {
                                                         $kh_used += $status['kharasana_used'];
                                                         $kh_used_price += $status['total_price'];
                                                         

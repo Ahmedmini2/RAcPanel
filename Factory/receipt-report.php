@@ -25,7 +25,7 @@ if (isset($_GET['project_id'])) {
         $insert_product_del= "INSERT INTO `product_delivery` (`id`,`project_id`, `product_id`, `quantity`, `image`, `created_at`) VALUES (NULL,'$id', '$product_id', '$del_quantity', '$filename', NOW())";
         $res = $conn->query($insert_product_del);
         if ($res) {
-            $_SESSION['notification'] = "تم اضافة تقرير الانتاج بنجاح";
+            $_SESSION['notification'] = "تم اضافة تقرير الإستلام بنجاح";
             header('location: view-factory.php?id='.$id.'');
             exit();
           } else {
