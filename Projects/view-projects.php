@@ -429,11 +429,11 @@ if (isset($_GET['id'])) {
 
                         </div>
 
-                        <!--Table-->
+                        <!--Table خط سير تنفيد المشروع -->
                         <div class="row">
                             <div class="col-12">
-                                <div class="card mb-4">
-                                    <div class="card-header pb-0">
+                                <div class="card mb-4 mt-3">
+                                    <div class="card-header pb-0 ">
                                         <h6>خط سير تنفيد المشروع</h6>
                                     </div>
                                     <div class="card-body px-0 pt-0 pb-2 mx-3">
@@ -508,9 +508,7 @@ if (isset($_GET['id'])) {
                                 </div>
                             </div>
                         </div>
-                        <!--Table -->
-
-
+                        <!--Table البنود -->
                         <div class="col mt-4">
                             <div class="card">
                                 <div class="card-header pb-0 px-3">
@@ -526,7 +524,7 @@ if (isset($_GET['id'])) {
                                                 <div class="d-flex flex-column">
                                                     <h6 class="mb-3 text-lg">الصنف: <?= $prod['product_name'] ?> </h6>
                                                     <span class="mb-2 text-lg">الحديد</span>
-                                                    <div class="table-responsive p-0">
+                                                    <div class="table-responsive p-0 mb-3">
                                                         <table class="table table-hover table-fixed">
 
                                                             <!--Table head-->
@@ -578,7 +576,7 @@ if (isset($_GET['id'])) {
 
 
                                                     <span class="mb-2 text-lg">الإكسسوارات</span>
-                                                    <div class="table-responsive p-0">
+                                                    <div class="table-responsive p-0 mb-3">
                                                         <table class="table table-hover table-fixed">
 
                                                             <!--Table head-->
@@ -625,7 +623,7 @@ if (isset($_GET['id'])) {
 
 
                                                     <span class="mb-2 text-lg">الاغطية</span>
-                                                    <div class="table-responsive p-0">
+                                                    <div class="table-responsive p-0 mb-3">
                                                         <table class="table table-hover table-fixed">
 
                                                             <!--Table head-->
@@ -665,7 +663,7 @@ if (isset($_GET['id'])) {
                                                     </div>
 
                                                     <span class="mb-2 text-lg">بنود إضافية</span>
-                                                    <div class="table-responsive p-0">
+                                                    <div class="table-responsive p-0 mb-3">
                                                         <table class="table table-hover table-fixed">
 
                                                             <!--Table head-->
@@ -695,11 +693,55 @@ if (isset($_GET['id'])) {
                                                                         <td><?= $extra['price_per_piece'] ?></td>
                                                                         <td><?= $extra['total_price'] ?></td>
                                                                     </tr>
-                                                                    <tr class="table-secondary">
+                                                                    
+                                                                <?php } ?>
+                                                                <tr class="table-secondary">
                                                                         <td colspan="3">المجموع</td>
                                                                         <td>89.2554</td>
                                                                     </tr>
+
+                                                            </tbody>
+                                                            <!--Table body-->
+                                                        </table>
+                                                    </div>
+
+                                                    <span class="mb-2 text-lg">مجموع الاصناف</span>
+                                                    <div class="table-responsive p-0 mb-3">
+                                                        <table class="table table-hover table-fixed">
+
+                                                            <!--Table head-->
+                                                            <thead class="bg-dark text-light text-center">
+                                                                <tr>
+                                                                    <th>الرقم</th>
+                                                                    <th>إسم الصنف</th>
+                                                                    <th>سعر كلي</th>
+                                                                    <th>مجموع الكلي للاصناف</th>
+
+                                                                </tr>
+                                                            </thead>
+                                                            <!--Table head-->
+
+                                                            <!--Table body-->
+                                                            <tbody class=" text-center">
+                                                                <?php
+                                                                $i = 0;
+                                                                $prod_id = $prod['id'];
+                                                                $res8 = mysqli_query($conn, "SELECT * FROM extra_band WHERE `product_id` = $prod_id");
+                                                                while ($extra = mysqli_fetch_array($res8)) {
+                                                                    $i++;
+                                                                ?>
+                                                                    <tr>
+                                                                        <th scope="row"><?= $i ?></th>
+                                                                        <td><?= $extra['name'] ?></td>
+                                                                        <td><?= $extra['price_per_piece'] ?></td>
+                                                                        <td><?= $extra['total_price'] ?></td>
+                                                                    </tr>
+                                                                    
                                                                 <?php } ?>
+                                                                <tr class="table-secondary">
+                                                                        <td colspan="3">المجموع</td>
+                                                                        <td>89.2554</td>
+                                                                    </tr>
 
                                                             </tbody>
                                                             <!--Table body-->
@@ -710,10 +752,70 @@ if (isset($_GET['id'])) {
                                             <?php } ?>
                                             </li>
 
+
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                        <!--Table المجموع الكلي لجميع الاصناف -->
+                         <div class="row">
+                            <div class="col-12">
+                                <div class="card mb-4 mt-3">
+                                    <div class="card-header pb-0 ">
+                                        <h6>المجموع الكلي لجميع الاصناف</h6>
+                                    </div>
+                                    <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                        <div class="table-responsive p-0">
+                                            <table class="table table-hover table-fixed">
+
+                                                <!--Table head-->
+                                                <thead class="bg-dark text-light text-center">
+                                                    <tr>
+                                                        <th>الرقم</th>
+                                                        <th>اسم الصنف</th>
+                                                        <th>تكلفه الصنف</th>
+                                                        <th>سعر البيع</th>
+                                                        <th>صافي الربح</th>
+                                                        <th>نسبه الربح</th>
+                                                       
+                                                        
+
+                                                    </tr>
+                                                </thead>
+                                                <!--Table head-->
+
+                                                <!--Table body-->
+                                                <tbody class=" text-center">
+                                                    <?php
+                                                    $i = 0;
+                                                    $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+                                                    while ($products = mysqli_fetch_array($res3)) {
+                                                        $i++;
+                                                        $inventory = 0;
+                                                        $production = 0;
+                                                        $deliverd = 0;
+                                                    ?>
+                                                        <tr>
+                                                            <th scope="row"><?= $i ?></th>
+                                                            <td><?= $products['product_name'] ?></td>
+                                                            <td><?= $products['cost_price']  ?></td>
+                                                            <td><?= $products['sell_price']  ?></td>
+                                                            <td><?= $products['net_profit']  ?></td>
+                                                            <td><?= $products['net_perc'] ?></td>
+                                                          
+                                                        </tr>
+                                                    <?php } ?>
+
+                                                </tbody>
+                                                <!--Table body-->
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Table -->
                         <div class="col mt-4">
                             <div class="card h-100">
                                 <div class="card-header pb-0 p-3">
@@ -746,7 +848,7 @@ if (isset($_GET['id'])) {
                                 </div>
                             </div>
                         </div>
-
+                        <!--Table -->
                         <div class="col-lg-16 col-md-6 my-4">
                             <div class="card h-100">
                                 <div class="card-header pb-0">
