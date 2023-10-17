@@ -183,7 +183,7 @@ if (isset($_GET['id'])) {
                         <!-- Card Header  -->
 
                         <div class="row ">
-                            <div class="text-right col-lg-8 col-sm-6">
+                            <div class="text-right col-lg-9 col-sm-6">
                                 <a href="purchase_order.php?project_id=<?= $id ?>" id="btn2" class="btn bg-gradient-dark mb-0">
                                     طباعة التسعيرة
                                     <i class="fas fa-plus" aria-hidden="true"></i>
@@ -198,7 +198,7 @@ if (isset($_GET['id'])) {
                                 </a>
 
                             </div>
-                            <div class="text-left col-lg-4 col-sm-6">
+                            <div class="text-left col-lg-3 col-sm-6">
                                 
                                 <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     تغير حالة المشروع
