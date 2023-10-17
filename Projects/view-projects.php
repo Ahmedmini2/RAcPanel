@@ -193,10 +193,6 @@ if (isset($_GET['id'])) {
                                     <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
                                 <a href="" id="btn3" class="btn bg-gradient-dark mb-0">
-                                    طباعة البنود
-                                    <i class="fas fa-plus" aria-hidden="true"></i>
-                                </a>
-                                <a href="" id="btn3" class="btn bg-gradient-dark mb-0">
                                     تعديل بيانات المشروع
                                     <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
