@@ -690,7 +690,7 @@ if (isset($_GET['id'])) {
                                                                         <td><?= $extra['total_price'] ?></td>
                                                                     </tr>
                                                                     <tr class="table-secondary">
-                                                                        <td colspan="6">المجموع</td>
+                                                                        <td colspan="3">المجموع</td>
                                                                         <td>89.2554</td>
                                                                     </tr>
                                                                 <?php } ?>
