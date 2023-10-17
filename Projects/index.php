@@ -188,7 +188,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
               while ($r = mysqli_fetch_array($projects)) {
                 $endDate = strtotime($r['duration']);  // Convert the duration to a timestamp
                 $currentDate = time();               // Get the current timestamp
-                $timeDiff = $endDate - $currentDate; // Calculate the time difference
+                $timeDiff = $endDate - $currentDate; // Calculate the time differenc
                
                 ?>
                <div class=" col-xs-12 col-sm-6 col-md-4 pt-2">
@@ -201,7 +201,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                 <?php  if ($timeDiff >= 3 * 24 * 60 * 60) { // 3 days in seconds ?>
                                 <span class="ribbon-pop" dir="ltr">ينتهي في <?=$r['duration']?></span>
                                 <?php  }?>
-                                    <div class=" rgba-white-slight"><?=$r['duration']?>;</div>
+                                    <div class=" rgba-white-slight"></div>
                                
                             </div>
 
