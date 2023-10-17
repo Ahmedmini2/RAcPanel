@@ -28,12 +28,12 @@ if (!empty($_GET['edit'])) {
     if ($updateResult) {
 
       $_SESSION['notification'] = "تم تعديل المستند بنجاح";
-      header('location: documents.php'.$project_id.'');
+      header('location: documents.php?project_id='.$project_id.'');
       exit();
 
       } else {
       $_SESSION['notification'] = "يوجد خلل في النظام";
-      header('location: documents.php'.$project_id.'');
+      header('location: documents.php?project_id='.$project_id.'');
       exit();
 
       }
@@ -57,12 +57,12 @@ if (!empty($_GET['edit'])) {
     if ($insertResult) {
 
         $_SESSION['notification'] = "تم اضافة المستند بنجاح";
-        header('location: documents.php'.$project_id.'');
+        header('location: documents.php?project_id='.$project_id.'');
         exit();
 
   } else {
     $_SESSION['notification'] = "يوجد خلل في النظام";
-    header('location: documents.php'.$project_id.'');
+    header('location: documents.php?project_id='.$project_id.'');
     exit();
 
   }
