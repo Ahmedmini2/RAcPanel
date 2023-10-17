@@ -194,7 +194,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                          
                             <div class="view overlay">
                                 <img class="inside-card card-img-top" src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="Card image cap">
-                                <span class="ribbon-pop"></span>
+                                <span class="ribbon-pop" dir="ltr"></span>
                                     <div class=" rgba-white-slight"></div>
                                 
                             </div>
