@@ -253,10 +253,9 @@ if (isset($_POST['submit'])) {
                   <label>نوع الاغطية</label>
                   <select name="type" id="type" class="form-control" placeholder="نوع الاغطية">
                     <option value="<?=$type?>"><?=$type?></option>
-                    <option value="بدون اغطية">بدون اغطية</option>
-                    <option value="غطاء واحد">غطاء واحد</option>
-                    <option value="غطائين">غطائين</option>
-                    <option value="غطاء دائري">غطاء دائري</option>
+                    <option value="1 cover with frame ">1 cover with frame </option>
+                    <option value="1 cover without frame">1 cover without frame</option>
+                    
 
                   </select>
                 </div>
