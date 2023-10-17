@@ -558,8 +558,9 @@ if (isset($_GET['id'])) {
                                                                         <td><?= $iron['total_price'] ?></td>
                                                                     </tr>
                                                                 <?php } ?>
-                                                                    <tr>
-                                                                    <td>8222</td>
+                                                                    <tr >
+                                                                    <td colspan="5">Total</td>
+                                                                    <td >89.2554</td>
                                                                     </tr>
 
                                                             </tbody>
