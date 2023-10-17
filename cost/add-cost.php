@@ -224,9 +224,13 @@ if (!empty($_GET['edit'])) {
                   <label>نوع التكلفة</label>
                   <select name="type" id="type" class="form-control" placeholder="نوع التكلفة">
                     <option value="<?php echo $type; ?>"><?php echo $type; ?></option>
-                    <option value="بنزين">بنزين </option>
-                    <option value="مشتريات خارجية">مشتريات خارجية</option>
+                    <?php 
+                    $select = mysqli_query($conn, "select * from cost_type");
+                    while ($r = mysqli_fetch_array($select)) {
 
+                      echo '<option value="' . $r['name'] . '">' . $r['name'] . '</option>';
+                    }
+                    ?>
                   </select>
                 </div>
               </div>
