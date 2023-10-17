@@ -689,11 +689,55 @@ if (isset($_GET['id'])) {
                                                                         <td><?= $extra['price_per_piece'] ?></td>
                                                                         <td><?= $extra['total_price'] ?></td>
                                                                     </tr>
-                                                                    <tr class="table-secondary">
+                                                                    
+                                                                <?php } ?>
+                                                                <tr class="table-secondary">
                                                                         <td colspan="3">المجموع</td>
                                                                         <td>89.2554</td>
                                                                     </tr>
+
+                                                            </tbody>
+                                                            <!--Table body-->
+                                                        </table>
+                                                    </div>
+
+                                                    <span class="mb-2 text-lg">مجموع الاصناف</span>
+                                                    <div class="table-responsive p-0">
+                                                        <table class="table table-hover table-fixed">
+
+                                                            <!--Table head-->
+                                                            <thead class="bg-dark text-light text-center">
+                                                                <tr>
+                                                                    <th>الرقم</th>
+                                                                    <th>إسم الصنف</th>
+                                                                    <th>سعر كلي</th>
+                                                                    <th>مجموع الكلي للاصناف</th>
+
+                                                                </tr>
+                                                            </thead>
+                                                            <!--Table head-->
+
+                                                            <!--Table body-->
+                                                            <tbody class=" text-center">
+                                                                <?php
+                                                                $i = 0;
+                                                                $prod_id = $prod['id'];
+                                                                $res8 = mysqli_query($conn, "SELECT * FROM extra_band WHERE `product_id` = $prod_id");
+                                                                while ($extra = mysqli_fetch_array($res8)) {
+                                                                    $i++;
+                                                                ?>
+                                                                    <tr>
+                                                                        <th scope="row"><?= $i ?></th>
+                                                                        <td><?= $extra['name'] ?></td>
+                                                                        <td><?= $extra['price_per_piece'] ?></td>
+                                                                        <td><?= $extra['total_price'] ?></td>
+                                                                    </tr>
+                                                                    
                                                                 <?php } ?>
+                                                                <tr class="table-secondary">
+                                                                        <td colspan="3">المجموع</td>
+                                                                        <td>89.2554</td>
+                                                                    </tr>
 
                                                             </tbody>
                                                             <!--Table body-->
@@ -703,6 +747,7 @@ if (isset($_GET['id'])) {
                                                 </div>
                                             <?php } ?>
                                             </li>
+
 
                                     </ul>
                                 </div>
