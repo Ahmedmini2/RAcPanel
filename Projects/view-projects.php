@@ -353,21 +353,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
-                                        <div class="card ">
-                                            <div class="card-header mx-4 p-3 text-center">
-                                                <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
-                                                    <i class="fas fa-landmark opacity-10"></i>
-                                                </div>
-                                            </div>
-                                            <div class="card-body pt-0 p-3 text-center">
-                                                <h6 class="text-center mb-0">صافي الربح بعد تكلفة</h6>
-
-                                                <hr class="horizontal dark my-3">
-                                                <h5 class="mb-0"><?php echo number_format((($project['total_without_tax'] - $project['project_cost']) / $project['project_cost']) * 100, 2);  ?> %</h5>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
