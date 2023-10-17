@@ -196,7 +196,7 @@ $sidebar = $_SESSION['sidebar'];
         </li>
         <?php } ?>
       </ul>
-      <?php if ($position == 'Admin' || $position == 'Worker') { ?> 
+      <?php if ($position == 'Admin') { ?> 
       <li class="nav-item">
         <a class="nav-link <?php if ($sidebar == "Cover") echo 'active'; ?>" href="../Cover/index.php">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
