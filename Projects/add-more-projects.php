@@ -28,8 +28,8 @@ if (isset($_POST['add-project'])) {
   $product_name = $_POST['product_name'];
   $dimensions = $_POST['dimensions'];
   $quantity = $_POST['quantity'];
-  $sell_price = $_POST['sell_price'];
-  $cost_price = $_POST['prod_peice'];
+  $sell_price = str_replace(',', '', $_POST['sell_price']);
+  $cost_price = str_replace(',', '', $_POST['prod_peice']);
   $cost_price = str_replace(',', '', $cost_price);
   $net_perc = $_POST['net_peice'];
   $net_toti = $_POST['net_toti'] / $quantity;
@@ -46,10 +46,10 @@ if (isset($_POST['add-project'])) {
     $product_id = $conn->insert_id;
 
     $kharasana = $_POST['kharasana'];
-    $kh_price = $_POST['kh_price'];
+    $kh_price = str_replace(',', '', $_POST['kh_price']);
     $kh_per = $_POST['kh_per'];
     $kh_peice = $_POST['kh_peice'];
-    $kh_tot = $_POST['kh_tot'];
+    $kh_tot = str_replace(',', '', $_POST['kh_tot']);
 
     $insert_kh = "INSERT INTO kharasana (`id`, `product_id`, `type`, `price`, `quantity_per_piece`, `price_per_piece` , `total_price`, `created_at`) 
       VALUES(NULL, $product_id, '$kharasana', '$kh_price', '$kh_per', '$kh_peice' , '$kh_tot' , NOW())";
@@ -62,11 +62,11 @@ if (isset($_POST['add-project'])) {
       }
       while ($iron1 <= $iron_raws) {
         $iron = $_POST['iron_' . $iron1];
-        $iron_price = $_POST['iron_price_' . $iron1];
+        $iron_price = str_replace(',', '', $_POST['iron_price_' . $iron1]);
         $iron_quantity = $_POST['iron_quantity_' . $iron1];
         $iron_long = $_POST['iron_long_' . $iron1];
         $iron_tn = $_POST['iron_tn_' . $iron1];
-        $iron_tot = $_POST['iron_tot_' . $iron1];
+        $iron_tot = str_replace(',', '', $_POST['iron_tot_' . $iron1]);
 
         $sizeText = [
           "0.395" => "8مم",
@@ -100,8 +100,8 @@ if (isset($_POST['add-project'])) {
       while ($accessory1 <= $accessory_raws) {
         $accessory = $_POST['accessory_' . $accessory1];
         $acc_quantity = $_POST['acc_quantity_' . $accessory1];
-        $acc_price = $_POST['acc_price_' . $accessory1];
-        $acc_tot = $_POST['acc_tot_' . $accessory1];
+        $acc_price = str_replace(',', '', $_POST['acc_price_' . $accessory1]);
+        $acc_tot = str_replace(',', '', $_POST['acc_tot_' . $accessory1]);
 
         $insert_accessory = "INSERT INTO `accessory_band` (`id`, `product_id`, `name`, `quantity`, `price_per_piece`, `total_price`, `created_at`) 
                     VALUES (NULL, '$product_id' , '$accessory' , '$acc_quantity' , '$acc_price' , '$acc_tot' , NOW())";
@@ -115,8 +115,8 @@ if (isset($_POST['add-project'])) {
       }
 
       $cover_type = $_POST['cover_type'];
-      $cover_price = $_POST['cover_price'];
-      $cover_tot = $_POST['cover_tot'];
+      $cover_price = str_replace(',', '', $_POST['cover_price']);
+      $cover_tot = str_replace(',', '', $_POST['cover_tot']);
 
       $insert_cover = "INSERT INTO `covers_band` (`id`, `product_id`, `type`, `price_per_piece`, `total_price`, `created_at`) 
         VALUES (NULL , '$product_id' , '$cover_type' , '$cover_price' , '$cover_tot' , NOW())";
@@ -129,8 +129,8 @@ if (isset($_POST['add-project'])) {
         }
         while ($band1 <= $band_raws) {
           $band = $_POST['band_' . $band1];
-          $band_price = $_POST['band_price_' . $band1];
-          $band_tot = $_POST['band_tot_' . $band1];
+          $band_price = str_replace(',', '', $_POST['band_price_' . $band1]);
+          $band_tot = str_replace(',', '', $_POST['band_tot_' . $band1]);
 
           $insert_band = "INSERT INTO `extra_band` (`id`, `product_id`, `name`, `price_per_piece`, `total_price`, `created_at`) 
             VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
@@ -178,7 +178,7 @@ if (isset($_POST['add-project'])) {
   $cost_price = $_POST['prod_peice'];
   $cost_price = str_replace(',', '', $cost_price);
   $net_perc = $_POST['net_peice'];
-  $net_toti = $_POST['net_toti'] / $quantity;
+  $net_toti = str_replace(',', '', $_POST['net_toti']) / $quantity;
 
   $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
   $product_res = $conn->query($insert_product);
@@ -187,10 +187,10 @@ if (isset($_POST['add-project'])) {
     $product_id = $conn->insert_id;
 
     $kharasana = $_POST['kharasana'];
-    $kh_price = $_POST['kh_price'];
+    $kh_price = str_replace(',', '', $_POST['kh_price']);
     $kh_per = $_POST['kh_per'];
     $kh_peice = $_POST['kh_peice'];
-    $kh_tot = $_POST['kh_tot'];
+    $kh_tot = str_replace(',', '', $_POST['kh_tot']);
 
     $insert_kh = "INSERT INTO kharasana (`id`, `product_id`, `type`, `price`, `quantity_per_piece`, `price_per_piece` , `total_price`, `created_at`) 
           VALUES(NULL, $product_id, '$kharasana', '$kh_price', '$kh_per', '$kh_peice' , '$kh_tot' , NOW())";
@@ -203,11 +203,11 @@ if (isset($_POST['add-project'])) {
       }
       while ($iron1 <= $iron_raws) {
         $iron = $_POST['iron_' . $iron1];
-        $iron_price = $_POST['iron_price_' . $iron1];
+        $iron_price = str_replace(',', '', $_POST['iron_price_' . $iron1]);
         $iron_quantity = $_POST['iron_quantity_' . $iron1];
         $iron_long = $_POST['iron_long_' . $iron1];
         $iron_tn = $_POST['iron_tn_' . $iron1];
-        $iron_tot = $_POST['iron_tot_' . $iron1];
+        $iron_tot = str_replace(',', '', $_POST['iron_tot_' . $iron1]);
 
         $sizeText = [
           "0.395" => "8مم",
@@ -241,8 +241,8 @@ if (isset($_POST['add-project'])) {
       while ($accessory1 <= $accessory_raws) {
         $accessory = $_POST['accessory_' . $accessory1];
         $acc_quantity = $_POST['acc_quantity_' . $accessory1];
-        $acc_price = $_POST['acc_price_' . $accessory1];
-        $acc_tot = $_POST['acc_tot_' . $accessory1];
+        $acc_price = str_replace(',', '', $_POST['acc_price_' . $accessory1]);
+        $acc_tot = str_replace(',', '', $_POST['acc_tot_' . $accessory1]);
 
         $insert_accessory = "INSERT INTO `accessory_band` (`id`, `product_id`, `name`, `quantity`, `price_per_piece`, `total_price`, `created_at`) 
               VALUES (NULL, '$product_id' , '$accessory' , '$acc_quantity' , '$acc_price' , '$acc_tot' , NOW())";
@@ -256,8 +256,8 @@ if (isset($_POST['add-project'])) {
       }
 
       $cover_type = $_POST['cover_type'];
-      $cover_price = $_POST['cover_price'];
-      $cover_tot = $_POST['cover_tot'];
+      $cover_price = str_replace(',', '', $_POST['cover_price']);
+      $cover_tot = str_replace(',', '', $_POST['cover_tot']);
 
       $insert_cover = "INSERT INTO `covers_band` (`id`, `product_id`, `type`, `price_per_piece`, `total_price`, `created_at`) 
             VALUES (NULL , '$product_id' , '$cover_type' , '$cover_price' , '$cover_tot' , NOW())";
@@ -270,8 +270,8 @@ if (isset($_POST['add-project'])) {
         }
         while ($band1 <= $band_raws) {
           $band = $_POST['band_' . $band1];
-          $band_price = $_POST['band_price_' . $band1];
-          $band_tot = $_POST['band_tot_' . $band1];
+          $band_price = str_replace(',', '', $_POST['band_price_' . $band1]);
+          $band_tot = str_replace(',', '', $_POST['band_tot_' . $band1]);
 
           $insert_band = "INSERT INTO `extra_band` (`id`, `product_id`, `name`, `price_per_piece`, `total_price`, `created_at`) 
                 VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
@@ -281,9 +281,9 @@ if (isset($_POST['add-project'])) {
               $deliverable = 1;
               $quantity_of_track = $_POST['quantity_of_track'];
               $delivery_to = $_POST['delivery_to'];
-              $track_price = $_POST['track_price'];
-              $piece_price = $_POST['piece_price'];
-              $total_track_price = $_POST['total_price'];
+              $track_price = str_replace(',', '', $_POST['track_price']);
+              $piece_price = str_replace(',', '', $_POST['piece_price']);
+              $total_track_price = str_replace(',', '', $_POST['total_price']);
               $peice_per_track = $_POST['peice_per_track'];
 
 
