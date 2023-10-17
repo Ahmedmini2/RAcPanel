@@ -283,7 +283,7 @@ if (isset($_POST['submit'])) {
               <div class="col">
                 <div class="form-group">
                   <label>سعر الغطاء الواحد</label>
-                  <input type="number" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="price_per_peice" id="price_per_peice" value="<?php echo $price_per_peice; ?>">
+                  <input type="number" placeholder="ادخل سعر الغطاء الواحد" class="form-control" name="price_per_peice" id="price_per_peice" value="<?php echo $price_per_peice; ?>">
                 </div>
               </div>
             </div>
@@ -299,7 +299,7 @@ if (isset($_POST['submit'])) {
               <div class="col">
                 <div class="form-group">
                   <label>إسم البائع</label>
-                  <input type="text" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="seller" value="<?php echo $seller; ?>">
+                  <input type="text" placeholder="ادخل إسم البائع" class="form-control" name="seller" value="<?php echo $seller; ?>">
                 </div>
               </div>
               <div class="col">
@@ -311,13 +311,13 @@ if (isset($_POST['submit'])) {
               <div class="col">
                 <div class="form-group">
                   <label>رقم الهاتف</label>
-                  <input type="text" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="phone" value="<?php echo $phone; ?>">
+                  <input type="text" placeholder="ادخل رقم الهاتف" class="form-control" name="phone" value="<?php echo $phone; ?>">
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
                   <label>البريد</label>
-                  <input type="text" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="email" value="<?php echo $email; ?>">
+                  <input type="text" placeholder="ادخل البريد" class="form-control" name="email" value="<?php echo $email; ?>">
                 </div>
               </div>
             </div>
