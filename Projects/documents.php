@@ -196,7 +196,7 @@ if(isset($_GET['project_id'])){
 
                       <td class="text-xs text-secondary mb-0"><?=$r['id']?></td>
                       <td class="text-xs text-secondary mb-0"><?=$r['name']?></td>
-                      <td class="mb-0 text-sm"><a>صورة المستند</a></td>
+                      <td class="mb-0 text-sm"><a href="../Signed-Docs/Project-Doc/<?=$id?>/<?=$r['image']?>" target="_blank">صورة المستند</a></td>
                       <td class="text-xs text-secondary mb-0"><?=$r['created_at']?></td>
 
                       <td><?php if ($position == 'Admin') { ?> 
