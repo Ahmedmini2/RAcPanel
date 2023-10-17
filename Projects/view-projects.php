@@ -771,6 +771,9 @@ if (isset($_GET['id'])) {
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>اسم الصنف</th>
+                                                        <th>سعر الصنف</th>
+                                                        <th>صافي الربح</th>
+                                                        <th>نسبه الربح</th>
                                                         <th>مجموع الكلي للاصناف</th>
                                                         
 
@@ -792,7 +795,9 @@ if (isset($_GET['id'])) {
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
                                                             <td><?= $products['product_name'] ?></td>
-                                                            
+                                                            <td><?= $products['quantity'] - $production ?></td>
+                                                            <td><?= $products['quantity'] - $production ?></td>
+                                                            <td><?= $products['quantity'] - $production ?></td>
                                                             <td><?= $products['quantity'] - $production ?></td>
                                                         </tr>
                                                     <?php } ?>
