@@ -186,25 +186,25 @@ if (isset($_GET['id'])) {
                             <div class="text-right col-lg-9 col-sm-6">
                                 <a href="purchase_order.php?project_id=<?= $id ?>" id="btn1" class="btn bg-gradient-dark mb-0">
                                     طباعة التسعيرة
-                                   
+
                                 </a>
                                 <a href="sales_quatation.php?project_id=<?= $id ?>" id="btn2" class="btn bg-gradient-dark mb-0">
                                     Sales Quatation
-                                   
+
                                 </a>
                                 <a href="" id="btn3" class="btn bg-gradient-dark mb-0">
                                     تعديل بيانات المشروع
-                                    
+
                                 </a>
 
                             </div>
                             <div class="text-left col-lg-3 col-sm-6">
-                                
+
                                 <button type="button" id="btn4" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     تغير حالة المشروع
                                 </button>
                                 <button type="button" id="btn5" class=" printing btn bg-gradient-dark rounded-pill" onclick="printDiv('printableArea')">
-                                     طباعة البنود 
+                                    طباعة البنود
                                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
                                 </button>
@@ -220,7 +220,7 @@ if (isset($_GET['id'])) {
                                 document.getElementById('btn5').style.display = "none";
                                 document.getElementById('information').style.display = "none";
                                 document.getElementById('navbarBlur').style.display = "none";
-                                
+
                                 window.print();
                                 document.getElementById('btn1').style.display = "inline";
                                 document.getElementById('btn2').style.display = "inline";
@@ -244,16 +244,16 @@ if (isset($_GET['id'])) {
                                     </div>
                                     <div class="modal-body">
                                         <form method="post" action="../scripts/projects/update-status.php?id=<?= $id ?>">
-                                            <?php if ($position == 'Admin' ) { ?> <button type="submit" name="confirm" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    تأكيد المشروع 
+                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="confirm" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    تأكيد المشروع
                                                 </button>
                                             <?php } ?>
                                             <br>
-                                            <?php if ($position == 'Admin' ) { ?> <button type="submit" name="progress" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="progress" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     قيد التنفيذ
                                                 </button>
                                             <?php } ?>
-                                            <?php if ($position == 'Admin' ) { ?> <button type="submit" name="done" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="done" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     تم الإنتهاء
                                                 </button>
                                             <?php } ?>
@@ -368,7 +368,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
@@ -512,176 +512,178 @@ if (isset($_GET['id'])) {
                                 </div>
                                 <div class="card-body pt-4 p-3">
                                     <ul class="list-group">
-                                        <?php 
+                                        <?php
                                         $get_products = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                         while ($prod = mysqli_fetch_array($get_products)) {
                                         ?>
-                                        <li class="list-group-item border-0 p-4 mb-2 mt-2 bg-gray-100 border-radius-lg shadow-lg">
-                                            <div class="d-flex flex-column">
-                                                <h6 class="mb-3 text-lg">الصنف: <?=$prod['product_name']?> </h6>
-                                                <span class="mb-2 text-lg">الحديد</span>
+                                            <li class="list-group-item border-0 p-4 mb-2 mt-2 bg-gray-100 border-radius-lg shadow-lg">
+                                                <div class="d-flex flex-column">
+                                                    <h6 class="mb-3 text-lg">الصنف: <?= $prod['product_name'] ?> </h6>
+                                                    <span class="mb-2 text-lg">الحديد</span>
+                                                    <div class="table-responsive p-0">
+                                                        <table class="table table-hover table-fixed">
 
-                                                <table class="table table-hover table-fixed">
+                                                            <!--Table head-->
+                                                            <thead class="bg-dark text-light text-center">
+                                                                <tr>
+                                                                    <th>الرقم</th>
+                                                                    <th>الحجم</th>
+                                                                    <th>سعر اليوم</th>
+                                                                    <th>الكمية</th>
+                                                                    <th>طول الحديد</th>
+                                                                    <th>سعر الطن</th>
+                                                                    <th>السعر الكلي</th>
 
-                                                <!--Table head-->
-                                                <thead class="bg-dark text-light text-center">
-                                                    <tr>
-                                                        <th>الرقم</th>
-                                                        <th>الحجم</th>
-                                                        <th>سعر اليوم</th>
-                                                        <th>الكمية</th>
-                                                        <th>طول الحديد</th>
-                                                        <th>سعر الطن</th>
-                                                        <th>السعر الكلي</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <!--Table head-->
 
-                                                    </tr>
-                                                </thead>
-                                                <!--Table head-->
+                                                            <!--Table body-->
+                                                            <tbody class=" text-center">
+                                                                <?php
+                                                                $i = 0;
+                                                                $prod_id = $prod['id'];
+                                                                $res5 = mysqli_query($conn, "SELECT * FROM iron_band WHERE `product_id` = $prod_id");
+                                                                while ($iron = mysqli_fetch_array($res5)) {
+                                                                    $i++;
+                                                                ?>
+                                                                    <tr>
+                                                                        <th scope="row"><?= $i ?></th>
+                                                                        <td><?= $iron['size'] ?></td>
+                                                                        <td><?= $iron['price_today'] ?></td>
+                                                                        <td><?= $iron['quantity'] ?></td>
+                                                                        <td><?= $iron['iron_height'] ?></td>
+                                                                        <td><?= $iron['tn_price'] ?></td>
+                                                                        <td><?= $iron['total_price'] ?></td>
+                                                                    </tr>
+                                                                <?php } ?>
 
-                                                <!--Table body-->
-                                                <tbody class=" text-center">
-                                                    <?php
-                                                    $i = 0;
-                                                    $prod_id = $prod['id'];
-                                                    $res5 = mysqli_query($conn, "SELECT * FROM iron_band WHERE `product_id` = $prod_id");
-                                                    while ($iron = mysqli_fetch_array($res5)) {
-                                                        $i++;
-                                                    ?>
-                                                        <tr>
-                                                            <th scope="row"><?= $i ?></th>
-                                                            <td><?=$iron['size']?></td>
-                                                            <td><?=$iron['price_today']?></td>
-                                                            <td><?=$iron['quantity']?></td>
-                                                            <td><?=$iron['iron_height']?></td>
-                                                            <td><?=$iron['tn_price']?></td>
-                                                            <td><?=$iron['total_price']?></td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                            </tbody>
+                                                            <!--Table body-->
 
-                                                </tbody>
-                                                <!--Table body-->
+                                                        </table>
+                                                    </div>
 
-                                            </table>
 
-                                            <span class="mb-2 text-lg">الإكسسوارات</span>
+                                                    <span class="mb-2 text-lg">الإكسسوارات</span>
 
-                                            <table class="table table-hover table-fixed">
+                                                    <table class="table table-hover table-fixed">
 
-                                                <!--Table head-->
-                                                <thead class="bg-dark text-light text-center">
-                                                    <tr>
-                                                        <th>الرقم</th>
-                                                        <th>إسم الاكسسوار</th>
-                                                        <th>الكمية</th>
-                                                        <th>سعر الحبه</th>
-                                                        <th>السعر الكلي</th>
+                                                        <!--Table head-->
+                                                        <thead class="bg-dark text-light text-center">
+                                                            <tr>
+                                                                <th>الرقم</th>
+                                                                <th>إسم الاكسسوار</th>
+                                                                <th>الكمية</th>
+                                                                <th>سعر الحبه</th>
+                                                                <th>السعر الكلي</th>
 
-                                                    </tr>
-                                                </thead>
-                                                <!--Table head-->
+                                                            </tr>
+                                                        </thead>
+                                                        <!--Table head-->
 
-                                                <!--Table body-->
-                                                <tbody class=" text-center">
-                                                    <?php
-                                                    $i = 0;
-                                                    $prod_id = $prod['id'];
-                                                    $res6 = mysqli_query($conn, "SELECT * FROM accessory_band WHERE `product_id` = $prod_id");
-                                                    while ($accessory = mysqli_fetch_array($res6)) {
-                                                        $i++;
-                                                    ?>
-                                                        <tr>
-                                                            <th scope="row"><?= $i ?></th>
-                                                            <td><?=$accessory['name']?></td>
-                                                            <td><?=$accessory['quantity']?></td>
-                                                            <td><?=$accessory['price_per_piece']?></td>
-                                                            <td><?=$accessory['total_price']?></td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                        <!--Table body-->
+                                                        <tbody class=" text-center">
+                                                            <?php
+                                                            $i = 0;
+                                                            $prod_id = $prod['id'];
+                                                            $res6 = mysqli_query($conn, "SELECT * FROM accessory_band WHERE `product_id` = $prod_id");
+                                                            while ($accessory = mysqli_fetch_array($res6)) {
+                                                                $i++;
+                                                            ?>
+                                                                <tr>
+                                                                    <th scope="row"><?= $i ?></th>
+                                                                    <td><?= $accessory['name'] ?></td>
+                                                                    <td><?= $accessory['quantity'] ?></td>
+                                                                    <td><?= $accessory['price_per_piece'] ?></td>
+                                                                    <td><?= $accessory['total_price'] ?></td>
+                                                                </tr>
+                                                            <?php } ?>
 
-                                                </tbody>
-                                                <!--Table body-->
-                                            </table>
+                                                        </tbody>
+                                                        <!--Table body-->
+                                                    </table>
 
-                                            <span class="mb-2 text-lg">الاغطية</span>
+                                                    <span class="mb-2 text-lg">الاغطية</span>
 
-                                            <table class="table table-hover table-fixed">
+                                                    <table class="table table-hover table-fixed">
 
-                                                <!--Table head-->
-                                                <thead class="bg-dark text-light text-center">
-                                                    <tr>
-                                                        <th>الرقم</th>
-                                                        <th>نوع الغطاء</th>
-                                                        <th>الكمية</th>
-                                                        <th>سعر الحبه</th>
-                                                        <th>السعر الكلي</th>
+                                                        <!--Table head-->
+                                                        <thead class="bg-dark text-light text-center">
+                                                            <tr>
+                                                                <th>الرقم</th>
+                                                                <th>نوع الغطاء</th>
+                                                                <th>الكمية</th>
+                                                                <th>سعر الحبه</th>
+                                                                <th>السعر الكلي</th>
 
-                                                    </tr>
-                                                </thead>
-                                                <!--Table head-->
+                                                            </tr>
+                                                        </thead>
+                                                        <!--Table head-->
 
-                                                <!--Table body-->
-                                                <tbody class=" text-center">
-                                                    <?php
-                                                    $i = 0;
-                                                    $prod_id = $prod['id'];
-                                                    $res7 = mysqli_query($conn, "SELECT * FROM covers_band WHERE `product_id` = $prod_id");
-                                                    while ($cover = mysqli_fetch_array($res7)) {
-                                                        $i++;
-                                                    ?>
-                                                        <tr>
-                                                            <th scope="row"><?= $i ?></th>
-                                                            <td><?=$cover['type']?></td>
-                                                            <td><?=$prod['quantity']?></td>
-                                                            <td><?=$cover['price_per_piece']?></td>
-                                                            <td><?=$cover['total_price']?></td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                        <!--Table body-->
+                                                        <tbody class=" text-center">
+                                                            <?php
+                                                            $i = 0;
+                                                            $prod_id = $prod['id'];
+                                                            $res7 = mysqli_query($conn, "SELECT * FROM covers_band WHERE `product_id` = $prod_id");
+                                                            while ($cover = mysqli_fetch_array($res7)) {
+                                                                $i++;
+                                                            ?>
+                                                                <tr>
+                                                                    <th scope="row"><?= $i ?></th>
+                                                                    <td><?= $cover['type'] ?></td>
+                                                                    <td><?= $prod['quantity'] ?></td>
+                                                                    <td><?= $cover['price_per_piece'] ?></td>
+                                                                    <td><?= $cover['total_price'] ?></td>
+                                                                </tr>
+                                                            <?php } ?>
 
-                                                </tbody>
-                                                <!--Table body-->
-                                            </table>
+                                                        </tbody>
+                                                        <!--Table body-->
+                                                    </table>
 
-                                            <span class="mb-2 text-lg">بنود إضافية</span>
+                                                    <span class="mb-2 text-lg">بنود إضافية</span>
 
-                                            <table class="table table-hover table-fixed">
+                                                    <table class="table table-hover table-fixed">
 
-                                                <!--Table head-->
-                                                <thead class="bg-dark text-light text-center">
-                                                    <tr>
-                                                        <th>الرقم</th>
-                                                        <th>إسم البند</th>
-                                                        <th>سعر الفرد</th>
-                                                        <th>السعر الكلي</th>
+                                                        <!--Table head-->
+                                                        <thead class="bg-dark text-light text-center">
+                                                            <tr>
+                                                                <th>الرقم</th>
+                                                                <th>إسم البند</th>
+                                                                <th>سعر الفرد</th>
+                                                                <th>السعر الكلي</th>
 
-                                                    </tr>
-                                                </thead>
-                                                <!--Table head-->
+                                                            </tr>
+                                                        </thead>
+                                                        <!--Table head-->
 
-                                                <!--Table body-->
-                                                <tbody class=" text-center">
-                                                    <?php
-                                                    $i = 0;
-                                                    $prod_id = $prod['id'];
-                                                    $res8 = mysqli_query($conn, "SELECT * FROM extra_band WHERE `product_id` = $prod_id");
-                                                    while ($extra = mysqli_fetch_array($res8)) {
-                                                        $i++;
-                                                    ?>
-                                                        <tr>
-                                                            <th scope="row"><?= $i ?></th>
-                                                            <td><?=$extra['name']?></td>
-                                                            <td><?=$extra['price_per_piece']?></td>
-                                                            <td><?=$extra['total_price']?></td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                        <!--Table body-->
+                                                        <tbody class=" text-center">
+                                                            <?php
+                                                            $i = 0;
+                                                            $prod_id = $prod['id'];
+                                                            $res8 = mysqli_query($conn, "SELECT * FROM extra_band WHERE `product_id` = $prod_id");
+                                                            while ($extra = mysqli_fetch_array($res8)) {
+                                                                $i++;
+                                                            ?>
+                                                                <tr>
+                                                                    <th scope="row"><?= $i ?></th>
+                                                                    <td><?= $extra['name'] ?></td>
+                                                                    <td><?= $extra['price_per_piece'] ?></td>
+                                                                    <td><?= $extra['total_price'] ?></td>
+                                                                </tr>
+                                                            <?php } ?>
 
-                                                </tbody>
-                                                <!--Table body-->
-                                            </table>
+                                                        </tbody>
+                                                        <!--Table body-->
+                                                    </table>
 
-                                            </div>
-                                        <?php } ?>
-                                        </li>
-                                        
+                                                </div>
+                                            <?php } ?>
+                                            </li>
+
                                     </ul>
                                 </div>
                             </div>
