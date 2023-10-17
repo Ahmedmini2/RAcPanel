@@ -795,7 +795,7 @@ if (isset($_GET['id'])) {
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
                                                             <td><?= $products['product_name'] ?></td>
-                                                            <td><?= $products['quantity'] - $production ?></td>
+                                                            <td><?= $products['cost_price'] - $production ?></td>
                                                             <td><?= $products['quantity'] - $production ?></td>
                                                             <td><?= $products['quantity'] - $production ?></td>
                                                             <td><?= $products['quantity'] - $production ?></td>
