@@ -188,6 +188,14 @@ if (isset($_GET['id'])) {
                                     طباعة التسعيرة
                                     <i class="fas fa-plus" aria-hidden="true"></i>
                                 </a>
+                                <a href="sales_quatation.php?project_id=<?= $id ?>" id="btn3" class="btn bg-gradient-dark mb-0">
+                                    Sales Quatation
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                </a>
+                                <a href="" id="btn3" class="btn bg-gradient-dark mb-0">
+                                    طباعة البنود
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                </a>
                                 <a href="" id="btn3" class="btn bg-gradient-dark mb-0">
                                     تعديل بيانات المشروع
                                     <i class="fas fa-plus" aria-hidden="true"></i>
@@ -197,6 +205,11 @@ if (isset($_GET['id'])) {
                             <div class="text-left col-lg-2 col-sm-6">
                                 <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     تغير حالة المشروع
+                                </button>
+                                <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
+                                    طباعة البنود
+                                    <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
+
                                 </button>
                             </div>
                         </div>
