@@ -743,7 +743,7 @@ if (isset($_GET['id'])) {
                                                 </span>
                                                 <div class="timeline-content">
 
-                                                    <h6 class="text-dark text-sm font-weight-bold mb-0">تم <?= $r['description'] ?> وحالته <?= $r['status'] ?></h6>
+                                                    <h6 class="text-dark text-sm font-weight-bold mb-0">تم <?= $r['description'] ?> عدد <?= $r['quantity']?> من الصنف <?=$r['name']?> وحالته <?= $r['status'] ?></h6>
                                                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><?= $date->format('D jS \o\f F Y h:i:s A') ?></p>
                                                 </div>
                                             </div>
