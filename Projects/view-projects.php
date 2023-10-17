@@ -183,37 +183,52 @@ if (isset($_GET['id'])) {
                         <!-- Card Header  -->
 
                         <div class="row ">
-                            <div class="text-right col-lg-10 col-sm-6">
-                                <a href="purchase_order.php?project_id=<?= $id ?>" id="btn2" class="btn bg-gradient-dark mb-0">
+                            <div class="text-right col-lg-9 col-sm-6">
+                                <a href="purchase_order.php?project_id=<?= $id ?>" id="btn1" class="btn bg-gradient-dark mb-0">
                                     طباعة التسعيرة
-                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                   
+                                </a>
+                                <a href="sales_quatation.php?project_id=<?= $id ?>" id="btn2" class="btn bg-gradient-dark mb-0">
+                                    Sales Quatation
+                                   
                                 </a>
                                 <a href="" id="btn3" class="btn bg-gradient-dark mb-0">
                                     تعديل بيانات المشروع
-                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                    
                                 </a>
 
                             </div>
-                            <div class="text-left col-lg-2 col-sm-6">
-                                <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <div class="text-left col-lg-3 col-sm-6">
+                                
+                                <button type="button" id="btn4" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     تغير حالة المشروع
+                                </button>
+                                <button type="button" id="btn5" class=" printing btn bg-gradient-dark rounded-pill" onclick="printDiv('printableArea')">
+                                     طباعة البنود 
+                                    <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
+
                                 </button>
                             </div>
                         </div>
-
-
-
-
                         <script>
                             function printDiv(divName) {
 
                                 document.getElementById('btn1').style.display = "none";
                                 document.getElementById('btn2').style.display = "none";
                                 document.getElementById('btn3').style.display = "none";
+                                document.getElementById('btn4').style.display = "none";
+                                document.getElementById('btn5').style.display = "none";
+                                document.getElementById('information').style.display = "none";
+                                document.getElementById('navbarBlur').style.display = "none";
+                                
                                 window.print();
                                 document.getElementById('btn1').style.display = "inline";
                                 document.getElementById('btn2').style.display = "inline";
                                 document.getElementById('btn3').style.display = "inline";
+                                document.getElementById('btn4').style.display = "inline";
+                                document.getElementById('btn5').style.display = "inline";
+                                document.getElementById('information').style.display = "flex";
+                                document.getElementById('navbarBlur').style.display = "flex";
 
                             }
                         </script>
@@ -260,7 +275,7 @@ if (isset($_GET['id'])) {
                 <div class="col-12 mt-2">
                     <!--********* -->
                     <div class="container-fluid py-4">
-                        <div class="row">
+                        <div class="row" id="information">
                             <div class="col-xl-6 mb-xl-0 mb-4">
                                 <div class="card h-100">
                                     <div class="card-body p-3">
@@ -409,7 +424,7 @@ if (isset($_GET['id'])) {
                         </div>
 
                         <!--Table-->
-                        <div class="row mt-5">
+                        <div class="row">
                             <div class="col-12">
                                 <div class="card mb-4">
                                     <div class="card-header pb-0">
