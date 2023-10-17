@@ -342,7 +342,51 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-4 col-sm-2 mb-3">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">الخرسانة الكلية</h6>
+                                                <hr class="horizontal dark my-3">
 
+                                                <h5 class="mb-0"><?= number_format($project['project_cost']) ?> ريال</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-2 mt-0 mt-4">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">ما تم صبه</h6>
+
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0"><?=number_format($project['project_cost'] - $total_bills)?> ريال</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-2 mt- mt-4">
+                                        <div class="card ">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
+                                                    <i class="fas fa-landmark opacity-10"></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0"> متبقي كمية الخرسانة </h6>
+
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0"><?=number_format($total_bills)?> ريال</h5>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
 
