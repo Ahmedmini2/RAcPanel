@@ -199,6 +199,7 @@ if (isset($_GET['id'])) {
 
                             </div>
                             <div class="text-left col-lg-2 col-sm-6">
+                                <div class="row">
                                 <button type="button" id="btn1" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     تغير حالة المشروع
                                 </button>
@@ -207,6 +208,7 @@ if (isset($_GET['id'])) {
                                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
                                 </button>
+                                </div>
                             </div>
                         </div>
 
