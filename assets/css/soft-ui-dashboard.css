@@ -25070,3 +25070,32 @@ width: 100px;
   background-color: #5a3ecc;
   box-shadow: 11em -11em #5a3ecc;
 }
+
+.ribbon-pop {
+  background: linear-gradient(270deg, #4f396a 5.25%, #576bb0 96.68%);
+  display: inline-block;
+  padding: 10px 40px 10px 20px;
+  color: white;
+  position: relative;
+}
+.ribbon-pop:after {
+  content: "";
+  width: 0;
+  height: 0;
+  top: 0;
+  position: absolute;
+  right: 0;
+  border-right: 20px solid #fff;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+.ribbon-pop:before {
+  height: 0;
+  width: 0;
+  border-top: 15px solid #381f57;
+  border-left: 15px solid transparent;
+  bottom: -15px;
+  position: absolute;
+  content: "";
+  left: 0;
+}
