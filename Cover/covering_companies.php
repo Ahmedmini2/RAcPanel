@@ -202,7 +202,7 @@ $select = mysqli_query($conn, "select * from contact_covers ");
                       
 
                     <td>
-                          <a href="add-cover.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                          <a href="add_c_companies.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
                           <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
