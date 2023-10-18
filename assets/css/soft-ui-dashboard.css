@@ -25062,14 +25062,18 @@ width: 100px;
   width: 50%;
 }
 
-
-.card-image{
+.mcard{
+  border-radius: 25px;
+  background-color: #000;
+  
+}
+.mcard-image{
   position: relative;
   height: 150px;
-  width: 150px;
-
+  width: 150px;                         
+  
 }
-.card-image .card-img{
+.mcard-image .mcard-img{
   height: 100%;
   width: 100%;
   object-fit: cover;
