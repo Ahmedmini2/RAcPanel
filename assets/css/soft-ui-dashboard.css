@@ -25055,3 +25055,9 @@ width: 100px;
   content: "";
   left: 0;
 }
+.signture{
+  border: none;
+  text-align: center;
+  margin: 10px 20px;
+  width: 50%;
+}
