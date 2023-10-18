@@ -13,9 +13,7 @@ if (!empty($_GET['edit'])) {
   $price_per_peice = $editData['price_per_piece'];
   $total_price = $editData['total_price'];
   $seller = $editData['seller'];
-  $address = $editData['address'];
-  $email = $editData['email'];
-  $phone = $editData['phone'];
+
 
 
 if (isset($_POST['submit'])) {
@@ -26,13 +24,11 @@ if (isset($_POST['submit'])) {
   $price_per_peice = $_POST['price_per_peice'];
   $total_price = str_replace(',','',$_POST['total_price']);
   $seller = $_POST['seller'];
-  $address = $_POST['address'];
-  $email = $_POST['email'];
-  $phone = $_POST['phone'];
+
 
 
   $update = "UPDATE `covers_purchase` SET `type` = '$type', `dimensions` = '$dimensions', `quantity` = '$quantity', `price_per_piece` = '$price_per_peice', `total_price` = '$total_price',
-   `seller` = '$seller', `phone` = '$phone', `email` = '$email', `address` = '$address' WHERE `covers_purchase`.`id` = $id";
+   `seller` = '$seller' WHERE `covers_purchase`.`id` = $id";
     $updateResult = $conn->query($update);
     if ($updateResult) {
 
@@ -57,13 +53,11 @@ if (isset($_POST['submit'])) {
   $price_per_peice = $_POST['price_per_peice'];
   $total_price = str_replace(',','',$_POST['total_price']);
   $seller = $_POST['seller'];
-  $address = $_POST['address'];
-  $email = $_POST['email'];
-  $phone = $_POST['phone'];
+  
 
 
-  $insert = "INSERT INTO `covers_purchase` (`id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `phone`, `email`, `address`, `created_at`)
-   VALUES (NULL, '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', '$phone', '$email', '$address', NOW())";
+  $insert = "INSERT INTO `covers_purchase` (`id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
+   VALUES (NULL, '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
   $insertResult = $conn->query($insert);
   if ($insertResult) {
 
@@ -301,26 +295,17 @@ if (isset($_POST['submit'])) {
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label>إسم البائع</label>
-                  <input type="text" placeholder="ادخل إسم البائع" class="form-control" name="seller" value="<?php echo $seller; ?>">
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-group">
-                  <label>العنوان</label>
-                  <input type="text" placeholder="ادخل العنوان" class="form-control" name="address"  value="<?php echo $address; ?>">
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-group">
-                  <label>رقم الهاتف</label>
-                  <input type="text" placeholder="ادخل رقم الهاتف" class="form-control" name="phone" value="<?php echo $phone; ?>">
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-group">
-                  <label>البريد</label>
-                  <input type="text" placeholder="ادخل البريد" class="form-control" name="email" value="<?php echo $email; ?>">
+                <label>إسم الشركة</label>
+                <select name="seller" id="seller" class="form-control" placeholder="إسم الشركة">
+                    <option value="<?=$type?>"><?=$type?></option>
+                    <?php 
+                    $select = mysqli_query($conn, "select * from contact_covers");
+                    while ($r = mysqli_fetch_array($select)) {
+
+                      echo '<option value="' . $r['id'] . '">' . $r['name'] . '</option>';
+                    }
+                    ?>
+                  </select>
                 </div>
               </div>
             </div>
