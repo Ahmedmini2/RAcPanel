@@ -1,10 +1,66 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Factory";
-if(isset($_GET['project_id'])){
+
     $id = $_GET['project_id'];
 
-    if(isset($_POST['submit'])){
+    if(isset($_GET['edit']) && isset($_GET['project_id'])){
+        $project_id = $_GET['project_id'];
+        $status_id = $_GET['edit'];
+        $query = "SELECT * FROM product_status WHERE id=$status_id AND project_id=$project_id";
+        $res = $conn->query($query);
+        $editData = $res->fetch_assoc();
+        $product_id = $status_id;
+        $product_name = $editData['name'];
+        $description = $editData['description'];
+        $quantity = $editData['quantity'];
+        $product_quantity = $editData['product_quantity'];
+        $type = $editData['kharasana_type'];
+        $price = $editData['kharasana_price'];
+        $used = $editData['kharasana_used'];
+        $kh_text = $editData['kh_text'];
+        $extra = $editData['extra'];
+        $total_price = $editData['total_price'];
+
+        if(isset($_POST['submit'])){
+            $str = explode(",",$_POST['name']);
+            $product_id_new = $str[0];
+            $product_name = $str[1];
+            $description = $_POST['description'];
+            $product_quantity = $_POST['product_quantity'];
+            $type = $_POST['type'];
+            $price = $_POST['price'];
+            $quantity = $_POST['quantity'];
+            $kh_text = $_POST['kh_text'];
+            $extra = $_POST['extra'];
+            $total_price = $_POST['total_price'];
+            
+            if($description == "صب كامل"){
+                $status = "إنتاج";
+                $update_product_status = "UPDATE product_status SET `product_id` = $product_id_new , `status` = $status , `name` = $product_name , `description` = $description , `quantity` = $product_quantity ,
+                 `kharasana_type` = $type , `kharasana_price` = $price , `kharasana_used` = $quantity , `total_price` = $total_price , `extra_price` = $extra ,  `production` = $product_quantity ,  `warehouse` = $product_quantity WHERE `product_id` = $product_id";
+                $res = $conn->query($update_product_status);
+            }else{
+                $status = "قيد التصنيع";
+                $update_product_status = "UPDATE product_status SET `product_id` = $product_id_new , `status` = $status , `name` = $product_name , `description` = $description , `quantity` = $product_quantity ,
+                 `kharasana_type` = $type , `kharasana_price` = $price , `kh_text` = $kh_text , `total_price` = $total_price , `extra_price` = $extra  WHERE `product_id` = $product_id";
+                $res = $conn->query($update_product_status);
+            }
+            if ($res) {
+                $_SESSION['notification'] = "تم تعديل تقرير الانتاج بنجاح";
+                header('location: ../Projects/view-projects.php?id='.$project_id.'');
+                exit();
+              } else {
+                $_SESSION['notification'] = "خطأ في الادخال";
+                header('location: ../Projects/view-projects.php?id='.$project_id.'');
+                exit();
+              }
+        
+        }
+    
+    } 
+
+    else if(isset($_POST['submit'])){
 
         $str = explode(",",$_POST['name']);
         $product_id = $str[0];
@@ -41,28 +97,25 @@ if(isset($_GET['project_id'])){
 
         
 
+    } else{
+
+        $product_id = '';
+        $product_name = '';
+        $description = '';
+        $quantity = '';
+        $product_quantity = '';
+        $type = '';
+        $price = '';
+        $used = '';
+        $kh_text = '';
+        $extra = '';
+        $total_price = '';
     }
-}
 
-if(isset($_GET['edit']) && isset($_GET['project_id'])){
-    $project_id = $_GET['project_id'];
-    $status_id = $_GET['edit'];
-    $query = "SELECT * FROM product_status WHERE id=$status_id AND project_id=$project_id";
-    $res = $conn->query($query);
-    $editData = $res->fetch_assoc();
-    $product_id = $status_id;
-    $product_name = $editData['name'];
-    $description = $editData['description'];
-    $quantity = $editData['quantity'];
-    $product_quantity = $editData['product_quantity'];
-    $type = $editData['kharasana_type'];
-    $price = $editData['kharasana_price'];
-    $used = $editData['kharasana_used'];
-    $kh_text = $editData['kh_text'];
-    $extra = $editData['extra'];
-    $total_price = $editData['total_price'];
+    
 
-}
+
+ 
 
 ?>
 
@@ -277,7 +330,7 @@ if(isset($_GET['edit']) && isset($_GET['project_id'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label> كمية الاصناف </label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية الاصناف    " class="form-control" name="product_quantity" id="product_quantity" value="<?=$product_quantity?>">
+                                    <input type="text" placeholder="الرجاء كتابة كمية الاصناف    " class="form-control" name="product_quantity" id="product_quantity" value="<?=$quantity?>">
                                     <input type="text" placeholder="" class="form-control" name="kh_per_peice" id="kh_per_peice" hidden>
                                 </div>
                             </div>
@@ -298,7 +351,7 @@ if(isset($_GET['edit']) && isset($_GET['project_id'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label> سعر الخرسانة </label>
-                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة " class="form-control" name="price" id="price" value="0">
+                                    <input type="text" placeholder="الرجاء كتابة سعر الخرسانة " class="form-control" name="price" id="price" value="<?=$price?>">
 
                                 </div>
                             </div>
@@ -306,7 +359,7 @@ if(isset($_GET['edit']) && isset($_GET['project_id'])){
                             <div class="col" id="kh-row3">
                                 <div class="form-group">
                                     <label> وصف كمية الخرسانة المستخدمة</label>
-                                    <input type="text" placeholder="الرجاء كتابة وصف كمية الخرسانة المستخدمة " class="form-control" name="kh_text" name="kh_text" value="">
+                                    <input type="text" placeholder="الرجاء كتابة وصف كمية الخرسانة المستخدمة " class="form-control" name="kh_text" name="kh_text" value="<?=$kh_text?>">
 
                                 </div>
                             </div>
@@ -314,7 +367,7 @@ if(isset($_GET['edit']) && isset($_GET['project_id'])){
                             <div class="col" id="kh-row1" style="display:none">
                                 <div class="form-group" >
                                     <label> كمية الخرسانة </label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية الخرسانة " class="form-control" name="quantity" id="quantity" value="0" readonly>
+                                    <input type="text" placeholder="الرجاء كتابة كمية الخرسانة " class="form-control" name="quantity" id="quantity" value="<?=$used?>" readonly>
 
                                 </div>
                             </div>
@@ -324,14 +377,14 @@ if(isset($_GET['edit']) && isset($_GET['project_id'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label> مبلغ اضافي </label>
-                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="extra" id="extra" value="0">
+                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="extra" id="extra" value="<?=$extra?>">
 
                                 </div>
                             </div>
                             <div class="col"  id="kh-row2" style="display:none">
                                 <div class="form-group">
                                     <label>المجموع</label>
-                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="total_price" id="total_price" value="" readonly>
+                                    <input type="text" placeholder="الرجاء كتابة المبلغ " class="form-control" name="total_price" id="total_price" value="<?=$total_price?>" readonly>
 
                                 </div>
                             </div>
