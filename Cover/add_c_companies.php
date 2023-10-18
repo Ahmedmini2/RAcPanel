@@ -30,11 +30,11 @@ if (!empty($_GET['edit'])) {
         if ($updateResult) {
 
             $_SESSION['notification'] = "تم تعديل الشركة بنجاح";
-            header('location: index.php');
+            header('location: covering_companies.php');
             exit();
         } else {
             $_SESSION['notification'] = "يوجد خلل في النظام";
-            header('location: index.php');
+            header('location: covering_companies.php');
             exit();
         }
     }
@@ -54,11 +54,11 @@ if (!empty($_GET['edit'])) {
     if ($insertResult) {
 
         $_SESSION['notification'] = "تم اضافة الشركة بنجاح";
-        header('location: index.php');
+        header('location: covering_companies.php');
         exit();
     } else {
         $_SESSION['notification'] = "يوجد خلل في النظام";
-        header('location: index.php');
+        header('location: covering_companies.php');
         exit();
     }
 } else {
