@@ -44,6 +44,26 @@ if(isset($_GET['project_id'])){
     }
 }
 
+if(isset($_GET['edit']) && isset($_GET['project_id'])){
+    $project_id = $_GET['project_id'];
+    $status_id = $_GET['edit'];
+    $query = "SELECT * FROM product_status WHERE id=$status_id AND project_id=$project_id";
+    $res = $conn->query($query);
+    $editData = $res->fetch_assoc();
+    $product_id = $status_id;
+    $product_name = $editData['name'];
+    $description = $editData['description'];
+    $quantity = $editData['quantity'];
+    $product_quantity = $editData['product_quantity'];
+    $type = $editData['kharasana_type'];
+    $price = $editData['kharasana_price'];
+    $used = $editData['kharasana_used'];
+    $kh_text = $editData['kh_text'];
+    $extra = $editData['extra'];
+    $total_price = $editData['total_price'];
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -211,7 +231,7 @@ if(isset($_GET['project_id'])){
                                 <div class="form-group">
                                     <label>اختيار الصنف</label>
                                     <select name="name" id="name" class="form-control" placeholder="اختيار النوع" >
-                                        <option value="0"></option>
+                                        <option value="<?=$status_id?>,<?=$product_name?>"><?=$product_name?></option>
                                         <?php
                                         $s_items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                         while ($item = mysqli_fetch_array($s_items)){
@@ -228,7 +248,7 @@ if(isset($_GET['project_id'])){
                                 <div class="form-group">
                                     <label>نوع الاجراء</label>
                                     <select name="description" id="description" class="form-control" placeholder="نوع الاجراء" onchange="showDiv2(this)">
-                                        <option value="0"></option>
+                                        <option value="<?=$description?>"><?=$description?></option>
                                         <option value="صب ارضية">صب ارضية</option>
                                         <option value="صب جوانب">صب جوانب</option>
                                         <option value="صب سقفية">صب سقفية</option>
@@ -257,7 +277,7 @@ if(isset($_GET['project_id'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label> كمية الاصناف </label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية الاصناف    " class="form-control" name="product_quantity" id="product_quantity" value="0">
+                                    <input type="text" placeholder="الرجاء كتابة كمية الاصناف    " class="form-control" name="product_quantity" id="product_quantity" value="<?=$product_quantity?>">
                                     <input type="text" placeholder="" class="form-control" name="kh_per_peice" id="kh_per_peice" hidden>
                                 </div>
                             </div>
@@ -265,7 +285,7 @@ if(isset($_GET['project_id'])){
                                 <div class="form-group">
                                     <label>نوع الخرسانة</label>
                                     <select name="type" id="type" class="form-control" placeholder="نوع الخرسانة">
-                                        <option value="0"></option>
+                                        <option value="<?=$type?>"><?=$type?></option>
                                         <option value="خرسانة شركة">خرسانة شركة</option>
                                         <option value="خرسانة رجيع">خرسانة رجيع</option>
 

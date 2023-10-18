@@ -551,6 +551,7 @@ if (isset($_GET['id'])) {
                                                                 $res5 = mysqli_query($conn, "SELECT * FROM iron_band WHERE `product_id` = $prod_id");
                                                                 while ($iron = mysqli_fetch_array($res5)) {
                                                                     $i++;
+                                                                    $iron_total += $iron['total_price'];
                                                                 ?>
                                                                     <tr>
                                                                         <th scope="row"><?= $i ?></th>
@@ -561,12 +562,13 @@ if (isset($_GET['id'])) {
                                                                         <td><?= $iron['iron_height'] ?></td>
                                                                         <td><?= $iron['tn_price'] ?></td>
                                                                         <td><?= $iron['total_price'] ?></td>
+                                                                        
                                                                     </tr>
                                                                     
                                                                 <?php } ?>
                                                                 <tr class="table-secondary">
                                                                         <td colspan="6">المجموع</td>
-                                                                        <td>89.2554</td>
+                                                                        <td><?=number_format($iron_total,2,'.',',')?></td>
                                                                     </tr>
 
                                                             </tbody>
@@ -601,6 +603,7 @@ if (isset($_GET['id'])) {
                                                                 $res6 = mysqli_query($conn, "SELECT * FROM accessory_band WHERE `product_id` = $prod_id");
                                                                 while ($accessory = mysqli_fetch_array($res6)) {
                                                                     $i++;
+                                                                    $accessory_total += $accessory['total_price'];
                                                                 ?>
                                                                     <tr>
                                                                         <th scope="row"><?= $i ?></th>
@@ -613,7 +616,7 @@ if (isset($_GET['id'])) {
                                                                 <?php } ?>
                                                                 <tr class="table-secondary">
                                                                         <td colspan="4">المجموع</td>
-                                                                        <td>89.2554</td>
+                                                                        <td><?=number_format($accessory_total,2,'.',',')?></td>
                                                                     </tr>
 
 
@@ -687,6 +690,7 @@ if (isset($_GET['id'])) {
                                                                 $res8 = mysqli_query($conn, "SELECT * FROM extra_band WHERE `product_id` = $prod_id");
                                                                 while ($extra = mysqli_fetch_array($res8)) {
                                                                     $i++;
+                                                                    $extra_total += $extra['total_price'];
                                                                 ?>
                                                                     <tr>
                                                                         <th scope="row"><?= $i ?></th>
@@ -698,7 +702,7 @@ if (isset($_GET['id'])) {
                                                                 <?php } ?>
                                                                 <tr class="table-secondary">
                                                                         <td colspan="3">المجموع</td>
-                                                                        <td>89.2554</td>
+                                                                        <td><?=number_format($extra_total,2,'.',',')?></td>
                                                                     </tr>
 
                                                             </tbody>
@@ -706,48 +710,6 @@ if (isset($_GET['id'])) {
                                                         </table>
                                                     </div>
 
-                                                    <span class="mb-2 text-lg">مجموع الاصناف</span>
-                                                    <div class="table-responsive p-0 mb-3">
-                                                        <table class="table table-hover table-fixed">
-
-                                                            <!--Table head-->
-                                                            <thead class="bg-dark text-light text-center">
-                                                                <tr>
-                                                                    <th>الرقم</th>
-                                                                    <th>إسم الصنف</th>
-                                                                    <th>سعر كلي</th>
-                                                                    <th>مجموع الكلي للاصناف</th>
-
-                                                                </tr>
-                                                            </thead>
-                                                            <!--Table head-->
-
-                                                            <!--Table body-->
-                                                            <tbody class=" text-center">
-                                                                <?php
-                                                                $i = 0;
-                                                                $prod_id = $prod['id'];
-                                                                $res8 = mysqli_query($conn, "SELECT * FROM extra_band WHERE `product_id` = $prod_id");
-                                                                while ($extra = mysqli_fetch_array($res8)) {
-                                                                    $i++;
-                                                                ?>
-                                                                    <tr>
-                                                                        <th scope="row"><?= $i ?></th>
-                                                                        <td><?= $extra['name'] ?></td>
-                                                                        <td><?= $extra['price_per_piece'] ?></td>
-                                                                        <td><?= $extra['total_price'] ?></td>
-                                                                    </tr>
-                                                                    
-                                                                <?php } ?>
-                                                                <tr class="table-secondary">
-                                                                        <td colspan="3">المجموع</td>
-                                                                        <td>89.2554</td>
-                                                                    </tr>
-
-                                                            </tbody>
-                                                            <!--Table body-->
-                                                        </table>
-                                                    </div>
 
                                                 </div>
                                             <?php } ?>
@@ -802,7 +764,7 @@ if (isset($_GET['id'])) {
                                                             <td><?= number_format($products['cost_price'],2,'.',',')?></td>
                                                             <td><?= number_format($products['sell_price'],2,'.',',')?></td>
                                                             <td><?= number_format($products['net_profit'],2,'.',',')?></td>
-                                                            <td><?= number_format($products['net_perc'],2,'.',',')?></td>   
+                                                            <td><?=$products['net_perc']?></td>   
                                             
                                                         </tr>
                                                     <?php } ?>
@@ -874,6 +836,7 @@ if (isset($_GET['id'])) {
 
                                                     <h6 class="text-dark text-sm font-weight-bold mb-0">تم <?= $r['description'] ?> عدد <?= $r['quantity'] ?> من الصنف <?= $r['name'] ?> وحالته <?= $r['status'] ?></h6>
                                                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><?= $date->format('D jS \o\f F Y h:i:s A') ?></p>
+                                                    <a class="btn btn-link text-dark px-3 mb-0" href="../Factory/project-report.php?project_id=<?=$id?>&edit=<?=$r['id']?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                                                 </div>
                                             </div>
 
