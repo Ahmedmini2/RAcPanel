@@ -37,13 +37,14 @@ $_SESSION['sidebar'] = "Factory";
             
             if($description == "صب كامل"){
                 $status = "إنتاج";
-                $update_product_status = "UPDATE product_status SET `product_id` = $product_id_new , `status` = $status , `name` = $product_name , `description` = $description , `quantity` = $product_quantity ,
-                 `kharasana_type` = $type , `kharasana_price` = $price , `kharasana_used` = $quantity , `total_price` = $total_price , `extra_price` = $extra ,  `production` = $product_quantity ,  `warehouse` = $product_quantity WHERE `product_id` = $product_id";
+                $update_product_status = "UPDATE product_status SET `product_id` = '$product_id_new', `status` = '$status' , `name` = '$product_name' , `description` = '$description' , `quantity` = '$product_quantity' ,
+                 `kharasana_type` = '$type' , `kharasana_price` = '$price' , `kharasana_used` = '$quantity' , `total_price` = '$total_price' , `extra_price` = '$extra' ,  `production` = '$product_quantity' ,  `warehouse` = '$product_quantity' WHERE `product_id` = $product_id";
                 $res = $conn->query($update_product_status);
             }else{
                 $status = "قيد التصنيع";
-                $update_product_status = "UPDATE product_status SET `product_id` = $product_id_new , `status` = $status , `name` = $product_name , `description` = $description , `quantity` = $product_quantity ,
-                 `kharasana_type` = $type , `kharasana_price` = $price , `kharasana_used` = 0 , `kh_text` = $kh_text , `total_price` = $total_price , `extra_price` = $extra , `production` = 0 , `warehouse` = 0  WHERE `product_id` = $product_id";
+                $update_product_status = "UPDATE product_status SET `product_id` = '$product_id_new' , `status` = '$status' , `name` = '$product_name' , `description` = '$description' ,
+                 `quantity` = '$product_quantity' , `kharasana_type` = '$type' , `kharasana_price` = '$price' , `kharasana_used` = 0 , `kh_text` = '$kh_text' , `total_price` = '$total_price' 
+                 , `extra_price` = '$extra' , `production` = 0 , `warehouse` = 0  WHERE `product_id` = $product_id";
                 $res = $conn->query($update_product_status);
             }
             if ($res) {
