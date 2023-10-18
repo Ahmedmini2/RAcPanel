@@ -19,7 +19,7 @@ $_SESSION['sidebar'] = "Factory";
         $price = $editData['kharasana_price'];
         $used = $editData['kharasana_used'];
         $kh_text = $editData['kh_text'];
-        $extra = $editData['extra'];
+        $extra = $editData['extra_price'];
         $total_price = $editData['total_price'];
 
         if(isset($_POST['submit'])){
