@@ -51,7 +51,7 @@ $_SESSION['sidebar'] = "Factory";
                 header('location: ../Projects/view-projects.php?id='.$project_id.'');
                 exit();
               } else {
-                $_SESSION['notification'] = "خطأ في الادخال";
+                $_SESSION['notification'] = "خطأ في الادخال " . mysqli_error($conn). "";
                 header('location: ../Projects/view-projects.php?id='.$project_id.'');
                 exit();
               }
