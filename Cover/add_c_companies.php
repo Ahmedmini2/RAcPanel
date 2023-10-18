@@ -40,7 +40,7 @@ if (!empty($_GET['edit'])) {
     }
 } else if (isset($_POST['submit'])) {
 
-    $$name = $_POST['name'];
+    $name = $_POST['name'];
     $seller = $_POST['seller'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
