@@ -13,9 +13,14 @@ if (isset($_GET['id'])) {
     $price_per_peice = $editData['price_per_piece'];
     $total_price = $editData['total_price'];
     $seller = $editData['seller'];
-    $address = $editData['address'];
-    $email = $editData['email'];
-    $phone = $editData['phone'];
+    $query2 = "SELECT * FROM contact_covers WHERE id=$seller";
+    $res2 = $conn->query($query2);
+    $seller_data = $res2->fetch_assoc();
+    $name = $seller_data['name'];
+    $seller_name = $seller_data['seller'];
+    $address = $seller_data['address'];
+    $phone = $seller_data['phone'];
+    $email = $seller_data['email'];
     $created_at = $editData['created_at'];
 
    
@@ -420,8 +425,8 @@ if (isset($_GET['id'])) {
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
                                             <?=$created_at?><br>
-                                                CO<?=$id?> <br>
-                                                <?=$seller?><br>
+                                                CO-<?=$id?> <br>
+                                                <?=$name?><br>
                                                 <?=$email?><br>
                                                 <?=$phone?><br>
                                                 <?=$address?><br>
