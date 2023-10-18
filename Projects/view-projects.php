@@ -547,6 +547,7 @@ if (isset($_GET['id'])) {
                                                             <tbody class=" text-center">
                                                                 <?php
                                                                 $i = 0;
+                                                                $iron_total = 0;
                                                                 $prod_id = $prod['id'];
                                                                 $res5 = mysqli_query($conn, "SELECT * FROM iron_band WHERE `product_id` = $prod_id");
                                                                 while ($iron = mysqli_fetch_array($res5)) {
@@ -599,6 +600,7 @@ if (isset($_GET['id'])) {
                                                             <tbody class=" text-center">
                                                                 <?php
                                                                 $i = 0;
+                                                                $accessory_total = 0;
                                                                 $prod_id = $prod['id'];
                                                                 $res6 = mysqli_query($conn, "SELECT * FROM accessory_band WHERE `product_id` = $prod_id");
                                                                 while ($accessory = mysqli_fetch_array($res6)) {
@@ -686,6 +688,7 @@ if (isset($_GET['id'])) {
                                                             <tbody class=" text-center">
                                                                 <?php
                                                                 $i = 0;
+                                                                $extra_total = 0;
                                                                 $prod_id = $prod['id'];
                                                                 $res8 = mysqli_query($conn, "SELECT * FROM extra_band WHERE `product_id` = $prod_id");
                                                                 while ($extra = mysqli_fetch_array($res8)) {
