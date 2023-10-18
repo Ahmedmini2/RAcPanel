@@ -196,7 +196,6 @@ $sidebar = $_SESSION['sidebar'];
         </li>
         <?php } ?>
       </ul>
-
       <ul class="navbar-nav active">
       <?php if ($position == 'Admin') { ?> 
         <li class="nav-item ">
