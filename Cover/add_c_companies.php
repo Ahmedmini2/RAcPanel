@@ -261,7 +261,7 @@ if (!empty($_GET['edit'])) {
                                 $("#total_price").val(peice);
                             });
                         </script>
-                        <div class="row">
+                        <div class="row">           
                             <div class="col">
                                 <div class="form-group">
                                     <button type="submit" name="submit" class="btn btn-secondary">اضافة شركة</button>

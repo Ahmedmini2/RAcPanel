@@ -192,6 +192,21 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
               ?>
 
+                  <!-- New Card-->
+                  <div class="card-wrapper">
+                    <div class="card">
+                      <div class="image-content">
+                       <span class="overlay"></span>
+                       <div class="card-image">
+                        <img class="card-img" src="../Projects/Images/<?= $r['name'] ?>/<?= $r['image'] ?>" alt="">
+                       </div>
+                       
+
+                      </div>
+                    </div>
+                  </div>
+                  <!-- New Card-->
+
                 
 
                 <div class=" col-xs-12 col-sm-6 col-md-4 pt-2">

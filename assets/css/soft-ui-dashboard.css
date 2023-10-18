@@ -25061,3 +25061,16 @@ width: 100px;
   margin: 10px 20px;
   width: 50%;
 }
+
+
+.card-image{
+  position: relative;
+  height: 150px;
+  width: 150px;
+
+}
+.card-image .card-img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
