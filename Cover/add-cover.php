@@ -295,6 +295,7 @@ if (isset($_POST['submit'])) {
             <div class="row">
               <div class="col">
                 <div class="form-group">
+                <label>إسم الشركة</label>
                 <select name="seller" id="seller" class="form-control" placeholder="إسم الشركة">
                     <option value="<?=$type?>"><?=$type?></option>
                     <?php 
