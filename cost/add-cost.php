@@ -16,7 +16,19 @@ if (!empty($_GET['edit'])) {
     $type = $_POST['type'];
     $description = $_POST['description'];
     $price = $_POST['price'];
-    $update = "UPDATE `cost_center` SET `type` = '$type', `description` = '$description', `price` = '$price' WHERE `id` = $id";
+
+    $target_dir = "../Signed-Docs/Cost-Bills/".$id."/";
+        if(!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }else{
+
+        }
+        $target_file = $target_dir . basename($_FILES["bill"]["name"]);
+        $filename = basename($_FILES["bill"]["name"]);
+        $uploadOk = 1;
+        move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
+
+    $update = "UPDATE `cost_center` SET `type` = '$type', `description` = '$description', `price` = '$price' , `image` = '$filename' WHERE `id` = $id";
     $updateResult = $conn->query($update);
     if ($updateResult) {
 
@@ -38,7 +50,18 @@ if (!empty($_GET['edit'])) {
   $description = $_POST['description'];
   $price = $_POST['price'];
 
-  $insert = "INSERT INTO cost_center (`id`, `type`, `description`, `price`, `created_at`) VALUES (NULL, '$type', '$description', '$price' , NOW())";
+  $target_dir = "../Signed-Docs/Cost-Bills/".$id."/";
+  if(!is_dir($target_dir)) {
+      mkdir($target_dir, 0777, true);
+  }else{
+
+  }
+  $target_file = $target_dir . basename($_FILES["bill"]["name"]);
+  $filename = basename($_FILES["bill"]["name"]);
+  $uploadOk = 1;
+  move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
+
+  $insert = "INSERT INTO cost_center (`id`, `type`, `description`, `price`,`image`, `created_at`) VALUES (NULL, '$type', '$description', '$price','$filename', NOW())";
   $insertResult = $conn->query($insert);
   if ($insertResult) {
 
@@ -217,7 +240,7 @@ if (!empty($_GET['edit'])) {
           <div class="block-header bg-gradient-dark col-md-2 col-sm-6 col-xs-6  rounded-pill">
             <h6 class="block-title text-white py-2 px-4 ">إضافة تكلفة جديد</h6>
           </div>
-          <form id="<?php echo $idAttr; ?>" action="" method="post">
+          <form id="<?php echo $idAttr; ?>" action="" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col">
                 <div class="form-group">
@@ -250,6 +273,13 @@ if (!empty($_GET['edit'])) {
                 <div class="form-group">
                   <label>سعر التكلفة</label>
                   <input type="number" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="price" value="<?php echo $price; ?>">
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="form-group">
+                  <label>صورة الفاتورة</label>
+                  <input type="file" placeholder="" class="form-control" name="bill" value="">
                 </div>
               </div>
             </div>
