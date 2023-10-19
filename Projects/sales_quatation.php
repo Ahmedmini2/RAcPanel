@@ -454,7 +454,7 @@ if (isset($_GET['project_id'])) {
                             <table class="table table-hover table-fixed text-center">
 
                                 <!--Table head-->
-                                <thead class="text-light header-color custom-font-m">
+                                <thead class="text-light header-color custom-font-m table-bordered">
                                     <tr>
                                         <th style="color: white;">S.No.</th>
                                         <th style="color: white;">DESCRIPTION</th>
