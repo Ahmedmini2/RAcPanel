@@ -583,9 +583,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                                 <span class="text-xs font-weight-bold"><?= $r['status'] ?></span>
                               </div>
                             </div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
+                            
                           </div>
                         </td>
                       </tr>
