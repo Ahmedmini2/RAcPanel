@@ -857,7 +857,8 @@ if (isset($_GET['id'])) {
                 </div>
 
             </div>
-            <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal3"><i class="fa fa-trash  " aria-hidden="true"></i></button>
+         
+            <button type="button" class=" btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 mx-4 " data-bs-toggle="modal" data-bs-target="#exampleModal3">حذف المشروع</button>
                           <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
