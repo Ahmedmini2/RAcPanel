@@ -4,73 +4,65 @@ $_SESSION['sidebar'] = "Cover";
 if (!empty($_GET['edit'])) {
 
     $id = $_GET['edit'];
-    $query = "SELECT * FROM covers_purchase WHERE id=$id";
+    $query = "SELECT * FROM contact_covers WHERE id=$id";
     $res = $conn->query($query);
     $editData = $res->fetch_assoc();
-    $type = $editData['type'];
-    $dimensions = $editData['dimensions'];
-    $quantity = $editData['quantity'];
-    $price_per_peice = $editData['price_per_piece'];
-    $total_price = $editData['total_price'];
+    $name = $editData['name'];
     $seller = $editData['seller'];
+    $phone = $editData['phone'];
+    $email = $editData['email'];
+    $address = $editData['address'];
 
 
 
     if (isset($_POST['submit'])) {
 
-        $type = $_POST['type'];
-        $dimensions = $_POST['dimensions'];
-        $quantity = $_POST['quantity'];
-        $price_per_peice = $_POST['price_per_peice'];
-        $total_price = str_replace(',', '', $_POST['total_price']);
+        $name = $_POST['name'];
         $seller = $_POST['seller'];
+        $phone = $_POST['phone'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
 
 
 
-        $update = "UPDATE `covers_purchase` SET `type` = '$type', `dimensions` = '$dimensions', `quantity` = '$quantity', `price_per_piece` = '$price_per_peice', `total_price` = '$total_price',
-   `seller` = '$seller' WHERE `covers_purchase`.`id` = $id";
+        $update = "UPDATE `contact_covers` SET `name` = '$name', `seller` = '$seller', `address` = '$address', `phone` = '$phone', `email` = '$email' WHERE `contact_covers`.`id` = $id";
         $updateResult = $conn->query($update);
         if ($updateResult) {
 
-            $_SESSION['notification'] = "تم تعديل طلب شراء الاغطية بنجاح";
-            header('location: index.php');
+            $_SESSION['notification'] = "تم تعديل الشركة بنجاح";
+            header('location: covering_companies.php');
             exit();
         } else {
             $_SESSION['notification'] = "يوجد خلل في النظام";
-            header('location: index.php');
+            header('location: covering_companies.php');
             exit();
         }
     }
 } else if (isset($_POST['submit'])) {
 
-    $type = $_POST['type'];
-    $dimensions = $_POST['dimensions'];
-    $quantity = $_POST['quantity'];
-    $price_per_peice = $_POST['price_per_peice'];
-    $total_price = str_replace(',', '', $_POST['total_price']);
+    $name = $_POST['name'];
     $seller = $_POST['seller'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
 
 
 
-    $insert = "INSERT INTO `covers_purchase` (`id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
-   VALUES (NULL, '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
+    $insert = "INSERT INTO `contact_covers` (`id`, `name`, `seller`, `address`, `phone`, `email`, `created_at`)
+   VALUES (NULL, '$name', '$seller', '$address', '$phone', '$email', NOW())";
     $insertResult = $conn->query($insert);
     if ($insertResult) {
 
-        $_SESSION['notification'] = "تم اضافة طلب شراء الاغطية بنجاح";
-        header('location: index.php');
+        $_SESSION['notification'] = "تم اضافة الشركة بنجاح";
+        header('location: covering_companies.php');
         exit();
     } else {
         $_SESSION['notification'] = "يوجد خلل في النظام";
-        header('location: index.php');
+        header('location: covering_companies.php');
         exit();
     }
 } else {
-    $type = "";
-    $dimensions = "";
-    $quantity = "";
-    $price_per_peice = "";
-    $total_price = "";
+    $name = "";
     $seller = "";
     $address = "";
     $email = "";
@@ -233,35 +225,51 @@ if (!empty($_GET['edit'])) {
                         <?php require_once('../components/notification.php'); ?>
                     </div>
                     <div class="block-header bg-gradient-dark col-md-2 col-sm-6 col-xs-6  rounded-pill">
-                        <h6 class="block-title text-white py-2 px-4 ">اضافةشركة جديد</h6>
+                        <h6 class="block-title text-white py-2 px-4 ">اضافة شركة جديد</h6>
                     </div>
                     <form id="<?php echo $idAttr; ?>" action="" method="post">
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label>اسم الشركة</label>
-                                    <input type="text" placeholder="ادخل اسم الشركة" class="form-control" name="dimensions" value="<?php echo $dimensions; ?>">
+                                    <input type="text" placeholder="ادخل اسم الشركة" class="form-control" name="name" value="<?php echo $name; ?>">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>اسم البائع</label>
-                                    <input type="text" placeholder="ادخل اسم البائع" class="form-control" name="dimensions" value="<?php echo $dimensions; ?>">
+                                    <input type="text" placeholder="ادخل اسم البائع" class="form-control" name="seller" value="<?php echo $seller; ?>">
                                 </div>
                             </div>
                         </div>
                         
-                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                        <script>
-                            var a = 1;
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>رقم الهاتف</label>
+                                    <input type="text" placeholder="ادخل رقم الهاتف" class="form-control" name="phone" value="<?php echo $phone; ?>">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>البريد الالكتروني</label>
+                                    <input type="text" placeholder="ادخل البريد الالكتروني" class="form-control" name="email" value="<?php echo $email; ?>">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>العنوان</label>
+                                    <input type="text" placeholder="ادخل عنوان البائع" class="form-control" name="address" value="<?php echo $address; ?>">
+                                </div>
+                            </div>
+                        </div>
 
-                            $(document).on('change', 'input', function() {
 
-                                var peice = (parseFloat($("#quantity").val()) * parseFloat($("#price_per_peice").val() || '0'));
-                                $("#total_price").val(peice);
-                            });
-                        </script>
-                        <div class="row">           
+           
+
+                       
+                        <div class="row">
+
                             <div class="col">
                                 <div class="form-group">
                                     <button type="submit" name="submit" class="btn btn-secondary">اضافة شركة</button>

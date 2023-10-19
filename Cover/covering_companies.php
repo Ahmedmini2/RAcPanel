@@ -1,7 +1,7 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Cover";
-$select = mysqli_query($conn, "select * from covers_purchase");
+$select = mysqli_query($conn, "select * from contact_covers ");
 
 ?>
 <!DOCTYPE html>
@@ -192,16 +192,17 @@ $select = mysqli_query($conn, "select * from covers_purchase");
                 ?>
                     <tr class="text-center">
 
-                      <td class="text-xs text-secondary mb-0">1</td>
+                      <td class="text-xs text-secondary mb-0"><?=$r['id']?></td>
                       
-                      <td class="mb-0 text-sm">ركن اميال</td>
-                      <td class="mb-0 text-sm">عباس الجعفري</td>
+                      <td class="mb-0 text-sm"><?=$r['name']?></td>
+                      <td class="mb-0 text-sm"><?=$r['seller']?></td>
+                      
                     
                       <td class="text-xs text-secondary mb-0"><?php echo $r['created_at']; ?></td>
                       
 
-                    <td><a href="purchase_cover.php?id=<?=$r['id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
-                          <a href="add-cover.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                    <td>
+                          <a href="add_c_companies.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
                           <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
@@ -214,7 +215,7 @@ $select = mysqli_query($conn, "select * from covers_purchase");
                                 </div>
                                 <div class="modal-body">
                                   الرجاء ادخال كلمة المرور للتأكيد
-                                  <form action="../scripts/covers/delete.php?id=<?php echo $r['id']; ?>" method="post">
+                                  <form action="../scripts/covers/delete-company.php?id=<?php echo $r['id']; ?>" method="post">
                                     <input type="password" name="pas" class="form-control">
 
                                 </div>
@@ -225,7 +226,7 @@ $select = mysqli_query($conn, "select * from covers_purchase");
                                 </div>
                               </div>
                             </div>
-                          </div> <?php } ?>
+                          </div> 
                       </td>
                       <!-- Modal -->
 
