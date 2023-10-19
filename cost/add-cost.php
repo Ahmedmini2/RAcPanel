@@ -10,12 +10,14 @@ if (!empty($_GET['edit'])) {
   $type = $editData['type'];
   $description = $editData['description'];
   $price = $editData['price'];
+  $c_date = $editData['c_date'];
 
   if(isset($_POST['submit'])){
 
     $type = $_POST['type'];
     $description = $_POST['description'];
     $price = $_POST['price'];
+    $c_date = $_POST['c_date'];
 
     $target_dir = "../Signed-Docs/Cost-Bills/".$id."/";
         if(!is_dir($target_dir)) {
@@ -28,7 +30,7 @@ if (!empty($_GET['edit'])) {
         $uploadOk = 1;
         move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
 
-    $update = "UPDATE `cost_center` SET `type` = '$type', `description` = '$description', `price` = '$price' , `image` = '$filename' WHERE `id` = $id";
+    $update = "UPDATE `cost_center` SET `type` = '$type', `description` = '$description', `price` = '$price' , `image` = '$filename' , `cost_date` = '$c_date' WHERE `id` = $id";
     $updateResult = $conn->query($update);
     if ($updateResult) {
 
@@ -49,6 +51,7 @@ if (!empty($_GET['edit'])) {
   $type = $_POST['type'];
   $description = $_POST['description'];
   $price = $_POST['price'];
+  $c_date = $_POST['c_date'];
 
   $target_dir = "../Signed-Docs/Cost-Bills/".$id."/";
   if(!is_dir($target_dir)) {
@@ -61,7 +64,7 @@ if (!empty($_GET['edit'])) {
   $uploadOk = 1;
   move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
 
-  $insert = "INSERT INTO cost_center (`id`, `type`, `description`, `price`,`image`, `created_at`) VALUES (NULL, '$type', '$description', '$price','$filename', NOW())";
+  $insert = "INSERT INTO cost_center (`id`, `type`, `description`, `price`,`image`,'cost_date', `created_at`) VALUES (NULL, '$type', '$description', '$price','$filename','$c_date', NOW())";
   $insertResult = $conn->query($insert);
   if ($insertResult) {
 
@@ -273,6 +276,13 @@ if (!empty($_GET['edit'])) {
                 <div class="form-group">
                   <label>سعر التكلفة</label>
                   <input type="number" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="price" value="<?php echo $price; ?>">
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="form-group">
+                  <label>تاريخ الفاتورة</label>
+                  <input type="date" placeholder="" class="form-control" name="c_date" value="<?php echo $c_date; ?>">
                 </div>
               </div>
 
