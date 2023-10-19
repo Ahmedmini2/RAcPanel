@@ -857,9 +857,28 @@ if (isset($_GET['id'])) {
                 </div>
 
             </div>
-            <button type="button" id="btnD" class=" btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 mx-4 ">
-                حذف المشروع
-            </button>
+            <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal3"><i class="fa fa-trash  " aria-hidden="true"></i></button>
+                          <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">حذف التكلفة</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  الرجاء ادخال كلمة المرور للتأكيد
+                                  <form action="../scripts/projects/delete.php?id=<?php echo $project['id']; ?>" method="post">
+                                    <input type="password" name="pas" class="form-control">
+
+                                </div>
+                                <div class="modal-footer">
+
+                                  <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div> 
         </div>
 
 
