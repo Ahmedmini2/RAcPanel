@@ -339,7 +339,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                 </div>
                 <div class="col-4 text-start">
                   <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                    <i class="fa fa-university text-lg opacity-10" aria-hidden="true"></i>
                   </div>
                 </div>
               </div>
@@ -361,7 +361,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                 </div>
                 <div class="col-4 text-start">
                   <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                    <i class="fa fa-usd text-lg opacity-10" aria-hidden="true"></i>
                   </div>
                 </div>
               </div>
@@ -383,7 +383,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                 </div>
                 <div class="col-4 text-start">
                   <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                    <i class="fa fa-usd text-lg opacity-10" aria-hidden="true"></i>
                   </div>
                 </div>
               </div>
