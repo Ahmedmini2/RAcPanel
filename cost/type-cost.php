@@ -190,7 +190,7 @@ $select = mysqli_query($conn, "SELECT * from cost_type");
 
                       <td class="text-xs text-secondary mb-0"><?= $r['id'] ?></td>
                       <td class="text-xs text-secondary mb-0"><?= $r['name'] ?></td>
-                      <td class="mb-0 text-sm"><?= $r['created_at	'] ?></td>
+                      <td class="mb-0 text-sm"><?= $r['created_at'] ?></td>
                      
 
                       <td><?php if ($position == 'Admin') { ?>

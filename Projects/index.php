@@ -193,7 +193,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
               ?>
 
                   <!-- New Card-->
-                 
+                
                   <!-- New Card-->
 
                 

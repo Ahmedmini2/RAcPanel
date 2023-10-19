@@ -267,8 +267,8 @@ if (isset($_POST['submit'])) {
              
               
 
-            </div>
-           
+              </div>
+            
             <div class="row">
               <div class="col">
                 <div class="form-group">
@@ -277,7 +277,7 @@ if (isset($_POST['submit'])) {
                 </div>
               </div>
               
-              <div class="col">
+              <div class="col"> 
                 <div class="form-group">
                   <label>سعر الغطاء الواحد</label>
                   <input type="number" placeholder="ادخل سعر الغطاء الواحد" class="form-control" name="price_per_peice" id="price_per_peice" value="<?php echo $price_per_peice; ?>">
