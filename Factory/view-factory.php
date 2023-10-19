@@ -405,7 +405,7 @@ if (isset($_GET['id'])) {
                         </div>
 
                         <!--Table-->
-                        <div class="row mt-5">
+                        <div class="row mt-5" style="display: <?php if ($position == 'Admin') { echo 'flex'; } else { echo 'none'; } ?>;">
                             <div class="col-12">
                                 <div class="card mb-4">
                                     <div class="card-header pb-0">
@@ -630,6 +630,39 @@ if (isset($_GET['id'])) {
                                             </li>
                                            <?php } ?>
                                         </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-6 my-4">
+                                <div class="card h-100">
+                                    <div class="card-header pb-0">
+                                        <h6>نظرة عامة على سير العمل</h6>
+                                        <p class="text-sm">
+
+                                            <span class="font-weight-bold"></span> في الأيام الماضية
+                                        </p>
+                                    </div>
+                                    <div class="card-body p-3">
+                                        <div class="timeline timeline-one-side">
+                                            <?php
+                                            $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status` WHERE `project_id` =$id");
+                                            while ($r = mysqli_fetch_array($show_products_status)) {
+                                                $date = new DateTimeImmutable($r['created_at']);
+                                            ?>
+                                                <div class="timeline-block mb-3">
+                                                    <span class="timeline-step">
+                                                        <i class="fa fa-bell text-success text-gradient"></i>
+                                                    </span>
+                                                    <div class="timeline-content">
+
+                                                        <h6 class="text-dark text-sm font-weight-bold mb-0">تم <?= $r['description'] ?> عدد <?= $r['quantity'] ?> من الصنف <?= $r['name'] ?> وحالته <?= $r['status'] ?></h6>
+                                                        <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><?= $date->format('D jS \o\f F Y h:i:s A') ?></p>
+                                                        
+                                                    </div>
+                                                </div>
+
+                                            <?php } ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
