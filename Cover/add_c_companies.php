@@ -265,8 +265,11 @@ if (!empty($_GET['edit'])) {
                         </div>
 
 
+           
+
                        
                         <div class="row">
+
                             <div class="col">
                                 <div class="form-group">
                                     <button type="submit" name="submit" class="btn btn-secondary">اضافة شركة</button>
