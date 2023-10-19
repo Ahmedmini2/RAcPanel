@@ -25062,3 +25062,20 @@ width: 100px;
   width: 50%;
 }
 
+
+.mcard{
+  border-radius: 25px;
+  background-color: #000;
+  
+}
+.mcard-image{
+  position: relative;
+  height: 150px;
+  width: 150px;                         
+  
+}
+.mcard-image .mcard-img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
