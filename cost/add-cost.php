@@ -64,7 +64,7 @@ if (!empty($_GET['edit'])) {
   $uploadOk = 1;
   move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
 
-  $insert = "INSERT INTO cost_center (`id`, `type`, `description`, `price`,`image`,'cost_date', `created_at`) VALUES (NULL, '$type', '$description', '$price','$filename','$c_date', NOW())";
+  $insert = "INSERT INTO cost_center (`id`, `type`, `description`, `price` , `image` , `cost_date` , `created_at`) VALUES (NULL, '$type', '$description', '$price','$filename','$c_date', NOW())";
   $insertResult = $conn->query($insert);
   if ($insertResult) {
 
