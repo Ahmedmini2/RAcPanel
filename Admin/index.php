@@ -115,87 +115,47 @@
             <!-- End of Insights -->
         
 
-        <div class="bottom-data">
-                <div class="orders">
-                    <div class="header">
-                        <i class='bx bx-receipt'></i>
-                        <h3>Recent Orders</h3>
-                        <i class='bx bx-filter'></i>
-                        <i class='bx bx-search'></i>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>User</th>
-                                <th>Order Date</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>14-08-2023</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>14-08-2023</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>14-08-2023</td>
-                                <td><span class="status process">Processing</span></td>
-                            </tr>
-                        </tbody>
+            <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
+            <div class="content">
+                    
+                
+                <div class="block">
+                    
+                    <table class="table align-items-center mb-0" id="myTable">
+                    <thead>
+                    <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Sr.#</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">EmployeeID</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Full Name</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Leave Type</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Created at</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Status</th>
+                    
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+
+
+                    <tr>
+                    <td class="text-center">1</td>
+                    <td class="text-xs text-secondary mb-0">0000R4</td>
+                    <td class="mb-0 text-sm">MOhammed</td>
+                    <td class="mb-0 text-sm">Midical Leave</td>
+                    <td class="text-xs text-secondary mb-0">2023/10/20</td>
+                    <td class="text-secondary mb-0">Pending</td>
+                    
+
+                    </tr>
+
+                   
+                    </tbody>
                     </table>
+
                 </div>
-
-                <!-- Reminders -->
-                <div class="reminders">
-                    <div class="header">
-                        <i class='bx bx-note'></i>
-                        <h3>Remiders</h3>
-                        <i class='bx bx-filter'></i>
-                        <i class='bx bx-plus'></i>
-                    </div>
-                    <ul class="task-list">
-                        <li class="completed">
-                            <div class="task-title">
-                                <i class='bx bx-check-circle'></i>
-                                <p>Start Our Meeting</p>
-                            </div>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                        <li class="completed">
-                            <div class="task-title">
-                                <i class='bx bx-check-circle'></i>
-                                <p>Analyse Our Site</p>
-                            </div>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                        <li class="not-completed">
-                            <div class="task-title">
-                                <i class='bx bx-x-circle'></i>
-                                <p>Play Footbal</p>
-                            </div>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- End of Reminders-->
-
-            </div>
+            </div>    
+        </div>
 
         </main>
 
