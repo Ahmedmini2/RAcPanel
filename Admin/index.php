@@ -32,6 +32,7 @@
              </li>
         </ul>
     </div>
+     <!--End of Sidebar -->
     
     <script src="index.js"></script>
 </body>
