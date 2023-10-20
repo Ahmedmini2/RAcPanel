@@ -89,7 +89,7 @@
                                         
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h1><?php include 'counters/leavetype-counter.php'?></h1>
+                                        <h1>255</h1>
                                         <span>Leave Types</span>
                                     </div>
                                 </div>
