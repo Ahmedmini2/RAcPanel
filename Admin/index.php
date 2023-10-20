@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" >
 
 <head>
     <meta charset="UTF-8">
@@ -21,7 +21,7 @@
             <li><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
             <li><a href="#"><i class='bx bx-store-alt'></i>Employee Section</a></li>
             <li class="active"><a href="#"><i class='bx bx-analyse'></i>Department Section</a></li>
-            <li><a href="#"><i class='bx bx-message-square-dots'></i>Leave Type</a></li>
+            <li><a href="#"><i class='bx bx-message-square-dots'></i>الاجازات</a></li>
             <li><a href="#"><i class='bx bx-group'></i>Manage Leave</a></li>
             <li><a href="#"><i class='bx bx-cog'></i>Manage Admin</a></li>
         </ul>
