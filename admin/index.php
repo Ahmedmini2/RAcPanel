@@ -33,7 +33,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    ركن اميال تسجيل الدخول | Rukn Amial
+    ركن اميال تسجيل الدخول | Admin 
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
