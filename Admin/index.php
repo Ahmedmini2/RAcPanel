@@ -80,22 +80,15 @@
 
             <!-- Insights -->
             <ul class="insights">
-            <div class="col-md-4">
-                            <div class="single-report mb-xs-30">
-                                <div class="s-report-inner pr--20 pt--30 mb-3">
-                                    <div class="icon"><i class="fa fa-briefcase"></i></div>
-                                    <div class="s-report-title d-flex justify-content-between">
-                                        <h4 class="header-title mb-0">Available Leave Types</h4>
-                                        
-                                    </div>
-                                    <div class="d-flex justify-content-between pb-2">
-                                        <h1>255</h1>
-                                        <span>Leave Types</span>
-                                    </div>
-                                </div>
-                                <!-- <canvas id="coin_sales1" height="100"></canvas> -->
-                            </div>
-                        </div>
+                <li>
+                    <i class='bx bx-calendar-check'></i>
+                    <span class="info">
+                        <h3>
+                            1,074
+                        </h3>
+                        <p>Paid Order</p>
+                    </span>
+                </li>
                 <li><i class='bx bx-show-alt'></i>
                     <span class="info">
                         <h3>
