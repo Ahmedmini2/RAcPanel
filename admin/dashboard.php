@@ -1,11 +1,4 @@
-<?php
-    session_start();
-    error_reporting(0);
-    include('../includes/dbconn.php');
-    if(strlen($_SESSION['alogin'])==0){   
-        header('location:index.php');
-    } else {
-?>
+
 
 <!doctype html>
 <html  lang="en">
@@ -349,4 +342,4 @@
 
 </html>
 
-<?php } ?>
+?>
