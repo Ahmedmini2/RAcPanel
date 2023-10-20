@@ -126,36 +126,29 @@
                     <table>
                         <thead>
                             <tr>
+                                <th>S.N</th>
                                 <th>User</th>
+                                <th>Leave type</th>
                                 <th>Order Date</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>14-08-2023</td>
+                                <td>1</td>
+                                <td>Mohammed</td>
+                                <td>Medical Leave</td>
+                                <td>14-10-2023</td>
                                 <td><span class="status completed">Completed</span></td>
                             </tr>
                             <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>14-08-2023</td>
-                                <td><span class="status pending">Pending</span></td>
+                                <td>1</td>
+                                <td>Ahmed</td>
+                                <td>Casual Leave</td>
+                                <td>20-10-2023</td>
+                                <td><span class="status completed">Pending</span></td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>14-08-2023</td>
-                                <td><span class="status process">Processing</span></td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>
