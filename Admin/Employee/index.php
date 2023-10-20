@@ -18,8 +18,8 @@
 
     </a>
         <ul class="side-menu">
-            <li class="active" ><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
-            <li> <a href="Employee/index.php"><i class='bx bx-store-alt'></i>Employee Section</a></li>
+            <li  ><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li class="active" > <a href="#"><i class='bx bx-store-alt'></i>Employee Section</a></li>
             <li ><a href=""><i class='bx bx-analyse'></i>Department Section</a></li>
             <li><a href="#"><i class='bx bx-message-square-dots'></i>الاجازات</a></li>
             <li><a href="#"><i class='bx bx-group'></i>Manage Leave</a></li>
@@ -75,48 +75,13 @@
                 
             </div>
 
-            <!-- Insights -->
-            <ul class="insights">
-                <li><i class='bx bx-dollar-circle'></i>
-                    <span class="info">
-                        <h3>
-                            12
-                        </h3>
-                        <p>Available Leave Type</p>
-                    </span>
-                </li>
-                <li>
-                    <i class='bx bx-calendar-check'></i>
-                    <span class="info">
-                        <h3>
-                            4
-                        </h3>
-                        <p>Pening Application</p>
-                    </span>
-                </li>
-                <li><i class='bx bx-show-alt'></i>
-                    <span class="info">
-                        <h3>
-                            2
-                        </h3>
-                        <p>Declined Application</p>
-                    </span>
-                </li>
-                <li><i class='bx bx-line-chart'></i>
-                    <span class="info">
-                        <h3>
-                            6
-                        </h3>
-                        <p>Approved Application</p>
-                    </span>
-                </li>
-                
-            </ul>
-            <!-- End of Insights -->
+           
         
 
         <div class="bottom-data">
-                <div class="orders">
+            <div class="row">
+            <a href="#" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6"> أضافة موظف <i class="fas fa-plus"></i></a>
+            <div class="orders">
                     <div class="header">
                         <i class='bx bx-receipt'></i>
                         <h3>Recent </h3>
@@ -152,6 +117,8 @@
                         </tbody>
                     </table>
                 </div>
+        </div>
+                
 
                 <!-- Reminders -->
                 
