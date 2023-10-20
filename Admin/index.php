@@ -80,39 +80,40 @@
 
             <!-- Insights -->
             <ul class="insights">
+                <li><i class='bx bx-dollar-circle'></i>
+                    <span class="info">
+                        <h3>
+                            12
+                        </h3>
+                        <p>Available Leave Type</p>
+                    </span>
+                </li>
                 <li>
                     <i class='bx bx-calendar-check'></i>
                     <span class="info">
                         <h3>
-                            1,074
+                            4
                         </h3>
-                        <p>Paid Order</p>
+                        <p>Pening Application</p>
                     </span>
                 </li>
                 <li><i class='bx bx-show-alt'></i>
                     <span class="info">
                         <h3>
-                            3,944
+                            2
                         </h3>
-                        <p>Site Visit</p>
+                        <p>Declined Application</p>
                     </span>
                 </li>
                 <li><i class='bx bx-line-chart'></i>
                     <span class="info">
                         <h3>
-                            14,721
+                            6
                         </h3>
-                        <p>Searches</p>
+                        <p>Approved Application</p>
                     </span>
                 </li>
-                <li><i class='bx bx-dollar-circle'></i>
-                    <span class="info">
-                        <h3>
-                            $6,742
-                        </h3>
-                        <p>Total Sales</p>
-                    </span>
-                </li>
+                
             </ul>
             <!-- End of Insights -->
 
