@@ -113,6 +113,67 @@
                 
             </ul>
             <!-- End of Insights -->
+            <!-- row area start -->
+            <div class="row">
+                    
+                    <!-- trading history area start -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+							<div class="d-sm-flex justify-content-between align-items-center">
+                                    <!-- <h4 class="header-title">Employee Leave History</h4> -->
+                                    <div class="trd-history-tabs">
+                                        <ul class="nav" role="tablist">
+                                            <li>
+                                                <a class="active" data-toggle="tab" href="dashboard.php" role="tab">Recent List</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <select class="custome-select border-0 pr-3">
+                                        <option selected>Last 24 Hours</option>
+                                        
+                                    </select>
+                                </div>
+                                        <!-- <h4 class="header-title"></h4> -->
+                                        <div class="single-table">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover table-bordered table-striped progress-table text-center">
+                                                <thead class="text-uppercase">
+
+                                                <tr>
+                                                        <td>S.N</td>
+                                                        
+                                                        <td width="120">Full Name</td>
+                                                        <td>Leave Type</td>
+                                                        <td>Applied On</td>
+                                                        <td>Current Status</td>
+                                                        <td></td>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                 
+
+                                        <tr>
+                                            <td>1</td>
+                                            
+                                            <td>Mohammed</td>
+                                            <td>medical Leave</td>
+                                            <td>121565</td>
+                                            <td>Pending</td>
+                                            <td></td>
+                                            </tr>
+                                               
+                                            </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        </div>
+                        </div>
+                    </div>
+                    <!-- trading history area end -->
+                </div>
+                <!-- row area end -->
 
             <div class="bottom-data">
                 <div class="orders">
