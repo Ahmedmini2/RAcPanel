@@ -14,7 +14,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
     <a class="navbar-brand m-0" href="https://test.app.ruknamial.com/index.php">
-      <img src="../assets/img/logos/logo-gold.png" class="navbar-brand-img " alt="main_logo" style="height: 50%;">
+      <img src="../assets/img/logos/logo-gold.png" class="navbar-brand-img " alt="main_logo" style="height: 200PX;">
 
     </a>
         <ul class="side-menu">
