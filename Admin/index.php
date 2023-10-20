@@ -66,10 +66,10 @@
                     <h1>Dashboard</h1>
                     <ul class="breadcrumb">
                         <li><a href="#">
-                                Analytics
+                                Dashboard
                             </a></li>
                         /
-                        <li><a href="#" class="active">Shop</a></li>
+                        <li><a href="#" class="active">Dashboard</a></li>
                     </ul>
                 </div>
                 
