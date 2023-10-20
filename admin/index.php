@@ -1,31 +1,17 @@
 <?php
-    session_start();
-    include('../includes/dbconn.php');
-    if(isset($_POST['signin'])){
-
-    $uname=$_POST['username'];
-    $password=md5($_POST['password']);
-    $sql ="SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
-    $query= $dbh -> prepare($sql);
-    $query-> bindParam(':uname', $uname, PDO::PARAM_STR);
-    $query-> bindParam(':password', $password, PDO::PARAM_STR);
-    $query-> execute();
-    $results=$query->fetchAll(PDO::FETCH_OBJ);
-
-    if($query->rowCount() > 0)
-    {
-    $_SESSION['alogin']=$_POST['username'];
-        echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
-    } else {
-        echo "<script>alert('Invalid Details');</script>";
-    }
-
+session_start();
+$email_address= !empty($_SESSION['email'])?$_SESSION['email']:'';
+if(!empty($email_address))
+{
+  header("location:../index.php");
 }
-
+include '../db/connection.php';
+include '../scripts/login.php';
 ?>
 
-<!doctype html>
-<html class="no-js" lang="en">
+
+<!DOCTYPE html>
+<html lang="en" >
 
 <head>
   <meta charset="utf-8" />
@@ -33,7 +19,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    ركن اميال تسجيل الدخول | Admin 
+    ركن اميال تسجيل الدخول | Rukn Amial
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
