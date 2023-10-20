@@ -13,10 +13,10 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="#" class="logo">
-            <i class='bx bx-code-alt'></i>
-            <div class="logo-name"><span>Rukn</span>amial</div>
-        </a>
+    <a class="navbar-brand m-0" href="https://test.app.ruknamial.com/index.php">
+      <img src="../assets/img/logos/logo-gold.png" class="navbar-brand-img " alt="main_logo">
+
+    </a>
         <ul class="side-menu">
             <li><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
             <li><a href="#"><i class='bx bx-store-alt'></i>Employee Section</a></li>
