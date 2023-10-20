@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <title>Responsive Dashboard Design #2 | AsmrProg</title>
+    <title>ruknamial</title>
 </head>
 
 <body>
@@ -15,15 +15,15 @@
     <div class="sidebar">
         <a href="#" class="logo">
             <i class='bx bx-code-alt'></i>
-            <div class="logo-name"><span>Asmr</span>Prog</div>
+            <div class="logo-name"><span>Rukn</span>amial</div>
         </a>
         <ul class="side-menu">
             <li><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
-            <li><a href="#"><i class='bx bx-store-alt'></i>Shop</a></li>
-            <li class="active"><a href="#"><i class='bx bx-analyse'></i>Analytics</a></li>
-            <li><a href="#"><i class='bx bx-message-square-dots'></i>Tickets</a></li>
-            <li><a href="#"><i class='bx bx-group'></i>Users</a></li>
-            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
+            <li><a href="#"><i class='bx bx-store-alt'></i>Employee Section</a></li>
+            <li class="active"><a href="#"><i class='bx bx-analyse'></i>Department Section</a></li>
+            <li><a href="#"><i class='bx bx-message-square-dots'></i>Leave Type</a></li>
+            <li><a href="#"><i class='bx bx-group'></i>Manage Leave</a></li>
+            <li><a href="#"><i class='bx bx-cog'></i>Manage Admin</a></li>
         </ul>
         <ul class="side-menu">
             <li>
@@ -80,15 +80,22 @@
 
             <!-- Insights -->
             <ul class="insights">
-                <li>
-                    <i class='bx bx-calendar-check'></i>
-                    <span class="info">
-                        <h3>
-                            1,074
-                        </h3>
-                        <p>Paid Order</p>
-                    </span>
-                </li>
+            <div class="col-md-4">
+                            <div class="single-report mb-xs-30">
+                                <div class="s-report-inner pr--20 pt--30 mb-3">
+                                    <div class="icon"><i class="fa fa-briefcase"></i></div>
+                                    <div class="s-report-title d-flex justify-content-between">
+                                        <h4 class="header-title mb-0">Available Leave Types</h4>
+                                        
+                                    </div>
+                                    <div class="d-flex justify-content-between pb-2">
+                                        <h1><?php include 'counters/leavetype-counter.php'?></h1>
+                                        <span>Leave Types</span>
+                                    </div>
+                                </div>
+                                <!-- <canvas id="coin_sales1" height="100"></canvas> -->
+                            </div>
+                        </div>
                 <li><i class='bx bx-show-alt'></i>
                     <span class="info">
                         <h3>
