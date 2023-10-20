@@ -67,7 +67,7 @@ while ($ban = mysqli_fetch_array($banner)) {
 
 
   <!-- Side Bar -->
-  <?php require_once('components/sidebar.php'); ?>
+  <?php require_once('../Admin/components/sidebar_dashboard.php'); ?>
   
   
   <!-- End Of side Bar -->
