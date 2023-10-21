@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 
 <head>
 	<meta charset="utf-8">
@@ -19,8 +19,8 @@
 	<div class="main-wrapper">
 		<div class="header">
 			<div class="header-left">
-				<a href="index.html" class="logo"> <img src="assets/img/logo-gold.png" width="50" height="70" alt="logo"> <span class="logoclass">ruknamial</span> </a>
-				<a href="index.html" class="logo logo-small"> <img src="assets/img/logo-gold.png" alt="Logo" width="30" height="30"> </a>
+				<a href="https://test.app.ruknamial.com/index.php" class="logo"> <img src="assets/img/logo-gold.png" width="50" height="70" alt="logo"> <span class="logoclass">ruknamial</span> </a>
+				<a href="https://test.app.ruknamial.com/index.php" class="logo logo-small"> <img src="assets/img/logo-gold.png" alt="Logo" width="30" height="30"> </a>
 			</div>
 			<a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>
 			<a class="mobile_btn" id="mobile_btn"> <i class="fas fa-bars"></i> </a>
