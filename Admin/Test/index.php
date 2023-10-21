@@ -112,51 +112,25 @@
 					<ul>
 						<li class="active"> <a href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
 						<li class="list-divider"></li>
-						<li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Booking </span> <span class="menu-arrow"></span></a>
-							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-booking.html"> All Booking </a></li>
-								<li><a href="edit-booking.html"> Edit Booking </a></li>
-								<li><a href="add-booking.html"> Add Booking </a></li>
-							</ul>
+						<li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Employee Section </span> <span class="menu-arrow"></span></a>
+							
 						</li>
-						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
-							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-customer.html"> All customers </a></li>
-								<li><a href="edit-customer.html"> Edit Customer </a></li>
-								<li><a href="add-customer.html"> Add Customer </a></li>
-							</ul>
+						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Department Section </span> <span class="menu-arrow"></span></a>
+							
 						</li>
-						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
-							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-rooms.html">All Rooms </a></li>
-								<li><a href="edit-room.html"> Edit Rooms </a></li>
-								<li><a href="add-room.html"> Add Rooms </a></li>
-							</ul>
+						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Leave </span> <span class="menu-arrow"></span></a>
+							
 						</li>
-						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Staff </span> <span class="menu-arrow"></span></a>
-							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-staff.html">All Staff </a></li>
-								<li><a href="edit-staff.html"> Edit Staff </a></li>
-								<li><a href="add-staff.html"> Add Staff </a></li>
-							</ul>
+						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Manage Leave </span> <span class="menu-arrow"></span></a>
+							
 						</li>
-						<li> <a href="pricing.html"><i class="far fa-money-bill-alt"></i> <span>Pricing</span></a> </li>
+						<li> <a href="pricing.html"><i class="far fa-money-bill-alt"></i> <span>Manage Admin</span></a> </li>
 						<li class="submenu"> <a href="#"><i class="fas fa-share-alt"></i> <span> Apps </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
 								<li><a href="chat.html"><i class="fas fa-comments"></i><span> Chat </span></a></li>
-								<li class="submenu"> <a href="#"><i class="fas fa-video camera"></i> <span> Calls </span> <span class="menu-arrow"></span></a>
-									<ul class="submenu_class" style="display: none;">
-										<li><a href="voice-call.html"> Voice Call </a></li>
-										<li><a href="video-call.html"> Video Call </a></li>
-										<li><a href="incoming-call.html"> Incoming Call </a></li>
-									</ul>
-								</li>
+							
 								<li class="submenu"> <a href="#"><i class="fas fa-envelope"></i> <span> Email </span> <span class="menu-arrow"></span></a>
-									<ul class="submenu_class" style="display: none;">
-										<li><a href="compose.html">Compose Mail </a></li>
-										<li><a href="inbox.html"> Inbox </a></li>
-										<li><a href="mail-veiw.html"> Mail Veiw </a></li>
-									</ul>
+									
 								</li>
 							</ul>
 						</li>
