@@ -70,12 +70,15 @@ $_SESSION['sidebar_admin'] = "dashboard";
                     <h6 class="font-weight-bolder mb-0">الرئيسية</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
-                    <label class="switch">
-                        <input type="checkbox" id="checkbox" onclick="setDarkMode()"/>
-                        <span class="slider"></span>
+                    <label class="ui-switch">
+                        <input type="checkbox" onclick="setDarkMode()">
+                        <div class="slider">
+                            <div class="circle"></div>
+                        </div>
                     </label>
+
                     
+
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
