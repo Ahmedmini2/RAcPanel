@@ -47,7 +47,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
 </head>
 
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl bg-gray-900">
 
 
 
@@ -74,6 +74,14 @@ $_SESSION['sidebar_admin'] = "dashboard";
               <input type="text" class="form-control" placeholder="أكتب هنا...">
             </div>
           </div>
+          <div class="dark-mode">
+                    <span class="material-icons-sharp active">
+                        light_mode
+                    </span>
+                    <span class="material-icons-sharp">
+                        dark_mode
+                    </span>
+                </div>
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center px-4">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
