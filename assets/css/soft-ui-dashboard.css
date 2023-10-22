@@ -25083,6 +25083,9 @@ width: 100px;
   line-height: 1.2;
   color: white !important;
 }
+.darkmode .bg-dark {
+  background-color: #34476700 !important;
+}
 
 
 #checkbox{
