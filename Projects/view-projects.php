@@ -462,7 +462,7 @@ if (isset($_GET['id'])) {
                                                     while ($products = mysqli_fetch_array($res3)) {
                                                         $product_id = $products['id'];
                                                         $deleivery_query  = $conn->query("SELECT * FROM delivery WHERE `product_id` = $product_id");
-                                                        $delevery = $res->fetch_assoc();
+                                                        $delevery = $deleivery_query->fetch_assoc();
                                                         
                                                        
                                                         
