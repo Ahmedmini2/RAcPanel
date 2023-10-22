@@ -1,5 +1,5 @@
 <?php
-include('cookies/session.php');
+include('cookies/session_admin.php');
 $_SESSION['sidebar_admin'] = "dashboard";
 
 $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
@@ -67,7 +67,7 @@ while ($ban = mysqli_fetch_array($banner)) {
 
 
   <!-- Side Bar -->
-  <?php require_once('../components/sidebar_admin.php'); ?>
+  <?php require_once('components/sidebar_admin.php'); ?>
   
   
   <!-- End Of side Bar -->
