@@ -466,7 +466,7 @@ if (isset($_GET['id'])) {
                                                         $delevery = $deleivery_query->fetch_assoc();
                                                         
                                                        
-                                                        
+                                                        $del_status = $delevery['deliverable'];
                                                         $peice_per_track = $delevery['peice_per_track'];
                                                         $quantity_of_track = $delevery['quantity_of_track'];
                                                         $piece_price = $delevery['piece_price'];
@@ -476,6 +476,7 @@ if (isset($_GET['id'])) {
                                                        
                                                         $i++;
                                                     ?>
+                                                        <?php if ($del_status == 1) { ?>
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
                                                             <td><?= $products['product_name'] ?></td>
@@ -490,6 +491,7 @@ if (isset($_GET['id'])) {
 
                                                             <td><?= $delivery_to  ?></td>
                                                         </tr>
+                                                       <?php } ?>
                                                     <?php } ?>
 
                                                 </tbody>
