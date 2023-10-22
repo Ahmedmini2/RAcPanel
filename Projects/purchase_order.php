@@ -554,7 +554,20 @@ if (isset($_GET['project_id'])) {
                                 </tr>
 
 
+                                <tr>
+                                    <td>
+                                        <div class="text-left">
 
+                                            <span class="text-muted">Delivery :</span>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-right">
+                                            <span>SAR <?=number_format($del_total_price)?></span>
+                                        </div>
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <td>
@@ -571,20 +584,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                 </tr>
 
-                                <tr>
-                                    <td>
-                                        <div class="text-left">
-
-                                            <span class="text-muted">Delivery :</span>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-right">
-                                            <span>SAR <?=number_format($del_total_price)?></span>
-                                        </div>
-                                    </td>
-                                </tr>
+                                
 
 
                                 <tr class="border-top border-bottom">
@@ -597,7 +597,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax)?></span>
+                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax+$del_total_price)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -614,14 +614,14 @@ if (isset($_GET['project_id'])) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <p>The total value is SAR <?=number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p>
+                        <p>The total value is SAR <?=number_format($total_without_tax+$total_with_tax+$del_total_price)?> <span id="con"></span> riyals only.</p>
                     </div>
                 </div>
                 <script>
                     
                      function changeVal() {
                         
-                        value =  <?=number_format($total_without_tax+$total_with_tax,0,"","")?> ;
+                        value =  <?=number_format($total_without_tax+$total_with_tax+$del_total_price,0,"","")?> ;
                         document.getElementById("con").innerText = numToWords(value);
                         console.log(value);
                         
