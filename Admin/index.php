@@ -1,15 +1,11 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar_admin'] = "dashboard";
-
-
 ?>
 
 <html lang="ar" dir="rtl">
 
 <head>
-
-
 
 
 
