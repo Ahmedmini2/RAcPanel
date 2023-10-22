@@ -758,7 +758,7 @@ if (isset($_POST['add-project'])) {
                         var total_accessory = 0;
                         for (var z = 1; z <= a; z++) {
 
-                          var peice = (parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val() || '0'));
+                          var peice = ((parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val()) || 0));
                           total_accessory += peice
                           peice = peice.toLocaleString("en-US");
                           $("#acc_tot_" + z).val(peice);

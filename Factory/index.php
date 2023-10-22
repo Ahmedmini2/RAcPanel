@@ -2,7 +2,7 @@
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Factory";
 
-$projects = mysqli_query($conn, "SELECT * FROM projects");
+$projects = mysqli_query($conn, "SELECT * FROM projects WHERE status = 'قيد التنفيذ'");
 
 
 

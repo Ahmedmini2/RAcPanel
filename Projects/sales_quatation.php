@@ -60,8 +60,6 @@ if (isset($_GET['project_id'])) {
             max-width: 1200px;
             margin: auto;
             padding: 30px;
-            border: 1px solid #eee;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
             font-size: 16px;
             line-height: 24px;
             font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
@@ -323,9 +321,13 @@ if (isset($_GET['project_id'])) {
                 function printDiv(divName) {
                     document.getElementById('btn2').style.display = "none";
                     document.getElementById('btn3').style.display = "none";
+                    document.getElementById('signture').style.backgroundColor = "#ffffff00";
+                    document.getElementById('signture2').style.backgroundColor = "#ffffff00";
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
                     document.getElementById('btn3').style.display = "inline";
+                    document.getElementById('signture').style.backgroundColor = "white";
+                    document.getElementById('signture2').style.backgroundColor = "white";
 
                 }
             </script>
@@ -446,13 +448,13 @@ if (isset($_GET['project_id'])) {
                 </div>
                 <!-- == -->
 
-                <div class="row mt-5 justify-content-center">
+                <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="table-responsive p-0">
                             <table class="table table-hover table-fixed text-center">
 
                                 <!--Table head-->
-                                <thead class="text-light header-color custom-font-m">
+                                <thead class="text-light header-color custom-font-m table-bordered">
                                     <tr>
                                         <th style="color: white;">S.No.</th>
                                         <th style="color: white;">DESCRIPTION</th>
@@ -477,8 +479,8 @@ if (isset($_GET['project_id'])) {
                                         <th scope="row"><?=$i?></th>
                                         <td class="custom-font-m text-center"><?=$item['product_name']?></td>
                                         <td class="custom-font-m"><?=$item['quantity']?></td>
-                                        <td class="custom-font-m"><?=number_format($item['cost_price']+$item['sell_price'])?></td>
-                                        <td class="custom-font-m"><?=number_format(($item['cost_price']+$item['sell_price'])*$item['quantity'])?></td>
+                                        <td class="custom-font-m"><?=number_format($item['sell_price'])?></td>
+                                        <td class="custom-font-m"><?=number_format($item['sell_price']*$item['quantity'])?></td>
 
                                     </tr>
                                     
@@ -509,7 +511,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span>SAR <?=number_format($total_without_tax+$project_cost)?></span>
+                                            <span>SAR <?=number_format($total_without_tax)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -543,7 +545,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax+$project_cost)?></span>
+                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -560,14 +562,14 @@ if (isset($_GET['project_id'])) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <p>The total value is SAR <?=number_format($total_without_tax+$total_with_tax+$project_cost)?> <span id="con"></span> riyals only.</p>
+                        <p>The total value is SAR <?=number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p>
                     </div>
                 </div>
                 <script>
                     
                      function changeVal() {
                         
-                        value =  <?=number_format($total_without_tax+$total_with_tax+$project_cost,0,"","")?> ;
+                        value =  <?=number_format($total_without_tax+$total_with_tax,0,"","")?> ;
                         document.getElementById("con").innerText = numToWords(value);
                         console.log(value);
                         
@@ -576,13 +578,7 @@ if (isset($_GET['project_id'])) {
                 </script>
                 <hr>
                 <ul class="list-unstyled">
-                    <li class="font-weight-bold">Specil terms:
-                        <ul>
-                            <li>All materials should be as per approved.</li>
-                            <li>Advanced Payment 50%</li>
-
-                        </ul>
-                    </li>
+                    
 
                 </ul>
 
@@ -592,12 +588,14 @@ if (isset($_GET['project_id'])) {
                     <div class="col-6">
                         <div class="row">
                             <h6>Prepared by</h6>
+                            <input type="text" class="signture" id="signture"/>
                             <h5></h5>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="row">
                             <h6>Approved by</h6>
+                            <input type="text" class="signture" id="signture2"/>
                         </div>
                     </div>
                 </div>

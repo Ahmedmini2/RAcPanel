@@ -179,7 +179,8 @@ $select = mysqli_query($conn, "select * from cost_center");
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">نوع الطلب</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الوصف</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">القيمة المطلوبة</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">القيمة</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">صورة الفاتورة</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">تاريخ الطلب</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 
@@ -197,6 +198,7 @@ $select = mysqli_query($conn, "select * from cost_center");
                       <td class="text-xs text-secondary mb-0"><?=$r['type']?></td>
                       <td class="mb-0 text-sm"><?=$r['description']?></td>
                       <td class="mb-0 text-sm"><?=$r['price']?></td>
+                      <td class="mb-0 text-sm"><a href="../Signed-Docs/Cost-Bills/<?=$r['id']?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
                       <td class="text-xs text-secondary mb-0"><?=$r['created_at']?></td>
 
                       <td><?php if ($position == 'Admin') { ?> 
