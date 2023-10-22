@@ -1,6 +1,6 @@
 <?php
 include('../cookies/session2.php');
-$_SESSION['sidebar_admin'] = "dashboard";
+$_SESSION['sidebar_admin'] = "employee";
 ?>
 
 <html lang="ar" dir="rtl">
@@ -52,7 +52,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
 
 
     <!-- Side Bar -->
-    <?php require_once('../components/sidebar_admin.php'); ?>
+    <?php require_once('../comp onents/sidebar_admin.php'); ?>
 
 
     <!-- End Of side Bar -->
@@ -63,9 +63,9 @@ $_SESSION['sidebar_admin'] = "dashboard";
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
                         <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 " href="javascript:;">لوحات القيادة</a></li>
-                        <li class="breadcrumb-item text-sm  active" aria-current="page">الرئيسية</li>
+                        <li class="breadcrumb-item text-sm  active" aria-current="page">الموظفين</li>
                     </ol>
-                    <h6 class="font-weight-bolder mb-0">الرئيسية</h6>
+                    <h6 class="font-weight-bolder mb-0">الموظفين</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -74,10 +74,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
                             <input type="text" class="form-control" placeholder="أكتب هنا...">
                         </div>
                     </div>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox"  id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
+                    
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -124,143 +121,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
 
 
         <div class="container-fluid py-4">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
-                    <div class="card">
-                        <div class="card-body p-3">
-                            <div class="row">
-                                <div class="col-8">
-                                    <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">عدد الاجازات</p>
-                                        <h5 class="font-weight-bolder mb-0">
-                                            12
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="col-4 text-start">
 
-                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                        <i class="fa fa-hourglass text-lg opacity-10" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
-                    <div class="card">
-                        <div class="card-body p-3">
-                            <div class="row">
-                                <div class="col-8">
-                                    <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">الاجازة المعتمدة</p>
-                                        <h5 class="font-weight-bolder mb-0">
-                                           6
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="col-4 text-start">
-                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                        <i class="fa fa-thumbs-o-up text-lg opacity-10" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
-                    <div class="card">
-                        <div class="card-body p-3">
-                            <div class="row">
-                                <div class="col-8">
-                                    <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">انتظار الموافقه على الاجازة</p>
-                                        <h5 class="font-weight-bolder mb-0">
-                                            4
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="col-4 text-start">
-                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                        <i class="fa fa-spinner text-lg opacity-10" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="card">
-                        <div class="card-body p-3">
-                            <div class="row">
-                                <div class="col-8">
-                                    <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">رفض الاجازة</p>
-                                        <h5 class="font-weight-bolder mb-0">
-                                            2
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="col-4 text-start">
-                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                        <i class="fa fa-window-close text-lg opacity-10" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-           <!--Table المجموع الكلي لجميع الاصناف -->
-           <div class="row">
-                            <div class="col-12">
-                                <div class="card mb-4 mt-3">
-                                
-                                    <div class="card-body px-0 pt-0 pb-2 mx-3">
-                                        <div class="table-responsive p-0">
-                                            <table class="table table-hover table-fixed">
-
-                                                <!--Table head-->
-                                                <thead class="bg-dark text-light text-center">
-                                                    <tr>
-                                                        <th>الرقم</th>
-                                                        <th>رقم الموظف</th>
-                                                        <th>اسم الموظف</th>
-                                                        <th>سبب الاجازه</th>
-                                                        <th>تاريخ طلب الاجازة</th>
-                                                        <th>حاله الطلب</th>
-                                                       
-                                                        
-
-                                                    </tr>
-                                                </thead>
-                                                <!--Table head-->
-
-                                                <!--Table body-->
-                                                <tbody class=" text-center">
-                                                   
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>RUKNAMIL0002</td>
-                                                            <td>عباس الجعفري</td>
-                                                            <td>مناسبة خاصة</td>
-                                                            <td>2023/10/22</td>
-                                                            <td><span style="color: gray">Pending <i class="fa fa-spinner"></i></span></td>   
-                                            
-                                                        </tr>
-                                                   
-
-                                                </tbody>
-                                                <!--Table body-->
-
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Table -->
         </div>
         </div>
         </div>
@@ -410,7 +271,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
         // Poll for new notifications every 5 minutes (adjust the interval as needed)
         setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
     </script>
-    <script src="darkmode.js"></script>
+    
 </body>
 
 </html>
