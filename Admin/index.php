@@ -259,7 +259,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
    
   </main>
 
-  <?php require_once('components/online-users.php'); ?>
+  
 
   <!--   Core JS Files   -->
   <script src="assets/js/core/popper.min.js"></script>
@@ -302,8 +302,6 @@ $_SESSION['sidebar_admin'] = "dashboard";
         },
       });
     }
-
-
 
     // Function to update the notification UI with new data
     function updateNotificationUI(data) {
@@ -349,6 +347,8 @@ $_SESSION['sidebar_admin'] = "dashboard";
           // Handle the response (e.g., display a success message)
           console.log(response.message);
 
+
+          
           // Refresh the notifications to reflect the updated status
           fetchNotifications();
         },
