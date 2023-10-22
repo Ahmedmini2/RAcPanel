@@ -56,7 +56,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link <?php if ($sidebar_admin == "department") echo 'active'; ?>" href="../../Admin/Deparment/index.php">
+        <a class="nav-link <?php if ($sidebar_admin == "department") echo 'active'; ?>" href="../../Admin/Department/index.php">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
