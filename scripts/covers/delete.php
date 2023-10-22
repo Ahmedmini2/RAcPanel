@@ -28,7 +28,7 @@ include '../../db/connection.php';
                             header('location:../../Cover/index.php');
                         }else{
                             $_SESSION['notification'] = "كلمة مرور خاطئة";
-                            header('location:../../Projects/index.php');
+                            header('location:../../Cover/index.php');
                             }
                         }
                     }
