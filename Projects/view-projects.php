@@ -447,6 +447,7 @@ if (isset($_GET['id'])) {
                                                         <th>عدد القطع للتريلة</th>
                                                         <th>عدد التريلات</th>
                                                         <th>سعر توصيل القطعه</th>
+                                                        <th>سعر التوصيل التريلة</th>
                                                         <th>سعر التوصيل الكلي</th>
                                                         <th>توصيل الى</th>
 
@@ -485,6 +486,7 @@ if (isset($_GET['id'])) {
 
 
                                                             <td><?= number_format($track_price,2,'.',',') ?></td>
+                                                            <td><?= number_format($del_total_price,2,'.',',') ?></td>
 
                                                             <td><?= $delivery_to  ?></td>
                                                         </tr>
