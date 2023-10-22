@@ -128,7 +128,7 @@ $_SESSION['sidebar_admin'] = "department";
             <h5 class="mb-1">اضافة قسم جديد</h5>
           </div>
 
-          <a href="add-department.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة موظف&nbsp;&nbsp;
+          <a href="add-department.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة قسم&nbsp;&nbsp;
             <i class="fas fa-plus">
             </i>
           </a>
