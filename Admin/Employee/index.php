@@ -43,7 +43,9 @@ $_SESSION['sidebar_admin'] = "employee";
 
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
-
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </head>
 
 
@@ -124,11 +126,57 @@ $_SESSION['sidebar_admin'] = "employee";
 
 
         <div class="container-fluid py-4">
+<!--Table     -->
+<div class="row">
+                <div class="col-12">
+                                <div class="card mb-4 mt-3">
+                                
+                                    <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                        <div class="table-responsive p-0">
+                                            <table class="table table-hover table-fixed" id="example">
 
+                                                <!--Table head-->
+                                                <thead class="bg-dark text-light text-center">
+                                                    <tr>
+                                                        <th>الرقم</th>
+                                                        <th>رقم الموظف</th>
+                                                        <th>اسم الموظف</th>
+                                                        <th>سبب الاجازه</th>
+                                                        <th>تاريخ طلب الاجازة</th>
+                                                        <th>حاله الطلب</th>
+                                                       
+                                                        
+
+                                                    </tr>
+                                                </thead>
+                                                <!--Table head-->
+
+                                                <!--Table body-->
+                                                <tbody class=" text-center">
+                                                   
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>RUKNAMIL0002</td>
+                                                            <td>عباس الجعفري</td>
+                                                            <td>مناسبة خاصة</td>
+                                                            <td>2023/10/22</td>
+                                                            <td><span style="color: gray">Pending <i class="fa fa-spinner"></i></span></td>   
+                                            
+                                                        </tr>
+                                                   
+
+                                                </tbody>
+                                                <!--Table body-->
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+             <!--Table -->
         </div>
-        </div>
-        </div>
-        </div>
+        
 
 
 
@@ -180,6 +228,13 @@ $_SESSION['sidebar_admin'] = "employee";
     <script src="../../assets/js/plugins/chartjs.min.js"></script>
 
     <script src="../../assets/js/plugins/choices.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      $('#example').dataTable();
+    });
+
+    
+  </script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {

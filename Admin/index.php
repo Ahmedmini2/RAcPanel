@@ -43,7 +43,9 @@ $_SESSION['sidebar_admin'] = "dashboard";
 
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
-
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </head>
 
 
@@ -212,14 +214,14 @@ $_SESSION['sidebar_admin'] = "dashboard";
                 </div>
 
             </div>
-           <!--Table المجموع الكلي لجميع الاصناف -->
+           <!--Table     -->
            <div class="row">
-                            <div class="col-12">
+                <div class="col-12">
                                 <div class="card mb-4 mt-3">
                                 
                                     <div class="card-body px-0 pt-0 pb-2 mx-3">
                                         <div class="table-responsive p-0">
-                                            <table class="table table-hover table-fixed">
+                                            <table class="table table-hover table-fixed" id="example">
 
                                                 <!--Table head-->
                                                 <thead class="bg-dark text-light text-center">
@@ -259,8 +261,8 @@ $_SESSION['sidebar_admin'] = "dashboard";
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!--Table -->
+            </div>
+             <!--Table -->
         </div>
         </div>
         </div>
@@ -325,6 +327,13 @@ $_SESSION['sidebar_admin'] = "dashboard";
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
     </script>
+    <script>
+    $(document).ready(function() {
+      $('#example').dataTable();
+    });
+
+    
+  </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
