@@ -123,7 +123,7 @@ $_SESSION['sidebar_admin'] = "manage";
             <h5 class="mb-1"> Manage </h5>
           </div>
 
-          <a href="add-leave.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">إضافة إدارة جديدة&nbsp;&nbsp;
+          <a href="add-manage.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">إضافة إدارة جديدة&nbsp;&nbsp;
             <i class="fas fa-plus">
             </i>
           </a>
