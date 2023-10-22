@@ -504,7 +504,8 @@ if (isset($_GET['project_id'])) {
                                     $i = 0;
                                     $items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                     while ($item = mysqli_fetch_array($items)) {
-                                        $deleivery_query  = $conn->query("SELECT * FROM delivery WHERE `product_id` = $product_id");
+                                        $prod_id = $item['id'];
+                                        $deleivery_query  = $conn->query("SELECT * FROM delivery WHERE `product_id` = $prod_id");
                                         $delevery = $deleivery_query->fetch_assoc();
                                         $del_total_price += $delevery['total_price'];
                                                         
