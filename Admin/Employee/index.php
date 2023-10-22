@@ -52,7 +52,7 @@ $_SESSION['sidebar_admin'] = "employee";
 
 
     <!-- Side Bar -->
-    <?php require_once('../components/sidebar_admin.php'); ?>
+    <?php require_once('../comp onents/sidebar_admin.php'); ?>
 
 
     <!-- End Of side Bar -->
