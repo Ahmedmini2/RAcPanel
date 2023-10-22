@@ -25067,7 +25067,7 @@ width: 100px;
   background-color: #292929;
   color: white;
 }
-.darkmode .card , .nav-link .active{
+.darkmode .card , .nav-link.active{
   background-color: #3d3d3d;
 }
 .darkmode .nav-link{
