@@ -25108,7 +25108,7 @@ width: 100px;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.4rem;
-  color: #495057;
+  color: white !important;
   background-color: #403e3e;
   background-clip: padding-box;
   border: 1px solid #d2d6da;
