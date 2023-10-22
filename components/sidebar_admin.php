@@ -170,14 +170,12 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
                         <span class="d-none d-sm-inline mx-1">عباس الجعفري</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="../Messages/chat.php">الرسائل</a></li>
-                        <li><a class="dropdown-item" href="../Profile/profile.php">الملف الشخصي</a></li>
-                        <li><a class="dropdown-item" href="../Admin/index.php">الاداره</a></li>
-
+                        <li><a class="dropdown-item" href="https://test.app.ruknamial.com/Admin/index.php">الصفحة الرئيسية</a></li>
+                        
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="../Auth/logout.php">تسجيل الخروج</a></li>
+                        <li><a class="dropdown-item" href="../../Auth/logout.php">تسجيل الخروج</a></li>
                     </ul>
                 </div>
   </div>
