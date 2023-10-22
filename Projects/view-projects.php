@@ -447,6 +447,7 @@ if (isset($_GET['id'])) {
                                                         <th>عدد القطع للتريلة</th>
                                                         <th>عدد التريلات</th>
                                                         <th>سعر توصيل القطعه</th>
+                                                        <th>سعر التوصيل التريلة</th>
                                                         <th>سعر التوصيل الكلي</th>
                                                         <th>توصيل الى</th>
 
@@ -461,18 +462,21 @@ if (isset($_GET['id'])) {
                                                     $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
                                                     while ($products = mysqli_fetch_array($res3)) {
                                                         $product_id = $products['id'];
-                                                        $deleivery_query = mysqli_query($conn, "SELECT * FROM delivery WHERE `product_id` = $product_id");
-                                                        while ($delevery  = mysqli_fetch_array($deleivery_query)) {
+                                                        $deleivery_query  = $conn->query("SELECT * FROM delivery WHERE `product_id` = $product_id");
+                                                        $delevery = $deleivery_query->fetch_assoc();
+                                                        
+                                                       
+                                                        $del_status = $delevery['deliverable'];
                                                         $peice_per_track = $delevery['peice_per_track'];
                                                         $quantity_of_track = $delevery['quantity_of_track'];
                                                         $piece_price = $delevery['piece_price'];
                                                         $track_price = $delevery['track_price'];
                                                         $del_total_price = $delevery['total_price'];
                                                         $delivery_to = $delevery['delivery_to'];
-                                                        }
-                                                    
+                                                       
                                                         $i++;
                                                     ?>
+                                                        <?php if ($del_status == 1) { ?>
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
                                                             <td><?= $products['product_name'] ?></td>
@@ -483,9 +487,11 @@ if (isset($_GET['id'])) {
 
 
                                                             <td><?= number_format($track_price,2,'.',',') ?></td>
+                                                            <td><?= number_format($del_total_price,2,'.',',') ?></td>
 
                                                             <td><?= $delivery_to  ?></td>
                                                         </tr>
+                                                       <?php } ?>
                                                     <?php } ?>
 
                                                 </tbody>
