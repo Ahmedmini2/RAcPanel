@@ -75,8 +75,8 @@ $_SESSION['sidebar_admin'] = "dashboard";
                         </div>
                     </div>
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                        <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+                        <input class="form-check-input" type="checkbox"  id="checkbox" onclick="setDarkMode()">
+                        <label class="form-check-label" for="checkbox"></label>
                     </div>
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
@@ -261,6 +261,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
 
 
 
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -364,6 +365,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
         // Poll for new notifications every 5 minutes (adjust the interval as needed)
         setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
     </script>
+    <script src="Admin/darkmode.js"></script>
 </body>
 
 </html>
