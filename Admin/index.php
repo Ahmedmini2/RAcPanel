@@ -70,12 +70,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
                     <h6 class="font-weight-bolder mb-0">الرئيسية</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="أكتب هنا...">
-                        </div>
-                    </div>
+                    
                     <label class="switch">
                         <input type="checkbox" id="checkbox" onclick="setDarkMode()"/>
                         <span class="slider"></span>
