@@ -165,7 +165,7 @@ $_SESSION['sidebar_admin'] = "leave";
                                             <td>عطلة</td>
                                             <td>عطلة اختيارية</td>
                                             <td>2023/10/22</td>
-                                            <td><span class="badge badge-sm bg-gradient-success">مدير</span></td>
+                                            <td><span class="badge badge-sm bg-gradient-success">قيد الانتظار</span></td>
                                             <td>
                                                 <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
                                                 <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
