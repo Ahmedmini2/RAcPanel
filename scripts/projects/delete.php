@@ -29,7 +29,7 @@ include '../../db/connection.php';
                             }
                             }else{
                             $_SESSION['notification'] = "كلمة مرور خاطئة";
-                            header('location:../../Accounts/accounts.php');
+                            header('location:../../Projects/index.php');
                             }
                         }
                     }
