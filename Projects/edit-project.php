@@ -17,6 +17,17 @@ if(isset($_GET['project_id'])){
     $duration = $project['duration'];
     $payment_type = $project['payment_type'];
 
+    $query2 = "SELECT * FROM contact_projects WHERE `project_id` = $project_id";
+    $res2 = $conn->query($query2);
+    $contact_project = $res2->fetch_assoc();
+    $supplier_name = $contact_project['supplier_name'];
+    $contact_person = $contact_project['contact_person'];
+    $mobile = $contact_project['mobile'];
+    $address = $contact_project['address'];
+    $email = $contact_project['email'];
+    $vat = $contact_project['vat'];
+    $company_trade = $contact_project['company_trade'];
+
 }
 $coco = 1;
 $numberofrows = 1;
@@ -481,37 +492,37 @@ if (isset($_POST['add-project'])) {
                   <div class="col-md-2 col-sm-6">
                     <div class="form-group">
                       <label for="contact_name">الأسم</label>
-                      <input type="text" class="form-control" name='contact_name' id="contact_name">
+                      <input type="text" class="form-control" name='contact_name' id="contact_name" value="<?=$contact_person?>">
                     </div>
                   </div>
                   <div class="col-md-2 col-sm-6 ">
                     <div class="form-group">
                       <label for="mobile">رقم الهاتف</label>
-                      <input type="text" class="form-control" name='mobile' id="mobile">
+                      <input type="text" class="form-control" name='mobile' id="mobile" value="<?=$mobile?>">
                     </div>
                   </div>
                   <div class="col-md-2 col-sm-6 ">
                     <div class="form-group">
                       <label for="address">العنوان</label>
-                      <input type="text" class="form-control" name='address' id="address">
+                      <input type="text" class="form-control" name='address' id="address" value="<?=$address?>">
                     </div>
                   </div>
                   <div class="col-md-2 col-sm-6 ">
                     <div class="form-group">
                       <label for="email">البريد الإلكتروني</label>
-                      <input type="text" class="form-control" name='email' id="email">
+                      <input type="text" class="form-control" name='email' id="email" value="<?=$email?>">
                     </div>
                   </div>
                   <div class="col-md-2 col-sm-6 ">
                     <div class="form-group">
                       <label for="vat">الرقم الضريبي</label>
-                      <input type="text" class="form-control" name='vat' id="vat">
+                      <input type="text" class="form-control" name='vat' id="vat" value="<?=$vat?>">
                     </div>
                   </div>
                   <div class="col-md-2 col-sm-6 ">
                     <div class="form-group">
                       <label for="trade">رقم السجل التجاري</label>
-                      <input type="text" class="form-control" name='trade' id="trade">
+                      <input type="text" class="form-control" name='trade' id="trade" value="<?=$company_trade?>">
                     </div>
                   </div>
                 </div>
@@ -994,13 +1005,13 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                       <div class="form-group">
                           <label for="cover_price">تكلفة الصنف الواحد</label>
-                          <input type="text" class="form-control" name='prod_peice' id="prod_peice" readonly>
+                          <input type="text" class="form-control" name='prod_peice' id="prod_peice" readonly >
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                       <div class="form-group">
                           <label for="cover_price">تكلفة جميع الاصناف</label>
-                          <input type="text" class="form-control" name='prod_peice_tot' id="prod_peice_tot" readonly>
+                          <input type="text" class="form-control" name='prod_peice_tot' id="prod_peice_tot" readonly value="<?=$project_cost?>">
                         </div>
                         
                       </div>
@@ -1013,13 +1024,13 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_tot">مجموع سعر البيع</label>
-                          <input type="text" class="form-control" name='sell_price_tot' id="sell_price_tot" readonly>
+                          <input type="text" class="form-control" name='sell_price_tot' id="sell_price_tot" readonly >
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_tot">نسبة الربح</label>
-                          <input type="text" class="form-control" name='net_peice' id="net_peice" readonly>
+                          <input type="text" class="form-control" name='net_peice' id="net_peice" readonly value="<?=$net_total?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -1031,7 +1042,7 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_tot">إجمالي الربح</label>
-                          <input type="text" class="form-control" name='net_toti' id="net_toti" readonly>
+                          <input type="text" class="form-control" name='net_toti' id="net_toti" readonly value="<?=$total_without_tax - $project_cost?>">
                         </div>
                       </div>
                     </div>
