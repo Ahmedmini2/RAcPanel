@@ -25110,6 +25110,9 @@ width: 100px;
   background-position-x: 25%;
   background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
 }
+.darkmode .bg-gradient-dark {
+  background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
+}
 
 .darkmode .form-control {
   display: block;
