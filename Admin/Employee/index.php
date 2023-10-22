@@ -55,7 +55,10 @@ $_SESSION['sidebar_admin'] = "employee";
 
     <!-- Side Bar -->
     <?php require_once('../../components/sidebar_admin.php'); ?>
+    <a class="navbar-brand m-0" href="https://test.app.ruknamial.com/index.php">
+      <img src="../../assets/img/logos/logo-gold.png" class="navbar-brand-img " alt="main_logo">
 
+    </a>
 
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
