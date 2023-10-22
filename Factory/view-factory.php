@@ -479,7 +479,8 @@ if (isset($_GET['id'])) {
                                 </div>
                             </div>
                         </div>
-                            <div class="col-12" style="display: <?php if ($position == 'Admin') { echo 'flex'; } else { echo 'none'; } ?>;">
+                        <div class="row">
+                            <div class="col-12" style="display: <?php if ($position == 'Admin') { echo 'block'; } else { echo 'none'; } ?>;">
                                 <div class="card mb-4">
                                     <div class="card-header pb-0">
                                         <h6>اصناف المشروع</h6>
