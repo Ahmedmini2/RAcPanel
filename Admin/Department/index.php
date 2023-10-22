@@ -148,7 +148,8 @@ $_SESSION['sidebar_admin'] = "department";
                                             <th>الرقم</th>
                                             <th>اسم القسم</th>
                                             <th>رقم القسم</th>
-                                            <th>تاريخ التوظيف</th>  
+                                            <th>تاريخ القسم</th> 
+                                            <th>Action</th> 
                                         </tr>
                                     </thead>
                                     <!--Table head-->
@@ -160,6 +161,10 @@ $_SESSION['sidebar_admin'] = "department";
                                             <td>Human Resours</td>
                                             <td>HR001</td>
                                             <td>2023/10/22</td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </td>
                                         </tr>
 
 
