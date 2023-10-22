@@ -16,7 +16,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
   <div class="collapse navbar-collapse px-0 w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link <?php if ($sidebar_admin == "dashboard") echo 'active'; ?>" href="https://app.ruknamial.com/index.php">
+        <a class="nav-link <?php if ($sidebar_admin == "dashboard") echo 'active'; ?>" href="../Admin/index.php">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
@@ -36,7 +36,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link <?php if ($sidebar_admin == "Users") echo 'active'; ?>" href="https://app.ruknamial.com/index.php">
+        <a class="nav-link <?php if ($sidebar_admin == "employee") echo 'active'; ?>" href="../Admin/Employee/index.php">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
@@ -52,7 +52,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
               </g>
             </svg>
           </div>
-          <span class="nav-link-text me-1">المستخدمين</span>
+          <span class="nav-link-text me-1">الموظفين</span>
         </a>
       </li>
       
