@@ -25070,6 +25070,12 @@ width: 100px;
 .darkmode .card , .darkmode .navbar-vertical .navbar-nav>.nav-item .nav-link.active{
   background-color: #3d3d3d;
 }
+.darkmode .navbar-vertical .navbar-nav .nav-link {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-weight: 500;
+  color:  white !important;
+}
 .darkmode h6 , .darkmode .h6 , .darkmode h5 , .darkmode .h5{
   margin-top: 0;
   margin-bottom: 0.5rem;
