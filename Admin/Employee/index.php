@@ -74,10 +74,7 @@ $_SESSION['sidebar_admin'] = "employee";
                             <input type="text" class="form-control" placeholder="أكتب هنا...">
                         </div>
                     </div>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
+                    
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -274,7 +271,7 @@ $_SESSION['sidebar_admin'] = "employee";
         // Poll for new notifications every 5 minutes (adjust the interval as needed)
         setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
     </script>
-    <script src="darkmode.js"></script>
+    
 </body>
 
 </html>
