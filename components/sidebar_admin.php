@@ -98,10 +98,16 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
           </a>
           <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
             <li class="w-100">
-              <a href="../cost/cost.php" class="nav-link px-0"> <span class=" d-sm-inline">الاجازات</span></a>
+              <a href="../../Admin/leave/index.php" class="nav-link px-0"> <span class=" d-sm-inline">الاجازات</span></a>
             </li>
             <li class="w-100">
-              <a href="../../Admin/leave/index.php" class="nav-link px-0"> <span class=" d-sm-inline">نوع التكلفة</span></a>
+              <a href="../../Admin/leave/pending.php" class="nav-link px-0"> <span class=" d-sm-inline">قيد الانتظار الطلب</span></a>
+            </li>
+            <li class="w-100">
+              <a href="../../Admin/leave/declind.php" class="nav-link px-0"> <span class=" d-sm-inline">رفض الطلب</span></a>
+            </li>
+            <li class="w-100">
+              <a href="../../Admin/leave/approved.php" class="nav-link px-0"> <span class=" d-sm-inline">موافقة الطلب</span></a>
             </li>
             
           </ul>
