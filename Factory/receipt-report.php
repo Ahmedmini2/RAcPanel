@@ -261,7 +261,7 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label for="formFileLg" class="form-label">صورة مستند التسليم</label>
-                                    <input class="form-control form-control-lg" id="formFileLg" name="del_image" type="file" required />
+                                    <input class="form-control form-control-lg" id="formFileLg" name="del_image" type="file" required/>
                                 </div>
                             </div>
                         </div>
