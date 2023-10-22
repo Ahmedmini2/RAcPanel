@@ -44,8 +44,8 @@ $_SESSION['sidebar_admin'] = "dashboard";
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-  <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </head>
 
 
@@ -76,8 +76,12 @@ $_SESSION['sidebar_admin'] = "dashboard";
                             <input type="text" class="form-control" placeholder="أكتب هنا...">
                         </div>
                     </div>
+                    <label class="switch">
+                        <input type="checkbox" id="checkbox" onclick="setDarkMode()"/>
+                        <span class="slider"></span>
+                    </label>
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox"  id="checkbox" onclick="setDarkMode()">
+                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
                         <label class="form-check-label" for="checkbox"></label>
                     </div>
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
@@ -157,7 +161,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">الاجازة المعتمدة</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                           6
+                                            6
                                         </h5>
                                     </div>
                                 </div>
@@ -214,55 +218,55 @@ $_SESSION['sidebar_admin'] = "dashboard";
                 </div>
 
             </div>
-           <!--Table     -->
-           <div class="row">
+            <!--Table     -->
+            <div class="row">
                 <div class="col-12">
-                                <div class="card mb-4 mt-3">
-                                
-                                    <div class="card-body px-0 pt-0 pb-2 mx-3">
-                                        <div class="table-responsive p-0">
-                                            <table class="table table-hover table-fixed" id="example">
+                    <div class="card mb-4 mt-3">
 
-                                                <!--Table head-->
-                                                <thead class="bg-dark text-light text-center">
-                                                    <tr>
-                                                        <th>الرقم</th>
-                                                        <th>رقم الموظف</th>
-                                                        <th>اسم الموظف</th>
-                                                        <th>سبب الاجازه</th>
-                                                        <th>تاريخ طلب الاجازة</th>
-                                                        <th>حاله الطلب</th>
-                                                       
-                                                        
+                        <div class="card-body px-0 pt-0 pb-2 mx-3">
+                            <div class="table-responsive p-0">
+                                <table class="table table-hover table-fixed" id="example">
 
-                                                    </tr>
-                                                </thead>
-                                                <!--Table head-->
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light text-center">
+                                        <tr>
+                                            <th>الرقم</th>
+                                            <th>رقم الموظف</th>
+                                            <th>اسم الموظف</th>
+                                            <th>سبب الاجازه</th>
+                                            <th>تاريخ طلب الاجازة</th>
+                                            <th>حاله الطلب</th>
 
-                                                <!--Table body-->
-                                                <tbody class=" text-center">
-                                                   
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>RUKNAMIL0002</td>
-                                                            <td>عباس الجعفري</td>
-                                                            <td>مناسبة خاصة</td>
-                                                            <td>2023/10/22</td>
-                                                            <td><span style="color: gray">Pending <i class="fa fa-spinner"></i></span></td>   
-                                            
-                                                        </tr>
-                                                   
 
-                                                </tbody>
-                                                <!--Table body-->
 
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+
+                                    <!--Table body-->
+                                    <tbody class=" text-center">
+
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>RUKNAMIL0002</td>
+                                            <td>عباس الجعفري</td>
+                                            <td>مناسبة خاصة</td>
+                                            <td>2023/10/22</td>
+                                            <td><span style="color: gray">Pending <i class="fa fa-spinner"></i></span></td>
+
+                                        </tr>
+
+
+                                    </tbody>
+                                    <!--Table body-->
+
+                                </table>
                             </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-             <!--Table -->
+            <!--Table -->
         </div>
         </div>
         </div>
@@ -328,12 +332,10 @@ $_SESSION['sidebar_admin'] = "dashboard";
         }
     </script>
     <script>
-    $(document).ready(function() {
-      $('#example').dataTable();
-    });
-
-    
-  </script>
+        $(document).ready(function() {
+            $('#example').dataTable();
+        });
+    </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
