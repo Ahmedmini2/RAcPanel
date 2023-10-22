@@ -1,5 +1,5 @@
 <?php
-include('../../cookies/session2.php');
+include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "employee";
 ?>
 
