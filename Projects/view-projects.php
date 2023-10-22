@@ -429,6 +429,75 @@ if (isset($_GET['id'])) {
 
                         </div>
 
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card mb-4 mt-3">
+                                    <div class="card-header pb-0 ">
+                                        <h6>التوصيل</h6>
+                                    </div>
+                                    <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                        <div class="table-responsive p-0">
+                                            <table class="table table-hover table-fixed">
+
+                                                <!--Table head-->
+                                                <thead class="bg-dark text-light text-center">
+                                                    <tr>
+                                                        <th>الرقم</th>
+                                                        <th>الصنف</th>
+                                                        <th>عدد القطع للتريلة</th>
+                                                        <th>عدد التريلات</th>
+                                                        <th>سعر توصيل القطعه</th>
+                                                        <th>سعر التوصيل الكلي</th>
+                                                        <th>توصيل الى</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <!--Table head-->
+
+                                                <!--Table body-->
+                                                <tbody class=" text-center">
+                                                    <?php
+                                                    $i = 0;
+                                                    $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+                                                    while ($products = mysqli_fetch_array($res3)) {
+                                                        $product_id = $products['id'];
+                                                        $deleivery_query = mysqli_query($conn, "SELECT * FROM delivery WHERE `product_id` = $product_id");
+                                                        while ($delevery  = mysqli_fetch_array($deleivery_query)) {
+                                                        $peice_per_track = $delevery['peice_per_track'];
+                                                        $quantity_of_track = $delevery['quantity_of_track'];
+                                                        $piece_price = $delevery['piece_price'];
+                                                        $track_price = $delevery['track_price'];
+                                                        $del_total_price = $delevery['total_price'];
+                                                        $delivery_to = $delevery['delivery_to'];
+                                                        }
+                                                    
+                                                        $i++;
+                                                    ?>
+                                                        <tr>
+                                                            <th scope="row"><?= $i ?></th>
+                                                            <td><?= $products['product_name'] ?></td>
+                                                            <td><?= $peice_per_track ?></td>                                                
+                                                            <td><?= $quantity_of_track ?></td>
+                                                            <td><?= number_format( $piece_price ,2,'.',',') ?></td>
+
+
+
+                                                            <td><?= number_format($track_price,2,'.',',') ?></td>
+
+                                                            <td><?= $delivery_to  ?></td>
+                                                        </tr>
+                                                    <?php } ?>
+
+                                                </tbody>
+                                                <!--Table body-->
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!--Table خط سير تنفيد المشروع -->
                         <div class="row">
                             <div class="col-12">
