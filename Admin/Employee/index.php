@@ -49,7 +49,7 @@ $_SESSION['sidebar_admin'] = "employee";
 </head>
 
 
-<body class="g-sidenav-show rtl ">
+<body class="g-sidenav-show rtl .bg-gray-100 ">
 
 
 

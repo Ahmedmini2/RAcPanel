@@ -49,7 +49,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
 </head>
 
 
-<body class="g-sidenav-show rtl ">
+<body class="g-sidenav-show rtl .bg-gray-100 ">
 
 
 
@@ -80,10 +80,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
                         <input type="checkbox" id="checkbox" onclick="setDarkMode()"/>
                         <span class="slider"></span>
                     </label>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
+                    
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
