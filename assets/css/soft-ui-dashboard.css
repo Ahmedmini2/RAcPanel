@@ -25087,6 +25087,13 @@ width: 100px;
   background-color: #34476700 !important;
 }
 
+.darkmode label, .form-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color:white !important;
+  margin-left: 0.25rem;
+}
 
 #checkbox{
   width: 50px;
