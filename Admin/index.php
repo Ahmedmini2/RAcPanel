@@ -246,7 +246,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
                                                             <td>عباس الجعفري</td>
                                                             <td>مناسبة خاصة</td>
                                                             <td>2023/10/22</td>
-                                                            <td>قيد الانتظار</td>   
+                                                            <td><span style="color: green">Approved <i class="fa fa-check-square-o"></i></span></td>   
                                             
                                                         </tr>
                                                    
