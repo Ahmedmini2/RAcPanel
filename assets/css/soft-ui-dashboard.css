@@ -25094,13 +25094,7 @@ width: 100px;
   color:white !important;
   margin-left: 0.25rem;
 }
-.darkmode .input-group {
-  position: relative;
-  display: flex;
-  /* flex-wrap: wrap; */
-  align-items: stretch;
-  width: 100%;
-}
+
 .darkmode .form-control {
   display: block;
   width: 100%;
