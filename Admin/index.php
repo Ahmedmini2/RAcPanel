@@ -212,6 +212,55 @@ $_SESSION['sidebar_admin'] = "dashboard";
                 </div>
 
             </div>
+           <!--Table المجموع الكلي لجميع الاصناف -->
+           <div class="row">
+                            <div class="col-12">
+                                <div class="card mb-4 mt-3">
+                                
+                                    <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                        <div class="table-responsive p-0">
+                                            <table class="table table-hover table-fixed">
+
+                                                <!--Table head-->
+                                                <thead class="bg-dark text-light text-center">
+                                                    <tr>
+                                                        <th>الرقم</th>
+                                                        <th>رقم الموظف</th>
+                                                        <th>اسم الموظف</th>
+                                                        <th>سبب الاجازه</th>
+                                                        <th>تاريخ طلب الاجازة</th>
+                                                        <th>حاله الطلب</th>
+                                                       
+                                                        
+
+                                                    </tr>
+                                                </thead>
+                                                <!--Table head-->
+
+                                                <!--Table body-->
+                                                <tbody class=" text-center">
+                                                   
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>RUKNAMIL0002</td>
+                                                            <td>عباس الجعفري</td>
+                                                            <td>مناسبة خاصة</td>
+                                                            <td>2023/10/22</td>
+                                                            <td>قيد الانتظار</td>   
+                                            
+                                                        </tr>
+                                                   
+
+                                                </tbody>
+                                                <!--Table body-->
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Table -->
         </div>
         </div>
         </div>
