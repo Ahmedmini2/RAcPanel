@@ -504,6 +504,10 @@ if (isset($_GET['project_id'])) {
                                     $i = 0;
                                     $items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                     while ($item = mysqli_fetch_array($items)) {
+                                        $deleivery_query  = $conn->query("SELECT * FROM delivery WHERE `product_id` = $product_id");
+                                        $delevery = $deleivery_query->fetch_assoc();
+                                        $del_total_price += $delevery['total_price'];
+                                                        
                                         $i++;
                                     ?>
    
@@ -562,6 +566,21 @@ if (isset($_GET['project_id'])) {
                                     <td>
                                         <div class="text-right">
                                             <span>SAR <?=number_format($total_with_tax)?></span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="text-left">
+
+                                            <span class="text-muted">Delivery :</span>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-right">
+                                            <span>SAR <?=number_format($del_total_price)?></span>
                                         </div>
                                     </td>
                                 </tr>
