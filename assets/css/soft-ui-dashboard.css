@@ -25135,10 +25135,7 @@ width: 100px;
 .darkmode .text-body {
   color: #fff !important;
 }
-.darkmode a {
-  letter-spacing: -0.025rem;
-  color: #fff;
-}
+
 
 #checkbox{
   width: 50px;
