@@ -461,16 +461,18 @@ if (isset($_GET['id'])) {
                                                     $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
                                                     while ($products = mysqli_fetch_array($res3)) {
                                                         $product_id = $products['id'];
-                                                        $deleivery_query = mysqli_query($conn, "SELECT * FROM delivery WHERE `product_id` = $product_id");
-                                                        while ($delevery  = mysqli_fetch_array($deleivery_query)) {
+                                                        $deleivery_query  = $conn->query("SELECT * FROM delivery WHERE `product_id` = $product_id");
+                                                        $delevery = $res->fetch_assoc();
+                                                        
+                                                       
+                                                        
                                                         $peice_per_track = $delevery['peice_per_track'];
                                                         $quantity_of_track = $delevery['quantity_of_track'];
                                                         $piece_price = $delevery['piece_price'];
                                                         $track_price = $delevery['track_price'];
                                                         $del_total_price = $delevery['total_price'];
                                                         $delivery_to = $delevery['delivery_to'];
-                                                        }
-                                                    
+                                                       
                                                         $i++;
                                                     ?>
                                                         <tr>
