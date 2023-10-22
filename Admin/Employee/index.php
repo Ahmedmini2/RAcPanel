@@ -131,7 +131,7 @@ $_SESSION['sidebar_admin'] = "employee";
             <h5 class="mb-1">اضافة موظف جديد</h5>
           </div>
 
-          <a href="#" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة مشروع جديد&nbsp;&nbsp;
+          <a href="#" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة موظف&nbsp;&nbsp;
             <i class="fas fa-plus">
             </i>
           </a>
