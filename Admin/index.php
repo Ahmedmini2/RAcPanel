@@ -1,8 +1,5 @@
 <?php
-
 $_SESSION['sidebar_admin'] = "dashboard";
-
-
 ?>
 
 <html lang="ar" dir="rtl">
