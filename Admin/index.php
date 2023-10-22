@@ -47,7 +47,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
 </head>
 
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl bg-gray-900">
 
 
 
