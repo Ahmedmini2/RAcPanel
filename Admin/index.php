@@ -222,7 +222,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
                                             <table class="table table-hover table-fixed">
 
                                                 <!--Table head-->
-                                                <thead class=" text-light text-center">
+                                                <thead class="bg-dark text-light text-center">
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>رقم الموظف</th>
@@ -246,7 +246,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
                                                             <td>عباس الجعفري</td>
                                                             <td>مناسبة خاصة</td>
                                                             <td>2023/10/22</td>
-                                                            <td><span style="color: green">Approved <i class="fa fa-check-square-o"></i></span></td>   
+                                                            <td><span style="color: blue">Pending <i class="fa fa-spinner"></i></span></td>   
                                             
                                                         </tr>
                                                    
