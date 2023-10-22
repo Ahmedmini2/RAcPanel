@@ -131,17 +131,16 @@ $_SESSION['sidebar_admin'] = "dashboard";
                             <div class="row">
                                 <div class="col-8">
                                     <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">القيمة الإجمالية للمشاريع</p>
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">عدد الاجازات</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            <?= number_format($total_price) ?> ريال
-
+                                            12
                                         </h5>
                                     </div>
                                 </div>
                                 <div class="col-4 text-start">
 
                                     <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                        <i class="fa fa-money text-lg opacity-10" aria-hidden="true"></i>
+                                        <i class="fa fa-hourglass text-lg opacity-10" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
@@ -154,16 +153,15 @@ $_SESSION['sidebar_admin'] = "dashboard";
                             <div class="row">
                                 <div class="col-8">
                                     <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">التكلفة الاجمالية للمشاريع</p>
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">الاجازة المعتمدة</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            <?= number_format($total_cost) ?> ريال
-
+                                           6
                                         </h5>
                                     </div>
                                 </div>
                                 <div class="col-4 text-start">
                                     <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                        <i class="fa fa-university text-lg opacity-10" aria-hidden="true"></i>
+                                        <i class="fa fa-thumbs-o-up text-lg opacity-10" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
@@ -176,16 +174,15 @@ $_SESSION['sidebar_admin'] = "dashboard";
                             <div class="row">
                                 <div class="col-8">
                                     <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">مجموع صافي الربح</p>
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">انتظار الموافقه على الاجازة</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            <?= number_format($net_total) ?> ريال
-
+                                            4
                                         </h5>
                                     </div>
                                 </div>
                                 <div class="col-4 text-start">
                                     <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                        <i class="fa fa-usd text-lg opacity-10" aria-hidden="true"></i>
+                                        <i class="fa fa-spinner text-lg opacity-10" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
@@ -198,16 +195,15 @@ $_SESSION['sidebar_admin'] = "dashboard";
                             <div class="row">
                                 <div class="col-8">
                                     <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">مجموع القيمة المضافة</p>
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">رفض الاجازة</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            <?= number_format($total_with_tax) ?> ريال
-
+                                            2
                                         </h5>
                                     </div>
                                 </div>
                                 <div class="col-4 text-start">
                                     <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                        <i class="fa fa-usd text-lg opacity-10" aria-hidden="true"></i>
+                                        <i class="fa fa-window-close text-lg opacity-10" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
