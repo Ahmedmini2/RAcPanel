@@ -67,7 +67,7 @@ $_SESSION['sidebar_admin'] = "employee";
                         <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 " href="javascript:;">لوحات القيادة</a></li>
                         <li class="breadcrumb-item text-sm  active" aria-current="page">الموظفين</li>
                     </ol>
-                    <h6 class="font-weight-bolder mb-0">الموظفين</h6>
+                    <h6 class="font-weight-bolder mb-0">اضافه موظف</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -126,65 +126,74 @@ $_SESSION['sidebar_admin'] = "employee";
 
 
         <div class="container-fluid py-4">
-        <div class=" mb-4 p-3">
-          <div class="">
-            <h5 class="mb-1">اضافة موظف جديد</h5>
-          </div>
-
-          <a href="add-employee.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة موظف&nbsp;&nbsp;
-            <i class="fas fa-plus">
-            </i>
-          </a>
-          </div>
-            <!--Table     -->
             <div class="row">
-                <div class="col-12">
-                    <div class="card mb-4 mt-3">
+                <div class="block block-themed">
 
-                        <div class="card-body px-0 pt-0 pb-2 mx-3">
-                            <div class="table-responsive p-0">
-                                <table class="table table-hover table-fixed" id="example">
+                    <div class="block-header bg-gradient-dark  col-md-2 col-sm-6 col-xs-6  rounded-pill">
 
-                                    <!--Table head-->
-                                    <thead class="bg-dark text-light text-center">
-                                        <tr>
-                                            <th>الرقم</th>
-                                            <th>اسم الموظف</th>
-                                            <th>رقم الموظف</th>
-                                            <th>قسم الموظف</th>
-                                            <th>تاريخ التوظيف</th>
-                                            <th>حاله الموظف </th>
-                                            <th>Action </th>
-                                        </tr>
-                                    </thead>
-                                    <!--Table head-->
-                                    <!--Table body-->
-                                    <tbody class=" text-center">
+                        <h6 class="block-title text-white py-2 px-4">إضافة مستخدم جديد</h6>
+                    </div>
+                    <form>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>رقم الموظف</label>
+                                    <input type="text" placeholder="رقم الموظف" class="form-control" name="EmployeeID" value="">
 
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>عباس الجعفري</td>
-                                            <td>RUKNAMIL0002</td>
-                                            <td>المدير</td>
-                                            <td>2023/10/22</td>
-                                            <td><span class="badge badge-sm bg-gradient-success">مدير</span></td>
-                                            <td>
-                                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </td>
-                                        </tr>
-
-
-                                    </tbody>
-                                    <!--Table body-->
-
-                                </table>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>اسم الموظف</label>
+                                    <input type="text" placeholder="اسم الموظف" class="form-control" name="name" value="">
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>email</label>
+                                    <input type="text" placeholder="email" class="form-control" name="phone" value="">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>القسم</label>
+                                    <select name="position" class="form-control">
+                                        <option value=""></option>
+                                        <option value="Account">محاسب</option>
+                                        <option value="Manager">الاداره</option>
+                                        <option value="Worker">المصنع</option>
+                                        <option value="Admin">المدير</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> تاريخ التوظيف</label>
+                                    <input type="date" placeholder="" class="form-control" name="duration">
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <button type="submit" name="submit" class="btn btn-secondary">Save</button>
+                                </div>
+                            </div>
+                            <div class="col">
+
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!--Table -->
         </div>
 
 
