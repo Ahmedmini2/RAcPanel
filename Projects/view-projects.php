@@ -896,7 +896,7 @@ if (isset($_GET['id'])) {
                                     <div class="card-header pb-0 p-3">
                                         <div class="row">
                                             <div class="col-12 d-flex align-items-center">
-                                                <h6 class="mb-0 text-lg">عمليات الإستلام</h6>
+                                                <h6 class="mb-0 text-lg">عمليات التسليم</h6>
                                             </div>
                                            
                                         </div>
