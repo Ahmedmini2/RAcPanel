@@ -63,10 +63,7 @@ $_SESSION['sidebar_admin'] = "employee";
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-                        <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 " href="javascript:;">لوحات القيادة</a></li>
-                        <li class="breadcrumb-item text-sm  active" aria-current="page">الموظفين</li>
-                    </ol>
+                    
                     <h6 class="font-weight-bolder mb-0">اضافه موظف</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
