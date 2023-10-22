@@ -25067,7 +25067,7 @@ width: 100px;
   background-color: #292929;
   color: white;
 }
-.darkmode .card , .navbar-vertical .navbar-nav>.nav-item .nav-link.active{
+.darkmode .card , .darkmode .navbar-vertical .navbar-nav>.nav-item .nav-link.active{
   background-color: #3d3d3d;
 }
 .darkmode h6 , .darkmode .h6 , .darkmode h5 , .darkmode .h5{
