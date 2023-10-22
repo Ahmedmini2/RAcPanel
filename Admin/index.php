@@ -1,18 +1,7 @@
 <?php
-include('cookies/session_admin.php');
+
 $_SESSION['sidebar_admin'] = "dashboard";
 
-$show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
-$projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
-
-$banner = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
-while ($ban = mysqli_fetch_array($banner)) {
-  $total_price += $ban['total_without_tax'];
-  $total_cost += $ban['project_cost'];
-  $net_total += $ban['net_total'];
-  $total_with_tax += $ban['total_with_tax'];
-
-}
 
 ?>
 
