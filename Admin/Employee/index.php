@@ -149,28 +149,24 @@ $_SESSION['sidebar_admin'] = "employee";
                                     <thead class="bg-dark text-light text-center">
                                         <tr>
                                             <th>الرقم</th>
-                                            <th>رقم الموظف</th>
                                             <th>اسم الموظف</th>
-                                            <th>سبب الاجازه</th>
-                                            <th>تاريخ طلب الاجازة</th>
-                                            <th>حاله الطلب</th>
-
-
-
+                                            <th>رقم الموظف</th>
+                                            <th>قسم الموظف</th>
+                                            <th>تاريخ التوظيف</th>
+                                            <th>حاله </th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
-
                                     <!--Table body-->
                                     <tbody class=" text-center">
 
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td>RUKNAMIL0002</td>
                                             <td>عباس الجعفري</td>
-                                            <td>مناسبة خاصة</td>
+                                            <td>RUKNAMIL0002</td>
+                                            <td>المدير</td>
                                             <td>2023/10/22</td>
-                                            <td><span style="color: gray">Pending <i class="fa fa-spinner"></i></span></td>
+                                            <td><span class="badge badge-sm bg-gradient-success">مدير</span></td>
 
                                         </tr>
 
