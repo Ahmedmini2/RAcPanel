@@ -266,7 +266,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
             <div class="note-card">
                 <div class="notes">
                     <div id="create">
-
+                        <i class="fa-solid fa-plus"></i>
                     </div>
                     <div class="note">
                         
