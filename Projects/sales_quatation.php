@@ -362,41 +362,23 @@ if (isset($_GET['project_id'])) {
             <div class="invoice-box" dir="ltr">
 
 
-                <!-- == -->
-                <div class="row">
-                    <div>
-                        <div class="card-header text-center text-white header-color" style="margin-top: 120px;">
-                            Sales Quatation
-                        </div>
-
-                    </div>
-                </div>
+                
                 <!-- here to change -->
                 <div class="row ">
-                    <div class="col-6 ">
+                    <div class="col">
                         <div>
 
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4">
                                         <p class="card-text custom-font-small">
-                                            Buyer:<br>
-                                            Receiver name:<br>
-                                            Tel / mobile:<br>
-                                            Address:<br>
-                                            E-mail:<br>
-                                            Vat:<br>
+                                            Date:
+                                           
                                         </p>
                                     </div>
                                     <div class="col-8">
                                         <p class="card-text custom-font-small">
-                                            Rukn Amial Co.Company <br>
-                                            Abbas Al Jafari <br>
-                                            591022703 <br>
-                                            Al Malaz-Jareer Street <br>
-                                            info@ruknamyal.com<br>
-                                            <?= $vat ?><br>
-
+                                            <?= $created_at ?> <br>
                                         </p>
                                     </div>
                                 </div>
@@ -415,22 +397,16 @@ if (isset($_GET['project_id'])) {
                                     <div class="row">
                                         <div class="col-4">
                                             <p class="card-text custom-font-small">
-                                                Data: <br>
-                                                P.O number:<br>
-                                                Supplier name:<br>
-                                                Contact person:<br>
-                                                Tel / mobile:<br>
-                                                Address:<br>
+                                                TO: <br>
+                                                Subject:<br>
+                                                
                                             </p>
                                         </div>
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
-                                                <?= $created_at ?><br>
-                                                RA<?= $id ?> <br>
                                                 <?= $supplier_name ?><br>
-                                                <?= $contact_person ?><br>
-                                                <?= $mobile ?><br>
-                                                <?= $address ?><br>
+                                                proforma invoice for (PO No :RA<?= $id ?>) <br>
+                                               
 
 
                                             </p>
