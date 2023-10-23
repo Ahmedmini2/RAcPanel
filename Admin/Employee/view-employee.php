@@ -144,6 +144,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                             <th>راتب الموظف</th>
                                             <th>سلفية الموظف</th>
                                             <th>ساعات اضافية</th>
+                                            <th>متبقي المرتب</th>
                                             <th>شهر</th>
                                         </tr>
                                     </thead>
@@ -158,6 +159,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                             <td>5000</td>
                                             <td>2500</td>
                                             <td>3</td>
+                                            <td>2500</td>
                                             <td>اكتوبر 2023</td>
     
                                         </tr>
