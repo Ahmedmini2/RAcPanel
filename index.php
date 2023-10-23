@@ -62,7 +62,7 @@ while ($ban = mysqli_fetch_array($banner)) {
 </head>
 <?php require_once('components/loader.php'); ?>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl">
 
 
 
@@ -83,12 +83,12 @@ while ($ban = mysqli_fetch_array($banner)) {
           <h6 class="font-weight-bolder mb-0">الرئيسية</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="أكتب هنا...">
-            </div>
-          </div>
+        <label class="ui-switch">
+                        <input type="checkbox" onclick="setDarkMode()">
+                        <div class="slider">
+                            <div class="circle"></div>
+                        </div>
+                    </label>
           
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center px-4">
@@ -778,7 +778,7 @@ while ($ban = mysqli_fetch_array($banner)) {
     // Poll for new notifications every 5 minutes (adjust the interval as needed)
     setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
   </script>
-  
+  <script src="Admin/darkmode.js"></script>
 </body>
 
 </html>

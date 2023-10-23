@@ -258,7 +258,7 @@ if (isset($_POST['add-project'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
   <title>
@@ -570,8 +570,8 @@ if (isset($_POST['add-project'])) {
                <?php
                $product_id = $products['id'];
                $kh = "SELECT * FROM `kharasana` WHERE `product_id` = $product_id";
-               $res3 = $conn->query($kh);
-               $kharasan = $res3->fetch_assoc();
+               $res_kh = $conn->query($kh);
+               $kharasan = $res_kh->fetch_assoc();
                ?>
                 <div class="kh_details">
                   <h5>بند الخرسانة</h5>
@@ -632,7 +632,7 @@ if (isset($_POST['add-project'])) {
                       })
 
                       $( document ).ready(function() {
-                        var peice = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0)
+                       var peice = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0)
                         var ret = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0) * parseFloat($("#quantity").val())
                         var qunt = (parseFloat($("#quantity").val()) || 0);
                         var qty_tot = ((parseFloat($("#quantity").val()) * parseFloat($("#kh_per").val())) || 0)
