@@ -206,7 +206,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                     <div class="view overlay">
                       <img class="inside-card card-img-top" src="../Projects/Images/<?= $r['name'] ?>/<?= $r['image'] ?>" alt="Card image cap">
                       <?php
-                      if ($timeDiff > 0 && $timeDiff <= 3 * 24 * 60 * 60) { // 3 days in seconds
+                     
                         $durationInDays = ceil($timeDiff / (24 * 60 * 60)); // Calculate the number of days left
                         $color = 'bg-red';
                         if ($durationInDays == 1) {
