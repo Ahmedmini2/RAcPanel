@@ -999,6 +999,7 @@ if (isset($_POST['add-project'])) {
                   </div>
                 </div>
                 <hr>
+                <?php } ?>
 
                 <!-- Item End -->
 
@@ -1153,7 +1154,7 @@ if (isset($_POST['add-project'])) {
                 </div>
               </div>
             </div>
-            <?php } ?>
+            
           </form>
 
         </div>
