@@ -25276,7 +25276,7 @@ width: 100px;
 .darkmode .note-card .note:hover:before{
   opacity: 1;
 }
-#create{
+.darkmode #create{
   position: relative;
   width: 300px;
   height: 300px;
@@ -25287,7 +25287,7 @@ width: 100px;
   font-size: 6em;
   cursor: pointer;
 }
-#create i{
+.darkmode #create i{
   position: absolute;
   color: #fff;
 }
