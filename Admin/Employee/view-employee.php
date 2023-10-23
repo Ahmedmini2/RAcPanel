@@ -120,7 +120,7 @@ $_SESSION['sidebar_admin'] = "employee";
         <div class="container-fluid py-4">
         <div class=" mb-4 p-3">
           <div class="">
-            <h5 class="mb-1">بيانات الموظف</h5>
+            <h5 class="mb-1">بيانات الموظفين</h5>
           </div>
 
         
@@ -130,9 +130,7 @@ $_SESSION['sidebar_admin'] = "employee";
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4 mt-3">
-                    <div class="card-header pb-0 ">
-                                        <h6>بيانات الموظفين</h6>
-                                    </div>
+                    
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
                                 <table class="table table-hover table-fixed" id="example">
@@ -142,6 +140,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                         <tr>
                                             <th>الرقم</th>
                                             <th>اسم الموظف</th>
+                                            <th>قسم الموظف</th>
                                             <th>راتب الموظف</th>
                                             <th>سلفية الموظف</th>
                                             <th>ساعات اضافية</th>
@@ -154,6 +153,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                         <tr>
                                             <th scope="row">1</th>
                                             <td>عباس الجعفري</td>
+                                            <td>المدير العام</td>
                                             <td>5000</td>
                                             <td>2500</td>
                                             <td>3</td>
