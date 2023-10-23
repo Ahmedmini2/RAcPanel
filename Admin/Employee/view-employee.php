@@ -120,7 +120,7 @@ $_SESSION['sidebar_admin'] = "employee";
         <div class="container-fluid py-4">
         <div class=" mb-4 p-3">
           <div class="">
-            <h5 class="mb-1">اضافة موظف جديد</h5>
+            <h5 class="mb-1">بيانات الموظف</h5>
           </div>
 
           <a href="add-employee.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة موظف&nbsp;&nbsp;
@@ -128,11 +128,14 @@ $_SESSION['sidebar_admin'] = "employee";
             </i>
           </a>
           </div>
+            
             <!--Table     -->
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4 mt-3">
-
+                    <div class="card-header pb-0 ">
+                                        <h6>بيانات الموظفين</h6>
+                                    </div>
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
                                 <table class="table table-hover table-fixed" id="example">
@@ -142,11 +145,9 @@ $_SESSION['sidebar_admin'] = "employee";
                                         <tr>
                                             <th>الرقم</th>
                                             <th>اسم الموظف</th>
-                                            <th>رقم الموظف</th>
-                                            <th>قسم الموظف</th>
-                                            <th>تاريخ التوظيف</th>
-                                            <th>حاله الموظف </th>
-                                            <th>Action </th>
+                                            <th>راتب الموظف</th>
+                                            <th>سلفية الموظف</th>
+                                            <th>ساعات اضافية</th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
@@ -156,14 +157,11 @@ $_SESSION['sidebar_admin'] = "employee";
                                         <tr>
                                             <th scope="row">1</th>
                                             <td>عباس الجعفري</td>
-                                            <td>RUKNAMIL0002</td>
-                                            <td>المدير</td>
-                                            <td>2023/10/22</td>
-                                            <td><span class="badge badge-sm bg-gradient-success">مدير</span></td>
-                                            <td>
-                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </td>
+                                            <td>5000</td>
+                                            <td>2500</td>
+                                            <td>3</td>
+                                            
+                                            
                                         </tr>
 
 
@@ -177,7 +175,6 @@ $_SESSION['sidebar_admin'] = "employee";
                 </div>
             </div>
             <!--Table -->
-        
         </div>
 
 
