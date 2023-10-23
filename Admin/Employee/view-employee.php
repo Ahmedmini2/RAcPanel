@@ -163,6 +163,28 @@ $_SESSION['sidebar_admin'] = "employee";
                                             <td>اكتوبر 2023</td>
     
                                         </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>احمد عثمان</td>
+                                            <td>المدير العام</td>
+                                            <td>5000</td>
+                                            <td>2500</td>
+                                            <td>3</td>
+                                            <td>2500</td>
+                                            <td>اكتوبر 2023</td>
+    
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>محمد جمال</td>
+                                            <td>المدير العام</td>
+                                            <td>5000</td>
+                                            <td>2500</td>
+                                            <td>3</td>
+                                            <td>2500</td>
+                                            <td>اكتوبر 2023</td>
+    
+                                        </tr>
 
 
                                     </tbody>
