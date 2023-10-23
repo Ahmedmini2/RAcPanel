@@ -217,7 +217,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                           $ribbonText = "في " . $durationInDays . " أيام";
                         }
                       ?>
-                      <?php  } ?>
+                     
                         <span class="ribbon-pop <?php  if ($timeDiff > 0 && $timeDiff <= 3 * 24 * 60 * 60) { echo $color ;}?>" dir="ltr">ينتهي <?= $ribbonText ?></span>
                       
                       <div class=" rgba-white-slight"></div>
