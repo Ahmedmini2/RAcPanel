@@ -123,10 +123,7 @@ $_SESSION['sidebar_admin'] = "employee";
             <h5 class="mb-1">بيانات الموظف</h5>
           </div>
 
-          <a href="add-employee.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة موظف&nbsp;&nbsp;
-            <i class="fas fa-plus">
-            </i>
-          </a>
+        
           </div>
             
             <!--Table     -->

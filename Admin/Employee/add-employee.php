@@ -123,7 +123,7 @@ $_SESSION['sidebar_admin'] = "employee";
 
                     <div class="block-header bg-gradient-dark  col-md-2 col-sm-6 col-xs-6  rounded-pill">
 
-                        <h6 class="block-title text-white py-2 px-4">إضافة مستخدم جديد</h6>
+                        <h6 class="block-title text-white py-2 px-4">إضافة موظف جديد</h6>
                     </div>
                     <form>
                         <div class="row">
@@ -166,6 +166,12 @@ $_SESSION['sidebar_admin'] = "employee";
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> تاريخ التوظيف</label>
+                                    <input type="date" placeholder="" class="form-control" name="duration">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> راتب الموظف</label>
                                     <input type="date" placeholder="" class="form-control" name="duration">
                                 </div>
                             </div>
