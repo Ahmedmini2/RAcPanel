@@ -89,12 +89,7 @@ while ($ban = mysqli_fetch_array($banner)) {
               <input type="text" class="form-control" placeholder="أكتب هنا...">
             </div>
           </div>
-          <label class="ui-switch">
-                        <input type="checkbox" onclick="setDarkMode()">
-                        <div class="slider">
-                            <div class="circle"></div>
-                        </div>
-                    </label>
+          
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center px-4">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -783,7 +778,7 @@ while ($ban = mysqli_fetch_array($banner)) {
     // Poll for new notifications every 5 minutes (adjust the interval as needed)
     setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
   </script>
-   <script src="Admin/darkmode.js"></script>
+  
 </body>
 
 </html>
