@@ -633,7 +633,13 @@ if (isset($_POST['add-project'])) {
 
                       $( document ).ready(function() {
                         var peice = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0)
+                        var ret = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0) * parseFloat($("#quantity").val())
+                        var qunt = (parseFloat($("#quantity").val()) || 0);
+                        var qty_tot = ((parseFloat($("#quantity").val()) * parseFloat($("#kh_per").val())) || 0)
+                        $("#kh_quantity_tot").val(qty_tot);
+                        ret = ret.toLocaleString("en-US");
                         peice = peice.toLocaleString("en-US");
+                        $("#kh_tot").val(ret);
                         $("#kh_peice").val(peice);
                       });
                     </script>
