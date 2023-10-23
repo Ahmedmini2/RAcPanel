@@ -568,8 +568,8 @@ if (isset($_POST['add-project'])) {
                 <hr>
                <!-- Item Details -->
                <?php
-               $product_id = $products['product_id'];
-               $kh = "SELECT * FROM kharasana WHERE `product_id` = $product_id";
+               $product_id = $products['id'];
+               $kh = "SELECT * FROM `kharasana` WHERE `product_id` = $product_id";
                $res3 = $conn->query($kh);
                $kharasan = $res3->fetch_assoc();
                ?>
