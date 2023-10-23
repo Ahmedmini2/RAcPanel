@@ -209,10 +209,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                             <td>2500</td>
                                             <td>3</td>
                                             
-                                            <td>
-                                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </td>
+                                            
                                         </tr>
 
 
