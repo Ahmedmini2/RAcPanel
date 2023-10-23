@@ -530,6 +530,12 @@ if (isset($_POST['add-project'])) {
               <hr>
             </div>
             
+            <?php 
+             $i = 0;
+             $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $project_id ");
+             while ($products = mysqli_fetch_array($res3)) {
+              $i++;
+            ?>
             <!-- Product Details -->
             <div id="product_details">
               <div class="product">
@@ -1146,6 +1152,8 @@ if (isset($_POST['add-project'])) {
 
                 </div>
               </div>
+            </div>
+            <?php } ?>
           </form>
 
         </div>
