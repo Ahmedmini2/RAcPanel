@@ -177,6 +177,55 @@ $_SESSION['sidebar_admin'] = "employee";
                 </div>
             </div>
             <!--Table -->
+            <!--Table     -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mb-4 mt-3">
+                    <div class="card-header pb-0 ">
+                                        <h6>بيانات الموظفين</h6>
+                                    </div>
+                        <div class="card-body px-0 pt-0 pb-2 mx-3">
+                            <div class="table-responsive p-0">
+                                <table class="table table-hover table-fixed" id="example">
+
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light text-center">
+                                        <tr>
+                                            <th>الرقم</th>
+                                            <th>اسم الموظف</th>
+                                            <th>راتب الموظف</th>
+                                            <th>سلفية الموظف</th>
+                                            <th>ساعات اضافية</th>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+                                    <!--Table body-->
+                                    <tbody class=" text-center">
+
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>عباس الجعفري</td>
+                                            <td>5000</td>
+                                            <td>2500</td>
+                                            <td>3</td>
+                                            
+                                            <td>
+                                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                    <!--Table body-->
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Table -->
         </div>
 
 
