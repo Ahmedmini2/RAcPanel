@@ -630,6 +630,12 @@ if (isset($_POST['add-project'])) {
                         $("#kh_tot").val(ret);
                         $("#kh_peice").val(peice);
                       })
+
+                      document.addEventListener("DOMContentLoaded", function(){
+                        var peice = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0)
+                        peice = peice.toLocaleString("en-US");
+                        $("#kh_peice").val(peice);
+                      });
                     </script>
 
                   </div>
