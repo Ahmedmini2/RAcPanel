@@ -476,7 +476,7 @@ if (isset($_GET['project_id'])) {
                                     ?>
    
                                     <tr>
-                                        <th class="header-color"  scope="row"><?=$i?></th>
+                                        <th class="header-color text-center"  scope="row"><?=$i?></th>
                                         <td class="custom-font-m text-center"><?=$item['product_name']?></td>
                                         <td class="custom-font-m"><?=$item['quantity']?></td>
                                         <td class="custom-font-m"><?=number_format($item['sell_price'])?></td>
@@ -485,6 +485,22 @@ if (isset($_GET['project_id'])) {
                                     </tr>
                                     
                                     <?php } ?>
+                                    <tr class="table-secondary">
+                                        <td colspan="4">Total</td>
+                                        <td><?=number_format($iron_total,2,'.',',')?></td>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <td colspan="4">VAT 15% </td>
+                                        <td><?=number_format($iron_total,2,'.',',')?></td>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <td colspan="4">Grand total(SAR)</td>
+                                        <td class="font-weight-bold text-success" ><?=number_format($iron_total,2,'.',',')?></td>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <td colspan="5"><p>The total value is SAR <?=number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p></td>
+                                       
+                                    </tr>
                                 </tbody>
                                 <!--Table body-->
 
