@@ -62,7 +62,7 @@ while ($ban = mysqli_fetch_array($banner)) {
 </head>
 <?php require_once('components/loader.php'); ?>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl">
 
 
 
