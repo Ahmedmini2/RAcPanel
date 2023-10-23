@@ -25113,6 +25113,10 @@ width: 100px;
 .darkmode .bg-gradient-dark {
   background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
 }
+.darkmode .card .card-header {
+  padding: 1.5rem;
+  background: #34476700;
+}
 
 .darkmode .form-control {
   display: block;
