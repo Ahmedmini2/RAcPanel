@@ -504,13 +504,7 @@ if (isset($_GET['project_id'])) {
 
                 <div class="row text-center">
 
-                    <div class="col-6">
-                        <div class="row">
-                            <h6>Prepared by</h6>
-                            <input type="text" class="signture" id="signture" />
-                            <h5></h5>
-                        </div>
-                    </div>
+                    
                     <div class="col-6">
                         <div class="row">
                             <h6>Approved by</h6>
