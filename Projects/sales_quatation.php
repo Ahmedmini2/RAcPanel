@@ -493,7 +493,7 @@ if (isset($_GET['project_id'])) {
                                     </tr>
                                     <tr class=" text-center">
                                         <td colspan="4">Grand total(SAR)</td>
-                                        <td><span class="font-weight-bold text-success text-center" id="total"><?= number_format($total_without_tax + $total_with_tax) ?></span></td>
+                                        <td class="text-center"><span class="font-weight-bold text-success " id="total">SAR <?= number_format($total_without_tax + $total_with_tax) ?></span></td>
                                     </tr>
                                     <tr class="table-secondary">
                                         <td colspan="5">
