@@ -25232,7 +25232,7 @@ width: 100px;
 
 /* notes */
 
-.darkmode .card{
+.darkmode .note-card{
   position: relative;
   width: 100%;
   height: 100vh;
@@ -25243,14 +25243,14 @@ width: 100px;
   gap: 50px;
   padding: 50px;
 }
-.darkmode .card .notes {
+.darkmode .note-card .notes {
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
   justify-content: flex-start;
   align-items: flex-start;
 }
-.darkmode .card .note{
+.darkmode .note-card .note{
   width: 300px;
   height: 300px;
   background: #f7e98d;
