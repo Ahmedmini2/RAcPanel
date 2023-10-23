@@ -15,12 +15,21 @@ include '../../db/connection.php';
 
     if(!empty($_GET['id']))
                     {
+                        if(isset($_POST['del']))
+                        {
+                            $password = $_POST['pas'];
+                            $password=  md5($password);
+                            if($password == $_SESSION['password']){
                         $id = $_GET['id'];
                         $del= mysqli_query($conn, "delete from cost_type where id = '$id'");
                         if($del)
                         {
                             $_SESSION['notification'] = "تم حذف نوع التكلفة بنجاح";
                             header('location:../../cost/type-cost.php');
+                        }}else{
+                            $_SESSION['notification'] = "كلمة مرور خاطئة";
+                            header('location:../../cost/type-cost.php');
+                            }
                         }
                     }
 

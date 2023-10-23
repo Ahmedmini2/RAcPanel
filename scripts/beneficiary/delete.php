@@ -15,12 +15,22 @@ include '../../db/connection.php';
 
     if(!empty($_GET['bank_id']))
                     {
+                        if(isset($_POST['del']))
+                        {
+                            $password = $_POST['pas'];
+                            $password=  md5($password);
+                            if($password == $_SESSION['password']){
                         $id = $_GET['bank_id'];
                         $del= mysqli_query($conn, "delete from beneficiary_info where id = '$id'");
                         if($del)
                         {
                             $_SESSION['notification'] = "تم حذف حساب المستفيد بنجاح";
                             header('location:../../Beneficiary/beneficiary-banks.php');
+                        }
+                    }else{
+                            $_SESSION['notification'] = "كلمة مرور خاطئة";
+                            header('location:../../Beneficiary/beneficiary-banks.php');
+                            }
                         }
                     }
 
