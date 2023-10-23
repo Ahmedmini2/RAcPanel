@@ -544,14 +544,14 @@ if (isset($_POST['add-project'])) {
                   <div class="col-md-8 col-sm-6">
                     <div class="form-group">
                       <label for="product_name">أسم الصنف</label>
-                      <input class="form-control" type="text" name="product_name">
+                      <input class="form-control" type="text" name="product_name" value="<?=$products['product_name']?>">
                       <!-- Add more fields for product details here -->
                     </div>
                   </div>
                   <div class="col-md-8 col-sm-6">
                     <div class="form-group">
                       <label for="dimensions">المقاسات</label>
-                      <input class="form-control" type="text" name="dimensions">
+                      <input class="form-control" type="text" name="dimensions" value="<?=$products['dimensions']?>">
                       <!-- Add more fields for product details here -->
                     </div>
                   </div>
@@ -560,13 +560,19 @@ if (isset($_POST['add-project'])) {
                   <div class="col-md-8 col-sm-6">
                     <div class="form-group">
                       <label for="quantity">كمية الصنف</label>
-                      <input class="form-control" type="text" name='quantity' id="quantity">
+                      <input class="form-control" type="text" name='quantity' id="quantity" value="<?=$products['quantity']?>">
                       <!-- Add more fields for product details here -->
                     </div>
                   </div>
                 </div>
                 <hr>
                <!-- Item Details -->
+               <?php
+               $product_id = $products['product_id'];
+               $kh = "SELECT * FROM kharasana WHERE `product_id` = $product_id";
+               $res3 = $conn->query($kh);
+               $kharasan = $res3->fetch_assoc();
+               ?>
                 <div class="kh_details">
                   <h5>بند الخرسانة</h5>
                   <div class="item">
@@ -575,6 +581,7 @@ if (isset($_POST['add-project'])) {
                         <div class="form-group">
                           <label for="kharasana">نوع الخرسانة</label>
                           <select class="form-control" name="kharasana">
+                            <option value="<?=$kharasan['type']?>"><?=$kharasan['type']?></option>
                             <option value="خرسانة شركة">خرسانة شركة</option>
                             <option value="خرسانة رجيع">خرسانة رجيع</option>
                           </select>
@@ -583,13 +590,13 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="kh_price">سعر الخرسانة</label>
-                          <input type="text" class="form-control" name='kh_price' id="kh_price">
+                          <input type="text" class="form-control" name='kh_price' id="kh_price" value="<?=$kharasan['price']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="kh_per">كمية الخرسانة للصنف الواحد</label>
-                          <input type="text" class="form-control" name='kh_per' id="kh_per">
+                          <input type="text" class="form-control" name='kh_per' id="kh_per" value="<?=$kharasan['quantity_per_piece']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -601,13 +608,13 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="kh_peice">السعر للمنتج الفردي</label>
-                          <input type="text" class="form-control" name='kh_peice' id="kh_peice" readonly>
+                          <input type="text" class="form-control" name='kh_peice' id="kh_peice" readonly value="<?=$kharasan['price_per_piece']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="kh_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='kh_tot' id="kh_tot" readonly>
+                          <input type="text" class="form-control" name='kh_tot' id="kh_tot" readonly value="<?=$kharasan['total_price']?>">
                         </div>
                       </div>
                     </div>
