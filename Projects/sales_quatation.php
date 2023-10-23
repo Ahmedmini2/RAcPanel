@@ -483,17 +483,17 @@ if (isset($_GET['project_id'])) {
                                         </tr>
 
                                     <?php } ?>
-                                    <tr class="table-secondary text-center">
+                                    <tr class=" text-center">
                                         <td colspan="4">Total</td>
-                                        <td><span>SAR <?= number_format($total_without_tax) ?></span></td>
+                                        <td class="text-center" ><span>SAR <?= number_format($total_without_tax) ?></span></td>
                                     </tr>
-                                    <tr class="table-secondary text-center">
+                                    <tr class="text-center">
                                         <td colspan="4">VAT 15% </td>
-                                        <td><span>SAR <?= number_format($total_with_tax) ?></span></td>
+                                        <td class="text-center"><span>SAR <?= number_format($total_with_tax) ?></span></td>
                                     </tr>
                                     <tr class="table-secondary text-center">
                                         <td colspan="4">Grand total(SAR)</td>
-                                        <td><span class="font-weight-bold text-success" id="total"><?= number_format($total_without_tax + $total_with_tax) ?></span></td>
+                                        <td><span class="font-weight-bold text-success text-center" id="total"><?= number_format($total_without_tax + $total_with_tax) ?></span></td>
                                     </tr>
                                     <tr class="table-secondary">
                                         <td colspan="5">
