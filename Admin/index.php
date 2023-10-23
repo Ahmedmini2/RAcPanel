@@ -262,23 +262,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
                 </div>
             </div>
             <!--Table -->
-            <!-- Note -->
-            <div class="note-card">
-                <div class="notes">
-                    <div id="create">
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-                    <div class="createBox">
-                        <div class="innerCreateBox">
-                            <textarea placeholder="Write here ..." id="userInput" maxlength="160"></textarea>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="note">
-                        
-                    </div>
-                </div>
-            </div>
-            <!-- Note -->
+            
         </div>
         
 
