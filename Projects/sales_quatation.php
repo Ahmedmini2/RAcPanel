@@ -359,7 +359,7 @@ if (isset($_GET['project_id'])) {
             </div>
 
 
-            <div class="invoice-box mt-6" dir="ltr">
+            <div class="invoice-box mt-8" dir="ltr">
 
 
                 
