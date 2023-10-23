@@ -487,15 +487,15 @@ if (isset($_GET['project_id'])) {
                                     <?php } ?>
                                     <tr class="table-secondary">
                                         <td colspan="4">Total</td>
-                                        <td><?=number_format($iron_total,2,'.',',')?></td>
+                                        <td><span>SAR <?=number_format($total_without_tax)?></span></td>
                                     </tr>
                                     <tr class="table-secondary">
                                         <td colspan="4">VAT 15% </td>
-                                        <td><?=number_format($iron_total,2,'.',',')?></td>
+                                        <td><span>SAR <?=number_format($total_with_tax)?></span></td>
                                     </tr>
                                     <tr class="table-secondary">
                                         <td colspan="4">Grand total(SAR)</td>
-                                        <td class="font-weight-bold text-success" ><?=number_format($iron_total,2,'.',',')?></td>
+                                        <td  ><span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax)?></span></td>
                                     </tr>
                                     <tr class="table-secondary">
                                         <td colspan="5"><p>The total value is SAR <?=number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p></td>
