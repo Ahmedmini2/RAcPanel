@@ -570,8 +570,8 @@ if (isset($_POST['add-project'])) {
                <?php
                $product_id = $products['id'];
                $kh = "SELECT * FROM `kharasana` WHERE `product_id` = $product_id";
-               $res3 = $conn->query($kh);
-               $kharasan = $res3->fetch_assoc();
+               $res_kh = $conn->query($kh);
+               $kharasan = $res_kh->fetch_assoc();
                ?>
                 <div class="kh_details">
                   <h5>بند الخرسانة</h5>
@@ -631,17 +631,17 @@ if (isset($_POST['add-project'])) {
                         $("#kh_peice").val(peice);
                       })
 
-                      // $( document ).ready(function() {
-                      //  var peice = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0)
-                      //   var ret = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0) * parseFloat($("#quantity").val())
-                      //   var qunt = (parseFloat($("#quantity").val()) || 0);
-                      //   var qty_tot = ((parseFloat($("#quantity").val()) * parseFloat($("#kh_per").val())) || 0)
-                      //   $("#kh_quantity_tot").val(qty_tot);
-                      //   ret = ret.toLocaleString("en-US");
-                      //   peice = peice.toLocaleString("en-US");
-                      //   $("#kh_tot").val(ret);
-                      //   $("#kh_peice").val(peice);
-                      // });
+                      $( document ).ready(function() {
+                       var peice = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0)
+                        var ret = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0) * parseFloat($("#quantity").val())
+                        var qunt = (parseFloat($("#quantity").val()) || 0);
+                        var qty_tot = ((parseFloat($("#quantity").val()) * parseFloat($("#kh_per").val())) || 0)
+                        $("#kh_quantity_tot").val(qty_tot);
+                        ret = ret.toLocaleString("en-US");
+                        peice = peice.toLocaleString("en-US");
+                        $("#kh_tot").val(ret);
+                        $("#kh_peice").val(peice);
+                      });
                     </script>
 
                   </div>
