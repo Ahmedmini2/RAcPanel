@@ -263,7 +263,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
             </div>
             <!--Table -->
             <!-- Note -->
-            <div class="container">
+            <div class="card">
                 <div class="notes">
                     <div id="create">
 
