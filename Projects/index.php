@@ -206,9 +206,9 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                     <div class="view overlay">
                       <img class="inside-card card-img-top" src="../Projects/Images/<?= $r['name'] ?>/<?= $r['image'] ?>" alt="Card image cap">
                       <?php
-                      if ($timeDiff > 0 && $timeDiff <= 3 * 24 * 60 * 60) { // 3 days in seconds
+                     
                         $durationInDays = ceil($timeDiff / (24 * 60 * 60)); // Calculate the number of days left
-
+                        $color = 'bg-red';
                         if ($durationInDays == 1) {
                           $ribbonText = "غدًا";
                         } else if ($durationInDays == 2) {
@@ -217,8 +217,9 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                           $ribbonText = "في " . $durationInDays . " أيام";
                         }
                       ?>
-                        <span class="ribbon-pop" dir="ltr">ينتهي <?= $ribbonText ?></span>
-                      <?php  } ?>
+                     
+                        <span class="ribbon-pop <?php  if ($timeDiff > 0 && $timeDiff <= 3 * 24 * 60 * 60) { echo $color ;}?>" dir="ltr">ينتهي <?= $ribbonText ?></span>
+                      
                       <div class=" rgba-white-slight"></div>
 
                     </div>
