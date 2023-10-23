@@ -449,7 +449,7 @@ if (isset($_GET['project_id'])) {
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="table-responsive p-0">
-                            <table class="table table-hover table-bordered table-fixed text-center">
+                            <table class="table table-hover table-bordered table-fixed text-center border-dark">
 
                                 <!--Table head-->
                                 <thead class="text-light header-color custom-font-m table-bordered">
@@ -491,7 +491,7 @@ if (isset($_GET['project_id'])) {
                                         <td colspan="4">VAT 15% </td>
                                         <td class="text-center"><span>SAR <?= number_format($total_with_tax) ?></span></td>
                                     </tr>
-                                    <tr class="table-secondary text-center">
+                                    <tr class=" text-center">
                                         <td colspan="4">Grand total(SAR)</td>
                                         <td><span class="font-weight-bold text-success text-center" id="total"><?= number_format($total_without_tax + $total_with_tax) ?></span></td>
                                     </tr>
