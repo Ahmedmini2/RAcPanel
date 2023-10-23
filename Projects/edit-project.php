@@ -567,6 +567,12 @@ if (isset($_POST['add-project'])) {
                 </div>
                 <hr>
                <!-- Item Details -->
+               <?php
+               $product_id = $products['id'];
+               $kh = "SELECT * FROM `kharasana` WHERE `product_id` = $product_id";
+               $res3 = $conn->query($kh);
+               $kharasan = $res3->fetch_assoc();
+               ?>
                 <div class="kh_details">
                   <h5>بند الخرسانة</h5>
                   <div class="item">
@@ -575,6 +581,7 @@ if (isset($_POST['add-project'])) {
                         <div class="form-group">
                           <label for="kharasana">نوع الخرسانة</label>
                           <select class="form-control" name="kharasana">
+                            <option value="<?=$kharasan['type']?>"><?=$kharasan['type']?></option>
                             <option value="خرسانة شركة">خرسانة شركة</option>
                             <option value="خرسانة رجيع">خرسانة رجيع</option>
                           </select>
@@ -583,13 +590,13 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="kh_price">سعر الخرسانة</label>
-                          <input type="text" class="form-control" name='kh_price' id="kh_price">
+                          <input type="text" class="form-control" name='kh_price' id="kh_price" value="<?=$kharasan['price']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="kh_per">كمية الخرسانة للصنف الواحد</label>
-                          <input type="text" class="form-control" name='kh_per' id="kh_per">
+                          <input type="text" class="form-control" name='kh_per' id="kh_per" value="<?=$kharasan['quantity_per_piece']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -601,13 +608,13 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="kh_peice">السعر للمنتج الفردي</label>
-                          <input type="text" class="form-control" name='kh_peice' id="kh_peice" readonly>
+                          <input type="text" class="form-control" name='kh_peice' id="kh_peice" readonly value="<?=$kharasan['price_per_piece']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="kh_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='kh_tot' id="kh_tot" readonly>
+                          <input type="text" class="form-control" name='kh_tot' id="kh_tot" readonly value="<?=$kharasan['total_price']?>">
                         </div>
                       </div>
                     </div>
@@ -623,6 +630,18 @@ if (isset($_POST['add-project'])) {
                         $("#kh_tot").val(ret);
                         $("#kh_peice").val(peice);
                       })
+
+                      $( document ).ready(function() {
+                       var peice = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0)
+                        var ret = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0) * parseFloat($("#quantity").val())
+                        var qunt = (parseFloat($("#quantity").val()) || 0);
+                        var qty_tot = ((parseFloat($("#quantity").val()) * parseFloat($("#kh_per").val())) || 0)
+                        $("#kh_quantity_tot").val(qty_tot);
+                        ret = ret.toLocaleString("en-US");
+                        peice = peice.toLocaleString("en-US");
+                        $("#kh_tot").val(ret);
+                        $("#kh_peice").val(peice);
+                      });
                     </script>
 
                   </div>
