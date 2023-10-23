@@ -172,7 +172,7 @@ $_SESSION['sidebar_admin'] = "employee";
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> راتب الموظف</label>
-                                    <input type="date" placeholder="" class="form-control" name="duration">
+                                    <input type="text" placeholder=" مرتب الموظف" class="form-control" name="salary" value="">
                                 </div>
                             </div>
                             

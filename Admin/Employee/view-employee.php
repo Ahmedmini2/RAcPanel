@@ -166,7 +166,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                         <tr>
                                             <th scope="row">2</th>
                                             <td>احمد عثمان</td>
-                                            <td>المدير العام</td>
+                                            <td>IT</td>
                                             <td>5000</td>
                                             <td>2500</td>
                                             <td>3</td>
@@ -177,7 +177,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                         <tr>
                                             <th scope="row">3</th>
                                             <td>محمد جمال</td>
-                                            <td>المدير العام</td>
+                                            <td>IT</td>
                                             <td>5000</td>
                                             <td>2500</td>
                                             <td>3</td>
