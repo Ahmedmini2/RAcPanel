@@ -208,7 +208,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                       <?php
                      
                         $durationInDays = ceil($timeDiff / (24 * 60 * 60)); // Calculate the number of days left
-                        $color = 'bg-red';
+                        $color = 'style="background:linear-gradient(310deg, #f71717 0%, #78735f 100%)';
                         if ($durationInDays == 1) {
                           $ribbonText = "غدًا";
                         } else if ($durationInDays == 2) {
@@ -218,7 +218,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                         }
                       ?>
                      
-                        <span class="ribbon-pop <?php  if ($timeDiff > 0 && $timeDiff <= 3 * 24 * 60 * 60) { echo $color ;}?>" dir="ltr">ينتهي <?= $ribbonText ?></span>
+                        <span class="ribbon-pop"  <?php  if ($timeDiff > 0 && $timeDiff <= 3 * 24 * 60 * 60) { echo $color ;}?> dir="ltr">ينتهي <?= $ribbonText ?></span>
                       
                       <div class=" rgba-white-slight"></div>
 
