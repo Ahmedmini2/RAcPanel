@@ -189,7 +189,7 @@ if (isset($_GET['id'])) {
 
                                 </a>
                                 <a href="sales_quatation.php?project_id=<?= $id ?>" id="btn2" class="btn bg-gradient-dark mb-0">
-                                    Sales Quatation
+                                    Proforma Invoice
 
                                 </a>
                                 <a href="documents.php?project_id=<?=$id?>" id="btn3" class="btn bg-gradient-dark mb-0">
