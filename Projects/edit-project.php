@@ -647,6 +647,8 @@ if (isset($_POST['add-project'])) {
                   </div>
                  
                 </div>
+
+
                 <div class="iron_details">
                   <hr>
                   <h5>بند الحديد</h5>
@@ -1018,8 +1020,10 @@ if (isset($_POST['add-project'])) {
                   </div>
                 </div>
                 <hr>
-                <?php } ?>
-
+                
+              
+                </div>
+                 <?php } ?>
                 <!-- Item End -->
 
                 <div class="Final_details">
@@ -1172,7 +1176,6 @@ if (isset($_POST['add-project'])) {
 
                 </div>
               </div>
-            </div>
             
           </form>
 
