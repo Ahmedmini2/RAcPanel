@@ -631,7 +631,7 @@ if (isset($_POST['add-project'])) {
                         $("#kh_peice").val(peice);
                       })
 
-                      document.addEventListener("DOMContentLoaded", function(){
+                      $( document ).ready(function() {
                         var peice = ((parseFloat($("#kh_price").val()) * parseFloat($("#kh_per").val())) || 0)
                         peice = peice.toLocaleString("en-US");
                         $("#kh_peice").val(peice);
