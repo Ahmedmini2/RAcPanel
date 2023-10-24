@@ -647,15 +647,37 @@ if (isset($_POST['add-project'])) {
                   </div>
                  
                 </div>
+
                 <div class="iron_details">
                   <hr>
                   <h5>بند الحديد</h5>
                   <div class="iron" id="main-iron">
-                    <div class="row" id="row<?= $coco ?>">
+                  <?php 
+                    $i = 0;
+                    $res_iron = mysqli_query($conn, "SELECT * FROM iron_band WHERE `product_id` = $product_id ");
+                    while ($iron_band = mysqli_fetch_array($res_iron)) {
+                      $i++;
+                      $iron_size = $iron_band['size'];
+                      $sizeText = [
+                                      "8مم" => "0.395",
+                                      "10مم" => "0.617",
+                                      "12مم" => "0.888",
+                                      "14مم" => "1.21",
+                                      "16مم" => "1.58",
+                                      "18مم" => "2",
+                                      "20مم" => "2.47",
+                                      "22مم" => "2.984",
+                                      "25مم" => "3.85",
+                                      "32مم" => "6.41",
+                                  ];
+                                  $selectedSizeText = $sizeText[$iron_size];
+                    ?>
+                    <div class="row" id="row<?= $i ?>">
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron">مقاس الحديد</label>
-                          <select class="form-control" name="iron_<?= $coco ?>" id="iron_<?= $coco ?>">
+                          <select class="form-control" name="iron_<?= $i ?>" id="iron_<?= $i ?>">
+                            <option value="<?=$selectedSizeText?>"><?=$iron_size?></option>
                             <option value="0.395">8مم</option>
                             <option value="0.617">10مم</option>
                             <option value="0.888">12مم</option>
@@ -672,33 +694,33 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_price">سعر طن الحديد لليوم</label>
-                          <input type="text" class="form-control" name='iron_price_<?= $coco ?>' id="iron_price_<?= $coco ?>">
+                          <input type="text" class="form-control" name='iron_price_<?= $i ?>' id="iron_price_<?= $i ?>" value="<?=$iron_band['price_today']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_quantity">كمية الحديد</label>
-                          <input type="text" class="form-control" name='iron_quantity_<?= $coco ?>' id="iron_quantity_<?= $coco ?>">
+                          <input type="text" class="form-control" name='iron_quantity_<?= $i ?>' id="iron_quantity_<?= $i ?>" value="<?=$iron_band['quantity']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_long">طول الحديد</label>
-                          <input type="text" class="form-control" name='iron_long_<?= $coco ?>' id="iron_long_<?= $coco ?>">
+                          <input type="text" class="form-control" name='iron_long_<?= $i ?>' id="iron_long_<?= $i ?>" value="<?=$iron_band['iron_height']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
-                          <input type="text" class="form-control" name='iron_tn_<?= $coco ?>' id="iron_tn_<?= $coco ?>" readonly>
+                          <input type="text" class="form-control" name='iron_tn_<?= $i ?>' id="iron_tn_<?= $i ?>" readonly value="<?=$iron_band['tn_price']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tot">السعر</label>
-                          <input type="text" class="form-control" name='iron_tot_<?= $coco ?>' id="iron_tot_<?= $coco ?>" readonly>
+                          <input type="text" class="form-control" name='iron_tot_<?= $i ?>' id="iron_tot_<?= $i ?>" readonly value="<?=$iron_band['total_price']?>">
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
-                          <input type="hidden" name="iron-rr" id="iron-rr" readonly>
+                          <input type="hidden" name="iron-rr" id="iron-rr" readonly value="<?=$i?>">
                         </div>
                       </div>
                     </div>
@@ -707,7 +729,7 @@ if (isset($_POST['add-project'])) {
                 </div>
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
-                  var i = 1;
+                  var i = $("#iron-rr").val();
 
 
 
@@ -715,7 +737,27 @@ if (isset($_POST['add-project'])) {
                   $(document).on('change', 'input , select', function() {
                     var total_iron = 0;
 
-                    for (var z = 1; z <= i; z++) {
+                    for (var z = 1; z <= <?=$i?>; z++) {
+                      var iron = ($("#iron_" + z).val() || 0);
+                      var kg = ((parseFloat($("#iron_quantity_" + z).val()) * parseFloat($("#iron_long_" + z).val()) || 0) * iron)
+                      var tn = kg / 1000;
+                      var total = ((tn * parseFloat($("#iron_price_" + z).val())) || 0)
+                      total_iron += total;
+                      tn = tn.toLocaleString("en-US");
+                      total = total.toLocaleString("en-US");
+                      $("#iron_tn_" + z).val(tn);
+                      $("#iron_tot_" + z).val(total);
+                    }
+
+                    total_iron = total_iron.toLocaleString("en-US");
+
+                    $("#total_iron").val(total_iron);
+                  });
+
+                  $( document ).ready(function() {
+                    var total_iron = 0;
+
+                    for (var z = 1; z <= <?=$i?>; z++) {
                       var iron = ($("#iron_" + z).val() || 0);
                       var kg = ((parseFloat($("#iron_quantity_" + z).val()) * parseFloat($("#iron_long_" + z).val()) || 0) * iron)
                       var tn = kg / 1000;
@@ -735,52 +777,54 @@ if (isset($_POST['add-project'])) {
 
 
 
-                  document.addEventListener("DOMContentLoaded", function() {
-                    const productDetails = document.querySelector("#product_details");
-                    productDetails.addEventListener("click", function(e) {
-                      if (e.target.classList.contains("add_iron")) {
-
-                        i++;
-                        $("#iron-rr").val(i);
-                      }
-                    });
-                  });
+                 
                 </script>
+                
+                
 
-                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
+               
                 <div class="row">
                   السعر الكلي للحديد
                   <input type="text" class="form-control" placeholder="Total" name="total_iron" id="total_iron" readonly>
                 </div>
+                <?php } ?>
                 <hr>
+               
                 <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
                   <div class="accessory" id="main-accessory">
+                  <?php 
+                    $y = 0;
+                    $res_accessory = mysqli_query($conn, "SELECT * FROM accessory_band WHERE `product_id` = $product_id ");
+                    while ($accessory_band = mysqli_fetch_array($res_accessory)) {
+                      $y++;
+
+                    ?>
                     <div class="row ">
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="accessory">أسم الاكسسوار</label>
-                          <input type="text" class="form-control" name='accessory_<?= $coco ?>' id="accessory_<?= $coco ?>">
+                          <input type="text" class="form-control" name='accessory_<?= $y ?>' id="accessory_<?= $y ?>" value="<?=$accessory_band['name']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="acc_quantity">كمية الاكسسوار</label>
-                          <input type="text" class="form-control" name='acc_quantity_<?= $coco ?>' id="acc_quantity_<?= $coco ?>">
+                          <input type="text" class="form-control" name='acc_quantity_<?= $y ?>' id="acc_quantity_<?= $y ?>" value="<?=$accessory_band['quantity']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="acc_price">سعر الاكسسوار الفردي</label>
-                          <input type="text" class="form-control" name='acc_price_<?= $coco ?>' id="acc_price_<?= $coco ?>">
+                          <input type="text" class="form-control" name='acc_price_<?= $y ?>' id="acc_price_<?= $y ?>" value="<?=$accessory_band['price_per_piece']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="acc_tot">السعر</label>
-                          <input type="text" class="form-control" name='acc_tot_<?= $coco ?>' id="acc_tot_<?= $coco ?>" readonly>
+                          <input type="text" class="form-control" name='acc_tot_<?= $y ?>' id="acc_tot_<?= $y ?>" readonly value="<?=$accessory_band['total_price']?>">
                           <input type="hidden" name="rowcount_ac" value="<?php echo $numberofrows; ?>" id="rowcount_ac" readonly>
-                          <input type="hidden" name="ac-rr" id="ac-rr" readonly>
+                          <input type="hidden" name="ac-rr" id="ac-rr" readonly value="<?=$y?>">
                         </div>
                       </div>
                     </div>
@@ -791,7 +835,7 @@ if (isset($_POST['add-project'])) {
 
                       $(document).on('change', 'input', function() {
                         var total_accessory = 0;
-                        for (var z = 1; z <= a; z++) {
+                        for (var z = 1; z <= <?=$y?>; z++) {
 
                           var peice = ((parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val()) || 0));
                           total_accessory += peice
@@ -802,31 +846,34 @@ if (isset($_POST['add-project'])) {
                         total_accessory = total_accessory.toLocaleString("en-US");
                         $("#accessory_iron").val(total_accessory);
                       })
-                      console.log("Before Accessory Rows : <?= $accessory_raws ?>");
-                      document.addEventListener("DOMContentLoaded", function() {
-                        const productDetails = document.querySelector("#product_details");
-                        productDetails.addEventListener("click", function(e) {
+                     
+                      
 
-                          if (e.target.classList.contains("add_accessory")) {
+                      $( document ).ready(function() {
+                        var total_accessory = 0;
+                        for (var z = 1; z <= <?=$y?>; z++) {
 
-                            a++;
-                            $("#ac-rr").val(a);
+                          var peice = ((parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val()) || 0));
+                          total_accessory += peice
+                          peice = peice.toLocaleString("en-US");
+                          $("#acc_tot_" + z).val(peice);
+                        }
 
-                          }
-                        });
+                        total_accessory = total_accessory.toLocaleString("en-US");
+                        $("#accessory_iron").val(total_accessory);
                       });
                     </script>
-
+                    
                   </div>
 
 
 
                 </div>
-                <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <div class="row">
                   السعر الكلي للإكسسوارات
                   <input type="text" class="form-control" placeholder="Total" name="accessory_iron" id="accessory_iron" readonly>
                 </div>
+                <?php  } ?>
                 <hr>
 
                 <div class="accessory_details">
