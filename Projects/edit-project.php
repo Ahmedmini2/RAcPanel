@@ -725,6 +725,7 @@ if (isset($_POST['add-project'])) {
                       </div>
                     </div>
                     <hr class="new2">
+                    <?php } ?>
                   </div>
                 </div>
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -782,12 +783,12 @@ if (isset($_POST['add-project'])) {
                 
                 
 
-               
+                
                 <div class="row">
                   السعر الكلي للحديد
                   <input type="text" class="form-control" placeholder="Total" name="total_iron" id="total_iron" readonly>
                 </div>
-                <?php } ?>
+               
                 <hr>
                
                 <div class="accessory_details">
@@ -829,6 +830,7 @@ if (isset($_POST['add-project'])) {
                       </div>
                     </div>
                     <hr class="new2">
+                    <?php  } ?>
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
                       var a = 1;
@@ -869,11 +871,12 @@ if (isset($_POST['add-project'])) {
 
 
                 </div>
+                
                 <div class="row">
                   السعر الكلي للإكسسوارات
                   <input type="text" class="form-control" placeholder="Total" name="accessory_iron" id="accessory_iron" readonly>
                 </div>
-                <?php  } ?>
+                
                 <hr>
 
                 <div class="accessory_details">
