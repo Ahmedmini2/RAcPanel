@@ -735,7 +735,7 @@ if (isset($_POST['add-project'])) {
 
 
                   $(document).on('change', 'input , select', function() {
-                    var total_iron = 0;
+                    var total_iron = <?=$i?>;
 
                     for (var z = 1; z <= i; z++) {
                       var iron = ($("#iron_" + z).val() || 0);
