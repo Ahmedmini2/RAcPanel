@@ -142,10 +142,12 @@ $_SESSION['sidebar_admin'] = "employee";
                                             <th>اسم الموظف</th>
                                             <th>قسم الموظف</th>
                                             <th>راتب الموظف</th>
-                                            <th>سلفية الموظف</th>
-                                            <th>ساعات اضافية</th>
+                                            <th>العقد</th>
+                                            <th>بداية العقد</th>
+                                            <th>عدد ساعات العمل</th>
                                             <th>متبقي المرتب</th>
                                             <th>شهر</th>
+                                            <th>ACTION</th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
@@ -157,32 +159,46 @@ $_SESSION['sidebar_admin'] = "employee";
                                             <td>عباس الجعفري</td>
                                             <td>المدير العام</td>
                                             <td>5000</td>
-                                            <td>2500</td>
-                                            <td>3</td>
+                                            <td>العقد</td>
+                                            <td>1/10/2023</td>
+                                            <td>9</td>
                                             <td>2500</td>
                                             <td>اكتوبر 2023</td>
+                                            <td>
+                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>عباس الجعفري</td>
+                                            <td>المدير العام</td>
+                                            <td>5000</td>
+                                            <td>العقد</td>
+                                            <td>1/10/2023</td>
+                                            <td>9</td>
+                                            <td>2500</td>
+                                            <td>اكتوبر 2023</td>
+                                            <td>
+                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </td>
     
                                         </tr>
                                         <tr>
-                                            <th scope="row">2</th>
-                                            <td>احمد عثمان</td>
-                                            <td>IT</td>
+                                            <th scope="row">1</th>
+                                            <td>عباس الجعفري</td>
+                                            <td>المدير العام</td>
                                             <td>5000</td>
-                                            <td>2500</td>
-                                            <td>3</td>
+                                            <td>العقد</td>
+                                            <td>1/10/2023</td>
+                                            <td>9</td>
                                             <td>2500</td>
                                             <td>اكتوبر 2023</td>
-    
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>محمد جمال</td>
-                                            <td>IT</td>
-                                            <td>5000</td>
-                                            <td>2500</td>
-                                            <td>3</td>
-                                            <td>2500</td>
-                                            <td>اكتوبر 2023</td>
+                                            <td>
+                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </td>
     
                                         </tr>
 
