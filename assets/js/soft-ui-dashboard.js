@@ -379,7 +379,7 @@ function toggleSidenav() {
 
   } else {
     body.classList.add(className);
-    sidenav.classList.add('');
+    sidenav.classList.add('bg-white');
     sidenav.classList.remove('bg-transparent');
     iconSidenav.classList.remove('d-none');
   }
@@ -394,12 +394,12 @@ window.addEventListener("resize", navbarColorOnResize);
 function navbarColorOnResize() {
   if (window.innerWidth > 1200) {
     if (referenceButtons.classList.contains('active') && referenceButtons.getAttribute('data-class') === 'bg-transparent') {
-      sidenav.classList.remove('');
+      sidenav.classList.remove('bg-white');
     } else {
-      sidenav.classList.add('');
+      sidenav.classList.add('bg-white');
     }
   } else {
-    sidenav.classList.add('');
+    sidenav.classList.add('bg-white');
     sidenav.classList.remove('bg-transparent');
   }
 }
