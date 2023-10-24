@@ -737,7 +737,7 @@ if (isset($_POST['add-project'])) {
                   $(document).on('change', 'input , select', function() {
                     var total_iron = 0;
 
-                    for (var z = 1; z <= i; z++) {
+                    for (var z = 1; z <= <?=$i?>; z++) {
                       var iron = ($("#iron_" + z).val() || 0);
                       var kg = ((parseFloat($("#iron_quantity_" + z).val()) * parseFloat($("#iron_long_" + z).val()) || 0) * iron)
                       var tn = kg / 1000;
@@ -757,7 +757,7 @@ if (isset($_POST['add-project'])) {
                   $( document ).ready(function() {
                     var total_iron = 0;
 
-                    for (var z = 1; z <= i; z++) {
+                    for (var z = 1; z <= <?=$i?>; z++) {
                       var iron = ($("#iron_" + z).val() || 0);
                       var kg = ((parseFloat($("#iron_quantity_" + z).val()) * parseFloat($("#iron_long_" + z).val()) || 0) * iron)
                       var tn = kg / 1000;
