@@ -196,7 +196,7 @@ if (isset($_GET['id'])) {
                                     مستندات المشروع
 
                                 </a>
-                                <button type="button" id="btn9" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
+                                <button type="button" id="btn7" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
                                 تعديل بيانات المشروع 2
                                 </button>
                                 <a href="edit-project.php?project_id=<?=$project['id']?>" id="btn4" class="btn bg-gradient-dark mb-0">
@@ -226,6 +226,7 @@ if (isset($_GET['id'])) {
                                 document.getElementById('btn4').style.display = "none";
                                 document.getElementById('btn5').style.display = "none";
                                 document.getElementById('btn6').style.display = "none";
+                                document.getElementById('btn7').style.display = "none";
                                 document.getElementById('information').style.display = "none";
                                 document.getElementById('navbarBlur').style.display = "none";
 
