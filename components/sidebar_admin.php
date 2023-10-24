@@ -67,7 +67,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
               <a href="../../Admin/Employee/salafis-employee.php" class="nav-link px-0"> <span class=" d-sm-inline">سلفيات</span></a>
             </li>
             <li class="w-100">
-              <a href="../../Admin/Employee/profile-employee.php" class="nav-link px-0"> <span class=" d-sm-inline">بيانات الموظف</span></a>
+              <a href="../../Admin/Employee/profile-employee.php" class="nav-link px-0"> <span class=" d-sm-inline">معلومات الموظف</span></a>
             </li>
            
             
