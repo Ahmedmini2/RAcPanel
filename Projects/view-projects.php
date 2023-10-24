@@ -196,7 +196,7 @@ if (isset($_GET['id'])) {
                                     مستندات المشروع
 
                                 </a>
-                                <button type="button" id="btn6" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
+                                <button type="button" id="btn9" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
                                 تعديل بيانات المشروع 2
                                 </button>
                                 <a href="edit-project.php?project_id=<?=$project['id']?>" id="btn4" class="btn bg-gradient-dark mb-0">
