@@ -53,31 +53,33 @@ $total_net = 0 ;
 $total_without_tax = 0 ; 
 if (isset($_POST['add-project'])) {
 
-//   $iron1 = 1;
-//   $accessory1 = 1;
-//   $band1 = 1;
+  $iron1 = 1;
+  $accessory1 = 1;
+  $band1 = 1;
 
-//   $project_name = $_POST['project_name'];
-//   $project_description = $_POST['project_description'];
-//   $duration = $_POST['duration'];
-//   $payment_type = $_POST['payment_type'];
-//   $valid_till = $_POST['valid_till'];
-//   $total_cost = $_POST['prod_peice_tot'];
-//   $total_cost = str_replace(',','',$total_cost);
-//   $total_net = $_POST['net_toti'];
-//   $total_without_tax = $total_cost + $total_net;
-//   $total_with_tax = ($total_without_tax * 15) /100; 
+  $project_name = $_POST['project_name'];
+  $project_description = $_POST['project_description'];
+  $duration = $_POST['duration'];
+  $payment_type = $_POST['payment_type'];
+  $valid_till = $_POST['valid_till'];
+  $total_cost = $_POST['prod_peice_tot'];
+  $total_cost = str_replace(',','',$total_cost);
+  $total_net = $_POST['net_toti'];
+  $total_without_tax = $total_cost + $total_net;
+  $total_with_tax = ($total_without_tax * 15) /100; 
 
-//   $target_dir = "../Projects/Images/".$project_name."/";
-//   if(!is_dir($target_dir)) {
-//     mkdir($target_dir, 0777, true);
-//   }else{
+  if(!empty(basename($_FILES["project_image"]["name"]))) {
+    $target_dir = "../Projects/Images/".$project_name."/";
+    if(!is_dir($target_dir)) {
+      mkdir($target_dir, 0777, true);
+    }else{
 
-//   }
-//   $target_file = $target_dir . basename($_FILES["project_image"]["name"]);
-//   $filename = basename($_FILES["project_image"]["name"]);
-//   $uploadOk = 1;
-//   move_uploaded_file($_FILES["project_image"]["tmp_name"], $target_file);
+    }
+    $target_file = $target_dir . basename($_FILES["project_image"]["name"]);
+    $filename = basename($_FILES["project_image"]["name"]);
+    $uploadOk = 1;
+    move_uploaded_file($_FILES["project_image"]["tmp_name"], $target_file);
+  }
   
 
 //   $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`image`,`project_cost`,`total_without_tax`,`total_with_tax`,`net_total`,`valid_till`,`duration`,`payment_type`,`created_at`)
