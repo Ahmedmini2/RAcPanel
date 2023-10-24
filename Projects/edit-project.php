@@ -532,9 +532,11 @@ if (isset($_POST['add-project'])) {
             
             <?php 
              $i = 0;
+             $product_number = 0;
              $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $project_id ");
              while ($products = mysqli_fetch_array($res3)) {
               $i++;
+              $product_number++;
             ?>
             <!-- Product Details -->
             <div id="product_details">
@@ -752,7 +754,7 @@ if (isset($_POST['add-project'])) {
 
                     total_iron = total_iron.toLocaleString("en-US");
 
-                    $("#total_iron").val(total_iron);
+                    $("#total_iron<?=$i?>").val(total_iron);
                   });
 
                   $( document ).ready(function() {
@@ -772,7 +774,7 @@ if (isset($_POST['add-project'])) {
 
                     total_iron = total_iron.toLocaleString("en-US");
 
-                    $("#total_iron").val(total_iron);
+                    $("#total_iron_<?=$i?>").val(total_iron);
                   });
 
 
@@ -786,7 +788,7 @@ if (isset($_POST['add-project'])) {
                 
                 <div class="row">
                   السعر الكلي للحديد
-                  <input type="text" class="form-control" placeholder="Total" name="total_iron" id="total_iron" readonly>
+                  <input type="text" class="form-control" placeholder="Total" name="total_iron_<?=$i?>" id="total_iron_<?=$i?>" readonly>
                 </div>
                
                 <hr>
