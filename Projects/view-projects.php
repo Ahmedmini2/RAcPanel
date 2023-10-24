@@ -205,7 +205,7 @@ if (isset($_GET['id'])) {
                             </div>
                             <div class="text-left col-lg-3 col-sm-6">
                                 <button type="button" id="btn7" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
-                                 تعديل بيانات المشروع 
+                                 تعديل بيانات الاصناف 
                                 </button>
                                 <button type="button" id="btn5" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     تغير حالة المشروع
