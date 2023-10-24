@@ -754,7 +754,7 @@ if (isset($_POST['add-project'])) {
 
                     total_iron = total_iron.toLocaleString("en-US");
 
-                    $("#total_iron<?=$i?>").val(total_iron);
+                    $("#total_iron_<?=$product_number?>").val(total_iron);
                   });
 
                   $( document ).ready(function() {
@@ -774,7 +774,7 @@ if (isset($_POST['add-project'])) {
 
                     total_iron = total_iron.toLocaleString("en-US");
 
-                    $("#total_iron_<?=$i?>").val(total_iron);
+                    $("#total_iron_<?=$product_number?>").val(total_iron);
                   });
 
 
@@ -788,7 +788,7 @@ if (isset($_POST['add-project'])) {
                 
                 <div class="row">
                   السعر الكلي للحديد
-                  <input type="text" class="form-control" placeholder="Total" name="total_iron_<?=$i?>" id="total_iron_<?=$i?>" readonly>
+                  <input type="text" class="form-control" placeholder="Total" name="total_iron_<?=$product_number?>" id="total_iron_<?=$product_number?>" readonly>
                 </div>
                
                 <hr>
