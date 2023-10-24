@@ -754,6 +754,26 @@ if (isset($_POST['add-project'])) {
                     $("#total_iron").val(total_iron);
                   });
 
+                  $( document ).ready(function() {
+                    var total_iron = 0;
+
+                    for (var z = 1; z <= i; z++) {
+                      var iron = ($("#iron_" + z).val() || 0);
+                      var kg = ((parseFloat($("#iron_quantity_" + z).val()) * parseFloat($("#iron_long_" + z).val()) || 0) * iron)
+                      var tn = kg / 1000;
+                      var total = ((tn * parseFloat($("#iron_price_" + z).val())) || 0)
+                      total_iron += total;
+                      tn = tn.toLocaleString("en-US");
+                      total = total.toLocaleString("en-US");
+                      $("#iron_tn_" + z).val(tn);
+                      $("#iron_tot_" + z).val(total);
+                    }
+
+                    total_iron = total_iron.toLocaleString("en-US");
+
+                    $("#total_iron").val(total_iron);
+                  });
+
 
 
 
