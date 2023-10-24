@@ -276,12 +276,12 @@ if (isset($_GET['id'])) {
                                 </div>
                             </div>
                         </div>
-                        <!-- Change Ed Modal -->
+                        <!-- Change Edهف Modal -->
                         <div class="modal fade" id="exampleModa2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe2" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabe2">تعديل بيانات المشروع</h5>
+                                        <h5 class="modal-title" id="exampleModalLabe2">تعديل الاصناف المشروع</h5>
                                         <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
