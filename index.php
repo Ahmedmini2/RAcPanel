@@ -114,7 +114,7 @@ while ($ban = mysqli_fetch_array($banner)) {
             </li>
 
             <!-- Notifications -->
-            <!-- <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
+            <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
               <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-bell cursor-pointer"></i>
                 <span id="notification-count" class="notification-badge">0</span> 
@@ -122,7 +122,7 @@ while ($ban = mysqli_fetch_array($banner)) {
               <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="notifications-container">
                
               </ul>
-            </li> -->
+            </li>
             <!-- End of Notifications -->
 
             
