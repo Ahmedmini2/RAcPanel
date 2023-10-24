@@ -780,14 +780,16 @@ if (isset($_POST['add-project'])) {
                  
                 </script>
                 
-                <?php } ?>
+                
 
                
                 <div class="row">
                   السعر الكلي للحديد
                   <input type="text" class="form-control" placeholder="Total" name="total_iron" id="total_iron" readonly>
                 </div>
+                <?php } ?>
                 <hr>
+               
                 <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
                   <div class="accessory" id="main-accessory">
@@ -861,17 +863,17 @@ if (isset($_POST['add-project'])) {
                         $("#accessory_iron").val(total_accessory);
                       });
                     </script>
-                    <?php  } ?>
+                    
                   </div>
 
 
 
                 </div>
-                <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <div class="row">
                   السعر الكلي للإكسسوارات
                   <input type="text" class="form-control" placeholder="Total" name="accessory_iron" id="accessory_iron" readonly>
                 </div>
+                <?php  } ?>
                 <hr>
 
                 <div class="accessory_details">
