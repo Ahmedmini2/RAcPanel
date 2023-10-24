@@ -156,14 +156,14 @@ $_SESSION['sidebar_admin'] = "employee";
                                     <input type="text" placeholder="الرجاء كتابه المبلغ" class="form-control" name="" value="">
                                 </div>
                             </div>
-                            <div class="row">
+                            
                             <div class="col">
                                 <div class="form-group">
                                     <label> تاريخ التوظيف</label>
                                     <input type="date" placeholder="" class="form-control" name="duration">
                                 </div>
                             </div>
-                        </div>
+                        
                             
                         </div>
                         
