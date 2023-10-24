@@ -1,5 +1,5 @@
 <?php
-include ('../../assets/cookies/session3.php');
+include ('../../cookies/session3.php');
 $_SESSION['sidebar_admin']="employee";
 $select =mysqli_query($conn, "select * from users");
 
@@ -32,7 +32,7 @@ $select =mysqli_query($conn, "select * from users");
 <body class="g-sidenav-show rtl bg-gray-100">
       
       <!-- Side Bar -->
-  <?php require_once('../../components/sidebar.php'); ?>
+  <?php require_once('../../components/sidebar_admin.php'); ?>
       <!-- End Of side Bar -->
 
   <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg overflow-hidden">
@@ -40,19 +40,14 @@ $select =mysqli_query($conn, "select * from users");
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">لوحات القيادة</a></li>
-           
-          </ol>
+          
           <h6 class="font-weight-bolder mb-0">الملف الشخصي</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="أكتب هنا...">
-            </div>
-          </div>
+        <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
+                        <label class="form-check-label" for="checkbox"></label>
+                    </div>
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
