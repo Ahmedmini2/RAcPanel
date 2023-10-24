@@ -720,7 +720,7 @@ if (isset($_POST['add-project'])) {
                           <label for="iron_tot">السعر</label>
                           <input type="text" class="form-control" name='iron_tot_<?= $i ?>' id="iron_tot_<?= $i ?>" readonly value="<?=$iron_band['total_price']?>">
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
-                          <input type="hidden" name="iron-rr" id="iron-rr" readonly>
+                          <input type="hidden" name="iron-rr" id="iron-rr" readonly value="<?=$i?>">
                         </div>
                       </div>
                     </div>
@@ -729,13 +729,13 @@ if (isset($_POST['add-project'])) {
                 </div>
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
-                  var i = 1;
+                  var i = <?= $i ?>;
 
 
 
 
                   $(document).on('change', 'input , select', function() {
-                    var total_iron = <?=$i?>;
+                    var total_iron = 0;
 
                     for (var z = 1; z <= i; z++) {
                       var iron = ($("#iron_" + z).val() || 0);
