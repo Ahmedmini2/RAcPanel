@@ -1,21 +1,27 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
+
 if (isset($_GET['id'])) {
     $project_cost = 0;
     $id = $_GET['id'];
+
     $query = "SELECT * FROM projects WHERE `id` = $id";
     $res = $conn->query($query);
     $project = $res->fetch_assoc();
+
     $res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
     while ($r = mysqli_fetch_array($res2)) {
         $sell_price += $r['sell_price'] * $r['quantity'];
     }
 }
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -37,7 +43,9 @@ if (isset($_GET['id'])) {
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
+
 <body class="g-sidenav-show rtl bg-gray-100">
+
     <!-- Side Bar -->
     <?php require_once('../components/sidebar.php'); ?>
     <!-- End Of side Bar -->
@@ -159,19 +167,26 @@ if (isset($_GET['id'])) {
             </div>
         </nav>
         <!-- End Navbar -->
+
+
+
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-xs-6">
+
                     <?php require_once('../components/notification.php'); ?>
                 </div>
                 <!--********* -->
                 <div class="col-12 mt-4">
                     <div class="mx-4">
+
                         <!-- Card Header  -->
-                        <div class="row "
+
+                        <div class="row ">
                             <div class="text-right col-lg-7 col-sm-6">
                                 <a href="purchase_order.php?project_id=<?= $id ?>" id="btn1" class="btn bg-gradient-dark mb-0">
                                     طباعة التسعيرة
+
                                 </a>
                                 <a href="sales_quatation.php?project_id=<?= $id ?>" id="btn2" class="btn bg-gradient-dark mb-0">
                                     Proforma Invoice

@@ -145,7 +145,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                             <th>العقد</th>
                                             <th>بداية العقد</th>
                                             <th>عدد ساعات العمل</th>
-                                            <th>متبقي المرتب</th>
+                                            
                                             <th>شهر</th>
                                             <th>ACTION</th>
                                         </tr>
@@ -162,7 +162,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                             <td>العقد</td>
                                             <td>1/10/2023</td>
                                             <td>9</td>
-                                            <td>2500</td>
+                                            
                                             <td>اكتوبر 2023</td>
                                             <td>
                                                 <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
@@ -177,7 +177,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                             <td>العقد</td>
                                             <td>1/10/2023</td>
                                             <td>9</td>
-                                            <td>2500</td>
+                                           
                                             <td>اكتوبر 2023</td>
                                             <td>
                                                 <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
@@ -193,7 +193,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                             <td>العقد</td>
                                             <td>1/10/2023</td>
                                             <td>9</td>
-                                            <td>2500</td>
+                                            
                                             <td>اكتوبر 2023</td>
                                             <td>
                                                 <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
