@@ -1104,14 +1104,14 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                       <div class="form-group">
                           <label for="cover_price">تكلفة جميع الاصناف</label>
-                          <input type="text" class="form-control" name='prod_peice_tot' id="prod_peice_tot" readonly value="<?=$project_cost?>">
+                          <input type="text" class="form-control" name='prod_peice_tot' id="prod_peice_tot" readonly >
                         </div>
                         
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_tot">سعر البيع للصنف</label>
-                          <input type="text" class="form-control" name='sell_price' id="sell_price">
+                          <input type="text" class="form-control" name='sell_price' id="sell_price" value="<?=$item['sell_price']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -1123,7 +1123,7 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_tot">نسبة الربح</label>
-                          <input type="text" class="form-control" name='net_peice' id="net_peice" readonly value="<?=$net_total?>">
+                          <input type="text" class="form-control" name='net_peice' id="net_peice" readonly >
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -1135,7 +1135,7 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_tot">إجمالي الربح</label>
-                          <input type="text" class="form-control" name='net_toti' id="net_toti" readonly value="<?=$total_without_tax - $project_cost?>">
+                          <input type="text" class="form-control" name='net_toti' id="net_toti" readonly >
                         </div>
                       </div>
                     </div>
@@ -1178,7 +1178,48 @@ if (isset($_POST['add-project'])) {
                         $("#prod_peice_tot").val(grand_tot2);
 
 
-                      })
+                      });
+
+
+
+
+                      $( document ).ready(function() {
+                        var kh = (parseFloat($("#kh_tot").val().replace(/\,/g, "")) || 0);
+
+                        var iro = (parseFloat($("#total_iron").val().replace(/\,/g, "")) || 0);
+
+                        var acce = (parseFloat($("#accessory_iron").val().replace(/\,/g, "")) || 0);
+
+                        var cov = (parseFloat($("#cover_tot").val().replace(/\,/g, "")) || 0);
+
+                        var exband = (parseFloat($("#accessory_tot").val().replace(/\,/g, "")) || 0);
+                        var quan = (parseFloat($("#quantity").val()) || 0);
+
+                        var grand_tot = (kh + iro + acce + cov + exband) / quan;
+                        var grand_tot2 = (kh + iro + acce + cov + exband);
+
+
+
+
+                        var sel_price = $("#sell_price").val();
+                        var ful_price = sel_price * quantity;
+                        ful_price = ful_price.toLocaleString("en-US");
+                        $("#sell_price_tot").val(sel_price * quan);
+                        if (sel_price != "") {
+                          var net_peice = (((sel_price - grand_tot) / grand_tot) * 100).toFixed(2);
+                          $("#net_peice").val(net_peice + "%");
+                          net_tot = ((sel_price * quan) - (grand_tot * quan)).toFixed(2);
+                          net_tot_piece = ((sel_price) - (grand_tot)).toFixed(2);
+                          net_tot = net_tot.toLocaleString("en-US");
+                          net_tot_piece = net_tot_piece.toLocaleString("en-US");
+                          $("#net_toti").val(net_tot);
+                          $("#net_toti_peice").val(net_tot_piece);
+                        }
+                        grand_tot = grand_tot.toLocaleString("en-US");
+                        grand_tot2 = grand_tot2.toLocaleString("en-US");
+                        $("#prod_peice").val(grand_tot);
+                        $("#prod_peice_tot").val(grand_tot2);
+                      });
                     </script>
 
                   </div>
@@ -1211,28 +1252,11 @@ if (isset($_POST['add-project'])) {
                         letter-spacing: 1px;
                       }
                     </style>
-                    <button type="button" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                      إستمرار
+                    <button type="button" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" name="add-project">
+                      تعديل الصنف
                     </button>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">إضافة صنف جديد</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            هل لديك المزيد من الاصناف تود اضافتها ؟
-                          </div>
-                          <div class="modal-footer">
-                            <button type="submit" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">لا</button>
-                            <button type="submit" name="add-project2" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">نعم اريد اضافة صنف جديد لنفس المشروع</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
                 <div class="col">
