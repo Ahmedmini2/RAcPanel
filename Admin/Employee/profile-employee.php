@@ -221,11 +221,11 @@ $select =mysqli_query($conn, "select * from users");
     <div class="container-fluid py-4">
         
     <div class="row">
-                <div class="col-12">
-                    <div class="card mb-4 mt-3">
+        <div class="col-12">
+            <div class="card mb-4 mt-3">
                     
-                        <div class="card-body px-0 pt-0 pb-2 mx-3">
-                            <div class="table-responsive p-0">
+                <div class="card-body px-0 pt-0 pb-2 mx-3">
+                        <div class="table-responsive p-0">
                                 <table class="table table-hover table-fixed" id="example">
 
                                     <!--Table head-->
@@ -305,6 +305,182 @@ $select =mysqli_query($conn, "select * from users");
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4 mt-3">
+                    
+                <div class="card-body px-0 pt-0 pb-2 mx-3">
+                        <div class="table-responsive p-0">
+                                <table class="table table-hover table-fixed" id="example">
+
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light text-center">
+                                        <tr>
+                                            <th>الرقم</th>
+                                            <th>اسم الموظف</th>
+                                            <th>قسم الموظف</th>
+                                            <th>راتب الموظف</th>
+                                            <th>العقد</th>
+                                            <th>بداية العقد</th>
+                                            <th>عدد ساعات العمل</th>
+                                            
+                                            <th>شهر</th>
+                                            <th>ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+                                    <!--Table body-->
+                                    <tbody class=" text-center">
+
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>عباس الجعفري</td>
+                                            <td>المدير العام</td>
+                                            <td>5000</td>
+                                            <td>العقد</td>
+                                            <td>1/10/2023</td>
+                                            <td>9</td>
+                                            
+                                            <td>اكتوبر 2023</td>
+                                            <td>
+                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>عباس الجعفري</td>
+                                            <td>المدير العام</td>
+                                            <td>5000</td>
+                                            <td>العقد</td>
+                                            <td>1/10/2023</td>
+                                            <td>9</td>
+                                           
+                                            <td>اكتوبر 2023</td>
+                                            <td>
+                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </td>
+    
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>عباس الجعفري</td>
+                                            <td>المدير العام</td>
+                                            <td>5000</td>
+                                            <td>العقد</td>
+                                            <td>1/10/2023</td>
+                                            <td>9</td>
+                                            
+                                            <td>اكتوبر 2023</td>
+                                            <td>
+                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </td>
+    
+                                        </tr>
+
+
+                                    </tbody>
+                                    <!--Table body-->
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4 mt-3">
+                    
+                <div class="card-body px-0 pt-0 pb-2 mx-3">
+                        <div class="table-responsive p-0">
+                                <table class="table table-hover table-fixed" id="example">
+
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light text-center">
+                                        <tr>
+                                            <th>الرقم</th>
+                                            <th>اسم الموظف</th>
+                                            <th>قسم الموظف</th>
+                                            <th>راتب الموظف</th>
+                                            <th>العقد</th>
+                                            <th>بداية العقد</th>
+                                            <th>عدد ساعات العمل</th>
+                                            
+                                            <th>شهر</th>
+                                            <th>ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+                                    <!--Table body-->
+                                    <tbody class=" text-center">
+
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>عباس الجعفري</td>
+                                            <td>المدير العام</td>
+                                            <td>5000</td>
+                                            <td>العقد</td>
+                                            <td>1/10/2023</td>
+                                            <td>9</td>
+                                            
+                                            <td>اكتوبر 2023</td>
+                                            <td>
+                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>عباس الجعفري</td>
+                                            <td>المدير العام</td>
+                                            <td>5000</td>
+                                            <td>العقد</td>
+                                            <td>1/10/2023</td>
+                                            <td>9</td>
+                                           
+                                            <td>اكتوبر 2023</td>
+                                            <td>
+                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </td>
+    
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>عباس الجعفري</td>
+                                            <td>المدير العام</td>
+                                            <td>5000</td>
+                                            <td>العقد</td>
+                                            <td>1/10/2023</td>
+                                            <td>9</td>
+                                            
+                                            <td>اكتوبر 2023</td>
+                                            <td>
+                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </td>
+    
+                                        </tr>
+
+
+                                    </tbody>
+                                    <!--Table body-->
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   </main>
   
   <!--   Core JS Files   -->
