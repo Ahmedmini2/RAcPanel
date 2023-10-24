@@ -1111,7 +1111,7 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_tot">سعر البيع للصنف</label>
-                          <input type="text" class="form-control" name='sell_price' id="sell_price">
+                          <input type="text" class="form-control" name='sell_price' id="sell_price" value="<?=$item['sell_price']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
