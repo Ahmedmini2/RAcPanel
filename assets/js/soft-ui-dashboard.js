@@ -396,7 +396,7 @@ function navbarColorOnResize() {
     if (referenceButtons.classList.contains('active') && referenceButtons.getAttribute('data-class') === 'bg-transparent') {
       sidenav.classList.remove('bg-white');
     } else {
-      sidenav.classList.add('bg-white');
+      sidenav.classList.add('');
     }
   } else {
     sidenav.classList.add('');
