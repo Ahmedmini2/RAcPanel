@@ -157,7 +157,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                 </div>
                             </div>
                             <div class="row">
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col">
                                 <div class="form-group">
                                     <label> تاريخ التوظيف</label>
                                     <input type="date" placeholder="" class="form-control" name="duration">
