@@ -62,7 +62,7 @@ while ($ban = mysqli_fetch_array($banner)) {
 </head>
 <?php require_once('components/loader.php'); ?>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl">
 
 
 
@@ -83,12 +83,13 @@ while ($ban = mysqli_fetch_array($banner)) {
           <h6 class="font-weight-bolder mb-0">الرئيسية</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="أكتب هنا...">
-            </div>
-          </div>
+        <label class="ui-switch">
+                        <input type="checkbox" onclick="setDarkMode()">
+                        <div class="slider">
+                            <div class="circle"></div>
+                        </div>
+                    </label>
+          
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center px-4">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -96,7 +97,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                 <span class="d-sm-inline d-none"> تسجيل الخروج</span>
               </a>
             </li>
-            <li class="nav-item d-xl-none pe-3 d-flex align-items-center px-4">
+            <li class="nav-item d-xl-none pe-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
                   <i class="sidenav-toggler-line"></i>
@@ -116,10 +117,10 @@ while ($ban = mysqli_fetch_array($banner)) {
             <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
               <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-bell cursor-pointer"></i>
-                <span id="notification-count" class="notification-badge">0</span> <!-- Add this line -->
+                <span id="notification-count" class="notification-badge">0</span> 
               </a>
               <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="notifications-container">
-                <!-- Notifications will be dynamically added here -->
+               
               </ul>
             </li>
             <!-- End of Notifications -->
@@ -777,6 +778,7 @@ while ($ban = mysqli_fetch_array($banner)) {
     // Poll for new notifications every 5 minutes (adjust the interval as needed)
     setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
   </script>
+  <script src="Admin/darkmode.js"></script>
 </body>
 
 </html>

@@ -25,8 +25,6 @@ if (isset($_GET['project_id'])) {
     $email = $editData3['email'];
     $vat = $editData3['vat'];
     $company_trade = $editData3['company_trade'];
-
-   
 }
 
 
@@ -321,18 +319,18 @@ if (isset($_GET['project_id'])) {
                 function printDiv(divName) {
                     document.getElementById('btn2').style.display = "none";
                     document.getElementById('btn3').style.display = "none";
-                    document.getElementById('signture').style.backgroundColor = "#ffffff00";
+                    
                     document.getElementById('signture2').style.backgroundColor = "#ffffff00";
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
                     document.getElementById('btn3').style.display = "inline";
-                    document.getElementById('signture').style.backgroundColor = "white";
+                   
                     document.getElementById('signture2').style.backgroundColor = "white";
 
                 }
             </script>
 
-            
+
             <!-- Doc Modal -->
             <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -361,44 +359,26 @@ if (isset($_GET['project_id'])) {
             </div>
 
 
-            <div class="invoice-box" dir="ltr">
+            <div class="invoice-box mt-8" dir="ltr">
 
 
-                <!-- == -->
-                <div class="row">
-                    <div>
-                        <div class="card-header text-center text-white header-color" style="margin-top: 120px;">
-                            Sales Quatation
-                        </div>
-
-                    </div>
-                </div>
-
+                
+                <!-- here to change -->
                 <div class="row ">
-                    <div class="col-6 ">
+                    <div class="col">
                         <div>
 
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4">
                                         <p class="card-text custom-font-small">
-                                            Buyer:<br>
-                                            Receiver name:<br>
-                                            Tel / mobile:<br>
-                                            Address:<br>
-                                            E-mail:<br>
-                                            Vat:<br>
+                                            Date:
+                                           
                                         </p>
                                     </div>
                                     <div class="col-8">
                                         <p class="card-text custom-font-small">
-                                            Rukn Amial Co.Company <br>
-                                            Abbas Al Jafari <br>
-                                            591022703 <br>
-                                            Al Malaz-Jareer Street <br>
-                                            info@ruknamyal.com<br>
-                                            <?=$vat?><br>
-
+                                            <?= $created_at ?> <br>
                                         </p>
                                     </div>
                                 </div>
@@ -417,22 +397,16 @@ if (isset($_GET['project_id'])) {
                                     <div class="row">
                                         <div class="col-4">
                                             <p class="card-text custom-font-small">
-                                                Data: <br>
-                                                P.O number:<br>
-                                                Supplier name:<br>
-                                                Contact person:<br>
-                                                Tel / mobile:<br>
-                                                Address:<br>
+                                                TO: <br>
+                                                Subject:<br>
+                                                
                                             </p>
                                         </div>
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
-                                            <?=$created_at?><br>
-                                                RA<?=$id?> <br>
-                                                <?=$supplier_name?><br>
-                                                <?=$contact_person?><br>
-                                                <?=$mobile?><br>
-                                                <?=$address?><br>
+                                                <?= $supplier_name ?><br>
+                                                proforma invoice for (PO No :RA<?= $id ?>) <br>
+                                               
 
 
                                             </p>
@@ -451,7 +425,7 @@ if (isset($_GET['project_id'])) {
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="table-responsive p-0">
-                            <table class="table table-hover table-fixed text-center">
+                            <table class="table table-hover table-bordered table-fixed text-center border-dark">
 
                                 <!--Table head-->
                                 <thead class="text-light header-color custom-font-m table-bordered">
@@ -468,23 +442,50 @@ if (isset($_GET['project_id'])) {
                                 <!--Table body-->
                                 <tbody>
 
-                                    <?php 
+                                    <?php
                                     $i = 0;
                                     $items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                     while ($item = mysqli_fetch_array($items)) {
                                         $i++;
                                     ?>
-   
-                                    <tr>
-                                        <th scope="row"><?=$i?></th>
-                                        <td class="custom-font-m text-center"><?=$item['product_name']?></td>
-                                        <td class="custom-font-m"><?=$item['quantity']?></td>
-                                        <td class="custom-font-m"><?=number_format($item['sell_price'])?></td>
-                                        <td class="custom-font-m"><?=number_format($item['sell_price']*$item['quantity'])?></td>
 
-                                    </tr>
-                                    
+                                        <tr>
+                                            <th class="table-secondary text-center" scope="row"><?= $i ?></th>
+                                            <td class="custom-font-m text-center"><?= $item['product_name'] ?></td>
+                                            <td class="custom-font-m"><?= $item['quantity'] ?></td>
+                                            <td class="custom-font-m"><?= number_format($item['sell_price']) ?></td>
+                                            <td class="custom-font-m"><?= number_format($item['sell_price'] * $item['quantity']) ?></td>
+
+                                        </tr>
+
                                     <?php } ?>
+                                    <tr class=" text-center">
+                                        <td colspan="4">Total</td>
+                                        <td class="text-center" ><span>SAR <?= number_format($total_without_tax) ?></span></td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="4">VAT 15% </td>
+                                        <td class="text-center"><span>SAR <?= number_format($total_with_tax) ?></span></td>
+                                    </tr>
+                                    <tr class=" text-center">
+                                        <td colspan="4">Grand total(SAR)</td>
+                                        <td class="text-center"><span class="font-weight-bold text-success " id="total">SAR <?= number_format($total_without_tax + $total_with_tax) ?></span></td>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <td colspan="5">
+                                            <p>The total value is SAR <?= number_format($total_without_tax + $total_with_tax) ?> <span id="con"></span> riyals only.</p>
+                                        </td>
+                                        <script>
+                                            function changeVal() {
+
+                                                value = <?= number_format($total_without_tax + $total_with_tax, 0, "", "") ?>;
+                                                document.getElementById("con").innerText = numToWords(value);
+                                                console.log(value);
+
+                                            }
+                                            window.onload = changeVal;
+                                        </script>
+                                    </tr>
                                 </tbody>
                                 <!--Table body-->
 
@@ -493,109 +494,21 @@ if (isset($_GET['project_id'])) {
                     </div>
                 </div>
 
-                <div class="row d-flex justify-content-end">
+                
 
-                    <div class="col-md-5">
-
-                        <table class="table table-borderless">
-
-                            <tbody class="totals">
-
-                                <tr>
-                                    <td>
-                                        <div class="text-left">
-
-                                            <span class="text-muted">Total :</span>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-right">
-                                            <span>SAR <?=number_format($total_without_tax)?></span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-
-
-
-                                <tr>
-                                    <td>
-                                        <div class="text-left">
-
-                                            <span class="text-muted">VAT %15 :</span>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-right">
-                                            <span>SAR <?=number_format($total_with_tax)?></span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-
-                                <tr class="border-top border-bottom">
-                                    <td>
-                                        <div class="text-left">
-
-                                            <span class="font-weight-bold">Grand total(SAR) :</span>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-right">
-                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax)?></span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-
-
-                </div>
-
-                <div class="row">
-                    <div class="col text-center">
-                        <p>The total value is SAR <?=number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p>
-                    </div>
-                </div>
-                <script>
-                    
-                     function changeVal() {
-                        
-                        value =  <?=number_format($total_without_tax+$total_with_tax,0,"","")?> ;
-                        document.getElementById("con").innerText = numToWords(value);
-                        console.log(value);
-                        
-                    }
-                    window.onload=changeVal;
-                </script>
+               
+               
                 <hr>
-                <ul class="list-unstyled">
-                    
-
-                </ul>
+                
 
 
                 <div class="row text-center">
 
-                    <div class="col-6">
-                        <div class="row">
-                            <h6>Prepared by</h6>
-                            <input type="text" class="signture" id="signture"/>
-                            <h5></h5>
-                        </div>
-                    </div>
+                    
                     <div class="col-6">
                         <div class="row">
                             <h6>Approved by</h6>
-                            <input type="text" class="signture" id="signture2"/>
+                            <input type="text" class="signture" id="signture2" />
                         </div>
                     </div>
                 </div>
@@ -614,7 +527,7 @@ if (isset($_GET['project_id'])) {
 
         </div>
     </main>
-    
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>

@@ -183,27 +183,25 @@ if (isset($_GET['id'])) {
                         <!-- Card Header  -->
 
                         <div class="row ">
-                            <div class="text-right col-lg-9 col-sm-6">
+                            <div class="text-right col-lg-7 col-sm-6">
                                 <a href="purchase_order.php?project_id=<?= $id ?>" id="btn1" class="btn bg-gradient-dark mb-0">
                                     طباعة التسعيرة
 
                                 </a>
                                 <a href="sales_quatation.php?project_id=<?= $id ?>" id="btn2" class="btn bg-gradient-dark mb-0">
-                                    Sales Quatation
-
+                                    Proforma Invoice
                                 </a>
                                 <a href="documents.php?project_id=<?=$id?>" id="btn3" class="btn bg-gradient-dark mb-0">
                                     مستندات المشروع
-
                                 </a>
-                                <a href="" id="btn4" class="btn bg-gradient-dark mb-0">
+                                <a href="edit-project.php?project_id=<?=$project['id']?>" id="btn4" class="btn bg-gradient-dark mb-0">
                                     تعديل بيانات المشروع
-
                                 </a>
-
                             </div>
-                            <div class="text-left col-lg-3 col-sm-6">
-
+                            <div class="text-left col-lg-5 col-sm-6">
+                                <button type="button" id="btn7" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
+                                 تعديل بيانات الاصناف 
+                                </button>
                                 <button type="button" id="btn5" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     تغير حالة المشروع
                                 </button>
@@ -223,6 +221,7 @@ if (isset($_GET['id'])) {
                                 document.getElementById('btn4').style.display = "none";
                                 document.getElementById('btn5').style.display = "none";
                                 document.getElementById('btn6').style.display = "none";
+                                document.getElementById('btn7').style.display = "none";
                                 document.getElementById('information').style.display = "none";
                                 document.getElementById('navbarBlur').style.display = "none";
 
@@ -272,11 +271,41 @@ if (isset($_GET['id'])) {
                                 </div>
                             </div>
                         </div>
+                        <!-- Change Edit Modal -->
+                        <div class="modal fade" id="exampleModa2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe2" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabe2">تعديل الاصناف المشروع</h5>
+                                        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" action="#">
+                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="confirm" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
+                                                    تأكيد المشروع
+                                                </button>
+                                            <?php } ?>
+                                            <br>
+                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="progress" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
+                                                    قيد التنفيذ
+                                                </button>
+                                            <?php } ?>
+                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="done" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
+                                                    تم الإنتهاء
+                                                </button>
+                                            <?php } ?>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
 
-
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-
                 </div>
                 <div class="col-12 mt-2">
                     <!--********* -->
@@ -427,6 +456,81 @@ if (isset($_GET['id'])) {
 
                             </div>
 
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card mb-4 mt-3">
+                                    <div class="card-header pb-0 ">
+                                        <h6>التوصيل</h6>
+                                    </div>
+                                    <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                        <div class="table-responsive p-0">
+                                            <table class="table table-hover table-fixed">
+
+                                                <!--Table head-->
+                                                <thead class="bg-dark text-light text-center">
+                                                    <tr>
+                                                        <th>الرقم</th>
+                                                        <th>الصنف</th>
+                                                        <th>عدد القطع للتريلة</th>
+                                                        <th>عدد التريلات</th>
+                                                        <th>سعر توصيل القطعه</th>
+                                                        <th>سعر التوصيل التريلة</th>
+                                                        <th>سعر التوصيل الكلي</th>
+                                                        <th>توصيل الى</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <!--Table head-->
+
+                                                <!--Table body-->
+                                                <tbody class=" text-center">
+                                                    <?php
+                                                    $i = 0;
+                                                    $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+                                                    while ($products = mysqli_fetch_array($res3)) {
+                                                        $product_id = $products['id'];
+                                                        $deleivery_query  = $conn->query("SELECT * FROM delivery WHERE `product_id` = $product_id");
+                                                        $delevery = $deleivery_query->fetch_assoc();
+                                                        
+                                                       
+                                                        $del_status = $delevery['deliverable'];
+                                                        $peice_per_track = $delevery['peice_per_track'];
+                                                        $quantity_of_track = $delevery['quantity_of_track'];
+                                                        $piece_price = $delevery['piece_price'];
+                                                        $track_price = $delevery['track_price'];
+                                                        $del_total_price = $delevery['total_price'];
+                                                        $delivery_to = $delevery['delivery_to'];
+                                                       
+                                                        $i++;
+                                                    ?>
+                                                        <?php if ($del_status == 1) { ?>
+                                                        <tr>
+                                                            <th scope="row"><?= $i ?></th>
+                                                            <td><?= $products['product_name'] ?></td>
+                                                            <td><?= $peice_per_track ?></td>                                                
+                                                            <td><?= $quantity_of_track ?></td>
+                                                            <td><?= number_format( $piece_price ,2,'.',',') ?></td>
+
+
+
+                                                            <td><?= number_format($track_price,2,'.',',') ?></td>
+                                                            <td><?= number_format($del_total_price,2,'.',',') ?></td>
+
+                                                            <td><?= $delivery_to  ?></td>
+                                                        </tr>
+                                                       <?php } ?>
+                                                    <?php } ?>
+
+                                                </tbody>
+                                                <!--Table body-->
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!--Table خط سير تنفيد المشروع -->
@@ -815,35 +919,71 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                         <!--Table -->
-                        <div class="col-lg-16 col-md-6 my-4">
-                            <div class="card h-100">
-                                <div class="card-header pb-0">
-                                    <h6>نظرة عامة على سير العمل</h6>
-                                    <p class="text-sm">
-
-                                        <span class="font-weight-bold"></span> في الأيام الماضية
-                                    </p>
-                                </div>
-                                <div class="card-body p-3">
-                                    <div class="timeline timeline-one-side">
-                                        <?php
-                                        $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status` WHERE `project_id` =$id");
-                                        while ($r = mysqli_fetch_array($show_products_status)) {
-                                            $date = new DateTimeImmutable($r['created_at']);
-                                        ?>
-                                            <div class="timeline-block mb-3">
-                                                <span class="timeline-step">
-                                                    <i class="fa fa-bell text-success text-gradient"></i>
-                                                </span>
-                                                <div class="timeline-content">
-
-                                                    <h6 class="text-dark text-sm font-weight-bold mb-0">تم <?= $r['description'] ?> عدد <?= $r['quantity'] ?> من الصنف <?= $r['name'] ?> وحالته <?= $r['status'] ?></h6>
-                                                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><?= $date->format('D jS \o\f F Y h:i:s A') ?></p>
-                                                    <a class="btn btn-link text-dark px-3 mb-0" href="../Factory/project-report.php?project_id=<?=$id?>&edit=<?=$r['id']?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
-                                                </div>
+                        <div class="row">
+                            <div class="col-lg-6  mt-4">
+                                <div class="card h-100">
+                                    <div class="card-header pb-0 p-3">
+                                        <div class="row">
+                                            <div class="col-12 d-flex align-items-center">
+                                                <h6 class="mb-0 text-lg">عمليات التسليم</h6>
                                             </div>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="card-body p-3 pb-0">
+                                        <ul class="list-group">
 
-                                        <?php } ?>
+                                        <?php 
+                                          $get_delivery = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `project_id` = $id ");
+                                          while ($delivery = mysqli_fetch_array($get_delivery)){
+
+                                        ?>
+                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                <div class="d-flex flex-column">
+                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm"><?=$delivery['created_at']?> <span class="badge text-dark badge-success"> تم استلام: <?=$delivery['quantity']?> </span></h6>
+                                                    <span class="text-xs">#<?=$delivery['id']?></span>
+                                                </div>
+                                                <div class="d-flex align-items-center text-sm">
+                                                    
+                                                    <a href="../Signed-Docs/Delivery-Reports/<?=$delivery['project_id']?>/<?=$delivery['image']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
+                                                </div>
+                                            </li>
+                                           <?php } ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-lg-6 col-md-6 my-4">
+                                <div class="card h-100">
+                                    <div class="card-header pb-0">
+                                        <h6>نظرة عامة على سير العمل</h6>
+                                        <p class="text-sm">
+
+                                            <span class="font-weight-bold"></span> في الأيام الماضية
+                                        </p>
+                                    </div>
+                                    <div class="card-body p-3">
+                                        <div class="timeline timeline-one-side">
+                                            <?php
+                                            $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status` WHERE `project_id` =$id");
+                                            while ($r = mysqli_fetch_array($show_products_status)) {
+                                                $date = new DateTimeImmutable($r['created_at']);
+                                            ?>
+                                                <div class="timeline-block mb-3">
+                                                    <span class="timeline-step">
+                                                        <i class="fa fa-bell text-success text-gradient"></i>
+                                                    </span>
+                                                    <div class="timeline-content">
+
+                                                        <h6 class="text-dark text-sm font-weight-bold mb-0">تم <?= $r['description'] ?> عدد <?= $r['quantity'] ?> من الصنف <?= $r['name'] ?> وحالته <?= $r['status'] ?></h6>
+                                                        <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><?= $date->format('D jS \o\f F Y h:i:s A') ?></p>
+                                                        <a class="btn btn-link text-dark px-3 mb-0" href="../Factory/project-report.php?project_id=<?=$id?>&edit=<?=$r['id']?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                                                    </div>
+                                                </div>
+
+                                            <?php } ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -851,13 +991,9 @@ if (isset($_GET['id'])) {
 
 
 
-
                     </div>
-
                 </div>
-
             </div>
-         
             <button type="button" class=" btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 mx-4 " data-bs-toggle="modal" data-bs-target="#exampleModal3">حذف المشروع</button>
                           <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -881,8 +1017,6 @@ if (isset($_GET['id'])) {
                             </div>
                           </div> 
         </div>
-
-
         <footer class="footer pt-3  ">
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-lg-between">
@@ -912,10 +1046,7 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
         </footer>
-
-
     </main>
-
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -923,11 +1054,9 @@ if (isset($_GET['id'])) {
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/fullcalendar.min.js"></script>
     <script src="../assets/js/plugins/chartjs.min.js"></script>
-
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
 </body>
-
 </html>

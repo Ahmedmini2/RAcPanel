@@ -15,13 +15,22 @@ include '../../db/connection.php';
 
     if(!empty($_GET['id']))
                     {
+                        if(isset($_POST['del']))
+                        {
+                            $password = $_POST['pas'];
+                            $password=  md5($password);
+                            if($password == $_SESSION['password']){
                         $id = $_GET['id'];
                         $del= mysqli_query($conn, "delete from covers_purchase where id = '$id'");
                         if($del)
                         {
                             $_SESSION['notification'] = "تم حذف طلب شراء الأغطية بنجاح";
                             header('location:../../Cover/index.php');
+                        }else{
+                            $_SESSION['notification'] = "كلمة مرور خاطئة";
+                            header('location:../../Cover/index.php');
+                            }
                         }
                     }
-
+                }
                     ?>

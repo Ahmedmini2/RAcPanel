@@ -15,6 +15,11 @@ include '../../db/connection.php';
 
     if(!empty($_GET['id']))
                     {
+                        if(isset($_POST['del']))
+                        {
+                            $password = $_POST['pas'];
+                            $password=  md5($password);
+                            if($password == $_SESSION['password']){
                         $id = $_GET['id'];
                         $del= mysqli_query($conn, "delete from users where id = '$id'");
                         if($del)
@@ -22,6 +27,11 @@ include '../../db/connection.php';
                             $_SESSION['notification'] = "تم حذف المستخدم";
                             header('location:../../Users/users.php');
                         }
+                    }else{
+                        $_SESSION['notification'] = "كلمة مرور خاطئة";
+                        header('location:../../cost/cost.php');
+                        }
+                    }
                     }
 
                     ?>

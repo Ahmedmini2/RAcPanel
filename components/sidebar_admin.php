@@ -1,5 +1,5 @@
 <?php
-$sidebar = $_SESSION['sidebar'];
+$sidebar_admin = $_SESSION['sidebar_admin'];
 
 ?>
 
@@ -8,7 +8,7 @@ $sidebar = $_SESSION['sidebar'];
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute start-0 top-0 d-none d-xl-none index-1500" aria-hidden="true" id="iconSidenav"></i>
     <a class="navbar-brand m-0" href="https://test.app.ruknamial.com/index.php">
-      <img src="../assets/img/logos/logo-gold.png" class="navbar-brand-img " alt="main_logo">
+      <img src="https://test.app.ruknamial.com/assets/img/logos/logo-gold.png" class="navbar-brand-img " alt="main_logo">
 
     </a>
   </div>
@@ -16,7 +16,7 @@ $sidebar = $_SESSION['sidebar'];
   <div class="collapse navbar-collapse px-0 w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link <?php if ($sidebar == "Home") echo 'active'; ?>" href="https://test.app.ruknamial.com/index.php">
+        <a class="nav-link <?php if ($sidebar_admin == "dashboard") echo 'active'; ?>" href="https://test.app.ruknamial.com/Admin/index.php">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
@@ -32,141 +32,13 @@ $sidebar = $_SESSION['sidebar'];
               </g>
             </svg>
           </div>
-          <span class="nav-link-text me-1">الرئيسية</span>
+          <span class="nav-link-text me-1">لوحة التحكم</span>
         </a>
       </li>
       <ul class="navbar-nav active">
-      <?php if ($position == 'Admin' || $position == 'Accounts') { ?> 
+     
         <li class="nav-item ">
-          <a href="#submenu1" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar == "Accounts") echo 'active'; ?>"">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
-              <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>shop </title>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                    <g transform="translate(1716.000000, 291.000000)">
-                      <g transform="translate(0.000000, 148.000000)">
-                        <path class="color-background opacity-6" d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z"></path>
-                        <path class="color-background" d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z"></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
-            </div>
-            <span class="ms-1  d-sm-inline">الحسابات</span>
-          </a>
-          <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-            <li class="w-100">
-              <a href="../Accounts/accounts.php" class="nav-link px-0"> <span class=" d-sm-inline">التعاميد</span></a>
-            </li>
-            <li class="w-100">
-              <a href="../Company/company-banks.php" class="nav-link px-0"> <span class=" d-sm-inline">حسابات بنوك الشركة </span></a>
-            </li>
-            <li>
-              <a href="../Beneficiary/beneficiary-banks.php" class="nav-link px-0"> <span class=" d-sm-inline">أضافة حساب بنك للمستفيدين </span></a>
-            </li>
-          </ul>
-        </li>
-        <?php } ?>
-      </ul>
-      <?php if ($position == 'Admin') { ?><li class="nav-item">
-
-        <li class="nav-item">
-          <a class="nav-link <?php if ($sidebar == "Users") echo 'active'; ?>" href="../Users/users.php">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
-              <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>credit-card</title>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                    <g transform="translate(1716.000000, 291.000000)">
-                      <g transform="translate(453.000000, 454.000000)">
-                        <path class="color-background opacity-6" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
-                        <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
-            </div>
-            <span class="nav-link-text me-1">المستخدمين</span>
-          </a>
-
-        </li>
-      <?php } ?>
-      <?php if ($position == 'Admin' || $position == 'Reception') { ?> 
-      <li class="nav-item">
-        <a class="nav-link <?php if ($sidebar == "Calender") echo 'active'; ?>" href="../Calendar/index.php">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
-            <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <title>customer-support</title>
-              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                  <g transform="translate(1716.000000, 291.000000)">
-                    <g transform="translate(1.000000, 0.000000)">
-                      <path class="color-background opacity-6" d="M45,0 L26,0 C25.447,0 25,0.447 25,1 L25,20 C25,20.379 25.214,20.725 25.553,20.895 C25.694,20.965 25.848,21 26,21 C26.212,21 26.424,20.933 26.6,20.8 L34.333,15 L45,15 C45.553,15 46,14.553 46,14 L46,1 C46,0.447 45.553,0 45,0 Z"></path>
-                      <path class="color-background" d="M22.883,32.86 C20.761,32.012 17.324,31 13,31 C8.676,31 5.239,32.012 3.116,32.86 C1.224,33.619 0,35.438 0,37.494 L0,41 C0,41.553 0.447,42 1,42 L25,42 C25.553,42 26,41.553 26,41 L26,37.494 C26,35.438 24.776,33.619 22.883,32.86 Z"></path>
-                      <path class="color-background" d="M13,28 C17.432,28 21,22.529 21,18 C21,13.589 17.411,10 13,10 C8.589,10 5,13.589 5,18 C5,22.529 8.568,28 13,28 Z"></path>
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
-          </div>
-          <span class="nav-link-text me-1">المواعيد</span>
-        </a>
-      </li>
-      <?php } ?>
-      <?php if ($position == 'Admin') { ?> 
-      <li class="nav-item">
-        <a class="nav-link <?php if ($sidebar == "Projects") echo 'active'; ?>" href="../Projects/index.php">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
-            <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <title>document</title>
-              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                  <g transform="translate(1716.000000, 291.000000)">
-                    <g transform="translate(154.000000, 300.000000)">
-                      <path class="color-background opacity-6" d="M40,40 L36.3636364,40 L36.3636364,3.63636364 L5.45454545,3.63636364 L5.45454545,0 L38.1818182,0 C39.1854545,0 40,0.814545455 40,1.81818182 L40,40 Z"></path>
-                      <path class="color-background" d="M30.9090909,7.27272727 L1.81818182,7.27272727 C0.814545455,7.27272727 0,8.08727273 0,9.09090909 L0,41.8181818 C0,42.8218182 0.814545455,43.6363636 1.81818182,43.6363636 L30.9090909,43.6363636 C31.9127273,43.6363636 32.7272727,42.8218182 32.7272727,41.8181818 L32.7272727,9.09090909 C32.7272727,8.08727273 31.9127273,7.27272727 30.9090909,7.27272727 Z M18.1818182,34.5454545 L7.27272727,34.5454545 L7.27272727,30.9090909 L18.1818182,30.9090909 L18.1818182,34.5454545 Z M25.4545455,27.2727273 L7.27272727,27.2727273 L7.27272727,23.6363636 L25.4545455,23.6363636 L25.4545455,27.2727273 Z M25.4545455,20 L7.27272727,20 L7.27272727,16.3636364 L25.4545455,16.3636364 L25.4545455,20 Z"></path>
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
-          </div>
-          <span class="nav-link-text me-1">المشاريع</span>
-        </a>
-
-      </li>
-      <?php } ?>
-      <?php if ($position == 'Admin' || $position == 'Worker') { ?> 
-      <li class="nav-item">
-        <a class="nav-link <?php if ($sidebar == "Factory") echo 'active'; ?>" href="../Factory/index.php">
-          <div class="icon icon-factory icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
-            <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <title>document</title>
-              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                  <g transform="translate(1716.000000, 291.000000)">
-                    <g transform="translate(154.000000, 300.000000)">
-                      <path class="color-background opacity-6" d="M40,40 L36.3636364,40 L36.3636364,3.63636364 L5.45454545,3.63636364 L5.45454545,0 L38.1818182,0 C39.1854545,0 40,0.814545455 40,1.81818182 L40,40 Z"></path>
-                      <path class="color-background" d="M30.9090909,7.27272727 L1.81818182,7.27272727 C0.814545455,7.27272727 0,8.08727273 0,9.09090909 L0,41.8181818 C0,42.8218182 0.814545455,43.6363636 1.81818182,43.6363636 L30.9090909,43.6363636 C31.9127273,43.6363636 32.7272727,42.8218182 32.7272727,41.8181818 L32.7272727,9.09090909 C32.7272727,8.08727273 31.9127273,7.27272727 30.9090909,7.27272727 Z M18.1818182,34.5454545 L7.27272727,34.5454545 L7.27272727,30.9090909 L18.1818182,30.9090909 L18.1818182,34.5454545 Z M25.4545455,27.2727273 L7.27272727,27.2727273 L7.27272727,23.6363636 L25.4545455,23.6363636 L25.4545455,27.2727273 Z M25.4545455,20 L7.27272727,20 L7.27272727,16.3636364 L25.4545455,16.3636364 L25.4545455,20 Z"></path>
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
-          </div>
-          <span class="nav-link-text me-1">المصنع</span>
-        </a>
-
-      </li>
-      <?php } ?> 
-      <ul class="navbar-nav active">
-      <?php if ($position == 'Admin' || $position == 'Worker') { ?> 
-        <li class="nav-item ">
-          <a href="#submenu2" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar == "cost") echo 'active'; ?>"">
+          <a href="#submenu2" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar_admin == "employee") echo 'active'; ?>"">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
@@ -182,24 +54,52 @@ $sidebar = $_SESSION['sidebar'];
                 </g>
               </svg> 
             </div>
-            <span class="ms-1  d-sm-inline">مركز التكلفة</span>
+            <span class="ms-1  d-sm-inline">الموظفين</span>
           </a>
           <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
             <li class="w-100">
-              <a href="../cost/cost.php" class="nav-link px-0"> <span class=" d-sm-inline">تكلفة</span></a>
+              <a href="../../Admin/Employee/view-employee.php" class="nav-link px-0"> <span class=" d-sm-inline">بيانات الموظفين</span></a>
             </li>
             <li class="w-100">
-              <a href="../cost/type-cost.php" class="nav-link px-0"> <span class=" d-sm-inline">نوع التكلفة</span></a>
+              <a href="../../Admin/Employee/index.php" class="nav-link px-0"> <span class=" d-sm-inline">اضافة موظف</span></a>
             </li>
+            <li class="w-100">
+              <a href="../../Admin/Employee/salafis-employee.php" class="nav-link px-0"> <span class=" d-sm-inline">سلفيات</span></a>
+            </li>
+            <li class="w-100">
+              <a href="../../Admin/Employee/profile-employee.php" class="nav-link px-0"> <span class=" d-sm-inline">معلومات الموظف</span></a>
+            </li>
+           
             
           </ul>
         </li>
-        <?php } ?>
+       
       </ul>
+     
+      <li class="nav-item">
+        <a class="nav-link <?php if ($sidebar_admin == "department") echo 'active'; ?>" href="../../Admin/Department/index.php">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+            <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <title>shop </title>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                  <g transform="translate(1716.000000, 291.000000)">
+                    <g transform="translate(0.000000, 148.000000)">
+                      <path class="color-background opacity-6" d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z"></path>
+                      <path class="color-background" d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z"></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <span class="nav-link-text me-1">الاقسام</span>
+        </a>
+      </li>
       <ul class="navbar-nav active">
-      <?php if ($position == 'Admin') { ?> 
+     
         <li class="nav-item ">
-          <a href="#submenu22" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar == "Cover") echo 'active'; ?>"">
+          <a href="#submenu2" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar_admin == "leave") echo 'active'; ?>"">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
@@ -215,20 +115,48 @@ $sidebar = $_SESSION['sidebar'];
                 </g>
               </svg> 
             </div>
-            <span class="ms-1  d-sm-inline">الاغطية</span>
+            <span class="ms-1  d-sm-inline">اداره الاجازات</span>
           </a>
-          <ul class="collapse nav flex-column ms-1" id="submenu22" data-bs-parent="#menu">
+          <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
             <li class="w-100">
-              <a href="../Cover/bills_cover.php" class="nav-link px-0"> <span class=" d-sm-inline">فواتير الاغطية </span></a>
+              <a href="../../Admin/leave/index.php" class="nav-link px-0"> <span class=" d-sm-inline">الاجازات</span></a>
             </li>
             <li class="w-100">
-              <a href="../Cover/covering_companies.php" class="nav-link px-0"> <span class=" d-sm-inline">شركات الاغطية</span></a>
+              <a href="../../Admin/leave/pending.php" class="nav-link px-0"> <span class=" d-sm-inline">قيد الانتظار الطلب</span></a>
+            </li>
+            <li class="w-100">
+              <a href="../../Admin/leave/declind.php" class="nav-link px-0"> <span class=" d-sm-inline">رفض الطلب</span></a>
+            </li>
+            <li class="w-100">
+              <a href="../../Admin/leave/approved.php" class="nav-link px-0"> <span class=" d-sm-inline">موافقة الطلب</span></a>
             </li>
             
           </ul>
         </li>
-        <?php } ?>
+       
       </ul>
+      <li class="nav-item">
+        <a class="nav-link <?php if ($sidebar_admin == "manage") echo 'active'; ?>" href="../../Admin/manage/index.php">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+            <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <title>shop </title>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                  <g transform="translate(1716.000000, 291.000000)">
+                    <g transform="translate(0.000000, 148.000000)">
+                      <path class="color-background opacity-6" d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z"></path>
+                      <path class="color-background" d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z"></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <span class="nav-link-text me-1">Manage</span>
+        </a>
+      </li>
+     
+      
      
      
       
@@ -263,14 +191,12 @@ $sidebar = $_SESSION['sidebar'];
                         <span class="d-none d-sm-inline mx-1">عباس الجعفري</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="../Messages/chat.php">الرسائل</a></li>
-                        <li><a class="dropdown-item" href="../Profile/profile.php">الملف الشخصي</a></li>
-                        <li><a class="dropdown-item" href="../Admin/index.php">الاداره</a></li>
-
+                        <li><a class="dropdown-item" href="https://test.app.ruknamial.com/index.php">الصفحة الرئيسية</a></li>
+                        
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="../Auth/logout.php">تسجيل الخروج</a></li>
+                        <li><a class="dropdown-item" href="../../Auth/logout.php">تسجيل الخروج</a></li>
                     </ul>
                 </div>
   </div>
