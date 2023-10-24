@@ -33,6 +33,14 @@ if(isset($_GET['project_id']) && isset($_GET['item_id'])){
     $res_pro = $conn->query($query_pro);
     $item = $res_pro->fetch_assoc();
 
+    $query_cover = "SELECT * FROM covers_band WHERE  `product_id` = $item_id";
+    $res_cover = $conn->query($query_cover);
+    $cover_band = $res_cover->fetch_assoc();
+
+    $query_delivery = "SELECT * FROM delivery WHERE  `product_id` = $item_id";
+    $res_delivery = $conn->query($query_delivery);
+    $delivery_band = $res_delivery->fetch_assoc();
+
 }
 $coco = 1;
 $numberofrows = 1;
@@ -887,6 +895,7 @@ if (isset($_POST['add-project'])) {
                         <div class="form-group">
                           <label for="cover_type">نوع الغطاء</label>
                           <select class="form-control" name="cover_type" id="cover_type">
+                            <option value="<?=$cover_band['type']?>"><?=$cover_band['type']?></option>
                             <option value="بدون اغطية">بدون اغطية</option>
                             <option value="غطاء واحد">غطاء واحد</option>
                             <option value="غطائين">غطائين</option>
@@ -898,13 +907,13 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_price">سعر الغطاء الفردي</label>
-                          <input type="text" class="form-control" name='cover_price' id="cover_price">
+                          <input type="text" class="form-control" name='cover_price' id="cover_price" value="<?=$cover_band['price_per_piece']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="cover_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='cover_tot' id="cover_tot" readonly>
+                          <input type="text" class="form-control" name='cover_tot' id="cover_tot" readonly value="<?=$cover_band['total_price']?>">
                         </div>
                       </div>
                     </div>
@@ -914,7 +923,14 @@ if (isset($_POST['add-project'])) {
 
                         peice = peice.toLocaleString("en-US");
                         $("#cover_tot").val(peice);
-                      })
+                      });
+
+                      $( document ).ready(function() {
+                        var peice = ((parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val()) || 0))
+
+                        peice = peice.toLocaleString("en-US");
+                        $("#cover_tot").val(peice);
+                      });
                     </script>
 
                   </div>
@@ -924,34 +940,41 @@ if (isset($_POST['add-project'])) {
                 <div class="band_details">
                   <h5>بنود اخرى</h5>
                   <div class="band" id="main-band">
+                  <?php 
+                    $x = 0;
+                    $res_extra = mysqli_query($conn, "SELECT * FROM extra_band WHERE `product_id` = $item_id ");
+                    while ($extra_band = mysqli_fetch_array($res_extra)) {
+                      $x++;
+                      ?>
                     <div class="row">
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="band">أسم البند</label>
-                          <input type="text" class="form-control" name="band_<?= $coco ?>" id="band_<?= $coco ?>">
+                          <input type="text" class="form-control" name="band_<?= $x ?>" id="band_<?= $x ?>" value="<?=$extra_band['name']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="band_price">سعر البند</label>
-                          <input type="text" class="form-control" name="band_price_<?= $coco ?>" id="band_price_<?= $coco ?>">
+                          <input type="text" class="form-control" name="band_price_<?= $x ?>" id="band_price_<?= $x ?>" value="<?=$extra_band['price_per_piece']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="band_tot">السعر </label>
-                          <input type="text" class="form-control" name="band_tot_<?= $coco ?>" id="band_tot_<?= $coco ?>" readonly>
+                          <input type="text" class="form-control" name="band_tot_<?= $x ?>" id="band_tot_<?= $x ?>" readonly value="<?=$extra_band['total_price']?>">
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_band" disabled>
-                          <input type="hidden" name="band-rr" id="band-rr" readonly>
+                          <input type="hidden" name="band-rr" id="band-rr" readonly value="<?=$x?>">
                         </div>
                       </div>
                     </div>
                     <hr class="new2">
+                    <?php } ?>
                     <script>
                       b = 1;
                       $(document).on('change', 'input', function() {
                         var total_bands = 0;
-                        for (var z = 1; z <= b; z++) {
+                        for (var z = 1; z <= <?=$x?>; z++) {
                           var peice = ((parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val()) || 0))
                           total_bands += peice
                           peice = peice.toLocaleString("en-US");
@@ -959,25 +982,27 @@ if (isset($_POST['add-project'])) {
                         }
                         total_bands = total_bands.toLocaleString("en-US");
                         $("#accessory_tot").val(total_bands);
-                      })
-
-                      document.addEventListener("DOMContentLoaded", function() {
-                        const productDetails = document.querySelector("#product_details");
-                        productDetails.addEventListener("click", function(e) {
-                          if (e.target.classList.contains("add_band")) {
-
-                            b++;
-                            $("#band-rr").val(b);
-
-                          }
-                        });
                       });
-                    </script>
+
+                      $( document ).ready(function() {
+                        var total_bands = 0;
+                        for (var z = 1; z <= <?=$x?>; z++) {
+                          var peice = ((parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val()) || 0))
+                          total_bands += peice
+                          peice = peice.toLocaleString("en-US");
+                          $("#band_tot_" + z).val(peice);
+                        }
+                        total_bands = total_bands.toLocaleString("en-US");
+                        $("#accessory_tot").val(total_bands);
+                      });
+
+                      
+                      </script>
 
                   </div>
 
                 </div>
-                <button type="button" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
+                
                 <div class="row">
                   السعر الكلي للبنود الاضافية
                   <input type="text" class="form-control" placeholder="Total" name="accessory_tot" id="accessory_tot" readonly>
@@ -987,63 +1012,42 @@ if (isset($_POST['add-project'])) {
                 <div class="Delivery-details">
                   <h5>التوصيل</h5>
                   <div class="delivery">
-                    <div class="row">
-                    <label for="">هل الصنف قابل للتوصيل ؟</label>
-                    <div class="form-check form-switch col-md-2 col-sm-6">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable">
-                      <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
-                    </div>
-                    <script>
-                      $(document).ready(function() {
-                      $('input[type="checkbox"]').click(function() {
-                          if(document.getElementById("flexSwitchCheckDefault").checked  == true) {
-                                $('#delivery-div').show();  
-                                document.getElementById("toggle_ch").innerText ="نعم";         
-                          }
-
-                          else {
-                                $('#delivery-div').hide(); 
-                                document.getElementById("toggle_ch").innerText ="لا";  
-                          }
-                      });
-                    });
-                    </script>
-                    </div>
-                    <div class="row" id="delivery-div" style='display:none'>
+                    
+                    <div class="row" id="delivery-div">
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="peice_per_track">عدد القطع للتريلة</label>
-                          <input type="text" class="form-control" name='peice_per_track' id="peice_per_track" value="0">
+                          <input type="text" class="form-control" name='peice_per_track' id="peice_per_track" value="<?=$delivery_band['peice_per_track']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="quantity_of_track">عدد التريلات</label>
-                          <input type="text" class="form-control" name='quantity_of_track' id="quantity_of_track" value="0" readonly>
+                          <input type="text" class="form-control" name='quantity_of_track' id="quantity_of_track" value="<?=$delivery_band['quantity_of_track']?>" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="delivery_to">التوصيل الى</label>
-                          <input type="text" class="form-control" name='delivery_to' id="delivery_to">
+                          <input type="text" class="form-control" name='delivery_to' id="delivery_to" value="<?=$delivery_band['delivery_to']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="track_price">سعر توصيل التريلة</label>
-                          <input type="text" class="form-control" name='track_price' id="track_price" value="0">
+                          <input type="text" class="form-control" name='track_price' id="track_price" value="<?=$delivery_band['track_price']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="piece_price">سعر توصيل القطعة</label>
-                          <input type="text" class="form-control" name='piece_price' id="piece_price" value="0" readonly>
+                          <input type="text" class="form-control" name='piece_price' id="piece_price" value="<?=$delivery_band['piece_price']?>" readonly>
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="total_price">سعر التوصيل الكلي</label>
-                          <input type="text" class="form-control" name='total_price' id="total_price" value="0" readonly>
+                          <input type="text" class="form-control" name='total_price' id="total_price" value="<?=$delivery_band['total_price']?>" readonly>
                         </div>
                       </div>
                     </div>
@@ -1062,7 +1066,20 @@ if (isset($_POST['add-project'])) {
 
                        
                         
-                      })
+                      });
+
+                      $( document ).ready(function() {
+                        var quan = ($("#quantity").val() || 0) ;
+                        var del_peice = ($("#peice_per_track").val() || 0) ;
+                        var tracks = ((quan / del_peice) || 0) ;
+                        tracks = Math.ceil(tracks);
+                         $("#quantity_of_track").val(tracks) ;
+                        var track_price = ($("#track_price").val() || 0) ;
+                        var del_peice_price = ((track_price / del_peice)|| 0);
+                        $("#piece_price").val(del_peice_price);
+                        var del_total = track_price * tracks ; 
+                        $("#total_price").val(del_total);
+                      });
                     </script>
 
                   </div>
