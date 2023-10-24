@@ -777,19 +777,10 @@ if (isset($_POST['add-project'])) {
 
 
 
-                  document.addEventListener("DOMContentLoaded", function() {
-                    const productDetails = document.querySelector("#product_details");
-                    productDetails.addEventListener("click", function(e) {
-                      if (e.target.classList.contains("add_iron")) {
-
-                        i++;
-                        $("#iron-rr").val(i);
-                      }
-                    });
-                  });
+                 
                 </script>
                 
-                <?php $coco++; } ?>
+                <?php } ?>
 
                
                 <div class="row">
@@ -800,31 +791,38 @@ if (isset($_POST['add-project'])) {
                 <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
                   <div class="accessory" id="main-accessory">
+                  <?php 
+                    $y = 0;
+                    $res_accessory = mysqli_query($conn, "SELECT * FROM accessory_band WHERE `product_id` = $product_id ");
+                    while ($accessory_band = mysqli_fetch_array($res_accessory)) {
+                      $y++;
+
+                    ?>
                     <div class="row ">
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="accessory">أسم الاكسسوار</label>
-                          <input type="text" class="form-control" name='accessory_<?= $coco ?>' id="accessory_<?= $coco ?>">
+                          <input type="text" class="form-control" name='accessory_<?= $y ?>' id="accessory_<?= $y ?>" value="<?=$accessory_band['name']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="acc_quantity">كمية الاكسسوار</label>
-                          <input type="text" class="form-control" name='acc_quantity_<?= $coco ?>' id="acc_quantity_<?= $coco ?>">
+                          <input type="text" class="form-control" name='acc_quantity_<?= $y ?>' id="acc_quantity_<?= $y ?>" value="<?=$accessory_band['quantity']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="acc_price">سعر الاكسسوار الفردي</label>
-                          <input type="text" class="form-control" name='acc_price_<?= $coco ?>' id="acc_price_<?= $coco ?>">
+                          <input type="text" class="form-control" name='acc_price_<?= $y ?>' id="acc_price_<?= $y ?>" value="<?=$accessory_band['price_per_piece']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
                           <label for="acc_tot">السعر</label>
-                          <input type="text" class="form-control" name='acc_tot_<?= $coco ?>' id="acc_tot_<?= $coco ?>" readonly>
+                          <input type="text" class="form-control" name='acc_tot_<?= $y ?>' id="acc_tot_<?= $y ?>" readonly value="<?=$accessory_band['total_price']?>">
                           <input type="hidden" name="rowcount_ac" value="<?php echo $numberofrows; ?>" id="rowcount_ac" readonly>
-                          <input type="hidden" name="ac-rr" id="ac-rr" readonly>
+                          <input type="hidden" name="ac-rr" id="ac-rr" readonly value="<?=$y?>">
                         </div>
                       </div>
                     </div>
@@ -835,7 +833,7 @@ if (isset($_POST['add-project'])) {
 
                       $(document).on('change', 'input', function() {
                         var total_accessory = 0;
-                        for (var z = 1; z <= a; z++) {
+                        for (var z = 1; z <= <?=$y?>; z++) {
 
                           var peice = ((parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val()) || 0));
                           total_accessory += peice
@@ -846,21 +844,24 @@ if (isset($_POST['add-project'])) {
                         total_accessory = total_accessory.toLocaleString("en-US");
                         $("#accessory_iron").val(total_accessory);
                       })
-                      console.log("Before Accessory Rows : <?= $accessory_raws ?>");
-                      document.addEventListener("DOMContentLoaded", function() {
-                        const productDetails = document.querySelector("#product_details");
-                        productDetails.addEventListener("click", function(e) {
+                     
+                      
 
-                          if (e.target.classList.contains("add_accessory")) {
+                      $( document ).ready(function() {
+                        var total_accessory = 0;
+                        for (var z = 1; z <= <?=$y?>; z++) {
 
-                            a++;
-                            $("#ac-rr").val(a);
+                          var peice = ((parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val()) || 0));
+                          total_accessory += peice
+                          peice = peice.toLocaleString("en-US");
+                          $("#acc_tot_" + z).val(peice);
+                        }
 
-                          }
-                        });
+                        total_accessory = total_accessory.toLocaleString("en-US");
+                        $("#accessory_iron").val(total_accessory);
                       });
                     </script>
-
+                    <?php  } ?>
                   </div>
 
 
