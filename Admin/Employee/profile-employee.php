@@ -1,5 +1,5 @@
 <?php
-include ('../cookies/session2.php');
+include ('../../assets/cookies/session3.php');
 $_SESSION['sidebar_admin']="employee";
 $select =mysqli_query($conn, "select * from users");
 
@@ -24,7 +24,7 @@ $select =mysqli_query($conn, "select * from users");
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
+  <link href="../../assets/css/nucleo-svg.css" rel="stylesheet"/>
   <!-- CSS Files -->
   <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
