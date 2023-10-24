@@ -2,8 +2,9 @@
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Projects";
 
-if(isset($_GET['project_id'])){
+if(isset($_GET['project_id']) && isset($_GET['item_id'])){
     $project_id = $_GET['project_id'];
+    $item_id = $_GET['item_id'];
     $query = "SELECT * FROM projects WHERE `id` = $project_id";
     $res = $conn->query($query);
     $project = $res->fetch_assoc();
@@ -27,6 +28,10 @@ if(isset($_GET['project_id'])){
     $email = $contact_project['email'];
     $vat = $contact_project['vat'];
     $company_trade = $contact_project['company_trade'];
+
+    $query_pro = "SELECT * FROM products WHERE `project_id` = $project_id AND `id` = $item_id";
+    $res_pro = $conn->query($query_pro);
+    $item = $res_pro->fetch_assoc();
 
 }
 $coco = 1;
@@ -530,14 +535,7 @@ if (isset($_POST['add-project'])) {
               <hr>
             </div>
             
-            <?php 
-             $i = 0;
-             $product_number = 0;
-             $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $project_id ");
-             while ($products = mysqli_fetch_array($res3)) {
-              $i++;
-              $product_number++;
-            ?>
+           
             <!-- Product Details -->
             <div id="product_details">
               <div class="product">
@@ -546,14 +544,14 @@ if (isset($_POST['add-project'])) {
                   <div class="col-md-8 col-sm-6">
                     <div class="form-group">
                       <label for="product_name">أسم الصنف</label>
-                      <input class="form-control" type="text" name="product_name" value="<?=$products['product_name']?>">
+                      <input class="form-control" type="text" name="product_name" value="<?=$item['product_name']?>">
                       <!-- Add more fields for product details here -->
                     </div>
                   </div>
                   <div class="col-md-8 col-sm-6">
                     <div class="form-group">
                       <label for="dimensions">المقاسات</label>
-                      <input class="form-control" type="text" name="dimensions" value="<?=$products['dimensions']?>">
+                      <input class="form-control" type="text" name="dimensions" value="<?=$item['dimensions']?>">
                       <!-- Add more fields for product details here -->
                     </div>
                   </div>
@@ -562,7 +560,7 @@ if (isset($_POST['add-project'])) {
                   <div class="col-md-8 col-sm-6">
                     <div class="form-group">
                       <label for="quantity">كمية الصنف</label>
-                      <input class="form-control" type="text" name='quantity' id="quantity" value="<?=$products['quantity']?>">
+                      <input class="form-control" type="text" name='quantity' id="quantity" value="<?=$item['quantity']?>">
                       <!-- Add more fields for product details here -->
                     </div>
                   </div>
@@ -570,8 +568,8 @@ if (isset($_POST['add-project'])) {
                 <hr>
                <!-- Item Details -->
                <?php
-               $product_id = $products['id'];
-               $kh = "SELECT * FROM `kharasana` WHERE `product_id` = $product_id";
+               
+               $kh = "SELECT * FROM `kharasana` WHERE `product_id` = $item_id";
                $res_kh = $conn->query($kh);
                $kharasan = $res_kh->fetch_assoc();
                ?>
@@ -656,7 +654,7 @@ if (isset($_POST['add-project'])) {
                   <div class="iron" id="main-iron">
                   <?php 
                     $i = 0;
-                    $res_iron = mysqli_query($conn, "SELECT * FROM iron_band WHERE `product_id` = $product_id ");
+                    $res_iron = mysqli_query($conn, "SELECT * FROM iron_band WHERE `product_id` = $item_id ");
                     while ($iron_band = mysqli_fetch_array($res_iron)) {
                       $i++;
                       $iron_size = $iron_band['size'];
@@ -754,7 +752,7 @@ if (isset($_POST['add-project'])) {
 
                     total_iron = total_iron.toLocaleString("en-US");
 
-                    $("#total_iron_<?=$product_number?>").val(total_iron);
+                    $("#total_iron").val(total_iron);
                   });
 
                   $( document ).ready(function() {
@@ -774,7 +772,7 @@ if (isset($_POST['add-project'])) {
 
                     total_iron = total_iron.toLocaleString("en-US");
 
-                    $("#total_iron_<?=$product_number?>").val(total_iron);
+                    $("#total_iron").val(total_iron);
                   });
 
 
@@ -788,7 +786,7 @@ if (isset($_POST['add-project'])) {
                 
                 <div class="row">
                   السعر الكلي للحديد
-                  <input type="text" class="form-control" placeholder="Total" name="total_iron_<?=$product_number?>" id="total_iron_<?=$product_number?>" readonly>
+                  <input type="text" class="form-control" placeholder="Total" name="total_iron" id="total_iron" readonly>
                 </div>
                
                 <hr>
@@ -798,7 +796,7 @@ if (isset($_POST['add-project'])) {
                   <div class="accessory" id="main-accessory">
                   <?php 
                     $y = 0;
-                    $res_accessory = mysqli_query($conn, "SELECT * FROM accessory_band WHERE `product_id` = $product_id ");
+                    $res_accessory = mysqli_query($conn, "SELECT * FROM accessory_band WHERE `product_id` = $item_id ");
                     while ($accessory_band = mysqli_fetch_array($res_accessory)) {
                       $y++;
 
@@ -1070,7 +1068,7 @@ if (isset($_POST['add-project'])) {
                   </div>
                 </div>
                 <hr>
-                <?php } ?>
+               
 
                 <!-- Item End -->
 
