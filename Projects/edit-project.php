@@ -647,15 +647,37 @@ if (isset($_POST['add-project'])) {
                   </div>
                  
                 </div>
+
                 <div class="iron_details">
                   <hr>
                   <h5>بند الحديد</h5>
                   <div class="iron" id="main-iron">
-                    <div class="row" id="row<?= $coco ?>">
+                  <?php 
+                    $i = 0;
+                    $res_iron = mysqli_query($conn, "SELECT * FROM iron_band WHERE `product_id` = $product_id ");
+                    while ($iron_band = mysqli_fetch_array($res_iron)) {
+                      $i++;
+                      $iron_size = $iron_band['size'];
+                      $sizeText = [
+                                      "8مم" => "0.395",
+                                      "10مم" => "0.617",
+                                      "12مم" => "0.888",
+                                      "14مم" => "1.21",
+                                      "16مم" => "1.58",
+                                      "18مم" => "2",
+                                      "20مم" => "2.47",
+                                      "22مم" => "2.984",
+                                      "25مم" => "3.85",
+                                      "32مم" => "6.41",
+                                  ];
+                                  $selectedSizeText = $sizeText[$iron_size];
+                    ?>
+                    <div class="row" id="row<?= $i ?>">
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron">مقاس الحديد</label>
-                          <select class="form-control" name="iron_<?= $coco ?>" id="iron_<?= $coco ?>">
+                          <select class="form-control" name="iron_<?= $i ?>" id="iron_<?= $i ?>">
+                            <option value="<?=$selectedSizeText?>"><?=$iron_size?></option>
                             <option value="0.395">8مم</option>
                             <option value="0.617">10مم</option>
                             <option value="0.888">12مم</option>
@@ -672,31 +694,31 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_price">سعر طن الحديد لليوم</label>
-                          <input type="text" class="form-control" name='iron_price_<?= $coco ?>' id="iron_price_<?= $coco ?>">
+                          <input type="text" class="form-control" name='iron_price_<?= $i ?>' id="iron_price_<?= $i ?>" value="<?=$iron_band['price_today']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_quantity">كمية الحديد</label>
-                          <input type="text" class="form-control" name='iron_quantity_<?= $coco ?>' id="iron_quantity_<?= $coco ?>">
+                          <input type="text" class="form-control" name='iron_quantity_<?= $i ?>' id="iron_quantity_<?= $i ?>" value="<?=$iron_band['quantity']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_long">طول الحديد</label>
-                          <input type="text" class="form-control" name='iron_long_<?= $coco ?>' id="iron_long_<?= $coco ?>">
+                          <input type="text" class="form-control" name='iron_long_<?= $i ?>' id="iron_long_<?= $i ?>" value="<?=$iron_band['iron_height']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tn">السعر الطن</label>
-                          <input type="text" class="form-control" name='iron_tn_<?= $coco ?>' id="iron_tn_<?= $coco ?>" readonly>
+                          <input type="text" class="form-control" name='iron_tn_<?= $i ?>' id="iron_tn_<?= $i ?>" readonly value="<?=$iron_band['tn_price']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="iron_tot">السعر</label>
-                          <input type="text" class="form-control" name='iron_tot_<?= $coco ?>' id="iron_tot_<?= $coco ?>" readonly>
+                          <input type="text" class="form-control" name='iron_tot_<?= $i ?>' id="iron_tot_<?= $i ?>" readonly value="<?=$iron_band['total_price']?>">
                           <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount" disabled>
                           <input type="hidden" name="iron-rr" id="iron-rr" readonly>
                         </div>
@@ -746,8 +768,10 @@ if (isset($_POST['add-project'])) {
                     });
                   });
                 </script>
+                
+                <?php $coco++; } ?>
 
-                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
+               
                 <div class="row">
                   السعر الكلي للحديد
                   <input type="text" class="form-control" placeholder="Total" name="total_iron" id="total_iron" readonly>
