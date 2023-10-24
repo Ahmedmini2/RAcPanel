@@ -49,13 +49,13 @@ $_SESSION['sidebar_admin'] = "employee";
 </head>
 
 
-<body class="g-sidenav-show rtl ">
+<body class="g-sidenav-show rtl .bg-gray-100 ">
 
 
 
     <!-- Side Bar -->
     <?php require_once('../../components/sidebar_admin.php'); ?>
-
+    
 
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
@@ -64,7 +64,7 @@ $_SESSION['sidebar_admin'] = "employee";
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     
-                    <h6 class="font-weight-bolder mb-0">اضافه موظف</h6>
+                    <h6 class="font-weight-bolder mb-0">الموظفين</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
                     
@@ -118,80 +118,85 @@ $_SESSION['sidebar_admin'] = "employee";
 
 
         <div class="container-fluid py-4">
+        <div class=" mb-4 p-3">
+          <div class="">
+            <h5 class="mb-1">بيانات الموظفين</h5>
+          </div>
+
+        
+          </div>
+            
+            <!--Table     -->
             <div class="row">
-                <div class="block block-themed">
+                <div class="col-12">
+                    <div class="card mb-4 mt-3">
+                    
+                        <div class="card-body px-0 pt-0 pb-2 mx-3">
+                            <div class="table-responsive p-0">
+                                <table class="table table-hover table-fixed" id="example">
 
-                    <div class="block-header bg-gradient-dark  col-md-2 col-sm-6 col-xs-6  rounded-pill">
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light text-center">
+                                        <tr>
+                                            <th>الرقم</th>
+                                            <th>اسم الموظف</th>
+                                            <th>قسم الموظف</th>
+                                            <th>راتب الموظف</th>
+                                            <th>سلفية الموظف</th>
+                                            <th>ساعات اضافية</th>
+                                            <th>متبقي المرتب</th>
+                                            <th>شهر</th>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+                                    <!--Table body-->
+                                    <tbody class=" text-center">
 
-                        <h6 class="block-title text-white py-2 px-4">إضافة موظف جديد</h6>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>عباس الجعفري</td>
+                                            <td>المدير العام</td>
+                                            <td>5000</td>
+                                            <td>2500</td>
+                                            <td>3</td>
+                                            <td>2500</td>
+                                            <td>اكتوبر 2023</td>
+    
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>احمد عثمان</td>
+                                            <td>IT</td>
+                                            <td>5000</td>
+                                            <td>2500</td>
+                                            <td>3</td>
+                                            <td>2500</td>
+                                            <td>اكتوبر 2023</td>
+    
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>محمد جمال</td>
+                                            <td>IT</td>
+                                            <td>5000</td>
+                                            <td>2500</td>
+                                            <td>3</td>
+                                            <td>2500</td>
+                                            <td>اكتوبر 2023</td>
+    
+                                        </tr>
+
+
+                                    </tbody>
+                                    <!--Table body-->
+
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                    <form>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>رقم الموظف</label>
-                                    <input type="text" placeholder="رقم الموظف" class="form-control" name="EmployeeID" value="">
-
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>اسم الموظف</label>
-                                    <input type="text" placeholder="اسم الموظف" class="form-control" name="name" value="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>email</label>
-                                    <input type="text" placeholder="email" class="form-control" name="phone" value="">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>القسم</label>
-                                    <select name="position" class="form-control">
-                                        <option value=""></option>
-                                        <option value="Account">محاسب</option>
-                                        <option value="Manager">الاداره</option>
-                                        <option value="Worker">المصنع</option>
-                                        <option value="Admin">المدير</option>
-
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6">
-                                <div class="form-group">
-                                    <label> تاريخ التوظيف</label>
-                                    <input type="date" placeholder="" class="form-control" name="duration">
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <div class="form-group">
-                                    <label> راتب الموظف</label>
-                                    <input type="text" placeholder=" مرتب الموظف" class="form-control" name="salary" value="">
-                                </div>
-                            </div>
-                            
-                        </div>
-
-                        
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <button type="submit" name="submit" class="btn btn-secondary">Save</button>
-                                </div>
-                            </div>
-                            <div class="col">
-
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
+            <!--Table -->
         </div>
 
 
