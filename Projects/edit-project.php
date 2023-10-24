@@ -729,7 +729,7 @@ if (isset($_POST['add-project'])) {
                 </div>
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
-                  var i = <?= $i ?>;
+                  var i = $("#iron-rr").val();;
 
 
 
