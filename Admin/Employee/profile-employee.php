@@ -20,8 +20,8 @@ $select =mysqli_query($conn, "select * from users");
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="../../assets/css/nucleo-svg.css" rel="stylesheet"/>
@@ -97,7 +97,7 @@ $select =mysqli_query($conn, "select * from users");
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  ms-3 ">
+                        <img src="../../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  ms-3 ">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -271,7 +271,7 @@ $select =mysqli_query($conn, "select * from users");
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
                   <div class="avatar me-3">
-                    <img src="../assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
+                    <img src="../../assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
                   </div>
                   <div class="d-flex align-items-start flex-column justify-content-center">
                     <h6 class="mb-0 text-sm">Sophie B.</h6>
@@ -281,7 +281,7 @@ $select =mysqli_query($conn, "select * from users");
                 </li>
                 <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
                   <div class="avatar me-3">
-                    <img src="../assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
+                    <img src="../../assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
                   </div>
                   <div class="d-flex align-items-start flex-column justify-content-center">
                     <h6 class="mb-0 text-sm">Anne Marie</h6>
@@ -291,7 +291,7 @@ $select =mysqli_query($conn, "select * from users");
                 </li>
                 <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
                   <div class="avatar me-3">
-                    <img src="../assets/img/ivana-square.jpg" alt="kal" class="border-radius-lg shadow">
+                    <img src="../../assets/img/ivana-square.jpg" alt="kal" class="border-radius-lg shadow">
                   </div>
                   <div class="d-flex align-items-start flex-column justify-content-center">
                     <h6 class="mb-0 text-sm">Ivanna</h6>
@@ -301,7 +301,7 @@ $select =mysqli_query($conn, "select * from users");
                 </li>
                 <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
                   <div class="avatar me-3">
-                    <img src="../assets/img/team-4.jpg" alt="kal" class="border-radius-lg shadow">
+                    <img src="../../assets/img/team-4.jpg" alt="kal" class="border-radius-lg shadow">
                   </div>
                   <div class="d-flex align-items-start flex-column justify-content-center">
                     <h6 class="mb-0 text-sm">Peterson</h6>
@@ -311,7 +311,7 @@ $select =mysqli_query($conn, "select * from users");
                 </li>
                 <li class="list-group-item border-0 d-flex align-items-center px-0">
                   <div class="avatar me-3">
-                    <img src="../assets/img/team-3.jpg" alt="kal" class="border-radius-lg shadow">
+                    <img src="../../assets/img/team-3.jpg" alt="kal" class="border-radius-lg shadow">
                   </div>
                   <div class="d-flex align-items-start flex-column justify-content-center">
                     <h6 class="mb-0 text-sm">Nick Daniel</h6>
