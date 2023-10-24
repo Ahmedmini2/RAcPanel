@@ -136,13 +136,14 @@ $_SESSION['sidebar_admin'] = "employee";
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label>القسم</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                <label>القسم</label>
+                                    <select name="position" class="form-control">
                                         <option value=""></option>
-                                        <option selected>قسم الموظف</option>
-                                        <option value="1">مدير</option>
-                                        <option value="2">المصنع</option>
-                                        <option value="3">IT</option>
+                                        <option value="Account">محاسب</option>
+                                        <option value="Manager">الاداره</option>
+                                        <option value="Worker">المصنع</option>
+                                        <option value="Admin">المدير</option>
+
                                     </select>
 
                                 </div>
@@ -155,9 +156,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                     <input type="text" placeholder="الرجاء كتابه المبلغ" class="form-control" name="" value="">
                                 </div>
                             </div>
-                            
-                        </div>
-                        <div class="row">
+                            <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> تاريخ التوظيف</label>
@@ -165,6 +164,9 @@ $_SESSION['sidebar_admin'] = "employee";
                                 </div>
                             </div>
                         </div>
+                            
+                        </div>
+                        
 
 
                         <div class="row">
