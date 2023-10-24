@@ -1,5 +1,5 @@
 <?php
-include ('../../assets/cookies/session3.php');
+include ('../../cookies/session3.php');
 $_SESSION['sidebar_admin']="employee";
 $select =mysqli_query($conn, "select * from users");
 
