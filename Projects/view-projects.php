@@ -196,7 +196,7 @@ if (isset($_GET['id'])) {
                                     مستندات المشروع
 
                                 </a>
-                                <button type="button" id="btn6" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modalEdit" data-bs-target="#exampleModa2">
+                                <button type="button" id="btn6" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
                                 تعديل بيانات المشروع 2
                                 </button>
                                 <a href="edit-project.php?project_id=<?=$project['id']?>" id="btn4" class="btn bg-gradient-dark mb-0">
@@ -276,23 +276,23 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                         <!-- Change Ed Modal -->
-                        <div class="modal fade" id="exampleModa2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="exampleModa2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe2" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">تعديل بيانات المشروع</h5>
+                                        <h5 class="modal-title" id="exampleModalLabe2">تعديل بيانات المشروع</h5>
                                         <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
                                         <form method="post" action="#">
-                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="confirm" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modalEdit" data-bs-target="#exampleModa2">
+                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="confirm" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
                                                     تأكيد المشروع
                                                 </button>
                                             <?php } ?>
                                             <br>
-                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="progress" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modalEdit" data-bs-target="#exampleModa2">
+                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="progress" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
                                                     قيد التنفيذ
                                                 </button>
                                             <?php } ?>
