@@ -399,7 +399,7 @@ function navbarColorOnResize() {
       sidenav.classList.add('bg-white');
     }
   } else {
-    sidenav.classList.add('');
+    sidenav.classList.add('bg-white');
     sidenav.classList.remove('bg-transparent');
   }
 }
