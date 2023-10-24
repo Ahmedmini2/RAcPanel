@@ -32,7 +32,7 @@ $select =mysqli_query($conn, "select * from users");
 <body class="g-sidenav-show rtl bg-gray-100">
       
       <!-- Side Bar -->
-  <?php require_once('../../components/sidebar.php'); ?>
+  <?php require_once('../../components/sidebar_admin.php'); ?>
       <!-- End Of side Bar -->
 
   <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg overflow-hidden">
