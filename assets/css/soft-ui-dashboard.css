@@ -25086,6 +25086,9 @@ width: 100px;
 .darkmode .bg-dark {
   background-color: #34476700 !important;
 }
+.darkmode .list-group-item+.list-group-item {
+  background-color: #34476700 !important;
+}
 
 .darkmode label, .form-label {
   font-size: 0.75rem;
