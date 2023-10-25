@@ -217,8 +217,7 @@ $select = mysqli_query($conn, "select * from users");
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
+        <div class="col">
           <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
             <div class="card">
               <div class="card-body p-3">
@@ -286,6 +285,8 @@ $select = mysqli_query($conn, "select * from users");
             </div>
           </div>
         </div>
+      </div>
+      
 
       <footer class="footer pt-3  ">
         <div class="container-fluid">
