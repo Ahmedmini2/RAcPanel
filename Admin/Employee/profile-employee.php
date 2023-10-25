@@ -299,7 +299,7 @@ $select = mysqli_query($conn, "select * from users");
                   <div class="col-4 text-start">
 
                     <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                      <i class="fa fa-hourglass text-lg opacity-10" aria-hidden="true"></i>
+                      <i class="fa fa-money text-lg opacity-10" aria-hidden="true"></i>
                     </div>
                   </div>
                 </div>
