@@ -364,7 +364,9 @@ if (isset($_POST['add-project'])) {
             </div>
             
            
-         
+                <button type="submit" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" name="add-project">
+                      تعديل الصنف
+                    </button>
             
           </form>
 
