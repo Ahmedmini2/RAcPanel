@@ -611,7 +611,7 @@ if (isset($_POST['add-project'])) {
                         <div class="form-group">
                           <label for="iron_tot">السعر</label>
                           <input type="text" class="form-control" name='iron_tot_<?= $i ?>' id="iron_tot_<?= $i ?>" readonly value="<?=$iron_band['total_price']?>">
-                          <input type="hidden" value="<?php echo $numberofrows; ?>" name="iron_id" value="<?=$iron_band['id']?>" disabled>
+                          <input type="hidden" value="<?php echo $numberofrows; ?>" name="iron_id" value="<?=$iron_band['id']?>" readonly>
                           <input type="hidden" name="iron-rr" id="iron-rr" readonly value="<?=$i?>">
                         </div>
                       </div>
@@ -847,7 +847,7 @@ if (isset($_POST['add-project'])) {
                         <div class="form-group">
                           <label for="band_tot">السعر </label>
                           <input type="text" class="form-control" name="band_tot_<?= $x ?>" id="band_tot_<?= $x ?>" readonly value="<?=$extra_band['total_price']?>">
-                          <input type="hidden" name="extra_id" value="<?=$extra_band['id']?>" disabled>
+                          <input type="hidden" name="extra_id" value="<?=$extra_band['id']?>" readonly>
                           <input type="hidden" name="band-rr" id="band-rr" readonly value="<?=$x?>">
                         </div>
                       </div>
