@@ -315,6 +315,11 @@ if (isset($_GET['id'])) {
                     إرفاق \ عرض الملف
                 </button>
             </div>
+            <div class=" justify-content-md-start">
+
+            <a href="review_orders.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6"> مراجعه الطلبيات&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
+                
+            </div>
 
             <script>
                 function printDiv(divName) {
