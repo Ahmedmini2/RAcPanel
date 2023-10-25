@@ -249,7 +249,7 @@ if (!empty($_GET['edit'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label>كميه المستلمه</label>
-                                    <input type="text" placeholder="ادخل المبلغ المالي عن طريق الارقام مثل 10,000" class="form-control" name="price" value="<?php echo $price; ?>">
+                                    <input type="text" placeholder="الرجاء ادخال الكمية المستلمه" class="form-control" name="price" value="<?php echo $price; ?>">
                                 </div>
                             </div>
 
