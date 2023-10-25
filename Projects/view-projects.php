@@ -291,7 +291,7 @@ if (isset($_GET['id'])) {
                                             ?>
                                             <form method="post" action="edit-project.php?project_id=<?=$id?>&item_id=<?=$r['id']?>">
                                             <?php if ($position == 'Admin') { ?> <button type="submit" name="confirm" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
-                                                    <?= $r['name'] ?>
+                                                    <?= $r['product_name'] ?>
                                                 </button>
                                             <?php } ?>
                                             <br>
