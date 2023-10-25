@@ -285,18 +285,19 @@ if (isset($_GET['id'])) {
                                         
                                             <?php
                                             $res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
-                                            while ($r = mysqli_fetch_array($res2)) {
+                                            while ($rr = mysqli_fetch_array($res2)) {
                                                 
                                             
                                             ?>
-                                            <form method="post" action="edit-project.php?project_id=<?=$id?>&item_id=<?=$r['id']?>">
+                                            <form method="post" action="edit-project.php?project_id=<?=$id?>&item_id=<?=$rr['id']?>">
                                             <?php if ($position == 'Admin') { ?> <button type="submit" name="confirm" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
-                                                    <?= $r['product_name'] ?>
+                                                    <?= $rr['product_name'] ?>
                                                 </button>
                                             <?php } ?>
                                             <br>
+                                            </form>
                                             <?php } ?>
-                                        </form>
+                                        
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
