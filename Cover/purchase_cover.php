@@ -302,7 +302,7 @@ if (isset($_GET['id'])) {
             </div>
             <!-- Button trigger modal -->
 
-            <div class=" justify-content-md-end">
+          
 
                 <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
                     طباعة الطلب
@@ -314,7 +314,7 @@ if (isset($_GET['id'])) {
                 </button>
                 <a href="review_orders.php" class="btn bg-gradient-dark justify-content-md-start mb-0 col-md-2 col-sm-6 col-xs-6"> مراجعه الطلبيات&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
 
-            </div>
+           
 
             <script>
                 function printDiv(divName) {
