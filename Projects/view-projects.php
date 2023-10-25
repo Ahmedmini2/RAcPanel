@@ -282,19 +282,19 @@ if (isset($_GET['id'])) {
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post" action="#">
+                                        
+                                            <?php
+                                            $res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+                                            while ($r = mysqli_fetch_array($res2)) {
+                                                
+                                            
+                                            ?>
+                                            <form method="post" action="edit-project.php?project_id=<?=$id?>&item_id=<?=$r['id']?>">
                                             <?php if ($position == 'Admin') { ?> <button type="submit" name="confirm" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
-                                                    تأكيد المشروع
+                                                    <?= $r['name'] ?>
                                                 </button>
                                             <?php } ?>
                                             <br>
-                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="progress" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
-                                                    قيد التنفيذ
-                                                </button>
-                                            <?php } ?>
-                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="done" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
-                                                    تم الإنتهاء
-                                                </button>
                                             <?php } ?>
                                         </form>
                                     </div>

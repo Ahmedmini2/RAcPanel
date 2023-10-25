@@ -53,20 +53,23 @@ if (!empty($_GET['edit'])) {
   $price = $_POST['price'];
   $c_date = $_POST['c_date'];
 
-  $target_dir = "../Signed-Docs/Cost-Bills/".$id."/";
-  if(!is_dir($target_dir)) {
-      mkdir($target_dir, 0777, true);
-  }else{
-
-  }
-  $target_file = $target_dir . basename($_FILES["bill"]["name"]);
+  
   $filename = basename($_FILES["bill"]["name"]);
   $uploadOk = 1;
-  move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
+  
 
   $insert = "INSERT INTO cost_center (`id`, `type`, `description`, `price` , `image` , `cost_date` , `created_at`) VALUES (NULL, '$type', '$description', '$price','$filename','$c_date', NOW())";
   $insertResult = $conn->query($insert);
   if ($insertResult) {
+      $id = $conn->insert_id;
+      $target_dir = "../Signed-Docs/Cost-Bills/".$id."/";
+      if(!is_dir($target_dir)) {
+          mkdir($target_dir, 0777, true);
+      }else{
+    
+      }
+      $target_file = $target_dir . basename($_FILES["bill"]["name"]);
+      move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
 
       $_SESSION['notification'] = "تم اضافة التكلفة بنجاح";
       header('location: cost.php');
