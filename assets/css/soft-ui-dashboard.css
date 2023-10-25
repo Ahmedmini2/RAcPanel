@@ -25104,6 +25104,14 @@ width: 100px;
   align-items: stretch;
   /* width: 100%; */
 }
+.darkmode .list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: inherit;
+   background-color: #383838; 
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
 .darkmode .btn {
   margin-bottom: 1rem;
   letter-spacing: -0.025rem;
@@ -25150,6 +25158,120 @@ width: 100px;
 
 }
 
+.darkmode .sal-card{
+  --background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);
+  width: 300px;
+  height: 100px;
+  padding: 5px;
+  border-radius: 1rem;
+  overflow: visible;
+  background: #f7ba2b;
+  background: var(--background);
+  position: relative;
+  z-index: 1;
+ }
+ 
+ .darkmode .sal-card::after {
+  position: absolute;
+  content: "";
+  top: 30px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  transform: scale(0.8);
+  filter: blur(25px);
+  background: #f7ba2b;
+  background: var(--background);
+  transition: opacity .5s;
+ }
+ 
+ .darkmode .sal-card-info {
+  --color: #383838;
+  background: var(--color);
+  color: var(--color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  border-radius: .7rem;
+ }
+ 
+ .darkmode .sal-card.title {
+  font-weight: bold;
+  letter-spacing: .1em;
+ }
+ 
+ /*Hover*/
+ .darkmode .sal-card:hover::after {
+  opacity: 0;
+ }
+ 
+ .darkmode .sal-card-info {
+  color: #f7ba2b;
+  transition: color 1s;
+ }
+  /*card*/
+ 
+  .sal-card{
+    --background: white;
+    width: 300px;
+    height: 100px;
+    padding: 5px;
+    border-radius: 1rem;
+    overflow: visible;
+    background: #f7ba2b;
+    background: var(--background);
+    position: relative;
+    z-index: 1;
+   }
+   
+   .sal-card::after {
+    position: absolute;
+    content: "";
+    top: 30px;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    transform: scale(0.8);
+    filter: blur(25px);
+    background: #f7ba2b;
+    background: var(--background);
+    transition: opacity .5s;
+   }
+   
+   .sal-card-info {
+    --color: #e9ecef6e;
+    background: var(--color);
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    border-radius: .7rem;
+   }
+   
+   .sal-card.title {
+    font-weight: bold;
+    letter-spacing: .1em;
+   }
+   
+   /*Hover*/
+   .sal-card:hover::after {
+    opacity: 0;
+   }
+   
+   .sal-card-info {
+    color: black;
+    transition: color 1s;
+   }
 
 /* switch settings 👇 */
 

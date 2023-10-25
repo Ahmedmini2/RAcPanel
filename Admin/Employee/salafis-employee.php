@@ -145,7 +145,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                             <th>قسم الموظف</th>
                                             <th>المبلغ</th>
                                             <th>تاريخ السلفه</th>
-                                            
+                                            <th>مستند السلفه</th>
                                             <th>Action </th>
                                         </tr>
                                     </thead>
@@ -160,7 +160,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                             <td>المدير</td>
                                             <td>2500</td>
                                             <td>2023/10/22</td>
-                                            
+                                            <td>مستند 1</td>
                                             <td>
                                                 <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
                                                 <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>

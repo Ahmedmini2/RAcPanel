@@ -194,7 +194,7 @@ if (isset($_GET['id'])) {
                                 <a href="documents.php?project_id=<?=$id?>" id="btn3" class="btn bg-gradient-dark mb-0">
                                     مستندات المشروع
                                 </a>
-                                <a href="edit-project.php?project_id=<?=$project['id']?>" id="btn4" class="btn bg-gradient-dark mb-0">
+                                <a href="edit-project-info.php?project_id=<?=$project['id']?>" id="btn4" class="btn bg-gradient-dark mb-0">
                                     تعديل بيانات المشروع
                                 </a>
                             </div>
@@ -282,21 +282,22 @@ if (isset($_GET['id'])) {
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post" action="#">
+                                        
+                                            <?php
+                                            $res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+                                            while ($rr = mysqli_fetch_array($res2)) {
+                                                
+                                            
+                                            ?>
+                                            <form method="post" action="edit-project.php?project_id=<?=$id?>&item_id=<?=$rr['id']?>">
                                             <?php if ($position == 'Admin') { ?> <button type="submit" name="confirm" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
-                                                    تأكيد المشروع
+                                                    <?= $rr['product_name'] ?>
                                                 </button>
                                             <?php } ?>
                                             <br>
-                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="progress" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
-                                                    قيد التنفيذ
-                                                </button>
+                                            </form>
                                             <?php } ?>
-                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="done" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
-                                                    تم الإنتهاء
-                                                </button>
-                                            <?php } ?>
-                                        </form>
+                                        
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
