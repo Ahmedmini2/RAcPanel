@@ -168,7 +168,7 @@ $_SESSION['sidebar_admin'] = "employee";
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-group">
-                                <label>صورة المشروع</label>
+                                <label>صورة سند</label>
                                 <input type="file" class="form-control" name="project_image">
                             </div>
                         </div>
