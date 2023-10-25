@@ -278,19 +278,28 @@ $select = mysqli_query($conn, "select * from users");
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-lg-6">
-          <div class="card">
-            <div class="card-body">
-              <div class="stat-widget-one">
-                <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
-                <div class="stat-content dib">
-                  <div class="stat-text">المرتب</div>
-                  <div class="stat-digit">5000</div>
+        <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="numbers">
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">المرتب</p>
+                                        <h5 class="font-weight-bolder mb-0">
+                                            5000
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-start">
+
+                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                        <i class="fa fa-hourglass text-lg opacity-10" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </div>
       <footer class="footer pt-3  ">
