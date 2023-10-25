@@ -25238,7 +25238,7 @@ width: 100px;
    }
    
    .sal-card-info {
-    --color: #181818;
+    --color: #e9ecef6e;
     background: var(--color);
     color: var(--color);
     display: flex;
@@ -25261,7 +25261,7 @@ width: 100px;
    }
    
    .sal-card-info {
-    color: white;
+    color: black;
     transition: color 1s;
    }
 
