@@ -1,7 +1,7 @@
 <?php
-include ('../../cookies/session3.php');
-$_SESSION['sidebar_admin']="employee";
-$select =mysqli_query($conn, "select * from users");
+include('../../cookies/session3.php');
+$_SESSION['sidebar_admin'] = "employee";
+$select = mysqli_query($conn, "select * from users");
 
 ?>
 <!DOCTYPE html>
@@ -17,37 +17,37 @@ $select =mysqli_query($conn, "select * from users");
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../../assets/css/nucleo-svg.css" rel="stylesheet"/>
+  <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show rtl ">
-      
-      <!-- Side Bar -->
+
+  <!-- Side Bar -->
   <?php require_once('../../components/sidebar_admin.php'); ?>
-      <!-- End Of side Bar -->
+  <!-- End Of side Bar -->
 
   <main class="main-content position-relative  mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
-          
+
           <h6 class="font-weight-bolder mb-0">الملف الشخصي</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-        <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
+            <label class="form-check-label" for="checkbox"></label>
+          </div>
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -66,8 +66,8 @@ $select =mysqli_query($conn, "select * from users");
             </li>
             <li class="nav-item px-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0">
-               
-                <i class="fa fa-arrow-left me-sm-1 cursor-pointer"  onclick="history.back()" ></i>
+
+                <i class="fa fa-arrow-left me-sm-1 cursor-pointer" onclick="history.back()"></i>
               </a>
             </li>
             <li class="nav-item dropdown ps-2 d-flex align-items-center">
@@ -162,21 +162,21 @@ $select =mysqli_query($conn, "select * from users");
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-              عباس عثمان الجعفري
+                عباس عثمان الجعفري
               </h5>
               <p class="mb-0 font-weight-bold text-sm">
                 CEO / Co-Founder
               </p>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>
     <div class="container-fluid py-4">
-        
-    <div class="row">
-    
+
+      <div class="row">
+
         <div class="col-12 col-xl-4">
           <div class="card h-100" dir="ltr">
             <div class="card-header pb-0 p-3" dir="rtl">
@@ -219,7 +219,7 @@ $select =mysqli_query($conn, "select * from users");
         </div>
         <div class="col-12 col-xl-4">
           <div class="card h-100" dir="ltr">
-            <div class="card-header pb-0 p-3"dir="rtl">
+            <div class="card-header pb-0 p-3" dir="rtl">
               <h6 class="mb-0">المحادثات</h6>
             </div>
             <div class="card-body p-3">
@@ -228,10 +228,10 @@ $select =mysqli_query($conn, "select * from users");
                   <div class="avatar me-3">
                     <img src="../../assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
                   </div>
-                    <div class="d-flex align-items-start flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">Sophie B.</h6>
-                        <p class="mb-0 text-xs">Hi! I need more information..</p>
-                    </div>
+                  <div class="d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="mb-0 text-sm">Sophie B.</h6>
+                    <p class="mb-0 text-xs">Hi! I need more information..</p>
+                  </div>
                   <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
                 </li>
                 <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
@@ -239,8 +239,8 @@ $select =mysqli_query($conn, "select * from users");
                     <img src="../../assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
                   </div>
                   <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h  6 class="mb-0 text-sm">Anne Marie</h6>
-                    <p class="mb-0 text-xs">Awesome work, can you..</p>
+                    <h 6 class="mb-0 text-sm">Anne Marie</h6>
+                      <p class="mb-0 text-xs">Awesome work, can you..</p>
                   </div>
                   <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
                 </li>
@@ -278,8 +278,76 @@ $select =mysqli_query($conn, "select * from users");
             </div>
           </div>
         </div>
-        
+        <div class="row">
+          <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
+            <div class="card">
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="numbers">
+                      <p class="text-sm mb-0 text-capitalize font-weight-bold">المرتب</p>
+                      <h5 class="font-weight-bolder mb-0">
+                        5000
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="col-4 text-start">
+
+                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                      <i class="fa fa-hourglass text-lg opacity-10" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
+            <div class="card">
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="numbers">
+                      <p class="text-sm mb-0 text-capitalize font-weight-bold">المرتب</p>
+                      <h5 class="font-weight-bolder mb-0">
+                        5000
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="col-4 text-start">
+
+                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                      <i class="fa fa-hourglass text-lg opacity-10" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
+            <div class="card">
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="numbers">
+                      <p class="text-sm mb-0 text-capitalize font-weight-bold">المرتب</p>
+                      <h5 class="font-weight-bolder mb-0">
+                        5000
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="col-4 text-start">
+
+                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                      <i class="fa fa-hourglass text-lg opacity-10" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
       <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
@@ -290,7 +358,7 @@ $select =mysqli_query($conn, "select * from users");
                 </script>,
                 Made by
                 <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
-                
+
               </div>
             </div>
             <div class="col-lg-6">
@@ -304,7 +372,7 @@ $select =mysqli_query($conn, "select * from users");
                 <li class="nav-item">
                   <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
                 </li>
-                
+
               </ul>
             </div>
           </div>
@@ -312,7 +380,7 @@ $select =mysqli_query($conn, "select * from users");
       </footer>
     </div>
   </main>
-  
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -320,7 +388,7 @@ $select =mysqli_query($conn, "select * from users");
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/fullcalendar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
-  
+
   <script src="../assets/js/plugins/choices.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
