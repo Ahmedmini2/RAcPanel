@@ -218,13 +218,13 @@ $select = mysqli_query($conn, "select * from users");
           </div>
         </div>
         <div class="col">
-          <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
+          <div class="col-lg-4 col-sm-6 mb-4">
             <div class="card">
               <div class="card-body p-3">
                 <div class="row">
                   <div class="col-8">
                     <div class="numbers">
-                      <p class="text-sm mb-0 text-capitalize font-weight-bold">المرتب</p>
+                      <p class="text-sm mb-0 text-capitalize font-weight-bold">مرتب </p>
                       <h5 class="font-weight-bolder mb-0">
                         5000
                       </h5>
@@ -240,15 +240,15 @@ $select = mysqli_query($conn, "select * from users");
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
+          <div class="col-lg-4 col-sm-6  mb-4">
             <div class="card">
               <div class="card-body p-3">
                 <div class="row">
                   <div class="col-8">
                     <div class="numbers">
-                      <p class="text-sm mb-0 text-capitalize font-weight-bold">المرتب</p>
+                      <p class="text-sm mb-0 text-capitalize font-weight-bold">السلفيات</p>
                       <h5 class="font-weight-bolder mb-0">
-                        5000
+                        2500
                       </h5>
                     </div>
                   </div>
@@ -262,15 +262,15 @@ $select = mysqli_query($conn, "select * from users");
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
+          <div class="col-lg-4 col-sm-6  mb-4">
             <div class="card">
               <div class="card-body p-3">
                 <div class="row">
                   <div class="col-8">
                     <div class="numbers">
-                      <p class="text-sm mb-0 text-capitalize font-weight-bold">المرتب</p>
+                      <p class="text-sm mb-0 text-capitalize font-weight-bold">متبقي المرتب</p>
                       <h5 class="font-weight-bolder mb-0">
-                        5000
+                        2500
                       </h5>
                     </div>
                   </div>
