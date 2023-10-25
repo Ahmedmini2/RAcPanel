@@ -22,8 +22,6 @@ if (isset($_GET['id'])) {
     $phone = $seller_data['phone'];
     $email = $seller_data['email'];
     $created_at = $editData['created_at'];
-
-   
 }
 
 
@@ -314,7 +312,17 @@ if (isset($_GET['id'])) {
                 <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
                     إرفاق \ عرض الملف
                 </button>
+
             </div>
+            <button href="review_orders.php" type="button"  class=" printing btn bg-gradient-dark rounded-pill  " >
+            مراجعه الطلبيات
+                <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
+
+            </button>
+            
+
+
+
 
             <script>
                 function printDiv(divName) {
@@ -328,7 +336,7 @@ if (isset($_GET['id'])) {
             </script>
 
             <!-- Change Status Modal -->
-           
+
 
             <!-- Doc Modal -->
             <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -384,7 +392,7 @@ if (isset($_GET['id'])) {
                                             Tel / mobile:<br>
                                             Address:<br>
                                             E-mail:<br>
-                                          
+
                                         </p>
                                     </div>
                                     <div class="col-8">
@@ -394,7 +402,7 @@ if (isset($_GET['id'])) {
                                             591022703 <br>
                                             Al Malaz-Jareer Street <br>
                                             info@ruknamyal.com<br>
-                                            
+
 
                                         </p>
                                     </div>
@@ -424,12 +432,12 @@ if (isset($_GET['id'])) {
                                         </div>
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
-                                            <?=$created_at?><br>
-                                                CO-<?=$id?> <br>
-                                                <?=$name?><br>
-                                                <?=$email?><br>
-                                                <?=$phone?><br>
-                                                <?=$address?><br>
+                                                <?= $created_at ?><br>
+                                                CO-<?= $id ?> <br>
+                                                <?= $name ?><br>
+                                                <?= $email ?><br>
+                                                <?= $phone ?><br>
+                                                <?= $address ?><br>
 
 
                                             </p>
@@ -466,19 +474,19 @@ if (isset($_GET['id'])) {
                                 <!--Table body-->
                                 <tbody>
 
-                                    
-   
+
+
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td class="custom-font-m text-center"><?=$type?></td>
-                                        <td class="custom-font-m"><?=$dimensions?></td>
-                                        <td class="custom-font-m"><?=$quantity?></td>
-                                        <td class="custom-font-m"><?=$price_per_peice?></td>
-                                        <td class="custom-font-m"><?=$total_price?></td>
+                                        <td class="custom-font-m text-center"><?= $type ?></td>
+                                        <td class="custom-font-m"><?= $dimensions ?></td>
+                                        <td class="custom-font-m"><?= $quantity ?></td>
+                                        <td class="custom-font-m"><?= $price_per_peice ?></td>
+                                        <td class="custom-font-m"><?= $total_price ?></td>
 
                                     </tr>
-                                    
-                                    
+
+
                                 </tbody>
                                 <!--Table body-->
 
@@ -505,7 +513,7 @@ if (isset($_GET['id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span>SAR <?=number_format($total_price)?></span>
+                                            <span>SAR <?= number_format($total_price) ?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -523,7 +531,7 @@ if (isset($_GET['id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span>SAR <?=number_format(($total_price*15)/100)?></span>
+                                            <span>SAR <?= number_format(($total_price * 15) / 100) ?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -539,7 +547,7 @@ if (isset($_GET['id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_price+(($total_price*15)/100))?></span>
+                                            <span class="font-weight-bold text-success" id="total"><?= number_format($total_price + (($total_price * 15) / 100)) ?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -556,19 +564,18 @@ if (isset($_GET['id'])) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <p>The total value is SAR <?=number_format($total_price+(($total_price*15)/100))?> <span id="con"></span> riyals only.</p>
+                        <p>The total value is SAR <?= number_format($total_price + (($total_price * 15) / 100)) ?> <span id="con"></span> riyals only.</p>
                     </div>
                 </div>
                 <script>
-                    
-                     function changeVal() {
-                        
-                        value =  <?=number_format($total_price+(($total_price*15)/100) , 0 ,"","")?> ;
+                    function changeVal() {
+
+                        value = <?= number_format($total_price + (($total_price * 15) / 100), 0, "", "") ?>;
                         document.getElementById("con").innerText = numToWords(value);
                         console.log(value);
-                        
+
                     }
-                    window.onload=changeVal;
+                    window.onload = changeVal;
                 </script>
                 <hr>
                 <ul class="list-unstyled">
@@ -612,7 +619,7 @@ if (isset($_GET['id'])) {
 
         </div>
     </main>
-    
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>

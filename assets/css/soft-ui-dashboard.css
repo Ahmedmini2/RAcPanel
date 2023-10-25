@@ -25104,6 +25104,14 @@ width: 100px;
   align-items: stretch;
   /* width: 100%; */
 }
+.darkmode .list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: inherit;
+   background-color: #383838; 
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
 .darkmode .btn {
   margin-bottom: 1rem;
   letter-spacing: -0.025rem;
@@ -25180,7 +25188,7 @@ width: 100px;
  }
  
  .darkmode .sal-card-info {
-  --color: #181818;
+  --color: #383838;
   background: var(--color);
   color: var(--color);
   display: flex;
