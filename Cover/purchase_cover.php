@@ -301,24 +301,26 @@ if (isset($_GET['id'])) {
                 <?php require_once('../components/notification.php'); ?>
             </div>
             <!-- Button trigger modal -->
-            <div class="row">
-                <div class=" justify-content-md-end">
 
-                    <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
-                        طباعة الطلب
-                        <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
+            <div class=" justify-content-md-end">
 
-                    </button>
-                    <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                        إرفاق \ عرض الملف
-                    </button>
-                </div>
-                <div class=" justify-content-md-start">
+                <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
+                    طباعة الطلب
+                    <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
-                    <a href="review_orders.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6"> مراجعه الطلبيات&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
+                </button>
+                <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    إرفاق \ عرض الملف
+                </button>
 
-                </div>
             </div>
+            <button href="review_orders.php" type="button"  class=" printing btn bg-gradient-dark rounded-pill  " >
+            مراجعه الطلبيات
+                <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
+
+            </button>
+            
+
 
 
 
