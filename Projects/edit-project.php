@@ -68,19 +68,17 @@ if (isset($_POST['add-project'])) {
 //     $vat = $_POST['vat'];
 //     $trade = $_POST['trade'];
 
-//     $insert_contact = "INSERT INTO `contact_projects` (`id`, `project_id`, `supplier_name`, `contact_person`, `mobile`, `address`, `email`, `vat`, `company_trade`, `created_at`)
-//      VALUES (NULL, '$project_id', '$project_name', '$contact_name', '$mobile', '$address', '$email', '$vat', '$trade', NOW())";
-//     $contact_res = $conn->query($insert_contact);
 
 
-//     $product_name = $_POST['product_name'];
-//     $dimensions = $_POST['dimensions'];
-//     $quantity = $_POST['quantity'];
-//     $sell_price = str_replace(',', '', $_POST['sell_price']);
-//     $cost_price = $_POST['prod_peice'];
-//     $cost_price = str_replace(',', '', $cost_price);
-//     $net_perc = $_POST['net_peice'];
-//     $net_toti = str_replace(',', '', $_POST['net_toti']) / $quantity;
+
+    $product_name = $_POST['product_name'];
+    $dimensions = $_POST['dimensions'];
+    $quantity = $_POST['quantity'];
+    $sell_price = str_replace(',', '', $_POST['sell_price']);
+    $cost_price = $_POST['prod_peice'];
+    $cost_price = str_replace(',', '', $cost_price);
+    $net_perc = $_POST['net_peice'];
+    $net_toti = str_replace(',', '', $_POST['net_toti']) / $quantity;
 
 //     $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
 //     $product_res = $conn->query($insert_product);
@@ -88,97 +86,95 @@ if (isset($_POST['add-project'])) {
 //     if ($product_res) {
 //       $product_id = $conn->insert_id;
 
-//       $kharasana = $_POST['kharasana'];
-//       $kh_price = str_replace(',', '', $_POST['kh_price']);
-//       $kh_per = str_replace(',', '', $_POST['kh_per']);
-//       $kh_peice = str_replace(',','',$_POST['kh_peice']);
-//       $kh_tot = str_replace(',','',$_POST['kh_tot']);
+      $kharasana = $_POST['kharasana'];
+      $kh_price = str_replace(',', '', $_POST['kh_price']);
+      $kh_per = str_replace(',', '', $_POST['kh_per']);
+      $kh_peice = str_replace(',','',$_POST['kh_peice']);
+      $kh_tot = str_replace(',','',$_POST['kh_tot']);
 
-//       $insert_kh = "INSERT INTO kharasana (`id`, `product_id`, `type`, `price`, `quantity_per_piece`, `price_per_piece` , `total_price`, `created_at`) 
-//       VALUES(NULL, $product_id, '$kharasana', '$kh_price', '$kh_per', '$kh_peice' , '$kh_tot' , NOW())";
-//       $kh_res = $conn->query($insert_kh);
-//       if ($kh_res) {
+      $update_kh = "UPDATE kharasana SET `type` = '$kharasana', `price` = '$kh_price' , `quantity_per_piece` = '$kh_per' , `price_per_piece` = '$kh_peice' , `total_price` = '$kh_tot' WHERE `product_id` = $item_id";
+      
+      $kh_res = $conn->query($update_kh);
+      if ($kh_res) {
 
-//         $iron_raws = $_POST['iron-rr'];
-//         if ($iron_raws == "") {
-//           $iron_raws = 1;
-//         }
-//         while ($iron1 <= $iron_raws) {
-//           $iron = $_POST['iron_' . $iron1];
-//           $iron_price = str_replace(',', '', $_POST['iron_price_' . $iron1]);
-//           $iron_quantity = $_POST['iron_quantity_' . $iron1];
-//           $iron_long = $_POST['iron_long_' . $iron1];
-//           $iron_tn = $_POST['iron_tn_' . $iron1];
-//           $iron_tot = str_replace(',', '', $_POST['iron_tot_' . $iron1]);
+      }
 
-//           $sizeText = [
-//             "0.395" => "8مم",
-//             "0.617" => "10مم",
-//             "0.888" => "12مم",
-//             "1.21" => "14مم",
-//             "1.58" => "16مم",
-//             "2" => "18مم",
-//             "2.47" => "20مم",
-//             "2.984" => "22مم",
-//             "3.85" => "25مم",
-//             "6.41" => "32مم",
-//           ];
+        $iron_raws = $_POST['iron-rr'];
+        if ($iron_raws == "") {
+          $iron_raws = 1;
+        }
+        while ($iron1 <= $iron_raws) {
+          $iron = $_POST['iron_' . $iron1];
+          $iron_price = str_replace(',', '', $_POST['iron_price_' . $iron1]);
+          $iron_quantity = $_POST['iron_quantity_' . $iron1];
+          $iron_long = $_POST['iron_long_' . $iron1];
+          $iron_tn = $_POST['iron_tn_' . $iron1];
+          $iron_tot = str_replace(',', '', $_POST['iron_tot_' . $iron1]);
 
-//           $selectedSizeText = $sizeText[$iron];
+          $sizeText = [
+            "0.395" => "8مم",
+            "0.617" => "10مم",
+            "0.888" => "12مم",
+            "1.21" => "14مم",
+            "1.58" => "16مم",
+            "2" => "18مم",
+            "2.47" => "20مم",
+            "2.984" => "22مم",
+            "3.85" => "25مم",
+            "6.41" => "32مم",
+          ];
 
-//           $insert_iron = "INSERT INTO iron_band (`id`, `product_id`, `size`, `price_today`, `quantity`, `iron_height`, `tn_price`, `total_price`, `created_at`)
-//           VALUES (NULL, '$product_id' , '$selectedSizeText' , '$iron_price' , '$iron_quantity' , '$iron_long' , '$iron_tn' ,'$iron_tot', NOW())";
-//           $iron_res = $conn->query($insert_iron);
-//           if ($iron_res) {
-//             $_SESSION['notification'] = "One Addes";
-//           } else {
-//             $_SESSION['notification'] = "One Error";
-//           }
-//           $iron1++;
-//         }
-//         $accessory_raws = $_POST['ac-rr'];
-//         if ($accessory_raws == "") {
-//           $accessory_raws = 1;
-//         }
-//         while ($accessory1 <= $accessory_raws) {
-//           $accessory = $_POST['accessory_' . $accessory1];
-//           $acc_quantity = $_POST['acc_quantity_' . $accessory1];
-//           $acc_price = str_replace(',', '', $_POST['acc_price_' . $accessory1]);
-//           $acc_tot = str_replace(',', '', $_POST['acc_tot_' . $accessory1]);
+          $selectedSizeText = $sizeText[$iron];
 
-//           $insert_accessory = "INSERT INTO `accessory_band` (`id`, `product_id`, `name`, `quantity`, `price_per_piece`, `total_price`, `created_at`) 
-//           VALUES (NULL, '$product_id' , '$accessory' , '$acc_quantity' , '$acc_price' , '$acc_tot' , NOW())";
-//           $accessory_res = $conn->query($insert_accessory);
-//           if ($accessory_res) {
-//             $_SESSION['notification'] = "One Addes";
-//           } else {
-//             $_SESSION['notification'] = "One Error";
-//           }
-//           $accessory1++;
-//         }
+          $update_iron = "UPDATE iron_band SET `size` = '$selectedSizeText' , `price_today` = '$iron_price' , `quantity` = '$iron_quantity' , `iron_height` = '$iron_long' , 
+          `tn_price` = '$iron_tn', `total_price` = '$iron_tot' WHERE `product_id` = $item_id";
+          $iron_res = $conn->query($update_iron);
+          $iron1++;
+        }
+          $accessory_raws = $_POST['ac-rr'];
+          if ($accessory_raws == "") {
+            $accessory_raws = 1;
+          }
+          while ($accessory1 <= $accessory_raws) {
+            $accessory = $_POST['accessory_' . $accessory1];
+            $acc_quantity = $_POST['acc_quantity_' . $accessory1];
+            $acc_price = str_replace(',', '', $_POST['acc_price_' . $accessory1]);
+            $acc_tot = str_replace(',', '', $_POST['acc_tot_' . $accessory1]);
 
-//         $cover_type = $_POST['cover_type'];
-//         $cover_price = str_replace(',', '', $_POST['cover_price']);
-//         $cover_tot = str_replace(',', '', $_POST['cover_tot']);
+            $update_accessory = "UPDATE `accessory_band` SET  `name` = '$accessory' , `quantity` = '$acc_quantity' , `price_per_piece` = '$acc_price' , `total_price` = '$acc_tot' WHERE `product_id` = $item_id";
+            $accessory_res = $conn->query($update_accessory);
+            $accessory1++;
+          }
 
-//         $insert_cover = "INSERT INTO `covers_band` (`id`, `product_id`, `type`, `price_per_piece`, `total_price`, `created_at`) 
-//         VALUES (NULL , '$product_id' , '$cover_type' , '$cover_price' , '$cover_tot' , NOW())";
-//         $cover_res = $conn->query($insert_cover);
-//         if ($cover_res) {
+        $cover_type = $_POST['cover_type'];
+        $cover_price = str_replace(',', '', $_POST['cover_price']);
+        $cover_tot = str_replace(',', '', $_POST['cover_tot']);
 
-//           $band_raws = $_POST['band-rr'];
-//           if ($band_raws == "") {
-//             $band_raws = 1;
-//           }
-//           while ($band1 <= $band_raws) {
-//             $band = $_POST['band_' . $band1];
-//             $band_price = str_replace(',', '', $_POST['band_price_' . $band1]);
-//             $band_tot = str_replace(',', '', $_POST['band_tot_' . $band1]);
+        $update_cover = "UPDATE `covers_band` SET `type` = '$cover_type' , `price_per_piece` = '$cover_price' , `total_price` = '$cover_tot' WHERE `product_id` = $item_id";
+        $cover_res = $conn->query($update_cover);
+        if ($cover_res) {
 
-//             $insert_band = "INSERT INTO `extra_band` (`id`, `product_id`, `name`, `price_per_piece`, `total_price`, `created_at`) 
-//             VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
-//             $band_res = $conn->query($insert_band);
-//             if ($band_res) {
+        }
+
+          $band_raws = $_POST['band-rr'];
+          if ($band_raws == "") {
+            $band_raws = 1;
+          }
+          while ($band1 <= $band_raws) {
+            $band = $_POST['band_' . $band1];
+            $band_price = str_replace(',', '', $_POST['band_price_' . $band1]);
+            $band_tot = str_replace(',', '', $_POST['band_tot_' . $band1]);
+
+            $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `product_id` = $item_id";
+            $band_res = $conn->query($update_band);
+            if ($band_res) {
+              $_SESSION['notification'] = "تعديل بنجاح";
+                  header('location: index.php');
+                  exit();
+            }
+            $band_raws++;
+          }
+
 //               if (isset($_POST['deliverable'])) {
 //                 $deliverable = 1;
 //                 $quantity_of_track = $_POST['quantity_of_track'];
@@ -1136,7 +1132,7 @@ if (isset($_POST['add-project'])) {
                         letter-spacing: 1px;
                       }
                     </style>
-                    <button type="button" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" name="add-project">
+                    <button type="submit" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" name="add-project">
                       تعديل الصنف
                     </button>
 
