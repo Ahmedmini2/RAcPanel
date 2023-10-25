@@ -74,7 +74,7 @@ if (isset($_POST['add-project'])) {
 
         if($contact_res){
         $_SESSION['notification'] = "تمت تعديل المشروع بنجاح";
-          header('location: view-projects.php?id='.$product_id.'');
+          header('location: view-projects.php?id='.$project_id.'');
           exit();
         }
 
@@ -365,7 +365,7 @@ if (isset($_POST['add-project'])) {
             
            
                 <button type="submit" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" name="add-project">
-                      تعديل الصنف
+                      تعديل المشروع
                     </button>
             
           </form>
