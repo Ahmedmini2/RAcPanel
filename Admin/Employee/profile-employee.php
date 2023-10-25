@@ -228,10 +228,10 @@ $select =mysqli_query($conn, "select * from users");
                   <div class="avatar me-3">
                     <img src="../../assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
                   </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Sophie B.</h6>
-                    <p class="mb-0 text-xs">Hi! I need more information..</p>
-                  </div>
+                    <div class="d-flex align-items-start flex-column justify-content-center">
+                        <h6 class="mb-0 text-sm">Sophie B.</h6>
+                        <p class="mb-0 text-xs">Hi! I need more information..</p>
+                    </div>
                   <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
                 </li>
                 <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
@@ -239,7 +239,7 @@ $select =mysqli_query($conn, "select * from users");
                     <img src="../../assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
                   </div>
                   <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Anne Marie</h6>
+                    <h  6 class="mb-0 text-sm">Anne Marie</h6>
                     <p class="mb-0 text-xs">Awesome work, can you..</p>
                   </div>
                   <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>

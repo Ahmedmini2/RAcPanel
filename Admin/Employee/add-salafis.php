@@ -136,7 +136,7 @@ $_SESSION['sidebar_admin'] = "employee";
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                <label>القسم</label>
+                                    <label>القسم</label>
                                     <select name="position" class="form-control">
                                         <option value=""></option>
                                         <option value="Account">محاسب</option>
@@ -156,17 +156,23 @@ $_SESSION['sidebar_admin'] = "employee";
                                     <input type="text" placeholder="الرجاء كتابه المبلغ" class="form-control" name="" value="">
                                 </div>
                             </div>
-                            
+
                             <div class="col">
                                 <div class="form-group">
                                     <label> تاريخ التوظيف</label>
                                     <input type="date" placeholder="" class="form-control" name="duration">
                                 </div>
                             </div>
-                        
-                            
+
+
                         </div>
-                        
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label>صورة المشروع</label>
+                                <input type="file" class="form-control" name="project_image">
+                            </div>
+                        </div>
+
 
 
                         <div class="row">
