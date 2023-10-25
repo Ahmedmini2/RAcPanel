@@ -315,7 +315,6 @@ if (isset($_GET['id'])) {
                 <button href="review_orders.php" type="button" id="btn4" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
                   مراجعه الطلبيات 
                 </button>
-                <a href="review_orders.php" class="btn bg-gradient-dark justify-content-md-start mb-0 col-md-2 col-sm-6 col-xs-6"> مراجعه الطلبيات&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
 
            
 
