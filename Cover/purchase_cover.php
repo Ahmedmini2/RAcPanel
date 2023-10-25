@@ -312,9 +312,9 @@ if (isset($_GET['id'])) {
                 <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
                     إرفاق \ عرض الملف
                 </button>
-                <button href="review_orders.php" type="button" id="btn4" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                <a href="review_orders.php"  id="btn4" class="  btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5  ">
                   مراجعه الطلبيات 
-                </button>
+                </a>
 
            
 
