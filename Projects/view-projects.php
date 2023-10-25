@@ -289,14 +289,15 @@ if (isset($_GET['id'])) {
                                                 
                                             
                                             ?>
-                                            <form method="post" action="edit-project.php?project_id=<?=$id?>&item_id=<?=$rr['product_name']?>">
+                                            <form method="post" action="edit-project.php?project_id=<?=$id?>&item_id=<?=$rr['id']?>">
                                             <?php if ($position == 'Admin') { ?> <button type="submit" name="confirm" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
                                                     <?= $rr['product_name'] ?>
                                                 </button>
                                             <?php } ?>
                                             <br>
+                                            </form>
                                             <?php } ?>
-                                        </form>
+                                        
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
