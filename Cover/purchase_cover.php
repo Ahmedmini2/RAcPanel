@@ -314,15 +314,7 @@ if (isset($_GET['id'])) {
                 </button>
 
             </div>
-            <button href="review_orders.php" type="button"  class=" printing btn bg-gradient-dark rounded-pill  " >
-            مراجعه الطلبيات
-                <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
-
-            </button>
-            
-
-
-
+            <a href="review_orders.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6"> مراجعه الطلبيات&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
 
             <script>
                 function printDiv(divName) {
