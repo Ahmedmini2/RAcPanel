@@ -74,7 +74,7 @@ if (isset($_POST['add-project'])) {
 
         if($contact_res){
         $_SESSION['notification'] = "تمت تعديل المشروع بنجاح";
-          header('location: view-projects.php?id='.$product_id.'');
+          header('location: view-projects.php?id='.$project_id.'');
           exit();
         }
 
