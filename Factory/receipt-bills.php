@@ -383,7 +383,7 @@ if (isset($_GET['project_id'])) {
                                         </div>
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
-                                                <?= $supplier_name?><br>
+                                                <?=$supplier_name?><br>
                                                 <?= $address?><br>
                                                 <?= $mobile?><br>
                                                <?= $id ?> <br>
@@ -434,7 +434,7 @@ if (isset($_GET['project_id'])) {
                                         </tr>
 
                                     <?php } ?>
-                                   >
+                                   
                                 </tbody>
                                 <!--Table body-->
 
@@ -509,23 +509,6 @@ if (isset($_GET['project_id'])) {
 
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-               
-               
-                <hr>
-                
-
-
-                <div class="row text-center">
-
-                    
-                    <div class="col-6">
-                        <div class="row">
-                            <h6>Approved by</h6>
-                            <input type="text" class="signture" id="signture2" />
                         </div>
                     </div>
                 </div>
