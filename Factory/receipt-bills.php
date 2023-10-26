@@ -320,12 +320,10 @@ if (isset($_GET['project_id'])) {
                     document.getElementById('btn2').style.display = "none";
                     document.getElementById('btn3').style.display = "none";
                     
-                    document.getElementById('signture2').style.backgroundColor = "#ffffff00";
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
                     document.getElementById('btn3').style.display = "inline";
                    
-                    document.getElementById('signture2').style.backgroundColor = "white";
 
                 }
             </script>
@@ -406,7 +404,7 @@ if (isset($_GET['project_id'])) {
                                 <thead class="text-light header-color custom-font-m table-bordered">
                                     <tr>
                                         <th style="color: white;">S.No.</th>
-                                        <th style="color: white;"> ITEM DESCRIPTION</th>
+                                        <th style="color: white;">ITEM DESCRIPTION</th>
                                         <th style="color: white;">UNIT</th>
                                         <th style="color: white;">UNIT</th>
                                         
