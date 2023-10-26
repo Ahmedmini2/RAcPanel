@@ -951,6 +951,7 @@ if (isset($_GET['id'])) {
                                                 <div class="d-flex align-items-center text-sm">
                                                     
                                                     <a href="../Factory/receipt-bills.php?project_id=<?=$id?>&delivery_id=<?=$delivery['id']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
+                                                    <a class="btn btn-link text-dark px-3 mb-0" href="../Factory/receipt-report.php?project_id=<?=$id?>&edit=<?=$delivery['id']?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                                                 </div>
                                             </li>
                                            <?php } ?>

@@ -1,6 +1,50 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Factory";
+
+if(isset($_GET['edit']) && isset($_GET['project_id'])){
+    
+    $delivery_id = $_GET['edit'];
+    $id = $_GET['project_id'];
+    $query = "SELECT * FROM product_delivery WHERE id = $delivery_id";
+    $res = $conn->query($query);
+    $editData = $res->fetch_assoc();
+    $del_id = $editData['id'];
+    $product_id = $editData['product_id'];
+    $quantity = $editData['quantity'];
+    $deliverd_by = $editData['deliverd_by'];
+    $on_date = $editData['on_date'];
+    $phone = $editData['phone'];
+    $truck_no = $editData['truck_no'];
+    $approved_by = $editData['approved_by'];
+
+    if(isset($_POST['submit'])){
+        $str = explode(",",$_POST['name']);
+        $product_id = $str[0];
+        $quantity = $_POST['quantity'];
+        $del_quantity = $_POST['del_quantity'];
+        $del_by = $_POST['del_by'];
+        $del_no = $_POST['del_no'];
+        $on_date = $_POST['on_date'];
+        $truck_no = $_POST['truck_no'];
+        $approved_by = $_POST['approved_by'];
+
+
+        $update_product_del= "UPDATE `product_delivery` SET `quantity` = '$del_quantity' ,`deliverd_by` = '$del_by' ,`on_date` = '$on_date' ,`phone` = '$del_no',
+        `truck_no` = '$truck_no',`approved_by` = '$approved_by' WHERE `id` = '$delivery_id'";
+        $res = $conn->query($update_product_del);
+        if ($res) {
+            $_SESSION['notification'] = "تم تعديل تقرير الإستلام بنجاح";
+            header('location: ../Projects/view-projects.php?id='.$id.'');
+            exit();
+          } else {
+            $_SESSION['notification'] = "خطأ في الادخال";
+            header('location: ../Projects/view-projects.php?id='.$id.'');
+            exit();
+          }
+    }
+    
+}
 if (isset($_GET['project_id'])) {
     $id = $_GET['project_id'];
 
@@ -15,18 +59,7 @@ if (isset($_GET['project_id'])) {
         $truck_no = $_POST['truck_no'];
         $approved_by = $_POST['approved_by'];
         
-        // $del_image = $_POST['del_image'];
-
-        // $target_dir = "../Signed-Docs/Delivery-Reports/".$id."/";
-        // if(!is_dir($target_dir)) {
-        //     mkdir($target_dir, 0777, true);
-        // }else{
-
-        // }
-        // $target_file = $target_dir . basename($_FILES["del_image"]["name"]);
-        // $filename = basename($_FILES["del_image"]["name"]);
-        // $uploadOk = 1;
-        // move_uploaded_file($_FILES["del_image"]["tmp_name"], $target_file);
+       
 
         $insert_product_del= "INSERT INTO `product_delivery` (`id`,`project_id`, `product_id`, `quantity`,`deliverd_by`,`on_date`,`phone`,`truck_no`,`approved_by`, `created_at`) VALUES
          (NULL,'$id', '$product_id', '$del_quantity', '$del_by','$on_date','$del_no','$truck_no','$approved_by', NOW())";
