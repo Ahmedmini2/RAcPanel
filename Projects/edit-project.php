@@ -78,13 +78,11 @@ if (isset($_POST['add-project'])) {
     $cost_price = $_POST['prod_peice'];
     $cost_price = str_replace(',', '', $cost_price);
     $net_perc = $_POST['net_peice'];
-    $net_toti = str_replace(',', '', $_POST['net_toti']) / $quantity;
+    $net_toti = str_replace(',', '', $_POST['net_toti_peice']);
 
-//     $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
-//     $product_res = $conn->query($insert_product);
+    $update_product = "UPDATE products SET `product_name` = '$product_name', `quantity` ='$quantity' , `dimensions` = '$dimensions' , `cost_price` = '$cost_price' ,`sell_price` = '$sell_price' ,`net_profit` = '$net_toti' ,`net_perc` = '$net_perc' WHERE `product_id` = $item_id";
+    $product_res = $conn->query($update_product);
 
-//     if ($product_res) {
-//       $product_id = $conn->insert_id;
 
       $kharasana = $_POST['kharasana'];
       $kh_price = str_replace(',', '', $_POST['kh_price']);
