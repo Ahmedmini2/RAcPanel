@@ -406,7 +406,7 @@ if (isset($_GET['project_id'])) {
                                 <thead class="text-light header-color custom-font-m table-bordered">
                                     <tr>
                                         <th style="color: white;">S.No.</th>
-                                        <th style="color: white;"> ITEM DESCRIPTION</th>
+                                        <th style="color: white;">ITEM DESCRIPTION</th>
                                         <th style="color: white;">UNIT</th>
                                         <th style="color: white;">UNIT</th>
                                         

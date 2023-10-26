@@ -299,11 +299,12 @@ while ($ban = mysqli_fetch_array($banner)) {
             </footer>
         </div>
       <?php } else {?>
+        
 
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
-          <div class="card">
+        <div class="sal-card col-lg-3 col-sm-6 mb-lg-0 mb-4">
+          <div class="sal-card-info">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
@@ -325,8 +326,8 @@ while ($ban = mysqli_fetch_array($banner)) {
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
-          <div class="card">
+        <div class="sal-card col-lg-3 col-sm-6 mb-lg-0 mb-4">
+          <div class="sal-card-info">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
@@ -347,8 +348,8 @@ while ($ban = mysqli_fetch_array($banner)) {
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
-          <div class="card">
+        <div class="sal-card col-lg-3 col-sm-6 mb-lg-0 mb-4">
+          <div class="sal-card-info">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
@@ -369,8 +370,8 @@ while ($ban = mysqli_fetch_array($banner)) {
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="card">
+        <div class="sal-card col-lg-3 col-sm-6">
+          <div class="sal-card-info">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
