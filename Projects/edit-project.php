@@ -918,6 +918,19 @@ if (isset($_POST['add-project'])) {
                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable" <?php if ($delivery_band['deliverable'] == 1){ echo 'checked';} ?>>
                         <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
                       </div>
+                      <script>
+                        $(document).ready(function() {
+                          $('input[type="checkbox"]').click(function() {
+                            if (document.getElementById("flexSwitchCheckDefault").checked == true) {
+                              
+                              document.getElementById("toggle_ch").innerText = "نعم";
+                            } else {
+                              
+                              document.getElementById("toggle_ch").innerText = "لا";
+                            }
+                          });
+                        });
+                      </script>
                   </div>
                     <div class="row" id="delivery-div">
                       <div class="col-md-2 col-sm-6 ">
