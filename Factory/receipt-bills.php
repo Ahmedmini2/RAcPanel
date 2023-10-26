@@ -237,8 +237,8 @@ if (isset($_GET['project_id'])) {
                             <form method="post" action="../scripts/factory/update-del.php?del_id=<?=$del_id?>" enctype="multipart/form-data">
                                 <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
                                 <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
-                                <?php if ($doc != '') {
-                                    echo '<a href="../Signed-Docs/Delivery/' . $del_id . '/' . $image . '" target="_blank"><img src="../Signed-Docs/Delivery/' . $del_id . '/' . $image . '" class="img-fluid rounded-top" alt="' . $image . '"></a>';
+                                <?php if ($image != '') {
+                                    echo '<a href="../Signed-Docs/Delivery/'.$del_id.'/'.$image.'" target="_blank"><img src="../Signed-Docs/Delivery/'.$del_id .'/'.$image.'" class="img-fluid rounded-top" alt="' . $image . '"></a>';
                                 } ?>
                             </form>
                         </div>
