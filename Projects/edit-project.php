@@ -80,7 +80,7 @@ if (isset($_POST['add-project'])) {
     $net_perc = $_POST['net_peice'];
     $net_toti = str_replace(',', '', $_POST['net_toti_peice']);
 
-    $update_product = "UPDATE products SET `product_name` = '$product_name', `quantity` ='$quantity' , `dimensions` = '$dimensions' , `cost_price` = '$cost_price' ,`sell_price` = '$sell_price' ,`net_profit` = '$net_toti' ,`net_perc` = '$net_perc' WHERE `id  ` = '$item_id'";
+    $update_product = "UPDATE products SET `product_name` = '$product_name', `quantity` ='$quantity' , `dimensions` = '$dimensions' , `cost_price` = '$cost_price' ,`sell_price` = '$sell_price' ,`net_profit` = '$net_toti' ,`net_perc` = '$net_perc' WHERE `id  ` = $item_id";
     $product_res = $conn->query($update_product);
 
 
@@ -90,7 +90,7 @@ if (isset($_POST['add-project'])) {
       $kh_peice = str_replace(',','',$_POST['kh_peice']);
       $kh_tot = str_replace(',','',$_POST['kh_tot']);
 
-      $update_kh = "UPDATE kharasana SET `type` = '$kharasana', `price` = '$kh_price' , `quantity_per_piece` = '$kh_per' , `price_per_piece` = '$kh_peice' , `total_price` = '$kh_tot' WHERE `product_id` = '$item_id'";
+      $update_kh = "UPDATE kharasana SET `type` = '$kharasana', `price` = '$kh_price' , `quantity_per_piece` = '$kh_per' , `price_per_piece` = '$kh_peice' , `total_price` = '$kh_tot' WHERE `product_id` = $item_id";
       
       $kh_res = $conn->query($update_kh);
       if ($kh_res) {
@@ -915,7 +915,7 @@ if (isset($_POST['add-project'])) {
                   <div class="row">
                       <label for="">هل الصنف قابل للتوصيل ؟</label>
                       <div class="form-check form-switch col-md-2 col-sm-6">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable" <?php if ($delivery_band['deliverable'] == 1){ echo 'checked';} ?>>
                         <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
                       </div>
                   </div>
