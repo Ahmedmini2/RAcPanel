@@ -39,7 +39,7 @@ if (isset($_GET['project_id'])) {
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-     إذن تسليم
+        إذن تسليم
     </title>
     <!--     Fonts and icons     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -319,11 +319,11 @@ if (isset($_GET['project_id'])) {
                 function printDiv(divName) {
                     document.getElementById('btn2').style.display = "none";
                     document.getElementById('btn3').style.display = "none";
-                    
+
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
                     document.getElementById('btn3').style.display = "inline";
-                   
+
 
                 }
             </script>
@@ -359,11 +359,16 @@ if (isset($_GET['project_id'])) {
 
             <div class="invoice-box mt-8" dir="ltr">
 
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h5 class="card-title">إذن تسليم</h5>
+                        <p class="card-text">DELEVARY NOTE</p>
+                    </div>
+                </div>
 
-                
                 <!-- here to change -->
                 <div class="row ">
-                <div class="col-6">
+                    <div class="col-6">
                         <div>
 
                             <div>
@@ -376,15 +381,15 @@ if (isset($_GET['project_id'])) {
                                                 ADDRESS: <br>
                                                 TEL & FAX NO: <br>
                                                 P.O.REF NO: <br>
-                                                
+
                                             </p>
                                         </div>
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
-                                                <?=$supplier_name?><br>
-                                                <?= $address?><br>
-                                                <?= $mobile?><br>
-                                               <?= $id ?> <br>
+                                                <?= $supplier_name ?><br>
+                                                <?= $address ?><br>
+                                                <?= $mobile ?><br>
+                                                <?= $id ?> <br>
                                             </p>
                                         </div>
                                     </div>
@@ -407,7 +412,7 @@ if (isset($_GET['project_id'])) {
                                         <th style="color: white;">ITEM DESCRIPTION</th>
                                         <th style="color: white;">UNIT</th>
                                         <th style="color: white;">UNIT</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <!--Table head-->
@@ -427,12 +432,12 @@ if (isset($_GET['project_id'])) {
                                             <td class="custom-font-m text-center"><?= $item['product_name'] ?></td>
                                             <td class="custom-font-m">Ea</td>
                                             <td class="custom-font-m">46</td>
-                                            
+
 
                                         </tr>
 
                                     <?php } ?>
-                                   
+
                                 </tbody>
                                 <!--Table body-->
 
@@ -457,7 +462,7 @@ if (isset($_GET['project_id'])) {
                                     </div>
                                     <div class="col-8">
                                         <p class="card-text custom-font-small">
-                                             <br>
+                                            <br>
                                             <?= $name ?> <br>
                                             <?= $created_at ?> <br>
                                             __________________ <br>
@@ -485,7 +490,7 @@ if (isset($_GET['project_id'])) {
                                                 DATE: <br>
                                                 SIGN: <br>
                                                 TRUCK NO: <br>
-                                                
+
                                             </p>
                                         </div>
                                         <div class="col-8">
@@ -496,7 +501,7 @@ if (isset($_GET['project_id'])) {
                                                 <?= $created_at ?> <br>
                                                 __________<br>
                                                 4752 <br>
-                                               
+
 
 
                                             </p>
