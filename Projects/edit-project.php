@@ -167,7 +167,7 @@ if (isset($_POST['add-project'])) {
         $cover_price = str_replace(',', '', $_POST['cover_price']);
         $cover_tot = str_replace(',', '', $_POST['cover_tot']);
 
-        $update_cover = "UPDATE `covers_band` SET `type` = '$cover_type' , `price_per_piece` = '$cover_price' , `total_price` = '$cover_tot' WHERE `product_id` = '$item_id'";
+        $update_cover = "UPDATE `covers_band` SET `type` = '$cover_type' , `price_per_piece` = '$cover_price' , `total_price` = '$cover_tot' WHERE `product_id` = $item_id";
         $cover_res = $conn->query($update_cover);
         if ($cover_res) {
 
