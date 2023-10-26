@@ -15,6 +15,7 @@ if (isset($_GET['project_id'])) {
     $phone = $editData['phone'];
     $truck_no = $editData['truck_no'];
     $approved_by = $editData['approved_by'];
+    $image = $editData['image'];
 
     $query22 = "SELECT * FROM products WHERE id = $product_id";
     $res22 = $conn->query($query22);
@@ -237,7 +238,7 @@ if (isset($_GET['project_id'])) {
                                 <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
                                 <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
                                 <?php if ($doc != '') {
-                                    echo '<a href="../Signed-Docs/' . $id . '/' . $doc . '" target="_blank"><img src="../Signed-Docs/' . $id . '/' . $doc . '" class="img-fluid rounded-top" alt="' . $doc . '"></a>';
+                                    echo '<a href="../Signed-Docs/Delivery/' . $del_id . '/' . $image . '" target="_blank"><img src="../Signed-Docs/Delivery/' . $del_id . '/' . $image . '" class="img-fluid rounded-top" alt="' . $image . '"></a>';
                                 } ?>
                             </form>
                         </div>
