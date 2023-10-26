@@ -423,7 +423,7 @@ if (isset($_GET['project_id'])) {
                                     ?>
 
                                         <tr>
-                                            <th class="table-secondary text-center" scope="row"><?= $i ?></th>
+                                            <th class="text-center" scope="row"><?= $i ?></th>
                                             <td class="custom-font-m text-center"><?= $item['product_name'] ?></td>
                                             <td class="custom-font-m">Ea</td>
                                             <td class="custom-font-m">46</td>
@@ -490,7 +490,7 @@ if (isset($_GET['project_id'])) {
                                         </div>
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
-                                                <?= $supplier_name ?><br>
+                                                <br>
                                                 <?= $name ?> <br>
                                                 <?= $mobile ?><br>
                                                 <?= $created_at ?> <br>
