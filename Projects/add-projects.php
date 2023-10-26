@@ -490,7 +490,7 @@ if (isset($_POST['add-project'])) {
   </style>
 </head>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl ">
 
   <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
