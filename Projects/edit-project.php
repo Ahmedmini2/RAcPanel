@@ -129,7 +129,7 @@ if (isset($_POST['add-project'])) {
           
           $update_iron = "UPDATE `iron_band` SET `size`='$selectedSizeText',`price_today`='$iron_price',`quantity`='$iron_quantity',`iron_height`='$iron_long',`tn_price`='$iron_tn',`total_price`='$iron_tot' WHERE `id` = '$iron_id'";
           $iron_res = $conn->query($update_iron);
-          echo $update_iron;
+          echo '<br>'.$update_iron;
           if ($iron_res){
             
             $iron1++;
