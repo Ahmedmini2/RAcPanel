@@ -186,6 +186,7 @@ if (isset($_POST['add-project'])) {
 
             $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `id` = '$extra_id'";
             $band_res = $conn->query($update_band);
+            echo '<br>'.$update_band;
             if ($band_res) {
               $band1++;
             }else{
