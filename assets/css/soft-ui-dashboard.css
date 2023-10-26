@@ -25214,6 +25214,10 @@ width: 100px;
   color: #f7ba2b;
   transition: color 1s;
  }
+
+ .darkmode .text-secondary {
+  color: #d0d3d9 !important;
+}
   /*card*/
  
   .sal-card{
