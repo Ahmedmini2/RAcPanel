@@ -113,22 +113,23 @@ if (isset($_POST['add-project'])) {
           $iron_id = $_POST['iron_id'.$iron1];
 
           $sizeText = [
-            "0.395" => "8مم",
-            "0.617" => "10مم",
-            "0.888" => "12مم",
-            "1.21" => "14مم",
-            "1.58" => "16مم",
-            "2" => "18مم",
-            "2.47" => "20مم",
-            "2.984" => "22مم",
-            "3.85" => "25مم",
-            "6.41" => "32مم",
+            "0.395" => "8",
+            "0.617" => "10",
+            "0.888" => "12",
+            "1.21" => "14",
+            "1.58" => "16",
+            "2" => "18",
+            "2.47" => "20",
+            "2.984" => "22",
+            "3.85" => "25",
+            "6.41" => "32",
           ];
 
           $selectedSizeText = $sizeText[$iron];
           
-          $update_iron = "UPDATE `iron_band` SET `size`='$selectedSizeText',`price_today`='$iron_price',`quantity`='$iron_quantity',`iron_height`='$iron_long',`tn_price`='$iron_tn',`total_price`='$iron_tot' WHERE `id` = '$iron_id'";
+          $update_iron = "UPDATE  iron_band  SET  size ='$selectedSizeText', price_today ='$iron_price', quantity ='$iron_quantity', iron_height ='$iron_long', tn_price ='$iron_tn', total_price ='$iron_tot' WHERE  id  = '$iron_id'";
           $iron_res = $conn->query($update_iron);
+          echo '<br>'.$update_iron;
           if ($iron_res){
             
             $iron1++;
@@ -185,6 +186,7 @@ if (isset($_POST['add-project'])) {
 
             $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `id` = '$extra_id'";
             $band_res = $conn->query($update_band);
+            echo '<br>'.$update_band;
             if ($band_res) {
               $band1++;
             }else{
