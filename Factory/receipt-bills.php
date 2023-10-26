@@ -490,7 +490,7 @@ if (isset($_GET['project_id'])) {
                                         </div>
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
-                                                <?= $supplier_name ?><br>
+                                                <br>
                                                 <?= $name ?> <br>
                                                 <?= $mobile ?><br>
                                                 <?= $created_at ?> <br>
