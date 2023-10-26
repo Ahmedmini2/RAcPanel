@@ -188,7 +188,7 @@ if (isset($_POST['add-project'])) {
                 $peice_per_track = $_POST['peice_per_track'];
                 
                 
-                $update_delivery = "UPDATE `delivery` SET `deliverable` = '$deliverable' , `peice_per_track` = '$peice_per_track' , `quantity_of_track` = '$quantity_of_track' , `delivery_to` = '$delivery_to' , `piece_price` = '$piece_price', `track_price` = '$track_price', `total_price` = '$total_track_price' WHERE `product_id` = $item_id";
+                $update_delivery = "UPDATE `delivery` SET `deliverable` = '$deliverable' , `peice_per_track` = '$peice_per_track' , `quantity_of_track` = '$quantity_of_track' , `delivery_to` = '$delivery_to' , `piece_price` = '$piece_price', `track_price` = '$track_price', `total_price` = '$total_track_price' WHERE `product_id` = '$item_id'";
                 $delivery_res = $conn->query($update_delivery);
                 if ($delivery_res){
                   $_SESSION['notification'] = "تم التعديل بنجاح";

@@ -9,20 +9,27 @@ if (isset($_GET['project_id'])) {
         $product_id = $str[0];
         $quantity = $_POST['quantity'];
         $del_quantity = $_POST['del_quantity'];
-        $del_image = $_POST['del_image'];
+        $del_by = $_POST['del_by'];
+        $del_no = $_POST['del_no'];
+        $on_date = $_POST['on_date'];
+        $truck_no = $_POST['truck_no'];
+        $approved_by = $_POST['approved_by'];
+        
+        // $del_image = $_POST['del_image'];
 
-        $target_dir = "../Signed-Docs/Delivery-Reports/".$id."/";
-        if(!is_dir($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        }else{
+        // $target_dir = "../Signed-Docs/Delivery-Reports/".$id."/";
+        // if(!is_dir($target_dir)) {
+        //     mkdir($target_dir, 0777, true);
+        // }else{
 
-        }
-        $target_file = $target_dir . basename($_FILES["del_image"]["name"]);
-        $filename = basename($_FILES["del_image"]["name"]);
-        $uploadOk = 1;
-        move_uploaded_file($_FILES["del_image"]["tmp_name"], $target_file);
+        // }
+        // $target_file = $target_dir . basename($_FILES["del_image"]["name"]);
+        // $filename = basename($_FILES["del_image"]["name"]);
+        // $uploadOk = 1;
+        // move_uploaded_file($_FILES["del_image"]["tmp_name"], $target_file);
 
-        $insert_product_del= "INSERT INTO `product_delivery` (`id`,`project_id`, `product_id`, `quantity`, `image`, `created_at`) VALUES (NULL,'$id', '$product_id', '$del_quantity', '$filename', NOW())";
+        $insert_product_del= "INSERT INTO `product_delivery` (`id`,`project_id`, `product_id`, `quantity`,`deliverd_by`,`on_date`,`phone`,`truck_no`,`approved_by`, `created_at`) VALUES
+         (NULL,'$id', '$product_id', '$del_quantity', '$del_by','$del_no','$on_date','$truck_no','$approved_by', NOW())";
         $res = $conn->query($insert_product_del);
         if ($res) {
             $_SESSION['notification'] = "تم اضافة تقرير الإستلام بنجاح";
@@ -256,7 +263,7 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> تم الاستلام عن طريق </label>
-                                    <input type="text" placeholder="الرجاء كتابة اسم المستلم" class="form-control" name="del_quantity" value="">
+                                    <input type="text" placeholder="الرجاء كتابة اسم الموصل" class="form-control" name="del_by" value="">
 
                                 </div>
                             </div>
@@ -265,14 +272,14 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> رقم الهاتف </label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية التي سيتم تسليمها" class="form-control" name="del_quantity" value="">
+                                    <input type="text" placeholder="الرجاء كتابة رقم هاتف صاحب التوصيل" class="form-control" name="del_no" value="">
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label> تاريخ </label>
-                                    <input type="date" placeholder="" class="form-control" name="valid_till">
+                                    <input type="date" placeholder="" class="form-control" name="on_date">
 
                                 </div>
                             </div>
@@ -281,14 +288,14 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> رقم الشاحنة </label>
-                                    <input type="text" placeholder="الرجاء كتابة رقم الشاحنة" class="form-control" name="del_quantity" value="">
+                                    <input type="text" placeholder="الرجاء كتابة رقم الشاحنة" class="form-control" name="truck_no" value="">
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label> تم الموافقه عن طريق </label>
-                                    <input type="text" placeholder="الرجاء كتابة اسم الشخص" class="form-control" name="del_quantity" value="">
+                                    <input type="text" placeholder="الرجاء كتابة اسم الشخص" class="form-control" name="approved_by" value="">
 
                                 </div>
                             </div>
