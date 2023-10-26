@@ -181,10 +181,10 @@ $select = mysqli_query($conn, "select * from bank_request ORDER BY id DESC");
                 $del = mysqli_query($conn, "delete from bank_request where id = '$id'");
                 if ($del) {
                   echo '<div class="alert alert-success"> تم حذف التعميد </div>';
-                }
+                } 
               }
               ?>
-              <table class="table align-items-center mb-0" id="example">
+              <table class="table align-items-center table-bordered mb-0" id="example">
                 <thead>
                   <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
@@ -208,8 +208,8 @@ $select = mysqli_query($conn, "select * from bank_request ORDER BY id DESC");
 
                     <tr>
 
-                      <td class="text-xs text-secondary mb-0"><?php echo $custem =  $r['id']; ?></td>
-                      <td class="text-xs text-secondary mb-0">
+                      <td class="text-xs text-secondary mb-0 border-1"><?php echo $custem =  $r['id']; ?></td>
+                      <td class="text-xs text-secondary mb-0 border-1">
                         <?php if ($r['name'] == 1) {
                           echo "طلب تحويل";
                         } elseif ($r['name'] == 2) {
@@ -219,14 +219,14 @@ $select = mysqli_query($conn, "select * from bank_request ORDER BY id DESC");
                         } elseif ($r['name'] == 4) {
                           echo "تسديد فاتورة إلكترونية";
                         } ?></td>
-                      <td class="mb-0 text-sm"><?php echo $r['description']; ?></td>
-                      <td class="mb-0 text-sm"><?php echo number_format($r['amount_number']); ?></td>
-                      <td class="text-xs text-secondary mb-0">
+                      <td class="mb-0 text-sm text-secondary border-1"><?php echo $r['description']; ?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?php echo number_format($r['amount_number']); ?></td>
+                      <td class="text-xs text-secondary mb-0 border-1">
                         <?php echo 'من حساب : ' . $r['our_bank_name'] . '<br><br>';
                         echo 'الى المستفيد : ' . $r['transfer_to']; ?></td>
                       <!-- <td class="text-xs text-secondary mb-0"><?php echo $r['transfer_to']; ?></td> -->
-                      <td class="text-xs text-secondary mb-0"><?php echo $r['created_at']; ?></td>
-                      <td><?php if ($r['status'] == 1) {
+                      <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['created_at']; ?></td>
+                      <td ><?php if ($r['status'] == 1) {
                             echo '<span class="badge badge-sm bg-gradient-success">طلب تعميد جديد</span>';
                           } elseif ($r['status'] == 2) {
                             echo '<span class="badge badge-sm bg-gradient-warning">تم التعميد من قبل المحاسب في انتظار التأكيد</span>';
@@ -234,7 +234,7 @@ $select = mysqli_query($conn, "select * from bank_request ORDER BY id DESC");
                             echo '<span class="badge badge-sm bg-gradient-primary">تم التأكيد</span>';
                           } ?></td>
 
-                      <td><a href="bank-req-info.php?bank_req=<?php echo $r['id']; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
+                      <td class="text-secondary border-1 "><a href="bank-req-info.php?bank_req=<?php echo $r['id']; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
                           <a href="edit-bank-req.php?req_id=<?php echo $r['id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 

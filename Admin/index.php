@@ -223,7 +223,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
                                 <table class="table table-hover table-bordered table-fixed" id="example">
 
                                     <!--Table head-->
-                                    <thead class="bg-dark text-ligh table-borderedt text-center">
+                                    <thead class="bg-dark text-ligh table-bordered text-center">
                                         <tr>
                                             <th>الرقم</th>
                                             <th>رقم الموظف</th>
