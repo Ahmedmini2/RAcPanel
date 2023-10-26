@@ -233,7 +233,7 @@ if (isset($_GET['project_id'])) {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="../scripts/factory/update-sel.php?del_id=<?=$del_id?>" enctype="multipart/form-data">
+                            <form method="post" action="../scripts/factory/update-del.php?del_id=<?=$del_id?>" enctype="multipart/form-data">
                                 <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
                                 <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
                                 <?php if ($doc != '') {
