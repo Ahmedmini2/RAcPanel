@@ -150,7 +150,7 @@ if (isset($_POST['add-project'])) {
             $accessory_id = $_POST['accessory_id'. $accessory1];
 
 
-            $update_accessory = "UPDATE `accessory_band` SET  `name` = '$accessory' , `quantity` = '$acc_quantity' , `price_per_piece` = '$acc_price' , `total_price` = '$acc_tot' WHERE `product_id` = $item_id AND `id` = $accessory_id";
+            $update_accessory = "UPDATE `accessory_band` SET  `name` = '$accessory' , `quantity` = '$acc_quantity' , `price_per_piece` = '$acc_price' , `total_price` = '$acc_tot' WHERE `product_id` = '$item_id' AND `id` = '$accessory_id'";
             $accessory_res = $conn->query($update_accessory);
             if($accessory_res){
               $accessory1++;
@@ -167,7 +167,7 @@ if (isset($_POST['add-project'])) {
         $cover_price = str_replace(',', '', $_POST['cover_price']);
         $cover_tot = str_replace(',', '', $_POST['cover_tot']);
 
-        $update_cover = "UPDATE `covers_band` SET `type` = '$cover_type' , `price_per_piece` = '$cover_price' , `total_price` = '$cover_tot' WHERE `product_id` = $item_id";
+        $update_cover = "UPDATE `covers_band` SET `type` = '$cover_type' , `price_per_piece` = '$cover_price' , `total_price` = '$cover_tot' WHERE `product_id` = '$item_id'";
         $cover_res = $conn->query($update_cover);
         if ($cover_res) {
 
@@ -183,7 +183,7 @@ if (isset($_POST['add-project'])) {
             $band_tot = str_replace(',', '', $_POST['band_tot_' . $band1]);
             $extra_id = $_POST['extra_id'.$band1];
 
-            $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `product_id` = $item_id AND `id` = $extra_id";
+            $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `product_id` = '$item_id' AND `id` = '$extra_id'";
             $band_res = $conn->query($update_band);
             if ($band_res) {
               $band1++;
