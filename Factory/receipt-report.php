@@ -45,7 +45,7 @@ if(isset($_GET['edit']) && isset($_GET['project_id'])){
     }
     
 }
-if (isset($_GET['project_id'])) {
+else if (isset($_GET['project_id'])) {
     $id = $_GET['project_id'];
 
     if(isset($_POST['submit'])){
@@ -75,6 +75,15 @@ if (isset($_GET['project_id'])) {
           }
    
     }
+} else{
+
+    $product_id = '';
+    $quantity = '';
+    $deliverd_by = '';
+    $on_date = '';
+    $phone = '';
+    $truck_no = '';
+    $approved_by = '';
 }
 
 ?>
@@ -289,14 +298,14 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> الكمية التي سيتم تسليمها </label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية التي سيتم تسليمها" class="form-control" name="del_quantity" value="">
+                                    <input type="text" placeholder="الرجاء كتابة كمية التي سيتم تسليمها" class="form-control" name="del_quantity" value="<?=$quantity?>">
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label> تم الاستلام عن طريق </label>
-                                    <input type="text" placeholder="الرجاء كتابة اسم الموصل" class="form-control" name="del_by" value="">
+                                    <input type="text" placeholder="الرجاء كتابة اسم الموصل" class="form-control" name="del_by" value="<?=$del_by?>">
 
                                 </div>
                             </div>
@@ -305,14 +314,14 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> رقم الهاتف </label>
-                                    <input type="text" placeholder="الرجاء كتابة رقم هاتف صاحب التوصيل" class="form-control" name="del_no" value="">
+                                    <input type="text" placeholder="الرجاء كتابة رقم هاتف صاحب التوصيل" class="form-control" name="del_no" value="<?=$phone?>">
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label> تاريخ </label>
-                                    <input type="date" placeholder="" class="form-control" name="on_date">
+                                    <input type="date" placeholder="" class="form-control" name="on_date" value="<?=$on_date?>">
 
                                 </div>
                             </div>
@@ -321,14 +330,14 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> رقم الشاحنة </label>
-                                    <input type="text" placeholder="الرجاء كتابة رقم الشاحنة" class="form-control" name="truck_no" value="">
+                                    <input type="text" placeholder="الرجاء كتابة رقم الشاحنة" class="form-control" name="truck_no" value="<?=$truck_no?>">
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label> تم الموافقه عن طريق </label>
-                                    <input type="text" placeholder="الرجاء كتابة اسم الشخص" class="form-control" name="approved_by" value="">
+                                    <input type="text" placeholder="الرجاء كتابة اسم الشخص" class="form-control" name="approved_by" value="<?=$approved_by?>">
 
                                 </div>
                             </div>
