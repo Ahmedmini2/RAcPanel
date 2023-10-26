@@ -301,7 +301,7 @@ while ($ban = mysqli_fetch_array($banner)) {
       <?php } else {?>
 
     <div class="container-fluid py-4">
-      <div class="row">
+      <div class="row justify-content-around">
         <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
           <div class="card">
             <div class="card-body p-3">
