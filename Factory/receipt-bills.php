@@ -4,15 +4,21 @@ $_SESSION['sidebar'] = "Factory";
 if (isset($_GET['project_id'])) {
 
     $id = $_GET['project_id'];
-    $query = "SELECT * FROM projects WHERE id=$id";
+    $query = "SELECT * FROM product_delivery WHERE project_id=$id";
     $res = $conn->query($query);
     $editData = $res->fetch_assoc();
-    $name = $editData['name'];
-    $description = $editData['description'];
-    $project_cost = $editData['project_cost'];
-    $total_without_tax = $editData['total_without_tax'];
-    $total_with_tax = $editData['total_with_tax'];
-    $created_at = $editData['created_at'];
+    $product_id = $editData['product_id'];
+    $quantity = $editData['quantity'];
+    $deliverd_by = $editData['deliverd_by'];
+    $on_date = $editData['on_date'];
+    $phone = $editData['phone'];
+    $truck_no = $editData['truck_no'];
+    $approved_by = $editData['approved_by'];
+
+    $query22 = "SELECT * FROM products WHERE id = $product_id";
+    $res22 = $conn->query($query22);
+    $editData22 = $res22->fetch_assoc();
+    $product_name = $editData22['product_name'];
 
 
     $query3 = "SELECT * FROM contact_projects WHERE project_id=$id";
@@ -392,7 +398,7 @@ if (isset($_GET['project_id'])) {
                                                 <?= $supplier_name ?><br>
                                                 <?= $address ?><br>
                                                 <?= $mobile ?><br>
-                                                <?= $id ?> <br>
+                                                PO-<?= $id ?> <br>
                                             </p>
                                         </div>
                                     </div>
@@ -432,9 +438,9 @@ if (isset($_GET['project_id'])) {
 
                                         <tr>
                                             <th class="text-center " scope="row"><?= $i ?></th>
-                                            <td class="custom-font-m text-center border-1"><?= $item['product_name'] ?></td>
+                                            <td class="custom-font-m text-center border-1"><?= $product_name ?></td>
                                             <td class="custom-font-m border-1">Ea</td>
-                                            <td class="custom-font-m border-1">46</td>
+                                            <td class="custom-font-m border-1"><?=$quantity?></td>
 
 
                                         </tr>
@@ -466,8 +472,8 @@ if (isset($_GET['project_id'])) {
                                     <div class="col-8">
                                         <p class="card-text custom-font-small">
                                             <br>
-                                            <?= $name ?> <br>
-                                            <?= $created_at ?> <br>
+                                            <?= $approved_by ?> <br>
+                                            <?= $on_date ?> <br>
                                             __________________ <br>
                                         </p>
                                     </div>
@@ -499,11 +505,11 @@ if (isset($_GET['project_id'])) {
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
                                                 <br>
-                                                <?= $name ?> <br>
-                                                <?= $mobile ?><br>
-                                                <?= $created_at ?> <br>
+                                                <?= $deliverd_by ?> <br>
+                                                <?= $phone ?><br>
+                                                <?= $on_date ?> <br>
                                                 __________<br>
-                                                4752 <br>
+                                                <?=$truck_no?> <br>
 
 
 
