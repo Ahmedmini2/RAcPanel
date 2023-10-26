@@ -112,12 +112,7 @@ if (!empty($_GET['edit'])) {
 
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="أكتب هنا...">
-                        </div>
-                    </div>
+                    
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -372,6 +367,7 @@ if (!empty($_GET['edit'])) {
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+    <script src="../Admin/darkmode.js"></script>
 </body>
 
 </html>

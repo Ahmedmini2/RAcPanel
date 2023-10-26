@@ -52,12 +52,7 @@ $select = mysqli_query($conn, "select * from covers_purchase");
 
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="أكتب هنا...">
-            </div>
-          </div>
+          
            
           
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
