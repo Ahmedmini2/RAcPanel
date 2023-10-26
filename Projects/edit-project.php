@@ -130,8 +130,14 @@ if (isset($_POST['add-project'])) {
           $update_iron = "UPDATE iron_band SET `size` = '$selectedSizeText' , `price_today` = '$iron_price' , `quantity` = '$iron_quantity' , `iron_height` = '$iron_long' , 
           `tn_price` = '$iron_tn', `total_price` = '$iron_tot' WHERE `product_id` = $item_id AND `id` = $iron_id";
           $iron_res = $conn->query($update_iron);
-          
-          $iron1++;
+          if ($iron_res){
+            
+            $iron1++;
+          }else{
+            $_SESSION['notification'] = "تعديل خطأ في الحديد الاضافيه";
+                  header('location: index.php');
+                  exit();
+            }
         }
           $accessory_raws = $_POST['ac-rr'];
           if ($accessory_raws == "") {
@@ -147,7 +153,15 @@ if (isset($_POST['add-project'])) {
 
             $update_accessory = "UPDATE `accessory_band` SET  `name` = '$accessory' , `quantity` = '$acc_quantity' , `price_per_piece` = '$acc_price' , `total_price` = '$acc_tot' WHERE `product_id` = $item_id AND `id` = $accessory_id";
             $accessory_res = $conn->query($update_accessory);
-            $accessory1++;
+            if($accessory_res){
+              $accessory1++;
+            }
+            else{
+              $_SESSION['notification'] = "تعديل خطأ في الاكسسوارات الاضافيه";
+                    header('location: index.php');
+                    exit();
+              }
+            
           }
 
         $cover_type = $_POST['cover_type'];
@@ -173,13 +187,14 @@ if (isset($_POST['add-project'])) {
             $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `product_id` = $item_id AND `id` = $extra_id";
             $band_res = $conn->query($update_band);
             if ($band_res) {
-              
-            }
-            $band1++;
-          }
-          $_SESSION['notification'] = "تعديل بنجاح";
+              $band1++;
+            }else{
+            $_SESSION['notification'] = "تعديل خطأ في البنود الاضافيه";
                   header('location: index.php');
                   exit();
+            }
+          }
+          
 
 //               if (isset($_POST['deliverable'])) {
 //                 $deliverable = 1;
