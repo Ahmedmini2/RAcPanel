@@ -408,10 +408,10 @@ if (isset($_GET['id'])) {
                                     </div>
                                     <div class="card-body px-0 pt-0 pb-2 mx-3">
                                         <div class="table-responsive p-0">
-                                            <table class="table table-hover table-fixed">
+                                            <table class="table table-hover table-bordered table-fixed">
 
                                                 <!--Table head-->
-                                                <thead class="bg-dark text-light text-center">
+                                                <thead class="bg-dark text-light table-bordered text-center">
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>الصنف</th>
@@ -435,7 +435,7 @@ if (isset($_GET['id'])) {
                                                     ?>
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
-                                                            <td><?= $products['product_name'] ?></td>
+                                                            <td class="border-1" ><?= $products['product_name'] ?></td>
                                                     <?php
                                                     $kh_id = $products['id'];
                                                      $res4 = mysqli_query($conn, "SELECT * FROM kharasana WHERE `product_id` = $kh_id");
@@ -445,8 +445,8 @@ if (isset($_GET['id'])) {
                                                         
                                                      }
                                                     ?>
-                                                            <td><?= $kh_quan ?></td>
-                                                            <td><?= number_format($kh_total) ?></td>
+                                                            <td class="border-1"><?= $kh_quan ?></td>
+                                                            <td class="border-1"><?= number_format($kh_total) ?></td>
                                                     <?php
                                                     $status_id = $products['id'];
                                                     $kh_used = 0;
@@ -459,8 +459,8 @@ if (isset($_GET['id'])) {
                                                      }
                                                     ?>
                                                     
-                                                            <td><?= number_format($kh_used,2) ?></td>
-                                                            <td><?= number_format($kh_used_price) ?></td>
+                                                            <td class="border-1"><?= number_format($kh_used,2) ?></td>
+                                                            <td class="border-1"><?= number_format($kh_used_price) ?></td>
 
                                                         </tr>
                                                     <?php } ?>
@@ -482,10 +482,10 @@ if (isset($_GET['id'])) {
                                     </div>
                                     <div class="card-body px-0 pt-0 pb-2 mx-3">
                                         <div class="table-responsive p-0">
-                                            <table class="table table-hover table-fixed">
+                                            <table class="table table-hover table-bordered table-fixed">
 
                                                 <!--Table head-->
-                                                <thead class="bg-dark text-light text-center">
+                                                <thead class="bg-dark text-light table-bordered text-center">
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>الصنف</th>
@@ -512,8 +512,8 @@ if (isset($_GET['id'])) {
                                                     ?>
                                                         <tr>
                                                             <th scope="row"><?= $i ?></th>
-                                                            <td><?= $products['product_name'] ?></td>
-                                                            <td><?= $products['quantity'] ?></td>
+                                                            <td class="border-1"><?= $products['product_name'] ?></td>
+                                                            <td class="border-1" ><?= $products['quantity'] ?></td>
                                                             <?php 
                                                             $inv_id =  $products['id'];
                                                             $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id");
@@ -533,16 +533,16 @@ if (isset($_GET['id'])) {
                                                                 
                                                             }
                                                             ?>
-                                                            <td><?= number_format($inventory - $deliverd) ?></td>
-                                                            <td><?= number_format($production ) ?></td>
+                                                            <td class="border-1" ><?= number_format($inventory - $deliverd) ?></td>
+                                                            <td class="border-1"><?= number_format($production ) ?></td>
 
                                                             
 
-                                                            <td><?= number_format($deliverd) ?></td>
+                                                            <td class="border-1" ><?= number_format($deliverd) ?></td>
 
 
 
-                                                            <td><?=$products['quantity']-$production?></td>
+                                                            <td class="border-1"><?=$products['quantity']-$production?></td>
                                                         </tr>
                                                     <?php } ?>
 

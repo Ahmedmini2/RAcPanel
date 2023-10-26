@@ -135,10 +135,10 @@ $_SESSION['sidebar_admin'] = "department";
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-fixed" id="example">
+                                <table class="table table-hover table-bordered table-fixed" id="example">
 
                                     <!--Table head-->
-                                    <thead class="bg-dark text-light text-center">
+                                    <thead class="bg-dark text-light table-bordered text-center">
                                         <tr>
                                             <th>الرقم</th>
                                             <th>اسم القسم</th>
@@ -153,10 +153,10 @@ $_SESSION['sidebar_admin'] = "department";
 
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td>Human Resours</td>
-                                            <td>HR001</td>
-                                            <td>2023/10/22</td>
-                                            <td>
+                                            <td class="border-1" >Human Resours</td>
+                                            <td class="border-1" >HR001</td>
+                                            <td class="border-1">2023/10/22</td>
+                                            <td class="border-1" >
                                                 <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
                                                 <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </td>
