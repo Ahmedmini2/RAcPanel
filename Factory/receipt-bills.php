@@ -360,10 +360,13 @@ if (isset($_GET['project_id'])) {
             <div class="invoice-box mt-8" dir="ltr">
 
                 <div class="card text-center">
-                    <div class="card-header">
+                    
+                    <div class="card-body">
                         <h5 class="card-title">إذن تسليم</h5>
                         <p class="card-text">DELEVARY NOTE</p>
+                       
                     </div>
+                    
                 </div>
 
                 <!-- here to change -->
