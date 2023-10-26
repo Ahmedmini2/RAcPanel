@@ -62,13 +62,16 @@ if (isset($_GET['id'])) {
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
                     
+                    
+                    <ul class="navbar-nav me-auto ms-0 justify-content-end">
+                    <li>
                     <label class="ui-switch">
                         <input type="checkbox" onclick="setDarkMode()">
                         <div class="slider">
                             <div class="circle"></div>
                         </div>
                     </label>
-                    <ul class="navbar-nav me-auto ms-0 justify-content-end">
+                    </li>
                         <li class="nav-item d-flex align-items-center">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
