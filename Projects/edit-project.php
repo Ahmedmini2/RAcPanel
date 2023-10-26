@@ -134,7 +134,7 @@ if (isset($_POST['add-project'])) {
             
             $iron1++;
           }else{
-            $_SESSION['notification'] = "تعديل خطأ في الحديد الاضافيه";
+            $_SESSION['notification'] =  $conn->error;
                   header('location: index.php');
                   exit();
             }
