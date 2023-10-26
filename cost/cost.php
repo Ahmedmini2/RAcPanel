@@ -35,7 +35,7 @@ $select = mysqli_query($conn, "select * from cost_center");
   <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </head>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl ">
 
   <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
