@@ -1,10 +1,11 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Factory";
-if (isset($_GET['project_id'])) {
+if (isset($_GET['project_id']) && isset($_GET['delivery_id'])) {
 
+    $delivery_id = $_GET['delivery_id'];
     $id = $_GET['project_id'];
-    $query = "SELECT * FROM product_delivery WHERE project_id=$id";
+    $query = "SELECT * FROM product_delivery WHERE id = $delivery_id";
     $res = $conn->query($query);
     $editData = $res->fetch_assoc();
     $del_id = $editData['id'];
@@ -243,7 +244,7 @@ if (isset($_GET['project_id'])) {
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal2">Close</button>
+                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="button" class="btn bg-gradient-dark rounded-pill">Save changes</button>
                         </div>
                     </div>
@@ -317,12 +318,7 @@ if (isset($_GET['project_id'])) {
                                 <!--Table body-->
                                 <tbody>
 
-                                    <?php
-                                    $i = 0;
-                                    $items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
-                                    while ($item = mysqli_fetch_array($items)) {
-                                        $i++;
-                                    ?>
+                                    
 
                                         <tr>
                                             <th class="text-center " scope="row"><?= $i ?></th>
@@ -333,7 +329,7 @@ if (isset($_GET['project_id'])) {
 
                                         </tr>
 
-                                    <?php } ?>
+                                   
 
                                 </tbody>
                                 <!--Table body-->
