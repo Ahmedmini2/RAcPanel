@@ -127,7 +127,7 @@ if (isset($_POST['add-project'])) {
 
           $selectedSizeText = $sizeText[$iron];
 
-          $update_iron = "UPDATE iron_band SET `size` = '$selectedSizeText' , `price_today` = '$iron_price' , `quantity` = '$iron_quantity' , `iron_height` = '$iron_long' , `tn_price` = '$iron_tn', `total_price` = '$iron_tot' WHERE `product_id` = '$item_id' AND `id` = '$iron_id'";
+          $update_iron = "UPDATE iron_band SET `size` = '$selectedSizeText' , `price_today` = '$iron_price' , `quantity` = '$iron_quantity' , `iron_height` = '$iron_long' , `tn_price` = '$iron_tn', `total_price` = '$iron_tot' WHERE `id` = '$iron_id'";
           $iron_res = $conn->query($update_iron);
           if ($iron_res){
             
@@ -150,7 +150,7 @@ if (isset($_POST['add-project'])) {
             $accessory_id = $_POST['accessory_id'. $accessory1];
 
 
-            $update_accessory = "UPDATE `accessory_band` SET  `name` = '$accessory' , `quantity` = '$acc_quantity' , `price_per_piece` = '$acc_price' , `total_price` = '$acc_tot' WHERE `product_id` = '$item_id' AND `id` = '$accessory_id'";
+            $update_accessory = "UPDATE `accessory_band` SET  `name` = '$accessory' , `quantity` = '$acc_quantity' , `price_per_piece` = '$acc_price' , `total_price` = '$acc_tot' WHERE `id` = '$accessory_id'";
             $accessory_res = $conn->query($update_accessory);
             if($accessory_res){
               $accessory1++;
@@ -183,7 +183,7 @@ if (isset($_POST['add-project'])) {
             $band_tot = str_replace(',', '', $_POST['band_tot_' . $band1]);
             $extra_id = $_POST['extra_id'.$band1];
 
-            $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `product_id` = '$item_id' AND `id` = '$extra_id'";
+            $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `id` = '$extra_id'";
             $band_res = $conn->query($update_band);
             if ($band_res) {
               $band1++;
