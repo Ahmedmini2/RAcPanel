@@ -457,9 +457,9 @@ if (isset($_GET['project_id'])) {
                                     </div>
                                     <div class="col-8">
                                         <p class="card-text custom-font-small">
+                                             <br>
+                                            <?= $name ?> <br>
                                             <?= $created_at ?> <br>
-                                            MOHAMMED <br>
-                                            19/8/2023 <br>
                                             __________________ <br>
                                         </p>
                                     </div>
@@ -491,9 +491,9 @@ if (isset($_GET['project_id'])) {
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
                                                 <?= $supplier_name ?><br>
-                                                MOHAMMED <br>
-                                                0907970206<br>
-                                                19/8/2023 <br>
+                                                <?= $name ?> <br>
+                                                <?= $mobile ?><br>
+                                                <?= $created_at ?> <br>
                                                 __________<br>
                                                 4752 <br>
                                                
