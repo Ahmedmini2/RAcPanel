@@ -386,7 +386,6 @@ if (isset($_GET['project_id'])) {
                                                 <?= $supplier_name?><br>
                                                 <?= $address?><br>
                                                 <?= $mobile?><br>
-                                                <?= $mobile?><br>
                                                <?= $id ?> <br>
                                             </p>
                                         </div>
@@ -428,40 +427,14 @@ if (isset($_GET['project_id'])) {
                                         <tr>
                                             <th class="table-secondary text-center" scope="row"><?= $i ?></th>
                                             <td class="custom-font-m text-center"><?= $item['product_name'] ?></td>
-                                            <td class="custom-font-m"><?= $item['quantity'] ?></td>
-                                            <td class="custom-font-m"><?= number_format($item['sell_price']) ?></td>
-                                            <td class="custom-font-m"><?= number_format($item['sell_price'] * $item['quantity']) ?></td>
+                                            <td class="custom-font-m">Ea</td>
+                                            <td class="custom-font-m">46</td>
+                                            
 
                                         </tr>
 
                                     <?php } ?>
-                                    <tr class=" text-center">
-                                        <td colspan="4">Total</td>
-                                        <td class="text-center" ><span>SAR <?= number_format($total_without_tax) ?></span></td>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <td colspan="4">VAT 15% </td>
-                                        <td class="text-center"><span>SAR <?= number_format($total_with_tax) ?></span></td>
-                                    </tr>
-                                    <tr class=" text-center">
-                                        <td colspan="4">Grand total(SAR)</td>
-                                        <td class="text-center"><span class="font-weight-bold text-success " id="total">SAR <?= number_format($total_without_tax + $total_with_tax) ?></span></td>
-                                    </tr>
-                                    <tr class="table-secondary">
-                                        <td colspan="5">
-                                            <p>The total value is SAR <?= number_format($total_without_tax + $total_with_tax) ?> <span id="con"></span> riyals only.</p>
-                                        </td>
-                                        <script>
-                                            function changeVal() {
-
-                                                value = <?= number_format($total_without_tax + $total_with_tax, 0, "", "") ?>;
-                                                document.getElementById("con").innerText = numToWords(value);
-                                                console.log(value);
-
-                                            }
-                                            window.onload = changeVal;
-                                        </script>
-                                    </tr>
+                                   >
                                 </tbody>
                                 <!--Table body-->
 
@@ -470,7 +443,75 @@ if (isset($_GET['project_id'])) {
                     </div>
                 </div>
 
-                
+                <div class="row ">
+                    <div class="col">
+                        <div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="card-text custom-font-small">
+                                            ISSUED BY: <br>
+                                            NAME: <br>
+                                            DATE: <br>
+                                            SIGN: <br>
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p class="card-text custom-font-small">
+                                            <?= $created_at ?> <br>
+                                            MOHAMMED <br>
+                                            19/8/2023 <br>
+                                            __________________ <br>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+
+                            <div>
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p class="card-text custom-font-small">
+                                                RECEIVED BY: <br>
+                                                NAME: <br>
+                                                MOBILE: <br>
+                                                DATE: <br>
+                                                SIGN: <br>
+                                                TRUCK NO: <br>
+                                                
+                                            </p>
+                                        </div>
+                                        <div class="col-8">
+                                            <p class="card-text custom-font-small">
+                                                <?= $supplier_name ?><br>
+                                                MOHAMMED <br>
+                                                0907970206<br>
+                                                19/8/2023 <br>
+                                                __________<br>
+                                                4752 <br>
+                                               
+
+
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                
                
