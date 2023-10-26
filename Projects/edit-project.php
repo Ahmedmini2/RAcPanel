@@ -611,8 +611,8 @@ if (isset($_POST['add-project'])) {
                         <div class="form-group">
                           <label for="iron_tot">السعر</label>
                           <input type="text" class="form-control" name='iron_tot_<?= $i ?>' id="iron_tot_<?= $i ?>" readonly value="<?=$iron_band['total_price']?>">
-                          <input type="hidden" value="<?php echo $numberofrows; ?>" name="iron_id" value="<?=$iron_band['id']?>" readonly>
-                          <input type="hidden" name="iron-rr" id="iron-rr" readonly value="<?=$i?>">
+                          <input type="hidden"  name="iron_id" value="<?=$iron_band['id']?>" readonly>
+                          
                         </div>
                       </div>
                     </div>
@@ -620,6 +620,7 @@ if (isset($_POST['add-project'])) {
                     <?php } ?>
                   </div>
                 </div>
+                <input type="hidden" name="iron-rr" id="iron-rr" readonly value="<?=$i?>">
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                   var i = $("#iron-rr").val();
@@ -716,13 +717,14 @@ if (isset($_POST['add-project'])) {
                         <div class="form-group">
                           <label for="acc_tot">السعر</label>
                           <input type="text" class="form-control" name='acc_tot_<?= $y ?>' id="acc_tot_<?= $y ?>" readonly value="<?=$accessory_band['total_price']?>">
-                          <input type="hidden" name="rowcount_ac" name="accessory_id" value="<?=$accessory_band['id']?>" readonly>
-                          <input type="hidden" name="ac-rr" id="ac-rr" readonly value="<?=$y?>">
+                          <input type="hidden"   name="accessory_id" value="<?=$accessory_band['id']?>" readonly>
+                          
                         </div>
                       </div>
                     </div>
                     <hr class="new2">
                     <?php  } ?>
+                    <input type="hidden" name="ac-rr" id="ac-rr" readonly value="<?=$y?>">
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
                       var a = 1;
@@ -848,12 +850,13 @@ if (isset($_POST['add-project'])) {
                           <label for="band_tot">السعر </label>
                           <input type="text" class="form-control" name="band_tot_<?= $x ?>" id="band_tot_<?= $x ?>" readonly value="<?=$extra_band['total_price']?>">
                           <input type="hidden" name="extra_id" value="<?=$extra_band['id']?>" readonly>
-                          <input type="hidden" name="band-rr" id="band-rr" readonly value="<?=$x?>">
+                          
                         </div>
                       </div>
                     </div>
                     <hr class="new2">
                     <?php } ?>
+                    <input type="hidden" name="band-rr" id="band-rr" readonly value="<?=$x?>">
                     <script>
                       b = 1;
                       $(document).on('change', 'input', function() {
