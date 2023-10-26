@@ -44,7 +44,7 @@ if (isset($_GET['id'])) {
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl">
 
     <!-- Side Bar -->
     <?php require_once('../components/sidebar.php'); ?>
@@ -61,12 +61,7 @@ if (isset($_GET['id'])) {
 
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="أكتب هنا...">
-                        </div>
-                    </div>
+                    
                     <label class="ui-switch">
                         <input type="checkbox" onclick="setDarkMode()">
                         <div class="slider">
@@ -631,7 +626,7 @@ if (isset($_GET['id'])) {
                                         $get_products = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                         while ($prod = mysqli_fetch_array($get_products)) {
                                         ?>
-                                            <li class="list-group-item border-0 p-4 mb-2 mt-2 bg-gray-100 border-radius-lg shadow-lg">
+                                            <li class="list-group-item border-0 p-4 mb-2 mt-2 border-radius-lg shadow-lg">
                                                 <div class="d-flex flex-column">
                                                     <h6 class="mb-3 text-lg">الصنف: <?= $prod['product_name'] ?> </h6>
                                                     <span class="mb-2 text-lg">الحديد</span>
