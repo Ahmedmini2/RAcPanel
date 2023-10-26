@@ -260,8 +260,41 @@ if (isset($_GET['project_id'])) {
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="formFileLg" class="form-label">صورة مستند التسليم</label>
-                                    <input class="form-control form-control-lg" id="formFileLg" name="del_image" type="file" required/>
+                                    <label> تم الاستلام عن طريق </label>
+                                    <input type="text" placeholder="الرجاء كتابة اسم المستلم" class="form-control" name="del_quantity" value="">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> رقم الهاتف </label>
+                                    <input type="text" placeholder="الرجاء كتابة كمية التي سيتم تسليمها" class="form-control" name="del_quantity" value="">
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> تاريخ </label>
+                                    <input type="date" placeholder="" class="form-control" name="valid_till">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> رقم الشاحنة </label>
+                                    <input type="text" placeholder="الرجاء كتابة رقم الشاحنة" class="form-control" name="del_quantity" value="">
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> تم الموافقه عن طريق </label>
+                                    <input type="text" placeholder="الرجاء كتابة اسم الشخص" class="form-control" name="del_quantity" value="">
+
                                 </div>
                             </div>
                         </div>
