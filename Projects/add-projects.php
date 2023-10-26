@@ -229,6 +229,11 @@ if (isset($_POST['add-project'])) {
   $payment_type = $_POST['payment_type'];
   $valid_till = $_POST['valid_till'];
 
+  $_SESSION['total_cost'] = 0 ;
+  $_SESSION['total_net'] = 0 ;
+  $_SESSION['total_without_tax'] = 0 ;
+  $_SESSION['total_with_tax'] = 0 ;
+
   $_SESSION['total_cost'] += str_replace(',','',$_POST['prod_peice_tot']);
   $_SESSION['total_net'] += $_POST['net_toti'];
   $_SESSION['total_without_tax'] += $total_cost + $total_net;

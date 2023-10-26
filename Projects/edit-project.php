@@ -92,7 +92,7 @@ if (isset($_POST['add-project'])) {
       $kh_peice = str_replace(',','',$_POST['kh_peice']);
       $kh_tot = str_replace(',','',$_POST['kh_tot']);
 
-      $update_kh = "UPDATE kharasana SET `type` = '$kharasana', `price` = '$kh_price' , `quantity_per_piece` = '$kh_per' , `price_per_piece` = '$kh_peice' , `total_price` = '$kh_tot' WHERE `product_id` = $item_id AND `id` = $iron_id";
+      $update_kh = "UPDATE kharasana SET `type` = '$kharasana', `price` = '$kh_price' , `quantity_per_piece` = '$kh_per' , `price_per_piece` = '$kh_peice' , `total_price` = '$kh_tot' WHERE `product_id` = $item_id";
       
       $kh_res = $conn->query($update_kh);
       if ($kh_res) {
@@ -128,7 +128,7 @@ if (isset($_POST['add-project'])) {
           $selectedSizeText = $sizeText[$iron];
 
           $update_iron = "UPDATE iron_band SET `size` = '$selectedSizeText' , `price_today` = '$iron_price' , `quantity` = '$iron_quantity' , `iron_height` = '$iron_long' , 
-          `tn_price` = '$iron_tn', `total_price` = '$iron_tot' WHERE `product_id` = $item_id";
+          `tn_price` = '$iron_tn', `total_price` = '$iron_tot' WHERE `product_id` = $item_id AND `id` = $iron_id";
           $iron_res = $conn->query($update_iron);
           $iron1++;
         }
@@ -611,7 +611,7 @@ if (isset($_POST['add-project'])) {
                         <div class="form-group">
                           <label for="iron_tot">السعر</label>
                           <input type="text" class="form-control" name='iron_tot_<?= $i ?>' id="iron_tot_<?= $i ?>" readonly value="<?=$iron_band['total_price']?>">
-                          <input type="hidden" value="<?php echo $numberofrows; ?>" name="iron_id" value="<?=$iron_band['id']?>" disabled>
+                          <input type="hidden" value="<?php echo $numberofrows; ?>" name="iron_id" value="<?=$iron_band['id']?>" readonly>
                           <input type="hidden" name="iron-rr" id="iron-rr" readonly value="<?=$i?>">
                         </div>
                       </div>
@@ -847,7 +847,7 @@ if (isset($_POST['add-project'])) {
                         <div class="form-group">
                           <label for="band_tot">السعر </label>
                           <input type="text" class="form-control" name="band_tot_<?= $x ?>" id="band_tot_<?= $x ?>" readonly value="<?=$extra_band['total_price']?>">
-                          <input type="hidden" name="extra_id" value="<?=$extra_band['id']?>" disabled>
+                          <input type="hidden" name="extra_id" value="<?=$extra_band['id']?>" readonly>
                           <input type="hidden" name="band-rr" id="band-rr" readonly value="<?=$x?>">
                         </div>
                       </div>
