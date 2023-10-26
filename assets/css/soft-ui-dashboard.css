@@ -25218,6 +25218,9 @@ width: 100px;
  .darkmode .text-secondary {
   color: #d0d3d9 !important;
 }
+.darkmode .text-dark {
+  color: #e9ecef !important;
+}
   /*card*/
  
   .sal-card{
