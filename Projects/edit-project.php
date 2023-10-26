@@ -176,7 +176,7 @@ if (isset($_POST['add-project'])) {
                   header('location: index.php');
                   exit();
             }
-            $band_raws++;
+            $band1++;
           }
 
 //               if (isset($_POST['deliverable'])) {
