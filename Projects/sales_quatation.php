@@ -310,20 +310,18 @@ if (isset($_GET['project_id'])) {
                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
                 </button>
-                <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    إرفاق \ عرض الملف
-                </button>
+               
             </div>
 
             <script>
                 function printDiv(divName) {
                     document.getElementById('btn2').style.display = "none";
-                    document.getElementById('btn3').style.display = "none";
+                   
                     
                     document.getElementById('signture2').style.backgroundColor = "#ffffff00";
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
-                    document.getElementById('btn3').style.display = "inline";
+                    
                    
                     document.getElementById('signture2').style.backgroundColor = "white";
 
@@ -331,32 +329,7 @@ if (isset($_GET['project_id'])) {
             </script>
 
 
-            <!-- Doc Modal -->
-            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">أرفاق مستند</h5>
-                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>" enctype="multipart/form-data">
-                                <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
-                                <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
-                                <?php if ($doc != '') {
-                                    echo '<a href="../Signed-Docs/' . $id . '/' . $doc . '" target="_blank"><img src="../Signed-Docs/' . $id . '/' . $doc . '" class="img-fluid rounded-top" alt="' . $doc . '"></a>';
-                                } ?>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal2">Close</button>
-                            <button type="button" class="btn bg-gradient-dark rounded-pill">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
 
 
             <div class="invoice-box mt-8" dir="ltr">
