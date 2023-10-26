@@ -359,7 +359,7 @@ if (isset($_GET['project_id'])) {
 
             <div class="invoice-box mt-8" dir="ltr">
 
-                <div class="card text-center">
+                <div class="text-center">
                     
                     <div class="card-body">
                         <h5 class="card-title">إذن تسليم</h5>
@@ -431,10 +431,10 @@ if (isset($_GET['project_id'])) {
                                     ?>
 
                                         <tr>
-                                            <th class="text-center" scope="row"><?= $i ?></th>
-                                            <td class="custom-font-m text-center"><?= $item['product_name'] ?></td>
-                                            <td class="custom-font-m">Ea</td>
-                                            <td class="custom-font-m">46</td>
+                                            <th class="text-center " scope="row"><?= $i ?></th>
+                                            <td class="custom-font-m text-center border-1"><?= $item['product_name'] ?></td>
+                                            <td class="custom-font-m border-1">Ea</td>
+                                            <td class="custom-font-m border-1">46</td>
 
 
                                         </tr>
