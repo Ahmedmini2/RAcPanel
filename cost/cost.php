@@ -191,12 +191,12 @@ $select = mysqli_query($conn, "select * from cost_center");
 
                       <td class="text-xs text-secondary mb-0 border-1 "><?=$r['id']?></td>
                       <td class="text-xs text-secondary mb-0 border-1"><?=$r['type']?></td>
-                      <td class="mb-0 text-sm border-1"><?=$r['description']?></td>
-                      <td class="mb-0 text-sm border-1"><?=$r['price']?></td>
-                      <td class="mb-0 text-sm border-1"><a href="../Signed-Docs/Cost-Bills/<?=$r['id']?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['description']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['price']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Cost-Bills/<?=$r['id']?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
                       <td class="text-xs text-secondary mb-0 border-1"><?=$r['created_at']?></td>
 
-                      <td class="border-1"><?php if ($position == 'Admin') { ?> 
+                      <td class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> 
                           <a href="add-cost.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 

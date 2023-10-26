@@ -189,14 +189,14 @@ $select = mysqli_query($conn, "select * from contact_covers ");
 
                       <td class="text-xs text-secondary mb-0"><?=$r['id']?></td>
                       
-                      <td class="mb-0 text-sm border-1"><?=$r['name']?></td>
-                      <td class="mb-0 text-sm border-1"><?=$r['seller']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['name']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['seller']?></td>
                       
                     
                       <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['created_at']; ?></td>
                       
 
-                    <td class="border-1">
+                    <td class="border-1 text-secondary">
                           <a href="add_c_companies.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 

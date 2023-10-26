@@ -163,7 +163,7 @@ $select = mysqli_query($conn, "select * from bank_info");
 
             <div class="block">
 
-              <table class="table align-items-center mb-0" id="myTable">
+              <table class="table align-items-center table-bordered mb-0" id="myTable">
                 <thead>
                   <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الرقم</th>
@@ -185,14 +185,14 @@ $select = mysqli_query($conn, "select * from bank_info");
 
                     <tr>
 
-                      <td class="text-xs text-secondary mb-0"><?php echo $custem =  $r['id']; ?></td>
-                      <td class="text-xs text-secondary mb-0"><?php echo $r['name']; ?></td>
-                      <td class="mb-0 text-sm"><?php echo $r['branch']; ?></td>
-                      <td class="mb-0 text-sm"><?php echo $r['account_number']; ?></td>
-                      <td class="text-xs text-secondary mb-0"><?php echo $r['iban']; ?></td>
-                      <td class="text-xs text-secondary mb-0"><?php echo $r['swift']; ?></td>
-                      <td class="text-xs text-secondary mb-0"><?php echo $r['created_at']; ?></td>
-                      <td><a href="edit-company-bank.php?bank_id=<?php echo $r['id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="../scripts/banks/delete.php?bank_id=<?php echo $r['id']; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?php echo $custem =  $r['id']; ?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['name']; ?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?php echo $r['branch']; ?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?php echo $r['account_number']; ?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['iban']; ?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['swift']; ?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['created_at']; ?></td>
+                      <td class="text-secondary border-1"><a href="edit-company-bank.php?bank_id=<?php echo $r['id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="../scripts/banks/delete.php?bank_id=<?php echo $r['id']; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
                     </tr>
 
