@@ -80,7 +80,7 @@ if (isset($_POST['add-project'])) {
     $net_perc = $_POST['net_peice'];
     $net_toti = str_replace(',', '', $_POST['net_toti_peice']);
 
-    $update_product = "UPDATE products SET `product_name` = '$product_name', `quantity` ='$quantity' , `dimensions` = '$dimensions' , `cost_price` = '$cost_price' ,`sell_price` = '$sell_price' ,`net_profit` = '$net_toti' ,`net_perc` = '$net_perc' WHERE `id  ` = $item_id";
+    $update_product = "UPDATE products SET `product_name` = '$product_name', `quantity` ='$quantity' , `dimensions` = '$dimensions' , `cost_price` = '$cost_price' ,`sell_price` = '$sell_price' ,`net_profit` = '$net_toti' ,`net_perc` = '$net_perc' WHERE `id` = $item_id";
     $product_res = $conn->query($update_product);
 
 
