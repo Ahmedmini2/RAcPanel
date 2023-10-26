@@ -29,7 +29,7 @@ $select =mysqli_query($conn, "select * from users");
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl ">
       
       <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
@@ -47,12 +47,7 @@ $select =mysqli_query($conn, "select * from users");
           <h6 class="font-weight-bolder mb-0">RTL</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="أكتب هنا...">
-            </div>
-          </div>
+          
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -164,7 +159,7 @@ $select =mysqli_query($conn, "select * from users");
                 
                 <div class="block">
                     
-                    <table class="table align-items-center mb-0" id="myTable">
+                    <table class="table align-items-center table-bordered mb-0" id="myTable">
                     <thead>
                     <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Sr.#</th>
@@ -184,15 +179,15 @@ $select =mysqli_query($conn, "select * from users");
 
 
                     <tr>
-                    <td class="text-center"><?php echo $i;?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $custem =  $r['email'];?></td>
-                    <td class="mb-0 text-sm"><?php echo $r['username'];?></td>
-                    <td class="mb-0 text-sm"><?php echo $r['full_name'];?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['phone'];?></td>
-                    <td class="text-secondary mb-0"><?php if($r['position']=="Admin") {echo '<span class="badge badge-sm bg-gradient-success">Admin</span>';} elseif ($r['position']=="Worker"){echo '<span class="badge badge-sm bg-gradient-warning">Worker</span>';} elseif($r['position'] == "Accounts") {echo '<span class="badge badge-sm bg-gradient-primary">Accounts</span>';}  elseif($r['position'] == "Reception") {echo '<span class="badge badge-sm bg-gradient-danger">Reception</span>';}?></td>
-                    <td class="text-xs text-secondary mb-0 text-center"><?php echo $r['status'];?></td>
-                    <td class="text-secondary text-xs font-weight-bold"><?php echo $r['created_at']; ?></td>
-                    <td class="text-center"><a href="../scripts/users/delete.php?id=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                    <td class="text-center text-secondary border-1"><?php echo $i;?></td>
+                    <td class="text-xs text-secondary mb-0 border-1"><?php echo $custem =  $r['email'];?></td>
+                    <td class="mb-0 text-sm text-secondary border-1"><?php echo $r['username'];?></td>
+                    <td class="mb-0 text-sm text-secondary border-1"><?php echo $r['full_name'];?></td>
+                    <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['phone'];?></td>
+                    <td class="text-secondary mb-0 border-1"><?php if($r['position']=="Admin") {echo '<span class="badge badge-sm bg-gradient-success">Admin</span>';} elseif ($r['position']=="Worker"){echo '<span class="badge badge-sm bg-gradient-warning">Worker</span>';} elseif($r['position'] == "Accounts") {echo '<span class="badge badge-sm bg-gradient-primary">Accounts</span>';}  elseif($r['position'] == "Reception") {echo '<span class="badge badge-sm bg-gradient-danger">Reception</span>';}?></td>
+                    <td class="text-xs text-secondary border-1 mb-0 text-center"><?php echo $r['status'];?></td>
+                    <td class="text-secondary text-xs border-1 font-weight-bold"><?php echo $r['created_at']; ?></td>
+                    <td class="text-center text-secondary border-1"><a href="../scripts/users/delete.php?id=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
                     </tr>
 
@@ -260,6 +255,7 @@ $select =mysqli_query($conn, "select * from users");
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+  <script src="../Admin/darkmode.js"></script>
 </body>
 
 </html>

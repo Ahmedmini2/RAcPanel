@@ -44,7 +44,7 @@ if (isset($_GET['id'])) {
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl">
 
     <!-- Side Bar -->
     <?php require_once('../components/sidebar.php'); ?>
@@ -61,13 +61,17 @@ if (isset($_GET['id'])) {
 
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="أكتب هنا...">
-                        </div>
-                    </div>
+                    
+                    
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
+                    <li class="nav-item px-3 d-flex align-items-center">
+                    <label class="ui-switch">
+                        <input type="checkbox" onclick="setDarkMode()">
+                        <div class="slider">
+                            <div class="circle"></div>
+                        </div>
+                    </label>
+                    </li>
                         <li class="nav-item d-flex align-items-center">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
@@ -467,10 +471,10 @@ if (isset($_GET['id'])) {
                                     </div>
                                     <div class="card-body px-0 pt-0 pb-2 mx-3">
                                         <div class="table-responsive p-0">
-                                            <table class="table table-hover table-fixed">
+                                            <table class="table table-hover table-bordered table-fixed">
 
                                                 <!--Table head-->
-                                                <thead class="bg-dark text-light text-center">
+                                                <thead class="bg-dark text-light table-bordered text-center">
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>الصنف</th>
@@ -508,18 +512,18 @@ if (isset($_GET['id'])) {
                                                     ?>
                                                         <?php if ($del_status == 1) { ?>
                                                         <tr>
-                                                            <th scope="row"><?= $i ?></th>
-                                                            <td><?= $products['product_name'] ?></td>
-                                                            <td><?= $peice_per_track ?></td>                                                
-                                                            <td><?= $quantity_of_track ?></td>
-                                                            <td><?= number_format( $piece_price ,2,'.',',') ?></td>
+                                                            <th class="text-secondarys" scope="row"><?= $i ?></th>
+                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
+                                                            <td class="border-1 text-secondary"><?= $peice_per_track ?></td>                                                
+                                                            <td class="border-1 text-secondary"><?= $quantity_of_track ?></td>
+                                                            <td class="border-1 text-secondary" ><?= number_format( $piece_price ,2,'.',',') ?></td>
 
 
 
-                                                            <td><?= number_format($track_price,2,'.',',') ?></td>
-                                                            <td><?= number_format($del_total_price,2,'.',',') ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($track_price,2,'.',',') ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($del_total_price,2,'.',',') ?></td>
 
-                                                            <td><?= $delivery_to  ?></td>
+                                                            <td class="border-1 text-secondary"><?= $delivery_to  ?></td>
                                                         </tr>
                                                        <?php } ?>
                                                     <?php } ?>
@@ -543,10 +547,10 @@ if (isset($_GET['id'])) {
                                     </div>
                                     <div class="card-body px-0 pt-0 pb-2 mx-3">
                                         <div class="table-responsive p-0">
-                                            <table class="table table-hover table-fixed">
+                                            <table class="table table-hover table-bordered table-fixed">
 
                                                 <!--Table head-->
-                                                <thead class="bg-dark text-light text-center">
+                                                <thead class="bg-dark text-light table-bordered text-center">
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>الصنف</th>
@@ -572,9 +576,9 @@ if (isset($_GET['id'])) {
                                                         $deliverd = 0;
                                                     ?>
                                                         <tr>
-                                                            <th scope="row"><?= $i ?></th>
-                                                            <td><?= $products['product_name'] ?></td>
-                                                            <td><?= $products['quantity'] ?></td>
+                                                            <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
+                                                            <td class="border-1 v"><?= $products['quantity'] ?></td>
                                                             <?php
                                                             $inv_id =  $products['id'];
                                                             $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id");
@@ -593,14 +597,14 @@ if (isset($_GET['id'])) {
                                                                 $deliverd += $del['quantity'];
                                                             }
                                                             ?>
-                                                            <td><?= number_format($inventory - $deliverd) ?></td>
-                                                            <td><?= number_format($production) ?></td>
+                                                            <td class="border-1 text-secondary" ><?= number_format($inventory - $deliverd) ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($production) ?></td>
 
 
 
-                                                            <td><?= number_format($deliverd) ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($deliverd) ?></td>
 
-                                                            <td><?= $products['quantity'] - $production ?></td>
+                                                            <td class="border-1 text-secondary"><?= $products['quantity'] - $production ?></td>
                                                         </tr>
                                                     <?php } ?>
 
@@ -625,15 +629,15 @@ if (isset($_GET['id'])) {
                                         $get_products = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                         while ($prod = mysqli_fetch_array($get_products)) {
                                         ?>
-                                            <li class="list-group-item border-0 p-4 mb-2 mt-2 bg-gray-100 border-radius-lg shadow-lg">
+                                            <li class="list-group-item border-0 p-4 mb-2 mt-2 border-radius-lg shadow-lg">
                                                 <div class="d-flex flex-column">
                                                     <h6 class="mb-3 text-lg">الصنف: <?= $prod['product_name'] ?> </h6>
                                                     <span class="mb-2 text-lg">الحديد</span>
                                                     <div class="table-responsive p-0 mb-3">
-                                                        <table class="table table-hover table-fixed">
+                                                        <table class="table table-hover table-bordered table-fixed">
 
                                                             <!--Table head-->
-                                                            <thead class="bg-dark text-light text-center">
+                                                            <thead class="bg-dark text-light table-bordered text-center">
                                                                 <tr>
                                                                     <th>الرقم</th>
                                                                     <th>الحجم</th>
@@ -660,21 +664,21 @@ if (isset($_GET['id'])) {
                                                                     $iron_total += $iron['total_price'];
                                                                 ?>
                                                                     <tr>
-                                                                        <th scope="row"><?= $i ?></th>
+                                                                        <th class="text-secondary" scope="row"><?= $i ?></th>
                                                                     
-                                                                        <td><?= $iron['size'] ?></td>
-                                                                        <td><?= number_format($iron['price_today'],2,'.',',')?></td>
-                                                                        <td><?= $iron['quantity'] ?></td>
-                                                                        <td><?= $iron['iron_height'] ?></td>
-                                                                        <td><?= $iron['tn_price'] ?></td>
-                                                                        <td><?= $iron['total_price'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $iron['size'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= number_format($iron['price_today'],2,'.',',')?></td>
+                                                                        <td class="border-1 text-secondary" ><?= $iron['quantity'] ?></td>
+                                                                        <td class="border-1 text-secondary" ><?= $iron['iron_height'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $iron['tn_price'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $iron['total_price'] ?></td>
                                                                         
                                                                     </tr>
                                                                     
                                                                 <?php } ?>
                                                                 <tr class="table-secondary">
-                                                                        <td colspan="6">المجموع</td>
-                                                                        <td><?=number_format($iron_total,2,'.',',')?></td>
+                                                                        <td class="border-1" colspan="6">المجموع</td>
+                                                                        <td class="border-1"><?=number_format($iron_total,2,'.',',')?></td>
                                                                     </tr>
 
                                                             </tbody>
@@ -686,10 +690,10 @@ if (isset($_GET['id'])) {
 
                                                     <span class="mb-2 text-lg">الإكسسوارات</span>
                                                     <div class="table-responsive p-0 mb-3">
-                                                        <table class="table table-hover table-fixed">
+                                                        <table class="table table-hover table-bordered table-fixed">
 
                                                             <!--Table head-->
-                                                            <thead class="bg-dark text-light text-center">
+                                                            <thead class="bg-dark text-light table-bordered text-center">
                                                                 <tr>
                                                                     <th>الرقم</th>
                                                                     <th>إسم الاكسسوار</th>
@@ -713,17 +717,17 @@ if (isset($_GET['id'])) {
                                                                     $accessory_total += $accessory['total_price'];
                                                                 ?>
                                                                     <tr>
-                                                                        <th scope="row"><?= $i ?></th>
-                                                                        <td><?= $accessory['name'] ?></td>
-                                                                        <td><?= $accessory['quantity'] ?></td>
-                                                                        <td><?= $accessory['price_per_piece'] ?></td>
-                                                                        <td><?= $accessory['total_price'] ?></td>
+                                                                        <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                                        <td class="border-1 text-secondary"><?= $accessory['name'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $accessory['quantity'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $accessory['price_per_piece'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $accessory['total_price'] ?></td>
                                                                     </tr>
                                                                     
                                                                 <?php } ?>
                                                                 <tr class="table-secondary">
-                                                                        <td colspan="4">المجموع</td>
-                                                                        <td><?=number_format($accessory_total,2,'.',',')?></td>
+                                                                        <td class="border-1"  colspan="4">المجموع</td>
+                                                                        <td class="border-1" ><?=number_format($accessory_total,2,'.',',')?></td>
                                                                     </tr>
 
 
@@ -735,10 +739,10 @@ if (isset($_GET['id'])) {
 
                                                     <span class="mb-2 text-lg">الاغطية</span>
                                                     <div class="table-responsive p-0 mb-3">
-                                                        <table class="table table-hover table-fixed">
+                                                        <table class="table table-hover table-bordered table-fixed">
 
                                                             <!--Table head-->
-                                                            <thead class="bg-dark text-light text-center">
+                                                            <thead class="bg-dark text-light table-bordered text-center">
                                                                 <tr>
                                                                     <th>الرقم</th>
                                                                     <th>نوع الغطاء</th>
@@ -760,11 +764,11 @@ if (isset($_GET['id'])) {
                                                                     $i++;
                                                                 ?>
                                                                     <tr>
-                                                                        <th scope="row"><?= $i ?></th>
-                                                                        <td><?= $cover['type'] ?></td>
-                                                                        <td><?= $prod['quantity'] ?></td>
-                                                                        <td><?= $cover['price_per_piece'] ?></td>
-                                                                        <td><?= $cover['total_price'] ?></td>
+                                                                        <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                                        <td class="border-1 text-secondary"><?= $cover['type'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $prod['quantity'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $cover['price_per_piece'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $cover['total_price'] ?></td>
                                                                     </tr>
                                                                 <?php } ?>
 
@@ -775,10 +779,10 @@ if (isset($_GET['id'])) {
 
                                                     <span class="mb-2 text-lg">بنود إضافية</span>
                                                     <div class="table-responsive p-0 mb-3">
-                                                        <table class="table table-hover table-fixed">
+                                                        <table class="table table-hover table-bordered table-fixed">
 
                                                             <!--Table head-->
-                                                            <thead class="bg-dark text-light text-center">
+                                                            <thead class="bg-dark text-light table-bordered text-center">
                                                                 <tr>
                                                                     <th>الرقم</th>
                                                                     <th>إسم البند</th>
@@ -801,16 +805,16 @@ if (isset($_GET['id'])) {
                                                                     $extra_total += $extra['total_price'];
                                                                 ?>
                                                                     <tr>
-                                                                        <th scope="row"><?= $i ?></th>
-                                                                        <td><?= $extra['name'] ?></td>
-                                                                        <td><?= $extra['price_per_piece'] ?></td>
-                                                                        <td><?= $extra['total_price'] ?></td>
+                                                                        <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                                        <td class="border-1 text-secondary"><?= $extra['name'] ?></td>
+                                                                        <td class="border-1 text-secondary "><?= $extra['price_per_piece'] ?></td>
+                                                                        <td class="border-1 text-secondary" ><?= $extra['total_price'] ?></td>
                                                                     </tr>
                                                                     
                                                                 <?php } ?>
                                                                 <tr class="table-secondary">
-                                                                        <td colspan="3">المجموع</td>
-                                                                        <td><?=number_format($extra_total,2,'.',',')?></td>
+                                                                        <td class="border-1 " colspan="3">المجموع</td>
+                                                                        <td class="border-1"><?=number_format($extra_total,2,'.',',')?></td>
                                                                     </tr>
 
                                                             </tbody>
@@ -837,10 +841,10 @@ if (isset($_GET['id'])) {
                                     </div>
                                     <div class="card-body px-0 pt-0 pb-2 mx-3">
                                         <div class="table-responsive p-0">
-                                            <table class="table table-hover table-fixed">
+                                            <table class="table table-hover table-bordered table-fixed">
 
                                                 <!--Table head-->
-                                                <thead class="bg-dark text-light text-center">
+                                                <thead class="bg-dark text-light table-bordered text-center">
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>اسم الصنف</th>
@@ -867,12 +871,12 @@ if (isset($_GET['id'])) {
                                                         $deliverd = 0;
                                                     ?>
                                                         <tr>
-                                                            <th scope="row"><?= $i ?></th>
-                                                            <td><?= $products['product_name'] ?></td>
-                                                            <td><?= number_format($products['cost_price'],2,'.',',')?></td>
-                                                            <td><?= number_format($products['sell_price'],2,'.',',')?></td>
-                                                            <td><?= number_format($products['net_profit'],2,'.',',')?></td>
-                                                            <td><?=$products['net_perc']?></td>   
+                                                            <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($products['cost_price'],2,'.',',')?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($products['sell_price'],2,'.',',')?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($products['net_profit'],2,'.',',')?></td>
+                                                            <td class="border-1 text-secondary"><?=$products['net_perc']?></td>   
                                             
                                                         </tr>
                                                     <?php } ?>
@@ -946,7 +950,8 @@ if (isset($_GET['id'])) {
                                                 </div>
                                                 <div class="d-flex align-items-center text-sm">
                                                     
-                                                    <a href="../Signed-Docs/Delivery-Reports/<?=$delivery['project_id']?>/<?=$delivery['image']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
+                                                    <a href="../Factory/receipt-bills.php?project_id=<?=$id?>&delivery_id=<?=$delivery['id']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
+                                                    <a class="btn btn-link text-dark px-3 mb-0" href="../Factory/receipt-report.php?project_id=<?=$id?>&edit=<?=$delivery['id']?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                                                 </div>
                                             </li>
                                            <?php } ?>
@@ -1059,5 +1064,6 @@ if (isset($_GET['id'])) {
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+    <script src="../Admin/darkmode.js"></script>
 </body>
 </html>

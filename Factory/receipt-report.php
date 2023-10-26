@@ -1,7 +1,51 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Factory";
-if (isset($_GET['project_id'])) {
+
+if(isset($_GET['edit']) && isset($_GET['project_id'])){
+    
+    $delivery_id = $_GET['edit'];
+    $id = $_GET['project_id'];
+    $query = "SELECT * FROM product_delivery WHERE id = $delivery_id";
+    $res = $conn->query($query);
+    $editData = $res->fetch_assoc();
+    $del_id = $editData['id'];
+    $product_id = $editData['product_id'];
+    $quantity = $editData['quantity'];
+    $deliverd_by = $editData['deliverd_by'];
+    $on_date = $editData['on_date'];
+    $phone = $editData['phone'];
+    $truck_no = $editData['truck_no'];
+    $approved_by = $editData['approved_by'];
+
+    if(isset($_POST['submit'])){
+        $str = explode(",",$_POST['name']);
+        $product_id = $str[0];
+        $quantity = $_POST['quantity'];
+        $del_quantity = $_POST['del_quantity'];
+        $del_by = $_POST['del_by'];
+        $del_no = $_POST['del_no'];
+        $on_date = $_POST['on_date'];
+        $truck_no = $_POST['truck_no'];
+        $approved_by = $_POST['approved_by'];
+
+
+        $update_product_del= "UPDATE `product_delivery` SET `quantity` = '$del_quantity' ,`deliverd_by` = '$del_by' ,`on_date` = '$on_date' ,`phone` = '$del_no',
+        `truck_no` = '$truck_no',`approved_by` = '$approved_by' WHERE `id` = '$delivery_id'";
+        $res = $conn->query($update_product_del);
+        if ($res) {
+            $_SESSION['notification'] = "تم تعديل تقرير الإستلام بنجاح";
+            header('location: ../Projects/view-projects.php?id='.$id.'');
+            exit();
+          } else {
+            $_SESSION['notification'] = "خطأ في الادخال";
+            header('location: ../Projects/view-projects.php?id='.$id.'');
+            exit();
+          }
+    }
+    
+}
+else if (isset($_GET['project_id'])) {
     $id = $_GET['project_id'];
 
     if(isset($_POST['submit'])){
@@ -9,20 +53,16 @@ if (isset($_GET['project_id'])) {
         $product_id = $str[0];
         $quantity = $_POST['quantity'];
         $del_quantity = $_POST['del_quantity'];
-        $del_image = $_POST['del_image'];
+        $del_by = $_POST['del_by'];
+        $del_no = $_POST['del_no'];
+        $on_date = $_POST['on_date'];
+        $truck_no = $_POST['truck_no'];
+        $approved_by = $_POST['approved_by'];
+        
+       
 
-        $target_dir = "../Signed-Docs/Delivery-Reports/".$id."/";
-        if(!is_dir($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        }else{
-
-        }
-        $target_file = $target_dir . basename($_FILES["del_image"]["name"]);
-        $filename = basename($_FILES["del_image"]["name"]);
-        $uploadOk = 1;
-        move_uploaded_file($_FILES["del_image"]["tmp_name"], $target_file);
-
-        $insert_product_del= "INSERT INTO `product_delivery` (`id`,`project_id`, `product_id`, `quantity`, `image`, `created_at`) VALUES (NULL,'$id', '$product_id', '$del_quantity', '$filename', NOW())";
+        $insert_product_del= "INSERT INTO `product_delivery` (`id`,`project_id`, `product_id`, `quantity`,`deliverd_by`,`on_date`,`phone`,`truck_no`,`approved_by`, `created_at`) VALUES
+         (NULL,'$id', '$product_id', '$del_quantity', '$del_by','$on_date','$del_no','$truck_no','$approved_by', NOW())";
         $res = $conn->query($insert_product_del);
         if ($res) {
             $_SESSION['notification'] = "تم اضافة تقرير الإستلام بنجاح";
@@ -35,6 +75,15 @@ if (isset($_GET['project_id'])) {
           }
    
     }
+} else{
+
+    $product_id = '';
+    $quantity = '';
+    $deliverd_by = '';
+    $on_date = '';
+    $phone = '';
+    $truck_no = '';
+    $approved_by = '';
 }
 
 ?>
@@ -64,7 +113,7 @@ if (isset($_GET['project_id'])) {
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl">
 
     <!-- Side Bar -->
     <?php require_once('../components/sidebar.php'); ?>
@@ -82,12 +131,7 @@ if (isset($_GET['project_id'])) {
 
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="أكتب هنا...">
-                        </div>
-                    </div>
+                   
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
@@ -254,14 +298,47 @@ if (isset($_GET['project_id'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> الكمية التي سيتم تسليمها </label>
-                                    <input type="text" placeholder="الرجاء كتابة كمية التي سيتم تسليمها" class="form-control" name="del_quantity" value="">
+                                    <input type="text" placeholder="الرجاء كتابة كمية التي سيتم تسليمها" class="form-control" name="del_quantity" value="<?=$quantity?>">
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="formFileLg" class="form-label">صورة مستند التسليم</label>
-                                    <input class="form-control form-control-lg" id="formFileLg" name="del_image" type="file" required/>
+                                    <label> تم الاستلام عن طريق </label>
+                                    <input type="text" placeholder="الرجاء كتابة اسم الموصل" class="form-control" name="del_by" value="<?=$del_by?>">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> رقم الهاتف </label>
+                                    <input type="text" placeholder="الرجاء كتابة رقم هاتف صاحب التوصيل" class="form-control" name="del_no" value="<?=$phone?>">
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> تاريخ </label>
+                                    <input type="date" placeholder="" class="form-control" name="on_date" value="<?=$on_date?>">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> رقم الشاحنة </label>
+                                    <input type="text" placeholder="الرجاء كتابة رقم الشاحنة" class="form-control" name="truck_no" value="<?=$truck_no?>">
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> تم الموافقه عن طريق </label>
+                                    <input type="text" placeholder="الرجاء كتابة اسم الشخص" class="form-control" name="approved_by" value="<?=$approved_by?>">
+
                                 </div>
                             </div>
                         </div>
@@ -296,6 +373,7 @@ if (isset($_GET['project_id'])) {
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+    <script src="../Admin/darkmode.js"></script>
 </body>
 
 </html>

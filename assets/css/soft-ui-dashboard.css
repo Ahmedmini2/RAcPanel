@@ -20194,7 +20194,7 @@ label,
 .icon-shape i {
   color: #fff;
   opacity: 0.8;
-  top: 11px;
+  top: 14px;
   position: relative;
 }
 
@@ -25160,7 +25160,7 @@ width: 100px;
 
 .darkmode .sal-card{
   --background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);
-  width: 300px;
+  width: 360px;
   height: 100px;
   padding: 5px;
   border-radius: 1rem;
@@ -25214,11 +25214,18 @@ width: 100px;
   color: #f7ba2b;
   transition: color 1s;
  }
+
+ .darkmode .text-secondary {
+  color: #d0d3d9 !important;
+}
+.darkmode .text-dark {
+  color: #e9ecef !important;
+}
   /*card*/
  
   .sal-card{
     --background: white;
-    width: 300px;
+    width: 360px;
     height: 100px;
     padding: 5px;
     border-radius: 1rem;
@@ -25279,9 +25286,9 @@ width: 100px;
   /* switch */
   --switch-bg: rgb(135, 150, 165);
   --switch-width: 48px;
-  --switch-height: 20px;
+  --switch-height: 16px;
   /* circle */
-  --circle-diameter: 32px;
+  --circle-diameter: 25px;
   --circle-bg: rgb(232, 89, 15);
   --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
 }

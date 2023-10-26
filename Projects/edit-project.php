@@ -9,6 +9,7 @@ if(isset($_GET['project_id']) && isset($_GET['item_id'])){
     $res = $conn->query($query);
     $project = $res->fetch_assoc();
 
+    $project_cost = $project['project_cost'];
     $total_without_tax = $project['total_without_tax'];
     $total_with_tax = $project['total_with_tax'];
     $net_total = $project['net_total'];
@@ -30,45 +31,20 @@ if(isset($_GET['project_id']) && isset($_GET['item_id'])){
     $delivery_band = $res_delivery->fetch_assoc();
 
 }
-$coco = 1;
-$numberofrows = 1;
 
-$iron_raws = $_POST['iron-rr'];
-$accessory_raws = $_POST['ac-rr'];
-$band_raws = $_POST['band-rr'];
-$total_cost = 0 ; 
-$total_net = 0 ; 
-$total_without_tax = 0 ; 
+
+
 if (isset($_POST['add-project'])) {
+
+
+    $old_project_cost = $project_cost - ($item['cost_price'] * $item['quantity']);
+    $old_total_without_tax = $total_without_tax - ($item['sell_price'] * $item['quantity']);
+    
+    $old_net_toti = $net_total - ($item['net_profit'] * $item['quantity']);
 
   $iron1 = 1;
   $accessory1 = 1;
   $band1 = 1;
-
-  $total_cost = $_POST['prod_peice_tot'];
-  $total_cost = str_replace(',','',$total_cost);
-  $total_net = $_POST['net_toti'];
-  $total_without_tax = $total_cost + $total_net;
-  $total_with_tax = ($total_without_tax * 15) /100; 
-
-
-  
-
-//   $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`image`,`project_cost`,`total_without_tax`,`total_with_tax`,`net_total`,`valid_till`,`duration`,`payment_type`,`created_at`)
-//    VALUES(NULL, '$project_name', '$project_description','$filename','$total_cost','$total_without_tax','$total_with_tax','$total_net','$valid_till','$duration','$payment_type' ,NOW())";
-//   $project_res = $conn->query($insert_project);
-//   if ($project_res) {
-
-//     $project_id = $conn->insert_id;
-
-//     $contact_name = $_POST['contact_name'];
-//     $mobile = $_POST['mobile'];
-//     $address = $_POST['address'];
-//     $email = $_POST['email'];
-//     $vat = $_POST['vat'];
-//     $trade = $_POST['trade'];
-
-
 
 
     $product_name = $_POST['product_name'];
@@ -78,13 +54,20 @@ if (isset($_POST['add-project'])) {
     $cost_price = $_POST['prod_peice'];
     $cost_price = str_replace(',', '', $cost_price);
     $net_perc = $_POST['net_peice'];
-    $net_toti = str_replace(',', '', $_POST['net_toti']) / $quantity;
+    $net_toti = str_replace(',', '', $_POST['net_toti_peice']);
 
-//     $insert_product = "INSERT INTO products (`id`, `project_id`, `product_name`, `quantity`, `dimensions` , `cost_price`,`sell_price`,`net_profit`,`net_perc`, `created_at` ) VALUES(NULL, '$project_id', '$product_name' , '$quantity' , '$dimensions' ,'$cost_price','$sell_price','$net_toti','$net_perc', NOW())";
-//     $product_res = $conn->query($insert_product);
+    
 
-//     if ($product_res) {
-//       $product_id = $conn->insert_id;
+    $update_product = "UPDATE products SET `product_name` = '$product_name', `quantity` ='$quantity' , `dimensions` = '$dimensions' , `cost_price` = '$cost_price' ,`sell_price` = '$sell_price' ,`net_profit` = '$net_toti' ,`net_perc` = '$net_perc' WHERE `id` = $item_id";
+    $product_res = $conn->query($update_product);
+
+    $final_project_cost = $old_project_cost + str_replace(',', '', $_POST['prod_peice_tot']);
+    $final_total_without_tax = $old_total_without_tax + str_replace(',', '', $_POST['sell_price_tot']);
+    $final_total_with_tax = (($final_total_without_tax * 15) /100);
+    $final_net_toti = $old_net_toti + str_replace(',', '', $_POST['net_toti']);
+
+    $update_project = "UPDATE `projects` SET `project_cost` = '$final_project_cost' , `total_without_tax` = '$final_total_without_tax' , `total_with_tax` = '$final_total_with_tax' , `net_total` = '$final_net_toti' WHERE `id` = '$project_id'";
+    $project_res = $conn->query($update_project);
 
       $kharasana = $_POST['kharasana'];
       $kh_price = str_replace(',', '', $_POST['kh_price']);
@@ -110,7 +93,7 @@ if (isset($_POST['add-project'])) {
           $iron_long = $_POST['iron_long_' . $iron1];
           $iron_tn = $_POST['iron_tn_' . $iron1];
           $iron_tot = str_replace(',', '', $_POST['iron_tot_' . $iron1]);
-          $iron_id = $_POST['iron_id'];
+          $iron_id = $_POST['iron_id_'.$iron1];
 
           $sizeText = [
             "0.395" => "8مم",
@@ -126,11 +109,17 @@ if (isset($_POST['add-project'])) {
           ];
 
           $selectedSizeText = $sizeText[$iron];
-
-          $update_iron = "UPDATE iron_band SET `size` = '$selectedSizeText' , `price_today` = '$iron_price' , `quantity` = '$iron_quantity' , `iron_height` = '$iron_long' , 
-          `tn_price` = '$iron_tn', `total_price` = '$iron_tot' WHERE `product_id` = $item_id AND `id` = $iron_id";
+          
+          $update_iron = "UPDATE  iron_band  SET  size ='$selectedSizeText', price_today ='$iron_price', quantity ='$iron_quantity', iron_height ='$iron_long', tn_price ='$iron_tn', total_price ='$iron_tot' WHERE  id  = $iron_id ";
           $iron_res = $conn->query($update_iron);
-          $iron1++;
+          if ($iron_res){
+            
+            $iron1++;
+          }else{
+            $_SESSION['notification'] =  $conn->error;
+                  header('location: index.php');
+                  exit();
+            }
         }
           $accessory_raws = $_POST['ac-rr'];
           if ($accessory_raws == "") {
@@ -141,12 +130,20 @@ if (isset($_POST['add-project'])) {
             $acc_quantity = $_POST['acc_quantity_' . $accessory1];
             $acc_price = str_replace(',', '', $_POST['acc_price_' . $accessory1]);
             $acc_tot = str_replace(',', '', $_POST['acc_tot_' . $accessory1]);
-            $accessory_id = $_POST['accessory_id'];
+            $accessory_id = $_POST['accessory_id_'. $accessory1];
 
 
-            $update_accessory = "UPDATE `accessory_band` SET  `name` = '$accessory' , `quantity` = '$acc_quantity' , `price_per_piece` = '$acc_price' , `total_price` = '$acc_tot' WHERE `product_id` = $item_id AND `id` = $accessory_id";
+            $update_accessory = "UPDATE `accessory_band` SET  `name` = '$accessory' , `quantity` = '$acc_quantity' , `price_per_piece` = '$acc_price' , `total_price` = '$acc_tot' WHERE `id` = '$accessory_id'";
             $accessory_res = $conn->query($update_accessory);
-            $accessory1++;
+            if($accessory_res){
+              $accessory1++;
+            }
+            else{
+              $_SESSION['notification'] = "تعديل خطأ في الاكسسوارات الاضافيه";
+                    header('location: index.php');
+                    exit();
+              }
+            
           }
 
         $cover_type = $_POST['cover_type'];
@@ -159,7 +156,7 @@ if (isset($_POST['add-project'])) {
 
         }
 
-          $band_raws = $_POST['band -rr'];
+          $band_raws = $_POST['band-rr'];
           if ($band_raws == "") {
             $band_raws = 1;
           }
@@ -167,46 +164,47 @@ if (isset($_POST['add-project'])) {
             $band = $_POST['band_' . $band1];
             $band_price = str_replace(',', '', $_POST['band_price_' . $band1]);
             $band_tot = str_replace(',', '', $_POST['band_tot_' . $band1]);
-            $extra_id = $_POST['extra_id'];
+            $extra_id = $_POST['extra_id_'.$band1];
 
-            $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `product_id` = $item_id AND `id` = $extra_id";
+            $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `id` = '$extra_id'";
             $band_res = $conn->query($update_band);
             if ($band_res) {
-              $_SESSION['notification'] = "تعديل بنجاح";
+              $band1++;
+            }else{
+            $_SESSION['notification'] = "تعديل خطأ في البنود الاضافيه";
                   header('location: index.php');
                   exit();
             }
-            $band_raws++;
           }
+          
 
-//               if (isset($_POST['deliverable'])) {
-//                 $deliverable = 1;
-//                 $quantity_of_track = $_POST['quantity_of_track'];
-//                 $delivery_to = $_POST['delivery_to'];
-//                 $track_price = str_replace(',', '', $_POST['track_price']);
-//                 $piece_price = str_replace(',', '', $_POST['piece_price']);
-//                 $total_track_price = str_replace(',', '', $_POST['total_price']);
-//                 $peice_per_track = $_POST['peice_per_track'];
+              if (isset($_POST['deliverable'])) {
+                $deliverable = 1;
+                $quantity_of_track = $_POST['quantity_of_track'];
+                $delivery_to = $_POST['delivery_to'];
+                $track_price = str_replace(',', '', $_POST['track_price']);
+                $piece_price = str_replace(',', '', $_POST['piece_price']);
+                $total_track_price = str_replace(',', '', $_POST['total_price']);
+                $peice_per_track = $_POST['peice_per_track'];
                 
                 
-//                 $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`, `peice_per_track`, `quantity_of_track`, `delivery_to`, `piece_price`, `track_price`, `total_price`,
-//                 `created_at`) VALUES (NULL, '$product_id', '$deliverable', '$peice_per_track', '$quantity_of_track', '$delivery_to', '$piece_price', '$track_price', '$total_track_price', NOW())";
-//                 $delivery_res = $conn->query($insert_delivery);
-//                 if ($delivery_res){
-//                   $_SESSION['notification'] = "الصنف بنجاح";
-//                   header('location: index.php');
-//                   exit();
-//                 }
-//               } else {
-//                 $deliverable = 0;
-//                 $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`,`created_at`) VALUES (NULL, '$product_id', '$deliverable',NOW())";
-//                 $delivery_res = $conn->query($insert_delivery);
-//                 if ($delivery_res){
-//                   $_SESSION['notification'] = "الصنف بنجاح";
-//                   header('location: index.php');
-//                   exit();
-//                 }
-//               }
+                $update_delivery = "UPDATE `delivery` SET `deliverable` = '$deliverable' , `peice_per_track` = '$peice_per_track' , `quantity_of_track` = '$quantity_of_track' , `delivery_to` = '$delivery_to' , `piece_price` = '$piece_price', `track_price` = '$track_price', `total_price` = '$total_track_price' WHERE `product_id` = '$item_id'";
+                $delivery_res = $conn->query($update_delivery);
+                if ($delivery_res){
+                  $_SESSION['notification'] = "تم التعديل بنجاح";
+                  header('location: index.php');
+                  exit();
+                }
+              } else {
+                $deliverable = 0;
+                $update_delivery = "UPDATE `delivery` SET `deliverable` = '$deliverable' WHERE `product_id` = $item_id";
+                $delivery_res = $conn->query($update_delivery);
+                if ($delivery_res){
+                  $_SESSION['notification'] = "تم التعديل بنجاح";
+                  header('location: index.php');
+                  exit();
+                }
+              }
 //             } else {
 //               $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
 //               header('location: index.php');
@@ -611,8 +609,8 @@ if (isset($_POST['add-project'])) {
                         <div class="form-group">
                           <label for="iron_tot">السعر</label>
                           <input type="text" class="form-control" name='iron_tot_<?= $i ?>' id="iron_tot_<?= $i ?>" readonly value="<?=$iron_band['total_price']?>">
-                          <input type="hidden" value="<?php echo $numberofrows; ?>" name="iron_id" value="<?=$iron_band['id']?>" readonly>
-                          <input type="hidden" name="iron-rr" id="iron-rr" readonly value="<?=$i?>">
+                          <input type="hidden"  name="iron_id_<?=$i?>" value="<?=$iron_band['id']?>" readonly>
+                          
                         </div>
                       </div>
                     </div>
@@ -620,6 +618,7 @@ if (isset($_POST['add-project'])) {
                     <?php } ?>
                   </div>
                 </div>
+                <input type="hidden" name="iron-rr" id="iron-rr" readonly value="<?=$i?>">
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                   var i = $("#iron-rr").val();
@@ -716,13 +715,14 @@ if (isset($_POST['add-project'])) {
                         <div class="form-group">
                           <label for="acc_tot">السعر</label>
                           <input type="text" class="form-control" name='acc_tot_<?= $y ?>' id="acc_tot_<?= $y ?>" readonly value="<?=$accessory_band['total_price']?>">
-                          <input type="hidden" name="rowcount_ac" name="accessory_id" value="<?=$accessory_band['id']?>" readonly>
-                          <input type="hidden" name="ac-rr" id="ac-rr" readonly value="<?=$y?>">
+                          <input type="hidden"   name="accessory_id_<?= $y ?>" value="<?=$accessory_band['id']?>" readonly>
+                          
                         </div>
                       </div>
                     </div>
                     <hr class="new2">
                     <?php  } ?>
+                    <input type="hidden" name="ac-rr" id="ac-rr" readonly value="<?=$y?>">
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
                       var a = 1;
@@ -847,13 +847,14 @@ if (isset($_POST['add-project'])) {
                         <div class="form-group">
                           <label for="band_tot">السعر </label>
                           <input type="text" class="form-control" name="band_tot_<?= $x ?>" id="band_tot_<?= $x ?>" readonly value="<?=$extra_band['total_price']?>">
-                          <input type="hidden" name="extra_id" value="<?=$extra_band['id']?>" readonly>
-                          <input type="hidden" name="band-rr" id="band-rr" readonly value="<?=$x?>">
+                          <input type="hidden" name="extra_id_<?= $x ?>" value="<?=$extra_band['id']?>" readonly>
+                          
                         </div>
                       </div>
                     </div>
                     <hr class="new2">
                     <?php } ?>
+                    <input type="hidden" name="band-rr" id="band-rr" readonly value="<?=$x?>">
                     <script>
                       b = 1;
                       $(document).on('change', 'input', function() {
@@ -896,7 +897,26 @@ if (isset($_POST['add-project'])) {
                 <div class="Delivery-details">
                   <h5>التوصيل</h5>
                   <div class="delivery">
-                    
+                  <div class="row">
+                      <label for="">هل الصنف قابل للتوصيل ؟</label>
+                      <div class="form-check form-switch col-md-2 col-sm-6">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable" <?php if ($delivery_band['deliverable'] == 1){ echo 'checked';} ?>>
+                        <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
+                      </div>
+                      <script>
+                        $(document).ready(function() {
+                          $('input[type="checkbox"]').click(function() {
+                            if (document.getElementById("flexSwitchCheckDefault").checked == true) {
+                              
+                              document.getElementById("toggle_ch").innerText = "نعم";
+                            } else {
+                              
+                              document.getElementById("toggle_ch").innerText = "لا";
+                            }
+                          });
+                        });
+                      </script>
+                  </div>
                     <div class="row" id="delivery-div">
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
@@ -956,7 +976,7 @@ if (isset($_POST['add-project'])) {
                         var quan = ($("#quantity").val() || 0) ;
                         var del_peice = ($("#peice_per_track").val() || 0) ;
                         var tracks = ((quan / del_peice) || 0) ;
-                        tracks = Math.ceil(tracks);
+                        tracks = (Math.ceil(tracks) || 0) ;
                          $("#quantity_of_track").val(tracks) ;
                         var track_price = ($("#track_price").val() || 0) ;
                         var del_peice_price = ((track_price / del_peice)|| 0);

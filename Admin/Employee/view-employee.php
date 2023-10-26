@@ -156,30 +156,30 @@ $_SESSION['sidebar_admin'] = "employee";
 
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td>عباس الجعفري</td>
-                                            <td>المدير العام</td>
-                                            <td>5000</td>
-                                            <td>العقد</td>
-                                            <td>1/10/2023</td>
-                                            <td>9</td>
+                                            <td class="border-1">عباس الجعفري</td>
+                                            <td class="border-1">المدير العام</td>
+                                            <td class="border-1">5000</td>
+                                            <td class="border-1">العقد</td>
+                                            <td class="border-1">1/10/2023</td>
+                                            <td class="border-1">9</td>
                                             
-                                            <td>اكتوبر 2023</td>
-                                            <td>
+                                            <td class="border-1" >اكتوبر 2023</td>
+                                            <td class="border-1">
                                                 <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
                                                 <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td>عباس الجعفري</td>
-                                            <td>المدير العام</td>
-                                            <td>5000</td>
-                                            <td>العقد</td>
-                                            <td>1/10/2023</td>
-                                            <td>9</td>
+                                            <td class="border-1">عباس الجعفري</td>
+                                            <td class="border-1">المدير العام</td>
+                                            <td class="border-1">5000</td>
+                                            <td class="border-1">العقد</td>
+                                            <td class="border-1">1/10/2023</td>
+                                            <td class="border-1">9</td>
                                            
-                                            <td>اكتوبر 2023</td>
-                                            <td>
+                                            <td class="border-1">اكتوبر 2023</td>
+                                            <td class="border-1">
                                                 <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
                                                 <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </td>
@@ -187,15 +187,15 @@ $_SESSION['sidebar_admin'] = "employee";
                                         </tr>
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td>عباس الجعفري</td>
-                                            <td>المدير العام</td>
-                                            <td>5000</td>
-                                            <td>العقد</td>
-                                            <td>1/10/2023</td>
-                                            <td>9</td>
+                                            <td class="border-1">عباس الجعفري</td>
+                                            <td class="border-1">المدير العام</td>
+                                            <td class="border-1">5000</td>
+                                            <td class="border-1">العقد</td>
+                                            <td class="border-1">1/10/2023</td>
+                                            <td class="border-1">9</td>
                                             
-                                            <td>اكتوبر 2023</td>
-                                            <td>
+                                            <td class="border-1">اكتوبر 2023</td>
+                                            <td class="border-1">
                                                 <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
                                                 <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </td>

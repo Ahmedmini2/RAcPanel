@@ -35,7 +35,7 @@ $select = mysqli_query($conn, "select * from cost_center");
   <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </head>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl ">
 
   <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
@@ -52,12 +52,7 @@ $select = mysqli_query($conn, "select * from cost_center");
 
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="أكتب هنا...">
-            </div>
-          </div>
+          
            
           
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
@@ -194,14 +189,14 @@ $select = mysqli_query($conn, "select * from cost_center");
 
                     <tr class="text-center">
 
-                      <td class="text-xs text-secondary mb-0"><?=$r['id']?></td>
-                      <td class="text-xs text-secondary mb-0"><?=$r['type']?></td>
-                      <td class="mb-0 text-sm"><?=$r['description']?></td>
-                      <td class="mb-0 text-sm"><?=$r['price']?></td>
-                      <td class="mb-0 text-sm"><a href="../Signed-Docs/Cost-Bills/<?=$r['id']?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
-                      <td class="text-xs text-secondary mb-0"><?=$r['created_at']?></td>
+                      <td class="text-xs text-secondary mb-0 border-1 "><?=$r['id']?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?=$r['type']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['description']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['price']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Cost-Bills/<?=$r['id']?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?=$r['created_at']?></td>
 
-                      <td><?php if ($position == 'Admin') { ?> 
+                      <td class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> 
                           <a href="add-cost.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
@@ -304,6 +299,7 @@ $select = mysqli_query($conn, "select * from cost_center");
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+  <script src="../Admin/darkmode.js"></script>
 </body>
 
 </html>

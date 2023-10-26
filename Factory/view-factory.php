@@ -63,7 +63,7 @@ if (isset($_GET['id'])) {
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl ">
 
     <!-- Side Bar -->
     <?php require_once('../components/sidebar.php'); ?>
@@ -80,12 +80,7 @@ if (isset($_GET['id'])) {
 
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="أكتب هنا...">
-                        </div>
-                    </div>
+                    
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -413,10 +408,10 @@ if (isset($_GET['id'])) {
                                     </div>
                                     <div class="card-body px-0 pt-0 pb-2 mx-3">
                                         <div class="table-responsive p-0">
-                                            <table class="table table-hover table-fixed">
+                                            <table class="table table-hover table-bordered table-fixed">
 
                                                 <!--Table head-->
-                                                <thead class="bg-dark text-light text-center">
+                                                <thead class="bg-dark text-light table-bordered text-center">
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>الصنف</th>
@@ -439,8 +434,8 @@ if (isset($_GET['id'])) {
                                                         $kh_quan = 0;
                                                     ?>
                                                         <tr>
-                                                            <th scope="row"><?= $i ?></th>
-                                                            <td><?= $products['product_name'] ?></td>
+                                                            <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                            <td class="border-1 text-secondary" ><?= $products['product_name'] ?></td>
                                                     <?php
                                                     $kh_id = $products['id'];
                                                      $res4 = mysqli_query($conn, "SELECT * FROM kharasana WHERE `product_id` = $kh_id");
@@ -450,8 +445,8 @@ if (isset($_GET['id'])) {
                                                         
                                                      }
                                                     ?>
-                                                            <td><?= $kh_quan ?></td>
-                                                            <td><?= number_format($kh_total) ?></td>
+                                                            <td class="border-1 text-secondary"><?= $kh_quan ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($kh_total) ?></td>
                                                     <?php
                                                     $status_id = $products['id'];
                                                     $kh_used = 0;
@@ -464,8 +459,8 @@ if (isset($_GET['id'])) {
                                                      }
                                                     ?>
                                                     
-                                                            <td><?= number_format($kh_used,2) ?></td>
-                                                            <td><?= number_format($kh_used_price) ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($kh_used,2) ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($kh_used_price) ?></td>
 
                                                         </tr>
                                                     <?php } ?>
@@ -487,10 +482,10 @@ if (isset($_GET['id'])) {
                                     </div>
                                     <div class="card-body px-0 pt-0 pb-2 mx-3">
                                         <div class="table-responsive p-0">
-                                            <table class="table table-hover table-fixed">
+                                            <table class="table table-hover table-bordered table-fixed">
 
                                                 <!--Table head-->
-                                                <thead class="bg-dark text-light text-center">
+                                                <thead class="bg-dark text-light table-bordered text-center">
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>الصنف</th>
@@ -516,9 +511,9 @@ if (isset($_GET['id'])) {
                                                         $deliverd = 0;
                                                     ?>
                                                         <tr>
-                                                            <th scope="row"><?= $i ?></th>
-                                                            <td><?= $products['product_name'] ?></td>
-                                                            <td><?= $products['quantity'] ?></td>
+                                                            <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
+                                                            <td class="border-1 text-secondary" ><?= $products['quantity'] ?></td>
                                                             <?php 
                                                             $inv_id =  $products['id'];
                                                             $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id");
@@ -538,16 +533,16 @@ if (isset($_GET['id'])) {
                                                                 
                                                             }
                                                             ?>
-                                                            <td><?= number_format($inventory - $deliverd) ?></td>
-                                                            <td><?= number_format($production ) ?></td>
+                                                            <td class="border-1 text-secondary" ><?= number_format($inventory - $deliverd) ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($production ) ?></td>
 
                                                             
 
-                                                            <td><?= number_format($deliverd) ?></td>
+                                                            <td class="border-1 text-secondary" ><?= number_format($deliverd) ?></td>
 
 
 
-                                                            <td><?=$products['quantity']-$production?></td>
+                                                            <td class="border-1 text-secondary"><?=$products['quantity']-$production?></td>
                                                         </tr>
                                                     <?php } ?>
 
@@ -627,7 +622,7 @@ if (isset($_GET['id'])) {
                                                 </div>
                                                 <div class="d-flex align-items-center text-sm">
                                                     
-                                                    <a href="../Signed-Docs/Delivery-Reports/<?=$delivery['project_id']?>/<?=$delivery['image']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
+                                                    <a href="receipt-bills.php?project_id=<?=$id?>&delivery_id=<?=$delivery['id']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
                                                 </div>
                                             </li>
                                            <?php } ?>
@@ -724,6 +719,7 @@ if (isset($_GET['id'])) {
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+    <script src="../Admin/darkmode.js"></script>
 </body>
 
 </html>

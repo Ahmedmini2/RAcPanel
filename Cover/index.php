@@ -35,7 +35,7 @@ $select = mysqli_query($conn, "select * from covers_purchase");
   <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </head>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl ">
 
   <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
@@ -52,12 +52,7 @@ $select = mysqli_query($conn, "select * from covers_purchase");
 
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="أكتب هنا...">
-            </div>
-          </div>
+          
            
           
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
@@ -173,7 +168,7 @@ $select = mysqli_query($conn, "select * from covers_purchase");
             </div>
 
             <div class="block">
-              <table class="table align-items-center mb-0" id="example">
+              <table class="table align-items-center table-borderedt mb-0" id="example">
                 <thead>
                   <tr  class="text-center">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
@@ -195,16 +190,16 @@ $select = mysqli_query($conn, "select * from covers_purchase");
                 ?>
                     <tr class="text-center">
 
-                      <td class="text-xs text-secondary mb-0">1</td>
-                      <td class="text-xs text-secondary mb-0"><?=$r['type']?></td>
-                      <td class="mb-0 text-sm"><?=$r['dimensions']?></td>
-                      <td class="mb-0 text-sm"><?=$r['quantity']?></td>
-                      <td class="mb-0 text-sm"><?=$r['price_per_piece']?></td>
-                      <td class="mb-0 text-sm"><?=$r['total_price']?></td>
-                      <td class="text-xs text-secondary mb-0"><?php echo $r['created_at']; ?></td>
+                      <td class="text-xs text-secondary mb-0 border-1">1</td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?=$r['type']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['dimensions']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['quantity']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['price_per_piece']?></td>
+                      <td class="mb-0 text-sm text-secondary  border-1"><?=$r['total_price']?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['created_at']; ?></td>
                       
 
-                      <td><a href="purchase_cover.php?id=<?=$r['id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
+                      <td class="border-1 text-secondary"><a href="purchase_cover.php?id=<?=$r['id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
                           <a href="add-cover.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 

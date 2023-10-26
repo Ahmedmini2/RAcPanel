@@ -220,10 +220,10 @@ $_SESSION['sidebar_admin'] = "dashboard";
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-fixed" id="example">
+                                <table class="table table-hover table-bordered table-fixed" id="example">
 
                                     <!--Table head-->
-                                    <thead class="bg-dark text-light text-center">
+                                    <thead class="bg-dark text-ligh table-bordered text-center">
                                         <tr>
                                             <th>الرقم</th>
                                             <th>رقم الموظف</th>
@@ -243,11 +243,11 @@ $_SESSION['sidebar_admin'] = "dashboard";
 
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td>RUKNAMIL0002</td>
-                                            <td>عباس الجعفري</td>
-                                            <td>مناسبة خاصة</td>
-                                            <td>2023/10/22</td>
-                                            <td><span style="color: gray">Pending <i class="fa fa-spinner"></i></span></td>
+                                            <td class="border-1" >RUKNAMIL0002</td>
+                                            <td class="border-1">عباس الجعفري</td>
+                                            <td class="border-1">مناسبة خاصة</td>
+                                            <td class="border-1">2023/10/22</td>
+                                            <td class="border-1"><span style="color: gray">Pending <i class="fa fa-spinner"></i></span></td>
 
                                         </tr>
 

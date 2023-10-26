@@ -35,7 +35,7 @@ $select = mysqli_query($conn, "select * from contact_covers ");
   <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </head>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl ">
 
   <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
@@ -52,12 +52,7 @@ $select = mysqli_query($conn, "select * from contact_covers ");
 
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="أكتب هنا...">
-            </div>
-          </div>
+          
            
           
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
@@ -173,7 +168,7 @@ $select = mysqli_query($conn, "select * from contact_covers ");
             </div>
 
             <div class="block">
-              <table class="table align-items-center mb-0" id="example">
+              <table class="table align-items-center table-bordered mb-0" id="example">
                 <thead>
                   <tr  class="text-center">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
@@ -194,14 +189,14 @@ $select = mysqli_query($conn, "select * from contact_covers ");
 
                       <td class="text-xs text-secondary mb-0"><?=$r['id']?></td>
                       
-                      <td class="mb-0 text-sm"><?=$r['name']?></td>
-                      <td class="mb-0 text-sm"><?=$r['seller']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['name']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['seller']?></td>
                       
                     
-                      <td class="text-xs text-secondary mb-0"><?php echo $r['created_at']; ?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['created_at']; ?></td>
                       
 
-                    <td>
+                    <td class="border-1 text-secondary">
                           <a href="add_c_companies.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
@@ -304,6 +299,7 @@ $select = mysqli_query($conn, "select * from contact_covers ");
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+  <script src="../Admin/darkmode.js"></script>
 </body>
 
 </html>
