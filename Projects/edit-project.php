@@ -9,6 +9,7 @@ if(isset($_GET['project_id']) && isset($_GET['item_id'])){
     $res = $conn->query($query);
     $project = $res->fetch_assoc();
 
+    $project_cost = $project['project_cost'];
     $total_without_tax = $project['total_without_tax'];
     $total_with_tax = $project['total_with_tax'];
     $net_total = $project['net_total'];
@@ -30,45 +31,20 @@ if(isset($_GET['project_id']) && isset($_GET['item_id'])){
     $delivery_band = $res_delivery->fetch_assoc();
 
 }
-$coco = 1;
-$numberofrows = 1;
 
-$iron_raws = $_POST['iron-rr'];
-$accessory_raws = $_POST['ac-rr'];
-$band_raws = $_POST['band-rr'];
-$total_cost = 0 ; 
-$total_net = 0 ; 
-$total_without_tax = 0 ; 
+
+
 if (isset($_POST['add-project'])) {
+
+
+    $old_project_cost = $project_cost - ($item['cost_price'] * $item['quantity']);
+    $old_total_without_tax = $total_without_tax - ($item['sell_price'] * $item['quantity']);
+    
+    $old_net_toti = $net_total - ($item['net_profit'] * $item['quantity']);
 
   $iron1 = 1;
   $accessory1 = 1;
   $band1 = 1;
-
-  $total_cost = $_POST['prod_peice_tot'];
-  $total_cost = str_replace(',','',$total_cost);
-  $total_net = $_POST['net_toti'];
-  $total_without_tax = $total_cost + $total_net;
-  $total_with_tax = ($total_without_tax * 15) /100; 
-
-
-  
-
-//   $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`image`,`project_cost`,`total_without_tax`,`total_with_tax`,`net_total`,`valid_till`,`duration`,`payment_type`,`created_at`)
-//    VALUES(NULL, '$project_name', '$project_description','$filename','$total_cost','$total_without_tax','$total_with_tax','$total_net','$valid_till','$duration','$payment_type' ,NOW())";
-//   $project_res = $conn->query($insert_project);
-//   if ($project_res) {
-
-//     $project_id = $conn->insert_id;
-
-//     $contact_name = $_POST['contact_name'];
-//     $mobile = $_POST['mobile'];
-//     $address = $_POST['address'];
-//     $email = $_POST['email'];
-//     $vat = $_POST['vat'];
-//     $trade = $_POST['trade'];
-
-
 
 
     $product_name = $_POST['product_name'];
@@ -80,9 +56,18 @@ if (isset($_POST['add-project'])) {
     $net_perc = $_POST['net_peice'];
     $net_toti = str_replace(',', '', $_POST['net_toti_peice']);
 
+    
+
     $update_product = "UPDATE products SET `product_name` = '$product_name', `quantity` ='$quantity' , `dimensions` = '$dimensions' , `cost_price` = '$cost_price' ,`sell_price` = '$sell_price' ,`net_profit` = '$net_toti' ,`net_perc` = '$net_perc' WHERE `id` = $item_id";
     $product_res = $conn->query($update_product);
 
+    $final_project_cost = $old_project_cost + $_POST['prod_peice_tot'];
+    $final_total_without_tax = $old_total_without_tax + $_POST['sell_price_tot'];
+    $final_total_with_tax = (($final_total_without_tax * 15) /100);
+    $final_net_toti = $old_net_toti + $_POST['net_toti'];
+
+    $update_project = "UPDATE `projects` SET `project_cost` = '$final_project_cost' , `total_without_tax` = '$final_total_without_tax' , `total_with_tax` = '$final_total_with_tax' , `net_total` = '$final_net_toti' WHERE `id` = '$project_id'";
+    $project_res = $conn->query($update_project);
 
       $kharasana = $_POST['kharasana'];
       $kh_price = str_replace(',', '', $_POST['kh_price']);
