@@ -197,34 +197,33 @@ if (isset($_POST['add-project'])) {
           }
           
 
-//               if (isset($_POST['deliverable'])) {
-//                 $deliverable = 1;
-//                 $quantity_of_track = $_POST['quantity_of_track'];
-//                 $delivery_to = $_POST['delivery_to'];
-//                 $track_price = str_replace(',', '', $_POST['track_price']);
-//                 $piece_price = str_replace(',', '', $_POST['piece_price']);
-//                 $total_track_price = str_replace(',', '', $_POST['total_price']);
-//                 $peice_per_track = $_POST['peice_per_track'];
+              if (isset($_POST['deliverable'])) {
+                $deliverable = 1;
+                $quantity_of_track = $_POST['quantity_of_track'];
+                $delivery_to = $_POST['delivery_to'];
+                $track_price = str_replace(',', '', $_POST['track_price']);
+                $piece_price = str_replace(',', '', $_POST['piece_price']);
+                $total_track_price = str_replace(',', '', $_POST['total_price']);
+                $peice_per_track = $_POST['peice_per_track'];
                 
                 
-//                 $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`, `peice_per_track`, `quantity_of_track`, `delivery_to`, `piece_price`, `track_price`, `total_price`,
-//                 `created_at`) VALUES (NULL, '$product_id', '$deliverable', '$peice_per_track', '$quantity_of_track', '$delivery_to', '$piece_price', '$track_price', '$total_track_price', NOW())";
-//                 $delivery_res = $conn->query($insert_delivery);
-//                 if ($delivery_res){
-//                   $_SESSION['notification'] = "الصنف بنجاح";
-//                   header('location: index.php');
-//                   exit();
-//                 }
-//               } else {
-//                 $deliverable = 0;
-//                 $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`,`created_at`) VALUES (NULL, '$product_id', '$deliverable',NOW())";
-//                 $delivery_res = $conn->query($insert_delivery);
-//                 if ($delivery_res){
-//                   $_SESSION['notification'] = "الصنف بنجاح";
-//                   header('location: index.php');
-//                   exit();
-//                 }
-//               }
+                $update_delivery = "UPDATE `delivery` SET `deliverable` = '$deliverable' , `peice_per_track` = '$peice_per_track' , `quantity_of_track` = '$quantity_of_track' , `delivery_to` = '$delivery_to' , `piece_price` = '$piece_price', `track_price` = '$track_price', `total_price` = '$total_track_price' WHERE `product_id` = $item_id";
+                $delivery_res = $conn->query($update_delivery);
+                if ($delivery_res){
+                  $_SESSION['notification'] = "تم التعديل بنجاح";
+                  header('location: index.php');
+                  exit();
+                }
+              } else {
+                $deliverable = 0;
+                $update_delivery = "UPDATE `delivery` SET `deliverable` = '$deliverable' WHERE `product_id` = $item_id";
+                $delivery_res = $conn->query($update_delivery);
+                if ($delivery_res){
+                  $_SESSION['notification'] = "تم التعديل بنجاح";
+                  header('location: index.php');
+                  exit();
+                }
+              }
 //             } else {
 //               $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
 //               header('location: index.php');
@@ -917,7 +916,13 @@ if (isset($_POST['add-project'])) {
                 <div class="Delivery-details">
                   <h5>التوصيل</h5>
                   <div class="delivery">
-                    
+                  <div class="row">
+                      <label for="">هل الصنف قابل للتوصيل ؟</label>
+                      <div class="form-check form-switch col-md-2 col-sm-6">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable">
+                        <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
+                      </div>
+                  </div>
                     <div class="row" id="delivery-div">
                       <div class="col-md-2 col-sm-6 ">
                         <div class="form-group">
@@ -977,7 +982,7 @@ if (isset($_POST['add-project'])) {
                         var quan = ($("#quantity").val() || 0) ;
                         var del_peice = ($("#peice_per_track").val() || 0) ;
                         var tracks = ((quan / del_peice) || 0) ;
-                        tracks = Math.ceil(tracks);
+                        tracks = (Math.ceil(tracks) || 0) ;
                          $("#quantity_of_track").val(tracks) ;
                         var track_price = ($("#track_price").val() || 0) ;
                         var del_peice_price = ((track_price / del_peice)|| 0);
