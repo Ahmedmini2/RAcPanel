@@ -406,7 +406,7 @@ if (isset($_GET['project_id'])) {
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="table-responsive p-0">
-                            <table class="table table-hover table-bordered table-fixed text-center border-dark">
+                            <table class="table table-hover table-bordered  table-fixed text-center border-dark">
 
                                 <!--Table head-->
                                 <thead class="text-light header-color custom-font-m table-bordered">
