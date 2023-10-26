@@ -61,10 +61,10 @@ if (isset($_POST['add-project'])) {
     $update_product = "UPDATE products SET `product_name` = '$product_name', `quantity` ='$quantity' , `dimensions` = '$dimensions' , `cost_price` = '$cost_price' ,`sell_price` = '$sell_price' ,`net_profit` = '$net_toti' ,`net_perc` = '$net_perc' WHERE `id` = $item_id";
     $product_res = $conn->query($update_product);
 
-    $final_project_cost = $old_project_cost + $_POST['prod_peice_tot'];
-    $final_total_without_tax = $old_total_without_tax + $_POST['sell_price_tot'];
+    $final_project_cost = $old_project_cost + str_replace(',', '', $_POST['prod_peice_tot']);
+    $final_total_without_tax = $old_total_without_tax + str_replace(',', '', $_POST['sell_price_tot']);
     $final_total_with_tax = (($final_total_without_tax * 15) /100);
-    $final_net_toti = $old_net_toti + $_POST['net_toti'];
+    $final_net_toti = $old_net_toti + str_replace(',', '', $_POST['net_toti']);
 
     $update_project = "UPDATE `projects` SET `project_cost` = '$final_project_cost' , `total_without_tax` = '$final_total_without_tax' , `total_with_tax` = '$final_total_with_tax' , `net_total` = '$final_net_toti' WHERE `id` = '$project_id'";
     $project_res = $conn->query($update_project);
