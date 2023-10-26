@@ -129,7 +129,6 @@ if (isset($_POST['add-project'])) {
           
           $update_iron = "UPDATE  iron_band  SET  size ='$selectedSizeText', price_today ='$iron_price', quantity ='$iron_quantity', iron_height ='$iron_long', tn_price ='$iron_tn', total_price ='$iron_tot' WHERE  id  = $iron_id ";
           $iron_res = $conn->query($update_iron);
-          echo '<br>'.$update_iron;
           if ($iron_res){
             
             $iron1++;
@@ -174,7 +173,7 @@ if (isset($_POST['add-project'])) {
 
         }
 
-          $band_raws = $_POST['band -rr'];
+          $band_raws = $_POST['band-rr'];
           if ($band_raws == "") {
             $band_raws = 1;
           }
@@ -186,7 +185,6 @@ if (isset($_POST['add-project'])) {
 
             $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `id` = '$extra_id'";
             $band_res = $conn->query($update_band);
-            echo '<br>'.$update_band;
             if ($band_res) {
               $band1++;
             }else{
