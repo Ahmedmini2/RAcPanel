@@ -64,7 +64,7 @@ if (isset($_GET['id'])) {
                     
                     
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
-                    <li>
+                    <li class="nav-item px-3 d-flex align-items-center">
                     <label class="ui-switch">
                         <input type="checkbox" onclick="setDarkMode()">
                         <div class="slider">
