@@ -168,7 +168,7 @@ $select = mysqli_query($conn, "select * from contact_covers ");
             </div>
 
             <div class="block">
-              <table class="table align-items-center mb-0" id="example">
+              <table class="table align-items-center table-bordered mb-0" id="example">
                 <thead>
                   <tr  class="text-center">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
@@ -189,14 +189,14 @@ $select = mysqli_query($conn, "select * from contact_covers ");
 
                       <td class="text-xs text-secondary mb-0"><?=$r['id']?></td>
                       
-                      <td class="mb-0 text-sm"><?=$r['name']?></td>
-                      <td class="mb-0 text-sm"><?=$r['seller']?></td>
+                      <td class="mb-0 text-sm border-1"><?=$r['name']?></td>
+                      <td class="mb-0 text-sm border-1"><?=$r['seller']?></td>
                       
                     
-                      <td class="text-xs text-secondary mb-0"><?php echo $r['created_at']; ?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['created_at']; ?></td>
                       
 
-                    <td>
+                    <td class="border-1">
                           <a href="add_c_companies.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 

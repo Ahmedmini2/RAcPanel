@@ -512,18 +512,18 @@ if (isset($_GET['id'])) {
                                                     ?>
                                                         <?php if ($del_status == 1) { ?>
                                                         <tr>
-                                                            <th scope="row"><?= $i ?></th>
-                                                            <td class="border-1"><?= $products['product_name'] ?></td>
-                                                            <td class="border-1"><?= $peice_per_track ?></td>                                                
-                                                            <td class="border-1"><?= $quantity_of_track ?></td>
-                                                            <td class="border-1" ><?= number_format( $piece_price ,2,'.',',') ?></td>
+                                                            <th class="text-secondarys" scope="row"><?= $i ?></th>
+                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
+                                                            <td class="border-1 text-secondary"><?= $peice_per_track ?></td>                                                
+                                                            <td class="border-1 text-secondary"><?= $quantity_of_track ?></td>
+                                                            <td class="border-1 text-secondary" ><?= number_format( $piece_price ,2,'.',',') ?></td>
 
 
 
-                                                            <td class="border-1"><?= number_format($track_price,2,'.',',') ?></td>
-                                                            <td class="border-1"><?= number_format($del_total_price,2,'.',',') ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($track_price,2,'.',',') ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($del_total_price,2,'.',',') ?></td>
 
-                                                            <td class="border-1"><?= $delivery_to  ?></td>
+                                                            <td class="border-1 text-secondary"><?= $delivery_to  ?></td>
                                                         </tr>
                                                        <?php } ?>
                                                     <?php } ?>
@@ -576,9 +576,9 @@ if (isset($_GET['id'])) {
                                                         $deliverd = 0;
                                                     ?>
                                                         <tr>
-                                                            <th scope="row"><?= $i ?></th>
-                                                            <td class="border-1"><?= $products['product_name'] ?></td>
-                                                            <td class="border-1"><?= $products['quantity'] ?></td>
+                                                            <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
+                                                            <td class="border-1 v"><?= $products['quantity'] ?></td>
                                                             <?php
                                                             $inv_id =  $products['id'];
                                                             $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id");
@@ -597,14 +597,14 @@ if (isset($_GET['id'])) {
                                                                 $deliverd += $del['quantity'];
                                                             }
                                                             ?>
-                                                            <td class="border-1" ><?= number_format($inventory - $deliverd) ?></td>
-                                                            <td class="border-1"><?= number_format($production) ?></td>
+                                                            <td class="border-1 text-secondary" ><?= number_format($inventory - $deliverd) ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($production) ?></td>
 
 
 
-                                                            <td class="border-1"><?= number_format($deliverd) ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($deliverd) ?></td>
 
-                                                            <td class="border-1"><?= $products['quantity'] - $production ?></td>
+                                                            <td class="border-1 text-secondary"><?= $products['quantity'] - $production ?></td>
                                                         </tr>
                                                     <?php } ?>
 
@@ -664,14 +664,14 @@ if (isset($_GET['id'])) {
                                                                     $iron_total += $iron['total_price'];
                                                                 ?>
                                                                     <tr>
-                                                                        <th scope="row"><?= $i ?></th>
+                                                                        <th class="text-secondary" scope="row"><?= $i ?></th>
                                                                     
-                                                                        <td class="border-1"><?= $iron['size'] ?></td>
-                                                                        <td class="border-1"><?= number_format($iron['price_today'],2,'.',',')?></td>
-                                                                        <td class="border-1" ><?= $iron['quantity'] ?></td>
-                                                                        <td class="border-1" ><?= $iron['iron_height'] ?></td>
-                                                                        <td class="border-1"><?= $iron['tn_price'] ?></td>
-                                                                        <td class="border-1"><?= $iron['total_price'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $iron['size'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= number_format($iron['price_today'],2,'.',',')?></td>
+                                                                        <td class="border-1 text-secondary" ><?= $iron['quantity'] ?></td>
+                                                                        <td class="border-1 text-secondary" ><?= $iron['iron_height'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $iron['tn_price'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $iron['total_price'] ?></td>
                                                                         
                                                                     </tr>
                                                                     
@@ -717,11 +717,11 @@ if (isset($_GET['id'])) {
                                                                     $accessory_total += $accessory['total_price'];
                                                                 ?>
                                                                     <tr>
-                                                                        <th scope="row"><?= $i ?></th>
-                                                                        <td class="border-1"><?= $accessory['name'] ?></td>
-                                                                        <td class="border-1"><?= $accessory['quantity'] ?></td>
-                                                                        <td class="border-1"><?= $accessory['price_per_piece'] ?></td>
-                                                                        <td class="border-1"><?= $accessory['total_price'] ?></td>
+                                                                        <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                                        <td class="border-1 text-secondary"><?= $accessory['name'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $accessory['quantity'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $accessory['price_per_piece'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $accessory['total_price'] ?></td>
                                                                     </tr>
                                                                     
                                                                 <?php } ?>
@@ -764,11 +764,11 @@ if (isset($_GET['id'])) {
                                                                     $i++;
                                                                 ?>
                                                                     <tr>
-                                                                        <th scope="row"><?= $i ?></th>
-                                                                        <td class="border-1"><?= $cover['type'] ?></td>
-                                                                        <td class="border-1"><?= $prod['quantity'] ?></td>
-                                                                        <td class="border-1"><?= $cover['price_per_piece'] ?></td>
-                                                                        <td class="border-1"><?= $cover['total_price'] ?></td>
+                                                                        <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                                        <td class="border-1 text-secondary"><?= $cover['type'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $prod['quantity'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $cover['price_per_piece'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= $cover['total_price'] ?></td>
                                                                     </tr>
                                                                 <?php } ?>
 
@@ -805,15 +805,15 @@ if (isset($_GET['id'])) {
                                                                     $extra_total += $extra['total_price'];
                                                                 ?>
                                                                     <tr>
-                                                                        <th scope="row"><?= $i ?></th>
-                                                                        <td class="border-1"><?= $extra['name'] ?></td>
-                                                                        <td class="border-1"><?= $extra['price_per_piece'] ?></td>
-                                                                        <td class="border-1" ><?= $extra['total_price'] ?></td>
+                                                                        <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                                        <td class="border-1 text-secondary"><?= $extra['name'] ?></td>
+                                                                        <td class="border-1 text-secondary "><?= $extra['price_per_piece'] ?></td>
+                                                                        <td class="border-1 text-secondary" ><?= $extra['total_price'] ?></td>
                                                                     </tr>
                                                                     
                                                                 <?php } ?>
                                                                 <tr class="table-secondary">
-                                                                        <td class="border-1" colspan="3">المجموع</td>
+                                                                        <td class="border-1 " colspan="3">المجموع</td>
                                                                         <td class="border-1"><?=number_format($extra_total,2,'.',',')?></td>
                                                                     </tr>
 
@@ -871,12 +871,12 @@ if (isset($_GET['id'])) {
                                                         $deliverd = 0;
                                                     ?>
                                                         <tr>
-                                                            <th scope="row"><?= $i ?></th>
-                                                            <td class="border-1"><?= $products['product_name'] ?></td>
-                                                            <td class="border-1"><?= number_format($products['cost_price'],2,'.',',')?></td>
-                                                            <td class="border-1"><?= number_format($products['sell_price'],2,'.',',')?></td>
-                                                            <td class="border-1"><?= number_format($products['net_profit'],2,'.',',')?></td>
-                                                            <td class="border-1"><?=$products['net_perc']?></td>   
+                                                            <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($products['cost_price'],2,'.',',')?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($products['sell_price'],2,'.',',')?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($products['net_profit'],2,'.',',')?></td>
+                                                            <td class="border-1 text-secondary"><?=$products['net_perc']?></td>   
                                             
                                                         </tr>
                                                     <?php } ?>

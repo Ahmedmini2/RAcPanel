@@ -168,7 +168,7 @@ $select = mysqli_query($conn, "select * from covers_purchase");
             </div>
 
             <div class="block">
-              <table class="table align-items-center mb-0" id="example">
+              <table class="table align-items-center table-borderedt mb-0" id="example">
                 <thead>
                   <tr  class="text-center">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
@@ -190,16 +190,16 @@ $select = mysqli_query($conn, "select * from covers_purchase");
                 ?>
                     <tr class="text-center">
 
-                      <td class="text-xs text-secondary mb-0">1</td>
-                      <td class="text-xs text-secondary mb-0"><?=$r['type']?></td>
-                      <td class="mb-0 text-sm"><?=$r['dimensions']?></td>
-                      <td class="mb-0 text-sm"><?=$r['quantity']?></td>
-                      <td class="mb-0 text-sm"><?=$r['price_per_piece']?></td>
-                      <td class="mb-0 text-sm"><?=$r['total_price']?></td>
-                      <td class="text-xs text-secondary mb-0"><?php echo $r['created_at']; ?></td>
+                      <td class="text-xs text-secondary mb-0 border-1">1</td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?=$r['type']?></td>
+                      <td class="mb-0 text-sm border-1"><?=$r['dimensions']?></td>
+                      <td class="mb-0 text-sm border-1"><?=$r['quantity']?></td>
+                      <td class="mb-0 text-sm border-1"><?=$r['price_per_piece']?></td>
+                      <td class="mb-0 text-sm border-1"><?=$r['total_price']?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['created_at']; ?></td>
                       
 
-                      <td><a href="purchase_cover.php?id=<?=$r['id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
+                      <td class="border-1"><a href="purchase_cover.php?id=<?=$r['id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
                           <a href="add-cover.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
