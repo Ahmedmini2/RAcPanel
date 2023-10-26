@@ -29,7 +29,7 @@ if (isset($_GET['project_id'])) {
         // move_uploaded_file($_FILES["del_image"]["tmp_name"], $target_file);
 
         $insert_product_del= "INSERT INTO `product_delivery` (`id`,`project_id`, `product_id`, `quantity`,`deliverd_by`,`on_date`,`phone`,`truck_no`,`approved_by`, `created_at`) VALUES
-         (NULL,'$id', '$product_id', '$del_quantity', '$del_by','$del_no','$on_date','$truck_no','$approved_by', NOW())";
+         (NULL,'$id', '$product_id', '$del_quantity', '$del_by','$on_date','$del_no','$truck_no','$approved_by', NOW())";
         $res = $conn->query($insert_product_del);
         if ($res) {
             $_SESSION['notification'] = "تم اضافة تقرير الإستلام بنجاح";

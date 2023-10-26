@@ -321,7 +321,7 @@ if (isset($_GET['project_id']) && isset($_GET['delivery_id'])) {
                                     
 
                                         <tr>
-                                            <th class="text-center " scope="row"><?= $i ?></th>
+                                            <th class="text-center " scope="row">1</th>
                                             <td class="custom-font-m text-center border-1"><?= $product_name ?></td>
                                             <td class="custom-font-m border-1">Ea</td>
                                             <td class="custom-font-m border-1"><?=$quantity?></td>
