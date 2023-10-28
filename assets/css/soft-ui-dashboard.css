@@ -25135,7 +25135,6 @@ width: 100px;
 }
 .card__num {
   font-size: var(--h2-font-size);
-  background-image: linear-gradient(310deg, #141727, #fbcf33);
   margin-bottom: .75rem;
 }
 .card__name {
