@@ -195,6 +195,11 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
               ?>
 
+                  
+
+                
+
+                <div class=" col-xs-12 col-sm-6 col-md-4 pt-2">
                   <!-- New Card-->
                   <article class="card__article swiper-slide">
                      <div class="card__image">
@@ -213,10 +218,6 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                      </div>
                   </article>
                   <!-- New Card-->
-
-                
-
-                <div class=" col-xs-12 col-sm-6 col-md-4 pt-2">
 
                   <div class="card h-100 shadow-lg  ">
 
