@@ -30,6 +30,17 @@
   --bs-font-sans-serif: Cairo;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+
+/*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(38, 92%, 58%);
+  --first-color-light: hsl(38, 100%, 78%);
+  --first-color-alt: hsl(32, 75%, 50%);
+  --second-color: hsl(195, 75%, 52%);
+  --dark-color: hsl(212, 40%, 12%);
+  --white-color: hsl(212, 4%, 95%);
+  --body-color: hsl(212, 42%, 15%);
+  --container-color: hsl(212, 42%, 20%);
 }
 
 *,
@@ -25062,6 +25073,87 @@ width: 100px;
   width: 50%;
 }
 
+/*=============== CARD ===============*/
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 50%;
+}
+
+.card__container {
+  padding-block: 5rem;
+}
+
+.card__content {
+  margin-inline: 1.75rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+
+.card__article {
+  width: 300px; /* Remove after adding swiper js */
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+
+.card__image {
+  position: relative;
+  background-color: var(--first-color-light);
+  padding-top: 1.5rem;
+  margin-bottom: -.75rem;
+}
+
+.card__data {
+  background-color: var(--container-color);
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.card__img {
+  width: 180px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+
+.card__shadow {
+  width: 200px;
+  height: 200px;
+  background-color: var(--first-color-alt);
+  border-radius: 50%;
+  position: absolute;
+  top: 3.75rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  filter: blur(45px);
+}
+
+.card__name {
+  font-size: var(--h2-font-size);
+  color: var(--second-color);
+  margin-bottom: .75rem;
+}
+
+.card__description {
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+}
+
+.card__button {
+  display: inline-block;
+  background-color: var(--first-color);
+  padding: .75rem 1.5rem;
+  border-radius: .25rem;
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
 /*mode dark mode*/
 .darkmode{
   background-color: #292929;
@@ -25088,6 +25180,91 @@ width: 100px;
 }
 .darkmode .list-group-item+.list-group-item {
   background-color: #34476700 !important;
+}
+/*=============== CARD ===============*/
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.darkmode .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 50%;
+}
+
+.darkmode .card__container {
+  padding-block: 5rem;
+}
+
+.darkmode .card__content {
+  margin-inline: 1.75rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+
+.darkmode .card__article {
+  width: 300px; /* Remove after adding swiper js */
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+
+.darkmode .card__image {
+  position: relative;
+  background-color: var(--first-color-light);
+  padding-top: 1.5rem;
+  margin-bottom: -.75rem;
+}
+
+.darkmode .card__data {
+  background-color: var(--container-color);
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.darkmode .card__img {
+  width: 180px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+
+.darkmode .card__shadow {
+  width: 200px;
+  height: 200px;
+  background-color: var(--first-color-alt);
+  border-radius: 50%;
+  position: absolute;
+  top: 3.75rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  filter: blur(45px);
+}
+
+.darkmode .card__name {
+  font-size: var(--h2-font-size);
+  color: var(--second-color);
+  margin-bottom: .75rem;
+}
+
+.darkmode .card__description {
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+}
+
+.darkmode .card__button {
+  display: inline-block;
+  background-color: var(--first-color);
+  padding: .75rem 1.5rem;
+  border-radius: .25rem;
+  color: var(--dark-color);
+  font-weight: 600;
 }
 
 .darkmode label, .form-label {

@@ -196,7 +196,22 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
               ?>
 
                   <!-- New Card-->
-                
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="assets/img/avatar-5.png" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Lexa Kin</h3>
+                        <p class="card__description">
+                           Passionate about development and design, 
+                           I carry out projects at the request of users.
+                        </p>
+      
+                        <a href="#" class="card__button">View More</a>
+                     </div>
+                  </article>
                   <!-- New Card-->
 
                 
