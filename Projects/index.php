@@ -196,10 +196,11 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
               ?>
 
                 <!-- New Card-->
+                <!--
                 <article class="card__article swiper-slide col-xs-12 col-sm-6 col-md-4 pt-2">
                   <div class="card__image">
-                    <img src="../Projects/Images/<?= $r['name'] ?>/<?= $r['image'] ?>" alt="Card image cap" class="card__img">
-                    
+                    <img src="../Projects/Images/ <?= $r['name'] ?>/<?= $r['image'] ?>" alt="Card image cap" class="card__img">
+
                     <div class="card__shadow"></div>
                   </div>
 
@@ -211,13 +212,14 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                     </p>
 
                     <a href="view-projects.php?id=<?= $r["id"] ?>">
-                          <div class="d-flex align-items-center justify-content-between">
-                            <button type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
-                          </div>
-                        </a>
+                      <div class="d-flex align-items-center justify-content-between">
+                        <button type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
+                      </div>
+                    </a>
                   </div>
                 </article>
-                <!-- New Card-->
+                -->
+                <!-- New Card -->
 
 
 
