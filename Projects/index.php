@@ -229,7 +229,11 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                       <?= $r["description"] ?>
                     </p>
 
-                    <a href="#" class="card__button">View More</a>
+                    <a href="view-projects.php?id=<?= $r["id"] ?>">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <button type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
+                          </div>
+                        </a>
                   </div>
                 </article>
                 <!-- New Card-->
