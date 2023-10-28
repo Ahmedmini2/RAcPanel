@@ -25100,7 +25100,7 @@ width: 100px;
 
 .card__image {
   position: relative;
-  background-color: var(--first-color-light);
+  background-color: #efefef;
   padding-top: 1.5rem;
   margin-bottom: -.75rem;
 }
@@ -25124,7 +25124,7 @@ width: 100px;
 .card__shadow {
   width: 200px;
   height: 200px;
-  background-color: var(--first-color-alt);
+  
   border-radius: 50%;
   position: absolute;
   top: 3.75rem;
@@ -25139,7 +25139,7 @@ width: 100px;
 }
 .card__name {
   font-size: var(--h2-font-size);
-  color: var(--second-color);
+  color:  #ffffff;
   margin-bottom: .75rem;
 }
 
@@ -25150,7 +25150,7 @@ width: 100px;
 
 .card__button {
   display: inline-block;
-  background-color: var(--first-color);
+  background-color: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
   padding: .75rem 1.5rem;
   border-radius: .25rem;
   color: var(--dark-color);
@@ -25263,7 +25263,7 @@ img {
 
 .darkmode .card__button {
   display: inline-block;
-  background-color: var(--first-color);
+  background-color: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
   padding: .75rem 1.5rem;
   border-radius: .25rem;
   color: var(--dark-color);
