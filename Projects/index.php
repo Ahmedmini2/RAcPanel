@@ -203,7 +203,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                      </div>
       
                      <div class="card__data">
-                       <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم <?= $r["id"] ?></p>
+                       <p class="card__num mb-2 text-sm">المشروع رقم <?= $r["id"] ?></p>
                         <h3 class="card__name"><?= $r["name"] ?></h3>
                         <p class="card__description">
                          <?= $r["description"] ?>

@@ -25093,7 +25093,7 @@ width: 100px;
 }
 
 .card__article {
-  width: 300px; /* Remove after adding swiper js */
+ /* width: 300px;  Remove after adding swiper js */
   border-radius: 1.25rem;
   overflow: hidden;
 }
@@ -25133,7 +25133,11 @@ width: 100px;
   margin-inline: auto;
   filter: blur(45px);
 }
-
+.card__num {
+  font-size: var(--h2-font-size);
+  background-image: linear-gradient(310deg, #141727, #fbcf33);
+  margin-bottom: .75rem;
+}
 .card__name {
   font-size: var(--h2-font-size);
   color: var(--second-color);
@@ -25206,7 +25210,7 @@ img {
 }
 
 .darkmode .card__article {
-  width: 300px; /* Remove after adding swiper js */
+ /* width: 300px;  Remove after adding swiper js */
   border-radius: 1.25rem;
   overflow: hidden;
 }
@@ -25348,7 +25352,7 @@ img {
   z-index: 1;
  }
  
- .darkmode .sal-card::after {
+.darkmode .sal-card::after {
   position: absolute;
   content: "";
   top: 30px;
@@ -25392,7 +25396,7 @@ img {
   transition: color 1s;
  }
 
- .darkmode .text-secondary {
+.darkmode .text-secondary {
   color: #d0d3d9 !important;
 }
 .darkmode .text-dark {
