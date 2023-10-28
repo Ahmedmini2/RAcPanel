@@ -275,8 +275,8 @@ $sidebar = $_SESSION['sidebar'];
                     </ul>
                 </div>
                 <div class="dropdown pb-4">
-                  
-                 <span class="d-none d-sm-inline mx-1">Dark Mode</span>
+
+                 
                     <li class="nav-item px-3 d-flex align-items-center">
                     <label class="ui-switch">
                         <input type="checkbox" onclick="setDarkMode()">
