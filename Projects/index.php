@@ -199,26 +199,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                 <article class="card__article swiper-slide col-xs-12 col-sm-6 col-md-4 pt-2">
                   <div class="card__image">
                     <img src="../Projects/Images/<?= $r['name'] ?>/<?= $r['image'] ?>" alt="Card image cap" class="card__img">
-                    <?php
-
-                    $durationInDays = ceil($timeDiff / (24 * 60 * 60)); // Calculate the number of days left
-                    $color = 'style="background:linear-gradient(310deg, #f71717 0%, #78735f 100%)"';
-                    if ($durationInDays == 1) {
-                      $ribbonText = "غدًا";
-                    } else if ($durationInDays == 2) {
-                      $ribbonText = "في يومين";
-                    } else {
-                      $ribbonText = "في " . $durationInDays . " أيام";
-                    }
-                    ?>
-
-
-
-                    <span class="ribbon-pop" <?php if ($timeDiff > 0 && $timeDiff <= 3 * 24 * 60 * 60) {
-                                                echo $color;
-                                              } ?> dir="ltr">ينتهي <?= $ribbonText ?></span>
-
-                    <div class=" rgba-white-slight"></div>
+                    
                     <div class="card__shadow"></div>
                   </div>
 
