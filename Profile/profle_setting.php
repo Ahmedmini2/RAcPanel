@@ -237,9 +237,11 @@ if (!empty($_GET['edit'])) {
                                             </div>
                                         </div>
                                         <!-- Button -->
-                                        <input class="form-control" type="file" id="customFile" name="file" hidden="" onchange="getImagePreview(event)">
+                                        <div class="form-group">
+                                        <input  type="file" id="customFile" name="file" hidden="" onchange="getImagePreview(event)">
                                         <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
                                         <button type="button" class="btn btn-danger-soft">Remove</button>
+                                        </div>
                                         <!-- Content -->
                                         <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
                                     </div>
