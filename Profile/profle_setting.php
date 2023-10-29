@@ -221,8 +221,9 @@ if (!empty($_GET['edit'])) {
                     <div class="row">
                         <!-- Upload profile -->
                         <div class="col-12 col-xl-4">
+                        <h6 class="mb-4 mt-0">رفع صورة</h6>
                             <div class="card">
-                                <h6 class="mb-4 mt-0">رفع صورة</h6>
+                               
                                 <div class="text-center">
                                     <!-- Image upload -->
                                     <div class="square position-relative display-2 mb-3">
@@ -238,9 +239,10 @@ if (!empty($_GET['edit'])) {
                             </div>
                         </div>
                         <div class="col-12 col-xl-4">
+                        <h6 class="mb-4 mt-0">بيانات الموظف</h6>
                             <div class="card">
                                 <div class="row g-3">
-                                    <h6 class="mb-4 mt-0">بيانات الموظف</h6>
+                                    
                                     <!-- First Name -->
                                     <div class="col-md-6">
                                         <div class="form-group">
