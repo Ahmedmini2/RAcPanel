@@ -220,7 +220,7 @@ if (!empty($_GET['edit'])) {
                     <!-- Form START  card h-100" dir="ltr-->
                     <div class="row">
                         <!-- Upload profile -->
-                        <div class="col-12 col-xl-4">
+                        <div class="col-12 col-xl-5">
                             <h6 class="mb-4 mt-0">رفع صورة</h6>
                             <div class="card">
 
@@ -238,80 +238,78 @@ if (!empty($_GET['edit'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-xl-4">
-                            <h6 class="mb-4 mt-0">بيانات الموظف</h6>
-                            <div class="card">
-                                <div class="row g-3">
 
-                                    <!-- First Name -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>First Name *</label>
-                                            <input type="text" class="form-control" placeholder="" aria-label="First name" value="">
-                                        </div>
-                                    </div>
-                                    <!-- Last name -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Last Name *</label>
-                                            <input type="text" class="form-control" placeholder="" aria-label="Last name" value="">
-                                        </div>
-                                    </div>
 
-                                    <!-- Mobile number -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Mobile number *</label>
-                                            <input type="text" class="form-control" placeholder="" aria-label="Phone number" value="">
-                                        </div>
-                                    </div>
-                                    <!-- Email -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="inputEmail4" class="form-label">Email *</label>
-                                            <input type="email" class="form-control" id="inputEmail4" value="a">
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                       
 
 
                     </div>
 
                 </div>
-                 <!-- change password -->
-                 <div class="col-12 col-xl-4">
-                            <h6 class="my-4">Change Password</h6>
-                            <div class="card">
-                                <div class="row g-3">
+            </div>
+            <div class="row">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" placeholder="First Name" class="form-control" name="EmployeeID" value="">
 
-                                    <!-- Old password -->
-                                    <div class="col-md-6">
-                                        <label for="exampleInputPassword1">Old password *</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
-                                    </div>
-                                    <!-- New password -->
-                                    <div class="col-md-6">
-                                        <label for="exampleInputPassword2">New password *</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword2">
-                                    </div>
-                                    <!-- Confirm password -->
-                                    <div class="col-md-12">
-                                        <label for="exampleInputPassword3">Confirm Password *</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword3">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                    <button type="button" class="btn btn-secondary btn-lg">Delete profile</button>
-                    <button type="button" class="btn btn-secondary btn-lg">Update profile</button>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Last Name" class="form-control" name="name" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Mobile number</label>
+                            <input type="text" placeholder="Mobile number" class="form-control" name="EmployeeID" value="">
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" placeholder="Email" class="form-control" name="name" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h6 class="my-4">Change Password</h6>
+                <div class="row">
+
+                
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="form-label">Old password *</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="exampleInputPassword2" class="form-label">New password *</label>
+                            <input type="password" class="form-control" id="exampleInputPassword2">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="exampleInputPassword3" class="form-label">Confirm Password *</label>
+                            <input type="password" class="form-control" id="exampleInputPassword3">
+                        </div>
+                    </div>
                 </div>
             </div>
 
+
+            <div class="gap-3 d-md-flex justify-content-md-end text-center">
+                <button type="button" class="btn btn-secondary btn-lg">Delete profile</button>
+                <button type="button" class="btn btn-secondary btn-lg">Update profile</button>
+            </div>
 
         </div>
     </main>
