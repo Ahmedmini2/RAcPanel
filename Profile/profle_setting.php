@@ -246,14 +246,14 @@ if (!empty($_GET['edit'])) {
                                     <!-- First Name -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">First Name *</label>
+                                            <label>First Name *</label>
                                             <input type="text" class="form-control" placeholder="" aria-label="First name" value="">
                                         </div>
                                     </div>
                                     <!-- Last name -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Last Name *</label>
+                                            <label>Last Name *</label>
                                             <input type="text" class="form-control" placeholder="" aria-label="Last name" value="">
                                         </div>
                                     </div>
@@ -261,7 +261,7 @@ if (!empty($_GET['edit'])) {
                                     <!-- Mobile number -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Mobile number *</label>
+                                            <label>Mobile number *</label>
                                             <input type="text" class="form-control" placeholder="" aria-label="Phone number" value="">
                                         </div>
                                     </div>
