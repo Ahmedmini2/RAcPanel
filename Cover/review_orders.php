@@ -1,67 +1,9 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Cover";
-$select = mysqli_query($conn, "select * from covers_purchase");
-if (!empty($_GET['edit'])) {
+$cover_id = $_GET['cover_id'];
+$select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cover_id");
 
-    $id = $_GET['edit'];
-    $query = "SELECT * FROM covers_report WHERE id=$id";
-    $res = $conn->query($query);
-    $editData = $res->fetch_assoc();
-    $name = $editData['name'];
-    $quantity = $editData['quantity'];
-    $image = $editData['image'];
-
-
-
-    if (isset($_POST['submit'])) {
-
-        $name = $_POST['name'];
-        $quantity = $_POST['quantity'];
-        $image = $_POST['image'];
-
-
-
-        $update = "UPDATE `covers_report` SET `name` = '$name', `quantity` = '$quantity', `image` = '$filename' WHERE `id` = $id";
-        $updateResult = $conn->query($update);
-        if ($updateResult) {
-
-            $_SESSION['notification'] = "تم تعديل طلب مراجعة الاغطية بنجاح";
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
-            exit();
-        } else {
-            $_SESSION['notification'] = "يوجد خلل في النظام";
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
-            exit();
-        }
-    }
-} else if (isset($_POST['submit'])) {
-
-        $name = $_POST['name'];
-        $quantity = $_POST['quantity'];
-        $image = $_POST['image'];
-
-
-
-        $insert = "INSERT INTO `covers_report` (`id`, `name`, `quantity`, `image`, `created_at`)
-        VALUES (NULL, '$name', '$quantity', '$filename', NOW())";
-        $insertResult = $conn->query($insert);
-        if ($insertResult) {
-
-        $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit();
-    } else {
-        $_SESSION['notification'] = "يوجد خلل في النظام";
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit();
-    }
-} else {
-        $name = "";
-        $quantity = "";
-        $image = "";
-
-}
 
 ?>
 <!DOCTYPE html>
@@ -248,15 +190,38 @@ if (!empty($_GET['edit'])) {
                                         ?>
 
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td class="border-1">ركن اميال</td>
-                                            <td class="border-1">5</td>
-                                            <td class="border-1"></td>
-                                            <td class="border-1">2023/10/22</td>
+                                            <th scope="row"><?=$r['id']?></th>
+                                            <td class="border-1"><?=$r['name']?></td>
+                                            <td class="border-1"><?=$r['quantity']?></td>
+                                            <td class="border-1"><a href="../Signed-Docs/Cover-Reviews/<?=$r['id']?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
+                                            <td class="border-1"><?=$r['created_at']?></td>
                                             
-                                            <td class="border-1">
-                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            <td class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> |
+                                                <a href="add_review_orders.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+
+
+                                                <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
+                                                <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">حذف طلب المراجعه'</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        الرجاء ادخال كلمة المرور للتأكيد
+                                                        <form action="../scripts/covers/delete-review.php?id=<?php echo $r['id']; ?>" method="post">
+                                                            <input type="password" name="pas" class="form-control">
+
+                                                        </div>
+                                                        <div class="modal-footer">
+
+                                                        <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                                        </form>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div> <?php } ?>
                                             </td>
                                         </tr>
 
