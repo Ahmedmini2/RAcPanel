@@ -56,8 +56,8 @@ if (!empty($_GET['edit'])) {
 
 
 
-        $insert = "INSERT INTO `covers_report` (`id`, `name`, `quantity`, `image`, `created_at`)
-        VALUES (NULL, '$name', '$quantity', '$filename', NOW())";
+        $insert = "INSERT INTO `covers_report` (`id`,`cover_id`, `name`, `quantity`, `image`, `created_at`)
+        VALUES (NULL,'$cover_id', '$name', '$quantity', '$filename', NOW())";
         $insertResult = $conn->query($insert);
         if ($insertResult) {
             $id = $conn->insert_id;
