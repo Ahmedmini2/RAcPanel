@@ -244,23 +244,23 @@ if (!empty($_GET['edit'])) {
 								<!-- First Name -->
 								<div class="col-md-6">
 									<label class="form-label">First Name *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name" value="Scaralet">
+									<input type="text" class="form-control" placeholder="" aria-label="First name" value="">
 								</div>
 								<!-- Last name -->
 								<div class="col-md-6">
 									<label class="form-label">Last Name *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="Doe">
+									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="">
 								</div>
 							
 								<!-- Mobile number -->
 								<div class="col-md-6">
 									<label class="form-label">Mobile number *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="+91 9852 8855 252">
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="">
 								</div>
 								<!-- Email -->
 								<div class="col-md-6">
 									<label for="inputEmail4" class="form-label">Email *</label>
-									<input type="email" class="form-control" id="inputEmail4" value="example@homerealty.com">
+									<input type="email" class="form-control" id="inputEmail4" value="a">
 								</div>
 								
 							</div>
