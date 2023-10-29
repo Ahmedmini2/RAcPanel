@@ -253,7 +253,7 @@ if (!empty($_GET['edit'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label>صورة الفاتورة</label>
-                                    <input type="file" placeholder="" class="form-control" name="bill" value="">
+                                    <input type="file" placeholder="" class="form-control" name="bill" value="" required>
                                 </div>
                             </div>
                         </div>

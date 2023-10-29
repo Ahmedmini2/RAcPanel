@@ -186,11 +186,13 @@ $select = mysqli_query($conn, "select * from covers_purchase");
                  
 
                 <?php
+                $i = 0;
               while ($r = mysqli_fetch_array($select)) {
+                $i++;
                 ?>
                     <tr class="text-center">
 
-                      <td class="text-xs text-secondary mb-0 border-1">1</td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?=$i?></td>
                       <td class="text-xs text-secondary mb-0 border-1"><?=$r['type']?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><?=$r['dimensions']?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><?=$r['quantity']?></td>

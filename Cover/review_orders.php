@@ -1,80 +1,66 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Cover";
+$select = mysqli_query($conn, "select * from covers_purchase");
 if (!empty($_GET['edit'])) {
 
     $id = $_GET['edit'];
-    $query = "SELECT * FROM covers_purchase WHERE id=$id";
+    $query = "SELECT * FROM covers_report WHERE id=$id";
     $res = $conn->query($query);
     $editData = $res->fetch_assoc();
-    $type = $editData['type'];
-    $dimensions = $editData['dimensions'];
+    $name = $editData['name'];
     $quantity = $editData['quantity'];
-    $price_per_peice = $editData['price_per_piece'];
-    $total_price = $editData['total_price'];
-    $seller = $editData['seller'];
+    $image = $editData['image'];
 
 
 
     if (isset($_POST['submit'])) {
 
-        $type = $_POST['type'];
-        $dimensions = $_POST['dimensions'];
+        $name = $_POST['name'];
         $quantity = $_POST['quantity'];
-        $price_per_peice = $_POST['price_per_peice'];
-        $total_price = str_replace(',', '', $_POST['total_price']);
-        $seller = $_POST['seller'];
+        $image = $_POST['image'];
 
 
 
-        $update = "UPDATE `covers_purchase` SET `type` = '$type', `dimensions` = '$dimensions', `quantity` = '$quantity', `price_per_piece` = '$price_per_peice', `total_price` = '$total_price',
-   `seller` = '$seller' WHERE `covers_purchase`.`id` = $id";
+        $update = "UPDATE `covers_report` SET `name` = '$name', `quantity` = '$quantity', `image` = '$filename' WHERE `id` = $id";
         $updateResult = $conn->query($update);
         if ($updateResult) {
 
-            $_SESSION['notification'] = "تم تعديل طلب شراء الاغطية بنجاح";
-            header('location: index.php');
+            $_SESSION['notification'] = "تم تعديل طلب مراجعة الاغطية بنجاح";
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit();
         } else {
             $_SESSION['notification'] = "يوجد خلل في النظام";
-            header('location: index.php');
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit();
         }
     }
 } else if (isset($_POST['submit'])) {
 
-    $type = $_POST['type'];
-    $dimensions = $_POST['dimensions'];
-    $quantity = $_POST['quantity'];
-    $price_per_peice = $_POST['price_per_peice'];
-    $total_price = str_replace(',', '', $_POST['total_price']);
-    $seller = $_POST['seller'];
+        $name = $_POST['name'];
+        $quantity = $_POST['quantity'];
+        $image = $_POST['image'];
 
 
 
-    $insert = "INSERT INTO `covers_purchase` (`id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
-   VALUES (NULL, '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
-    $insertResult = $conn->query($insert);
-    if ($insertResult) {
+        $insert = "INSERT INTO `covers_report` (`id`, `name`, `quantity`, `image`, `created_at`)
+        VALUES (NULL, '$name', '$quantity', '$filename', NOW())";
+        $insertResult = $conn->query($insert);
+        if ($insertResult) {
 
-        $_SESSION['notification'] = "تم اضافة طلب شراء الاغطية بنجاح";
-        header('location: index.php');
+        $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit();
     } else {
         $_SESSION['notification'] = "يوجد خلل في النظام";
-        header('location: index.php');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit();
     }
 } else {
-    $type = "";
-    $dimensions = "";
-    $quantity = "";
-    $price_per_peice = "";
-    $total_price = "";
-    $seller = "";
-    $address = "";
-    $email = "";
-    $phone = "";
+        $name = "";
+        $quantity = "";
+        $image = "";
+
 }
 
 ?>
@@ -255,6 +241,11 @@ if (!empty($_GET['edit'])) {
                                     <!--Table head-->
                                     <!--Table body-->
                                     <tbody class=" text-center">
+                                    <?php
+                                     $i = 0;
+                                    while ($r = mysqli_fetch_array($select)) {
+                                        $i++;
+                                        ?>
 
                                         <tr>
                                             <th scope="row">1</th>
@@ -269,7 +260,7 @@ if (!empty($_GET['edit'])) {
                                             </td>
                                         </tr>
 
-
+                                        <?php } ?>
                                     </tbody>
                                     <!--Table body-->
 
