@@ -20,7 +20,7 @@ if (!empty($_GET['edit'])) {
         $name = $_POST['name'];
         $quantity = $_POST['quantity'];
         $image = $_POST['image'];
-        $target_dir = "../Signed-Docs/Cover-Reviews/".$id."/";
+        $target_dir = "../Signed-Docs/Cover-Reviews/".$cover_id."/";
         if(!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
         }else{
