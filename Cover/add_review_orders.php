@@ -120,7 +120,7 @@ if (!empty($_GET['edit'])) {
 
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
+
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -231,20 +231,26 @@ if (!empty($_GET['edit'])) {
                     <div class="block-header bg-gradient-dark col-md-2 col-sm-6 col-xs-6  rounded-pill">
                         <h6 class="block-title text-white py-2 px-4 ">مراجعه الطلبيات</h6>
                     </div>
-                    <form id="<?php echo $idAttr; ?>" action="" method="post">
+                    <form id="<?php echo $idAttr; ?>" action="" method="post" class="needs-validation" novalidate>
                         <div class="row">
 
                             <div class="col">
                                 <div class="form-group">
-                                    <label>اسم الفاتورة</label>
-                                    <input type="text" placeholder="الرجاء ادخل اسم الفاتورة" class="form-control" name="name" value="">
+                                    <label for="validationCustom01">اسم الفاتورة</label>
+                                    <input type="text" placeholder="الرجاء ادخل اسم الفاتورة" class="form-control" name="name" value="" id="validationCustom01" required>
+                                    <div class="invalid-feedback">
+                                        الرجاء ادخل اسم الفاتورة.
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="col">
                                 <div class="form-group">
-                                    <label>كميه المستلمه</label>
-                                    <input type="text" placeholder="الرجاء ادخال الكمية المستلمه" class="form-control" name="price" value="<?php echo $price; ?>">
+                                    <label for="validationCustom02">كميه المستلمه</label>
+                                    <input type="text" placeholder="الرجاء ادخال الكمية المستلمه" class="form-control"  name="price" value="<?php echo $price; ?>" id="validationCustom02" required>
+                                    <div class="invalid-feedback">
+                                        الرجاء ادخل كيمة المستلمه.
+                                    </div>
                                 </div>
                             </div>
 
