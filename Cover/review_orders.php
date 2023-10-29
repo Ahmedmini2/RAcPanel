@@ -197,7 +197,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                             <td class="border-1"><?=$r['created_at']?></td>
                                             
                                             <td class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> |
-                                                <a href="add_review_orders.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                                                <a href="add_review_orders.php?edit=<?=$r['id']?>&cover_id=<?=$cover_id?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
                                                 <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
