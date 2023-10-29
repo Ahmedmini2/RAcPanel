@@ -232,13 +232,19 @@ if (!empty($_GET['edit'])) {
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">
                                             <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
-                                            <div id="preview">
-
+                                            <div class="preview">
+                                                <img id="preview-selected-image">
                                             </div>
                                         </div>
                                         <!-- Button -->
                                         <div class="form-group">
-                                        <input  type="file" id="customFile" name="file" hidden="" onchange="getImagePreview(event)">
+                                        <input  type="file" 
+                                        id="customFile"
+                                         name="file" 
+                                         hidden="" 
+                                         accept="image/*"
+                                         onchange="previewImage(event);"
+                                         >
                                         <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
                                         <button type="button" class="btn btn-danger-soft">Remove</button>
                                         </div>
@@ -447,10 +453,14 @@ if (!empty($_GET['edit'])) {
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
     <script src="../Admin/darkmode.js"></script>
-    <script type="text/javascript">
-        function getImagePreview(event)
-        {
-            console.log(event.target.file[0]);
+    <script >
+        const previewImage = (event) => {
+            const files = event.target.files;
+            if(files.length > 0){
+                const imageUrl = URL.createObjectURL(files[0]);
+                const imageElement  = document.getElementById("preview-selected-image");
+                imageElement.src = imageUrl;
+            }
         }
     </script>
 </body>
