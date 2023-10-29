@@ -1,6 +1,7 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Cover";
+$select = mysqli_query($conn, "select * from covers_purchase");
 if (!empty($_GET['edit'])) {
 
     $id = $_GET['edit'];
@@ -15,26 +16,15 @@ if (!empty($_GET['edit'])) {
 
     if (isset($_POST['submit'])) {
 
-
         $name = $_POST['name'];
         $quantity = $_POST['quantity'];
         $image = $_POST['image'];
-        $target_dir = "../Signed-Docs/Cover-Reviews/".$id."/";
-        if(!is_dir($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        }else{
 
-        }
-        $target_file = $target_dir . basename($_FILES["review-image"]["name"]);
-        $filename = basename($_FILES["review-image"]["name"]);
-        $uploadOk = 1;
-        move_uploaded_file($_FILES["review-image"]["tmp_name"], $target_file);
-        
+
 
         $update = "UPDATE `covers_report` SET `name` = '$name', `quantity` = '$quantity', `image` = '$filename' WHERE `id` = $id";
         $updateResult = $conn->query($update);
         if ($updateResult) {
-            
 
             $_SESSION['notification'] = "تم تعديل طلب مراجعة الاغطية بنجاح";
             header('Location: ' . $_SERVER['HTTP_REFERER']);
@@ -50,8 +40,6 @@ if (!empty($_GET['edit'])) {
         $name = $_POST['name'];
         $quantity = $_POST['quantity'];
         $image = $_POST['image'];
-        $filename = basename($_FILES["review-image"]["name"]);
-        $uploadOk = 1;
 
 
 
@@ -59,30 +47,21 @@ if (!empty($_GET['edit'])) {
         VALUES (NULL, '$name', '$quantity', '$filename', NOW())";
         $insertResult = $conn->query($insert);
         if ($insertResult) {
-            $id = $conn->insert_id;
-            $target_dir = "../Signed-Docs/Cover-Reviews/".$id."/";
-            if(!is_dir($target_dir)) {
-                mkdir($target_dir, 0777, true);
-            }else{
-            
-            }
-            $target_file = $target_dir . basename($_FILES["review-image"]["name"]);
-            move_uploaded_file($_FILES["review-image"]["tmp_name"], $target_file);
 
-            $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
-            exit();
+        $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit();
     } else {
-            $_SESSION['notification'] = "يوجد خلل في النظام";
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
-            exit();
-        }
-    } else {
-            $name = "";
-            $quantity = "";
-            $image = "";
-
+        $_SESSION['notification'] = "يوجد خلل في النظام";
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit();
     }
+} else {
+        $name = "";
+        $quantity = "";
+        $image = "";
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -94,7 +73,7 @@ if (!empty($_GET['edit'])) {
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-        شراء اغطية
+        مراجعه الفاتورة
     </title>
     <!--     Fonts and icons     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -127,7 +106,7 @@ if (!empty($_GET['edit'])) {
 
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-
+                    
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -230,60 +209,152 @@ if (!empty($_GET['edit'])) {
         <!-- End Navbar -->
         <!-- اسم الفاتوره ))كميه المستلمه )) صورة -->
         <div class="container-fluid py-4">
-            <div class="row">
-                <div class="block block-themed">
-                    <div class="block-header bg-warning col-md-3 col-sm-6 col-xs-6 rounded">
-                        <?php require_once('../components/notification.php'); ?>
-                    </div>
-                    <div class="block-header bg-gradient-dark col-md-2 col-sm-6 col-xs-6  rounded-pill">
-                        <h6 class="block-title text-white py-2 px-4 ">مراجعه الطلبيات</h6>
-                    </div>
-                    <form id="<?php echo $idAttr; ?>" action="" method="post" >
-                        <div class="row">
+            
+            
+        <div class="row">
+		<div class="col-12">
+			<!-- Page title -->
+			<div class="my-5">
+				<h3>My Profile</h3>
+				<hr>
+			</div>
+			<!-- Form START -->
+			<form class="file-upload">
+				<div class="row mb-5 gx-5">
+					<!-- Contact detail -->
+					<div class="col-xxl-8 mb-5 mb-xxl-0">
+						<div class="bg-secondary-soft px-4 py-5 rounded">
+							<div class="row g-3">
+								<h4 class="mb-4 mt-0">Contact detail</h4>
+								<!-- First Name -->
+								<div class="col-md-6">
+									<label class="form-label">First Name *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="First name" value="Scaralet">
+								</div>
+								<!-- Last name -->
+								<div class="col-md-6">
+									<label class="form-label">Last Name *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="Doe">
+								</div>
+								<!-- Phone number -->
+								<div class="col-md-6">
+									<label class="form-label">Phone number *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="(333) 000 555">
+								</div>
+								<!-- Mobile number -->
+								<div class="col-md-6">
+									<label class="form-label">Mobile number *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="+91 9852 8855 252">
+								</div>
+								<!-- Email -->
+								<div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Email *</label>
+									<input type="email" class="form-control" id="inputEmail4" value="example@homerealty.com">
+								</div>
+								<!-- Skype -->
+								<div class="col-md-6">
+									<label class="form-label">Skype *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="Scaralet D">
+								</div>
+							</div> <!-- Row END -->
+						</div>
+					</div>
+					<!-- Upload profile -->
+					<div class="col-xxl-4">
+						<div class="bg-secondary-soft px-4 py-5 rounded">
+							<div class="row g-3">
+								<h4 class="mb-4 mt-0">Upload your profile photo</h4>
+								<div class="text-center">
+									<!-- Image upload -->
+									<div class="square position-relative display-2 mb-3">
+										<i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+									</div>
+									<!-- Button -->
+									<input type="file" id="customFile" name="file" hidden="">
+									<label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
+									<button type="button" class="btn btn-danger-soft">Remove</button>
+									<!-- Content -->
+									<p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> <!-- Row END -->
 
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="validationCustom01">اسم الفاتورة</label>
+				<!-- Social media detail -->
+				<div class="row mb-5 gx-5">
+					<div class="col-xxl-6 mb-5 mb-xxl-0">
+						<div class="bg-secondary-soft px-4 py-5 rounded">
+							<div class="row g-3">
+								<h4 class="mb-4 mt-0">Social media detail</h4>
+								<!-- Facebook -->
+								<div class="col-md-6">
+									<label class="form-label"><i class="fab fa-fw fa-facebook me-2 text-facebook"></i>Facebook *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Facebook" value="http://www.facebook.com">
+								</div>
+								<!-- Twitter -->
+								<div class="col-md-6">
+									<label class="form-label"><i class="fab fa-fw fa-twitter text-twitter me-2"></i>Twitter *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Twitter" value="http://www.twitter.com">
+								</div>
+								<!-- Linkedin -->
+								<div class="col-md-6">
+									<label class="form-label"><i class="fab fa-fw fa-linkedin-in text-linkedin me-2"></i>Linkedin *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Linkedin" value="http://www.linkedin.com">
+								</div>
+								<!-- Instragram -->
+								<div class="col-md-6">
+									<label class="form-label"><i class="fab fa-fw fa-instagram text-instagram me-2"></i>Instagram *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Instragram" value="http://www.instragram.com">
+								</div>
+								<!-- Dribble -->
+								<div class="col-md-6">
+									<label class="form-label"><i class="fas fa-fw fa-basketball-ball text-dribbble me-2"></i>Dribble *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Dribble" value="http://www.dribble.com">
+								</div>
+								<!-- Pinterest -->
+								<div class="col-md-6">
+									<label class="form-label"><i class="fab fa-fw fa-pinterest text-pinterest"></i>Pinterest *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Pinterest" value="http://www.pinterest.com">
+								</div>
+							</div> <!-- Row END -->
+						</div>
+					</div>
 
-                                    <input type="text" placeholder="الرجاء ادخل اسم الفاتورة" class="form-control" name="name" value="<?php echo $name; ?>" id="validationCustom01" required>
-                                    <div class="invalid-feedback">
-                                        الرجاء ادخل اسم الفاتورة.
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="validationCustom02">كميه المستلمه</label>
-                                    <input type="text" placeholder="الرجاء ادخال الكمية المستلمه" class="form-control" name="quantity" value="<?php echo $quantity; ?>" id="validationCustom02" required>
-                                    <div class="invalid-feedback">
-                                        الرجاء ادخل كيمة المستلمه.
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>صورة الفاتورة</label>
-                                    <input type="file" placeholder="" class="form-control" name="review-image" value="" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <button type="submit" name="submit" class="btn btn-secondary">شراء الاغطية</button>
-                                </div>
-                            </div>
-                            <div class="col">
-
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+					<!-- change password -->
+					<div class="col-xxl-6">
+						<div class="bg-secondary-soft px-4 py-5 rounded">
+							<div class="row g-3">
+								<h4 class="my-4">Change Password</h4>
+								<!-- Old password -->
+								<div class="col-md-6">
+									<label for="exampleInputPassword1" class="form-label">Old password *</label>
+									<input type="password" class="form-control" id="exampleInputPassword1">
+								</div>
+								<!-- New password -->
+								<div class="col-md-6">
+									<label for="exampleInputPassword2" class="form-label">New password *</label>
+									<input type="password" class="form-control" id="exampleInputPassword2">
+								</div>
+								<!-- Confirm password -->
+								<div class="col-md-12">
+									<label for="exampleInputPassword3" class="form-label">Confirm Password *</label>
+									<input type="password" class="form-control" id="exampleInputPassword3">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> <!-- Row END -->
+				<!-- button -->
+				<div class="gap-3 d-md-flex justify-content-md-end text-center">
+					<button type="button" class="btn btn-danger btn-lg">Delete profile</button>
+					<button type="button" class="btn btn-primary btn-lg">Update profile</button>
+				</div>
+			</form> <!-- Form END -->
+		</div>
+	</div>
+        
+            
         </div>
     </main>
     <!--<div class="fixed-plugin">
@@ -374,7 +445,6 @@ if (!empty($_GET['edit'])) {
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
-    
     <script src="../Admin/darkmode.js"></script>
 </body>
 
