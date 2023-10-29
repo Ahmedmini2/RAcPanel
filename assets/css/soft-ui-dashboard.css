@@ -25235,7 +25235,16 @@ width: 100px;
 .darkmode .text-dark {
   color: #e9ecef !important;
 }
-
+.space {
+  width: 10px;
+  height: auto;
+  display: inline-block;
+}
+.darkmode .space {
+  width: 10px;
+  height: auto;
+  display: inline-block;
+}
 
 /*profile*/
 .square {
