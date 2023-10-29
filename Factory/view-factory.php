@@ -586,6 +586,28 @@ if (isset($_GET['id'])) {
                                                 <div class="d-flex align-items-center text-sm">
                                                     ريال <?=$bill['price']?>
                                                     <a href="../Signed-Docs/Project-Bills/<?=$bill['project_id']?>/<?=$bill['bill_img']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
+                                                    <button type="button" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4" data-bs-toggle="modal" data-bs-target="#exampleModal3"><i class="fas fa-trash text-lg me-1"></i> Delete</button>
+                                                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">حذف الفاتورة</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            الرجاء ادخال كلمة المرور للتأكيد
+                                                            <form action="../scripts/projects/delete-bill.php?id=<?php echo $bill['id']; ?>" method="post">
+                                                                <input type="password" name="pas" class="form-control">
+
+                                                            </div>
+                                                            <div class="modal-footer">
+
+                                                            <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                                            </form>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div> 
                                                 </div>
                                             </li>
                                            <?php } ?>
