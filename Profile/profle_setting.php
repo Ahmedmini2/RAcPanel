@@ -211,6 +211,7 @@ if (!empty($_GET['edit'])) {
 
 
             <div class="row">
+                <div class="card">
                 <div class="col-12">
                     <!-- Page title -->
                     <div class="my-5">
@@ -277,6 +278,9 @@ if (!empty($_GET['edit'])) {
                         </div>
                     </div>
                 </div>
+                </div>
+               
+                
                 <div class="row">
                     <h6 class="my-4">Change Password</h6>
                     <div class="row">
