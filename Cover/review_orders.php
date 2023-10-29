@@ -242,7 +242,9 @@ if (!empty($_GET['edit'])) {
                                     <!--Table body-->
                                     <tbody class=" text-center">
                                     <?php
+                                     $i = 0;
                                     while ($r = mysqli_fetch_array($select)) {
+                                        $i++;
                                         ?>
 
                                         <tr>
