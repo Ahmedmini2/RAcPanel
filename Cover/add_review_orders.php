@@ -231,7 +231,7 @@ if (!empty($_GET['edit'])) {
                     <div class="block-header bg-gradient-dark col-md-2 col-sm-6 col-xs-6  rounded-pill">
                         <h6 class="block-title text-white py-2 px-4 ">مراجعه الطلبيات</h6>
                     </div>
-                    <form id="<?php echo $idAttr; ?>" action="" method="post" class="needs-validation" novalidate>
+                    <form id="<?php echo $idAttr; ?>" action="" method="post" class="needs-validation">
                         <div class="row">
 
                             <div class="col">
@@ -257,7 +257,7 @@ if (!empty($_GET['edit'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label>صورة الفاتورة</label>
-                                    <input type="file" placeholder="" class="form-control" name="bill" value="">
+                                    <input type="file" placeholder="" class="form-control" name="bill" value="" required>
                                 </div>
                             </div>
                         </div>

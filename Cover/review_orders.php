@@ -1,6 +1,7 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Cover";
+$select = mysqli_query($conn, "select * from covers_purchase");
 if (!empty($_GET['edit'])) {
 
     $id = $_GET['edit'];
@@ -240,6 +241,9 @@ if (!empty($_GET['edit'])) {
                                     <!--Table head-->
                                     <!--Table body-->
                                     <tbody class=" text-center">
+                                    <?php
+                                    while ($r = mysqli_fetch_array($select)) {
+                                        ?>
 
                                         <tr>
                                             <th scope="row">1</th>
@@ -254,7 +258,7 @@ if (!empty($_GET['edit'])) {
                                             </td>
                                         </tr>
 
-
+                                        <?php } ?>
                                     </tbody>
                                     <!--Table body-->
 

@@ -186,7 +186,9 @@ $select = mysqli_query($conn, "select * from covers_purchase");
                  
 
                 <?php
+                $i = 0;
               while ($r = mysqli_fetch_array($select)) {
+                $i++;
                 ?>
                     <tr class="text-center">
 
