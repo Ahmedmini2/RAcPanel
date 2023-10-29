@@ -1,7 +1,8 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Cover";
-$select = mysqli_query($conn, "select * from covers_report");
+$cover_id = $_GET['cover_id'];
+$select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cover_id");
 
 
 ?>
