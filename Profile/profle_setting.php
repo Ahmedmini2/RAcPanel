@@ -219,10 +219,10 @@ if (!empty($_GET['edit'])) {
                     </div>
                     <!-- Form START  card h-100" dir="ltr-->
                     <div class="row">
-
+                        <!-- Upload profile -->
                         <div class="col-12 col-xl-4">
                             <div class="card">
-                            <h4 class="mb-4 mt-0">رفع صورة</h4>
+                            <h6 class="mb-4 mt-0">رفع صورة</h6>
                             <div class="text-center">
 									<!-- Image upload -->
 									<div class="square position-relative display-2 mb-3">
@@ -238,7 +238,31 @@ if (!empty($_GET['edit'])) {
                             </div>
                         </div>
                         <div class="col-12 col-xl-4">
-                            
+                        <div class="row g-3">
+								<h6 class="mb-4 mt-0">بيانات الموظف</h6>
+								<!-- First Name -->
+								<div class="col-md-6">
+									<label class="form-label">First Name *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="First name" value="Scaralet">
+								</div>
+								<!-- Last name -->
+								<div class="col-md-6">
+									<label class="form-label">Last Name *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="Doe">
+								</div>
+							
+								<!-- Mobile number -->
+								<div class="col-md-6">
+									<label class="form-label">Mobile number *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="+91 9852 8855 252">
+								</div>
+								<!-- Email -->
+								<div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Email *</label>
+									<input type="email" class="form-control" id="inputEmail4" value="example@homerealty.com">
+								</div>
+								
+							</div>
                         </div>
 
                     </div>
