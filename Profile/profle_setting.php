@@ -214,14 +214,14 @@ if (!empty($_GET['edit'])) {
                 <h3>My Profile</h3>
                 <hr>
             </div>
-            <div class="row">
+            <div class="row ">
 
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-5">
 
                     <!-- Form START  card h-100" dir="ltr-->
                     <div class="row">
                         <!-- Upload profile -->
-                        <div class="col-12 col-xl-5">
+                        <div class="col-10">
                             <h6 class="mb-4 mt-0">رفع صورة</h6>
                             <div class="card">
 
@@ -246,46 +246,43 @@ if (!empty($_GET['edit'])) {
                     </div>
 
                 </div>
-                <div class="col-12 col-xl-6">
-                <h6 class="mb-4 mt-0">بيانات الموظف</h6>
-                    <div class="card">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label>First Name</label>
-                                <input type="text" placeholder="First Name" class="form-control" name="EmployeeID" value="">
+                <div class="col-12 col-xl-7">
+                    <h6 class="mb-4 mt-0">بيانات الموظف</h6>
+                    <div class="card p-2">
+                        <div class="row ">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" placeholder="First Name" class="form-control" name="EmployeeID" value="">
 
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" placeholder="Last Name" class="form-control" name="name" value="">
+                                </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label>Last Name</label>
-                                <input type="text" placeholder="Last Name" class="form-control" name="name" value="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label>Mobile number</label>
-                                <input type="text" placeholder="Mobile number" class="form-control" name="EmployeeID" value="">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Mobile number</label>
+                                    <input type="text" placeholder="Mobile number" class="form-control" name="EmployeeID" value="">
 
+                                </div>
                             </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="text" placeholder="Email" class="form-control" name="name" value="">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" placeholder="Email" class="form-control" name="name" value="">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    </div>
-                    
+
                 </div>
-            </div>
-
-
-            <div class="row">
+                <div class="row">
                 <h6 class="my-4">Change Password</h6>
                 <div class="row">
 
@@ -311,6 +308,10 @@ if (!empty($_GET['edit'])) {
                     </div>
                 </div>
             </div>
+            </div>
+
+
+
         </div>
 
 
