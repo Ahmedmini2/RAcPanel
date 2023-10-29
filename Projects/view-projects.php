@@ -975,7 +975,7 @@ if (isset($_GET['id'])) {
                                                     
                                                     <a href="../Factory/receipt-bills.php?project_id=<?=$id?>&delivery_id=<?=$delivery['id']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-3 ms-2 p-2"><i class="fas fa-file-pdf  me-2"></i> PDF</a>
                                                     <a class="btn btn-link text-dark px-3 mb-0 ms-2 p-2" href="../Factory/receipt-report.php?project_id=<?=$id?>&edit=<?=$delivery['id']?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
-                                                    <button type="button" class="btn btn-link text-dark text-sm mb-0 px-3 ms-2 p-2" data-bs-toggle="modal" data-bs-target="#exampleModalReceive"><i class="fas fa-trash  me-2"></i> Delete</button>
+                                                    <button type="button" class="btn btn-link text-dark text-sm mb-0 px-3  p-2" data-bs-toggle="modal" data-bs-target="#exampleModalReceive"><i class="fas fa-trash  me-2"></i> Delete</button>
                                                     <div class="modal fade" id="exampleModalReceive" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog">
                                                         <div class="modal-content">
