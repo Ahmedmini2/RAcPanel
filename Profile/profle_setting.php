@@ -211,8 +211,8 @@ if (!empty($_GET['edit'])) {
 
 
             <div class="row">
-                <div class="card">
-                <div class="col-12">
+                
+                <div class="col-12 col-xl-4">
                     <!-- Page title -->
                     <div class="my-5">
                         <h3>My Profile</h3>
@@ -246,7 +246,7 @@ if (!empty($_GET['edit'])) {
                     </div>
 
                 </div>
-                <div class="row">
+                <div class="col-12 col-xl-4">
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
