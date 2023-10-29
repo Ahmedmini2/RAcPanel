@@ -219,6 +219,8 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                   </div>
                 </article>
                 -->
+
+                
                 <!-- New Card -->
 
 
