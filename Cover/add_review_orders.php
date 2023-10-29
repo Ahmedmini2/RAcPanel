@@ -87,7 +87,7 @@ if (!empty($_GET['edit'])) {
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-        مراجعه الفاتورة
+        شراء اغطية
     </title>
     <!--     Fonts and icons     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -223,65 +223,51 @@ if (!empty($_GET['edit'])) {
         <!-- End Navbar -->
         <!-- اسم الفاتوره ))كميه المستلمه )) صورة -->
         <div class="container-fluid py-4">
-        <div class=" mb-4 p-3">
-          
-
-          <a href="add_review_orders.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
-            <i class="fas fa-plus">
-            </i>
-          </a>
-          </div>
-            <!--Table     -->
             <div class="row">
-                <div class="col-12">
-                    <div class="card mb-4 mt-3">
+                <div class="block block-themed">
+                    <div class="block-header bg-warning col-md-3 col-sm-6 col-xs-6 rounded">
+                        <?php require_once('../components/notification.php'); ?>
+                    </div>
+                    <div class="block-header bg-gradient-dark col-md-2 col-sm-6 col-xs-6  rounded-pill">
+                        <h6 class="block-title text-white py-2 px-4 ">مراجعه الطلبيات</h6>
+                    </div>
+                    <form id="<?php echo $idAttr; ?>" action="" method="post">
+                        <div class="row">
 
-                        <div class="card-body px-0 pt-0 pb-2 mx-3">
-                            <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered  table-fixed" id="example">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>اسم الفاتورة</label>
+                                    <input type="text" placeholder="الرجاء ادخل اسم الفاتورة" class="form-control" name="name" value="">
+                                </div>
+                            </div>
 
-                                    <!--Table head-->
-                                    <thead class="bg-dark text-light table-bordered text-center">
-                                        <tr>
-                                            <th>الرقم</th>
-                                            <th>اسم الفاتورة</th>
-                                            <th>كميه المستلمه</th>
-                                            <th>ملف الفاتورة</th>
-                                            <th>تاريخ التوظيف</th>
-                                            
-                                            <th>Action </th>
-                                        </tr>
-                                    </thead>
-                                    <!--Table head-->
-                                    <!--Table body-->
-                                    <tbody class=" text-center">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>كميه المستلمه</label>
+                                    <input type="text" placeholder="الرجاء ادخال الكمية المستلمه" class="form-control" name="price" value="<?php echo $price; ?>">
+                                </div>
+                            </div>
 
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td class="border-1">ركن اميال</td>
-                                            <td class="border-1">5</td>
-                                            <td class="border-1"></td>
-                                            <td class="border-1">2023/10/22</td>
-                                            
-                                            <td class="border-1">
-                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </td>
-                                        </tr>
-
-
-                                    </tbody>
-                                    <!--Table body-->
-
-                                </table>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>صورة الفاتورة</label>
+                                    <input type="file" placeholder="" class="form-control" name="bill" value="">
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <button type="submit" name="submit" class="btn btn-secondary">شراء الاغطية</button>
+                                </div>
+                            </div>
+                            <div class="col">
+
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!--Table -->
-        
-        </div>
         </div>
     </main>
     <!--<div class="fixed-plugin">
