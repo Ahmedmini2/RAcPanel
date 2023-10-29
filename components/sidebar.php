@@ -256,6 +256,7 @@ $sidebar = $_SESSION['sidebar'];
               </a>
             </li> -->
     </ul>
+   
     <hr>
                 <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle px-4" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -266,12 +267,24 @@ $sidebar = $_SESSION['sidebar'];
                         <li><a class="dropdown-item" href="../Messages/chat.php">الرسائل</a></li>
                         <li><a class="dropdown-item" href="../Profile/profile.php">الملف الشخصي</a></li>
                         <li><a class="dropdown-item" href="../Admin/index.php">الاداره</a></li>
-
+                        <li><a class="dropdown-item" href="../Profile/profle_setting.php">الاعدادات</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" href="../Auth/logout.php">تسجيل الخروج</a></li>
                     </ul>
+                </div>
+                <div class="dropdown pb-4">
+
+                 
+                    <li class="nav-item px-3 d-flex align-items-center">
+                    <label class="ui-switch">
+                        <input type="checkbox" onclick="setDarkMode()">
+                        <div class="slider">
+                            <div class="circle"></div>
+                        </div>
+                    </label>
+                    </li>
                 </div>
   </div>
 

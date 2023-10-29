@@ -30,6 +30,17 @@
   --bs-font-sans-serif: Cairo;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+
+/*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(38, 92%, 58%);
+  --first-color-light: hsl(38, 100%, 78%);
+  --first-color-alt: hsl(32, 75%, 50%);
+  --second-color: hsl(195, 75%, 52%);
+  --dark-color: hsl(212, 40%, 12%);
+  --white-color: hsl(212, 4%, 95%);
+  --body-color: hsl(212, 42%, 15%);
+  --container-color: hsl(212, 42%, 20%);
 }
 
 *,
@@ -25062,6 +25073,8 @@ width: 100px;
   width: 50%;
 }
 
+
+
 /*mode dark mode*/
 .darkmode{
   background-color: #292929;
@@ -25089,6 +25102,7 @@ width: 100px;
 .darkmode .list-group-item+.list-group-item {
   background-color: #34476700 !important;
 }
+
 
 .darkmode label, .form-label {
   font-size: 0.75rem;
@@ -25171,7 +25185,7 @@ width: 100px;
   z-index: 1;
  }
  
- .darkmode .sal-card::after {
+.darkmode .sal-card::after {
   position: absolute;
   content: "";
   top: 30px;
@@ -25215,12 +25229,34 @@ width: 100px;
   transition: color 1s;
  }
 
- .darkmode .text-secondary {
+.darkmode .text-secondary {
   color: #d0d3d9 !important;
 }
 .darkmode .text-dark {
   color: #e9ecef !important;
 }
+
+/*profile*/
+.square {
+  height: 250px;
+  width: 250px;
+  margin: auto;
+  vertical-align: middle;
+  border: 1px solid #e5dfe4;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.darkmode.square {
+  height: 250px;
+  width: 250px;
+  margin: auto;
+  vertical-align: middle;
+  border: 1px solid #e5dfe4;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+/*profile*/
   /*card*/
  
   .sal-card{

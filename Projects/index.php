@@ -49,16 +49,16 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-          
+
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
-          <li class="nav-item px-3 d-flex align-items-center">
-                    <label class="ui-switch">
-                        <input type="checkbox" onclick="setDarkMode()">
-                        <div class="slider">
-                            <div class="circle"></div>
-                        </div>
-                    </label>
-                    </li>
+            <li class="nav-item px-3 d-flex align-items-center">
+              <label class="ui-switch">
+                <input type="checkbox" onclick="setDarkMode()">
+                <div class="slider">
+                  <div class="circle"></div>
+                </div>
+              </label>
+            </li>
             <li class="nav-item d-flex align-items-center">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
@@ -195,13 +195,12 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
               ?>
 
-                  <!-- New Card-->
-                
-                  <!-- New Card-->
+               
 
-                
+
 
                 <div class=" col-xs-12 col-sm-6 col-md-4 pt-2">
+
 
                   <div class="card h-100 shadow-lg  ">
 
@@ -209,20 +208,22 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                     <div class="view overlay">
                       <img class="inside-card card-img-top" src="../Projects/Images/<?= $r['name'] ?>/<?= $r['image'] ?>" alt="Card image cap">
                       <?php
-                     
-                        $durationInDays = ceil($timeDiff / (24 * 60 * 60)); // Calculate the number of days left
-                        $color = 'style="background:linear-gradient(310deg, #f71717 0%, #78735f 100%)"';
-                        if ($durationInDays == 1) {
-                          $ribbonText = "غدًا";
-                        } else if ($durationInDays == 2) {
-                          $ribbonText = "في يومين";
-                        } else {
-                          $ribbonText = "في " . $durationInDays . " أيام";
-                        }
+
+                      $durationInDays = ceil($timeDiff / (24 * 60 * 60)); // Calculate the number of days left
+                      $color = 'style="background:linear-gradient(310deg, #f71717 0%, #78735f 100%)"';
+                      if ($durationInDays == 1) {
+                        $ribbonText = "غدًا";
+                      } else if ($durationInDays == 2) {
+                        $ribbonText = "في يومين";
+                      } else {
+                        $ribbonText = "في " . $durationInDays . " أيام";
+                      }
                       ?>
-                     
-                        <span class="ribbon-pop"  <?php  if ($timeDiff > 0 && $timeDiff <= 3 * 24 * 60 * 60) { echo $color ;}?> dir="ltr">ينتهي <?= $ribbonText ?></span>
-                      
+
+                      <span class="ribbon-pop" <?php if ($timeDiff > 0 && $timeDiff <= 3 * 24 * 60 * 60) {
+                                                  echo $color;
+                                                } ?> dir="ltr">ينتهي <?= $ribbonText ?></span>
+
                       <div class=" rgba-white-slight"></div>
 
                     </div>

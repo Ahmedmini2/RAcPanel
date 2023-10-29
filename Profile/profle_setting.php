@@ -1,9 +1,66 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Cover";
-$cover_id = $_GET['cover_id'];
-$select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cover_id");
+$select = mysqli_query($conn, "select * from covers_purchase");
+if (!empty($_GET['edit'])) {
 
+    $id = $_GET['edit'];
+    $query = "SELECT * FROM covers_report WHERE id=$id";
+    $res = $conn->query($query);
+    $editData = $res->fetch_assoc();
+    $name = $editData['name'];
+    $quantity = $editData['quantity'];
+    $image = $editData['image'];
+
+
+
+    if (isset($_POST['submit'])) {
+
+        $name = $_POST['name'];
+        $quantity = $_POST['quantity'];
+        $image = $_POST['image'];
+
+
+
+        $update = "UPDATE `covers_report` SET `name` = '$name', `quantity` = '$quantity', `image` = '$filename' WHERE `id` = $id";
+        $updateResult = $conn->query($update);
+        if ($updateResult) {
+
+            $_SESSION['notification'] = "تم تعديل طلب مراجعة الاغطية بنجاح";
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit();
+        } else {
+            $_SESSION['notification'] = "يوجد خلل في النظام";
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit();
+        }
+    }
+} else if (isset($_POST['submit'])) {
+
+    $name = $_POST['name'];
+    $quantity = $_POST['quantity'];
+    $image = $_POST['image'];
+
+
+
+    $insert = "INSERT INTO `covers_report` (`id`, `name`, `quantity`, `image`, `created_at`)
+        VALUES (NULL, '$name', '$quantity', '$filename', NOW())";
+    $insertResult = $conn->query($insert);
+    if ($insertResult) {
+
+        $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit();
+    } else {
+        $_SESSION['notification'] = "يوجد خلل في النظام";
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit();
+    }
+} else {
+    $name = "";
+    $quantity = "";
+    $image = "";
+}
 
 ?>
 <!DOCTYPE html>
@@ -15,7 +72,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-        مراجعه الفاتورة
+        الاعدادات
     </title>
     <!--     Fonts and icons     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -48,7 +105,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
 
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
+
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -151,93 +208,71 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
         <!-- End Navbar -->
         <!-- اسم الفاتوره ))كميه المستلمه )) صورة -->
         <div class="container-fluid py-4">
-        <div class=" mb-4 p-3">
-          
 
-          <a href="add_review_orders.php?cover_id=<?=$cover_id?>" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
-            <i class="fas fa-plus">
-            </i>
-          </a>
-          </div>
-            <!--Table     -->
+
             <div class="row">
                 <div class="col-12">
-                    <div class="card mb-4 mt-3">
-
-                        <div class="card-body px-0 pt-0 pb-2 mx-3">
-                            <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered  table-fixed" id="example">
-
-                                    <!--Table head-->
-                                    <thead class="bg-dark text-light table-bordered text-center">
-                                        <tr>
-                                            <th>الرقم</th>
-                                            <th>اسم الفاتورة</th>
-                                            <th>كميه المستلمه</th>
-                                            <th>ملف الفاتورة</th>
-                                            <th>تاريخ الفاتورة</th>
-                                            
-                                            <th>Action </th>
-                                        </tr>
-                                    </thead>
-                                    <!--Table head-->
-                                    <!--Table body-->
-                                    <tbody class=" text-center">
-                                    <?php
-                                     $i = 0;
-                                    while ($r = mysqli_fetch_array($select)) {
-                                        $i++;
-                                        ?>
-
-                                        <tr>
-                                            <th scope="row"><?=$r['id']?></th>
-                                            <td class="border-1"><?=$r['name']?></td>
-                                            <td class="border-1"><?=$r['quantity']?></td>
-                                            <td class="border-1"><a href="../Signed-Docs/Cover-Reviews/<?=$cover_id?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
-                                            <td class="border-1"><?=$r['created_at']?></td>
-                                            
-                                            <td class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> |
-                                                <a href="add_review_orders.php?edit=<?=$r['id']?>&cover_id=<?=$cover_id?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
-
-
-                                                <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
-                                                <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">حذف طلب المراجعه'</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                        الرجاء ادخال كلمة المرور للتأكيد
-                                                        <form action="../scripts/covers/delete-review.php?id=<?php echo $r['id']; ?>" method="post">
-                                                            <input type="password" name="pas" class="form-control">
-
-                                                        </div>
-                                                        <div class="modal-footer">
-
-                                                        <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
-                                                        </form>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-                                                </div> <?php } ?>
-                                            </td>
-                                        </tr>
-
-                                        <?php } ?>
-                                    </tbody>
-                                    <!--Table body-->
-
-                                </table>
+                    <!-- Page title -->
+                    <div class="my-5">
+                        <h3>My Profile</h3>
+                        <hr>
+                    </div>
+                    <!-- Form START  card h-100" dir="ltr-->
+                    <div class="row">
+                        <!-- Upload profile -->
+                        <div class="col-12 col-xl-4">
+                            <div class="card">
+                            <h6 class="mb-4 mt-0">رفع صورة</h6>
+                            <div class="text-center">
+									<!-- Image upload -->
+									<div class="square position-relative display-2 mb-3">
+										<i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+									</div>
+									<!-- Button -->
+									<input type="file" id="customFile" name="file" hidden="">
+									<label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
+									<button type="button" class="btn btn-danger-soft">Remove</button>
+									<!-- Content -->
+									<p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
+								</div>
                             </div>
                         </div>
+                        <div class="col-12 col-xl-4">
+                        <div class="card">
+                        <div class="row g-3">
+								<h6 class="mb-4 mt-0">بيانات الموظف</h6>
+								<!-- First Name -->
+								<div class="col-md-6">
+									<label class="form-label">First Name *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="First name" value="">
+								</div>
+								<!-- Last name -->
+								<div class="col-md-6">
+									<label class="form-label">Last Name *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="">
+								</div>
+							
+								<!-- Mobile number -->
+								<div class="col-md-6">
+									<label class="form-label">Mobile number *</label>
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="">
+								</div>
+								<!-- Email -->
+								<div class="col-md-6">
+									<label for="inputEmail4" class="form-label">Email *</label>
+									<input type="email" class="form-control" id="inputEmail4" value="a">
+								</div>
+								
+							</div>
+                        </div>
+                        </div>
+
                     </div>
+                  
                 </div>
             </div>
-            <!--Table -->
-        
-        </div>
+
+
         </div>
     </main>
     <!--<div class="fixed-plugin">
