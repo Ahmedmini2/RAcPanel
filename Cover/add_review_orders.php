@@ -51,6 +51,16 @@ if (!empty($_GET['edit'])) {
         $name = $_POST['name'];
         $quantity = $_POST['quantity'];
         $image = $_POST['image'];
+        
+            $target_dir = "../Signed-Docs/Cover-Reviews/".$cover_id."/";
+            if(!is_dir($target_dir)) {
+                mkdir($target_dir, 0777, true);
+            }else{
+            
+            }
+            $target_file = $target_dir . basename($_FILES["review-image"]["name"]);
+            move_uploaded_file($_FILES["review-image"]["tmp_name"], $target_file);
+
         $filename = basename($_FILES["review-image"]["name"]);
         $uploadOk = 1;
 
@@ -60,15 +70,6 @@ if (!empty($_GET['edit'])) {
         VALUES (NULL,'$cover_id', '$name', '$quantity', '$filename', NOW())";
         $insertResult = $conn->query($insert);
         if ($insertResult) {
-            $id = $conn->insert_id;
-            $target_dir = "../Signed-Docs/Cover-Reviews/".$id."/";
-            if(!is_dir($target_dir)) {
-                mkdir($target_dir, 0777, true);
-            }else{
-            
-            }
-            $target_file = $target_dir . basename($_FILES["review-image"]["name"]);
-            move_uploaded_file($_FILES["review-image"]["tmp_name"], $target_file);
 
             $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
             header('Location: ' . $_SERVER['HTTP_REFERER']);
