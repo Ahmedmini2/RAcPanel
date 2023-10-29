@@ -216,7 +216,7 @@ if (!empty($_GET['edit'])) {
             </div>
             <div class="row">
 
-                <div class="col-12 col-xl-4">
+                <div class="col-12 col-xl-6">
 
                     <!-- Form START  card h-100" dir="ltr-->
                     <div class="row">
@@ -246,7 +246,9 @@ if (!empty($_GET['edit'])) {
                     </div>
 
                 </div>
-                <div class="col-12 col-xl-4">
+                <div class="col-12 col-xl-6">
+                <h6 class="mb-4 mt-0">بيانات الموظف</h6>
+                    <div class="card">
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
@@ -277,6 +279,8 @@ if (!empty($_GET['edit'])) {
                             </div>
                         </div>
                     </div>
+                    </div>
+                    
                 </div>
             </div>
 
