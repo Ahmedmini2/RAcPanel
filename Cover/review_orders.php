@@ -193,7 +193,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                             <th scope="row"><?=$r['id']?></th>
                                             <td class="border-1"><?=$r['name']?></td>
                                             <td class="border-1"><?=$r['quantity']?></td>
-                                            <td class="border-1"><a href="../Signed-Docs/Cover-Reviews/<?=$r['id']?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
+                                            <td class="border-1"><a href="../Signed-Docs/Cover-Reviews/<?=$cover_id?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
                                             <td class="border-1"><?=$r['created_at']?></td>
                                             
                                             <td class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> |

@@ -19,17 +19,16 @@ if (!empty($_GET['edit'])) {
 
         $name = $_POST['name'];
         $quantity = $_POST['quantity'];
-        $image = $_POST['image'];
-        $target_dir = "../Signed-Docs/Cover-Reviews/".$id."/";
+        $target_dir = "../Signed-Docs/Cover-Reviews/".$cover_id."/";
         if(!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
         }else{
 
         }
-        $target_file = $target_dir . basename($_FILES["review-image"]["name"]);
-        $filename = basename($_FILES["review-image"]["name"]);
+        $target_file = $target_dir . basename($_FILES["review_image"]["name"]);
+        $filename = basename($_FILES["review_image"]["name"]);
         $uploadOk = 1;
-        move_uploaded_file($_FILES["review-image"]["tmp_name"], $target_file);
+        move_uploaded_file($_FILES["review_image"]["tmp_name"], $target_file);
         
 
         $update = "UPDATE `covers_report` SET `name` = '$name', `quantity` = '$quantity', `image` = '$filename' WHERE `id` = $id";
@@ -58,10 +57,10 @@ if (!empty($_GET['edit'])) {
             }else{
             
             }
-            $target_file = $target_dir . basename($_FILES["review-image"]["name"]);
-            move_uploaded_file($_FILES["review-image"]["tmp_name"], $target_file);
+            $target_file = $target_dir . basename($_FILES["review_image"]["name"]);
+            move_uploaded_file($_FILES["review_image"]["tmp_name"], $target_file);
 
-        $filename = basename($_FILES["review-image"]["name"]);
+        $filename = basename($_FILES["review_image"]["name"]);
         $uploadOk = 1;
 
 
@@ -269,7 +268,7 @@ if (!empty($_GET['edit'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label>صورة الفاتورة</label>
-                                    <input type="file" placeholder="" class="form-control" name="review-image" value="" required>
+                                    <input type="file" placeholder="" class="form-control" name="review_image" required>
                                 </div>
                             </div>
                         </div>
