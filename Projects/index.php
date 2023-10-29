@@ -195,33 +195,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
               ?>
 
-                <!-- New Card-->
-                
-                <article class="card__article swiper-slide col-xs-12 col-sm-6 col-md-4 pt-2">
-                  <div class="card__image">
-                    <img src="../Projects/Images/ <?= $r['name'] ?>/<?= $r['image'] ?>" alt="Card image cap" class="card__img">
-
-                    <div class="card__shadow"></div>
-                  </div>
-
-                  <div class="card__data">
-                    <p class="card__num mb-2 text-sm">المشروع رقم <?= $r["id"] ?></p>
-                    <h3 class="card__name"><?= $r["name"] ?></h3>
-                    <p class="card__description">
-                      <?= $r["description"] ?>
-                    </p>
-
-                    <a href="view-projects.php?id=<?= $r["id"] ?>">
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
-                      </div>
-                    </a>
-                  </div>
-                </article>
-              
-
-
-                <!-- New Card -->
+               
 
 
 
