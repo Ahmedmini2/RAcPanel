@@ -206,18 +206,18 @@ if (!empty($_GET['edit'])) {
             </div>
         </nav>
         <!-- End Navbar -->
-        <!-- اسم الفاتوره ))كميه المستلمه )) صورة -->
+
         <div class="container-fluid py-4">
 
-
+            <!-- Page title -->
+            <div class="my-5">
+                <h3>My Profile</h3>
+                <hr>
+            </div>
             <div class="row">
-                
+
                 <div class="col-12 col-xl-4">
-                    <!-- Page title -->
-                    <div class="my-5">
-                        <h3>My Profile</h3>
-                        <hr>
-                    </div>
+
                     <!-- Form START  card h-100" dir="ltr-->
                     <div class="row">
                         <!-- Upload profile -->
@@ -278,44 +278,44 @@ if (!empty($_GET['edit'])) {
                         </div>
                     </div>
                 </div>
-                </div>
-               
-                
+            </div>
+
+
+            <div class="row">
+                <h6 class="my-4">Change Password</h6>
                 <div class="row">
-                    <h6 class="my-4">Change Password</h6>
-                    <div class="row">
 
 
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Old password *</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Old password *</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
 
-                            </div>
                         </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="exampleInputPassword2">New password *</label>
-                                <input type="password" class="form-control" id="exampleInputPassword2">
-                            </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="exampleInputPassword2">New password *</label>
+                            <input type="password" class="form-control" id="exampleInputPassword2">
                         </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="exampleInputPassword3">Confirm Password *</label>
-                                <input type="password" class="form-control" id="exampleInputPassword3">
-                            </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="exampleInputPassword3">Confirm Password *</label>
+                            <input type="password" class="form-control" id="exampleInputPassword3">
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
 
 
 
-            <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                <button type="button" class="btn btn-secondary btn-lg">Delete profile</button>
-                <button type="button" class="btn btn-secondary btn-lg">Update profile</button>
-            </div>
+        <div class="gap-3 d-md-flex justify-content-md-end text-center">
+            <button type="button" class="btn btn-secondary btn-lg">Delete profile</button>
+            <button type="button" class="btn btn-secondary btn-lg">Update profile</button>
+        </div>
 
         </div>
     </main>
