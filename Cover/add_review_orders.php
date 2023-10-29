@@ -37,11 +37,11 @@ if (!empty($_GET['edit'])) {
             
 
             $_SESSION['notification'] = "تم تعديل طلب مراجعة الاغطية بنجاح";
-            header("location:javascript://history.go(-2)");
+            header("location:javascript://history.go(-1)");
             exit();
         } else {
             $_SESSION['notification'] = "يوجد خلل في النظام";
-            header("location:javascript://history.go(-2)");
+            header("location:javascript://history.go(-1)");
             exit();
         }
     }
@@ -71,11 +71,11 @@ if (!empty($_GET['edit'])) {
         if ($insertResult) {
 
             $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
-           header("location:javascript://history.go(-2)");
+           header("location:javascript://history.go(-1)");
             exit();
     } else {
             $_SESSION['notification'] = "يوجد خلل في النظام";
-           header("location:javascript://history.go(-2)");
+           header("location:javascript://history.go(-1)");
             exit();
         }
     } else {
