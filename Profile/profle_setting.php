@@ -276,8 +276,14 @@ if (!empty($_GET['edit'])) {
                                 </div>
                             </div>
                         </div>
-                        <!-- change password -->
-                        <div class="col-12 col-xl-4">
+                       
+
+
+                    </div>
+
+                </div>
+                 <!-- change password -->
+                 <div class="col-12 col-xl-4">
                             <h6 class="my-4">Change Password</h6>
                             <div class="card">
                                 <div class="row g-3">
@@ -300,11 +306,6 @@ if (!empty($_GET['edit'])) {
                                 </div>
                             </div>
                         </div>
-
-
-                    </div>
-
-                </div>
                 <div class="gap-3 d-md-flex justify-content-md-end text-center">
                     <button type="button" class="btn btn-secondary btn-lg">Delete profile</button>
                     <button type="button" class="btn btn-secondary btn-lg">Update profile</button>
