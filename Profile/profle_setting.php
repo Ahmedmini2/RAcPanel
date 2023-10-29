@@ -306,8 +306,8 @@ if (!empty($_GET['edit'])) {
 
                 </div>
                 <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                    <button type="button" class="btn btn-danger btn-lg">Delete profile</button>
-                    <button type="button" class="btn btn-primary btn-lg">Update profile</button>
+                    <button type="button" class="btn btn-secondary btn-lg">Delete profile</button>
+                    <button type="button" class="btn btn-secondary btn-lg">Update profile</button>
                 </div>
             </div>
 
