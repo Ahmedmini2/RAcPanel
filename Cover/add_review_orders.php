@@ -4,78 +4,85 @@ $_SESSION['sidebar'] = "Cover";
 if (!empty($_GET['edit'])) {
 
     $id = $_GET['edit'];
-    $query = "SELECT * FROM covers_purchase WHERE id=$id";
+    $query = "SELECT * FROM covers_report WHERE id=$id";
     $res = $conn->query($query);
     $editData = $res->fetch_assoc();
-    $type = $editData['type'];
-    $dimensions = $editData['dimensions'];
+    $name = $editData['name'];
     $quantity = $editData['quantity'];
-    $price_per_peice = $editData['price_per_piece'];
-    $total_price = $editData['total_price'];
-    $seller = $editData['seller'];
+    $image = $editData['image'];
 
 
 
     if (isset($_POST['submit'])) {
 
-        $type = $_POST['type'];
-        $dimensions = $_POST['dimensions'];
+
+        $name = $_POST['name'];
         $quantity = $_POST['quantity'];
-        $price_per_peice = $_POST['price_per_peice'];
-        $total_price = str_replace(',', '', $_POST['total_price']);
-        $seller = $_POST['seller'];
+        $image = $_POST['image'];
+        $target_dir = "../Signed-Docs/Cover-Reviews/".$id."/";
+        if(!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }else{
 
+        }
+        $target_file = $target_dir . basename($_FILES["review-image"]["name"]);
+        $filename = basename($_FILES["review-image"]["name"]);
+        $uploadOk = 1;
+        move_uploaded_file($_FILES["review-image"]["tmp_name"], $target_file);
+        
 
-
-        $update = "UPDATE `covers_purchase` SET `type` = '$type', `dimensions` = '$dimensions', `quantity` = '$quantity', `price_per_piece` = '$price_per_peice', `total_price` = '$total_price',
-   `seller` = '$seller' WHERE `covers_purchase`.`id` = $id";
+        $update = "UPDATE `covers_report` SET `name` = '$name', `quantity` = '$quantity', `image` = '$filename' WHERE `id` = $id";
         $updateResult = $conn->query($update);
         if ($updateResult) {
+            
 
-            $_SESSION['notification'] = "تم تعديل طلب شراء الاغطية بنجاح";
-            header('location: index.php');
+            $_SESSION['notification'] = "تم تعديل طلب مراجعة الاغطية بنجاح";
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit();
         } else {
             $_SESSION['notification'] = "يوجد خلل في النظام";
-            header('location: index.php');
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit();
         }
     }
 } else if (isset($_POST['submit'])) {
 
-    $type = $_POST['type'];
-    $dimensions = $_POST['dimensions'];
-    $quantity = $_POST['quantity'];
-    $price_per_peice = $_POST['price_per_peice'];
-    $total_price = str_replace(',', '', $_POST['total_price']);
-    $seller = $_POST['seller'];
+        $name = $_POST['name'];
+        $quantity = $_POST['quantity'];
+        $image = $_POST['image'];
+        $filename = basename($_FILES["review-image"]["name"]);
+        $uploadOk = 1;
 
 
 
-    $insert = "INSERT INTO `covers_purchase` (`id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
-   VALUES (NULL, '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
-    $insertResult = $conn->query($insert);
-    if ($insertResult) {
+        $insert = "INSERT INTO `covers_report` (`id`, `name`, `quantity`, `image`, `created_at`)
+        VALUES (NULL, '$name', '$quantity', '$filename', NOW())";
+        $insertResult = $conn->query($insert);
+        if ($insertResult) {
+            $id = $conn->insert_id;
+            $target_dir = "../Signed-Docs/Cover-Reviews/".$id."/";
+            if(!is_dir($target_dir)) {
+                mkdir($target_dir, 0777, true);
+            }else{
+            
+            }
+            $target_file = $target_dir . basename($_FILES["review-image"]["name"]);
+            move_uploaded_file($_FILES["review-image"]["tmp_name"], $target_file);
 
-        $_SESSION['notification'] = "تم اضافة طلب شراء الاغطية بنجاح";
-        header('location: index.php');
-        exit();
+            $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit();
     } else {
-        $_SESSION['notification'] = "يوجد خلل في النظام";
-        header('location: index.php');
-        exit();
+            $_SESSION['notification'] = "يوجد خلل في النظام";
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit();
+        }
+    } else {
+            $name = "";
+            $quantity = "";
+            $image = "";
+
     }
-} else {
-    $type = "";
-    $dimensions = "";
-    $quantity = "";
-    $price_per_peice = "";
-    $total_price = "";
-    $seller = "";
-    $address = "";
-    $email = "";
-    $phone = "";
-}
 
 ?>
 <!DOCTYPE html>
@@ -237,7 +244,7 @@ if (!empty($_GET['edit'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label for="validationCustom01">اسم الفاتورة</label>
-                                    <input type="text" placeholder="الرجاء ادخل اسم الفاتورة" class="form-control" name="name" value="" id="validationCustom01" required>
+                                    <input type="text" placeholder="الرجاء ادخل اسم الفاتورة" class="form-control" name="name" value="<?php echo $name; ?>" id="validationCustom01" required>
                                     <div class="invalid-feedback">
                                         الرجاء ادخل اسم الفاتورة.
                                     </div>
@@ -247,7 +254,7 @@ if (!empty($_GET['edit'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label for="validationCustom02">كميه المستلمه</label>
-                                    <input type="text" placeholder="الرجاء ادخال الكمية المستلمه" class="form-control" name="price" value="<?php echo $price; ?>" id="validationCustom02" required>
+                                    <input type="text" placeholder="الرجاء ادخال الكمية المستلمه" class="form-control" name="quantity" value="<?php echo $quantity; ?>" id="validationCustom02" required>
                                     <div class="invalid-feedback">
                                         الرجاء ادخل كيمة المستلمه.
                                     </div>
@@ -257,7 +264,7 @@ if (!empty($_GET['edit'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label>صورة الفاتورة</label>
-                                    <input type="file" placeholder="" class="form-control" name="bill" value="" required>
+                                    <input type="file" placeholder="" class="form-control" name="review-image" value="" required>
                                 </div>
                             </div>
                         </div>
