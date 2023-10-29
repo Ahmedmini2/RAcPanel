@@ -231,16 +231,14 @@ if (!empty($_GET['edit'])) {
                     <div class="block-header bg-gradient-dark col-md-2 col-sm-6 col-xs-6  rounded-pill">
                         <h6 class="block-title text-white py-2 px-4 ">مراجعه الطلبيات</h6>
                     </div>
-                    <form id="<?php echo $idAttr; ?>" action="" method="post" class="needs-validation" novalidate>
+                    <form id="<?php echo $idAttr; ?>" action="" method="post" >
                         <div class="row">
 
                             <div class="col">
                                 <div class="form-group">
                                     <label for="validationCustom01">اسم الفاتورة</label>
                                     <input type="text" placeholder="الرجاء ادخل اسم الفاتورة" class="form-control" name="name" value="" id="validationCustom01" required>
-                                    <div class="invalid-feedback">
-                                        الرجاء ادخل اسم الفاتورة.
-                                    </div>
+                                    
                                 </div>
                             </div>
 
@@ -248,9 +246,7 @@ if (!empty($_GET['edit'])) {
                                 <div class="form-group">
                                     <label for="validationCustom02">كميه المستلمه</label>
                                     <input type="text" placeholder="الرجاء ادخال الكمية المستلمه" class="form-control" name="price" value="<?php echo $price; ?>" id="validationCustom02" required>
-                                    <div class="invalid-feedback">
-                                        الرجاء ادخل كيمة المستلمه.
-                                    </div>
+                                    
                                 </div>
                             </div>
 
@@ -364,29 +360,7 @@ if (!empty($_GET['edit'])) {
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
-    <!-- submit-->
-    <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function() {
-            'use strict'
-
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.querySelectorAll('.needs-validation')
-
-            // Loop over them and prevent submission
-            Array.prototype.slice.call(forms)
-                .forEach(function(form) {
-                    form.addEventListener('submit', function(event) {
-                        if (!form.checkValidity()) {
-                            event.preventDefault()
-                            event.stopPropagation()
-                        }
-
-                        form.classList.add('was-validated')
-                    }, false)
-                })
-        })()
-    </script>
+    
     <script src="../Admin/darkmode.js"></script>
 </body>
 
