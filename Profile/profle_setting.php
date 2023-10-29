@@ -237,7 +237,7 @@ if (!empty($_GET['edit'])) {
                                             </div>
                                         </div>
                                         <!-- Button -->
-                                        <input type="file" id="customFile" name="file" hidden="" onchange="getImagePreview(event)">
+                                        <input class="form-control" type="file" id="customFile" name="file" hidden="" onchange="getImagePreview(event)">
                                         <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
                                         <button type="button" class="btn btn-danger-soft">Remove</button>
                                         <!-- Content -->
