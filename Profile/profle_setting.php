@@ -232,9 +232,9 @@ if (!empty($_GET['edit'])) {
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">
                                             <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
-                                            <div class="preview">
+                                            
                                                 <img id="preview-selected-image">
-                                            </div>
+                                            
                                         </div>
                                         <!-- Button -->
                                         <div class="form-group">
@@ -322,32 +322,7 @@ if (!empty($_GET['edit'])) {
                         </div>
 
                     </div>
-                    <div class="row">
-                        <h6 class="my-4">Change Password</h6>
-                        <div class="row">
-
-
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Old password *</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
-
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword2">New password *</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword2">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword3">Confirm Password *</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword3">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
 
                 <div class="gap-3 d-md-flex justify-content-md-end text-center">
