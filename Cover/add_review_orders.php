@@ -1,6 +1,7 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Cover";
+$cover_id = $_GET['cover_id'];
 if (!empty($_GET['edit'])) {
 
     $id = $_GET['edit'];
