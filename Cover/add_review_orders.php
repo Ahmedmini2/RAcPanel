@@ -51,17 +51,8 @@ if (!empty($_GET['edit'])) {
         $name = $_POST['name'];
         $quantity = $_POST['quantity'];
         $image = $_POST['image'];
-        $filename = basename($_FILES["review-image"]["name"]);
-        $uploadOk = 1;
-
-
-
-        $insert = "INSERT INTO `covers_report` (`id`, `name`, `quantity`, `image`, `created_at`)
-        VALUES (NULL, '$name', '$quantity', '$filename', NOW())";
-        $insertResult = $conn->query($insert);
-        if ($insertResult) {
-            $id = $conn->insert_id;
-            $target_dir = "../Signed-Docs/Cover-Reviews/".$id."/";
+        
+            $target_dir = "../Signed-Docs/Cover-Reviews/".$cover_id."/";
             if(!is_dir($target_dir)) {
                 mkdir($target_dir, 0777, true);
             }else{
@@ -69,6 +60,16 @@ if (!empty($_GET['edit'])) {
             }
             $target_file = $target_dir . basename($_FILES["review-image"]["name"]);
             move_uploaded_file($_FILES["review-image"]["tmp_name"], $target_file);
+
+        $filename = basename($_FILES["review-image"]["name"]);
+        $uploadOk = 1;
+
+
+
+        $insert = "INSERT INTO `covers_report` (`id`,`cover_id`, `name`, `quantity`, `image`, `created_at`)
+        VALUES (NULL,'$cover_id', '$name', '$quantity', '$filename', NOW())";
+        $insertResult = $conn->query($insert);
+        if ($insertResult) {
 
             $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
             header('Location: ' . $_SERVER['HTTP_REFERER']);

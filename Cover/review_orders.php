@@ -154,7 +154,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
         <div class=" mb-4 p-3">
           
 
-          <a href="add_review_orders.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
+          <a href="add_review_orders.php?cover_id=<?=$cover_id?>" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
             <i class="fas fa-plus">
             </i>
           </a>
