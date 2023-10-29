@@ -196,7 +196,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
               ?>
 
                 <!-- New Card-->
-                <!--
+                
                 <article class="card__article swiper-slide col-xs-12 col-sm-6 col-md-4 pt-2">
                   <div class="card__image">
                     <img src="../Projects/Images/ <?= $r['name'] ?>/<?= $r['image'] ?>" alt="Card image cap" class="card__img">
@@ -218,9 +218,9 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                     </a>
                   </div>
                 </article>
-                -->
+              
 
-                
+
                 <!-- New Card -->
 
 
