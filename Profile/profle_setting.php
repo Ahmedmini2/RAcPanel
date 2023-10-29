@@ -221,9 +221,9 @@ if (!empty($_GET['edit'])) {
                     <div class="row">
                         <!-- Upload profile -->
                         <div class="col-12 col-xl-4">
-                        <h6 class="mb-4 mt-0">رفع صورة</h6>
+                            <h6 class="mb-4 mt-0">رفع صورة</h6>
                             <div class="card">
-                               
+
                                 <div class="text-center">
                                     <!-- Image upload -->
                                     <div class="square position-relative display-2 mb-3">
@@ -239,10 +239,10 @@ if (!empty($_GET['edit'])) {
                             </div>
                         </div>
                         <div class="col-12 col-xl-4">
-                        <h6 class="mb-4 mt-0">بيانات الموظف</h6>
+                            <h6 class="mb-4 mt-0">بيانات الموظف</h6>
                             <div class="card">
                                 <div class="row g-3">
-                                    
+
                                     <!-- First Name -->
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -276,9 +276,38 @@ if (!empty($_GET['edit'])) {
                                 </div>
                             </div>
                         </div>
+                        <!-- change password -->
+                        <div class="col-12 col-xl-4">
+                            <h6 class="my-4">Change Password</h6>
+                            <div class="card">
+                                <div class="row g-3">
+
+                                    <!-- Old password -->
+                                    <div class="col-md-6">
+                                        <label for="exampleInputPassword1">Old password *</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                    </div>
+                                    <!-- New password -->
+                                    <div class="col-md-6">
+                                        <label for="exampleInputPassword2">New password *</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword2">
+                                    </div>
+                                    <!-- Confirm password -->
+                                    <div class="col-md-12">
+                                        <label for="exampleInputPassword3">Confirm Password *</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
                     </div>
 
+                </div>
+                <div class="gap-3 d-md-flex justify-content-md-end text-center">
+                    <button type="button" class="btn btn-danger btn-lg">Delete profile</button>
+                    <button type="button" class="btn btn-primary btn-lg">Update profile</button>
                 </div>
             </div>
 
