@@ -1029,7 +1029,7 @@ if (isset($_GET['id'])) {
                                                         <h6 class="text-dark text-sm font-weight-bold mb-0">تم <?= $r['description'] ?> عدد <?= $r['quantity'] ?> من الصنف <?= $r['name'] ?> وحالته <?= $r['status'] ?></h6>
                                                         <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><?= $date->format('D jS \o\f F Y h:i:s A') ?></p>
                                                         <a class="btn btn-link text-dark px-3 mb-0" href="../Factory/project-report.php?project_id=<?=$id?>&edit=<?=$r['id']?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
-                                                        <button type="button" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4" data-bs-toggle="modal" data-bs-target="#exampleModalReport"><i class="fas fa-trash text-lg me-1"></i> Delete</button>
+                                                        <button type="button" class="btn btn-link text-dark text-sm mb-0 px-2 ms-4" data-bs-toggle="modal" data-bs-target="#exampleModalReport"><i class="fas fa-trash me-2"></i> Delete</button>
                                                             <div class="modal fade" id="exampleModalReport" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog">
                                                                 <div class="modal-content">
