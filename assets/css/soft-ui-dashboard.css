@@ -25235,6 +25235,28 @@ width: 100px;
 .darkmode .text-dark {
   color: #e9ecef !important;
 }
+
+/*profile*/
+.square {
+  height: 250px;
+  width: 250px;
+  margin: auto;
+  vertical-align: middle;
+  border: 1px solid #e5dfe4;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.darkmode.square {
+  height: 250px;
+  width: 250px;
+  margin: auto;
+  vertical-align: middle;
+  border: 1px solid #e5dfe4;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+/*profile*/
   /*card*/
  
   .sal-card{
