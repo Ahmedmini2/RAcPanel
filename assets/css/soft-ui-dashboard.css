@@ -25074,13 +25074,7 @@ width: 100px;
 }
 
 /*=============== CARD ===============*/
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin-top: 50%;
-}
+
 
 .card__container {
   padding-block: 5rem;
