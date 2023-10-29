@@ -222,53 +222,61 @@ if (!empty($_GET['edit'])) {
                         <!-- Upload profile -->
                         <div class="col-12 col-xl-4">
                             <div class="card">
-                            <h6 class="mb-4 mt-0">رفع صورة</h6>
-                            <div class="text-center">
-									<!-- Image upload -->
-									<div class="square position-relative display-2 mb-3">
-										<i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
-									</div>
-									<!-- Button -->
-									<input type="file" id="customFile" name="file" hidden="">
-									<label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
-									<button type="button" class="btn btn-danger-soft">Remove</button>
-									<!-- Content -->
-									<p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
-								</div>
+                                <h6 class="mb-4 mt-0">رفع صورة</h6>
+                                <div class="text-center">
+                                    <!-- Image upload -->
+                                    <div class="square position-relative display-2 mb-3">
+                                        <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+                                    </div>
+                                    <!-- Button -->
+                                    <input type="file" id="customFile" name="file" hidden="">
+                                    <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
+                                    <button type="button" class="btn btn-danger-soft">Remove</button>
+                                    <!-- Content -->
+                                    <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
+                                </div>
                             </div>
                         </div>
                         <div class="col-12 col-xl-4">
-                        <div class="card">
-                        <div class="row g-3">
-								<h6 class="mb-4 mt-0">بيانات الموظف</h6>
-								<!-- First Name -->
-								<div class="col-md-6">
-									<label class="form-label">First Name *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name" value="">
-								</div>
-								<!-- Last name -->
-								<div class="col-md-6">
-									<label class="form-label">Last Name *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="">
-								</div>
-							
-								<!-- Mobile number -->
-								<div class="col-md-6">
-									<label class="form-label">Mobile number *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="">
-								</div>
-								<!-- Email -->
-								<div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Email *</label>
-									<input type="email" class="form-control" id="inputEmail4" value="a">
-								</div>
-								
-							</div>
-                        </div>
+                            <div class="card">
+                                <div class="row g-3">
+                                    <h6 class="mb-4 mt-0">بيانات الموظف</h6>
+                                    <!-- First Name -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">First Name *</label>
+                                            <input type="text" class="form-control" placeholder="" aria-label="First name" value="">
+                                        </div>
+                                    </div>
+                                    <!-- Last name -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Last Name *</label>
+                                            <input type="text" class="form-control" placeholder="" aria-label="Last name" value="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Mobile number -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Mobile number *</label>
+                                            <input type="text" class="form-control" placeholder="" aria-label="Phone number" value="">
+                                        </div>
+                                    </div>
+                                    <!-- Email -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="inputEmail4" class="form-label">Email *</label>
+                                            <input type="email" class="form-control" id="inputEmail4" value="a">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
 
                     </div>
-                  
+
                 </div>
             </div>
 
