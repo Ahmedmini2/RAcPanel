@@ -238,6 +238,7 @@ if (!empty($_GET['edit'])) {
                             </div>
                         </div>
                         <div class="col-12 col-xl-4">
+                        <div class="card">
                         <div class="row g-3">
 								<h6 class="mb-4 mt-0">بيانات الموظف</h6>
 								<!-- First Name -->
@@ -263,6 +264,7 @@ if (!empty($_GET['edit'])) {
 								</div>
 								
 							</div>
+                        </div>
                         </div>
 
                     </div>
