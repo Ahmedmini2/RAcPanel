@@ -910,12 +910,34 @@ if (isset($_GET['id'])) {
                                         ?>
                                             <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                                                 <div class="d-flex flex-column">
-                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm"><?= $bill['bill_date'] ?> <span class="badge text-dark badge-success"> Added by: <?= $bill['added_by'] ?> </span></h6>
-                                                    <span class="text-xs">#<?= $bill['id'] ?></span>
+                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm"><?= $bill['bill_date'] ?> <span class="badge text-dark badge-success"> فاتورة بأسم <?= $bill['added_by'] ?> </span></h6>
+                                                    <span class="text-xs">#رقم<?= $bill['id'] ?></span>
                                                 </div>
                                                 <div class="d-flex align-items-center text-sm">
                                                     ريال <?= $bill['price'] ?>
                                                     <a href="../Signed-Docs/Project-Bills/<?= $bill['project_id'] ?>/<?= $bill['bill_img'] ?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
+                                                    <button type="button" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4" data-bs-toggle="modal" data-bs-target="#exampleModalBill"><i class="fas fa-trash text-lg me-1"></i> Delete</button>
+                                                    <div class="modal fade" id="exampleModalBill" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">حذف الفاتورة</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            الرجاء ادخال كلمة المرور للتأكيد
+                                                            <form action="../scripts/projects/delete-bill.php?id=<?php echo $bill['id']; ?>" method="post">
+                                                                <input type="password" name="pas" class="form-control">
+
+                                                            </div>
+                                                            <div class="modal-footer">
+
+                                                            <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                                            </form>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div> 
                                                 </div>
                                             </li>
                                         <?php } ?>
@@ -952,6 +974,28 @@ if (isset($_GET['id'])) {
                                                     
                                                     <a href="../Factory/receipt-bills.php?project_id=<?=$id?>&delivery_id=<?=$delivery['id']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i> PDF</a>
                                                     <a class="btn btn-link text-dark px-3 mb-0" href="../Factory/receipt-report.php?project_id=<?=$id?>&edit=<?=$delivery['id']?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                                                    <button type="button" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4" data-bs-toggle="modal" data-bs-target="#exampleModalReceive"><i class="fas fa-trash text-lg me-1"></i> Delete</button>
+                                                    <div class="modal fade" id="exampleModalReceive" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">حذف التسليم</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            الرجاء ادخال كلمة المرور للتأكيد
+                                                            <form action="../scripts/projects/delete-receive.php?id=<?php echo $delivery['id']; ?>" method="post">
+                                                                <input type="password" name="pas" class="form-control">
+
+                                                            </div>
+                                                            <div class="modal-footer">
+
+                                                            <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                                            </form>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div> 
                                                 </div>
                                             </li>
                                            <?php } ?>
@@ -985,6 +1029,28 @@ if (isset($_GET['id'])) {
                                                         <h6 class="text-dark text-sm font-weight-bold mb-0">تم <?= $r['description'] ?> عدد <?= $r['quantity'] ?> من الصنف <?= $r['name'] ?> وحالته <?= $r['status'] ?></h6>
                                                         <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><?= $date->format('D jS \o\f F Y h:i:s A') ?></p>
                                                         <a class="btn btn-link text-dark px-3 mb-0" href="../Factory/project-report.php?project_id=<?=$id?>&edit=<?=$r['id']?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                                                        <button type="button" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4" data-bs-toggle="modal" data-bs-target="#exampleModalReport"><i class="fas fa-trash text-lg me-1"></i> Delete</button>
+                                                            <div class="modal fade" id="exampleModalReport" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">حذف تقرير الإستلام</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                    الرجاء ادخال كلمة المرور للتأكيد
+                                                                    <form action="../scripts/projects/delete-report.php?id=<?php echo $r['id']; ?>" method="post">
+                                                                        <input type="password" name="pas" class="form-control">
+
+                                                                    </div>
+                                                                    <div class="modal-footer">
+
+                                                                    <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                                                    </form>
+                                                                    </div>
+                                                                </div>
+                                                                </div>
+                                                            </div> 
                                                     </div>
                                                 </div>
 
