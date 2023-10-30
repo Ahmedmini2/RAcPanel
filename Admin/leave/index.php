@@ -135,7 +135,7 @@ $_SESSION['sidebar_admin'] = "leave";
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-fixed" id="example">
+                                <table class="table table-hover table-bordered table-fixed" id="example">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
@@ -156,11 +156,11 @@ $_SESSION['sidebar_admin'] = "leave";
 
                                         <tr>
                                             <th scope="row">1</th>
-                                            <th >عباس الجعفري</th>
-                                            <td>عطلة</td>
-                                            <td>عطلة اختيارية</td>
-                                            <td>2023/10/22</td>
-                                            <td><span class="badge badge-sm bg-gradient-success">قيد الانتظار</span></td>
+                                            <td class="border-1" >عباس الجعفري</td>
+                                            <td class="border-1">عطلة</td>
+                                            <td class="border-1">عطلة اختيارية</td>
+                                            <td class="border-1">2023/10/22</td>
+                                            <td ><span class="badge badge-sm bg-gradient-success border-1">قيد الانتظار</span></td>
                                             <td>
                                                 <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
                                                 <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
