@@ -13,18 +13,19 @@ if (isset($_GET['edit'])) {
         $name = $_POST['name'];
         $zone = $_POST['zone'];
         $update = "UPDATE departments SET `name` = '$name', `zone` = '$zone' WHERE `id` = '$id' ";
+        $updateResult = $conn->query($update);
+        if ($updateResult) {
+    
+            $_SESSION['notification'] = "تم تعديل القسم بنجاح";
+            header('location: index.php');
+            exit();
+        } else {
+            $_SESSION['notification'] = "يوجد خلل في النظام";
+            header('location: index.php');
+            exit();
+        }
     }
-    $updateResult = $conn->query($update);
-    if ($updateResult) {
-
-        $_SESSION['notification'] = "تم تعديل القسم بنجاح";
-        header('location: index.php');
-        exit();
-    } else {
-        $_SESSION['notification'] = "يوجد خلل في النظام";
-        header('location: index.php');
-        exit();
-    }
+    
 } else if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $zone = $_POST['zone'];
