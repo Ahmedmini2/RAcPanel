@@ -1,7 +1,9 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "employee";
-
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+}
 
 $name = "";
 $email = "";
@@ -145,7 +147,7 @@ $image = "";
 
                         <h6 class="block-title text-white py-2 px-4">إضافة موظف جديد</h6>
                     </div>
-                    <form>
+                    <form method="post" action="" enctype="multipart/form-data">
                         <div class="row">
                            
                             <div class="col">
