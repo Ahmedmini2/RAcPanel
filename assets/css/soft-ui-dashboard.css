@@ -25218,6 +25218,10 @@ width: 100px;
   font-weight: bold;
   letter-spacing: .1em;
  }
+
+ .darkmode .main-content, .sidenav{
+  background-color: #292929;
+ }
  
  /*Hover*/
  .darkmode .sal-card:hover::after {
