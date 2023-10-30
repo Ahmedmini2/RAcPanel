@@ -1,7 +1,84 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "employee";
-if (isset($_POST['submit'])) {
+if(isset($_GET['edit'])){
+ 
+    $id = $_GET['edit'];
+    $query = "SELECT * FROM employee WHERE id=$id";
+    $res = $conn->query($query);
+    $editData = $res->fetch_assoc();
+    $name = $editData['name'];
+    $email = $editData['email'];
+    $phone = $editData['phone'];
+    $phone_code = $editData['phone_code'];
+    $nationality = $editData['nationality'];
+    $gender = $editData['gender'];
+    $birth = $editData['birth'];
+    $social_status = $editData['social_status'];
+    $id_number = $editData['id_number'];
+    $position = $editData['position'];
+    $department = $editData['department'];
+    $salary = $editData['salary'];
+    $start_date = $editData['start_date'];
+    $contract_type = $editData['contract_type'];
+    $trial_period = $editData['trial_period'];
+    $working_hours = $editData['working_hours'];
+    $image = $editData['image'];
+
+    if (isset($_POST['submit'])) {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $phone_code = $_POST['phone_code'];
+        $nationality = $_POST['nationality'];
+        $gender = $_POST['gender'];
+        $birth = $_POST['birth'];
+        $social_status = $_POST['social_status'];
+        $id_number = $_POST['id_number'];
+        $position = $_POST['position'];
+        $department = $_POST['department'];
+        $salary = $_POST['salary'];
+        $start_date = $_POST['start_date'];
+        $contract_type = $_POST['contract_type'];
+        $trial_period = $_POST['trial_period'];
+        $working_hours = $_POST['working_hours'];
+
+        $target_dir = "../Documents/Employee-Contract/".$id."/";
+        if(!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }else{
+
+        }
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $filename = basename($_FILES["image"]["name"]);
+        $uploadOk = 1;
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+
+        $update = "UPDATE employee SET `name` = '$name' , `email` = '$email' , `phone` = '$phone' , `phone_code` = '$phone_code' , `nationality` = '$nationality' , `gender` = '$gender'
+        , `birth` = '$birth' , `social_status` = '$social_status' , `id_number` = '$id_number' , `position` = '$position' , `department` = '$department' , `salary` = '$salary' , 
+        `start_date` = '$start_date' , `contract_type` = '$contract_type' , `trial_period` = '$trial_period' , `working_hours` = '$working_hours' , `image` = '$filename'
+        WHERE `id` = '$id'";
+         $updateResult = $conn->query($update);
+        if ($updateResult) {
+
+        $_SESSION['notification'] = "تم تعديل الموظف بنجاح";
+        header('location: index.php');
+        exit();
+
+        } else {
+        $_SESSION['notification'] = "يوجد خلل في النظام";
+        header('location: index.php');
+        exit();
+
+        }
+    }
+
+
+    
+
+}
+
+else if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
@@ -18,7 +95,35 @@ if (isset($_POST['submit'])) {
     $contract_type = $_POST['contract_type'];
     $trial_period = $_POST['trial_period'];
     $working_hours = $_POST['working_hours'];
-}
+
+    $filename = basename($_FILES["image"]["name"]);
+
+    $insert = "INSERT INTO employee VALUES (NULL, '$name', '$email', '$phone','$phone_code','$nationality','$gender', '$birth', '$social_status','$id_number','$position'
+    ,'$department', '$salary', '$start_date','$contract_type','$trial_period','$working_hours','$filename' , NOW())";
+
+    $insertResult = $conn->query($insert);
+    if ($insertResult) {
+        $inserted_id = $conn->insert_id;
+        $target_dir = "../Documents/Employee-Contract/".$inserted_id."/";
+        if(!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }else{
+        
+        }
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+
+        $_SESSION['notification'] = "تم اضافة الموظف بنجاح";
+        header('location: index.php');
+        exit();
+
+    } else {
+        $_SESSION['notification'] = "يوجد خلل في النظام";
+        header('location: index.php');
+        exit();
+
+    }
+}else{
 
 $name = "";
 $email = "";
@@ -37,7 +142,7 @@ $contract_type = "";
 $trial_period = "";
 $working_hours = "";
 $image = "";
-
+}
 ?>
 
 <html lang="ar" dir="rtl">
