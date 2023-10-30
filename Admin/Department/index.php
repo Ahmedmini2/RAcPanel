@@ -160,7 +160,7 @@ $select = mysqli_query($conn, "select * from departments");
                                             <td class="border-1" ><?=$r['zone']?></td>
                                             <td class="border-1"><?=$r['created_at']?></td>
                                             <td class="border-1" >
-                                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                               
                                                 <a href="add-department.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
