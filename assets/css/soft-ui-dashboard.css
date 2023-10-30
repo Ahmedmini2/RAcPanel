@@ -25330,6 +25330,10 @@ width: 100px;
     transition: color 1s;
    }
 
+
+   .darkmode a .iconsColor{
+    color: #f4f4f5;
+   }
 /* switch settings 👇 */
 
 .ui-switch {
