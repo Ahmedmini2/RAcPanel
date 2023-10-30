@@ -169,8 +169,8 @@ $select = mysqli_query($conn, "select * from employee");
                                             
                                             <td class="border-1" ><?=$r['department']?></td>
                                             <td class="border-1">
-                                                <a class="iconsColor" href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a class="iconsColor" href="add-employee.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                <a  href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a  href="add-employee.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                         <?php } ?>
