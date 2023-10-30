@@ -25219,9 +25219,7 @@ width: 100px;
   letter-spacing: .1em;
  }
 
- .darkmode .main-content, .sidenav{
-  background-color: #292929 !important;
- }
+ 
  
  /*Hover*/
  .darkmode .sal-card:hover::after {
