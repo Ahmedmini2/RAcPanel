@@ -1,6 +1,26 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "employee";
+
+
+$name = "";
+$email = "";
+$phone = "";
+$phone_code = "";
+$nationality = "";
+$gender = "";
+$birth = "";
+$social_status = "";
+$id_number = "";
+$position = "";
+$department = "";
+$salary = "";
+$start_date = "";
+$contract_type = "";
+$trial_period = "";
+$working_hours = "";
+$image = "";
+
 ?>
 
 <html lang="ar" dir="rtl">
@@ -127,32 +147,39 @@ $_SESSION['sidebar_admin'] = "employee";
                     </div>
                     <form>
                         <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>رقم الموظف</label>
-                                    <input type="text" placeholder="رقم الموظف" class="form-control" name="EmployeeID" value="">
-
-                                </div>
-                            </div>
+                           
                             <div class="col">
                                 <div class="form-group">
                                     <label>اسم الموظف</label>
-                                    <input type="text" placeholder="اسم الموظف" class="form-control" name="name" value="">
+                                    <input type="text" placeholder="اسم الموظف" class="form-control" name="name" value="<?=$name?>">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>رقم الهاتف</label>
+                                    <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone" value="<?=$phone?>">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>رقم تحويلة الهاتف</label>
+                                    <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone_code" value="<?=$phone_code?>">
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label>email</label>
-                                    <input type="text" placeholder="email" class="form-control" name="phone" value="">
+                                    <label>البريد الإلكتروني</label>
+                                    <input type="email" placeholder="البريد الإلكتروني" class="form-control" name="email" value="<?=$email?>">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>القسم</label>
-                                    <select name="position" class="form-control">
-                                        <option value=""></option>
+                                    <select name="department" class="form-control">
+                                        <option value="<?=$department?>"><?=$department?></option>
                                         <option value="Account">محاسب</option>
                                         <option value="Manager">الاداره</option>
                                         <option value="Worker">المصنع</option>
@@ -163,21 +190,116 @@ $_SESSION['sidebar_admin'] = "employee";
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col">
                                 <div class="form-group">
-                                    <label> تاريخ التوظيف</label>
-                                    <input type="date" placeholder="" class="form-control" name="duration">
+                                    <label>الوظيفة</label>
+                                    <input type="text" placeholder="المسمى الوظيفي" class="form-control" name="position" value="<?=$position?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> راتب الموظف</label>
-                                    <input type="text" placeholder=" مرتب الموظف" class="form-control" name="salary" value="">
+                                    <input type="text" placeholder=" مرتب الموظف" class="form-control" name="salary" value="<?=$salary?>">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> عدد ساعات العمل</label>
+                                    <select name="working_hours" class="form-control">
+                                        <option value="<?=$working_hours?>"><?=$working_hours?></option>
+                                        <option value="6 ساعات">6 ساعات</option>
+                                        <option value="8 ساعات">8 ساعات</option>
+                                        <option value="10 ساعات">10 ساعات</option>
+                                        <option value="12 ساعة">12 ساعة</option>
+
+                                    </select>
                                 </div>
                             </div>
                             
                         </div>
 
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>الجنسية</label>
+                                    <input type="text" placeholder="اكتب جنسية الموظف" class="form-control" name="nationality" value="<?=$nationality?>">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> تاريخ الميلاد</label>
+                                    <input type="date" class="form-control" name="birth" value="<?=$birth?>">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>رقم الهوية / جواز السفر</label>
+                                    <input type="text" placeholder="اكتب رقم الهوية" class="form-control" name="id_number" value="<?=$id_number?>">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> الجنس</label>
+                                    <select name="gender" class="form-control">
+                                        <option value="<?=$gender?>"><?=$gender?></option>
+                                        <option value="ذكر">ذكر</option>
+                                        <option value="انثى">انثى</option>
+                                        
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> الحالة الإجتماعية</label>
+                                    <select name="social_status" class="form-control">
+                                        <option value="<?=$social_status?>"><?=$social_status?></option>
+                                        <option value="متزوج">متزوج</option>
+                                        <option value="اعزب">اعزب</option>
+                                        <option value="أرملة">أرملة</option>
+                                        <option value="مطلق">مطلق</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label> نوع العقد</label>
+                                        <select name="contract_type" class="form-control">
+                                            <option value="<?=$contract_type?>"><?=$contract_type?></option>
+                                            <option value="دوام كامل">دوام كامل</option>
+                                            <option value="دوام جزئي">دوام جزئي</option>
+                                            <option value="دوام مؤقت">دوام مؤقت</option>
+                                            <option value="دوام عن بعد">دوام عن بعد</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label> تاريخ بداية التوظيف</label>
+                                        <input type="date" class="form-control" name="start_date" value="<?=$start_date?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label> تاريخ نهاية فترة التجربة</label>
+                                        <input type="date" class="form-control" name="trial_period" value="<?=$trial_period?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label> صورة العقد</label>
+                                        <input type="file" class="form-control" name="image" value="<?=$image?>">
+                                    </div>
+                                </div>
+                            
+                        </div>
                         
                         <div class="row">
                             <div class="col">
