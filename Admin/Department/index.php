@@ -1,6 +1,7 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "department";
+$select = mysqli_query($conn, "select * from departments");
 ?>
 
 <html lang="ar" dir="rtl">
@@ -142,25 +143,28 @@ $_SESSION['sidebar_admin'] = "department";
                                         <tr>
                                             <th>الرقم</th>
                                             <th>اسم القسم</th>
-                                            <th>رقم القسم</th>
-                                            <th>تاريخ القسم</th> 
+                                            <th>منطقة القسم</th>
+                                            <th>تاريخ ألأنشاء</th> 
                                             <th>Action</th> 
                                         </tr>
                                     </thead>
                                     <!--Table head-->
                                     <!--Table body-->
                                     <tbody class=" text-center">
-
+                                    <?php 
+                                    while ($r = mysqli_fetch_array($select)) {
+                                        ?>
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td class="border-1" >Human Resours</td>
-                                            <td class="border-1" >HR001</td>
-                                            <td class="border-1">2023/10/22</td>
+                                        <th scope="row">RA-DP-<?=$r['id']?></th>
+                                            <td class="border-1" ><?=$r['name']?></td>
+                                            <td class="border-1" ><?=$r['zone']?></td>
+                                            <td class="border-1"><?=$r['created_at']?></td>
                                             <td class="border-1" >
                                                 <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                <a href="add-department.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
+                                        <?php } ?>
 
 
                                     </tbody>
