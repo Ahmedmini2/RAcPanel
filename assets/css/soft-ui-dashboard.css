@@ -25220,7 +25220,7 @@ width: 100px;
  }
 
  .darkmode .main-content, .sidenav{
-  background-color: #292929;
+  background-color: #292929 !important;
  }
  
  /*Hover*/
