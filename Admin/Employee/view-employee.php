@@ -1,6 +1,7 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "employee";
+$select = mysqli_query($conn, "select * from employee");
 ?>
 
 <html lang="ar" dir="rtl">
@@ -146,7 +147,7 @@ $_SESSION['sidebar_admin'] = "employee";
                                             <th>بداية العقد</th>
                                             <th>عدد ساعات العمل</th>
                                             
-                                            <th>شهر</th>
+                                            <th>القسم</th>
                                             <th>ACTION</th>
                                         </tr>
                                     </thead>
@@ -154,53 +155,25 @@ $_SESSION['sidebar_admin'] = "employee";
                                     <!--Table body-->
                                     <tbody class=" text-center">
 
+                                    <?php 
+                                    while ($r = mysqli_fetch_array($select)) {
+                                        ?>
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td class="border-1">عباس الجعفري</td>
-                                            <td class="border-1">المدير العام</td>
-                                            <td class="border-1">5000</td>
-                                            <td class="border-1">العقد</td>
-                                            <td class="border-1">1/10/2023</td>
-                                            <td class="border-1">9</td>
+                                            <th scope="row">RA-EMP-<?=$r['id']?></th>
+                                            <td class="border-1"><?=$r['name']?></td>
+                                            <td class="border-1"><?=$r['position']?></td>
+                                            <td class="border-1"><?=$r['salary']?></td>
+                                            <td class="border-1"><?=$r['contract_type']?></td>
+                                            <td class="border-1"><?=$r['start_date']?></td>
+                                            <td class="border-1"><?=$r['working_hours']?></td>
                                             
-                                            <td class="border-1" >اكتوبر 2023</td>
+                                            <td class="border-1" ><?=$r['department']?></td>
                                             <td class="border-1">
                                                 <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                <a href="add-employee.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td class="border-1">عباس الجعفري</td>
-                                            <td class="border-1">المدير العام</td>
-                                            <td class="border-1">5000</td>
-                                            <td class="border-1">العقد</td>
-                                            <td class="border-1">1/10/2023</td>
-                                            <td class="border-1">9</td>
-                                           
-                                            <td class="border-1">اكتوبر 2023</td>
-                                            <td class="border-1">
-                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </td>
-    
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td class="border-1">عباس الجعفري</td>
-                                            <td class="border-1">المدير العام</td>
-                                            <td class="border-1">5000</td>
-                                            <td class="border-1">العقد</td>
-                                            <td class="border-1">1/10/2023</td>
-                                            <td class="border-1">9</td>
-                                            
-                                            <td class="border-1">اكتوبر 2023</td>
-                                            <td class="border-1">
-                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </td>
-    
-                                        </tr>
+                                        <?php } ?>
 
 
                                     </tbody>
