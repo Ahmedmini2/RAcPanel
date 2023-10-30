@@ -1,8 +1,23 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "employee";
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $phone_code = $_POST['phone_code'];
+    $nationality = $_POST['nationality'];
+    $gender = $_POST['gender'];
+    $birth = $_POST['birth'];
+    $social_status = $_POST['social_status'];
+    $id_number = $_POST['id_number'];
+    $position = $_POST['position'];
+    $department = $_POST['department'];
+    $salary = $_POST['salary'];
+    $start_date = $_POST['start_date'];
+    $contract_type = $_POST['contract_type'];
+    $trial_period = $_POST['trial_period'];
+    $working_hours = $_POST['working_hours'];
 }
 
 $name = "";
@@ -28,21 +43,17 @@ $image = "";
 <html lang="ar" dir="rtl">
 
 <head>
-
-
-
     <!-- Blazor -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet" />
-<link href="_content/Blazor.Bootstrap/blazor.bootstrap.css" rel="stylesheet" /> -->
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="_content/Blazor.Bootstrap/blazor.bootstrap.css" rel="stylesheet" /> --> 
     <!-- Blazor js -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
     <!-- Add chart.js reference if chart components are used in your application. -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.js" integrity="sha512-gQhCDsnnnUfaRzD8k1L5llCCV6O9HN09zClIzzeJ8OJ9MpGmIlCxm+pdCkqTwqJ4JcjbojFr79rl2F1mzcoLMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <!-- Add chartjs-plugin-datalabels.min.js reference if chart components with data label feature is used in your application. -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js" integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="_content/Blazor.Bootstrap/blazor.bootstrap.js"></script> -->
+    <script src="_content/Blazor.Bootstrap/blazor.bootstrap.js"></script> -->
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -85,11 +96,11 @@ $image = "";
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    
+
                     <h6 class="font-weight-bolder mb-0">اضافه موظف</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
+
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
                         <label class="form-check-label" for="checkbox"></label>
@@ -149,23 +160,23 @@ $image = "";
                     </div>
                     <form method="post" action="" enctype="multipart/form-data">
                         <div class="row">
-                           
+
                             <div class="col">
                                 <div class="form-group">
                                     <label>اسم الموظف</label>
-                                    <input type="text" placeholder="اسم الموظف" class="form-control" name="name" value="<?=$name?>">
+                                    <input type="text" placeholder="اسم الموظف" class="form-control" name="name" value="<?= $name ?>">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>رقم الهاتف</label>
-                                    <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone" value="<?=$phone?>">
+                                    <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone" value="<?= $phone ?>">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>رقم تحويلة الهاتف</label>
-                                    <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone_code" value="<?=$phone_code?>">
+                                    <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone_code" value="<?= $phone_code ?>">
                                 </div>
                             </div>
                         </div>
@@ -174,14 +185,14 @@ $image = "";
                             <div class="col">
                                 <div class="form-group">
                                     <label>البريد الإلكتروني</label>
-                                    <input type="email" placeholder="البريد الإلكتروني" class="form-control" name="email" value="<?=$email?>">
+                                    <input type="email" placeholder="البريد الإلكتروني" class="form-control" name="email" value="<?= $email ?>">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>القسم</label>
                                     <select name="department" class="form-control">
-                                        <option value="<?=$department?>"><?=$department?></option>
+                                        <option value="<?= $department ?>"><?= $department ?></option>
                                         <option value="Account">محاسب</option>
                                         <option value="Manager">الاداره</option>
                                         <option value="Worker">المصنع</option>
@@ -195,20 +206,20 @@ $image = "";
                             <div class="col">
                                 <div class="form-group">
                                     <label>الوظيفة</label>
-                                    <input type="text" placeholder="المسمى الوظيفي" class="form-control" name="position" value="<?=$position?>">
+                                    <input type="text" placeholder="المسمى الوظيفي" class="form-control" name="position" value="<?= $position ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> راتب الموظف</label>
-                                    <input type="text" placeholder=" مرتب الموظف" class="form-control" name="salary" value="<?=$salary?>">
+                                    <input type="text" placeholder=" مرتب الموظف" class="form-control" name="salary" value="<?= $salary ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> عدد ساعات العمل</label>
                                     <select name="working_hours" class="form-control">
-                                        <option value="<?=$working_hours?>"><?=$working_hours?></option>
+                                        <option value="<?= $working_hours ?>"><?= $working_hours ?></option>
                                         <option value="6 ساعات">6 ساعات</option>
                                         <option value="8 ساعات">8 ساعات</option>
                                         <option value="10 ساعات">10 ساعات</option>
@@ -217,40 +228,40 @@ $image = "";
                                     </select>
                                 </div>
                             </div>
-                            
+
                         </div>
 
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label>الجنسية</label>
-                                    <input type="text" placeholder="اكتب جنسية الموظف" class="form-control" name="nationality" value="<?=$nationality?>">
+                                    <input type="text" placeholder="اكتب جنسية الموظف" class="form-control" name="nationality" value="<?= $nationality ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> تاريخ الميلاد</label>
-                                    <input type="date" class="form-control" name="birth" value="<?=$birth?>">
+                                    <input type="date" class="form-control" name="birth" value="<?= $birth ?>">
                                 </div>
                             </div>
-                            
+
                         </div>
-                        
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label>رقم الهوية / جواز السفر</label>
-                                    <input type="text" placeholder="اكتب رقم الهوية" class="form-control" name="id_number" value="<?=$id_number?>">
+                                    <input type="text" placeholder="اكتب رقم الهوية" class="form-control" name="id_number" value="<?= $id_number ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> الجنس</label>
                                     <select name="gender" class="form-control">
-                                        <option value="<?=$gender?>"><?=$gender?></option>
+                                        <option value="<?= $gender ?>"><?= $gender ?></option>
                                         <option value="ذكر">ذكر</option>
                                         <option value="انثى">انثى</option>
-                                        
+
 
                                     </select>
                                 </div>
@@ -259,7 +270,7 @@ $image = "";
                                 <div class="form-group">
                                     <label> الحالة الإجتماعية</label>
                                     <select name="social_status" class="form-control">
-                                        <option value="<?=$social_status?>"><?=$social_status?></option>
+                                        <option value="<?= $social_status ?>"><?= $social_status ?></option>
                                         <option value="متزوج">متزوج</option>
                                         <option value="اعزب">اعزب</option>
                                         <option value="أرملة">أرملة</option>
@@ -270,39 +281,39 @@ $image = "";
                         </div>
 
                         <div class="row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label> نوع العقد</label>
-                                        <select name="contract_type" class="form-control">
-                                            <option value="<?=$contract_type?>"><?=$contract_type?></option>
-                                            <option value="دوام كامل">دوام كامل</option>
-                                            <option value="دوام جزئي">دوام جزئي</option>
-                                            <option value="دوام مؤقت">دوام مؤقت</option>
-                                            <option value="دوام عن بعد">دوام عن بعد</option>
-                                        </select>
-                                    </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> نوع العقد</label>
+                                    <select name="contract_type" class="form-control">
+                                        <option value="<?= $contract_type ?>"><?= $contract_type ?></option>
+                                        <option value="دوام كامل">دوام كامل</option>
+                                        <option value="دوام جزئي">دوام جزئي</option>
+                                        <option value="دوام مؤقت">دوام مؤقت</option>
+                                        <option value="دوام عن بعد">دوام عن بعد</option>
+                                    </select>
                                 </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="form-group">
-                                        <label> تاريخ بداية التوظيف</label>
-                                        <input type="date" class="form-control" name="start_date" value="<?=$start_date?>">
-                                    </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> تاريخ بداية التوظيف</label>
+                                    <input type="date" class="form-control" name="start_date" value="<?= $start_date ?>">
                                 </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="form-group">
-                                        <label> تاريخ نهاية فترة التجربة</label>
-                                        <input type="date" class="form-control" name="trial_period" value="<?=$trial_period?>">
-                                    </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> تاريخ نهاية فترة التجربة</label>
+                                    <input type="date" class="form-control" name="trial_period" value="<?= $trial_period ?>">
                                 </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="form-group">
-                                        <label> صورة العقد</label>
-                                        <input type="file" class="form-control" name="image" value="<?=$image?>">
-                                    </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> صورة العقد</label>
+                                    <input type="file" class="form-control" name="image" value="<?= $image ?>">
                                 </div>
-                            
+                            </div>
+
                         </div>
-                        
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
