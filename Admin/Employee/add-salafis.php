@@ -29,11 +29,11 @@ if(isset($_POST['submit'])){
         $insertData=insert_data($data,$tableName);
         if($insertData){
           $_SESSION['notification'] = "تم إضافة طلب السلفية بنجاح";
-          header('location: index.php');
+          header('location: salafis-employee.php');
           exit();
         }else{
          $_SESSION['notification'] = "Error!.. check your query";
-         header('location: index.php');
+         header('location: salafis-employee.php');
          exit();
         }
      }
