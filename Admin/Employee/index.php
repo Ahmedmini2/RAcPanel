@@ -132,7 +132,7 @@ $_SESSION['sidebar_admin'] = "employee";
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table align-items-center mb-0 table-bordered " id="example">
+                                <table class="table align-items-center mb-0  " id="example">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light table-bordered text-center">
