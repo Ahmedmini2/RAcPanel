@@ -48,7 +48,7 @@ $_SESSION['sidebar_admin'] = "employee";
     <link
 rel="stylesheet"
 type="text/css"
-href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css"
+href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css"
 />
 <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     
@@ -237,12 +237,12 @@ href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTabl
     <script
 type="text/javascript"
 charset="utf8"
-src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"
+src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"
 ></script>
 <script
 type="text/javascript"
 charset="utf8"
-src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 <script>
     <script>
       $(document).ready(function() {
