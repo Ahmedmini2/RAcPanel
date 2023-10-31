@@ -44,8 +44,8 @@ $select = mysqli_query($conn, "select * from employee");
 
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
-    
-    
+
+
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
@@ -58,7 +58,7 @@ $select = mysqli_query($conn, "select * from employee");
 
     <!-- Side Bar -->
     <?php require_once('../../components/sidebar_admin.php'); ?>
-    
+
 
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
@@ -66,12 +66,12 @@ $select = mysqli_query($conn, "select * from employee");
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    
+
                     <h6 class="font-weight-bolder mb-0">الموظفين</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
-                   
+
+
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -118,68 +118,70 @@ $select = mysqli_query($conn, "select * from employee");
 
 
         <div class="container-fluid py-4">
-        <div class=" mb-4 p-3">
-          <div class="">
-            <h5 class="mb-1">بيانات الموظفين</h5>
-          </div>
+            <div class=" mb-4 p-3">
+                <div class="">
+                    <h5 class="mb-1">بيانات الموظفين</h5>
+                </div>
 
-        
-          </div>
-            
+
+            </div>
+
             <!--Table     -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card mb-4 mt-3">
-                    
-                        <div class="card-body px-0 pt-0 pb-2 mx-3">
-                            <div class="table-responsive p-0">
-                            <div class="block">
-                                <table class="table table-hover table-fixed" id="example">
+            <div class="block">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card mb-4 mt-3">
 
-                                    <!--Table head-->
-                                    <thead class="bg-dark text-light text-center">
-                                        <tr>
-                                            <th>الرقم</th>
-                                            <th>اسم الموظف</th>
-                                            <th>قسم الموظف</th>
-                                            <th>راتب الموظف</th>
-                                            <th>العقد</th>
-                                            <th>بداية العقد</th>
-                                            <th>عدد ساعات العمل</th>
-                                            
-                                            <th>القسم</th>
-                                            <th>ACTION</th>
-                                        </tr>
-                                    </thead>
-                                    <!--Table head-->
-                                    <!--Table body-->
-                                    <tbody class=" text-center">
+                            <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                <div class="table-responsive p-0">
 
-                                    <?php 
-                                    while ($r = mysqli_fetch_array($select)) {
-                                        ?>
-                                        <tr>
-                                            <th scope="row">RA-EMP-<?=$r['id']?></th>
-                                            <td class="border-1"><?=$r['name']?></td>
-                                            <td class="border-1"><?=$r['position']?></td>
-                                            <td class="border-1"><?=$r['salary']?></td>
-                                            <td class="border-1"><?=$r['contract_type']?></td>
-                                            <td class="border-1"><?=$r['start_date']?></td>
-                                            <td class="border-1"><?=$r['working_hours']?></td>
-                                            
-                                            <td class="border-1" ><?=$r['department']?></td>
-                                            <td class="border-1">
-                                                <a  href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a  href="add-employee.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </td>
-                                        </tr>
-                                        <?php } ?>
+                                    <table class="table table-hover table-fixed" id="example">
+
+                                        <!--Table head-->
+                                        <thead class="bg-dark text-light text-center">
+                                            <tr>
+                                                <th>الرقم</th>
+                                                <th>اسم الموظف</th>
+                                                <th>قسم الموظف</th>
+                                                <th>راتب الموظف</th>
+                                                <th>العقد</th>
+                                                <th>بداية العقد</th>
+                                                <th>عدد ساعات العمل</th>
+
+                                                <th>القسم</th>
+                                                <th>ACTION</th>
+                                            </tr>
+                                        </thead>
+                                        <!--Table head-->
+                                        <!--Table body-->
+                                        <tbody class=" text-center">
+
+                                            <?php
+                                            while ($r = mysqli_fetch_array($select)) {
+                                            ?>
+                                                <tr>
+                                                    <th scope="row">RA-EMP-<?= $r['id'] ?></th>
+                                                    <td class="border-1"><?= $r['name'] ?></td>
+                                                    <td class="border-1"><?= $r['position'] ?></td>
+                                                    <td class="border-1"><?= $r['salary'] ?></td>
+                                                    <td class="border-1"><?= $r['contract_type'] ?></td>
+                                                    <td class="border-1"><?= $r['start_date'] ?></td>
+                                                    <td class="border-1"><?= $r['working_hours'] ?></td>
+
+                                                    <td class="border-1"><?= $r['department'] ?></td>
+                                                    <td class="border-1">
+                                                        <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>|
+                                                        <a href="add-employee.php?edit=<?= $r['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
 
 
-                                    </tbody>
-                                    <!--Table body-->
+                                        </tbody>
+                                        <!--Table body-->
 
-                                </table>
+                                    </table>
+
                                 </div>
                             </div>
                         </div>
