@@ -1,7 +1,8 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "leave";
-$select = mysqli_query($conn, "select * from leaves WHERE status = 'Pending'");
+$name = $_SESSION['id'];
+$select = mysqli_query($conn, "select * from leaves WHERE status = 'Pending' & name = '$name'");
 ?>
 
 <html lang="ar" dir="rtl">
