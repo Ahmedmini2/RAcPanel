@@ -167,7 +167,7 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Approved'");
                                             <td class="border-1"><?=$r['end_date']?></td>
                                             <td class="border-1"><span class="badge badge-sm bg-gradient-success"><?=$r['status']?></span></td>
                                             <td class="border-1">
-                                                <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                <a href="../../scripts/leaves/status.php?Delete=<?=$r['id']?>"><i class="fa fa-times" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                         <?php } ?>
