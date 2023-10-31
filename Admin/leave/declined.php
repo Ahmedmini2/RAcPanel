@@ -168,7 +168,7 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Declined'");
                                             <td class="border-1"><?=$r['description']?></td>
                                             <td class="border-1"><?=$r['start_date']?></td>
                                             <td class="border-1"><?=$r['end_date']?></td>
-                                            <td class="border-1"><span class="badge badge-sm bg-gradient-success"><?=$r['status']?></span></td>
+                                            <td class="border-1"><span class="badge badge-sm bg-gradient-danger"><?=$r['status']?></span></td>
                                             <td class="border-1">
                                                 <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </td>
