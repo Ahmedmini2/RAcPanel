@@ -125,13 +125,7 @@ $select = mysqli_query($conn, "select * from advance_salary");
           </div>
             
             <!--Table     -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card mb-4 mt-3">
-                    
-                        <div class="card-body px-0 pt-0 pb-2 mx-3">
-                            <div class="table-responsive p-0">
-                                <table class="table table-hover table-fixed" id="example">
+            <table class="table table-hover table-fixed" id="example">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
@@ -178,11 +172,6 @@ $select = mysqli_query($conn, "select * from advance_salary");
                                     <!--Table body-->
 
                                 </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!--Table -->
         </div>
 
