@@ -229,9 +229,11 @@ $_SESSION['sidebar_admin'] = "employee";
 
     <script src="../../assets/js/plugins/choices.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#example').dataTable();
-        });
+      $(document).ready(function() {
+      $('#example').dataTable({
+      "order": [ 0, 'desc' ]
+      } );
+    });
     </script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
