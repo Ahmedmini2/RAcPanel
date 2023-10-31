@@ -1,6 +1,8 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "leave";
+$employee_id = $_SESSION['id'];
+$select = mysqli_query($conn, "select * from leave where employee_id=$employee_id");
 ?>
 
 <html lang="ar" dir="rtl">
@@ -141,32 +143,33 @@ $_SESSION['sidebar_admin'] = "leave";
                                     <thead class="bg-dark text-light text-center">
                                         <tr>
                                             <th>الرقم</th>
-                                            <th>اسم الموظف </th>
                                             <th>leave type</th>
                                             <th>description</th>
-                                            <th>تاريخ التقديم</th>
+                                            <th>تاريخ بداية الإجازة</th>
+                                            <th>تاريخ نهاية الإجازة</th>
                                             <th>حاله الاجازة </th>
-                                            <th>Action </th>
+                                           
                                             
                                         </tr>
                                     </thead>
                                     <!--Table head-->
                                     <!--Table body-->
                                     <tbody class=" text-center">
-
+                                    <?php 
+                                    $i = 0;
+                                    while ($r = mysqli_fetch_array($select)) {
+                                        $i++;
+                                        ?>
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td class="border-1" >عباس الجعفري</td>
-                                            <td class="border-1">عطلة</td>
-                                            <td class="border-1">عطلة اختيارية</td>
-                                            <td class="border-1">2023/10/22</td>
-                                            <td ><span class="badge badge-sm bg-gradient-success border-1">قيد الانتظار</span></td>
-                                            <td>
-                                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </td>
+                                            <th scope="row"><?=$i?></th>
+                                            <td class="border-1"><?=$r['type']?></td>
+                                            <td class="border-1"><?=$r['description']?></td>
+                                            <td class="border-1"><?=$r['start_date']?></td>
+                                            <td class="border-1"><?=$r['end_date']?></td>
+                                            <td ><span class="badge badge-sm bg-gradient-success border-1"><?=$r['status']?></span></td>
+                                            
                                         </tr>
-
+                                        <?php } ?>
 
                                     </tbody>
                                     <!--Table body-->
