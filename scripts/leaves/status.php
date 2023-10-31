@@ -19,11 +19,11 @@ $update = "UPDATE leaves SET status = 'Approved' WHERE id = '$id'";
 $up_res = $conn->query($update);
 if($up_res){
   $_SESSION['notification'] = "تم تغير الحالة الى  ّ تم اعتماد الاجازة  ّ بنجاح";
-  header('location:../../ِAdmin/leaves/index.php');
+  header('location:../../ِAdmin/leave/index.php');
   exit();
 }else{
   $_SESSION['notification'] = "خلل في تغير الحالة";
-  header('location:../../ِAdmin/leaves/index.php');
+  header('location:../../ِAdmin/leave/index.php');
   exit();
 }
 }
@@ -38,7 +38,7 @@ if(isset($_GET['Declined'])){
       exit();
     }else{
       $_SESSION['notification'] = "خلل في تغير الحالة";
-      header('location:../../ِAdmin/leaves/index.php');
+      header('location:../../ِAdmin/leave/index.php');
       exit();
     }
     }
@@ -49,11 +49,11 @@ if(isset($_GET['Declined'])){
         $up_res = $conn->query($update);
         if($up_res){
           $_SESSION['notification'] = " تم حذف الاجازة بنجاح";
-          header('location:../../ِAdmin/leaves/index.php');
+          header('location:../../ِAdmin/leave/index.php');
           exit();
         }else{
           $_SESSION['notification'] = "خلل في تغير الحالة";
-          header('location:../../ِAdmin/leaves/index.php');
+          header('location:../../ِAdmin/leave/index.php');
           exit();
         }
         }
