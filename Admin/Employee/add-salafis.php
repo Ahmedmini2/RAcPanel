@@ -164,7 +164,7 @@ if(isset($_POST['submit'])){
 
                         <h6 class="block-title text-white py-2 px-4">إضافة سلفه جديد</h6>
                     </div>
-                    <form>
+                    <form method="POST" action="" enctype="multipart/form-data">
                         <div class="row">
 
                             <div class="col">
