@@ -45,8 +45,7 @@ $_SESSION['sidebar_admin'] = "employee";
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-    <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"></script>
+    
 </head>
 
 
@@ -232,7 +231,7 @@ $_SESSION['sidebar_admin'] = "employee";
     
     <script>
       $(document).ready(function() {
-        new DataTable('#example');
+       
       $('#example').dataTable({
       "order": [ 0, 'desc' ]
       } );
