@@ -2,7 +2,7 @@
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "leave";
 $employee_id = $_SESSION['id'];
-$select = mysqli_query($conn, "select * from leave where employee_id='$employee_id'");
+$select = mysqli_query($conn, "select * from leaves WHERE employee_id = '$employee_id'");
 ?>
 
 <html lang="ar" dir="rtl">
