@@ -44,9 +44,9 @@ $_SESSION['sidebar_admin'] = "employee";
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
   
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script src="http://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     
 </head>
 
