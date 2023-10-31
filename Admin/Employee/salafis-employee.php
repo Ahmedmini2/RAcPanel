@@ -1,6 +1,7 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "employee";
+$employee_id = $_SESSION['id'];
 $select = mysqli_query($conn, "select * from advance_salary WHERE employee_id = '$employee_id'");
 ?>
 
@@ -140,8 +141,10 @@ $select = mysqli_query($conn, "select * from advance_salary WHERE employee_id = 
                                         <tr>
                                             <th>الرقم</th>
                                             <th>المبلغ</th>
+                                            <th>الوصف</th>
                                             <th>تاريخ السلفه</th>
                                             <th>مستند السلفه</th>
+                                            <th>حالة السلفية</th>
 
                                         </tr>
                                     </thead>
@@ -153,14 +156,13 @@ $select = mysqli_query($conn, "select * from advance_salary WHERE employee_id = 
                                     while ($r = mysqli_fetch_array($select)) {
                                         $i++;
                                         $emp_id = $r['employee_id'];
-                                        $query = "SELECT * FROM users WHERE id=$emp_id";
-                                        $res = $conn->query($query);
-                                        $editData = $res->fetch_assoc();
                                         ?>
                                         <tr>
                                             <th scope="row"><?=$i?></th>
                                             <td class="border-1"><?=$r['amount']?></td>
+                                            <td class="border-1"><?=$r['description']?></td>
                                             <td class="border-1"><?=$r['created_at']?></td>
+                                            <td class="border-1"><span class="badge badge-sm bg-gradient-warning"><?=$r['status']?></span></td>
                                             <td class="border-1"><a href="../Documents/Advanced-Salary/<?=$emp_id?>/<?=$r['image']?>" target="_blank"></a></td>
                                            
                                         </tr>
