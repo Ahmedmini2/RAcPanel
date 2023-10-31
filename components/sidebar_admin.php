@@ -125,7 +125,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
           <a href="../../Admin/leave/pending.php" class="nav-link px-0"> <span class=" d-sm-inline">قيد الانتظار الطلب</span></a>
         </li>
         <li class="w-100">
-          <a href="../../Admin/leave/declind.php" class="nav-link px-0"> <span class=" d-sm-inline">رفض الطلب</span></a>
+          <a href="../../Admin/leave/declined.php" class="nav-link px-0"> <span class=" d-sm-inline">رفض الطلب</span></a>
         </li>
         <li class="w-100">
           <a href="../../Admin/leave/approved.php" class="nav-link px-0"> <span class=" d-sm-inline">موافقة الطلب</span></a>
