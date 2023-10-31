@@ -160,9 +160,9 @@ $select = mysqli_query($conn, "select * from advance_salary");
                                         ?>
                                         <tr>
                                             <th scope="row">RA-EMP-<?=$r['id']?></th>
-                                            <td class="border-1"><?=$r['name']?></td>
-                                            <td class="border-1"><?=$r['position']?></td>
-                                            <td class="border-1"><?=$r['salary']?></td>
+                                            <td class="border-1"><?=$editData['full_name']?></td>
+                                            <td class="border-1"><?=$$editData['position']?></td>
+                                            <td class="border-1"><?=$$editData['salary']?></td>
                                             <td class="border-1"><?=$r['amount']?></td>
                                             
                                             <td class="border-1"><?=$r['image']?></td>
