@@ -168,8 +168,8 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Pending'");
                                             <td class="border-1"><?=$r['end_date']?></td>
                                             <td class="border-1"><span class="badge badge-sm bg-gradient-warning"><?=$r['status']?></span></td>
                                             <td class="border-1">
-                                                <a href="#"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                                <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                <a href="../../scripts/leaves/status.php?Approved=<?=$r['id']?>"><i class="fa fa-check" aria-hidden="true"></i></a> | 
+                                                <a href="../../scripts/leaves/status.php?Declined=<?=$r['id']?>"><i class="fa fa-times" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                         <?php } ?>
