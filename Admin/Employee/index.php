@@ -128,7 +128,7 @@ $_SESSION['sidebar_admin'] = "employee";
             <!--Table     -->
             <div class="row">
                 <div class="col-12">
-                    <div class="card mb-4 mt-3">
+                    <div class=" mb-4 mt-3">
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
