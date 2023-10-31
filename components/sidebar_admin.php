@@ -158,6 +158,9 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
       </a>
       <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
         <li class="w-100">
+          <a href="../../Admin/Advance_Salary/view-advance-salary.php" class="nav-link px-0"> <span class=" d-sm-inline">بيانات السفليات</span></a>
+        </li>
+        <li class="w-100">
           <a href="../../Admin/Advance_Salary/index.php" class="nav-link px-0"> <span class=" d-sm-inline">اضافه سلفيه</span></a>
         </li>
         <li class="w-100">
