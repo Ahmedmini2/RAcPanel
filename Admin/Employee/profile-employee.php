@@ -44,10 +44,7 @@ $select = mysqli_query($conn, "select * from users");
           <h6 class="font-weight-bolder mb-0">الملف الشخصي</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-            <label class="form-check-label" for="checkbox"></label>
-          </div>
+         
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
