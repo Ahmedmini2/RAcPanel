@@ -162,8 +162,9 @@ $select = mysqli_query($conn, "select * from advance_salary WHERE employee_id = 
                                             <td class="border-1"><?=$r['amount']?></td>
                                             <td class="border-1"><?=$r['description']?></td>
                                             <td class="border-1"><?=$r['created_at']?></td>
+                                           
+                                            <td class="border-1"><a href="../Documents/Advanced-Salary/<?=$emp_id?>/<?=$r['image']?>" target="_blank"> <?=$r['image']?></a></td>
                                             <td class="border-1"><span class="badge badge-sm bg-gradient-warning"><?=$r['status']?></span></td>
-                                            <td class="border-1"><a href="../Documents/Advanced-Salary/<?=$emp_id?>/<?=$r['image']?>" target="_blank"></a></td>
                                            
                                         </tr>
                                         <?php } ?>
