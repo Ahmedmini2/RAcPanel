@@ -1,5 +1,6 @@
 <?php 
-require_once('../db/connection.php'); 
+session_start();
+include('../db/connection.php'); 
 $db= $conn; // update with your database connection
 function insert_data(array $data, string $tableName){
        
