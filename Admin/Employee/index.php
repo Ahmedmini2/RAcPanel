@@ -243,7 +243,7 @@ src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"
 type="text/javascript"
 charset="utf8"
 src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-<script>
+
     <script>
       $(document).ready(function() {
        
