@@ -187,7 +187,29 @@ $select =mysqli_query($conn, "select * from users");
                     <td class="text-secondary mb-0 border-1"><?php if($r['position']=="Admin") {echo '<span class="badge badge-sm bg-gradient-success">Admin</span>';} elseif ($r['position']=="Worker"){echo '<span class="badge badge-sm bg-gradient-warning">Worker</span>';} elseif($r['position'] == "Accounts") {echo '<span class="badge badge-sm bg-gradient-primary">Accounts</span>';}  elseif($r['position'] == "Reception") {echo '<span class="badge badge-sm bg-gradient-danger">Reception</span>';} elseif($r['position'] == "Employee") {echo '<span class="badge badge-sm bg-gradient-danger">Empolyee</span>';}?></td>
                     <td class="text-xs text-secondary border-1 mb-0 text-center"><?php echo $r['status'];?></td>
                     <td class="text-secondary text-xs border-1 font-weight-bold"><?php echo $r['created_at']; ?></td>
-                    <td class="text-center text-secondary border-1"><a href="../scripts/users/delete.php?id=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                    <td class="text-center text-secondary border-1">
+                    <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
+                          <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">حذف التكلفة</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  الرجاء ادخال كلمة المرور للتأكيد
+                                  <form action="../scripts/users/delete.php?id=<?php echo $r['id'];?>" method="post">
+                                    <input type="password" name="pas" class="form-control">
+
+                                </div>
+                                <div class="modal-footer">
+
+                                  <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div></td>
 
                     </tr>
 
