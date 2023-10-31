@@ -1,6 +1,48 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "employee";
+include('../../cookies/insert-method.php');
+if(isset($_POST['submit'])){
+    $employee_id = $_SESSION['id'];
+    $target_dir = "../Documents/Advanced-Salary/".$employee_id."/";
+        if(!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }else{
+
+        }
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $filename = basename($_FILES["image"]["name"]);
+        $uploadOk = 1;
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+    extract($_POST);
+
+    $data = [
+        'employee_id' => $employee_id,
+        'amount'=>$amount,
+        'description'=>$description,
+        'status'=>'Pending',
+        'image'=>$filename,
+        
+    ];
+    $tableName=$_POST['table_name'];
+    if(!empty($data) && !empty($tableName)){
+        $insertData=insert_data($data,$tableName);
+        if($insertData){
+          $_SESSION['notification'] = "تم إضافة طلب السلفية بنجاح";
+          header('location: index.php');
+          exit();
+        }else{
+         $_SESSION['notification'] = "Error!.. check your query";
+         header('location: index.php');
+         exit();
+        }
+     }
+
+}else {
+    $amount = '';
+    $description = '';
+    $image = '';
+}
 ?>
 
 <html lang="ar" dir="rtl">
@@ -127,21 +169,15 @@ $_SESSION['sidebar_admin'] = "employee";
 
                             <div class="col">
                                 <div class="form-group">
-                                    <label>اسم الموظف</label>
-                                    <input type="text" placeholder="اسم الموظف" class="form-control" name="name" value="">
+                                    <label>قيمة السلفية</label>
+                                    <input type="text" placeholder="إكتب قيمة السلفية" class="form-control" name="amount" value="<?=$amount?>">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label>القسم</label>
-                                    <select name="position" class="form-control">
-                                        <option value=""></option>
-                                        <option value="Account">محاسب</option>
-                                        <option value="Manager">الاداره</option>
-                                        <option value="Worker">المصنع</option>
-                                        <option value="Admin">المدير</option>
-
-                                    </select>
+                                    <label>وصف السلفية</label>
+                                    <input type="text" placeholder="إكتب وصف السلفية" class="form-control" name="description" value="<?=$description?>">
+                                    <input type="text" name="table_name" value="advance_salary" hidden>
 
                                 </div>
                             </div>
@@ -149,27 +185,14 @@ $_SESSION['sidebar_admin'] = "employee";
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label>المبلغ</label>
-                                    <input type="text" placeholder="الرجاء كتابه المبلغ" class="form-control" name="" value="">
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="form-group">
-                                    <label> تاريخ التوظيف</label>
-                                    <input type="date" placeholder="" class="form-control" name="duration">
+                                    <label>مستند السلفية</label>
+                                    <input type="file"  class="form-control" name="image" value="<?=$image?>">
                                 </div>
                             </div>
 
 
                         </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-group">
-                                <label>صورة سند</label>
-                                <input type="file" class="form-control" name="project_image">
-                            </div>
-                        </div>
-
+                       
 
 
                         <div class="row">
