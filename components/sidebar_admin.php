@@ -138,7 +138,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
   <ul class="navbar-nav active">
 
     <li class="nav-item ">
-      <a href="#submenu3" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar_admin == "leave") echo 'active'; ?>"">
+      <a href="#submenu4" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar_admin == "leave") echo 'active'; ?>"">
             <div class=" icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <title>shop </title>
@@ -156,7 +156,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
         </div>
         <span class="ms-1  d-sm-inline">اداره السلفيات</span>
       </a>
-      <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+      <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
         <li class="w-100">
           <a href="../../Admin/Advance_Salary/index.php" class="nav-link px-0"> <span class=" d-sm-inline">السلفيات</span></a>
         </li>
