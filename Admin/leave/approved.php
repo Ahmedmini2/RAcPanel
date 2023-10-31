@@ -156,10 +156,14 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Approved'");
                                     $i = 0;
                                     while ($r = mysqli_fetch_array($select)) {
                                         $i++;
+                                        $emp_id = $r['employee_id'];
+                                        $query = "SELECT * FROM users WHERE id=$emp_id";
+                                        $res = $conn->query($query);
+                                        $editData = $res->fetch_assoc();
                                         ?>
                                         <tr>
                                             <th scope="row"><?=$i?></th>
-                                            <td class="border-1"><?=$r['name']?></td>
+                                            <td class="border-1"><?=$editData['full_name']?></td>
                                             <td class="border-1"><?=$r['type']?></td>
                                             <td class="border-1"><?=$r['description']?></td>
                                             <td class="border-1"><?=$r['start_date']?></td>
