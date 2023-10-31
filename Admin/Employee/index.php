@@ -230,6 +230,7 @@ $_SESSION['sidebar_admin'] = "employee";
     <script src="../../assets/js/plugins/choices.min.js"></script>
     <script>
       $(document).ready(function() {
+        new DataTable('#example');
       $('#example').dataTable({
       "order": [ 0, 'desc' ]
       } );

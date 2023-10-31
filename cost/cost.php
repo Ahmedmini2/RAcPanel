@@ -281,6 +281,7 @@ $select = mysqli_query($conn, "select * from cost_center");
   <script>
     $(document).ready(function() {
       $('#example').dataTable();
+      
     });
 
     
