@@ -1,5 +1,6 @@
 <?php
 include('../../cookies/session3.php');
+include('../../cookies/insert-method.php');
 $_SESSION['sidebar_admin'] = "employee";
 if(isset($_GET['edit'])){
  
@@ -97,6 +98,28 @@ else if (isset($_POST['submit'])) {
     $working_hours = $_POST['working_hours'];
 
     $filename = basename($_FILES["image"]["name"]);
+
+    // INSERT NEW USER
+    $data= [
+        'full_name' => $name,
+        'email'=>$email,
+        'username'=>$name,
+        'phone'=>$phone,
+        'role'=>3,
+        'position'=>'Employee',
+        'status'=>1,
+        'password'=>md5('Ruknamial@123')
+        
+      ];
+      $tableName='users'; 
+      if(!empty($data) && !empty($tableName)){
+        $insertData=insert_data($data,$tableName);
+        if($insertData){
+          $_SESSION['notification'] = "User Profile Added sucessfully";
+        }else{
+         $_SESSION['notification'] = "Error!.. check your query";
+        }
+     }
 
     $insert = "INSERT INTO employee VALUES (NULL, '$name', '$email', '$phone','$phone_code','$nationality','$gender', '$birth', '$social_status','$id_number','$position'
     ,'$department', '$salary', '$start_date','$contract_type','$trial_period','$working_hours','$filename' , NOW())";
