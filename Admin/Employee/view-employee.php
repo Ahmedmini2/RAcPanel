@@ -47,8 +47,8 @@ $select = mysqli_query($conn, "select * from employee");
 
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-  <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </head>
 
 
@@ -127,67 +127,67 @@ $select = mysqli_query($conn, "select * from employee");
             </div>
 
             <!--Table     -->
-            <div class="block">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card mb-4 mt-3">
 
-                            <div class="card-body px-0 pt-0 pb-2 mx-3">
-                                <div class="table-responsive p-0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mb-4 mt-3">
 
-                                    <table class="table table-hover table-fixed" id="w">
+                        <div class="card-body px-0 pt-0 pb-2 mx-3">
+                            <div class="table-responsive p-0">
 
-                                        <!--Table head-->
-                                        <thead class="bg-dark text-light text-center">
+                                <table class="table table-hover table-fixed" id="example">
+
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light text-center">
+                                        <tr>
+                                            <th>الرقم</th>
+                                            <th>اسم الموظف</th>
+                                            <th>قسم الموظف</th>
+                                            <th>راتب الموظف</th>
+                                            <th>العقد</th>
+                                            <th>بداية العقد</th>
+                                            <th>عدد ساعات العمل</th>
+
+                                            <th>القسم</th>
+                                            <th>ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+                                    <!--Table body-->
+                                    <tbody class=" text-center">
+
+                                        <?php
+                                        while ($r = mysqli_fetch_array($select)) {
+                                        ?>
                                             <tr>
-                                                <th>الرقم</th>
-                                                <th>اسم الموظف</th>
-                                                <th>قسم الموظف</th>
-                                                <th>راتب الموظف</th>
-                                                <th>العقد</th>
-                                                <th>بداية العقد</th>
-                                                <th>عدد ساعات العمل</th>
+                                                <th scope="row">RA-EMP-<?= $r['id'] ?></th>
+                                                <td class="border-1"><?= $r['name'] ?></td>
+                                                <td class="border-1"><?= $r['position'] ?></td>
+                                                <td class="border-1"><?= $r['salary'] ?></td>
+                                                <td class="border-1"><?= $r['contract_type'] ?></td>
+                                                <td class="border-1"><?= $r['start_date'] ?></td>
+                                                <td class="border-1"><?= $r['working_hours'] ?></td>
 
-                                                <th>القسم</th>
-                                                <th>ACTION</th>
+                                                <td class="border-1"><?= $r['department'] ?></td>
+                                                <td class="border-1">
+                                                    <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>|
+                                                    <a href="add-employee.php?edit=<?= $r['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <!--Table head-->
-                                        <!--Table body-->
-                                        <tbody class=" text-center">
-
-                                            <?php
-                                            while ($r = mysqli_fetch_array($select)) {
-                                            ?>
-                                                <tr>
-                                                    <th scope="row">RA-EMP-<?= $r['id'] ?></th>
-                                                    <td class="border-1"><?= $r['name'] ?></td>
-                                                    <td class="border-1"><?= $r['position'] ?></td>
-                                                    <td class="border-1"><?= $r['salary'] ?></td>
-                                                    <td class="border-1"><?= $r['contract_type'] ?></td>
-                                                    <td class="border-1"><?= $r['start_date'] ?></td>
-                                                    <td class="border-1"><?= $r['working_hours'] ?></td>
-
-                                                    <td class="border-1"><?= $r['department'] ?></td>
-                                                    <td class="border-1">
-                                                        <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>|
-                                                        <a href="add-employee.php?edit=<?= $r['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                                    </td>
-                                                </tr>
-                                            <?php } ?>
+                                        <?php } ?>
 
 
-                                        </tbody>
-                                        <!--Table body-->
+                                    </tbody>
+                                    <!--Table body-->
 
-                                    </table>
+                                </table>
 
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <!--Table -->
         </div>
 
@@ -244,7 +244,7 @@ $select = mysqli_query($conn, "select * from employee");
     <script src="../../assets/js/plugins/choices.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#w').dataTable();
+            $('#example').dataTable();
         });
     </script>
     <script>
