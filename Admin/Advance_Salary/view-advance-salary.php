@@ -56,7 +56,7 @@ $select = mysqli_query($conn, "select * from advance_salary");
 
     <!-- Side Bar -->
     <?php require_once('../../components/sidebar_admin.php'); ?>
-
+    
 
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
@@ -64,12 +64,12 @@ $select = mysqli_query($conn, "select * from advance_salary");
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-
+                    
                     <h6 class="font-weight-bolder mb-0">جميع السلفيات</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-
-
+                    
+                   
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -116,63 +116,72 @@ $select = mysqli_query($conn, "select * from advance_salary");
 
 
         <div class="container-fluid py-4">
-            <div class=" mb-4 p-3">
-                <div class="">
-                    <h5 class="mb-1">بيانات جميع السلفيات</h5>
-                </div>
+        <div class=" mb-4 p-3">
+          <div class="">
+            <h5 class="mb-1">بيانات جميع السلفيات</h5>
+          </div>
 
-
-            </div>
-
+        
+          </div>
+            
             <!--Table     -->
-            <div class="block">
-                <table class="table table-hover table-bordered table-fixed" id="example">
+            <div class="row">
+                <div class="col-12">
+                    <div class=" mb-4 mt-3">
+                    
+                        <div class="card-body px-0 pt-0 pb-2 mx-3">
+                            <div class="table-responsive p-0">
+                                <table class="table table-hover table-bordered table-fixed" id="example">
 
-                    <!--Table head-->
-                    <thead class="bg-dark text-light text-center">
-                        <tr>
-                            <th>الرقم</th>
-                            <th>اسم الموظف</th>
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light text-center">
+                                        <tr>
+                                            <th>الرقم</th>
+                                            <th>اسم الموظف</th>
+                                            
+                                            <th>سلفيه الموظف</th>
+                                            <th>مستند الملف</th>
+                                            <th>ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+                                    <!--Table body-->
+                                    <tbody class=" text-center">
 
-                            <th>سلفيه الموظف</th>
-                            <th>مستند الملف</th>
-                            <th>ACTION</th>
-                        </tr>
-                    </thead>
-                    <!--Table head-->
-                    <!--Table body-->
-                    <tbody class=" text-center">
-
-                        <?php
-                        $i = 0;
-                        while ($r = mysqli_fetch_array($select)) {
-                            $i++;
-                            $emp_id = $r['employee_id'];
-                            $query = "SELECT * FROM users WHERE id=$emp_id";
-                            $res = $conn->query($query);
-                            $editData = $res->fetch_assoc();
-                        ?>
-                            <tr>
-                                <th scope="row">RA-EMP-<?= $r['id'] ?></th>
-                                <td class="border-1"><?= $editData['full_name'] ?></td>
-
-                                <td class="border-1"><?= $r['amount'] ?></td>
-
-                                <td class="border-1"><?= $r['image'] ?></td>
-
-
-                                <td class="border-1">
-                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>|
-                                    <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                </td>
-                            </tr>
-                        <?php } ?>
+                                    <?php
+                                        $i = 0;
+                                        while ($r = mysqli_fetch_array($select)) {
+                                            $i++;
+                                            $emp_id = $r['employee_id'];
+                                            $query = "SELECT * FROM users WHERE id=$emp_id";
+                                            $res = $conn->query($query);
+                                            $editData = $res->fetch_assoc();
+                                        ?>
+                                        <tr>
+                                            <th scope="row">RA-EMP-<?=$r['id']?></th>
+                                            <td class="border-1"><?=$editData['full_name']?></td>
+                                            
+                                            <td class="border-1"><?=$r['amount']?></td>
+                                            
+                                            <td class="border-1"><?=$r['image']?></td>
+                                            
+                                            
+                                            <td class="border-1">
+                                                <a  href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a  href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
 
 
-                    </tbody>
-                    <!--Table body-->
+                                    </tbody>
+                                    <!--Table body-->
 
-                </table>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!--Table -->
         </div>
