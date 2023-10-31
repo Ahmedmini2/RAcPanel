@@ -128,11 +128,11 @@ $_SESSION['sidebar_admin'] = "employee";
             <!--Table     -->
             <div class="row">
                 <div class="col-12">
-                    <div class=" mb-4 mt-3">
+                    <div class="card mb-4 mt-3">
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered  table-fixed" id="example">
+                                <table class="table align-items-center mb-0 table-bordered " id="example">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light table-bordered text-center">
