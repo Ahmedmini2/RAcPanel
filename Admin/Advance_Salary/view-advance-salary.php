@@ -138,8 +138,7 @@ $select = mysqli_query($conn, "select * from advance_salary");
                                         <tr>
                                             <th>الرقم</th>
                                             <th>اسم الموظف</th>
-                                            <th>قسم الموظف</th>
-                                            <th>راتب الموظف</th>
+                                            
                                             <th>سلفيه الموظف</th>
                                             <th>مستند الملف</th>
                                             <th>ACTION</th>
@@ -161,8 +160,7 @@ $select = mysqli_query($conn, "select * from advance_salary");
                                         <tr>
                                             <th scope="row">RA-EMP-<?=$r['id']?></th>
                                             <td class="border-1"><?=$editData['full_name']?></td>
-                                            <td class="border-1"><?=$$editData['position']?></td>
-                                            <td class="border-1"><?=$$editData['salary']?></td>
+                                            
                                             <td class="border-1"><?=$r['amount']?></td>
                                             
                                             <td class="border-1"><?=$r['image']?></td>
