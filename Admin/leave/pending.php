@@ -70,10 +70,7 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Pending'");
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
                     
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
+                   
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -157,21 +154,18 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Pending'");
                                     $i = 0;
                                     while ($r = mysqli_fetch_array($select)) {
                                         $i++;
-                                        $emp_id = $r['employee_id'];
-                                        $query = "SELECT * FROM users WHERE id=$emp_id";
-                                        $res = $conn->query($query);
-                                        $editData = $res->fetch_assoc();
                                         ?>
                                         <tr>
                                             <th scope="row"><?=$i?></th>
-                                            <td class="border-1"><?=$editData['full_name']?></td>
+                                            <td class="border-1"><?=$r['name']?></td>
                                             <td class="border-1"><?=$r['type']?></td>
                                             <td class="border-1"><?=$r['description']?></td>
                                             <td class="border-1"><?=$r['start_date']?></td>
                                             <td class="border-1"><?=$r['end_date']?></td>
                                             <td class="border-1"><span class="badge badge-sm bg-gradient-warning"><?=$r['status']?></span></td>
                                             <td class="border-1">
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                         <?php } ?>
