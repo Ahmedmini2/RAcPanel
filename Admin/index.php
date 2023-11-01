@@ -136,7 +136,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
                                 <div class="col-4 text-start">
 
                                     <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    <img src="../assets/img/leave.png" width="45" />
+                                        <i class="fa fa-hourglass text-lg opacity-10" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
