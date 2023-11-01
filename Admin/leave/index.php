@@ -142,12 +142,12 @@ $select = mysqli_query($conn, "select * from leaves WHERE employee_id = '$employ
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
                                         <tr>
-                                            <th>الرقم</th>
-                                            <th>leave type</th>
-                                            <th>description</th>
-                                            <th>تاريخ بداية الإجازة</th>
-                                            <th>تاريخ نهاية الإجازة</th>
-                                            <th>حاله الاجازة </th>
+                                            <th class=" border-1 text-center">الرقم</th>
+                                            <th class=" border-1 text-center">leave type</th>
+                                            <th class=" border-1 text-center">description</th>
+                                            <th class=" border-1 text-center" >تاريخ بداية الإجازة</th>
+                                            <th class=" border-1 text-center">تاريخ نهاية الإجازة</th>
+                                            <th class=" border-1 text-center">حاله الاجازة </th>
                                            
                                             
                                         </tr>

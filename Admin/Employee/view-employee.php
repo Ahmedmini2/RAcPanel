@@ -140,16 +140,15 @@ $select = mysqli_query($conn, "select * from employee");
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
                                         <tr>
-                                            <th>الرقم</th>
-                                            <th>اسم الموظف</th>
-                                            <th>قسم الموظف</th>
-                                            <th>راتب الموظف</th>
-                                            <th>العقد</th>
-                                            <th>بداية العقد</th>
-                                            <th>عدد ساعات العمل</th>
-
-                                            <th>القسم</th>
-                                            <th>ACTION</th>
+                                            <th class=" border-1 text-center">الرقم</th>
+                                            <th class=" border-1 text-center">اسم الموظف</th>
+                                            <th class=" border-1 text-center">قسم الموظف</th>
+                                            <th class=" border-1 text-center">راتب الموظف</th>
+                                            <th class=" border-1 text-center">العقد</th>
+                                            <th class=" border-1 text-center">بداية العقد</th>
+                                            <th class=" border-1 text-center">عدد ساعات العمل</th>
+                                            <th class=" border-1 text-center">القسم</th>
+                                            <th class=" border-1 text-center">ACTION</th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
