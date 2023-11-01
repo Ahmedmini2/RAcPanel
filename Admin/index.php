@@ -141,7 +141,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
                                 <div class="col-4 text-start">
 
                                     <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                        <i class="fa fa-hourglass text-lg opacity-10" aria-hidden="true"></i>
+                                    <img src="../assets/img/leave.png" width="30" />
                                     </div>
                                 </div>
                             </div>
@@ -264,8 +264,8 @@ $_SESSION['sidebar_admin'] = "dashboard";
                 </div>
             </div>
             <!--Table -->
-             <!--Table     -->
-             <div class="row">
+            <!--Table     -->
+            <div class="row">
                 <div class="col-12">
                     <div class="card mb-4 mt-3">
                         <div class="card-header pb-0 ">
