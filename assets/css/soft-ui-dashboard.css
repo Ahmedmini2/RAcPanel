@@ -25219,6 +25219,10 @@ width: 100px;
   letter-spacing: .1em;
  }
 
+ .darkmode .dataTables_wrapper .dataTables_length option {
+  background-color: #292929;
+}
+
  /*.darkmode .main-content, .sidenav{
   /* background-color: #292929 !important; */
  
