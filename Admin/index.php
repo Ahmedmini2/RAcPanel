@@ -77,7 +77,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
                         </div>
                     </label>
 
-                    
+
 
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
@@ -217,7 +217,9 @@ $_SESSION['sidebar_admin'] = "dashboard";
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4 mt-3">
-
+                        <div class="card-header pb-0 ">
+                            <h6>اخر الاجازات</h6>
+                        </div>
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
                                 <table class="table table-hover table-bordered table-fixed" id="example">
@@ -243,7 +245,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
 
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td class="border-1" >RUKNAMIL0002</td>
+                                            <td class="border-1">RUKNAMIL0002</td>
                                             <td class="border-1">عباس الجعفري</td>
                                             <td class="border-1">مناسبة خاصة</td>
                                             <td class="border-1">2023/10/22</td>
@@ -262,9 +264,60 @@ $_SESSION['sidebar_admin'] = "dashboard";
                 </div>
             </div>
             <!--Table -->
-            
+             <!--Table     -->
+             <div class="row">
+                <div class="col-12">
+                    <div class="card mb-4 mt-3">
+                        <div class="card-header pb-0 ">
+                            <h6>اخر السلفيات</h6>
+                        </div>
+                        <div class="card-body px-0 pt-0 pb-2 mx-3">
+                            <div class="table-responsive p-0">
+                                <table class="table table-hover table-bordered table-fixed" id="example">
+
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-ligh table-bordered text-center">
+                                        <tr>
+                                            <th>الرقم</th>
+                                            <th>رقم الموظف</th>
+                                            <th>اسم الموظف</th>
+                                            <th>سبب الاجازه</th>
+                                            <th>تاريخ طلب الاجازة</th>
+                                            <th>حاله الطلب</th>
+
+
+
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+
+                                    <!--Table body-->
+                                    <tbody class=" text-center">
+
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td class="border-1">RUKNAMIL0002</td>
+                                            <td class="border-1">عباس الجعفري</td>
+                                            <td class="border-1">مناسبة خاصة</td>
+                                            <td class="border-1">2023/10/22</td>
+                                            <td class="border-1"><span style="color: gray">Pending <i class="fa fa-spinner"></i></span></td>
+
+                                        </tr>
+
+
+                                    </tbody>
+                                    <!--Table body-->
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Table -->
+
         </div>
-        
+
 
 
 
