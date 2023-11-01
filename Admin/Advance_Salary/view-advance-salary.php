@@ -46,7 +46,6 @@ $select = mysqli_query($conn, "select * from advance_salary");
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js" defer></script>
-    <script src="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"></script>
     
     <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </head>
@@ -133,7 +132,7 @@ $select = mysqli_query($conn, "select * from advance_salary");
                     
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class=" display table table-hover table-bordered table-fixed" id="example">
+                                <table class="table table-hover table-bordered table-fixed" id="example">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
