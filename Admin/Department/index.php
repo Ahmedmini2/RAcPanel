@@ -136,7 +136,7 @@ $select = mysqli_query($conn, "select * from departments");
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered table-fixed" id="example">
+                                <table class="  table table-hover table-bordered table-fixed" id="example">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light table-bordered text-center">
