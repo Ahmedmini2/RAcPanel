@@ -83,12 +83,7 @@ while ($ban = mysqli_fetch_array($banner)) {
           <h6 class="font-weight-bolder mb-0">الرئيسية</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-        <label class="ui-switch">
-                        <input type="checkbox" onclick="setDarkMode()">
-                        <div class="slider">
-                            <div class="circle"></div>
-                        </div>
-                    </label>
+        
           
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center px-4">
