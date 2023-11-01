@@ -57,7 +57,7 @@ $select = mysqli_query($conn, "select * from advance_salary WHERE employee_id = 
 
     <!-- Side Bar -->
     <?php require_once('../../components/sidebar_admin.php'); ?>
-    
+
 
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
@@ -65,12 +65,12 @@ $select = mysqli_query($conn, "select * from advance_salary WHERE employee_id = 
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    
+
                     <h6 class="font-weight-bolder mb-0">السلفيات</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
-        
+
+
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -117,16 +117,16 @@ $select = mysqli_query($conn, "select * from advance_salary WHERE employee_id = 
 
 
         <div class="container-fluid py-4">
-        <div class=" mb-4 p-3">
-          <div class="">
-            <h5 class="mb-1"> السلفيات </h5>
-          </div>
+            <div class=" mb-4 p-3">
+                <div class="">
+                    <h5 class="mb-1"> السلفيات </h5>
+                </div>
 
-          <a href="add-advance-salary.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">طلب سلفية جديد&nbsp;&nbsp;
-            <i class="fas fa-plus">
-            </i>
-          </a>
-          </div>
+                <a href="add-advance-salary.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">طلب سلفية جديد&nbsp;&nbsp;
+                    <i class="fas fa-plus">
+                    </i>
+                </a>
+            </div>
             <!--Table     -->
             <div class="row">
                 <div class="col-12">
@@ -142,26 +142,26 @@ $select = mysqli_query($conn, "select * from advance_salary WHERE employee_id = 
                                             <th>الرقم</th>
                                             <th>المبلغ</th>
                                             <th>description</th>
-                                            <th>مستند السلفه</th> 
+                                            <th>مستند السلفه</th>
                                             <th>حاله الاجازة </th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
                                     <!--Table body-->
                                     <tbody class=" text-center">
-                                    <?php 
-                                    $i = 0;
-                                    while ($r = mysqli_fetch_array($select)) {
-                                        $i++;
+                                        <?php
+                                        $i = 0;
+                                        while ($r = mysqli_fetch_array($select)) {
+                                            $i++;
                                         ?>
-                                        <tr>
-                                            <th scope="row"><?=$i?></th>
-                                            <td class="border-1"><?=$r['amount']?></td>
-                                            <td class="border-1"><?=$r['description']?></td>
-                                            <td class="border-1"><?=$r['image']?></td>
-                                            <td ><span class="badge badge-sm bg-gradient-success border-1"><?=$r['status']?></span></td>
-                                            
-                                        </tr>
+                                            <tr>
+                                                <th scope="row"><?= $i ?></th>
+                                                <td class="border-1"><?= $r['amount'] ?></td>
+                                                <td class="border-1"><?= $r['description'] ?></td>
+                                                <td class="border-1"><?= $r['image'] ?></td>
+                                                <td><span class="badge badge-sm bg-gradient-success border-1"><?= $r['status'] ?></span></td>
+
+                                            </tr>
                                         <?php } ?>
 
                                     </tbody>
