@@ -46,9 +46,9 @@ $select = mysqli_query($conn, "select * from employee");
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 
 
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js" defer></script>
-    <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" defer ></script>
+    <link href= "https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
 </head>
 
 
@@ -130,12 +130,12 @@ $select = mysqli_query($conn, "select * from employee");
 
             <div class="row">
                 <div class="col-12">
-                    <div class="card mb-4 mt-3">
+                    <div class=" mb-4 mt-3">
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
 
-                                <table class="table table-hover table-fixed" id="example">
+                                <table class="display table table-hover table-fixed" id="example">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
