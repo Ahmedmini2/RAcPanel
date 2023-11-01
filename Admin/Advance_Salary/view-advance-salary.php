@@ -135,8 +135,8 @@ $select = mysqli_query($conn, "select * from advance_salary");
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
-                                        <tr>
-                                            <th>الرقم</th>
+                                        <tr class=" text-center">
+                                            <th >الرقم</th>
                                             <th>اسم الموظف</th>
                                             
                                             <th>سلفيه الموظف</th>
