@@ -83,8 +83,8 @@ function login($db,$email,$password){
       $_SESSION['full_name']=$row['full_name'];
       $_SESSION['sidebar']="Home";
 
-      if($_SESSION['position']=='Employee'){
-        header("location:../Admin/");
+      if($_SESSION['position'] == 'Employee'){
+        header("location:../Admin/index.php");
       }else{
         
         header("location:../index.php");
