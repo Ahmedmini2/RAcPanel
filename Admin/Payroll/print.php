@@ -232,7 +232,7 @@ include('../../cookies/insert-method.php');
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="card-header text-center">
-                        <h5>مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
+                            <h5>مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
                         </div>
                         <div class="table-responsive p-0">
                             <table class="table table-hover table-bordered table-fixed text-center border-dark">
@@ -311,19 +311,30 @@ include('../../cookies/insert-method.php');
 
 
 
-                <div class="row text-center">
-
-
-                    <div class="col-6">
-                        <div class="row">
-                            <h6>Approved by</h6>
-                            <input type="text" class="signture" id="signture2" />
+                < <table>
+                    <div class="row p-5 text-center">
+                        <div class="col-4">
+                            <div class="row">
+                                <h6>المحاسب</h6>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <h6>المدير التنفيذي</h6>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <h6>المدير العام</h6>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <table>
+                    </table>
+                    <table>
 
-                </table>
+                    </table>
 
             </div>
 
