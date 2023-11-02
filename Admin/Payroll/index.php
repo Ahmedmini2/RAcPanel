@@ -65,7 +65,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
 
-                    <h6 class="font-weight-bolder mb-0">السلفيات</h6>
+                    <h6 class="font-weight-bolder mb-0">مسير الرواتب</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
 
@@ -130,7 +130,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4 mt-3">
-
+                        <h5 class="card-header">مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
                                 <table class="table table-hover table-bordered table-fixed" id="example">
@@ -138,11 +138,20 @@ $select = mysqli_query($conn, "select * from payroll_process ");
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
                                         <tr>
-                                            <th>الرقم</th>
-                                            <th>المبلغ</th>
-                                            <th>description</th>
-                                            <th>مستند السلفه</th>
-                                            <th>حاله الاجازة </th>
+                                            <th rowspan="2">الرقم</th>
+                                            <th rowspan="2">الراتب الاساسي</th>
+                                            <th rowspan="2">اضافات</th>
+                                            <th rowspan="2">اجمالي الراتب</th>
+                                            <th colspan="4">الاقتطاعات </th>
+                                            <th rowspan="2">مجموع الاقتطاعات</th>
+                                            <th rowspan="2">صافي الراتب المستحق</th>
+                                            <th rowspan="2">عدد الايام</th>
+                                        </tr>
+                                        <tr>
+                                            <th>مخالفات</th>
+                                            <th>غيابات</th>
+                                            <th>تاخير</th>
+                                            <th>سلف و اخرى</th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
