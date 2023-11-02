@@ -202,6 +202,8 @@ include('../../cookies/insert-method.php');
                                                 $('input[name="absend[]"]').eq(i).val(parseFloat((salary[i].value) - (salary_per_day * work_days[i].value)).toFixed(2));
 
                                                 $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value) + parseFloat(extra[i].value));
+                                                $('input[name="deductions_total[]"]').eq(i).val(parseFloat(fees[i].value + absend[i].value + late[i].value + advanced[i].value).toFixed(2));
+                                                $('input[name="net_salary[]"]').eq(i).val(parseFloat(total_salary[i].value - deductions_total[i].value).toFixed(2));
                                             }
                                         });
                                     </script>
