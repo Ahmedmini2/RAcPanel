@@ -50,7 +50,7 @@ include('../../cookies/insert-method.php');
 </head>
 
 
-<body class="g-sidenav-show  bg-gray-100">
+<body class="g-sidenav-show rtl  bg-gray-100">
 
 
 
