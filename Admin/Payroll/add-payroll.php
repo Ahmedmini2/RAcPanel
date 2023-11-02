@@ -198,10 +198,10 @@ include('../../cookies/insert-method.php');
                                             var work_days = $('input[name="work_days[]"]');
                                             var salary_per_day = 0
                                             for (var i = 0; i < salary.length; i++) {
-                                                salary_per_day = parseFloat(salary[i].value) / 30 ;
-                                                $('input[name="absend[]"]').eq(i).val(parseFloat(salary[i].value) - (salary_per_day * parseFloat(work_days[i].value))).toFixed(2);
+                                                salary_per_day = (parseFloat(salary[i].value) / 30).toFixed(2) ;
+                                                $('input[name="absend[]"]').eq(i).val(parseFloat(salary[i].value) - (salary_per_day * parseFloat(work_days[i].value)));
 
-                                                $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value) + parseFloat(extra[i].value)).toFixed(2);
+                                                $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value) + parseFloat(extra[i].value));
                                             }
                                         });
                                     </script>
