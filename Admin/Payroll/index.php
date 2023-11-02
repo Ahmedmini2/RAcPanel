@@ -138,14 +138,14 @@ $select = mysqli_query($conn, "select * from payroll_process ");
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
                                         <tr>
-                                            <th>الرقم</th>
-                                            <th>الراتب الاساسي</th>
-                                            <th>اضافات</th>
-                                            <th>اجمالي الراتب</th>
+                                            <th rowspan="2">الرقم</th>
+                                            <th rowspan="2">الراتب الاساسي</th>
+                                            <th rowspan="2">اضافات</th>
+                                            <th rowspan="2">اجمالي الراتب</th>
                                             <th colspan="4">الاقتطاعات </th>
-                                            <th>مجموع الاقتطاعات</th>
-                                            <th>صافي الراتب المستحق</th>
-                                            <th>عدد الايام</th>
+                                            <th rowspan="2">مجموع الاقتطاعات</th>
+                                            <th rowspan="2">صافي الراتب المستحق</th>
+                                            <th rowspan="2">عدد الايام</th>
                                         </tr>
                                         <tr>
                                             <th>مخالفات</th>
