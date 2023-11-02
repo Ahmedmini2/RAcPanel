@@ -176,7 +176,7 @@ include('../../cookies/insert-method.php');
                                     $res = $conn->query($query);
                                     $advanced = $res->fetch_assoc();
                                     ?>
-                                    <td class="border-1"><input type="text" class="form-control" name="advanced[]" value="<?=$advanced['SUM(`payment`)']?>"></td>
+                                    <td class="border-1"><input type="text" class="form-control" name="advanced[]" value="<?php if($advanced['SUM(`payment`)'] != ''){ echo $advanced['SUM(`payment`)'];} else echo '0';?>"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="deductions_total[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="net_salary[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="work_days[]" value="0"></td>
