@@ -130,9 +130,13 @@ $select = mysqli_query($conn, "select * from payroll_process ");
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4 mt-3">
-                        <div class="col">
-                            <h5 class="card-header col-lg-9 text-center">مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
-                            <button class="download-button">
+                        <div class="card-header text-center">
+                            <div class="row align-items-center">
+                                <div class="col-md-11">
+                                    <h5>مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
+                                </div>
+                                <div class="col-md-1">
+                                <button class="download-button">
                                 <div class="docs"><svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="20" width="20" viewBox="0 0 24 24">
                                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                                         <polyline points="14 2 14 8 20 8"></polyline>
@@ -148,7 +152,10 @@ $select = mysqli_query($conn, "select * from payroll_process ");
                                     </svg>
                                 </div>
                             </button>
+                                </div>
+                            </div>
                         </div>
+                        
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
                                 <table class="table table-hover table-bordered table-fixed" id="example">
