@@ -133,7 +133,31 @@ include('../../cookies/insert-method.php');
                                 </div>
                             </div>
                         </div>
-                      
+                        <div class="row">
+                            <table class="table table-hover table-bordered table-fixed" >
+                                <thead class="bg-dark text-light table-bordered text-center">
+                                    <tr>
+                                        <th>الرقم</th>
+                                        <th>الصنف</th>
+                                        <th>كمية الخرسانة</th>
+                                        <th>سعر الخرسانة</th>
+                                        <th>كمية الخرسانة المستخدمة</th>
+                                        <th>سعر الخرسانة المستخدمة</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="text-center">
+                                    <?php
+                                        $show_products_status = mysqli_query($conn, "SELECT * FROM `employee`");
+                                        while ($r = mysqli_fetch_array($show_products_status)) {
+                                        
+                                    ?>
+                                    <tr>
+                                    <th class="text-secondary" scope="row">RA-EMP-<?=$r['id']?></th>
+                                    </tr>
+                                    <?php } ?>
+                            </table>
+                        </div>
                     </form>
                 </div>
             </div>

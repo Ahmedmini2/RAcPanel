@@ -120,13 +120,13 @@ else if (isset($_POST['submit'])) {
          $_SESSION['notification'] = "Error!.. check your query";
         }
      }
-
-    $insert = "INSERT INTO employee VALUES (NULL, '$name', '$email', '$phone','$phone_code','$nationality','$gender', '$birth', '$social_status','$id_number','$position'
+     $inserted_id = $db->insert_id;
+    $insert = "INSERT INTO employee VALUES (NULL,'$inserted_id', '$name', '$email', '$phone','$phone_code','$nationality','$gender', '$birth', '$social_status','$id_number','$position'
     ,'$department', '$salary', '$start_date','$contract_type','$trial_period','$working_hours','$filename' , NOW())";
 
     $insertResult = $conn->query($insert);
     if ($insertResult) {
-        $inserted_id = $conn->insert_id;
+        
         $target_dir = "../Documents/Employee-Contract/".$inserted_id."/";
         if(!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
