@@ -50,7 +50,7 @@ include('../../cookies/insert-method.php');
 
     <style>
         .invoice-box {
-            max-width: 1200px;
+            max-width: 1430px;
             margin: auto;
             padding: 30px;
             font-size: 16px;
