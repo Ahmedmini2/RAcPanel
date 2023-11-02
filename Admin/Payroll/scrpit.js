@@ -1,7 +1,10 @@
+var btnXlsx = document.querySelectorAll('download-button')
 
+btnXlsx.onclick =() => exportData('xlsx')
 
-    function tableToExcel() {
-        var table2excel = new Table2Excel();
-        table2excel.export(document.querySelectorAll("table.table"));
-    }
-
+function exportData(type){
+    const fileName = 'exported-sheet.' + type
+    const table = document.getElementById("table")
+    const wb = XLSX.utils.table_to_book(table)
+    XLSX.writeFile(wb, fileName)
+}
