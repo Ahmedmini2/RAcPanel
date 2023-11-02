@@ -7,7 +7,13 @@ include('../../cookies/insert-method.php');
 <html lang="ar" dir="rtl">
 
 <head>
-
+<style>
+    @media print {
+  body {
+    zoom: 80%;
+  }
+}
+</style>
 
 
     <!-- Blazor -->
