@@ -164,7 +164,7 @@ include('../../cookies/insert-method.php');
                                     <tr>
                                     <th class="text-secondary" scope="row">RA-EMP-<?=$r['id']?></th>
                                     <td class="border-1"><?=$r['name']?></td>
-                                    <td class="border-1"><?=number_format($r['salary'])?></td>
+                                    <td class="border-1"><input type="text" name="salary[]" value="<?$r['salary']?>" readonly></td>
                                     <td class="border-1"><input type="text" class="form-control" name="extra[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="total_salary[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="fees[]" value="0"></td>
@@ -180,9 +180,15 @@ include('../../cookies/insert-method.php');
                                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                                     <script>
                                         $(document).on('change', 'input', function() {
-                                            var businessHours = $('input[name="extra[]"]');
-                                            for (var i = 0; i <= businessHours.length; i++) {
-                                                console.log(businessHours[i].value);
+                                            var salary = $('td[name="salary[]"]');
+                                            var extra = $('input[name="extra[]"]');
+                                            var total_salary = $('input[name="total_salary[]"]');
+                                            var extra = $('input[name="extra[]"]');
+                                            var extra = $('input[name="extra[]"]');
+                                            for (var i = 0; i < extra.length; i++) {
+                                                console.log(extra[i].value);
+
+                                                $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value)+parseFloat(extra[i].value));
                                             }
                                         });
                                     </script>
@@ -244,11 +250,7 @@ include('../../cookies/insert-method.php');
     <script src="../../assets/js/plugins/chartjs.min.js"></script>
 
     <script src="../../assets/js/plugins/choices.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#example').dataTable();
-        });
-    </script>
+   
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
