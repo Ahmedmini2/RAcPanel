@@ -214,12 +214,12 @@ include('../../cookies/insert-method.php');
                     document.getElementById('btn2').style.display = "none";
 
 
-                    document.getElementById('signture2').style.backgroundColor = "#ffffff00";
+                  
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
 
 
-                    document.getElementById('signture2').style.backgroundColor = "white";
+                  
 
                 }
             </script>
@@ -350,6 +350,12 @@ include('../../cookies/insert-method.php');
 
 
         </div>
+
+
+
+
+
+        
         </div>
 
     </main>
