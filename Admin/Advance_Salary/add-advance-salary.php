@@ -19,8 +19,10 @@ if(isset($_POST['submit'])){
     $data = [
         'employee_id' => $employee_id,
         'amount'=>$amount,
+        'payment'=>$amount,
         'description'=>$description,
         'status'=>'Pending',
+        'payment_status'=>'يوجد مستحق',
         'image'=>$filename,
         
     ];
