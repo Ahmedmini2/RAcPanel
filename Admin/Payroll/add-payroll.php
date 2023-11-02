@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
     $net_salaries = $_POST['net_salary'];
     $work_days = $_POST['work_days'];
  
- for($i = 0; $i < count($names); $i)
+ for($i = 0; $i < count($names); $i++)
  echo $names[$i];
 
 }
