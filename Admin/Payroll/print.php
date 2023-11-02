@@ -1,7 +1,7 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "payroll";
-$select = mysqli_query($conn, "select * from payroll_process ");
+include('../../cookies/insert-method.php');
 ?>
 
 <html lang="ar" dir="rtl">
@@ -41,28 +41,16 @@ $select = mysqli_query($conn, "select * from payroll_process ");
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
     <link href="../../assets/css/custom.css" rel="stylesheet" />
+
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
-    <script>src="table2excel.js"</script>
 </head>
-<style>
 
-    @media print{
-       body *:not(#contentPDF):not(#contentPDF *){
-        visibility: hidden;
-       }
-       #contentPDF{
-        position: absolute;
-        top: 0;
-        left: 0;
-       }
-    }
-</style>
 
-<body class="g-sidenav-show rtl .bg-gray-100 ">
+<body class="g-sidenav-show rtl ">
 
 
 
@@ -77,7 +65,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
 
-                    <h6 class="font-weight-bolder mb-0">مسير الرواتب</h6>
+                    <h6 class="font-weight-bolder mb-0">اضافه مسير رواتب</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
 
@@ -128,108 +116,192 @@ $select = mysqli_query($conn, "select * from payroll_process ");
 
 
         <div class="container-fluid py-4">
-            <div class=" mb-4 p-3">
-                <div class="">
-                    <h5 class="mb-1"> مسير الرواتب </h5>
-                </div>
+            <div class="block-header bg-warning rounded col-md-3 col-sm-6 col-xs-6">
 
-                <a href="add-payroll.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">إضافة مسير رواتب جديد&nbsp;&nbsp;
-                    <i class="fas fa-plus">
-                    </i>
-                </a>
+                <?php require_once('../components/notification.php'); ?>
             </div>
-            <!--Table     -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card mb-4 mt-3" id="contentPDF">
-                        <div class="card-header text-center">
-                            <div class="row align-items-center">
-                                <div class="col-md-11">
-                                    <h5>مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
+            <!-- Button trigger modal -->
+
+            <div class=" justify-content-md-end">
+
+                <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
+                    طباعة الطلب
+                    <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
+
+                </button>
+
+            </div>
+
+            <script>
+                function printDiv(divName) {
+                    document.getElementById('btn2').style.display = "none";
+
+
+                    document.getElementById('signture2').style.backgroundColor = "#ffffff00";
+                    window.print();
+                    document.getElementById('btn2').style.display = "inline";
+
+
+                    document.getElementById('signture2').style.backgroundColor = "white";
+
+                }
+            </script>
+
+
+
+
+
+            <div class="invoice-box mt-8" dir="ltr">
+
+
+
+                <!-- here to change -->
+                <div class="row ">
+                    <div class="col">
+                        <div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="card-text custom-font-small">
+                                            Date:
+
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p class="card-text custom-font-small">
+                                            <?= $created_at ?> <br>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="col-md-1">
-                                    <a class="download-button" href="print.php">
-                                        <div class="docs"><svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="20" width="20" viewBox="0 0 24 24">
-                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                                <polyline points="14 2 14 8 20 8"></polyline>
-                                                <line y2="13" x2="8" y1="13" x1="16"></line>
-                                                <line y2="17" x2="8" y1="17" x1="16"></line>
-                                                <polyline points="10 9 9 9 8 9"></polyline>
-                                            </svg> Docs</div>
-                                        <div class="download">
-                                            <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="24" width="24" viewBox="0 0 24 24">
-                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                                <polyline points="7 10 12 15 17 10"></polyline>
-                                                <line y2="3" x2="12" y1="15" x1="12"></line>
-                                            </svg>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+
+                            <div>
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p class="card-text custom-font-small">
+                                                TO: <br>
+                                                Subject:<br>
+
+                                            </p>
                                         </div>
-                                    </buatton>
+                                        <div class="col-8">
+                                            <p class="card-text custom-font-small">
+                                                <?= $supplier_name ?><br>
+                                                proforma invoice for (PO No :RA<?= $id ?>) <br>
+
+
+
+                                            </p>
+                                        </div>
+                                    </div>
+
+
 
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <!-- == -->
+
+                <div class="row justify-content-center">
+                    <div class="col-12">
+
+                        <div class="table-responsive p-0">
+                            <table class="table table-hover table-bordered table-fixed" id="table">
+
+                                <!--Table head-->
+                                <thead class="bg-dark text-light text-center">
+                                    <tr>
+                                        <th rowspan="2">الرقم</th>
+                                        <th rowspan="2">اسم الموظف</th>
+                                        <th rowspan="2">الراتب الاساسي</th>
+                                        <th rowspan="2">اضافات</th>
+                                        <th rowspan="2">اجمالي الراتب</th>
+                                        <th colspan="4">الاقتطاعات </th>
+                                        <th rowspan="2">مجموع الاقتطاعات</th>
+                                        <th rowspan="2">صافي الراتب المستحق</th>
+                                        <th rowspan="2">عدد الايام</th>
+                                    </tr>
+                                    <tr>
+                                        <th>مخالفات</th>
+                                        <th>غيابات</th>
+                                        <th>تاخير</th>
+                                        <th>سلف و اخرى</th>
+                                    </tr>
+                                </thead>
+                                <!--Table head-->
+                                <!--Table body-->
+                                <tbody class=" text-center">
+
+                                    <tr>
+                                        <th scope="row">RA-EMP-1</th>
+                                        <td class="border-1">عباس الجعفري</td>
+                                        <td class="border-1">5000.00</td>
+                                        <td class="border-1">10000.00</td>
+                                        <td class="border-1">15000.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">15000.00</td>
+                                        <td class="border-1">30</td>
 
 
-                        <div class="card-body px-0 pt-0 pb-2 mx-3">
-                            <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered table-fixed" id="table" >
-
-                                    <!--Table head-->
-                                    <thead class="bg-dark text-light text-center">
-                                        <tr>
-                                            <th rowspan="2">الرقم</th>
-                                            <th rowspan="2">اسم الموظف</th>
-                                            <th rowspan="2">الراتب الاساسي</th>
-                                            <th rowspan="2">اضافات</th>
-                                            <th rowspan="2">اجمالي الراتب</th>
-                                            <th colspan="4">الاقتطاعات </th>
-                                            <th rowspan="2">مجموع الاقتطاعات</th>
-                                            <th rowspan="2">صافي الراتب المستحق</th>
-                                            <th rowspan="2">عدد الايام</th>
-                                        </tr>
-                                        <tr>
-                                            <th>مخالفات</th>
-                                            <th>غيابات</th>
-                                            <th>تاخير</th>
-                                            <th>سلف و اخرى</th>
-                                        </tr>
-                                    </thead>
-                                    <!--Table head-->
-                                    <!--Table body-->
-                                    <tbody class=" text-center">
-
-                                        <tr>
-                                            <th scope="row">RA-EMP-1</th>
-                                            <td class="border-1">عباس الجعفري</td>
-                                            <td class="border-1">5000.00</td>
-                                            <td class="border-1">10000.00</td>
-                                            <td class="border-1">15000.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">15000.00</td>
-                                            <td class="border-1">30</td>
+                                    </tr>
 
 
-                                        </tr>
+                                </tbody>
+                                <!--Table body-->
 
+                            </table>
 
-                                    </tbody>
-                                    <!--Table body-->
-
-                                </table>
-                               
-                            </div>
                         </div>
+
 
                     </div>
                 </div>
-            </div>
-            <!--Table -->
-        </div>
 
+
+
+
+
+                <hr>
+
+
+
+                <div class="row text-center">
+
+
+                    <div class="col-6">
+                        <div class="row">
+                            <h6>Approved by</h6>
+                            <input type="text" class="signture" id="signture2" />
+                        </div>
+                    </div>
+                </div>
+                <table>
+
+                </table>
+
+            </div>
+
+
+
+
+
+        </div>
 
 
 
@@ -282,11 +354,6 @@ $select = mysqli_query($conn, "select * from payroll_process ");
     <script src="../../assets/js/plugins/chartjs.min.js"></script>
 
     <script src="../../assets/js/plugins/choices.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#example').dataTable();
-        });
-    </script>
 
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
@@ -302,7 +369,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+    <!-- <script>
         // Function to fetch notifications from the server
         function fetchNotifications() {
             // Make an AJAX request to the server to fetch notifications
@@ -381,10 +448,8 @@ $select = mysqli_query($conn, "select * from payroll_process ");
 
         // Poll for new notifications every 5 minutes (adjust the interval as needed)
         setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
-    </script>
+    </script> -->
     <script src="../darkmode.js"></script>
-  
-
 </body>
 
 </html>
