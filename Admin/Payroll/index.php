@@ -148,58 +148,59 @@ $select = mysqli_query($conn, "select * from payroll_process ");
                                     </svg>
                                 </div>
                             </button>
-                            <div class="card-body px-0 pt-0 pb-2 mx-3">
-                                <div class="table-responsive p-0">
-                                    <table class="table table-hover table-bordered table-fixed" id="example">
+                        </div>
+                        <div class="card-body px-0 pt-0 pb-2 mx-3">
+                            <div class="table-responsive p-0">
+                                <table class="table table-hover table-bordered table-fixed" id="example">
 
-                                        <!--Table head-->
-                                        <thead class="bg-dark text-light text-center">
-                                            <tr>
-                                                <th rowspan="2">الرقم</th>
-                                                <th rowspan="2">الراتب الاساسي</th>
-                                                <th rowspan="2">اضافات</th>
-                                                <th rowspan="2">اجمالي الراتب</th>
-                                                <th colspan="4">الاقتطاعات </th>
-                                                <th rowspan="2">مجموع الاقتطاعات</th>
-                                                <th rowspan="2">صافي الراتب المستحق</th>
-                                                <th rowspan="2">عدد الايام</th>
-                                            </tr>
-                                            <tr>
-                                                <th>مخالفات</th>
-                                                <th>غيابات</th>
-                                                <th>تاخير</th>
-                                                <th>سلف و اخرى</th>
-                                            </tr>
-                                        </thead>
-                                        <!--Table head-->
-                                        <!--Table body-->
-                                        <tbody class=" text-center">
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-light text-center">
+                                        <tr>
+                                            <th rowspan="2">الرقم</th>
+                                            <th rowspan="2">الراتب الاساسي</th>
+                                            <th rowspan="2">اضافات</th>
+                                            <th rowspan="2">اجمالي الراتب</th>
+                                            <th colspan="4">الاقتطاعات </th>
+                                            <th rowspan="2">مجموع الاقتطاعات</th>
+                                            <th rowspan="2">صافي الراتب المستحق</th>
+                                            <th rowspan="2">عدد الايام</th>
+                                        </tr>
+                                        <tr>
+                                            <th>مخالفات</th>
+                                            <th>غيابات</th>
+                                            <th>تاخير</th>
+                                            <th>سلف و اخرى</th>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+                                    <!--Table body-->
+                                    <tbody class=" text-center">
 
-                                            <tr>
-                                                <th scope="row"><?= $i ?></th>
-                                                <td class="border-1">عباس الجعفري</td>
-                                                <td class="border-1">5000.00</td>
-                                                <td class="border-1">10000.00</td>
-                                                <td class="border-1">15000.00</td>
-                                                <td class="border-1">0.00</td>
-                                                <td class="border-1">0.00</td>
-                                                <td class="border-1">0.00</td>
-                                                <td class="border-1">0.00</td>
-                                                <td class="border-1">0.00</td>
-                                                <td class="border-1">15000.00</td>
-                                                <td class="border-1">30</td>
-                                                <td><span class="badge badge-sm bg-gradient-success border-1"><?= $r['status'] ?></span></td>
+                                        <tr>
+                                            <th scope="row"><?= $i ?></th>
+                                            <td class="border-1">عباس الجعفري</td>
+                                            <td class="border-1">5000.00</td>
+                                            <td class="border-1">10000.00</td>
+                                            <td class="border-1">15000.00</td>
+                                            <td class="border-1">0.00</td>
+                                            <td class="border-1">0.00</td>
+                                            <td class="border-1">0.00</td>
+                                            <td class="border-1">0.00</td>
+                                            <td class="border-1">0.00</td>
+                                            <td class="border-1">15000.00</td>
+                                            <td class="border-1">30</td>
+                                            <td><span class="badge badge-sm bg-gradient-success border-1"><?= $r['status'] ?></span></td>
 
-                                            </tr>
+                                        </tr>
 
 
-                                        </tbody>
-                                        <!--Table body-->
+                                    </tbody>
+                                    <!--Table body-->
 
-                                    </table>
-                                </div>
+                                </table>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
