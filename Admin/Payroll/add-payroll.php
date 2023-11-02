@@ -164,7 +164,7 @@ include('../../cookies/insert-method.php');
                                     <tr>
                                     <th class="text-secondary" scope="row">RA-EMP-<?=$r['id']?></th>
                                     <td class="border-1"><?=$r['name']?></td>
-                                    <td class="border-1" name="salary[]"><?=number_format($r['salary'])?></td>
+                                    <td class="border-1" name="salary[]"><?=$r['salary']?></td>
                                     <td class="border-1"><input type="text" class="form-control" name="extra[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="total_salary[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="fees[]" value="0"></td>
@@ -188,7 +188,7 @@ include('../../cookies/insert-method.php');
                                             for (var i = 0; i < extra.length; i++) {
                                                 console.log(extra[i].value);
 
-                                                $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value.replace(/\,/g, ""))+parseFloat(extra[i].value.replace(/\,/g, "")));
+                                                $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value)+parseFloat(extra[i].value));
                                             }
                                         });
                                     </script>
