@@ -69,7 +69,7 @@ include('../../cookies/insert-method.php');
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
 
-                    
+
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -123,7 +123,7 @@ include('../../cookies/insert-method.php');
 
                         <h6 class="block-title text-white py-2 px-4">إضافة مسير رواتب جديد</h6>
                     </div>
-                    <form method="POST" action="" >
+                    <form method="POST" action="">
                         <div class="row">
 
                             <div class="col">
@@ -134,83 +134,87 @@ include('../../cookies/insert-method.php');
                             </div>
                         </div>
                         <div class="row">
+                        <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                            <table class="table table-hover table-bordered table-fixed" >
-                                <thead class="bg-dark text-light table-bordered text-center">
-                                    <tr>
-                                        <th rowspan="2">الرقم</th>
-                                        <th rowspan="2">إسم الموظف</th>
-                                        <th rowspan="2">الراتب الاساسي</th>
-                                        <th rowspan="2">اضافات</th>
-                                        <th rowspan="2">اجمالي الراتب</th>
-                                        <th colspan="4">الاقتطاعات </th>
-                                        <th rowspan="2">مجموع الاقتطاعات</th>
-                                        <th rowspan="2">صافي الراتب المستحق</th>
-                                        <th rowspan="2">عدد الايام</th>
-                                    </tr>
-                                    <tr>
-                                        <th>مخالفات</th>
-                                        <th>غيابات</th>
-                                        <th>تاخير</th>
-                                        <th>سلف و اخرى</th>
-                                    </tr>
-                                </thead>
+                                <table class="table table-hover table-bordered table-fixed">
+                                    <thead class="bg-dark text-light table-bordered text-center">
+                                        <tr>
+                                            <th rowspan="2">الرقم</th>
+                                            <th rowspan="2">إسم الموظف</th>
+                                            <th rowspan="2">الراتب الاساسي</th>
+                                            <th rowspan="2">اضافات</th>
+                                            <th rowspan="2">اجمالي الراتب</th>
+                                            <th colspan="4">الاقتطاعات </th>
+                                            <th rowspan="2">مجموع الاقتطاعات</th>
+                                            <th rowspan="2">صافي الراتب المستحق</th>
+                                            <th rowspan="2">عدد الايام</th>
+                                        </tr>
+                                        <tr>
+                                            <th>مخالفات</th>
+                                            <th>غيابات</th>
+                                            <th>تاخير</th>
+                                            <th>سلف و اخرى</th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody class="text-center">
-                                    <?php
+                                    <tbody class="text-center">
+                                        <?php
                                         $show_products_status = mysqli_query($conn, "SELECT * FROM `employee`");
                                         while ($r = mysqli_fetch_array($show_products_status)) {
-                                        
-                                    ?>
-                                    <tr>
-                                    <th class="text-secondary" scope="row">RA-EMP-<?=$r['id']?></th>
-                                    <td class="border-1"><?=$r['name']?></td>
-                                    <td class="border-1"><input type="text" class="form-control" name="salary[]" value="<?=$r['salary']?>" readonly></td>
-                                    <td class="border-1"><input type="text" class="form-control" name="extra[]" value="0"></td>
-                                    <td class="border-1"><input type="text" class="form-control" name="total_salary[]" value="0"></td>
-                                    <td class="border-1"><input type="text" class="form-control" name="fees[]" value="0"></td>
-                                    <td class="border-1"><input type="text" class="form-control" name="absend[]" value="0"></td>
-                                    <td class="border-1"><input type="text" class="form-control" name="latee[]" value="0"></td>
-                                    <?php 
-                                    $user_id = $r['user_id'];
-                                    $query = "SELECT DISTINCT SUM(`payment`) FROM `advance_salary` WHERE `employee_id` = $user_id;";
-                                    $res = $conn->query($query);
-                                    $advanced = $res->fetch_assoc();
-                                    ?>
-                                    <td class="border-1"><input type="text" class="form-control" name="advancedd[]" value="<?php if($advanced['SUM(`payment`)'] != ''){ echo $advanced['SUM(`payment`)'];} else echo '0';?>"></td>
-                                    <td class="border-1"><input type="text" class="form-control" name="deductions_total[]" value="0"></td>
-                                    <td class="border-1"><input type="text" class="form-control" name="net_salary[]" value="0"></td>
-                                    <td class="border-1"><input type="text" class="form-control" name="work_days[]" value="0"></td>
-                                    </tr>
-                                    
-                                    <?php } ?>
-                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                                    <script>
-                                        $(document).on('change', 'input', function() {
-                                            var salary = $('input[name="salary[]"]');
-                                            var extra = $('input[name="extra[]"]');
-                                            var total_salary = $('input[name="total_salary[]"]');
-                                            var fees = $('input[name="fees[]"]');
-                                            var absend = $('input[name="absend[]"]');
-                                            var latee = $('input[name="latee[]"]');
-                                            var advancedd = $('input[name="advancedd[]"]');
-                                            var deductions_total = $('input[name="deductions_total[]"]');
-                                            var net_salary = $('input[name="net_salary[]"]');
-                                            var work_days = $('input[name="work_days[]"]');
-                                            var salary_per_day = 0
-                                            for (var i = 0; i < salary.length; i++) {
-                                                salary_per_day = (parseFloat(salary[i].value) / 30) ;
-                                                $('input[name="absend[]"]').eq(i).val(parseFloat((salary[i].value) - (salary_per_day * work_days[i].value)).toFixed(2));
 
-                                                $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value) + parseFloat(extra[i].value));
-                                                $('input[name="deductions_total[]"]').eq(i).val(parseFloat(fees[i].value) + parseFloat( absend[i].value) + parseFloat( latee[i].value) + parseFloat (advancedd[i].value));
-                                                $('input[name="net_salary[]"]').eq(i).val(parseFloat(total_salary[i].value - deductions_total[i].value).toFixed(2));
-                                            }
-                                        });
-                                    </script>
-                            </table>
+                                        ?>
+                                            <tr>
+                                                <th class="text-secondary" scope="row">RA-EMP-<?= $r['id'] ?></th>
+                                                <td class="border-1"><?= $r['name'] ?></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="salary[]" value="<?= $r['salary'] ?>" readonly></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="extra[]" value="0"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="total_salary[]" value="0"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="fees[]" value="0"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="absend[]" value="0"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="latee[]" value="0"></td>
+                                                <?php
+                                                $user_id = $r['user_id'];
+                                                $query = "SELECT DISTINCT SUM(`payment`) FROM `advance_salary` WHERE `employee_id` = $user_id;";
+                                                $res = $conn->query($query);
+                                                $advanced = $res->fetch_assoc();
+                                                ?>
+                                                <td class="border-1"><input type="text" class="form-control" name="advancedd[]" value="<?php if ($advanced['SUM(`payment`)'] != '') {
+                                                                                                                                            echo $advanced['SUM(`payment`)'];
+                                                                                                                                        } else echo '0'; ?>"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="deductions_total[]" value="0"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="net_salary[]" value="0"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="work_days[]" value="0"></td>
+                                            </tr>
+
+                                        <?php } ?>
+                                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                        <script>
+                                            $(document).on('change', 'input', function() {
+                                                var salary = $('input[name="salary[]"]');
+                                                var extra = $('input[name="extra[]"]');
+                                                var total_salary = $('input[name="total_salary[]"]');
+                                                var fees = $('input[name="fees[]"]');
+                                                var absend = $('input[name="absend[]"]');
+                                                var latee = $('input[name="latee[]"]');
+                                                var advancedd = $('input[name="advancedd[]"]');
+                                                var deductions_total = $('input[name="deductions_total[]"]');
+                                                var net_salary = $('input[name="net_salary[]"]');
+                                                var work_days = $('input[name="work_days[]"]');
+                                                var salary_per_day = 0
+                                                for (var i = 0; i < salary.length; i++) {
+                                                    salary_per_day = (parseFloat(salary[i].value) / 30);
+                                                    $('input[name="absend[]"]').eq(i).val(parseFloat((salary[i].value) - (salary_per_day * work_days[i].value)).toFixed(2));
+
+                                                    $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value) + parseFloat(extra[i].value));
+                                                    $('input[name="deductions_total[]"]').eq(i).val(parseFloat(fees[i].value) + parseFloat(absend[i].value) + parseFloat(latee[i].value) + parseFloat(advancedd[i].value));
+                                                    $('input[name="net_salary[]"]').eq(i).val(parseFloat(total_salary[i].value - deductions_total[i].value).toFixed(2));
+                                                }
+                                            });
+                                        </script>
+                                </table>
                             </div>
-                           
+                            </div>
+
                         </div>
                     </form>
                 </div>
@@ -268,7 +272,7 @@ include('../../cookies/insert-method.php');
     <script src="../../assets/js/plugins/chartjs.min.js"></script>
 
     <script src="../../assets/js/plugins/choices.min.js"></script>
-   
+
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
