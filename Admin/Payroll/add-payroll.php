@@ -17,9 +17,36 @@ if(isset($_POST['submit'])){
     $net_salaries = $_POST['net_salary'];
     $work_days = $_POST['work_days'];
  
- for($i = 0; $i < count($names); $i++)
- echo $names[$i];
+    for($i = 0; $i < count($names); $i++){
+        $data= [
+            'emp_name' => $names[$i],
+            'salary'=>$salaries[$i],
+            'extra'=>$extras[$i],
+            'total_salary'=>$total_salaries[$i],
+            'fees'=>$fees[$i],
+            'absend'=>$absends[$i],
+            'late'=>$lates[$i],
+            'advanced'=>$advanceds[$i],
+            'deductions_total'=>$deductions_totals[$i],
+            'net_salary'=>$net_salaries[$i],
+            'work_days'=>$work_days[$i],
+            'month'=>$date
+        ];
+        $tableName='payroll_process'; 
 
+        if(!empty($data) && !empty($tableName)){
+            $insertData=insert_data($data,$tableName);
+            if($insertData){
+            $_SESSION['notification'] = "تم إضافة مسير الرواتب بنجاح";
+            header('location: index.php');
+            exit();
+            }else{
+            $_SESSION['notification'] = "خطأ في النظام";
+            header('location: index.php');
+            exit();
+            }
+        }
+    }
 }
 ?>
 
