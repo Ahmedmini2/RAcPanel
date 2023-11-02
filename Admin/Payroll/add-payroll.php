@@ -180,14 +180,15 @@ include('../../cookies/insert-method.php');
                                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                                     <script>
                                         $(document).on('change', 'input', function() {
-                                            var salary = $('td[name="salary[]"]');
+                                            var salary = $('td[name="salary[]"]').val();
                                             var extra = $('input[name="extra[]"]');
                                             var total_salary = $('input[name="total_salary[]"]');
                                             var extra = $('input[name="extra[]"]');
                                             var extra = $('input[name="extra[]"]');
                                             for (var i = 0; i <= extra.length; i++) {
                                                 console.log(extra[i]);
-                                                $('input[name="total_salary['+i+']"]').val(salary[i].val()+extra[i].val());
+
+                                                // $('input[name="total_salary['+i+']"]').val(salary[i].val()+extra[i].val());
                                             }
                                         });
                                     </script>
