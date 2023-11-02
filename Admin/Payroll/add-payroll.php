@@ -164,7 +164,7 @@ include('../../cookies/insert-method.php');
                                     <tr>
                                     <th class="text-secondary" scope="row">RA-EMP-<?=$r['id']?></th>
                                     <td class="border-1"><?=$r['name']?></td>
-                                    <td class="border-1"><input type="text" name="salary[]" class="form-control" value="<?=$r['salary']?>" readonly></td>
+                                    <td class="border-1"><input type="text" class="form-control" name="salary[]" value="<?=$r['salary']?>" readonly></td>
                                     <td class="border-1"><input type="text" class="form-control" name="extra[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="total_salary[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="fees[]" value="0"></td>
@@ -180,7 +180,7 @@ include('../../cookies/insert-method.php');
                                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                                     <script>
                                         $(document).on('change', 'input', function() {
-                                            var salary = $('td[name="salary[]"]');
+                                            var salary = $('input[name="salary[]"]');
                                             var extra = $('input[name="extra[]"]');
                                             var total_salary = $('input[name="total_salary[]"]');
                                             var extra = $('input[name="extra[]"]');
@@ -188,7 +188,7 @@ include('../../cookies/insert-method.php');
                                             for (var i = 0; i < extra.length; i++) {
                                                 console.log(extra[i].value);
 
-                                                $('input[name="total_salary[]"]').eq(i).val(salary[i].value+extra[i].value);
+                                                $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value) + parseFloat(extra[i].value));
                                             }
                                         });
                                     </script>
