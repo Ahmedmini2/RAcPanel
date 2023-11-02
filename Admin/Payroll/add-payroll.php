@@ -175,7 +175,16 @@ include('../../cookies/insert-method.php');
                                     <td class="border-1"><input type="text" class="form-control" name="net_salary[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="work_days[]" value="0"></td>
                                     </tr>
+                                    
                                     <?php } ?>
+                                    <script>
+                                        $(document).ready(function() {
+                                            var businessHours = $('input[name="extra[]"]').val();
+                                            for (var i = 0; i < businessHours.length; i++) {
+                                                console.log(businessHours[i]);
+                                            }
+                                        });
+                                    </script>
                             </table>
                         </div>
                     </form>
