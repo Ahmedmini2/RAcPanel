@@ -170,7 +170,13 @@ include('../../cookies/insert-method.php');
                                     <td class="border-1"><input type="text" class="form-control" name="fees[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="absend[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="late[]" value="0"></td>
-                                    <td class="border-1"><input type="text" class="form-control" name="advanced[]" value="0"></td>
+                                    <?php 
+                                    $user_id = $r['user_id'];
+                                    $query = "SELECT DISTINCT SUM(`payment`) FROM `advance_salary` WHERE `employee_id` = $user_id;";
+                                    $res = $conn->query($query);
+                                    $advanced = $res->fetch_assoc();
+                                    ?>
+                                    <td class="border-1"><input type="text" class="form-control" name="advanced[]" value="<?=$advanced['SUM(`payment`)']?>"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="deductions_total[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="net_salary[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="work_days[]" value="0"></td>
@@ -183,10 +189,15 @@ include('../../cookies/insert-method.php');
                                             var salary = $('input[name="salary[]"]');
                                             var extra = $('input[name="extra[]"]');
                                             var total_salary = $('input[name="total_salary[]"]');
-                                            var extra = $('input[name="extra[]"]');
-                                            var extra = $('input[name="extra[]"]');
-                                            for (var i = 0; i < extra.length; i++) {
-                                                console.log(extra[i].value);
+                                            var fees = $('input[name="fees[]"]');
+                                            var absend = $('input[name="absend[]"]');
+                                            var late = $('input[name="late[]"]');
+                                            var advanced = $('input[name="advanced[]"]');
+                                            var deductions_total = $('input[name="deductions_total[]"]');
+                                            var net_salary = $('input[name="net_salary[]"]');
+                                            var work_days = $('input[name="work_days[]"]');
+                                            for (var i = 0; i < salary.length; i++) {
+                                                $('input[name="absend[]"]').eq(i).val(parseFloat(salary[i].value) / parseFloat(work_days[i].value));
 
                                                 $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value) + parseFloat(extra[i].value));
                                             }
