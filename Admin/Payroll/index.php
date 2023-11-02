@@ -41,7 +41,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
     <link href="../../assets/css/custom.css" rel="stylesheet" />
-
+    <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/jquery.table2excel.min.js"></script>
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
