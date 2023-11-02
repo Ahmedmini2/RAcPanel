@@ -152,31 +152,11 @@ $select = mysqli_query($conn, "select * from payroll_process ");
                                             </svg>
                                         </div>
                                     </button>
-                                    <!-- Download Table -->
-                                    <script>
-                                        $(function() {
-                                            $("#exporttable").click(function(e) {
-                                                var table = $("#htmltable");
-                                                if (table && table.length) {
-                                                    $(table).table2excel({
-                                                        exclude: ".noExl",
-                                                        name: "Excel Document Name",
-                                                        filename: "BBBootstrap" + new Date().toISOString().replace(/[\-\:\.]/g, "") + ".xls",
-                                                        fileext: ".xls",
-                                                        exclude_img: true,
-                                                        exclude_links: true,
-                                                        exclude_inputs: true,
-                                                        preserveColors: false
-                                                    });
-                                                }
-                                            });
 
-                                        });
-                                    </script>
                                 </div>
                             </div>
                         </div>
-                        
+
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
@@ -291,6 +271,27 @@ $select = mysqli_query($conn, "select * from payroll_process ");
     <script>
         $(document).ready(function() {
             $('#example').dataTable();
+        });
+    </script>
+    <!-- Download Table -->
+    <script>
+        $(function() {
+            $("#exporttable").click(function(e) {
+                var table = $("#htmltable");
+                if (table && table.length) {
+                    $(table).table2excel({
+                        exclude: ".noExl",
+                        name: "Excel Document Name",
+                        filename: "مسير مرتبات" + new Date().toISOString().replace(/[\-\:\.]/g, "") + ".xls",
+                        fileext: ".xls",
+                        exclude_img: true,
+                        exclude_links: true,
+                        exclude_inputs: true,
+                        preserveColors: false
+                    });
+                }
+            });
+
         });
     </script>
     <script>
