@@ -164,6 +164,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
                                     <thead class="bg-dark text-light text-center">
                                         <tr>
                                             <th rowspan="2">الرقم</th>
+                                            <th rowspan="2">اسم الموظف</th>
                                             <th rowspan="2">الراتب الاساسي</th>
                                             <th rowspan="2">اضافات</th>
                                             <th rowspan="2">اجمالي الراتب</th>
@@ -196,7 +197,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
                                             <td class="border-1">0.00</td>
                                             <td class="border-1">15000.00</td>
                                             <td class="border-1">30</td>
-                                            <td><span class="badge badge-sm bg-gradient-success border-1"><?= $r['status'] ?></span></td>
+                                            
 
                                         </tr>
 
