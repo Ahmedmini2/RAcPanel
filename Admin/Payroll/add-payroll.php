@@ -164,7 +164,7 @@ include('../../cookies/insert-method.php');
                                     <tr>
                                     <th class="text-secondary" scope="row">RA-EMP-<?=$r['id']?></th>
                                     <td class="border-1"><?=$r['name']?></td>
-                                    <td class="border-1"><input type="text" name="salary[]" value="<?$r['salary']?>" readonly></td>
+                                    <td class="border-1"><input type="text" name="salary[]" class="form-control" value="<?=$r['salary']?>" readonly></td>
                                     <td class="border-1"><input type="text" class="form-control" name="extra[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="total_salary[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="fees[]" value="0"></td>
