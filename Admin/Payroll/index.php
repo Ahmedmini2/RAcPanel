@@ -130,52 +130,74 @@ $select = mysqli_query($conn, "select * from payroll_process ");
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4 mt-3">
-                        <h5 class="card-header">مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
-                        <div class="card-body px-0 pt-0 pb-2 mx-3">
-                            <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered table-fixed" id="example">
+                        <div class="col">
+                            <h5 class="card-header col-lg-9 text-center">مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
+                            <button class="download-button">
+                                <div class="docs"><svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="20" width="20" viewBox="0 0 24 24">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line y2="13" x2="8" y1="13" x1="16"></line>
+                                        <line y2="17" x2="8" y1="17" x1="16"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg> Docs</div>
+                                <div class="download">
+                                    <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="24" width="24" viewBox="0 0 24 24">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line y2="3" x2="12" y1="15" x1="12"></line>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                <div class="table-responsive p-0">
+                                    <table class="table table-hover table-bordered table-fixed" id="example">
 
-                                    <!--Table head-->
-                                    <thead class="bg-dark text-light text-center">
-                                        <tr>
-                                            <th rowspan="2">الرقم</th>
-                                            <th rowspan="2">الراتب الاساسي</th>
-                                            <th rowspan="2">اضافات</th>
-                                            <th rowspan="2">اجمالي الراتب</th>
-                                            <th colspan="4">الاقتطاعات </th>
-                                            <th rowspan="2">مجموع الاقتطاعات</th>
-                                            <th rowspan="2">صافي الراتب المستحق</th>
-                                            <th rowspan="2">عدد الايام</th>
-                                        </tr>
-                                        <tr>
-                                            <th>مخالفات</th>
-                                            <th>غيابات</th>
-                                            <th>تاخير</th>
-                                            <th>سلف و اخرى</th>
-                                        </tr>
-                                    </thead>
-                                    <!--Table head-->
-                                    <!--Table body-->
-                                    <tbody class=" text-center">
-                                        <?php
-                                        $i = 0;
-                                        while ($r = mysqli_fetch_array($select)) {
-                                            $i++;
-                                        ?>
+                                        <!--Table head-->
+                                        <thead class="bg-dark text-light text-center">
+                                            <tr>
+                                                <th rowspan="2">الرقم</th>
+                                                <th rowspan="2">الراتب الاساسي</th>
+                                                <th rowspan="2">اضافات</th>
+                                                <th rowspan="2">اجمالي الراتب</th>
+                                                <th colspan="4">الاقتطاعات </th>
+                                                <th rowspan="2">مجموع الاقتطاعات</th>
+                                                <th rowspan="2">صافي الراتب المستحق</th>
+                                                <th rowspan="2">عدد الايام</th>
+                                            </tr>
+                                            <tr>
+                                                <th>مخالفات</th>
+                                                <th>غيابات</th>
+                                                <th>تاخير</th>
+                                                <th>سلف و اخرى</th>
+                                            </tr>
+                                        </thead>
+                                        <!--Table head-->
+                                        <!--Table body-->
+                                        <tbody class=" text-center">
+
                                             <tr>
                                                 <th scope="row"><?= $i ?></th>
-                                                <td class="border-1"><?= $r['amount'] ?></td>
-                                                <td class="border-1"><?= $r['description'] ?></td>
-                                                <td class="border-1"><?= $r['image'] ?></td>
+                                                <td class="border-1">عباس الجعفري</td>
+                                                <td class="border-1">5000.00</td>
+                                                <td class="border-1">10000.00</td>
+                                                <td class="border-1">15000.00</td>
+                                                <td class="border-1">0.00</td>
+                                                <td class="border-1">0.00</td>
+                                                <td class="border-1">0.00</td>
+                                                <td class="border-1">0.00</td>
+                                                <td class="border-1">0.00</td>
+                                                <td class="border-1">15000.00</td>
+                                                <td class="border-1">30</td>
                                                 <td><span class="badge badge-sm bg-gradient-success border-1"><?= $r['status'] ?></span></td>
 
                                             </tr>
-                                        <?php } ?>
 
-                                    </tbody>
-                                    <!--Table body-->
 
-                                </table>
+                                        </tbody>
+                                        <!--Table body-->
+
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
