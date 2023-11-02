@@ -164,7 +164,7 @@ include('../../cookies/insert-method.php');
                                     <tr>
                                     <th class="text-secondary" scope="row">RA-EMP-<?=$r['id']?></th>
                                     <td class="border-1"><?=$r['name']?></td>
-                                    <td class="border-1"><?=number_format($r['salary'])?></td>
+                                    <td class="border-1" name="salary[]"><?=number_format($r['salary'])?></td>
                                     <td class="border-1"><input type="text" class="form-control" name="extra[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="total_salary[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="fees[]" value="0"></td>
@@ -180,9 +180,14 @@ include('../../cookies/insert-method.php');
                                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                                     <script>
                                         $(document).on('change', 'input', function() {
-                                            var businessHours = $('input[name="extra[]"]');
+                                            var salary = $('td[name="salary[]"]');
+                                            var extra = $('input[name="extra[]"]');
+                                            var total_salary = $('input[name="total_salary[]"]');
+                                            var extra = $('input[name="extra[]"]');
+                                            var extra = $('input[name="extra[]"]');
                                             for (var i = 0; i <= businessHours.length; i++) {
                                                 console.log(businessHours[i].value);
+                                                $('input[name="total_salary['+i+']"]').val(salary[i].value+extra[i].value);
                                             }
                                         });
                                     </script>
