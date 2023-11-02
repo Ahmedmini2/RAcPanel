@@ -49,17 +49,16 @@ $select = mysqli_query($conn, "select * from payroll_process ");
     <script>src="table2excel.js"</script>
 </head>
 <style>
-    #contentPDF{
-        font-size: 1rem;
-        background-color: gainsboro;
-    }
+
     @media print{
-        body * {
-            display: none;
-        }
-        #contentPDF, #contentPDF *{
-            display: block;
-        }
+       body *:not(#contentPDF):not(#contentPDF *){
+        visibility: hidden;
+       }
+       #contentPDF{
+        position: absolute;
+        top: 0;
+        left: 0;
+       }
     }
 </style>
 
@@ -231,12 +230,6 @@ $select = mysqli_query($conn, "select * from payroll_process ");
             <!--Table -->
         </div>
 
-        <script>
-           const printBtn = document.getElementById('print');
-           printBtn.addEventListener('click',function(){
-            print();
-           })
-        </script>
 
 
 
