@@ -175,7 +175,17 @@ include('../../cookies/insert-method.php');
                                     <td class="border-1"><input type="text" class="form-control" name="net_salary[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="work_days[]" value="0"></td>
                                     </tr>
+                                    
                                     <?php } ?>
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script>
+                                        $(document).on('change', 'input', function() {
+                                            var businessHours = $('input[name="extra[]"]');
+                                            for (var i = 0; i <= businessHours.length; i++) {
+                                                console.log(businessHours[i].value);
+                                            }
+                                        });
+                                    </script>
                             </table>
                         </div>
                     </form>
@@ -253,7 +263,7 @@ include('../../cookies/insert-method.php');
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+    <!-- <script>
         // Function to fetch notifications from the server
         function fetchNotifications() {
             // Make an AJAX request to the server to fetch notifications
@@ -332,7 +342,7 @@ include('../../cookies/insert-method.php');
 
         // Poll for new notifications every 5 minutes (adjust the interval as needed)
         setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
-    </script>
+    </script> -->
     <script src="../darkmode.js"></script>
 </body>
 
