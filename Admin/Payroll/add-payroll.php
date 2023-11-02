@@ -179,7 +179,7 @@ include('../../cookies/insert-method.php');
                                     <?php } ?>
                                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                                     <script>
-                                        $(document).ready(function() {
+                                        $(document).on('change', 'input', function() {
                                             var businessHours = $('input[name="extra[]"]').val();
                                             for (var i = 0; i < businessHours.length; i++) {
                                                 console.log(businessHours[i]);
