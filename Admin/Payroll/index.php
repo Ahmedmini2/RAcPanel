@@ -46,6 +46,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script>table2excel.js</script>
 </head>
 
 
