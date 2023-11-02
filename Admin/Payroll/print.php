@@ -181,7 +181,7 @@ include('../../cookies/insert-method.php');
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
         <!-- Navbar -->
-         
+
         <!-- End Navbar -->
 
 
@@ -199,117 +199,121 @@ include('../../cookies/insert-method.php');
                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
                 </button>
-               
+
             </div>
 
             <script>
                 function printDiv(divName) {
                     document.getElementById('btn2').style.display = "none";
-                   
-                    
+
+
                     document.getElementById('signture2').style.backgroundColor = "#ffffff00";
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
-                    
-                   
+
+
                     document.getElementById('signture2').style.backgroundColor = "white";
 
                 }
             </script>
 
 
-           
 
 
-            <div class="invoice-box mt-8" >
+
+            <div class="invoice-box mt-8">
 
 
-                
+
                 <!-- here to change -->
-                
+
                 <!-- == -->
 
                 <div class="row justify-content-center">
                     <div class="col-12">
+                        <div class="card-header text-center">
+                        <h5>مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
+                        </div>
                         <div class="table-responsive p-0">
                             <table class="table table-hover table-bordered table-fixed text-center border-dark">
 
                                 <!--Table head-->
                                 <thead class="text-light header-color custom-font-m table-bordered">
-                                   
+
                                     <tr>
-                                            <th style="color: white;" rowspan="2">الرقم</th>
-                                            <th style="color: white;" rowspan="2">اسم الموظف</th>
-                                            <th style="color: white;" rowspan="2">الراتب الاساسي</th>
-                                            <th style="color: white;" rowspan="2">اضافات</th>
-                                            <th style="color: white;" rowspan="2">اجمالي الراتب</th>
-                                            <th style="color: white;" colspan="4">الاقتطاعات </th>
-                                            <th style="color: white;" rowspan="2">مجموع الاقتطاعات</th>
-                                            <th style="color: white;" rowspan="2">صافي الراتب المستحق</th>
-                                            <th style="color: white;" rowspan="2">عدد الايام</th>
-                                        </tr>
-                                        <tr>
-                                            <th style="color: white;" >مخالفات</th>
-                                            <th style="color: white;" >غيابات</th>
-                                            <th style="color: white;" >تاخير</th>
-                                            <th style="color: white;">سلف و اخرى</th>
-                                        </tr>
+                                        <th style="color: white;" rowspan="2">الرقم</th>
+                                        <th style="color: white;" rowspan="2">اسم الموظف</th>
+                                        <th style="color: white;" rowspan="2">الراتب الاساسي</th>
+                                        <th style="color: white;" rowspan="2">اضافات</th>
+                                        <th style="color: white;" rowspan="2">اجمالي الراتب</th>
+                                        <th style="color: white;" colspan="4">الاقتطاعات </th>
+                                        <th style="color: white;" rowspan="2">مجموع الاقتطاعات</th>
+                                        <th style="color: white;" rowspan="2">صافي الراتب المستحق</th>
+                                        <th style="color: white;" rowspan="2">عدد الايام</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: white;">مخالفات</th>
+                                        <th style="color: white;">غيابات</th>
+                                        <th style="color: white;">تاخير</th>
+                                        <th style="color: white;">سلف و اخرى</th>
+                                    </tr>
                                 </thead>
                                 <!--Table head-->
 
                                 <!--Table body-->
                                 <tbody class=" text-center">
 
-                                        <tr>
-                                            <th scope="row">RA-EMP-1</th>
-                                            <td class="border-1">عباس الجعفري</td>
-                                            <td class="border-1">5000.00</td>
-                                            <td class="border-1">10000.00</td>
-                                            <td class="border-1">15000.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">15000.00</td>
-                                            <td class="border-1">30</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center" colspan="2">المجموع</td>
-                                            <td class="border-1">40000.00</td>
-                                            <td class="border-1">10000.00</td>
-                                            <td class="border-1">50000.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">833.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">5000.00</td>
-                                            <td class="border-1">5833.00</td>
-                                            <td class="border-1">44167.00</td>
-                                            <td class="border-1"></td>
-                                            
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">RA-EMP-1</th>
+                                        <td class="border-1">عباس الجعفري</td>
+                                        <td class="border-1">5000.00</td>
+                                        <td class="border-1">10000.00</td>
+                                        <td class="border-1">15000.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">15000.00</td>
+                                        <td class="border-1">30</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center" colspan="2">المجموع</td>
+                                        <td class="border-1">40000.00</td>
+                                        <td class="border-1">10000.00</td>
+                                        <td class="border-1">50000.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">833.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">5000.00</td>
+                                        <td class="border-1">5833.00</td>
+                                        <td class="border-1">44167.00</td>
+                                        <td class="border-1"></td>
+
+                                    </tr>
 
 
 
-                                    </tbody>
+                                </tbody>
                                 <!--Table body-->
 
                             </table>
                         </div>
+
                     </div>
                 </div>
 
-                
 
-               
-               
+
+
+
                 <hr>
-                
+
 
 
                 <div class="row text-center">
 
-                    
+
                     <div class="col-6">
                         <div class="row">
                             <h6>Approved by</h6>
