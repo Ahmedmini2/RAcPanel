@@ -38,15 +38,15 @@ if(isset($_POST['submit'])){
             $insertData=insert_data($data,$tableName);
             if($insertData){
             $_SESSION['notification'] = "تم إضافة مسير الرواتب بنجاح";
-            header('location: index.php');
-            exit();
+            
             }else{
             $_SESSION['notification'] = "خطأ في النظام";
-            header('location: index.php');
-            exit();
+            
             }
         }
     }
+    header('location: index.php');
+    exit();
 }
 ?>
 
