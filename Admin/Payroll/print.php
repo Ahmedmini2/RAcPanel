@@ -202,9 +202,22 @@ include('../../cookies/insert-method.php');
                                             <td class="border-1">0.00</td>
                                             <td class="border-1">15000.00</td>
                                             <td class="border-1">30</td>
-
-
                                         </tr>
+                                        <tr>
+                                            <td class="text-center" colspan="2">المجموع</td>
+                                            <td class="border-1">40000.00</td>
+                                            <td class="border-1">10000.00</td>
+                                            <td class="border-1">50000.00</td>
+                                            <td class="border-1">0.00</td>
+                                            <td class="border-1">833.00</td>
+                                            <td class="border-1">0.00</td>
+                                            <td class="border-1">5000.00</td>
+                                            <td class="border-1">5833.00</td>
+                                            <td class="border-1">44167.00</td>
+                                            <td class="border-1"></td>
+                                            
+                                        </tr>
+
 
 
                                     </tbody>
