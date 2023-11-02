@@ -137,12 +137,21 @@ include('../../cookies/insert-method.php');
                             <table class="table table-hover table-bordered table-fixed" >
                                 <thead class="bg-dark text-light table-bordered text-center">
                                     <tr>
-                                        <th>الرقم</th>
-                                        <th>الصنف</th>
-                                        <th>كمية الخرسانة</th>
-                                        <th>سعر الخرسانة</th>
-                                        <th>كمية الخرسانة المستخدمة</th>
-                                        <th>سعر الخرسانة المستخدمة</th>
+                                        <th rowspan="2">الرقم</th>
+                                        <th rowspan="2">إسم الموظف</th>
+                                        <th rowspan="2">الراتب الاساسي</th>
+                                        <th rowspan="2">اضافات</th>
+                                        <th rowspan="2">اجمالي الراتب</th>
+                                        <th colspan="4">الاقتطاعات </th>
+                                        <th rowspan="2">مجموع الاقتطاعات</th>
+                                        <th rowspan="2">صافي الراتب المستحق</th>
+                                        <th rowspan="2">عدد الايام</th>
+                                    </tr>
+                                    <tr>
+                                        <th>مخالفات</th>
+                                        <th>غيابات</th>
+                                        <th>تاخير</th>
+                                        <th>سلف و اخرى</th>
                                     </tr>
                                 </thead>
 
@@ -154,6 +163,8 @@ include('../../cookies/insert-method.php');
                                     ?>
                                     <tr>
                                     <th class="text-secondary" scope="row">RA-EMP-<?=$r['id']?></th>
+                                    <td class="border-1"><?=$r['name']?></td>
+                                    <td class="border-1"><?=number_format($r['salary'])?></td>
                                     </tr>
                                     <?php } ?>
                             </table>
