@@ -1,4 +1,4 @@
-var btnXlsx = document.querySelectorAll('download-button')
+var btnXlsx = document.querySelectorAll('.action button')
 
 btnXlsx.onclick =() => exportData('xlsx')
 
