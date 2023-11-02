@@ -46,19 +46,21 @@ $select = mysqli_query($conn, "select * from payroll_process ");
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
-    <script>src="table2excel.js"</script>
+    <script>
+        src = "table2excel.js"
+    </script>
 </head>
 <style>
+    @media print {
+        body *:not(#contentPDF):not(#contentPDF *) {
+            visibility: hidden;
+        }
 
-    @media print{
-       body *:not(#contentPDF):not(#contentPDF *){
-        visibility: hidden;
-       }
-       #contentPDF{
-        position: absolute;
-        top: 0;
-        left: 0;
-       }
+        #contentPDF {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
     }
 </style>
 
@@ -141,38 +143,31 @@ $select = mysqli_query($conn, "select * from payroll_process ");
             <!--Table     -->
             <div class="row">
                 <div class="col-12">
-                    <div class="card mb-4 mt-3" id="contentPDF">
+                    <div class="card mb-4 mt-3">
                         <div class="card-header text-center">
                             <div class="row align-items-center">
                                 <div class="col-md-11">
                                     <h5>مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
                                 </div>
-                                <div class="col-md-1">
-                                    <a class="download-button" href="print.php">
-                                        <div class="docs"><svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="20" width="20" viewBox="0 0 24 24">
-                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                                <polyline points="14 2 14 8 20 8"></polyline>
-                                                <line y2="13" x2="8" y1="13" x1="16"></line>
-                                                <line y2="17" x2="8" y1="17" x1="16"></line>
-                                                <polyline points="10 9 9 9 8 9"></polyline>
-                                            </svg> Docs</div>
-                                        <div class="download">
-                                            <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="24" width="24" viewBox="0 0 24 24">
-                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                                <polyline points="7 10 12 15 17 10"></polyline>
-                                                <line y2="3" x2="12" y1="15" x1="12"></line>
-                                            </svg>
-                                        </div>
-                                    </buatton>
-
-                                </div>
+                                <a href="print.php" class="printer">
+                                    <div class="paper">
+                                        <svg viewBox="0 0 8 8" class="svg">
+                                            <path fill="#0077FF" d="M6.28951 1.3867C6.91292 0.809799 7.00842 0 7.00842 0C7.00842 0 6.45246 0.602112 5.54326 0.602112C4.82505 0.602112 4.27655 0.596787 4.07703 0.595012L3.99644 0.594302C1.94904 0.594302 0.290039 2.25224 0.290039 4.29715C0.290039 6.34206 1.94975 8 3.99644 8C6.04312 8 7.70284 6.34206 7.70284 4.29715C7.70347 3.73662 7.57647 3.18331 7.33147 2.67916C7.08647 2.17502 6.7299 1.73327 6.2888 1.38741L6.28951 1.3867ZM3.99679 6.532C2.76133 6.532 1.75875 5.53084 1.75875 4.29609C1.75875 3.06133 2.76097 2.06018 3.99679 2.06018C4.06423 2.06014 4.13163 2.06311 4.1988 2.06905L4.2414 2.07367C4.25028 2.07438 4.26057 2.0758 4.27406 2.07651C4.81533 2.1436 5.31342 2.40616 5.67465 2.81479C6.03589 3.22342 6.23536 3.74997 6.23554 4.29538C6.23554 5.53084 5.23439 6.532 3.9975 6.532H3.99679Z"></path>
+                                            <path fill="#0055BB" d="M6.756 1.82386C6.19293 2.09 5.58359 2.24445 4.96173 2.27864C4.74513 2.17453 4.51296 2.10653 4.27441 2.07734C4.4718 2.09225 5.16906 2.07947 5.90892 1.66374C6.04642 1.58672 6.1743 1.49364 6.28986 1.38647C6.45751 1.51849 6.61346 1.6647 6.756 1.8235V1.82386Z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="dot"></div>
+                                    <div class="output">
+                                        <div class="paper-out"></div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
 
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered table-fixed" id="table" >
+                                <table class="table table-hover table-bordered table-fixed" id="table">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
@@ -220,7 +215,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
                                     <!--Table body-->
 
                                 </table>
-                               
+
                             </div>
                         </div>
 
@@ -383,7 +378,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
         setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
     </script>
     <script src="../darkmode.js"></script>
-  
+
 
 </body>
 
