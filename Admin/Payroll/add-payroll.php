@@ -3,12 +3,22 @@ include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "payroll";
 include('../../cookies/insert-method.php');
 if(isset($_POST['submit'])){
-
- $salaries = $_POST['salary'];
+    $date = $_POST['date'];
+    $date = date_format($date,'F');
+    $names = $_POST['name'];
+    $salaries = $_POST['salary'];
+    $extras = $_POST['extra'];
+    $total_salaries = $_POST['total_salary'];
+    $fees = $_POST['fee'];
+    $absends = $_POST['absend'];
+    $lates = $_POST['latee'];
+    $advanceds = $_POST['advancedd'];
+    $deductions_totals = $_POST['deductions_total'];
+    $net_salaries = $_POST['net_salary'];
+    $work_days = $_POST['work_days'];
  
- foreach($salaries as $salary){
-    echo $salary;
- }
+ for($i = 0; $i < count($names); $i)
+ echo $names[$i];
 
 }
 ?>
@@ -174,11 +184,11 @@ if(isset($_POST['submit'])){
                                         ?>
                                             <tr>
                                                 <th class="text-secondary" scope="row">RA-EMP-<?= $r['id'] ?></th>
-                                                <td class="border-1"><?= $r['name'] ?></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="name[]" value="<?= $r['name'] ?>" readonly></td>
                                                 <td class="border-1"><input type="text" class="form-control" name="salary[]" value="<?= $r['salary'] ?>" readonly></td>
                                                 <td class="border-1"><input type="text" class="form-control" name="extra[]" value="0"></td>
                                                 <td class="border-1"><input type="text" class="form-control" name="total_salary[]" value="0"></td>
-                                                <td class="border-1"><input type="text" class="form-control" name="fees[]" value="0"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="fee[]" value="0"></td>
                                                 <td class="border-1"><input type="text" class="form-control" name="absend[]" value="0"></td>
                                                 <td class="border-1"><input type="text" class="form-control" name="latee[]" value="0"></td>
                                                 <?php
@@ -202,7 +212,7 @@ if(isset($_POST['submit'])){
                                                 var salary = $('input[name="salary[]"]');
                                                 var extra = $('input[name="extra[]"]');
                                                 var total_salary = $('input[name="total_salary[]"]');
-                                                var fees = $('input[name="fees[]"]');
+                                                var fee = $('input[name="fee[]"]');
                                                 var absend = $('input[name="absend[]"]');
                                                 var latee = $('input[name="latee[]"]');
                                                 var advancedd = $('input[name="advancedd[]"]');
@@ -215,7 +225,7 @@ if(isset($_POST['submit'])){
                                                     $('input[name="absend[]"]').eq(i).val(parseFloat((salary[i].value) - (salary_per_day * work_days[i].value)).toFixed(2));
 
                                                     $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value) + parseFloat(extra[i].value));
-                                                    $('input[name="deductions_total[]"]').eq(i).val(parseFloat(fees[i].value) + parseFloat(absend[i].value) + parseFloat(latee[i].value) + parseFloat(advancedd[i].value));
+                                                    $('input[name="deductions_total[]"]').eq(i).val(parseFloat(fee[i].value) + parseFloat(absend[i].value) + parseFloat(latee[i].value) + parseFloat(advancedd[i].value));
                                                     $('input[name="net_salary[]"]').eq(i).val(parseFloat(total_salary[i].value - deductions_total[i].value).toFixed(2));
                                                 }
                                             });
