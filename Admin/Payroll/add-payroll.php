@@ -169,14 +169,14 @@ include('../../cookies/insert-method.php');
                                     <td class="border-1"><input type="text" class="form-control" name="total_salary[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="fees[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="absend[]" value="0"></td>
-                                    <td class="border-1"><input type="text" class="form-control" name="late[]" value="0"></td>
+                                    <td class="border-1"><input type="text" class="form-control" name="latee[]" value="0"></td>
                                     <?php 
                                     $user_id = $r['user_id'];
                                     $query = "SELECT DISTINCT SUM(`payment`) FROM `advance_salary` WHERE `employee_id` = $user_id;";
                                     $res = $conn->query($query);
                                     $advanced = $res->fetch_assoc();
                                     ?>
-                                    <td class="border-1"><input type="text" class="form-control" name="advanced[]" value="<?php if($advanced['SUM(`payment`)'] != ''){ echo $advanced['SUM(`payment`)'];} else echo '0';?>"></td>
+                                    <td class="border-1"><input type="text" class="form-control" name="advancedd[]" value="<?php if($advanced['SUM(`payment`)'] != ''){ echo $advanced['SUM(`payment`)'];} else echo '0';?>"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="deductions_total[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="net_salary[]" value="0"></td>
                                     <td class="border-1"><input type="text" class="form-control" name="work_days[]" value="0"></td>
@@ -191,8 +191,8 @@ include('../../cookies/insert-method.php');
                                             var total_salary = $('input[name="total_salary[]"]');
                                             var fees = $('input[name="fees[]"]');
                                             var absend = $('input[name="absend[]"]');
-                                            var late = $('input[name="late[]"]');
-                                            var advanced = $('input[name="advanced[]"]');
+                                            var latee = $('input[name="latee[]"]');
+                                            var advancedd = $('input[name="advancedd[]"]');
                                             var deductions_total = $('input[name="deductions_total[]"]');
                                             var net_salary = $('input[name="net_salary[]"]');
                                             var work_days = $('input[name="work_days[]"]');
@@ -202,7 +202,7 @@ include('../../cookies/insert-method.php');
                                                 $('input[name="absend[]"]').eq(i).val(parseFloat((salary[i].value) - (salary_per_day * work_days[i].value)).toFixed(2));
 
                                                 $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value) + parseFloat(extra[i].value));
-                                                $('input[name="deductions_total[]"]').eq(i).val(parseFloat(fees[i].value + absend[i].value + late[i].value + advanced[i].value).toFixed(2));
+                                                $('input[name="deductions_total[]"]').eq(i).val(parseFloat(fees[i].value) + parseFloat( absend[i].value) + parseFloat( latee[i].value) + parseFloat (advancedd[i].value));
                                                 $('input[name="net_salary[]"]').eq(i).val(parseFloat(total_salary[i].value - deductions_total[i].value).toFixed(2));
                                             }
                                         });
