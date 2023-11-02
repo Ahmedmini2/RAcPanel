@@ -185,8 +185,8 @@ include('../../cookies/insert-method.php');
                                             var total_salary = $('input[name="total_salary[]"]');
                                             var extra = $('input[name="extra[]"]');
                                             var extra = $('input[name="extra[]"]');
-                                            for (var i = 0; i <= businessHours.length; i++) {
-                                                console.log(businessHours[i].value);
+                                            for (var i = 0; i <= extra.length; i++) {
+                                                console.log(extra[i].value);
                                                 $('input[name="total_salary['+i+']"]').val(salary[i].value+extra[i].value);
                                             }
                                         });
