@@ -160,7 +160,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered table-fixed" >
+                                <table class="table table-hover table-bordered table-fixed" id="table" >
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
@@ -370,7 +370,8 @@ $select = mysqli_query($conn, "select * from payroll_process ");
         setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
     </script>
     <script src="../darkmode.js"></script>
-     <script type="text/javascript" src="scrpit.js"></script>
+    <script src="scrpit.js"></script>
+    <script src="sheet.js"></script>
 
 </body>
 
