@@ -166,7 +166,14 @@ include('../../cookies/insert-method.php');
                                     <td class="border-1"><?=$r['name']?></td>
                                     <td class="border-1"><?=number_format($r['salary'])?></td>
                                     <td class="border-1"><input type="text" class="form-control" name="extra[]" value="0"></td>
-                                    <td class="border-1"><input type="text" class="form-control" name="total[]" value="0"></td>
+                                    <td class="border-1"><input type="text" class="form-control" name="total_salary[]" value="0"></td>
+                                    <td class="border-1"><input type="text" class="form-control" name="fees[]" value="0"></td>
+                                    <td class="border-1"><input type="text" class="form-control" name="absend[]" value="0"></td>
+                                    <td class="border-1"><input type="text" class="form-control" name="late[]" value="0"></td>
+                                    <td class="border-1"><input type="text" class="form-control" name="advanced[]" value="0"></td>
+                                    <td class="border-1"><input type="text" class="form-control" name="deductions_total[]" value="0"></td>
+                                    <td class="border-1"><input type="text" class="form-control" name="net_salary[]" value="0"></td>
+                                    <td class="border-1"><input type="text" class="form-control" name="work_days[]" value="0"></td>
                                     </tr>
                                     <?php } ?>
                             </table>
