@@ -2,6 +2,15 @@
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "payroll";
 include('../../cookies/insert-method.php');
+if(isset($_POST['submit'])){
+
+ $salaries = $_POST['salary'];
+ 
+ foreach($salaries as $salary){
+    echo $salary;
+ }
+
+}
 ?>
 
 <html lang="ar" dir="rtl">
@@ -216,6 +225,7 @@ include('../../cookies/insert-method.php');
                             </div>
 
                         </div>
+                        <button type="submit" name="submit" class="btn btn-secondary">اضافة مسيرة رواتب</button>
                     </form>
                 </div>
             </div>
