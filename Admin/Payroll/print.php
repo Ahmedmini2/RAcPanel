@@ -238,7 +238,7 @@ include('../../cookies/insert-method.php');
 
                 <div class="row justify-content-center">
                     <div class="col-12">
-                        <div class="card-header text-center">
+                        <div class=" text-center">
                             <h5>مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
                         </div>
                         <div class="table-responsive p-0">
