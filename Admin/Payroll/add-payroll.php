@@ -3,7 +3,7 @@ include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "payroll";
 include('../../cookies/insert-method.php');
 if(isset($_POST['submit'])){
-    $date = new DateTimeImmutable($_POST['date']);
+    $date = new DateTimeImmutable($_POST['month']);
     $date = date_format($date,'F');
     $names = $_POST['name'];
     $salaries = $_POST['salary'];
