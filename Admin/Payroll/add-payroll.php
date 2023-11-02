@@ -134,6 +134,7 @@ include('../../cookies/insert-method.php');
                             </div>
                         </div>
                         <div class="row">
+                            <div class="table-responsive p-0">
                             <table class="table table-hover table-bordered table-fixed" >
                                 <thead class="bg-dark text-light table-bordered text-center">
                                     <tr>
@@ -208,6 +209,8 @@ include('../../cookies/insert-method.php');
                                         });
                                     </script>
                             </table>
+                            </div>
+                           
                         </div>
                     </form>
                 </div>
