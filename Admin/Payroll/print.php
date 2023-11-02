@@ -50,7 +50,7 @@ include('../../cookies/insert-method.php');
 </head>
 
 
-<body class="g-sidenav-show rtl ">
+<body class="g-sidenav-show  bg-gray-100">
 
 
 
@@ -150,7 +150,7 @@ include('../../cookies/insert-method.php');
            
 
 
-            <div class="invoice-box mt-8" dir="ltr">
+            <div class="invoice-box mt-8" >
 
 
                 
