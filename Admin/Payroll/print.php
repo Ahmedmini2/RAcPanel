@@ -13,6 +13,7 @@ include('../../cookies/insert-method.php');
     zoom: 80%;
   }
 }
+@media print{@page {size: landscape}}
 </style>
 
 
