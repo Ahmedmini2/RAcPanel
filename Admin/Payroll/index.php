@@ -41,7 +41,6 @@ $select = mysqli_query($conn, "select * from payroll_process ");
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
     <link href="../../assets/css/custom.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/jquery.table2excel.min.js"></script>
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -160,7 +159,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered table-fixed" id="htmltable">
+                                <table class="table table-hover table-bordered table-fixed" id="exporttable">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
@@ -273,27 +272,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
             $('#example').dataTable();
         });
     </script>
-    <!-- Download Table -->
-    <script>
-        $(function() {
-            $("#exporttable").click(function(e) {
-                var table = $("#htmltable");
-                if (table && table.length) {
-                    $(table).table2excel({
-                        exclude: ".noExl",
-                        name: "Excel Document Name",
-                        filename: "مسير مرتبات" + new Date().toISOString().replace(/[\-\:\.]/g, "") + ".xls",
-                        fileext: ".xls",
-                        exclude_img: true,
-                        exclude_links: true,
-                        exclude_inputs: true,
-                        preserveColors: false
-                    });
-                }
-            });
-
-        });
-    </script>
+    
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -389,6 +368,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
         setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
     </script>
     <script src="../darkmode.js"></script>
+    <script src="darkmode.js"></script>
 </body>
 
 </html>
