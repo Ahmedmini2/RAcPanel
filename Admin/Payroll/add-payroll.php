@@ -181,7 +181,7 @@ include('../../cookies/insert-method.php');
                                     <script>
                                         $(document).on('change', 'input', function() {
                                             var salary = $('td[name="salary[]"]').val();
-                                            var extra = $('input[name="extra[]"]');
+                                            var extra = $('input[name="extra[]"]').val();
                                             var total_salary = $('input[name="total_salary[]"]');
                                             var extra = $('input[name="extra[]"]');
                                             var extra = $('input[name="extra[]"]');
