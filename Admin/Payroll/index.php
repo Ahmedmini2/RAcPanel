@@ -48,7 +48,20 @@ $select = mysqli_query($conn, "select * from payroll_process ");
     <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
     <script>src="table2excel.js"</script>
 </head>
-
+<style>
+    #contentPDF{
+        font-size: 1rem;
+        background-color: gainsboro;
+    }
+    @media print{
+        body * {
+            display: none;
+        }
+        #contentPDF, #contentPDF *{
+            display: block;
+        }
+    }
+</style>
 
 <body class="g-sidenav-show rtl .bg-gray-100 ">
 
@@ -129,14 +142,14 @@ $select = mysqli_query($conn, "select * from payroll_process ");
             <!--Table     -->
             <div class="row">
                 <div class="col-12">
-                    <div class="card mb-4 mt-3">
+                    <div class="card mb-4 mt-3" id="contentPDF">
                         <div class="card-header text-center">
                             <div class="row align-items-center">
                                 <div class="col-md-11">
                                     <h5>مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
                                 </div>
                                 <div class="col-md-1">
-                                    <button class="download-button" onclick="window.print()">
+                                    <button class="download-button" id="print" onclick="window.print()">
                                         <div class="docs"><svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="20" width="20" viewBox="0 0 24 24">
                                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                                                 <polyline points="14 2 14 8 20 8"></polyline>
@@ -217,6 +230,13 @@ $select = mysqli_query($conn, "select * from payroll_process ");
             </div>
             <!--Table -->
         </div>
+
+        <script>
+           const printBtn = document.getElementById('print');
+           printBtn.addEventListener('click',function(){
+            print();
+           })
+        </script>
 
 
 
