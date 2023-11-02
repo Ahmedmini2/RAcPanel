@@ -196,8 +196,10 @@ include('../../cookies/insert-method.php');
                                             var deductions_total = $('input[name="deductions_total[]"]');
                                             var net_salary = $('input[name="net_salary[]"]');
                                             var work_days = $('input[name="work_days[]"]');
+                                            var salary_per_day = 0
                                             for (var i = 0; i < salary.length; i++) {
-                                                $('input[name="absend[]"]').eq(i).val(parseFloat(salary[i].value) / parseFloat(work_days[i].value));
+                                                salary_per_day = parseFloat(salary[i].value) / 30 ;
+                                                $('input[name="absend[]"]').eq(i).val(salary_per_day * parseFloat(work_days[i].value));
 
                                                 $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value) + parseFloat(extra[i].value));
                                             }
