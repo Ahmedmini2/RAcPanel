@@ -271,11 +271,12 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
                                 </thead>
                                 <!--Table head-->
 
-                                <?php 
-                                     while($rr = mysqli_fetch_array($select2)){
-                                    ?>
-                                    <tbody class=" text-center">
+                                <!--Table body-->
+                                <tbody class=" text-center">
 
+                                    <?php 
+                                     while($rr = mysqli_fetch_array($select2)){
+                                    ?>   
                                         <tr>
                                             <th scope="row"><?=$rr['id']?></th>
                                             <td class="border-1"><?=$rr['emp_name']?></td>
@@ -294,8 +295,26 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
                                         </tr>
 
 
-                                    </tbody>
                                     <?php } ?>
+                                    <tr>
+                                        <td class="text-center border-1" colspan="2">المجموع</td>
+                                        <td class="border-1">40000.00</td>
+                                        <td class="border-1">10000.00</td>
+                                        <td class="border-1">50000.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">833.00</td>
+                                        <td class="border-1">0.00</td>
+                                        <td class="border-1">5000.00</td>
+                                        <td class="border-1">5833.00</td>
+                                        <td class="border-1">44167.00</td>
+                                        <td class="border-1"></td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                                <!--Table body-->
 
                             </table>
                         </div>
