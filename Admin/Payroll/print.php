@@ -182,7 +182,7 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
 
 
 <body class="g-sidenav-show rtl  bg-gray-100">
-
+<script src="../../assets/js/numtowords/numtowords.js"></script>
 
 
     <!-- Side Bar -->
