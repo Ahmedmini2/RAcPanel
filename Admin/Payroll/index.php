@@ -146,7 +146,7 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                 $month = $r['month'];
                 $year = $r['year'];
                 $nmonth = date("m", strtotime($month));
-                $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$month'");
+                $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$month' AND year = '$year'");
 
                
             ?>
