@@ -3,8 +3,9 @@ include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "payroll";
 include('../../cookies/insert-method.php');
 if(isset($_POST['submit'])){
-    $date = new DateTimeImmutable($_POST['month']);
-    $date = date_format($date,'F');
+    $dateNew = new DateTimeImmutable($_POST['month']);
+    $date = date_format($dateNew,'F');
+    $year = date_format($dateNew,'Y');
     $names = $_POST['name'];
     $salaries = $_POST['salary'];
     $extras = $_POST['extra'];
@@ -30,7 +31,8 @@ if(isset($_POST['submit'])){
             'deductions_total'=>$deductions_totals[$i],
             'net_salary'=>$net_salaries[$i],
             'work_days'=>$work_days[$i],
-            'month'=>$date
+            'month'=>$date,
+            'year'=>$year,
         ];
         $tableName='payroll_process'; 
 
