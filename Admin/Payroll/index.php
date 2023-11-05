@@ -147,7 +147,7 @@ $select = mysqli_query($conn, "select DISTINCT `month` FROM payroll_process");
 
                 $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$month'");
 
-                while($rr = mysqli_fetch_array($select2)){
+               
             ?>
             <div class="row">
                 <div class="col-12">
@@ -199,6 +199,9 @@ $select = mysqli_query($conn, "select DISTINCT `month` FROM payroll_process");
                                     </thead>
                                     <!--Table head-->
                                     <!--Table body-->
+                                    <?php 
+                                     while($rr = mysqli_fetch_array($select2)){
+                                    ?>
                                     <tbody class=" text-center">
 
                                         <tr>
