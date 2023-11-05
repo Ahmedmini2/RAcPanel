@@ -143,7 +143,7 @@ $select = mysqli_query($conn, "select * from advance_salary WHERE employee_id = 
                                             <th>المبلغ</th>
                                             <th>description</th>
                                             <th>مستند السلفه</th>
-                                            <th>حاله الاجازة </th>
+                                            <th>حاله السلفيه </th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
