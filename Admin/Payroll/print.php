@@ -332,7 +332,22 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
                 </div>
 
 
-
+                <div class="row">
+                    <div class="col text-center">
+                        <p>The total value is SAR <?=number_format($t_net_salary)?> <span id="con"></span> riyals only.</p>
+                    </div>
+                </div>
+                <script>
+                    
+                     function changeVal() {
+                        
+                        value =  <?=number_format($t_net_salary,2,'.',',')?> ;
+                        document.getElementById("con").innerText = numToWords(value);
+                        console.log(value);
+                        
+                    }
+                    window.onload=changeVal;
+                </script>                           
 
 
                 <hr>
