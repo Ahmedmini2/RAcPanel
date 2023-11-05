@@ -159,9 +159,11 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
         <span class="ms-1  d-sm-inline">اداره السلفيات</span>
       </a>
       <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
+      <?php if ($_SESSION['position'] == 'Admin') { ?>
         <li class="w-100">
           <a href="../../Admin/Advance_Salary/view-advance-salary.php" class="nav-link px-0"> <span class=" d-sm-inline">بيانات السفليات</span></a>
         </li>
+        <?php } ?>  
         <li class="w-100">
           <a href="../../Admin/Advance_Salary/index.php" class="nav-link px-0"> <span class=" d-sm-inline">اضافه سلفيه</span></a>
         </li>
