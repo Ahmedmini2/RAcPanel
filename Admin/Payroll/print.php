@@ -341,7 +341,7 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
                     
                      function changeVal() {
                         
-                        value =  <?=number_format($t_net_salary,2,'.',',')?> ;
+                        value =  <?=number_format($t_net_salary,0,'','')?> ;
                         document.getElementById("con").innerText = numToWords(value);
                         console.log(value);
                         
