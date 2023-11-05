@@ -155,7 +155,7 @@ $select = mysqli_query($conn, "select DISTINCT `month` FROM payroll_process");
                         <div class="card-header text-center">
                             <div class="row align-items-center">
                                 <div class="col-md-11">
-                                    <h5>مسير رواتب مدد لشهر <?=$rr['month']?> (8) -السنة الميلادية (2023)</h5>
+                                    <h5>مسير رواتب مدد لشهر <?=$r['month']?> (8) -السنة الميلادية (2023)</h5>
                                 </div>
                                 <a href="print.php" class="printer">
                                     <div class="paper">
@@ -223,6 +223,7 @@ $select = mysqli_query($conn, "select DISTINCT `month` FROM payroll_process");
 
 
                                     </tbody>
+                                    <?php } ?>
                                     <!--Table body-->
 
                                 </table>
@@ -234,7 +235,7 @@ $select = mysqli_query($conn, "select DISTINCT `month` FROM payroll_process");
                 </div>
             </div>
             <!--Table -->
-            <?php } }?>
+            <?php } ?>
         </div>
 
 
