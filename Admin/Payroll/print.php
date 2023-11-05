@@ -288,7 +288,7 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
                                     ?>   
                                         <tr>
                                             <th scope="row"><?=$rr['id']?></th>
-                                            <td class="border-1"><?=number_format($rr['emp_name'],2,'.',',')?></td>
+                                            <td class="border-1"><?=$rr['emp_name']?></td>
                                             <td class="border-1"><?=number_format($rr['salary'],2,'.',',')?></td>
                                             <td class="border-1"><?=number_format($rr['extra'],2,'.',',')?></td>
                                             <td class="border-1"><?=number_format($rr['total_salary'],2,'.',',')?></td>
