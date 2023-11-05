@@ -276,6 +276,15 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
 
                                     <?php 
                                      while($rr = mysqli_fetch_array($select2)){
+                                        $t_salary += $rr['salary'];
+                                        $t_extra += $rr['extra'];
+                                        $t_total_salary += $rr['total_salary'];
+                                        $t_fees += $rr['fees'];
+                                        $t_absend += $rr['absend'];
+                                        $t_late += $rr['salary'];
+                                        $t_advanced += $rr['advanced'];
+                                        $t_deductions_total += $rr['deductions_total'];
+                                        $t_net_salary += $rr['net_salary'];
                                     ?>   
                                         <tr>
                                             <th scope="row"><?=$rr['id']?></th>
@@ -298,15 +307,15 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
                                     <?php } ?>
                                     <tr>
                                         <td class="text-center border-1" colspan="2">المجموع</td>
-                                        <td class="border-1">40000.00</td>
-                                        <td class="border-1">10000.00</td>
-                                        <td class="border-1">50000.00</td>
-                                        <td class="border-1">0.00</td>
-                                        <td class="border-1">833.00</td>
-                                        <td class="border-1">0.00</td>
-                                        <td class="border-1">5000.00</td>
-                                        <td class="border-1">5833.00</td>
-                                        <td class="border-1">44167.00</td>
+                                        <td class="border-1"><?=$t_salary?></td>
+                                        <td class="border-1"><?=$t_extra?></td>
+                                        <td class="border-1"><?=$t_total_salary?></td>
+                                        <td class="border-1"><?=$t_fees?></td>
+                                        <td class="border-1"><?=$t_absend?></td>
+                                        <td class="border-1"><?=$t_late?></td>
+                                        <td class="border-1"><?=$t_advanced?></td>
+                                        <td class="border-1"><?=$t_deductions_total?></td>
+                                        <td class="border-1"><?=$t_net_salary?></td>
                                         <td class="border-1"></td>
 
                                     </tr>
