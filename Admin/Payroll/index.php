@@ -1,7 +1,7 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "payroll";
-$select = mysqli_query($conn, "select * from payroll_process ");
+$select = mysqli_query($conn, "select DISTINCT `month` FROM payroll_process");
 ?>
 
 <html lang="ar" dir="rtl">
@@ -141,13 +141,21 @@ $select = mysqli_query($conn, "select * from payroll_process ");
                 </a>
             </div>
             <!--Table     -->
+            <?php
+            while ($r = mysqli_fetch_array($select)) {
+                $month = $r['month'];
+
+                $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$month'");
+
+                while($rr = mysqli_fetch_array($select2)){
+            ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4 mt-3">
                         <div class="card-header text-center">
                             <div class="row align-items-center">
                                 <div class="col-md-11">
-                                    <h5>مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
+                                    <h5>مسير رواتب مدد لشهر <?=$rr['month']?> (8) -السنة الميلادية (2023)</h5>
                                 </div>
                                 <a href="print.php" class="printer">
                                     <div class="paper">
@@ -194,18 +202,18 @@ $select = mysqli_query($conn, "select * from payroll_process ");
                                     <tbody class=" text-center">
 
                                         <tr>
-                                            <th scope="row">RA-EMP-1</th>
-                                            <td class="border-1">عباس الجعفري</td>
-                                            <td class="border-1">5000.00</td>
-                                            <td class="border-1">10000.00</td>
-                                            <td class="border-1">15000.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">0.00</td>
-                                            <td class="border-1">15000.00</td>
-                                            <td class="border-1">30</td>
+                                            <th scope="row"><?=$rr['id']?></th>
+                                            <td class="border-1"><?=$rr['emp_name']?></td>
+                                            <td class="border-1"><?=$rr['salary']?></td>
+                                            <td class="border-1"><?=$rr['extra']?></td>
+                                            <td class="border-1"><?=$rr['total_salary']?></td>
+                                            <td class="border-1"><?=$rr['fees']?></td>
+                                            <td class="border-1"><?=$rr['absend']?></td>
+                                            <td class="border-1"><?=$rr['late']?></td>
+                                            <td class="border-1"><?=$rr['advanced']?></td>
+                                            <td class="border-1"><?=$rr['deductions_total']?></td>
+                                            <td class="border-1"><?=$rr['net_salary']?></td>
+                                            <td class="border-1"><?=$rr['work_days']?></td>
 
 
                                         </tr>
@@ -223,6 +231,7 @@ $select = mysqli_query($conn, "select * from payroll_process ");
                 </div>
             </div>
             <!--Table -->
+            <?php } }?>
         </div>
 
 
