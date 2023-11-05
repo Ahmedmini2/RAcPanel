@@ -2,6 +2,10 @@
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "payroll";
 include('../../cookies/insert-method.php');
+$year = $_GET['year'];
+$month = $_GET['month'];
+$nmonth = date("m", strtotime($month));
+$select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$month' AND year = '$year'");
 ?>
 
 <html lang="ar" dir="rtl">
@@ -239,7 +243,7 @@ include('../../cookies/insert-method.php');
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class=" text-center">
-                            <h5>مسير رواتب مدد لشهر اغسطس (8) -السنة الميلادية (2023)</h5>
+                            <h5>مسير رواتب مدد لشهر <?=$month?> (<?=$nmonth?>) -السنة الميلادية (<?=$year?>)</h5>
                         </div>
                         <div class="table-responsive p-0">
                             <table class="table table-hover table-bordered table-fixed text-center border-dark">
@@ -267,42 +271,31 @@ include('../../cookies/insert-method.php');
                                 </thead>
                                 <!--Table head-->
 
-                                <!--Table body-->
-                                <tbody class=" text-center">
+                                <?php 
+                                     while($rr = mysqli_fetch_array($select2)){
+                                    ?>
+                                    <tbody class=" text-center">
 
-                                    <tr>
-                                        <th scope="row">RA-EMP-1</th>
-                                        <td class="border-1">عباس الجعفري</td>
-                                        <td class="border-1">5000.00</td>
-                                        <td class="border-1">10000.00</td>
-                                        <td class="border-1">15000.00</td>
-                                        <td class="border-1">0.00</td>
-                                        <td class="border-1">0.00</td>
-                                        <td class="border-1">0.00</td>
-                                        <td class="border-1">0.00</td>
-                                        <td class="border-1">0.00</td>
-                                        <td class="border-1">15000.00</td>
-                                        <td class="border-1">30</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center border-1" colspan="2">المجموع</td>
-                                        <td class="border-1">40000.00</td>
-                                        <td class="border-1">10000.00</td>
-                                        <td class="border-1">50000.00</td>
-                                        <td class="border-1">0.00</td>
-                                        <td class="border-1">833.00</td>
-                                        <td class="border-1">0.00</td>
-                                        <td class="border-1">5000.00</td>
-                                        <td class="border-1">5833.00</td>
-                                        <td class="border-1">44167.00</td>
-                                        <td class="border-1"></td>
-
-                                    </tr>
+                                        <tr>
+                                            <th scope="row"><?=$rr['id']?></th>
+                                            <td class="border-1"><?=$rr['emp_name']?></td>
+                                            <td class="border-1"><?=$rr['salary']?></td>
+                                            <td class="border-1"><?=$rr['extra']?></td>
+                                            <td class="border-1"><?=$rr['total_salary']?></td>
+                                            <td class="border-1"><?=$rr['fees']?></td>
+                                            <td class="border-1"><?=$rr['absend']?></td>
+                                            <td class="border-1"><?=$rr['late']?></td>
+                                            <td class="border-1"><?=$rr['advanced']?></td>
+                                            <td class="border-1"><?=$rr['deductions_total']?></td>
+                                            <td class="border-1"><?=$rr['net_salary']?></td>
+                                            <td class="border-1"><?=$rr['work_days']?></td>
 
 
+                                        </tr>
 
-                                </tbody>
-                                <!--Table body-->
+
+                                    </tbody>
+                                    <?php } ?>
 
                             </table>
                         </div>
