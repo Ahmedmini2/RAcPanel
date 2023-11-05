@@ -288,16 +288,16 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
                                     ?>   
                                         <tr>
                                             <th scope="row"><?=$rr['id']?></th>
-                                            <td class="border-1"><?=$rr['emp_name']?></td>
-                                            <td class="border-1"><?=$rr['salary']?></td>
-                                            <td class="border-1"><?=$rr['extra']?></td>
-                                            <td class="border-1"><?=$rr['total_salary']?></td>
-                                            <td class="border-1"><?=$rr['fees']?></td>
-                                            <td class="border-1"><?=$rr['absend']?></td>
-                                            <td class="border-1"><?=$rr['late']?></td>
-                                            <td class="border-1"><?=$rr['advanced']?></td>
-                                            <td class="border-1"><?=$rr['deductions_total']?></td>
-                                            <td class="border-1"><?=$rr['net_salary']?></td>
+                                            <td class="border-1"><?=number_format($rr['emp_name'],2,'.',',')?></td>
+                                            <td class="border-1"><?=number_format($rr['salary'],2,'.',',')?></td>
+                                            <td class="border-1"><?=number_format($rr['extra'],2,'.',',')?></td>
+                                            <td class="border-1"><?=number_format($rr['total_salary'],2,'.',',')?></td>
+                                            <td class="border-1"><?=number_format($rr['fees'],2,'.',',')?></td>
+                                            <td class="border-1"><?=number_format($rr['absend'],2,'.',',')?></td>
+                                            <td class="border-1"><?=number_format($rr['late'],2,'.',',')?></td>
+                                            <td class="border-1"><?=number_format($rr['advanced'],2,'.',',')?></td>
+                                            <td class="border-1"><?=number_format($rr['deductions_total'],2,'.',',')?></td>
+                                            <td class="border-1"><?=number_format($rr['net_salary'],2,'.',',')?></td>
                                             <td class="border-1"><?=$rr['work_days']?></td>
 
 
@@ -307,15 +307,15 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
                                     <?php } ?>
                                     <tr>
                                         <td class="text-center border-1" colspan="2">المجموع</td>
-                                        <td class="border-1"><?=$t_salary?></td>
-                                        <td class="border-1"><?=$t_extra?></td>
-                                        <td class="border-1"><?=$t_total_salary?></td>
-                                        <td class="border-1"><?=$t_fees?></td>
-                                        <td class="border-1"><?=$t_absend?></td>
-                                        <td class="border-1"><?=$t_late?></td>
-                                        <td class="border-1"><?=$t_advanced?></td>
-                                        <td class="border-1"><?=$t_deductions_total?></td>
-                                        <td class="border-1"><?=$t_net_salary?></td>
+                                        <td class="text-center border-1"><?=number_format($t_salary,2,'.',',')?></td>
+                                        <td class="border-1"><?=number_format($t_extra,2,'.',',')?></td>
+                                        <td class="border-1"><?=number_format($t_total_salary,2,'.',',')?></td>
+                                        <td class="border-1"><?=number_format($t_fees,2,'.',',')?></td>
+                                        <td class="border-1"><?=number_format($t_absend,2,'.',',')?></td>
+                                        <td class="border-1"><?=number_format($t_late,2,'.',',')?></td>
+                                        <td class="border-1"><?=number_format($t_advanced,2,'.',',')?></td>
+                                        <td class="border-1"><?=number_format($t_deductions_total,2,'.',',')?></td>
+                                        <td class="border-1"><?=number_format($t_net_salary,2,'.',',')?></td>
                                         <td class="border-1"></td>
 
                                     </tr>
