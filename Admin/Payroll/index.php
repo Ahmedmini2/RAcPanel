@@ -1,7 +1,7 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "payroll";
-$select = mysqli_query($conn, "select DISTINCT `month` FROM payroll_process");
+$select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_process` ORDER by `year` DESC");
 ?>
 
 <html lang="ar" dir="rtl">
@@ -144,7 +144,8 @@ $select = mysqli_query($conn, "select DISTINCT `month` FROM payroll_process");
             <?php
             while ($r = mysqli_fetch_array($select)) {
                 $month = $r['month'];
-
+                $year = $r['year'];
+                $nmonth = date("m", strtotime($month));
                 $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$month'");
 
                
@@ -155,7 +156,7 @@ $select = mysqli_query($conn, "select DISTINCT `month` FROM payroll_process");
                         <div class="card-header text-center">
                             <div class="row align-items-center">
                                 <div class="col-md-11">
-                                    <h5>مسير رواتب مدد لشهر <?=$r['month']?> (8) -السنة الميلادية (2023)</h5>
+                                    <h5>مسير رواتب مدد لشهر <?=$r['month']?> (<?=$nmonth?>) -السنة الميلادية (<?=$year?>)</h5>
                                 </div>
                                 <a href="print.php" class="printer">
                                     <div class="paper">
