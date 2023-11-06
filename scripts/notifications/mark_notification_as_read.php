@@ -10,8 +10,8 @@ if($email_address == '')
 }
 include '../../db/connection.php';
 
-if (isset($_POST['notification_id'])) {
-    $notificationId = $_POST['notification_id'];
+if (isset($_POST['data'])) {
+    $notificationId = $_POST['data'];
 
     $currentTimestamp = date('Y-m-d H:i:s');
     $updateQuery = "UPDATE `notifications` SET `read_at` = '$currentTimestamp' WHERE `id` = '$notificationId'";
