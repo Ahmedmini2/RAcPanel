@@ -729,7 +729,7 @@ while ($ban = mysqli_fetch_array($banner)) {
       data.forEach(function(notification) {
         const notificationItem = $('<li>').addClass('mb-2');
         const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
-        const notificationTime = $('<p>').addClass('text-xs text-secondary mb-0').text(notification.timestamp,"fa fa-clock me-1");
+        const notificationTime = $('<p>').addClass('text-xs text-secondary mb-0').text(notification.timestamp,).add(<i class="fa fa-clock me-1"></i>);
         notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
         if (notification.read_at !== null) {
           notificationLink.addClass('read-notification');
