@@ -14,7 +14,7 @@ if (isset($_POST['notification_id'])) {
     $notificationId = $_POST['notification_id'];
 
     $currentTimestamp = date('Y-m-d H:i:s');
-    $updateQuery = "UPDATE `notifications` SET `read_at` = '$currentTimestamp' WHERE `notifications`.`id` = $notificationId";
+    $updateQuery = "UPDATE `notifications` SET `read_at` = '$currentTimestamp' WHERE `id` = '$notificationId'";
 
     if ($conn->query($updateQuery) === TRUE) {
         // Successfully marked as read
@@ -23,5 +23,7 @@ if (isset($_POST['notification_id'])) {
         // Error occurred while marking as read
         echo json_encode(['message' => 'Error marking notification as read with id ' . $notificationId .' and Timestamp ' . $currentTimestamp]);
     }
+}else{
+    echo json_encode(['message' => 'Error marking notification as read with id ']);
 }
 ?>
