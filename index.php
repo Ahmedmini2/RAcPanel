@@ -745,7 +745,7 @@ while ($ban = mysqli_fetch_array($banner)) {
 
         notificationItem.append(notificationLink);
         notificationItem.append(notificationTime);
-        notificationIcon.append(notificationIcon);
+        notificationItem.append(notificationIcon);
         notificationItem.append(markAsReadButton);
         $('#notifications-container').append(notificationItem);
 
