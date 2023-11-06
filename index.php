@@ -727,7 +727,7 @@ while ($ban = mysqli_fetch_array($banner)) {
 
       // Loop through the received notifications and add them to the UI
       data.forEach(function(notification) {
-        const notificationItem = $('<li>').addClass('mb-2');
+        
         const notificationRow = $('<div>').addClass('row');
         const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
         const notificationTime = $('<p>').addClass('text-xs text-secondary mb-0').text(notification.timestamp,);
@@ -747,11 +747,11 @@ while ($ban = mysqli_fetch_array($banner)) {
         notificationRow.append(notificationLink);
         notificationRow.append(notificationIcon);
         notificationRow.append(notificationTime);
-        notificationItem.append(notificationRow);
         
         
-        notificationItem.append(markAsReadButton);
-        $('#notifications-container').append(notificationItem);
+        
+        notificationRow.append(markAsReadButton);
+        $('#notifications-container').append(notificationRow);
 
         console.log(notification);
       });
