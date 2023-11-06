@@ -25029,10 +25029,9 @@ width: 100px;
 }
 .inside-card{
   float: left;
-  width: 220px;
-  position: relative;
+  
   left: 25%;
-  height: 10vw;
+  height: 12vw;
   object-fit: cover;
   
 
