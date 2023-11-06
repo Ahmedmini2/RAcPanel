@@ -738,9 +738,10 @@ while ($ban = mysqli_fetch_array($banner)) {
 
         if (notification.read_at == '0000-00-00 00:00:00') {
           unreadCount++;
+          notificationLink.addClass('read-notification');
         } else {
           
-          notificationLink.addClass('read-notification');
+          
         }
         notificationLink.on('click', function() {
           console.log('Mark as Read clicked for notification ID: ' + notification.id);
