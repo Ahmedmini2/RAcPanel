@@ -741,8 +741,7 @@ while ($ban = mysqli_fetch_array($banner)) {
         } else {
           unreadCount++;
         }
-        const markAsReadButton = $('<button>').text('Mark as Read').addClass('btn btn-sm btn-primary');
-        markAsReadButton.on('click', function() {
+        notificationLink.on('click', function() {
           console.log('Mark as Read clicked for notification ID: ' + notification.id);
           markNotificationAsRead(notification.id); // Mark notification as read when clicked
         });
