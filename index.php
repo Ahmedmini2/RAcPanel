@@ -727,8 +727,8 @@ while ($ban = mysqli_fetch_array($banner)) {
 
       // Loop through the received notifications and add them to the UI
       data.forEach(function(notification) {
-        const notificationItem = $('<li>').addClass('mb-2 r').attr('dir', 'ltr').html('<span class="ribbon-notification">NEW</span>');
-        const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
+        const notificationItem = $('<li>').addClass('mb-2 r').attr('dir', 'ltr');
+        const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;').html('<span class="ribbon-notification">NEW</span>');
         const notificationMainDiv = $('<div>').addClass('d-flex py-1');
         const notificationImgDiv = $('<div>').addClass('my-auto');
         const notificationImg = $('<img>').addClass('avatar avatar-sm  me-3 ').attr('src','assets/img/team-2.jpg');
