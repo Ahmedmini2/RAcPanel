@@ -162,15 +162,15 @@ $select =mysqli_query($conn, "select * from users");
                     <table class="table align-items-center table-bordered mb-0" id="myTable">
                     <thead>
                     <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Sr.#</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Email</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">User Name</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Full Name</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Phone</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Position</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Status</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Created at</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Action</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Sr.#</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Email</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="5%">User Name</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Full Name</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Phone</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Position</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Status</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Created at</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Action</th>
 
                     </tr>
                     </thead>
