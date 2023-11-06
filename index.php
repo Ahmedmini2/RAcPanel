@@ -751,11 +751,12 @@ while ($ban = mysqli_fetch_array($banner)) {
       $('#notification-count').text(unreadCount); // Update the notification count
     }
 
+    // Function to mark a notification as read
     function markNotificationAsRead(notificationId) {
       $.ajax({
-        url: 'scripts/notifications/mark_notification_as_read.php', // Replace with the actual URL
-        method: 'POST',
-        data: {data:notificationId},
+        url: 'scripts/notifications/mark_notification_as_read.php',
+        method: 'GET',  // Change this to GET
+        data: { data: notificationId }, // Send data as a GET parameter
         dataType: 'json',
         success: function(response) {
           // Handle the response (e.g., display a success message)

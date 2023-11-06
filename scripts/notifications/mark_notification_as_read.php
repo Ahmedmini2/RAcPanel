@@ -9,8 +9,8 @@ if($email_address == '')
   header("location:../../Auth/sign-in.php");
 }
 include '../../db/connection.php';
-$notificationId = $_POST['data'];
-if (isset($_POST['data'])) {
+$notificationId = !empty($_GET['data']) ? $_GET['data'] : null; // Change to use $_GET
+if ($notificationId !== null) {
     $notificationId = $_POST['data'];
 
     $currentTimestamp = date('Y-m-d H:i:s');
