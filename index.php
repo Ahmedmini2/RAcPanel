@@ -736,10 +736,11 @@ while ($ban = mysqli_fetch_array($banner)) {
         notificationMsgDiv.html('<h6 class="text-sm font-weight-normal mb-1"> <span class="font-weight-bold">' + notification.title + '</span> </h6><p class="text-xs text-secondary mb-0"> <i class="fa fa-clock me-1"></i>'+ notification.timestamp +'</p>');
         
 
-        if (notification.read_at == '0000-00-00 00:00:00') {
-          notificationLink.addClass('read-notification');
-        } else {
+        if (notification.read_at !== '0000-00-00 00:00:00') {
           unreadCount++;
+        } else {
+          
+          notificationLink.addClass('read-notification');
         }
         notificationLink.on('click', function() {
           console.log('Mark as Read clicked for notification ID: ' + notification.id);
