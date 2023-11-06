@@ -730,6 +730,7 @@ while ($ban = mysqli_fetch_array($banner)) {
         const notificationItem = $('<li>').addClass('mb-2');
         const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
         const notificationTime = $('<p>').addClass('text-xs text-secondary mb-0').text(notification.timestamp,);
+        const notificationIcon = $('<i>').addClass('fa fa-clock me-1');
         notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
         if (notification.read_at !== null) {
           notificationLink.addClass('read-notification');
@@ -744,6 +745,7 @@ while ($ban = mysqli_fetch_array($banner)) {
 
         notificationItem.append(notificationLink);
         notificationItem.append(notificationTime);
+        notificationIcon.append(notificationIcon);
         notificationItem.append(markAsReadButton);
         $('#notifications-container').append(notificationItem);
 
