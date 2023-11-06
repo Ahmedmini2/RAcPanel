@@ -731,7 +731,7 @@ while ($ban = mysqli_fetch_array($banner)) {
         const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
         const notificationTime = $('<p>').addClass('text-xs text-secondary mb-0').text(notification.timestamp,);
         notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
-        if (notification.read_at !== null) {
+        if (notification.read_at !== '0000-00-00 00:00:00') {
           notificationLink.addClass('read-notification');
         } else {
           unreadCount++;
