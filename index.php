@@ -115,24 +115,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                 <span id="notification-count" class="notification-badge">0</span> 
               </a>
               <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="notifications-container">
-              <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New message</span> from Laur
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          13 minutes ago
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
+               
               </ul>
             </li>
             <!-- End of Notifications -->
@@ -746,6 +729,7 @@ while ($ban = mysqli_fetch_array($banner)) {
       data.forEach(function(notification) {
         const notificationItem = $('<li>').addClass('mb-2');
         const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
+        const notificationTime = $('<p>').addClass('text-xs text-secondary mb-0').text(notification.created_at);
         notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
         if (notification.read_at !== null) {
           notificationLink.addClass('read-notification');
@@ -758,6 +742,7 @@ while ($ban = mysqli_fetch_array($banner)) {
         });
 
         notificationItem.append(notificationLink);
+        notificationItem.append(notificationTime);
         notificationItem.append(markAsReadButton);
         $('#notifications-container').append(notificationItem);
 
