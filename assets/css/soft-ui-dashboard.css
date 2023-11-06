@@ -25201,6 +25201,10 @@ width: 100px;
   background: var(--background);
   transition: opacity .5s;
  }
+
+ .darkmode .dropdown-menu{
+  background-color: #292929;
+ }
  
  .darkmode .sal-card-info {
   --color: #383838;
