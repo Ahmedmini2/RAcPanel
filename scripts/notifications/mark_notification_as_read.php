@@ -9,9 +9,9 @@ if($email_address == '')
   header("location:../../Auth/sign-in.php");
 }
 include '../../db/connection.php';
-
-if (isset($_POST['notification_id'])) {
-    $notificationId = $_POST['notification_id'];
+$notificationId = $_POST['data'];
+if (isset($_POST['data'])) {
+    $notificationId = $_POST['data'];
 
     $currentTimestamp = date('Y-m-d H:i:s');
     $updateQuery = "UPDATE `notifications` SET `read_at` = '$currentTimestamp' WHERE `id` = '$notificationId'";
@@ -24,6 +24,6 @@ if (isset($_POST['notification_id'])) {
         echo json_encode(['message' => 'Error marking notification as read with id ' . $notificationId .' and Timestamp ' . $currentTimestamp]);
     }
 }else{
-    echo json_encode(['message' => 'Error marking notification as read with id ']);
+    echo json_encode(['message' => 'Error marking notification as read with id ' . $notificationId]);
 }
 ?>

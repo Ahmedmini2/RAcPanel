@@ -755,9 +755,7 @@ while ($ban = mysqli_fetch_array($banner)) {
       $.ajax({
         url: 'scripts/notifications/mark_notification_as_read.php', // Replace with the actual URL
         method: 'POST',
-        data: {
-          notification_id: notificationId
-        },
+        data: {data:notificationId},
         dataType: 'json',
         success: function(response) {
           // Handle the response (e.g., display a success message)
