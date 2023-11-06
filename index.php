@@ -408,7 +408,7 @@ while ($ban = mysqli_fetch_array($banner)) {
               while ($r = mysqli_fetch_array($projects)) {
 
                 echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
-                      <div class="card  h-100 shadow-lg">
+                      <div class="product_card  h-100 shadow-lg">
 
 
                       <div class="view overlay">
