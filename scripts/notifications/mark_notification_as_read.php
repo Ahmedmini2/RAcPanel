@@ -18,7 +18,7 @@ if ($notificationId !== null) {
 
     if ($conn->query($updateQuery) === TRUE) {
         // Successfully marked as read
-        echo json_encode(['message' => 'Notification marked as read']);
+        echo json_encode(['message' => 'Notification marked as read' . $currentTimestamp]);
     } else {
         // Error occurred while marking as read
         echo json_encode(['message' => 'Error marking notification as read with id ' . $notificationId .' and Timestamp ' . $currentTimestamp]);
