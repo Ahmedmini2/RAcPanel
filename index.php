@@ -727,12 +727,15 @@ while ($ban = mysqli_fetch_array($banner)) {
 
       // Loop through the received notifications and add them to the UI
       data.forEach(function(notification) {
-        
-        const notificationRow = $('<div>').addClass('row');
+        const notificationItem = $('<li>').addClass('mb-2');
         const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
-        const notificationTime = $('<p>').addClass('text-xs text-secondary mb-0').text(notification.timestamp,);
-        const notificationIcon = $('<i>').addClass('fa fa-clock me-1');
-        notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
+        const notificationMainDiv = $('<div>').addClass('d-flex py-1');
+        const notificationImgDiv = $('<div>').addClass('my-auto');
+        const notificationImg = $('<div>').addClass('avatar avatar-sm  me-3 ').attr('src','../assets/img/team-2.jpg');
+        const notificationMsgDiv = $('<div>').addClass('d-flex flex-column justify-content-center');
+        notificationMsgDiv.html('<h6 class="text-sm font-weight-normal mb-1"> <span class="font-weight-bold">' + notification.title + '</span> </h6><p class="text-xs text-secondary mb-0"> <i class="fa fa-clock me-1"></i>'+ notification.timestamp +'</p>');
+        
+
         if (notification.read_at !== '0000-00-00 00:00:00') {
           notificationLink.addClass('read-notification');
         } else {
@@ -744,14 +747,12 @@ while ($ban = mysqli_fetch_array($banner)) {
           markNotificationAsRead(notification.id); // Mark notification as read when clicked
         });
 
-        notificationRow.append(notificationLink);
-        notificationRow.append(notificationIcon);
-        notificationRow.append(notificationTime);
-        
-        
-        
-        notificationRow.append(markAsReadButton);
-        $('#notifications-container').append(notificationRow);
+        notificationImgDiv.append(notificationImg);
+        notificationMainDiv.append(notificationImgDiv);
+        notificationMainDiv.append(notificationMsgDiv);
+        notificationLink.append(notificationMainDiv);
+        notificationItem.append(notificationLink);
+        $('#notifications-container').append(notificationItem);
 
         console.log(notification);
       });
@@ -782,7 +783,7 @@ while ($ban = mysqli_fetch_array($banner)) {
     fetchNotifications();
 
     // Poll for new notifications every 5 minutes (adjust the interval as needed)
-    setInterval(fetchNotifications, 1000000); // 5 minutes = 300,000 milliseconds
+    setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
   </script>
   <script src="Admin/darkmode.js"></script>
 </body>
