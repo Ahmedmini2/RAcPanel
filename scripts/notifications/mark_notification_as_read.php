@@ -9,7 +9,7 @@ if($email_address == '')
   header("location:../../Auth/sign-in.php");
 }
 include '../../db/connection.php';
-
+$notificationId = $_POST['data'];
 if (isset($_POST['data'])) {
     $notificationId = $_POST['data'];
 
