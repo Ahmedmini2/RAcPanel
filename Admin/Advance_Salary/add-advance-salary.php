@@ -27,12 +27,15 @@ if(isset($_POST['submit'])){
         
     ];
     $tableName=$_POST['table_name'];
+    $tableName2='advance_status'; 
+
+    $last_amount = get_advanced_status($tableName2,$employee_id);
 
     $advance_status_data = [
-        'amount'=>$amount,
+        'amount'=>$amount+$last_amount,
         'modified_at'=>'NOW()'
       ];
-      $tableName2='advance_status'; 
+      
       if(!empty($advance_status_data) && !empty($tableName2)){
         $insertData2=update_advance_status_data($advance_status_data,$tableName2,$employee_id);
         if($insertData2){

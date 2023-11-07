@@ -83,4 +83,17 @@ function delete_data($tableName, $id){
    }
  
  }
+
+ function get_advanced_status($tableName, $emp_id){
+   global $db;
+
+   $query = "SELECT * FROM ".$tableName." WHERE emp_id=".$emp_id;
+   $result= $db->query($query);
+   if($result){
+      $data = $result->fetch_assoc();
+      return $data['amount'];
+   }else{
+      echo "Error found in ".$db->error;
+   }
+ }
   ?>
