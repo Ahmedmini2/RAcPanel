@@ -9,6 +9,7 @@ if (isset($_GET['id'])) {
     $editData = $res->fetch_assoc();
     $type = $editData['type'];
     $dimensions = $editData['dimensions'];
+    $purchase_id = $editData['purchase_id'];
     $quantity = $editData['quantity'];
     $price_per_peice = $editData['price_per_piece'];
     $total_price = $editData['total_price'];
@@ -470,18 +471,25 @@ if (isset($_GET['id'])) {
                                 <!--Table body-->
                                 <tbody>
 
-
+                                <?php 
+                                
+                                $covers = mysqli_query($conn, "SELECT * FROM covers_purchase WHERE purchase_id = $purchase_id");
+                                $i = 0;
+                                while ($cover = mysqli_fetch_array($covers)) {
+                                    $i++;
+                                ?>
 
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td class="custom-font-m text-center"><?= $type ?></td>
-                                        <td class="custom-font-m"><?= $dimensions ?></td>
-                                        <td class="custom-font-m"><?= $quantity ?></td>
-                                        <td class="custom-font-m"><?= $price_per_peice ?></td>
-                                        <td class="custom-font-m"><?= $total_price ?></td>
+                                        <th scope="row"><?=$i?></th>
+                                        <td class="custom-font-m text-center"><?= $cover['type'] ?></td>
+                                        <td class="custom-font-m"><?= $cover['dimensions'] ?></td>
+                                        <td class="custom-font-m"><?= $cover['quantity'] ?></td>
+                                        <td class="custom-font-m"><?= $cover['price_per_piece'] ?></td>
+                                        <td class="custom-font-m"><?= $cover['total_price'] ?></td>
 
                                     </tr>
 
+                                    <?php } ?>
 
                                 </tbody>
                                 <!--Table body-->
