@@ -111,6 +111,8 @@ else if (isset($_POST['submit'])) {
         'password'=>md5('Ruknamial@123')
         
       ];
+
+      
       $tableName='users'; 
       if(!empty($data) && !empty($tableName)){
         $insertData=insert_data($data,$tableName);
@@ -121,6 +123,21 @@ else if (isset($_POST['submit'])) {
         }
      }
      $inserted_id = $db->insert_id;
+
+     $advance_status_data = [
+        'emp_id' => $inserted_id,
+        'amount'=>0,
+      ];
+      $tableName2='advance_status'; 
+      if(!empty($advance_status_data) && !empty($tableName2)){
+        $insertData2=insert_data($advance_status_data,$tableName2);
+        if($insertData2){
+          $_SESSION['notification'] = "User Profile Added sucessfully";
+        }else{
+         $_SESSION['notification'] = "Error!.. check your query";
+        }
+     }
+
     $insert = "INSERT INTO employee VALUES (NULL,'$inserted_id', '$name', '$email', '$phone','$phone_code','$nationality','$gender', '$birth', '$social_status','$id_number','$position'
     ,'$department', '$salary', '$start_date','$contract_type','$trial_period','$working_hours','$filename' , NOW())";
 

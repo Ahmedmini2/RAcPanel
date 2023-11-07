@@ -27,6 +27,21 @@ if(isset($_POST['submit'])){
         
     ];
     $tableName=$_POST['table_name'];
+
+    $advance_status_data = [
+        'amount'=>0,
+        'modified_at'=>'NOW()'
+      ];
+      $tableName2='advance_status'; 
+      if(!empty($advance_status_data) && !empty($tableName2)){
+        $insertData2=update_advance_status_data($advance_status_data,$tableName2,$employee_id);
+        if($insertData2){
+          $_SESSION['notification'] = "User Profile Added sucessfully";
+        }else{
+         $_SESSION['notification'] = "Error!.. check your query";
+        }
+     }
+
     if(!empty($data) && !empty($tableName)){
         $insertData=insert_data($data,$tableName);
         if($insertData){
