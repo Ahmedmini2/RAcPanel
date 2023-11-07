@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
     $tableName=$_POST['table_name'];
 
     $advance_status_data = [
-        'amount'=>0,
+        'amount'=>$amount,
         'modified_at'=>'NOW()'
       ];
       $tableName2='advance_status'; 
