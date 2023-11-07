@@ -2,65 +2,21 @@
 include('../cookies/session2.php');
 include('../cookies/insert-method.php');
 $_SESSION['sidebar'] = "Cover";
-if (!empty($_GET['edit'])) {
-
-  $id = $_GET['edit'];
-  $query = "SELECT * FROM covers_purchase WHERE id=$id";
-  $res = $conn->query($query);
-  $editData = $res->fetch_assoc();
-  $type = $editData['type'];
-  $dimensions = $editData['dimensions'];
-  $quantity = $editData['quantity'];
-  $price_per_peice = $editData['price_per_piece'];
-  $total_price = $editData['total_price'];
-  $seller = $editData['seller'];
-
-
-
-if (isset($_POST['submit'])) {
-
-  $type = $_POST['type'];
-  $dimensions = $_POST['dimensions'];
-  $quantity = $_POST['quantity'];
-  $price_per_peice = $_POST['price_per_peice'];
-  $total_price = str_replace(',','',$_POST['total_price']);
-  $seller = $_POST['seller'];
-
-
-
-  $update = "UPDATE `covers_purchase` SET `type` = '$type', `dimensions` = '$dimensions', `quantity` = '$quantity', `price_per_piece` = '$price_per_peice', `total_price` = '$total_price',
-   `seller` = '$seller' WHERE `covers_purchase`.`id` = $id";
-    $updateResult = $conn->query($update);
-    if ($updateResult) {
-
-      $_SESSION['notification'] = "تم تعديل طلب شراء الاغطية بنجاح";
-      header('location: index.php');
-      exit();
-
-      } else {
-      $_SESSION['notification'] = "يوجد خلل في النظام";
-      header('location: index.php');
-      exit();
-
-      }
-}
 
  
-
-} else if (isset($_POST['submit'])) {
+ if (isset($_POST['submit'])) {
 
   $type = $_POST['type'];
   $dimensions = $_POST['dimensions'];
   $quantity = $_POST['quantity'];
   $price_per_peice = $_POST['price_per_peice'];
   $total_price = str_replace(',','',$_POST['total_price']);
-  $seller = $_POST['seller'];
+  $seller = $_SESSION['seller_id'];
 
-  $select = "SELECT * FROM covers_purchase_id ORDER BY purchase_id DESC LIMIT 1";
-  $select_res = $conn->query($select);
-  $selectData = $select_res->fetch_assoc();
-  $last_puchase_id = $selectData['puchase_id'];
-  $last_puchase_id +=1;
+  
+  $last_puchase_id = $_SESSION['last_purchase_id'];
+  unset($_SESSION['last_purchase_id']);
+
 
   $data= [
     'purchase_id' => $last_puchase_id,
@@ -88,63 +44,43 @@ if (isset($_POST['submit'])) {
 
 
 
+} else if(isset($_POST['submit2'])) {
+    $type = $_POST['type'];
+    $dimensions = $_POST['dimensions'];
+    $quantity = $_POST['quantity'];
+    $price_per_peice = $_POST['price_per_peice'];
+    $total_price = str_replace(',','',$_POST['total_price']);
+    $seller = $_SESSION['seller_id'];
 
-} else if(isset($_POST['submit2'])){
-
-  $type = $_POST['type'];
-  $dimensions = $_POST['dimensions'];
-  $quantity = $_POST['quantity'];
-  $price_per_peice = $_POST['price_per_peice'];
-  $total_price = str_replace(',','',$_POST['total_price']);
-  $seller = $_POST['seller'];
-
-  $select = "SELECT * FROM covers_purchase_id ORDER BY purchase_id DESC LIMIT 1";
-  $select_res = $conn->query($select);
-  $selectData = $select_res->fetch_assoc();
-  $last_puchase_id = $selectData['puchase_id'];
-  $last_puchase_id +=1;
-
-  $_SESSION['last_puchase_id'] = $last_puchase_id;
-  $_SESSION['seller_id'] = $seller;
-
-  $data= [
-    'purchase_id' => $last_puchase_id,
-  ];
-  $tableName='covers_purchase_id'; 
-      if(!empty($data) && !empty($tableName)){
-        $insertData=insert_data($data,$tableName);   
-     }
-
-
-  $insert = "INSERT INTO `covers_purchase` (`id`,`purchase_id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
-   VALUES (NULL,'$last_puchase_id', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
-  $insertResult = $conn->query($insert);
-  if ($insertResult) {
-
-      $_SESSION['notification'] = "تم اضافة طلب شراء الاغطية بنجاح";
+  
+    $last_puchase_id = $_SESSION['last_purchase_id'];
+  
+    $_SESSION['last_puchase_id'] = $last_puchase_id;
+    $_SESSION['seller_id'] = $seller;
+  
+    $data= [
+      'purchase_id' => $last_puchase_id,
+    ];
+    $tableName='covers_purchase_id'; 
+        if(!empty($data) && !empty($tableName)){
+          $insertData=insert_data($data,$tableName);   
+       }
+  
+  
+    $insert = "INSERT INTO `covers_purchase` (`id`,`purchase_id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
+     VALUES (NULL,'$last_puchase_id', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
+    $insertResult = $conn->query($insert);
+    if ($insertResult) {
+  
+        $_SESSION['notification'] = "تم اضافة طلب شراء الاغطية بنجاح";
+        header('location: add-more-covers.php');
+        exit();
+     
+    } else {
+      $_SESSION['notification'] = "يوجد خلل في النظام";
       header('location: add-more-covers.php');
       exit();
-   
-  } else {
-    $_SESSION['notification'] = "يوجد خلل في النظام";
-    header('location: add-more-covers.php');
-    exit();
-  }
-
-
-
-
-
-} else {
-  $type = "";
-  $dimensions = "";
-  $quantity = "";
-  $price_per_peice = "";
-  $total_price = "";
-  $seller = "";
-  $address = "";
-  $email = "";
-  $phone = "";
+    }
 }
 
 ?>
@@ -352,23 +288,7 @@ if (isset($_POST['submit'])) {
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col">
-                <div class="form-group">
-                <label>إسم الشركة</label>
-                <select name="seller" id="seller" class="form-control" placeholder="إسم الشركة">
-                    <option value="<?=$type?>"><?=$type?></option>
-                    <?php 
-                    $select = mysqli_query($conn, "select * from contact_covers");
-                    while ($r = mysqli_fetch_array($select)) {
-
-                      echo '<option value="' . $r['id'] . '">' . $r['name'] . '</option>';
-                    }
-                    ?>
-                  </select>
-                </div>
-              </div>
-            </div>
+           
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
                       var a = 1;
