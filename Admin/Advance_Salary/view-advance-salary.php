@@ -1,6 +1,7 @@
 <?php
 include('../../cookies/session3.php');
-$_SESSION['sidebar_admin'] = "employee";
+$_SESSION['sidebar_admin'] = "Advance_Salary";
+$select = mysqli_query($conn, "select * from advance_salary");
 ?>
 
 <html lang="ar" dir="rtl">
@@ -43,9 +44,9 @@ $_SESSION['sidebar_admin'] = "employee";
 
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-    <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" defer></script>
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
 </head>
 
 
@@ -55,7 +56,7 @@ $_SESSION['sidebar_admin'] = "employee";
 
     <!-- Side Bar -->
     <?php require_once('../../components/sidebar_admin.php'); ?>
-    
+
 
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
@@ -63,15 +64,12 @@ $_SESSION['sidebar_admin'] = "employee";
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    
-                    <h6 class="font-weight-bolder mb-0">سلفيات الموظفين</h6>
+
+                    <h6 class="font-weight-bolder mb-0">جميع السلفيات</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
+
+
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -118,54 +116,62 @@ $_SESSION['sidebar_admin'] = "employee";
 
 
         <div class="container-fluid py-4">
-        <div class=" mb-4 p-3">
-          <div class="">
-            <h5 class="mb-1">اضافة سلفيه </h5>
-          </div>
+            <div class=" mb-4 p-3">
+                <div class="">
+                    <h5 class="mb-1">بيانات جميع السلفيات</h5>
+                </div>
 
-          <a href="add-salafis.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة سلفيه&nbsp;&nbsp;
-            <i class="fas fa-plus">
-            </i>
-          </a>
-          </div>
+
+            </div>
+
             <!--Table     -->
             <div class="row">
                 <div class="col-12">
-                    <div class="card mb-4 mt-3">
+                    <div class=" mb-4 mt-3">
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered table-fixed" id="example">
+                                <table class=" display table table-hover table-bordered table-fixed" id="example">
 
                                     <!--Table head-->
-                                    <thead class="bg-dark text-light table-bordered text-center">
+                                    <thead class="bg-dark text-light text-center">
                                         <tr>
-                                            <th>الرقم</th>
-                                            <th>اسم الموظف</th>
-                                            <th>قسم الموظف</th>
-                                            <th>المبلغ</th>
-                                            <th>تاريخ السلفه</th>
-                                            <th>مستند السلفه</th>
-                                            <th>Action </th>
+                                            <th class=" border-1 text-center">الرقم</th>
+                                            <th class=" border-1 text-center">اسم الموظف</th>
+
+                                            <th class="  border-1 text-center">سلفيه الموظف</th>
+                                            <th class=" border-1 text-center">مستند الملف</th>
+                                            <th class=" border-1 text-center">ACTION</th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
                                     <!--Table body-->
                                     <tbody class=" text-center">
 
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td class="border-1">عباس الجعفري</td>
-                                            
-                                            <td class="border-1">المدير</td>
-                                            <td class="border-1">2500</td>
-                                            <td class="border-1">2023/10/22</td>
-                                            <td class="border-1">مستند 1</td>
-                                            <td class="border-1">
-                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </td>
-                                        </tr>
+                                        <?php
+                                        $i = 0;
+                                        while ($r = mysqli_fetch_array($select)) {
+                                            $i++;
+                                            $emp_id = $r['employee_id'];
+                                            $query = "SELECT * FROM users WHERE id=$emp_id";
+                                            $res = $conn->query($query);
+                                            $editData = $res->fetch_assoc();
+                                        ?>
+                                            <tr>
+                                                <th scope="row">RA-EMP-<?= $r['id'] ?></th>
+                                                <td class="border-1"><?= $editData['full_name'] ?></td>
+
+                                                <td class="border-1"><?= $r['amount'] ?></td>
+
+                                                <td class="border-1"><?= $r['image'] ?></td>
+
+
+                                                <td class="border-1">
+                                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>|
+                                                    <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
 
 
                                     </tbody>
@@ -178,7 +184,6 @@ $_SESSION['sidebar_admin'] = "employee";
                 </div>
             </div>
             <!--Table -->
-        
         </div>
 
 

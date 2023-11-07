@@ -1,7 +1,74 @@
 <?php
 include('../../cookies/session3.php');
-$_SESSION['sidebar_admin'] = "leave";
-$select = mysqli_query($conn, "select * from leaves WHERE status = 'Declined'");
+$_SESSION['sidebar_admin'] = "payroll";
+include('../../cookies/insert-method.php');
+if(isset($_POST['submit'])){
+    $dateNew = new DateTimeImmutable($_POST['month']);
+    $date = date_format($dateNew,'F');
+    $year = date_format($dateNew,'Y');
+    $names = $_POST['name'];
+    $emp_ids = $_POST['emp_id'];
+    $salaries = $_POST['salary'];
+    $extras = $_POST['extra'];
+    $total_salaries = $_POST['total_salary'];
+    $fees = $_POST['fee'];
+    $absends = $_POST['absend'];
+    $lates = $_POST['latee'];
+    $advanceds = $_POST['advancedd'];
+    $deductions_totals = $_POST['deductions_total'];
+    $net_salaries = $_POST['net_salary'];
+    $work_days = $_POST['work_days'];
+ 
+    for($i = 0; $i < count($names); $i++){
+        $data= [
+            'emp_name' => $names[$i],
+            'salary'=>$salaries[$i],
+            'extra'=>$extras[$i],
+            'total_salary'=>$total_salaries[$i],
+            'fees'=>$fees[$i],
+            'absend'=>$absends[$i],
+            'late'=>$lates[$i],
+            'advanced'=>$advanceds[$i],
+            'deductions_total'=>$deductions_totals[$i],
+            'net_salary'=>$net_salaries[$i],
+            'work_days'=>$work_days[$i],
+            'month'=>$date,
+            'year'=>$year,
+        ];
+        $tableName='payroll_process'; 
+
+        $tableName2='advance_status'; 
+
+        $last_amount = get_advanced_status($tableName2,$emp_ids[$i]);
+
+        $advance_status_data = [
+            'amount'=>$last_amount-$advanceds[$i],
+            'modified_at'=>'NOW()'
+        ];
+        
+        if(!empty($advance_status_data) && !empty($tableName2)){
+            $insertData2=update_advance_status_data($advance_status_data,$tableName2,$emp_ids[$i]);
+            if($insertData2){
+            $_SESSION['notification'] = "User Profile Added sucessfully";
+            }else{
+            $_SESSION['notification'] = "Error!.. check your query";
+            }
+        }
+
+        if(!empty($data) && !empty($tableName)){
+            $insertData=insert_data($data,$tableName);
+            if($insertData){
+            $_SESSION['notification'] = "تم إضافة مسير الرواتب بنجاح";
+            
+            }else{
+            $_SESSION['notification'] = "خطأ في النظام";
+            
+            }
+        }
+    }
+    header('location: index.php');
+    exit();
+}
 ?>
 
 <html lang="ar" dir="rtl">
@@ -50,13 +117,13 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Declined'");
 </head>
 
 
-<body class="g-sidenav-show rtl .bg-gray-100 ">
+<body class="g-sidenav-show rtl ">
 
 
 
     <!-- Side Bar -->
     <?php require_once('../../components/sidebar_admin.php'); ?>
-    
+
 
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
@@ -64,12 +131,12 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Declined'");
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    
-                    <h6 class="font-weight-bolder mb-0">رفض الطلب </h6>
+
+                    <h6 class="font-weight-bolder mb-0">اضافه مسير رواتب</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
-                    
+
+
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -116,71 +183,142 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Declined'");
 
 
         <div class="container-fluid py-4">
-        <div class=" mb-4 p-3">
-          <div class="">
-            <h5 class="mb-1">رفض الطلب الاجازة</h5>
-          </div>
-          </div>
-            <!--Table     -->
             <div class="row">
-                <div class="col-12">
-                    <div class="card mb-4 mt-3">
+                <div class="block block-themed">
 
+                    <div class="block-header bg-gradient-dark  col-md-2 col-sm-6 col-xs-6  rounded-pill">
+
+                        <h6 class="block-title text-white py-2 px-4">إضافة مسير رواتب جديد</h6>
+                    </div>
+                    <form method="POST" action="">
+                        <div class="row">
+
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>الرجاء ادخال تاريخ مسير الرواتب حسب الشهر</label>
+                                    <input type="date" class="form-control" name="month">
+                                </div>
+                            </div>
+
+                            <!-- <div class="col">
+                                <div class="form-group">
+                                    <label>مسير الرواتب لقسم</label>
+                                    <select class="form-control" name="department" id="department" >
+                                        <option value="Manager">Manager</option>
+                                        <option value="Admin">Admin</option>
+                                    </select>
+                                </div>
+
+                                <script>
+                                   $(document).ready(function() {
+                                        $('select').on('change', function() {
+                                            var selectValue = $(this).val();
+                                            $.ajax({
+                                            type: "POST",
+                                            url: "../../ajax/show-emp.php",
+                                            data: {
+                                                selected: selectValue
+                                            },
+                                            success: function (data) {
+                                                console.log(data);
+                                                // Stuff
+                                            },
+                                            error: function (data) {
+                                                // Stuff
+                                            }
+                                            });
+                                        });
+                                        });
+                                </script>
+                            </div> -->
+                        </div>
+                        <div class="row">
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered table-fixed" id="example">
-
-                                    <!--Table head-->
-                                    <thead class="bg-dark text-light text-center">
+                                <table class="table table-hover table-bordered table-fixed">
+                                    <thead class="bg-dark text-light table-bordered text-center">
                                         <tr>
-                                        <th>الرقم</th>
-                                           
-                                           <th>اسم الموظف</th>
-                                           <th>leave type</th>
-                                           <th>description</th>
-                                           <th>تاريخ بداية الإجازة</th>
-                                           <th>تاريخ نهاية الإجازة</th>
-                                           <th>حاله الاجازة </th>
-                                           <th>Action</th>
-                                            
+                                            <th rowspan="2">الرقم</th>
+                                            <th rowspan="2">إسم الموظف</th>
+                                            <th rowspan="2">الراتب الاساسي</th>
+                                            <th rowspan="2">اضافات</th>
+                                            <th rowspan="2">اجمالي الراتب</th>
+                                            <th colspan="4">الاقتطاعات </th>
+                                            <th rowspan="2">مجموع الاقتطاعات</th>
+                                            <th rowspan="2">صافي الراتب المستحق</th>
+                                            <th rowspan="2">عدد الايام</th>
+                                        </tr>
+                                        <tr>
+                                            <th>مخالفات</th>
+                                            <th>غيابات</th>
+                                            <th>تاخير</th>
+                                            <th>سلف و اخرى</th>
                                         </tr>
                                     </thead>
-                                    <!--Table head-->
-                                    <!--Table body-->
-                                    <tbody class=" text-center">
 
-                                    <?php 
-                                    $i = 0;
-                                    while ($r = mysqli_fetch_array($select)) {
-                                        $i++;
-                                        $emp_id = $r['employee_id'];
-                                        $query = "SELECT * FROM users WHERE id=$emp_id";
-                                        $res = $conn->query($query);
-                                        $editData = $res->fetch_assoc();
+                                    <tbody class="text-center">
+                                        <?php
+                                        $show_products_status = mysqli_query($conn, "SELECT * FROM `employee`");
+                                        while ($r = mysqli_fetch_array($show_products_status)) {
+
                                         ?>
-                                        <tr>
-                                            <th scope="row"><?=$i?></th>
-                                            <td class="border-1"><?=$editData['full_name']?></td>
-                                            <td class="border-1"><?=$r['type']?></td>
-                                            <td class="border-1"><?=$r['description']?></td>
-                                            <td class="border-1"><?=$r['start_date']?></td>
-                                            <td class="border-1"><?=$r['end_date']?></td>
-                                            <td class="border-1"><span class="badge badge-sm bg-gradient-danger"><?=$r['status']?></span></td>
-                                            <td class="border-1">
-                                                <a href="../../scripts/leaves/status.php?Delete=<?=$r['id']?>"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <th class="text-secondary" scope="row">RA-EMP-<?= $r['id'] ?></th>
+                                                <td class="border-1"><input type="text" class="form-control" name="name[]" value="<?= $r['name'] ?>" readonly></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="salary[]" value="<?= $r['salary'] ?>" readonly></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="extra[]" value="0"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="total_salary[]" value="0"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="fee[]" value="0"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="absend[]" value="0"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="latee[]" value="0"></td>
+                                                <?php
+                                                $user_id = $r['user_id'];
+                                                $query = "SELECT * FROM `advance_status` WHERE `emp_id` = $user_id";
+                                                $res = $conn->query($query);
+                                                $advanced = $res->fetch_assoc();
+                                                ?>
+                                                <td class="border-1"><input type="text" class="form-control" name="advancedd[]" value="<?php if ($advanced['amount'] != '') {
+                                                                                                                                            echo $advanced['amount'];
+                                                                                                                                        } else echo '0'; ?>"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="deductions_total[]" value="0"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="net_salary[]" value="0"></td>
+                                                <td class="border-1"><input type="text" class="form-control" name="work_days[]" value="0"></td>
+                                            </tr>
+                                            <input type="text" class="form-control" name="emp_id[]" value="<?= $r['user_id'] ?>" hidden>                                                                                              
                                         <?php } ?>
-                                    </tbody>
-                                    <!--Table body-->
+                                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                        <script>
+                                            $(document).on('change', 'input', function() {
+                                                var salary = $('input[name="salary[]"]');
+                                                var extra = $('input[name="extra[]"]');
+                                                var total_salary = $('input[name="total_salary[]"]');
+                                                var fee = $('input[name="fee[]"]');
+                                                var absend = $('input[name="absend[]"]');
+                                                var latee = $('input[name="latee[]"]');
+                                                var advancedd = $('input[name="advancedd[]"]');
+                                                var deductions_total = $('input[name="deductions_total[]"]');
+                                                var net_salary = $('input[name="net_salary[]"]');
+                                                var work_days = $('input[name="work_days[]"]');
+                                                var salary_per_day = 0
+                                                for (var i = 0; i < salary.length; i++) {
+                                                    salary_per_day = (parseFloat(salary[i].value) / 30);
+                                                    $('input[name="absend[]"]').eq(i).val(parseFloat((salary[i].value) - (salary_per_day * work_days[i].value)).toFixed(2));
 
+                                                    $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value) + parseFloat(extra[i].value));
+                                                    $('input[name="deductions_total[]"]').eq(i).val(parseFloat(fee[i].value) + parseFloat(absend[i].value) + parseFloat(latee[i].value) + parseFloat(advancedd[i].value));
+                                                    $('input[name="net_salary[]"]').eq(i).val(parseFloat(total_salary[i].value - deductions_total[i].value).toFixed(2));
+                                                }
+                                            });
+                                        </script>
                                 </table>
                             </div>
+                            </div>
+
                         </div>
-                    </div>
+                        <button type="submit" name="submit" class="btn btn-secondary">اضافة مسيرة رواتب</button>
+                    </form>
                 </div>
             </div>
-            <!--Table -->
         </div>
 
 
@@ -234,11 +372,7 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Declined'");
     <script src="../../assets/js/plugins/chartjs.min.js"></script>
 
     <script src="../../assets/js/plugins/choices.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#example').dataTable();
-        });
-    </script>
+
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -253,7 +387,7 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Declined'");
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+    <!-- <script>
         // Function to fetch notifications from the server
         function fetchNotifications() {
             // Make an AJAX request to the server to fetch notifications
@@ -332,7 +466,7 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Declined'");
 
         // Poll for new notifications every 5 minutes (adjust the interval as needed)
         setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
-    </script>
+    </script> -->
     <script src="../darkmode.js"></script>
 </body>
 

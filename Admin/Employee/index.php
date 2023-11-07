@@ -43,9 +43,15 @@ $_SESSION['sidebar_admin'] = "employee";
 
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-    <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+    <link
+rel="stylesheet"
+type="text/css"
+href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css"
+/>
+<script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    
 </head>
 
 
@@ -68,10 +74,7 @@ $_SESSION['sidebar_admin'] = "employee";
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
                     
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
+                    
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -135,7 +138,7 @@ $_SESSION['sidebar_admin'] = "employee";
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered  table-fixed" id="example">
+                                <table class="table align-items-center mb-0  " id="example">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light table-bordered text-center">
@@ -231,10 +234,23 @@ $_SESSION['sidebar_admin'] = "employee";
     <script src="../../assets/js/plugins/chartjs.min.js"></script>
 
     <script src="../../assets/js/plugins/choices.min.js"></script>
+    <script
+type="text/javascript"
+charset="utf8"
+src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"
+></script>
+<script
+type="text/javascript"
+charset="utf8"
+src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+
     <script>
-        $(document).ready(function() {
-            $('#example').dataTable();
-        });
+      $(document).ready(function() {
+       
+      $('#example').dataTable({
+      "order": [ 0, 'desc' ]
+      } );
+    });
     </script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;

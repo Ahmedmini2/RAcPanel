@@ -29,7 +29,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl ">
       
      <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
@@ -46,12 +46,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
 
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="أكتب هنا...">
-            </div>
-          </div>
+         
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -168,7 +163,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
                 
                 <div class="block">
                     
-                    <table class="table align-items-center mb-0" id="myTable">
+                    <table class="table align-items-center table-bordered mb-0" id="myTable">
                     <thead>
                     <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الرقم</th>
@@ -189,15 +184,15 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
 
                     <tr>
                     
-                    <td class="text-xs text-secondary mb-0"><?php echo $custem =  $r['id'];?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['name'] ; ?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['beneficiary_bank'] ; ?></td>
-                    <td class="mb-0 text-sm"><?php echo $r['branch'];?></td>
-                    <td class="mb-0 text-sm"><?php echo $r['account_number'];?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['iban'];?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['swift'];?></td>
-                    <td class="text-xs text-secondary mb-0"><?php echo $r['created_at'];?></td>
-                    <td><a href="edit-beneficiary-bank.php?bank_id=<?php echo $r['id'];?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="../scripts/beneficiary/delete.php?bank_id=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                    <td class="text-xs text-secondary mb-0 border-1 "><?php echo $custem =  $r['id'];?></td>
+                    <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['name'] ; ?></td>
+                    <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['beneficiary_bank'] ; ?></td>
+                    <td class="mb-0 text-sm border-1"><?php echo $r['branch'];?></td>
+                    <td class="mb-0 text-sm border-1"><?php echo $r['account_number'];?></td>
+                    <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['iban'];?></td>
+                    <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['swift'];?></td>
+                    <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['created_at'];?></td>
+                    <td class="text-secondary text-center border-1"><a href="edit-beneficiary-bank.php?bank_id=<?php echo $r['id'];?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="../scripts/beneficiary/delete.php?bank_id=<?php echo $r['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
                     </tr>
 
@@ -286,6 +281,7 @@ $select =mysqli_query($conn, "select * from beneficiary_info");
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+  <script src="../Admin/darkmode.js"></script>
 </body>
 
 </html>

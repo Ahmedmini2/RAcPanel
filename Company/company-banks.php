@@ -192,7 +192,7 @@ $select = mysqli_query($conn, "select * from bank_info");
                       <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['iban']; ?></td>
                       <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['swift']; ?></td>
                       <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['created_at']; ?></td>
-                      <td class="text-secondary border-1"><a href="edit-company-bank.php?bank_id=<?php echo $r['id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="../scripts/banks/delete.php?bank_id=<?php echo $r['id']; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                      <td class="text-secondary text-center border-1"><a href="edit-company-bank.php?bank_id=<?php echo $r['id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> | <a href="../scripts/banks/delete.php?bank_id=<?php echo $r['id']; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
                     </tr>
 

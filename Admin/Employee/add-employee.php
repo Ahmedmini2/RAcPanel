@@ -1,26 +1,204 @@
 <?php
 include('../../cookies/session3.php');
+include('../../cookies/insert-method.php');
 $_SESSION['sidebar_admin'] = "employee";
+if(isset($_GET['edit'])){
+ 
+    $id = $_GET['edit'];
+    $query = "SELECT * FROM employee WHERE id=$id";
+    $res = $conn->query($query);
+    $editData = $res->fetch_assoc();
+    $name = $editData['name'];
+    $email = $editData['email'];
+    $phone = $editData['phone'];
+    $phone_code = $editData['phone_code'];
+    $nationality = $editData['nationality'];
+    $gender = $editData['gender'];
+    $birth = $editData['birth'];
+    $social_status = $editData['social_status'];
+    $id_number = $editData['id_number'];
+    $position = $editData['position'];
+    $department = $editData['department'];
+    $salary = $editData['salary'];
+    $start_date = $editData['start_date'];
+    $contract_type = $editData['contract_type'];
+    $trial_period = $editData['trial_period'];
+    $working_hours = $editData['working_hours'];
+    $image = $editData['image'];
+
+    if (isset($_POST['submit'])) {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $phone_code = $_POST['phone_code'];
+        $nationality = $_POST['nationality'];
+        $gender = $_POST['gender'];
+        $birth = $_POST['birth'];
+        $social_status = $_POST['social_status'];
+        $id_number = $_POST['id_number'];
+        $position = $_POST['position'];
+        $department = $_POST['department'];
+        $salary = $_POST['salary'];
+        $start_date = $_POST['start_date'];
+        $contract_type = $_POST['contract_type'];
+        $trial_period = $_POST['trial_period'];
+        $working_hours = $_POST['working_hours'];
+
+        $target_dir = "../Documents/Employee-Contract/".$id."/";
+        if(!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }else{
+
+        }
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $filename = basename($_FILES["image"]["name"]);
+        $uploadOk = 1;
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+
+        $update = "UPDATE employee SET `name` = '$name' , `email` = '$email' , `phone` = '$phone' , `phone_code` = '$phone_code' , `nationality` = '$nationality' , `gender` = '$gender'
+        , `birth` = '$birth' , `social_status` = '$social_status' , `id_number` = '$id_number' , `position` = '$position' , `department` = '$department' , `salary` = '$salary' , 
+        `start_date` = '$start_date' , `contract_type` = '$contract_type' , `trial_period` = '$trial_period' , `working_hours` = '$working_hours' , `image` = '$filename'
+        WHERE `id` = '$id'";
+         $updateResult = $conn->query($update);
+        if ($updateResult) {
+
+        $_SESSION['notification'] = "تم تعديل الموظف بنجاح";
+        header('location: index.php');
+        exit();
+
+        } else {
+        $_SESSION['notification'] = "يوجد خلل في النظام";
+        header('location: index.php');
+        exit();
+
+        }
+    }
+
+
+    
+
+}
+
+else if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $phone_code = $_POST['phone_code'];
+    $nationality = $_POST['nationality'];
+    $gender = $_POST['gender'];
+    $birth = $_POST['birth'];
+    $social_status = $_POST['social_status'];
+    $id_number = $_POST['id_number'];
+    $position = $_POST['position'];
+    $department = $_POST['department'];
+    $salary = $_POST['salary'];
+    $start_date = $_POST['start_date'];
+    $contract_type = $_POST['contract_type'];
+    $trial_period = $_POST['trial_period'];
+    $working_hours = $_POST['working_hours'];
+
+    $filename = basename($_FILES["image"]["name"]);
+
+    // INSERT NEW USER
+    $data= [
+        'full_name' => $name,
+        'email'=>$email,
+        'username'=>$name,
+        'phone'=>$phone,
+        'role'=>3,
+        'position'=>'Employee',
+        'status'=>1,
+        'password'=>md5('Ruknamial@123')
+        
+      ];
+
+      
+      $tableName='users'; 
+      if(!empty($data) && !empty($tableName)){
+        $insertData=insert_data($data,$tableName);
+        if($insertData){
+          $_SESSION['notification'] = "User Profile Added sucessfully";
+        }else{
+         $_SESSION['notification'] = "Error!.. check your query";
+        }
+     }
+     $inserted_id = $db->insert_id;
+
+     $advance_status_data = [
+        'emp_id' => $inserted_id,
+        'amount'=>0,
+      ];
+      $tableName2='advance_status'; 
+      if(!empty($advance_status_data) && !empty($tableName2)){
+        $insertData2=insert_data($advance_status_data,$tableName2);
+        if($insertData2){
+          $_SESSION['notification'] = "User Profile Added sucessfully";
+        }else{
+         $_SESSION['notification'] = "Error!.. check your query";
+        }
+     }
+
+    $insert = "INSERT INTO employee VALUES (NULL,'$inserted_id', '$name', '$email', '$phone','$phone_code','$nationality','$gender', '$birth', '$social_status','$id_number','$position'
+    ,'$department', '$salary', '$start_date','$contract_type','$trial_period','$working_hours','$filename' , NOW())";
+
+    $insertResult = $conn->query($insert);
+    if ($insertResult) {
+        
+        $target_dir = "../Documents/Employee-Contract/".$inserted_id."/";
+        if(!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }else{
+        
+        }
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+
+        $_SESSION['notification'] = "تم اضافة الموظف بنجاح";
+        header('location: index.php');
+        exit();
+
+    } else {
+        $_SESSION['notification'] = "يوجد خلل في النظام";
+        header('location: index.php');
+        exit();
+
+    }
+}else{
+
+$name = "";
+$email = "";
+$phone = "";
+$phone_code = "";
+$nationality = "";
+$gender = "";
+$birth = "";
+$social_status = "";
+$id_number = "";
+$position = "";
+$department = "";
+$salary = "";
+$start_date = "";
+$contract_type = "";
+$trial_period = "";
+$working_hours = "";
+$image = "";
+}
 ?>
 
 <html lang="ar" dir="rtl">
 
 <head>
-
-
-
     <!-- Blazor -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet" />
-<link href="_content/Blazor.Bootstrap/blazor.bootstrap.css" rel="stylesheet" /> -->
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="_content/Blazor.Bootstrap/blazor.bootstrap.css" rel="stylesheet" /> --> 
     <!-- Blazor js -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
     <!-- Add chart.js reference if chart components are used in your application. -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.js" integrity="sha512-gQhCDsnnnUfaRzD8k1L5llCCV6O9HN09zClIzzeJ8OJ9MpGmIlCxm+pdCkqTwqJ4JcjbojFr79rl2F1mzcoLMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <!-- Add chartjs-plugin-datalabels.min.js reference if chart components with data label feature is used in your application. -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js" integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="_content/Blazor.Bootstrap/blazor.bootstrap.js"></script> -->
+    <script src="_content/Blazor.Bootstrap/blazor.bootstrap.js"></script> -->
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -63,15 +241,12 @@ $_SESSION['sidebar_admin'] = "employee";
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    
+
                     <h6 class="font-weight-bolder mb-0">اضافه موظف</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
+
                     
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -125,60 +300,159 @@ $_SESSION['sidebar_admin'] = "employee";
 
                         <h6 class="block-title text-white py-2 px-4">إضافة موظف جديد</h6>
                     </div>
-                    <form>
+                    <form method="post" action="" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>رقم الموظف</label>
-                                    <input type="text" placeholder="رقم الموظف" class="form-control" name="EmployeeID" value="">
 
-                                </div>
-                            </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>اسم الموظف</label>
-                                    <input type="text" placeholder="اسم الموظف" class="form-control" name="name" value="">
+                                    <input type="text" placeholder="اسم الموظف" class="form-control" name="name" value="<?= $name ?>">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>رقم الهاتف</label>
+                                    <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone" value="<?= $phone ?>">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>رقم تحويلة الهاتف</label>
+                                    <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone_code" value="<?= $phone_code ?>">
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label>email</label>
-                                    <input type="text" placeholder="email" class="form-control" name="phone" value="">
+                                    <label>البريد الإلكتروني</label>
+                                    <input type="email" placeholder="البريد الإلكتروني" class="form-control" name="email" value="<?= $email ?>">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>القسم</label>
-                                    <select name="position" class="form-control">
-                                        <option value=""></option>
-                                        <option value="Account">محاسب</option>
+                                    <select name="department" class="form-control">
+                                        <option value="<?= $department ?>"><?= $department ?></option>
                                         <option value="Manager">الاداره</option>
                                         <option value="Worker">المصنع</option>
-                                        <option value="Admin">المدير</option>
-
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col">
                                 <div class="form-group">
-                                    <label> تاريخ التوظيف</label>
-                                    <input type="date" placeholder="" class="form-control" name="duration">
+                                    <label>الوظيفة</label>
+                                    <input type="text" placeholder="المسمى الوظيفي" class="form-control" name="position" value="<?= $position ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> راتب الموظف</label>
-                                    <input type="text" placeholder=" مرتب الموظف" class="form-control" name="salary" value="">
+                                    <input type="text" placeholder=" مرتب الموظف" class="form-control" name="salary" value="<?= $salary ?>">
                                 </div>
                             </div>
-                            
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> عدد ساعات العمل</label>
+                                    <select name="working_hours" class="form-control">
+                                        <option value="<?= $working_hours ?>"><?= $working_hours ?></option>
+                                        <option value="6 ساعات">6 ساعات</option>
+                                        <option value="8 ساعات">8 ساعات</option>
+                                        <option value="10 ساعات">10 ساعات</option>
+                                        <option value="12 ساعة">12 ساعة</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
                         </div>
 
-                        
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>الجنسية</label>
+                                    <input type="text" placeholder="اكتب جنسية الموظف" class="form-control" name="nationality" value="<?= $nationality ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> تاريخ الميلاد</label>
+                                    <input type="date" class="form-control" name="birth" value="<?= $birth ?>">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>رقم الهوية / جواز السفر</label>
+                                    <input type="text" placeholder="اكتب رقم الهوية" class="form-control" name="id_number" value="<?= $id_number ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> الجنس</label>
+                                    <select name="gender" class="form-control">
+                                        <option value="<?= $gender ?>"><?= $gender ?></option>
+                                        <option value="ذكر">ذكر</option>
+                                        <option value="انثى">انثى</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> الحالة الإجتماعية</label>
+                                    <select name="social_status" class="form-control">
+                                        <option value="<?= $social_status ?>"><?= $social_status ?></option>
+                                        <option value="متزوج">متزوج</option>
+                                        <option value="اعزب">اعزب</option>
+                                        <option value="أرملة">أرملة</option>
+                                        <option value="مطلق">مطلق</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> نوع العقد</label>
+                                    <select name="contract_type" class="form-control">
+                                        <option value="<?= $contract_type ?>"><?= $contract_type ?></option>
+                                        <option value="دوام كامل">دوام كامل</option>
+                                        <option value="دوام جزئي">دوام جزئي</option>
+                                        <option value="دوام مؤقت">دوام مؤقت</option>
+                                        <option value="دوام عن بعد">دوام عن بعد</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> تاريخ بداية التوظيف</label>
+                                    <input type="date" class="form-control" name="start_date" value="<?= $start_date ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> تاريخ نهاية فترة التجربة</label>
+                                    <input type="date" class="form-control" name="trial_period" value="<?= $trial_period ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> صورة العقد</label>
+                                    <input type="file" class="form-control" name="image" value="<?= $image ?>">
+                                </div>
+                            </div>
+
+                        </div>
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">

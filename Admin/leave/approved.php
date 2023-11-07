@@ -1,6 +1,8 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "leave";
+$select = mysqli_query($conn, "select * from leaves WHERE status = 'Approved'");
+
 ?>
 
 <html lang="ar" dir="rtl">
@@ -68,10 +70,7 @@ $_SESSION['sidebar_admin'] = "leave";
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
                    
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
+                    
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -130,34 +129,48 @@ $_SESSION['sidebar_admin'] = "leave";
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-fixed" id="example">
+                                <table class="table table-hover table-bordered table-fixed" id="example">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
                                         <tr>
                                             <th>الرقم</th>
-                                            <th>رقم الموظف</th>
+                                           
                                             <th>اسم الموظف</th>
                                             <th>leave type</th>
-                                            <th>تاريخ الطلب</th>
-                                            <th>حاله الطلب </th>
+                                            <th>description</th>
+                                            <th>تاريخ بداية الإجازة</th>
+                                            <th>تاريخ نهاية الإجازة</th>
+                                            <th>حاله الاجازة </th>
+                                            <th>Action</th>
                                             
                                         </tr>
                                     </thead>
                                     <!--Table head-->
                                     <!--Table body-->
                                     <tbody class=" text-center">
-
+                                    <?php 
+                                    $i = 0;
+                                    while ($r = mysqli_fetch_array($select)) {
+                                        $i++;
+                                        $emp_id = $r['employee_id'];
+                                        $query = "SELECT * FROM users WHERE id=$emp_id";
+                                        $res = $conn->query($query);
+                                        $editData = $res->fetch_assoc();
+                                        ?>
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>RUKNAMIL0002</td>
-                                            <td>عباس الجعفري</td>
-                                            <td>عطلة</td>
-                                            <td>2023/10/22</td>
-                                            <td><span class="badge badge-sm bg-gradient-success">Approved</span></td>
-                                            
+                                            <th scope="row"><?=$i?></th>
+                                            <td class="border-1"><?=$editData['full_name']?></td>
+                                            <td class="border-1"><?=$r['type']?></td>
+                                            <td class="border-1"><?=$r['description']?></td>
+                                            <td class="border-1"><?=$r['start_date']?></td>
+                                            <td class="border-1"><?=$r['end_date']?></td>
+                                            <td class="border-1"><span class="badge badge-sm bg-gradient-success"><?=$r['status']?></span></td>
+                                            <td class="border-1">
+                                                <a href="../../scripts/leaves/status.php?Delete=<?=$r['id']?>"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                            </td>
                                         </tr>
-
+                                        <?php } ?>
 
                                     </tbody>
                                     <!--Table body-->

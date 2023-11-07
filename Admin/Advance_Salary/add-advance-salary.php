@@ -1,7 +1,68 @@
 <?php
 include('../../cookies/session3.php');
-$_SESSION['sidebar_admin'] = "leave";
-$select = mysqli_query($conn, "select * from leaves WHERE status = 'Declined'");
+$_SESSION['sidebar_admin'] = "Advance_Salary";
+include('../../cookies/insert-method.php');
+if(isset($_POST['submit'])){
+    $employee_id = $_SESSION['id'];
+    $target_dir = "../Documents/Advanced-Salary/".$employee_id."/";
+        if(!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }else{
+
+        }
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $filename = basename($_FILES["image"]["name"]);
+        $uploadOk = 1;
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+    extract($_POST);
+
+    $data = [
+        'employee_id' => $employee_id,
+        'amount'=>$amount,
+        'payment'=>$amount,
+        'description'=>$description,
+        'status'=>'Pending',
+        'payment_status'=>'يوجد مستحق',
+        'image'=>$filename,
+        
+    ];
+    $tableName=$_POST['table_name'];
+    $tableName2='advance_status'; 
+
+    $last_amount = get_advanced_status($tableName2,$employee_id);
+
+    $advance_status_data = [
+        'amount'=>$amount+$last_amount,
+        'modified_at'=>'NOW()'
+      ];
+      
+      if(!empty($advance_status_data) && !empty($tableName2)){
+        $insertData2=update_advance_status_data($advance_status_data,$tableName2,$employee_id);
+        if($insertData2){
+          $_SESSION['notification'] = "User Profile Added sucessfully";
+        }else{
+         $_SESSION['notification'] = "Error!.. check your query";
+        }
+     }
+
+    if(!empty($data) && !empty($tableName)){
+        $insertData=insert_data($data,$tableName);
+        if($insertData){
+          $_SESSION['notification'] = "تم إضافة طلب السلفية بنجاح";
+          header('location: index.php');
+          exit();
+        }else{
+         $_SESSION['notification'] = "Error!.. check your query";
+         header('location: index.php');
+         exit();
+        }
+     }
+
+}else {
+    $amount = '';
+    $description = '';
+    $image = '';
+}
 ?>
 
 <html lang="ar" dir="rtl">
@@ -50,13 +111,13 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Declined'");
 </head>
 
 
-<body class="g-sidenav-show rtl .bg-gray-100 ">
+<body class="g-sidenav-show rtl ">
 
 
 
     <!-- Side Bar -->
     <?php require_once('../../components/sidebar_admin.php'); ?>
-    
+
 
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
@@ -64,11 +125,11 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Declined'");
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    
-                    <h6 class="font-weight-bolder mb-0">رفض الطلب </h6>
+
+                    <h6 class="font-weight-bolder mb-0">اضافه سلفيه</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
+
                     
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
@@ -116,71 +177,57 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Declined'");
 
 
         <div class="container-fluid py-4">
-        <div class=" mb-4 p-3">
-          <div class="">
-            <h5 class="mb-1">رفض الطلب الاجازة</h5>
-          </div>
-          </div>
-            <!--Table     -->
             <div class="row">
-                <div class="col-12">
-                    <div class="card mb-4 mt-3">
+                <div class="block block-themed">
 
-                        <div class="card-body px-0 pt-0 pb-2 mx-3">
-                            <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered table-fixed" id="example">
+                    <div class="block-header bg-gradient-dark  col-md-2 col-sm-6 col-xs-6  rounded-pill">
 
-                                    <!--Table head-->
-                                    <thead class="bg-dark text-light text-center">
-                                        <tr>
-                                        <th>الرقم</th>
-                                           
-                                           <th>اسم الموظف</th>
-                                           <th>leave type</th>
-                                           <th>description</th>
-                                           <th>تاريخ بداية الإجازة</th>
-                                           <th>تاريخ نهاية الإجازة</th>
-                                           <th>حاله الاجازة </th>
-                                           <th>Action</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <!--Table head-->
-                                    <!--Table body-->
-                                    <tbody class=" text-center">
+                        <h6 class="block-title text-white py-2 px-4">إضافة سلفه جديد</h6>
+                    </div>
+                    <form method="POST" action="" enctype="multipart/form-data">
+                        <div class="row">
 
-                                    <?php 
-                                    $i = 0;
-                                    while ($r = mysqli_fetch_array($select)) {
-                                        $i++;
-                                        $emp_id = $r['employee_id'];
-                                        $query = "SELECT * FROM users WHERE id=$emp_id";
-                                        $res = $conn->query($query);
-                                        $editData = $res->fetch_assoc();
-                                        ?>
-                                        <tr>
-                                            <th scope="row"><?=$i?></th>
-                                            <td class="border-1"><?=$editData['full_name']?></td>
-                                            <td class="border-1"><?=$r['type']?></td>
-                                            <td class="border-1"><?=$r['description']?></td>
-                                            <td class="border-1"><?=$r['start_date']?></td>
-                                            <td class="border-1"><?=$r['end_date']?></td>
-                                            <td class="border-1"><span class="badge badge-sm bg-gradient-danger"><?=$r['status']?></span></td>
-                                            <td class="border-1">
-                                                <a href="../../scripts/leaves/status.php?Delete=<?=$r['id']?>"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                            </td>
-                                        </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                    <!--Table body-->
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>قيمة السلفية</label>
+                                    <input type="text" placeholder="إكتب قيمة السلفية" class="form-control" name="amount" value="<?=$amount?>">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>وصف السلفية</label>
+                                    <input type="text" placeholder="إكتب وصف السلفية" class="form-control" name="description" value="<?=$description?>">
+                                    <input type="text" name="table_name" value="advance_salary" hidden>
 
-                                </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>مستند السلفية</label>
+                                    <input type="file"  class="form-control" name="image" value="<?=$image?>">
+                                </div>
+                            </div>
+
+
+                        </div>
+                       
+
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <button type="submit" name="submit" class="btn btn-secondary">Save</button>
+                                </div>
+                            </div>
+                            <div class="col">
+
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!--Table -->
         </div>
 
 

@@ -1,6 +1,51 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "department";
+if (isset($_GET['edit'])) {
+    $id = $_GET['edit'];
+    $query = "SELECT * FROM departments WHERE id=$id";
+    $res = $conn->query($query);
+    $editData = $res->fetch_assoc();
+    $name = $editData['name'];
+    $zone = $editData['zone'];
+
+    if (isset($_POST['submit'])) {
+        $name = $_POST['name'];
+        $zone = $_POST['zone'];
+        $update = "UPDATE departments SET `name` = '$name', `zone` = '$zone' WHERE `id` = '$id' ";
+        $updateResult = $conn->query($update);
+        if ($updateResult) {
+    
+            $_SESSION['notification'] = "تم تعديل القسم بنجاح";
+            header('location: index.php');
+            exit();
+        } else {
+            $_SESSION['notification'] = "يوجد خلل في النظام";
+            header('location: index.php');
+            exit();
+        }
+    }
+    
+} else if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $zone = $_POST['zone'];
+
+    $insert = "INSERT INTO departments VALUES (NULL, '$name','$zone',NOW())";
+    $insertResult = $conn->query($insert);
+    if ($insertResult) {
+        $_SESSION['notification'] = "تم اضافة قسم بنجاح";
+        header('location: index.php');
+        exit();
+    } else {
+        $_SESSION['notification'] = "يوجد خلل في النظام";
+        header('location: index.php');
+        exit();
+    }
+} else {
+    $name = "";
+    $zone = "";
+}
+
 ?>
 
 <html lang="ar" dir="rtl">
@@ -63,15 +108,12 @@ $_SESSION['sidebar_admin'] = "department";
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    
+
                     <h6 class="font-weight-bolder mb-0">اضافه قسم</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
+
+                   
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -125,35 +167,24 @@ $_SESSION['sidebar_admin'] = "department";
 
                         <h6 class="block-title text-white py-2 px-4">إضافة قسم جديد</h6>
                     </div>
-                    <form>
+                    <form method="post" action="">
                         <div class="row">
-                        <div class="col">
+                            <div class="col">
                                 <div class="form-group">
                                     <label>اسم القسم</label>
-                                    <input type="text" placeholder="اسم القسم" class="form-control" name="name" value="">
+                                    <input type="text" placeholder="الرجاء ادخل اسم القسم" class="form-control" name="name" value="<?=$name?>">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label>رقم القسم</label>
-                                    <input type="text" placeholder="رقم القسم" class="form-control" name="EmployeeID" value="">
+                                    <label>المنطقة</label>
+                                    <input type="text" placeholder="الرجاء ادخل اسم المنطقة" class="form-control" name="zone" value="<?=$zone?>">
 
                                 </div>
                             </div>
-                            
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6">
-                                <div class="form-group">
-                                    <label> تاريخ القسم</label>
-                                    <input type="date" placeholder="" class="form-control" name="duration">
-                                </div>
-                            </div>
-                            
+
                         </div>
 
-                        
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">

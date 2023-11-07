@@ -9,9 +9,10 @@ if (isset($_GET['id'])) {
     $editData = $res->fetch_assoc();
     $type = $editData['type'];
     $dimensions = $editData['dimensions'];
+    $purchase_id = $editData['purchase_id'];
     $quantity = $editData['quantity'];
     $price_per_peice = $editData['price_per_piece'];
-    $total_price = $editData['total_price'];
+    
     $seller = $editData['seller'];
     $query2 = "SELECT * FROM contact_covers WHERE id=$seller";
     $res2 = $conn->query($query2);
@@ -452,7 +453,7 @@ if (isset($_GET['id'])) {
                 <div class="row mt-5 justify-content-center">
                     <div class="col-12">
                         <div class="table-responsive p-0">
-                            <table class="table table-hover table-fixed text-center">
+                            <table class="table table-hover table-bordered table-fixed text-center border-dark">
 
                                 <!--Table head-->
                                 <thead class="text-light header-color custom-font-m">
@@ -470,18 +471,26 @@ if (isset($_GET['id'])) {
                                 <!--Table body-->
                                 <tbody>
 
-
+                                <?php 
+                                
+                                $covers = mysqli_query($conn, "SELECT * FROM covers_purchase WHERE purchase_id = $purchase_id");
+                                $i = 0;
+                                while ($cover = mysqli_fetch_array($covers)) {
+                                    $i++;
+                                    $total_price += $cover['total_price'];
+                                ?>
 
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td class="custom-font-m text-center"><?= $type ?></td>
-                                        <td class="custom-font-m"><?= $dimensions ?></td>
-                                        <td class="custom-font-m"><?= $quantity ?></td>
-                                        <td class="custom-font-m"><?= $price_per_peice ?></td>
-                                        <td class="custom-font-m"><?= $total_price ?></td>
+                                        <th scope="row"><?=$i?></th>
+                                        <td class="custom-font-m text-center border-1"><?= $cover['type'] ?></td>
+                                        <td class="custom-font-m border-1"><?= $cover['dimensions'] ?></td>
+                                        <td class="custom-font-m border-1"><?= $cover['quantity'] ?></td>
+                                        <td class="custom-font-m border-1"><?= $cover['price_per_piece'] ?></td>
+                                        <td class="custom-font-m border-1"><?= $cover['total_price'] ?></td>
 
                                     </tr>
 
+                                    <?php } ?>
 
                                 </tbody>
                                 <!--Table body-->

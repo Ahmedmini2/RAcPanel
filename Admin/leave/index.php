@@ -1,6 +1,8 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "leave";
+$employee_id = $_SESSION['id'];
+$select = mysqli_query($conn, "select * from leaves WHERE employee_id = '$employee_id'");
 ?>
 
 <html lang="ar" dir="rtl">
@@ -43,9 +45,9 @@ $_SESSION['sidebar_admin'] = "leave";
 
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-    <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" defer ></script>
+    <link href= "https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
 </head>
 
 
@@ -68,10 +70,7 @@ $_SESSION['sidebar_admin'] = "leave";
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
                     
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
+                  
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -131,42 +130,43 @@ $_SESSION['sidebar_admin'] = "leave";
             <!--Table     -->
             <div class="row">
                 <div class="col-12">
-                    <div class="card mb-4 mt-3">
+                    <div class=" mb-4 mt-3">
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-fixed" id="example">
+                                <table class="display table table-hover table-bordered table-fixed" id="example">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
                                         <tr>
-                                            <th>الرقم</th>
-                                            <th>اسم الموظف </th>
-                                            <th>leave type</th>
-                                            <th>description</th>
-                                            <th>تاريخ التقديم</th>
-                                            <th>حاله الاجازة </th>
-                                            <th>Action </th>
+                                            <th class=" border-1 text-center">الرقم</th>
+                                            <th class=" border-1 text-center">leave type</th>
+                                            <th class=" border-1 text-center">description</th>
+                                            <th class=" border-1 text-center" >تاريخ بداية الإجازة</th>
+                                            <th class=" border-1 text-center">تاريخ نهاية الإجازة</th>
+                                            <th class=" border-1 text-center">حاله الاجازة </th>
+                                           
                                             
                                         </tr>
                                     </thead>
                                     <!--Table head-->
                                     <!--Table body-->
                                     <tbody class=" text-center">
-
+                                    <?php 
+                                    $i = 0;
+                                    while ($r = mysqli_fetch_array($select)) {
+                                        $i++;
+                                        ?>
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <th >عباس الجعفري</th>
-                                            <td>عطلة</td>
-                                            <td>عطلة اختيارية</td>
-                                            <td>2023/10/22</td>
-                                            <td><span class="badge badge-sm bg-gradient-success">قيد الانتظار</span></td>
-                                            <td>
-                                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </td>
+                                            <th scope="row"><?=$i?></th>
+                                            <td class="border-1"><?=$r['type']?></td>
+                                            <td class="border-1"><?=$r['description']?></td>
+                                            <td class="border-1"><?=$r['start_date']?></td>
+                                            <td class="border-1"><?=$r['end_date']?></td>
+                                            <td ><span class="badge badge-sm bg-gradient-success border-1"><?=$r['status']?></span></td>
+                                            
                                         </tr>
-
+                                        <?php } ?>
 
                                     </tbody>
                                     <!--Table body-->

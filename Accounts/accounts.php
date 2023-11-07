@@ -56,14 +56,7 @@ $select = mysqli_query($conn, "select * from bank_request ORDER BY id DESC");
            
           
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
-          <li class="nav-item px-3 d-flex align-items-center">
-                    <label class="ui-switch">
-                        <input type="checkbox" onclick="setDarkMode()">
-                        <div class="slider">
-                            <div class="circle"></div>
-                        </div>
-                    </label>
-                    </li>
+         
             <li class="nav-item d-flex align-items-center">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>

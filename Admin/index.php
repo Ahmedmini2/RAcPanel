@@ -1,6 +1,9 @@
 <?php
 include('../cookies/session2.php');
+include('../cookies/insert-method2.php');
 $_SESSION['sidebar_admin'] = "dashboard";
+$emp_id = $_SESSION['id'];
+$total_left_advance = get_advanced_status('advance_status',$emp_id);
 ?>
 
 <html lang="ar" dir="rtl">
@@ -11,8 +14,8 @@ $_SESSION['sidebar_admin'] = "dashboard";
 
     <!-- Blazor -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet" />
-<link href="_content/Blazor.Bootstrap/blazor.bootstrap.css" rel="stylesheet" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="_content/Blazor.Bootstrap/blazor.bootstrap.css" rel="stylesheet" /> -->
 
     <!-- Blazor js -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
@@ -20,7 +23,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.js" integrity="sha512-gQhCDsnnnUfaRzD8k1L5llCCV6O9HN09zClIzzeJ8OJ9MpGmIlCxm+pdCkqTwqJ4JcjbojFr79rl2F1mzcoLMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <!-- Add chartjs-plugin-datalabels.min.js reference if chart components with data label feature is used in your application. -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js" integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="_content/Blazor.Bootstrap/blazor.bootstrap.js"></script> -->
+    <script src="_content/Blazor.Bootstrap/blazor.bootstrap.js"></script> -->
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -70,14 +73,9 @@ $_SESSION['sidebar_admin'] = "dashboard";
                     <h6 class="font-weight-bolder mb-0">الرئيسية</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    <label class="ui-switch">
-                        <input type="checkbox" onclick="setDarkMode()">
-                        <div class="slider">
-                            <div class="circle"></div>
-                        </div>
-                    </label>
-
                     
+
+
 
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
@@ -196,9 +194,9 @@ $_SESSION['sidebar_admin'] = "dashboard";
                             <div class="row">
                                 <div class="col-8">
                                     <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">رفض الاجازة</p>
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">إجمالي متبقي السلفيات</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            2
+                                            <?=$total_left_advance?>
                                         </h5>
                                     </div>
                                 </div>
@@ -217,7 +215,9 @@ $_SESSION['sidebar_admin'] = "dashboard";
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4 mt-3">
-
+                        <div class="card-header pb-0 ">
+                            <h6>اخر الاجازات</h6>
+                        </div>
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
                                 <table class="table table-hover table-bordered table-fixed" id="example">
@@ -243,7 +243,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
 
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td class="border-1" >RUKNAMIL0002</td>
+                                            <td class="border-1">RUKNAMIL0002</td>
                                             <td class="border-1">عباس الجعفري</td>
                                             <td class="border-1">مناسبة خاصة</td>
                                             <td class="border-1">2023/10/22</td>
@@ -262,9 +262,60 @@ $_SESSION['sidebar_admin'] = "dashboard";
                 </div>
             </div>
             <!--Table -->
-            
+            <!--Table     -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mb-4 mt-3">
+                        <div class="card-header pb-0 ">
+                            <h6>اخر السلفيات</h6>
+                        </div>
+                        <div class="card-body px-0 pt-0 pb-2 mx-3">
+                            <div class="table-responsive p-0">
+                                <table class="table table-hover table-bordered table-fixed" id="example">
+
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-ligh table-bordered text-center">
+                                        <tr>
+                                            <th>الرقم</th>
+                                            <th>رقم الموظف</th>
+                                            <th>اسم الموظف</th>
+                                            <th>سبب الاجازه</th>
+                                            <th>تاريخ طلب الاجازة</th>
+                                            <th>حاله الطلب</th>
+
+
+
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+
+                                    <!--Table body-->
+                                    <tbody class=" text-center">
+
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td class="border-1">RUKNAMIL0002</td>
+                                            <td class="border-1">عباس الجعفري</td>
+                                            <td class="border-1">مناسبة خاصة</td>
+                                            <td class="border-1">2023/10/22</td>
+                                            <td class="border-1"><span style="color: gray">Pending <i class="fa fa-spinner"></i></span></td>
+
+                                        </tr>
+
+
+                                    </tbody>
+                                    <!--Table body-->
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Table -->
+
         </div>
-        
+
 
 
 

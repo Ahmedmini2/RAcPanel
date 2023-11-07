@@ -1,6 +1,7 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "department";
+$select = mysqli_query($conn, "select * from departments");
 ?>
 
 <html lang="ar" dir="rtl">
@@ -68,10 +69,7 @@ $_SESSION['sidebar_admin'] = "department";
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
                     
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
+                   
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -135,32 +133,35 @@ $_SESSION['sidebar_admin'] = "department";
 
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered table-fixed" id="example">
+                                <table class="  table table-hover table-bordered table-fixed" id="example">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light table-bordered text-center">
                                         <tr>
                                             <th>الرقم</th>
                                             <th>اسم القسم</th>
-                                            <th>رقم القسم</th>
-                                            <th>تاريخ القسم</th> 
+                                            <th>منطقة القسم</th>
+                                            <th>تاريخ ألأنشاء</th> 
                                             <th>Action</th> 
                                         </tr>
                                     </thead>
                                     <!--Table head-->
                                     <!--Table body-->
                                     <tbody class=" text-center">
-
+                                    <?php 
+                                    while ($r = mysqli_fetch_array($select)) {
+                                        ?>
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td class="border-1" >Human Resours</td>
-                                            <td class="border-1" >HR001</td>
-                                            <td class="border-1">2023/10/22</td>
+                                        <th scope="row">RA-DP-<?=$r['id']?></th>
+                                            <td class="border-1" ><?=$r['name']?></td>
+                                            <td class="border-1" ><?=$r['zone']?></td>
+                                            <td class="border-1"><?=$r['created_at']?></td>
                                             <td class="border-1" >
-                                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                               
+                                                <a href="add-department.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
+                                        <?php } ?>
 
 
                                     </tbody>

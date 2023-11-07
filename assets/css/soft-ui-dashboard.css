@@ -9906,9 +9906,8 @@ fieldset:disabled .btn {
   background-color: #344767 !important;
 }
 
-.bg-white {
-  background-color: #fff !important;
-}
+.bg-white { background-color: #fff !important;}
+.darkmode .bg-white { background-color: #292929 !important;}
 
 .bg-body {
   background-color: #fff !important;
@@ -20853,7 +20852,9 @@ hr.horizontal.gray-light {
 .navbar-vertical .navbar-brand>img,
 .navbar-vertical .navbar-brand-img {
   max-width: 100%;
-  max-height: 20rem;
+  max-height: 10rem;
+    padding-right: 20px;
+    padding-top: 10px;
 }
 
 .navbar-vertical .navbar-nav .nav-link {
@@ -25028,14 +25029,14 @@ width: 100px;
 }
 .inside-card{
   float: left;
-  width: 220px;
-  position: relative;
+  
   left: 25%;
-  height: 10vw;
+  height: 12vw;
   object-fit: cover;
   
 
 }
+
 
 .ribbon-pop {
   background: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%);
@@ -25200,6 +25201,10 @@ width: 100px;
   background: var(--background);
   transition: opacity .5s;
  }
+
+ .darkmode .dropdown-menu{
+  background-color: #292929;
+ }
  
  .darkmode .sal-card-info {
   --color: #383838;
@@ -25218,6 +25223,14 @@ width: 100px;
   font-weight: bold;
   letter-spacing: .1em;
  }
+
+ .darkmode .dataTables_wrapper .dataTables_length option {
+  background-color: #292929;
+}
+
+ /*.darkmode .main-content, .sidenav{
+  /* background-color: #292929 !important; */
+ 
  
  /*Hover*/
  .darkmode .sal-card:hover::after {
@@ -25234,6 +25247,16 @@ width: 100px;
 }
 .darkmode .text-dark {
   color: #e9ecef !important;
+}
+.space {
+  width: 10px;
+  height: auto;
+  display: inline-block;
+}
+.darkmode .space {
+  width: 10px;
+  height: auto;
+  display: inline-block;
 }
 
 /*profile*/
@@ -25254,6 +25277,166 @@ width: 100px;
   border: 1px solid #e5dfe4;
   background-color: #fff;
   border-radius: 5px;
+}
+
+/*download-button*/
+.printer {
+  --border: #00104b;
+  --background: #fff;
+  cursor: pointer;
+  width: 32px;
+  height: 18px;
+  position: relative;
+}
+
+.printer:before, .printer:after {
+  content: "";
+  position: absolute;
+  box-shadow: inset 0 0 0 2px var(--border);
+  background: var(--background);
+}
+
+.printer:before {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 14px;
+  border-radius: 3px;
+  z-index: 2;
+}
+
+.printer:after {
+  width: 26px;
+  height: 6px;
+  top: 0;
+  left: 3px;
+  border-radius: 3px 3px 0 0;
+}
+
+.printer .dot {
+  width: 24px;
+  height: 2px;
+  border-radius: 1px;
+  left: 4px;
+  bottom: 4px;
+  z-index: 4;
+  position: absolute;
+  background: var(--border);
+}
+
+.printer .dot:before, .printer .dot:after {
+  content: "";
+  position: absolute;
+  background: var(--border);
+  border-radius: 1px;
+  height: 2px;
+}
+
+.printer .dot:before {
+  width: 2px;
+  right: 0;
+  top: -5px;
+}
+
+.printer .dot:after {
+  width: 4px;
+  right: 3px;
+  top: -5px;
+}
+
+.printer .paper {
+  position: absolute;
+  z-index: 1;
+  width: 18px;
+  height: 20px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 2px var(--border);
+  background: var(--background);
+  left: 7px;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  transform: perspective(40px) translateY(0) rotateX(4deg) translateZ(0);
+  -webkit-animation: paper 1.2s ease infinite;
+  animation: paper 1.2s ease infinite;
+  -webkit-animation-play-state: var(--state, running);
+  animation-play-state: var(--state, running);
+}
+
+.printer .paper .svg {
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin-top: 4px;
+}
+
+.printer .output {
+  width: 32px;
+  height: 24px;
+  pointer-events: none;
+  top: 13px;
+  left: 0;
+  z-index: 3;
+  overflow: hidden;
+  position: absolute;
+}
+
+.printer .output .paper-out {
+  position: absolute;
+  z-index: 1;
+  width: 18px;
+  height: 20px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 2px var(--border);
+  background: var(--background);
+  left: 7px;
+  bottom: 0;
+  transform: perspective(40px) rotateX(40deg) translateY(-12px) translateZ(6px);
+  -webkit-animation: paper-out 1.2s ease infinite;
+  animation: paper-out 1.2s ease infinite;
+  -webkit-animation-play-state: var(--state, running);
+  animation-play-state: var(--state, running);
+}
+
+.printer .output .paper-out:before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 4px;
+  right: 3px;
+  height: 2px;
+  border-radius: 1px;
+  opacity: 0.5;
+  background: var(--border);
+  box-shadow: 0 3px 0 var(--border), 0 6px 0 var(--border);
+}
+
+.printer:not(:hover) {
+  --state: paused;
+}
+
+@-webkit-keyframes paper {
+  50% {
+    transform: translateY(10px) translateZ(0);
+  }
+}
+
+@keyframes paper {
+  50% {
+    transform: translateY(10px) translateZ(0);
+  }
+}
+
+@-webkit-keyframes paper-out {
+  50% {
+    transform: perspective(40px) rotateX(30deg) translateY(-4px) translateZ(6px);
+  }
+}
+
+@keyframes paper-out {
+  50% {
+    transform: perspective(40px) rotateX(30deg) translateY(-4px) translateZ(6px);
+  }
 }
 
 /*profile*/
@@ -25316,6 +25499,8 @@ width: 100px;
     transition: color 1s;
    }
 
+
+   
 /* switch settings 👇 */
 
 .ui-switch {
@@ -25402,3 +25587,15 @@ width: 100px;
   height: 0;
 }
 
+.product_card{
+ 
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    
+    background-clip: border-box;
+    border: 3px solid rgba(0, 0, 0, 0.125);
+    border-radius: 25px;
+}

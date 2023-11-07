@@ -17,6 +17,7 @@ $notifications = array();
 if ($result) {
     while ($row = mysqli_fetch_assoc($result)) {
         $notifications[] = array(
+            'id' => $row['id'],
             'title' => $row['name'],
             'message' => $row['message'],
             'timestamp' => $row['created_at'],

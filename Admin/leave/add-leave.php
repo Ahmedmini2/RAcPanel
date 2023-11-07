@@ -1,6 +1,43 @@
 <?php
 include('../../cookies/session3.php');
+include('../../cookies/insert-method.php');
 $_SESSION['sidebar_admin'] = "leave";
+if(isset($_GET['edit'])){
+
+}else if(isset($_POST['submit'])){
+
+    $employee_id = $_SESSION['id'];
+    extract($_POST);
+
+    $data = [
+        'employee_id' => $employee_id,
+        'type'=>$type,
+        'description'=>$description,
+        'start_date'=>$start_date,
+        'end_date'=>$end_date,
+        'status'=>'Pending',
+    ];
+    $tableName=$_POST['table_name'];
+    if(!empty($data) && !empty($tableName)){
+        $insertData=insert_data($data,$tableName);
+        if($insertData){
+          $_SESSION['notification'] = "تم إضافة طلب الإجازة بنجاح";
+          header('location: index.php');
+          exit();
+        }else{
+         $_SESSION['notification'] = "Error!.. check your query";
+         header('location: index.php');
+         exit();
+        }
+     }
+
+}else{
+    $type = "";
+    $description = "";
+    $start_date = "";
+    $end_date = "";
+}
+
 ?>
 
 <html lang="ar" dir="rtl">
@@ -63,15 +100,12 @@ $_SESSION['sidebar_admin'] = "leave";
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    
+
                     <h6 class="font-weight-bolder mb-0">اضافه اجازة</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
+
                     
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -125,35 +159,49 @@ $_SESSION['sidebar_admin'] = "leave";
 
                         <h6 class="block-title text-white py-2 px-4">إضافة اجازة جديد</h6>
                     </div>
-                    <form>
+                    <form method="POST" action="" name="leaves">
                         <div class="row">
-                        <div class="col">
+                            <div class="col">
                                 <div class="form-group">
                                     <label>نوع الاجازة</label>
-                                    <input type="text" placeholder="الرجاء كتابة نوع الاجازة" class="form-control" name="name" value="">
+                                    <select name="type" class="form-control">
+                                        <option value="<?= $type ?>"><?= $type ?></option>
+                                        <option value="اجازة سنوية">اجازة سنوية</option>
+                                        <option value="إجازة نصف سنوية">إجازة نصف سنوية</option>
+                                        <option value="إجازة مرضية">إجازة مرضية</option>
+                                        <option value="إجازة بعذر">إجازة بعذر</option>
+
+                                    </select>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label> شرح بسيط لطلب الاجازة</label>
-                                    <input type="text" placeholder="الرجاء كتابة شرح مبسط لسبب الاجازة" class="form-control" name="EmployeeID" value="">
+                                    <input type="text" placeholder="الرجاء كتابة شرح مبسط لسبب الاجازة" class="form-control" name="description" value="<?=$description?>">
+                                    <input type="text" name="table_name" value="leaves" hidden>
 
                                 </div>
                             </div>
-                            
+
                         </div>
-                        
                         <div class="row">
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col">
                                 <div class="form-group">
-                                    <label> تاريخ الطلب</label>
-                                    <input type="date" placeholder="" class="form-control" name="duration">
+                                    <label> تاريخ بداية الاجازة</label>
+                                    <input type="date" placeholder="" class="form-control" name="start_date" value="<?=$start_date?>">
                                 </div>
                             </div>
-                            
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> تاريخ نهاية الاجازه</label>
+                                    <input type="date" placeholder="" class="form-control" name="end_date" value="<?=$end_date?>">
+
+                                </div>
+                            </div>
+
                         </div>
 
-                        
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">

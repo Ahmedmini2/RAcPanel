@@ -6,6 +6,14 @@
   background: #ffffff;
   z-index: 2000;
 }
+.darkmode #loader-wrapper  {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #292929;
+  z-index: 2000;
+}
 .loader {
     margin: 0 auto;
     display: flex;

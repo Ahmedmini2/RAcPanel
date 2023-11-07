@@ -1,6 +1,7 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "employee";
+$select = mysqli_query($conn, "select * from employee");
 ?>
 
 <html lang="ar" dir="rtl">
@@ -43,9 +44,11 @@ $_SESSION['sidebar_admin'] = "employee";
 
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-    <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" defer ></script>
+    <link href= "https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
 </head>
 
 
@@ -55,7 +58,7 @@ $_SESSION['sidebar_admin'] = "employee";
 
     <!-- Side Bar -->
     <?php require_once('../../components/sidebar_admin.php'); ?>
-    
+
 
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
@@ -63,15 +66,12 @@ $_SESSION['sidebar_admin'] = "employee";
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    
+
                     <h6 class="font-weight-bolder mb-0">الموظفين</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="checkbox" onclick="setDarkMode()">
-                        <label class="form-check-label" for="checkbox"></label>
-                    </div>
+
+
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                         <li class="nav-item d-flex align-items-center px-4">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -118,100 +118,75 @@ $_SESSION['sidebar_admin'] = "employee";
 
 
         <div class="container-fluid py-4">
-        <div class=" mb-4 p-3">
-          <div class="">
-            <h5 class="mb-1">بيانات الموظفين</h5>
-          </div>
+            <div class=" mb-4 p-3">
+                <div class="">
+                    <h5 class="mb-1">بيانات الموظفين</h5>
+                </div>
 
-        
-          </div>
-            
+
+            </div>
+
             <!--Table     -->
+
             <div class="row">
                 <div class="col-12">
-                    <div class="card mb-4 mt-3">
-                    
+                    <div class=" mb-4 mt-3">
+
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
-                                <table class="table table-hover table-fixed" id="example">
+
+                                <table class="display table table-hover table-fixed" id="example">
 
                                     <!--Table head-->
                                     <thead class="bg-dark text-light text-center">
                                         <tr>
-                                            <th>الرقم</th>
-                                            <th>اسم الموظف</th>
-                                            <th>قسم الموظف</th>
-                                            <th>راتب الموظف</th>
-                                            <th>العقد</th>
-                                            <th>بداية العقد</th>
-                                            <th>عدد ساعات العمل</th>
-                                            
-                                            <th>شهر</th>
-                                            <th>ACTION</th>
+                                            <th class=" border-1 text-center">الرقم</th>
+                                            <th class=" border-1 text-center">اسم الموظف</th>
+                                            <th class=" border-1 text-center">قسم الموظف</th>
+                                            <th class=" border-1 text-center">راتب الموظف</th>
+                                            <th class=" border-1 text-center">العقد</th>
+                                            <th class=" border-1 text-center">بداية العقد</th>
+                                            <th class=" border-1 text-center">عدد ساعات العمل</th>
+                                            <th class=" border-1 text-center">القسم</th>
+                                            <th class=" border-1 text-center">ACTION</th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
                                     <!--Table body-->
                                     <tbody class=" text-center">
 
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td class="border-1">عباس الجعفري</td>
-                                            <td class="border-1">المدير العام</td>
-                                            <td class="border-1">5000</td>
-                                            <td class="border-1">العقد</td>
-                                            <td class="border-1">1/10/2023</td>
-                                            <td class="border-1">9</td>
-                                            
-                                            <td class="border-1" >اكتوبر 2023</td>
-                                            <td class="border-1">
-                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td class="border-1">عباس الجعفري</td>
-                                            <td class="border-1">المدير العام</td>
-                                            <td class="border-1">5000</td>
-                                            <td class="border-1">العقد</td>
-                                            <td class="border-1">1/10/2023</td>
-                                            <td class="border-1">9</td>
-                                           
-                                            <td class="border-1">اكتوبر 2023</td>
-                                            <td class="border-1">
-                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </td>
-    
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td class="border-1">عباس الجعفري</td>
-                                            <td class="border-1">المدير العام</td>
-                                            <td class="border-1">5000</td>
-                                            <td class="border-1">العقد</td>
-                                            <td class="border-1">1/10/2023</td>
-                                            <td class="border-1">9</td>
-                                            
-                                            <td class="border-1">اكتوبر 2023</td>
-                                            <td class="border-1">
-                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </td>
-    
-                                        </tr>
+                                        <?php
+                                        while ($r = mysqli_fetch_array($select)) {
+                                        ?>
+                                            <tr>
+                                                <th scope="row">RA-EMP-<?= $r['id'] ?></th>
+                                                <td class="border-1"><?= $r['name'] ?></td>
+                                                <td class="border-1"><?= $r['position'] ?></td>
+                                                <td class="border-1"><?= $r['salary'] ?></td>
+                                                <td class="border-1"><?= $r['contract_type'] ?></td>
+                                                <td class="border-1"><?= $r['start_date'] ?></td>
+                                                <td class="border-1"><?= $r['working_hours'] ?></td>
+
+                                                <td class="border-1"><?= $r['department'] ?></td>
+                                                <td class="border-1">
+                                                    <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>|
+                                                    <a href="add-employee.php?edit=<?= $r['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
 
 
                                     </tbody>
                                     <!--Table body-->
 
                                 </table>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <!--Table -->
         </div>
 

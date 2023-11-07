@@ -83,12 +83,7 @@ while ($ban = mysqli_fetch_array($banner)) {
           <h6 class="font-weight-bolder mb-0">الرئيسية</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-        <label class="ui-switch">
-                        <input type="checkbox" onclick="setDarkMode()">
-                        <div class="slider">
-                            <div class="circle"></div>
-                        </div>
-                    </label>
+        
           
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center px-4">
@@ -413,7 +408,7 @@ while ($ban = mysqli_fetch_array($banner)) {
               while ($r = mysqli_fetch_array($projects)) {
 
                 echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
-                      <div class="card  h-100 shadow-lg">
+                      <div class="product_card  h-100 shadow-lg">
 
 
                       <div class="view overlay">
@@ -732,21 +727,32 @@ while ($ban = mysqli_fetch_array($banner)) {
 
       // Loop through the received notifications and add them to the UI
       data.forEach(function(notification) {
-        const notificationItem = $('<li>').addClass('mb-2');
+        const notificationItem = $('<li>').addClass('mb-2').attr('dir', 'ltr');
         const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
-        notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
-        if (notification.read_at !== null) {
+        const notificationMainDiv = $('<div>').addClass('d-flex py-1');
+        const notificationImgDiv = $('<div>').addClass('my-auto');
+        const notificationImg = $('<img>').addClass('avatar avatar-sm  me-3 ').attr('src','assets/img/team-2.jpg');
+        const notificationMsgDiv = $('<div>').addClass('d-flex flex-column justify-content-center');
+        notificationMsgDiv.html('<h6 class="text-sm font-weight-normal mb-1"> <span class="font-weight-bold">' + notification.title + '</span> </h6><p class="text-xs text-secondary mb-0"> <i class="fa fa-clock me-1"></i>'+ notification.timestamp +'</p>');
+        
+
+        if (notification.read_at == '0000-00-00 00:00:00') {
+          unreadCount++;
           notificationLink.addClass('read-notification');
         } else {
-          unreadCount++;
+          
+          
         }
-        const markAsReadButton = $('<button>').text('Mark as Read').addClass('btn btn-sm btn-primary');
-        markAsReadButton.on('click', function() {
+        notificationLink.on('click', function() {
+          console.log('Mark as Read clicked for notification ID: ' + notification.id);
           markNotificationAsRead(notification.id); // Mark notification as read when clicked
         });
 
+        notificationImgDiv.append(notificationImg);
+        notificationMainDiv.append(notificationImgDiv);
+        notificationMainDiv.append(notificationMsgDiv);
+        notificationLink.append(notificationMainDiv);
         notificationItem.append(notificationLink);
-        notificationItem.append(markAsReadButton);
         $('#notifications-container').append(notificationItem);
 
         console.log(notification);
@@ -754,13 +760,12 @@ while ($ban = mysqli_fetch_array($banner)) {
       $('#notification-count').text(unreadCount); // Update the notification count
     }
 
+    // Function to mark a notification as read
     function markNotificationAsRead(notificationId) {
       $.ajax({
-        url: 'scripts/notifications/mark_notification_as_read.php', // Replace with the actual URL
-        method: 'POST',
-        data: {
-          notification_id: notificationId
-        },
+        url: 'scripts/notifications/mark_notification_as_read.php',
+        method: 'GET',  // Change this to GET
+        data: { data: notificationId }, // Send data as a GET parameter
         dataType: 'json',
         success: function(response) {
           // Handle the response (e.g., display a success message)

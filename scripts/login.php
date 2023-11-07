@@ -83,7 +83,14 @@ function login($db,$email,$password){
       $_SESSION['full_name']=$row['full_name'];
       $_SESSION['sidebar']="Home";
 
-      header("location:../index.php");
+      if($_SESSION['position'] == 'Employee'){
+        header("location:../Admin/index.php");
+      }else{
+        
+        header("location:../index.php");
+      }
+
+      
      }else
      {
       return "Your Password is wrong" ;
