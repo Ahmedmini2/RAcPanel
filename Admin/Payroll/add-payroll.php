@@ -222,7 +222,7 @@ if(isset($_POST['submit'])){
                                                 <td class="border-1"><input type="text" class="form-control" name="latee[]" value="0"></td>
                                                 <?php
                                                 $user_id = $r['user_id'];
-                                                $query = "SELECT * FROM `advance_status` WHERE `employee_id` = $user_id";
+                                                $query = "SELECT * FROM `advance_status` WHERE `emp_id` = $user_id";
                                                 $res = $conn->query($query);
                                                 $advanced = $res->fetch_assoc();
                                                 ?>
