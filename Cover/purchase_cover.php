@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
     $purchase_id = $editData['purchase_id'];
     $quantity = $editData['quantity'];
     $price_per_peice = $editData['price_per_piece'];
-    $total_price = $editData['total_price'];
+    
     $seller = $editData['seller'];
     $query2 = "SELECT * FROM contact_covers WHERE id=$seller";
     $res2 = $conn->query($query2);
@@ -477,6 +477,7 @@ if (isset($_GET['id'])) {
                                 $i = 0;
                                 while ($cover = mysqli_fetch_array($covers)) {
                                     $i++;
+                                    $total_price += $cover['total_price'];
                                 ?>
 
                                     <tr>
