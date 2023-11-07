@@ -29,7 +29,7 @@ $select =mysqli_query($conn, "select * from users");
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
-<body class="g-sidenav-show rtl bg-gray-100">
+<body class="g-sidenav-show rtl ">
       
       <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
@@ -380,6 +380,7 @@ $select =mysqli_query($conn, "select * from users");
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+  <script src="../Admin/darkmode.js"></script>
 </body>
 
 </html>

@@ -25036,9 +25036,7 @@ width: 100px;
   
 
 }
-.darkmode .loader{
-  background-color: #292929;
-}
+
 
 .ribbon-pop {
   background: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%);
@@ -25589,3 +25587,15 @@ width: 100px;
   height: 0;
 }
 
+.product_card{
+ 
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    
+    background-clip: border-box;
+    border: 3px solid rgba(0, 0, 0, 0.125);
+    border-radius: 25px;
+}

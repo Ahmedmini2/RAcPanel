@@ -187,7 +187,7 @@ $select = mysqli_query($conn, "select * from contact_covers ");
                 ?>
                     <tr class="text-center">
 
-                      <td class="text-xs text-secondary mb-0"><?=$r['id']?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?=$r['id']?></td>
                       
                       <td class="mb-0 text-sm text-secondary border-1"><?=$r['name']?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><?=$r['seller']?></td>

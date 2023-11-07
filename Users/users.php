@@ -162,15 +162,15 @@ $select =mysqli_query($conn, "select * from users");
                     <table class="table align-items-center table-bordered mb-0" id="myTable">
                     <thead>
                     <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Sr.#</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Email</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">User Name</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Full Name</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Phone</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Position</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Status</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Created at</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Action</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Sr.#</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Email</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="5%">User Name</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Full Name</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Phone</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Position</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Status</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="5%">Created at</th>
+                    <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Action</th>
 
                     </tr>
                     </thead>
@@ -180,13 +180,13 @@ $select =mysqli_query($conn, "select * from users");
 
                     <tr>
                     <td class="text-center text-secondary border-1"><?php echo $i;?></td>
-                    <td class="text-xs text-secondary mb-0 border-1"><?php echo $custem =  $r['email'];?></td>
-                    <td class="mb-0 text-sm text-secondary border-1"><?php echo $r['username'];?></td>
-                    <td class="mb-0 text-sm text-secondary border-1"><?php echo $r['full_name'];?></td>
-                    <td class="text-xs text-secondary mb-0 border-1"><?php echo $r['phone'];?></td>
-                    <td class="text-secondary mb-0 border-1"><?php if($r['position']=="Admin") {echo '<span class="badge badge-sm bg-gradient-success">Admin</span>';} elseif ($r['position']=="Worker"){echo '<span class="badge badge-sm bg-gradient-warning">Worker</span>';} elseif($r['position'] == "Accounts") {echo '<span class="badge badge-sm bg-gradient-primary">Accounts</span>';}  elseif($r['position'] == "Reception") {echo '<span class="badge badge-sm bg-gradient-danger">Reception</span>';} elseif($r['position'] == "Employee") {echo '<span class="badge badge-sm bg-gradient-danger">Empolyee</span>';}?></td>
+                    <td class="text-xs text-secondary mb-0 border-1 text-center"><?php echo $custem =  $r['email'];?></td>
+                    <td class="mb-0 text-sm text-secondary border-1 text-center"><?php echo $r['username'];?></td>
+                    <td class="mb-0 text-sm text-secondary border-1 text-center"><?php echo $r['full_name'];?></td>
+                    <td class="text-xs text-secondary mb-0 border-1 text-center"><?php echo $r['phone'];?></td>
+                    <td class="text-secondary mb-0 border-1 text-center"><?php if($r['position']=="Admin") {echo '<span class="badge badge-sm bg-gradient-success">Admin</span>';} elseif ($r['position']=="Worker"){echo '<span class="badge badge-sm bg-gradient-warning">Worker</span>';} elseif($r['position'] == "Accounts") {echo '<span class="badge badge-sm bg-gradient-primary">Accounts</span>';}  elseif($r['position'] == "Reception") {echo '<span class="badge badge-sm bg-gradient-danger">Reception</span>';} elseif($r['position'] == "Employee") {echo '<span class="badge badge-sm bg-gradient-danger">Empolyee</span>';}?></td>
                     <td class="text-xs text-secondary border-1 mb-0 text-center"><?php echo $r['status'];?></td>
-                    <td class="text-secondary text-xs border-1 font-weight-bold"><?php echo $r['created_at']; ?></td>
+                    <td class="text-secondary text-xs border-1 font-weight-bold text-center"><?php echo $r['created_at']; ?></td>
                     <td class="text-center text-secondary border-1">
                     <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
                           <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
