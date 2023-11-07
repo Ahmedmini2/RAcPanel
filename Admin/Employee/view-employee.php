@@ -118,13 +118,16 @@ $select = mysqli_query($conn, "select * from employee");
 
 
         <div class="container-fluid py-4">
-            <div class=" mb-4 p-3">
-                <div class="">
-                    <h5 class="mb-1">بيانات الموظفين</h5>
-                </div>
+        <div class=" mb-4 p-3">
+          <div class="">
+            <h5 class="mb-1">اضافة موظف جديد</h5>
+          </div>
 
-
-            </div>
+          <a href="add-employee.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة موظف&nbsp;&nbsp;
+            <i class="fas fa-plus">
+            </i>
+          </a>
+          </div>
 
             <!--Table     -->
 
