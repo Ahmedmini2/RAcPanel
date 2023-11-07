@@ -1,6 +1,9 @@
 <?php
 include('../cookies/session2.php');
+include('../../cookies/insert-method2.php');
 $_SESSION['sidebar_admin'] = "dashboard";
+$emp_id = $_SESSION['id'];
+$total_left_advance = get_advanced_status('advance_status',$emp_id);
 ?>
 
 <html lang="ar" dir="rtl">
@@ -191,9 +194,9 @@ $_SESSION['sidebar_admin'] = "dashboard";
                             <div class="row">
                                 <div class="col-8">
                                     <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">رفض الاجازة</p>
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">إجمالي متبقي السلفيات</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            2
+                                            <?=$total_left_advance?>
                                         </h5>
                                     </div>
                                 </div>
