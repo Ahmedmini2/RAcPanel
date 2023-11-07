@@ -7,6 +7,7 @@ if(isset($_POST['submit'])){
     $date = date_format($dateNew,'F');
     $year = date_format($dateNew,'Y');
     $names = $_POST['name'];
+    $emp_ids = $_POST['emp_id'];
     $salaries = $_POST['salary'];
     $extras = $_POST['extra'];
     $total_salaries = $_POST['total_salary'];
@@ -35,6 +36,24 @@ if(isset($_POST['submit'])){
             'year'=>$year,
         ];
         $tableName='payroll_process'; 
+
+        $tableName2='advance_status'; 
+
+        $last_amount = get_advanced_status($tableName2,$emp_ids[$i]);
+
+        $advance_status_data = [
+            'amount'=>$advanceds[$i]-$last_amount,
+            'modified_at'=>'NOW()'
+        ];
+        
+        if(!empty($advance_status_data) && !empty($tableName2)){
+            $insertData2=update_advance_status_data($advance_status_data,$tableName2,$emp_ids[$i]);
+            if($insertData2){
+            $_SESSION['notification'] = "User Profile Added sucessfully";
+            }else{
+            $_SESSION['notification'] = "Error!.. check your query";
+            }
+        }
 
         if(!empty($data) && !empty($tableName)){
             $insertData=insert_data($data,$tableName);
@@ -233,7 +252,7 @@ if(isset($_POST['submit'])){
                                                 <td class="border-1"><input type="text" class="form-control" name="net_salary[]" value="0"></td>
                                                 <td class="border-1"><input type="text" class="form-control" name="work_days[]" value="0"></td>
                                             </tr>
-
+                                            <input type="text" class="form-control" name="emp_id[]" value="<?= $r['user_id'] ?>" hidden>                                                                                              
                                         <?php } ?>
                                         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                                         <script>
