@@ -423,7 +423,7 @@ if (isset($_GET['project_id'])) {
                                     ?>
 
                                         <tr>
-                                            <th class="table-secondary text-center bor border-1" scope="row"><?= $i ?></th>
+                                            <th class=" text-center bor border-1" scope="row"><?= $i ?></th>
                                             <td class="custom-font-m text-center border-1"><?= $item['product_name'] ?></td>
                                             <td class="custom-font-m border-1"><?= $item['quantity'] ?></td>
                                             <td class="custom-font-m border-1"><?= number_format($item['sell_price']) ?></td>
