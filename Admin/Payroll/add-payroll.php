@@ -222,12 +222,12 @@ if(isset($_POST['submit'])){
                                                 <td class="border-1"><input type="text" class="form-control" name="latee[]" value="0"></td>
                                                 <?php
                                                 $user_id = $r['user_id'];
-                                                $query = "SELECT DISTINCT SUM(`payment`) FROM `advance_salary` WHERE `employee_id` = $user_id;";
+                                                $query = "SELECT * FROM `advance_status` WHERE `employee_id` = $user_id";
                                                 $res = $conn->query($query);
                                                 $advanced = $res->fetch_assoc();
                                                 ?>
-                                                <td class="border-1"><input type="text" class="form-control" name="advancedd[]" value="<?php if ($advanced['SUM(`payment`)'] != '') {
-                                                                                                                                            echo $advanced['SUM(`payment`)'];
+                                                <td class="border-1"><input type="text" class="form-control" name="advancedd[]" value="<?php if ($advanced['amount'] != '') {
+                                                                                                                                            echo $advanced['amount'];
                                                                                                                                         } else echo '0'; ?>"></td>
                                                 <td class="border-1"><input type="text" class="form-control" name="deductions_total[]" value="0"></td>
                                                 <td class="border-1"><input type="text" class="form-control" name="net_salary[]" value="0"></td>
