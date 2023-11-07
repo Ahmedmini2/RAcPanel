@@ -1,6 +1,6 @@
 <?php
 include('../cookies/session2.php');
-include('../../cookies/insert-method2.php');
+include('../cookies/insert-method2.php');
 $_SESSION['sidebar_admin'] = "dashboard";
 $emp_id = $_SESSION['id'];
 $total_left_advance = get_advanced_status('advance_status',$emp_id);
