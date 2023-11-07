@@ -1,6 +1,6 @@
 <?php
 include('../cookies/session2.php');
-include('../cookies/insert-method.php');
+include('../cookies/insert-method2.php');
 $_SESSION['sidebar'] = "Cover";
 if (!empty($_GET['edit'])) {
 
