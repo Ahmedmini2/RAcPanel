@@ -453,7 +453,7 @@ if (isset($_GET['id'])) {
                 <div class="row mt-5 justify-content-center">
                     <div class="col-12">
                         <div class="table-responsive p-0">
-                            <table class="table table-hover table-bordered table-fixed text-center">
+                            <table class="table table-hover table-bordered table-fixed text-center border-dark">
 
                                 <!--Table head-->
                                 <thead class="text-light header-color custom-font-m">
