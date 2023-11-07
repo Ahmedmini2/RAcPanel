@@ -14,21 +14,15 @@ $_SESSION['sidebar'] = "Cover";
   $seller = $_SESSION['seller_id'];
 
   
-  $last_puchase_id = $_SESSION['last_purchase_id'];
+  $last_purchase_id = $_SESSION['last_purchase_id'];
   unset($_SESSION['last_purchase_id']);
 
 
-  $data= [
-    'purchase_id' => $last_puchase_id,
-  ];
-  $tableName='covers_purchase_id'; 
-      if(!empty($data) && !empty($tableName)){
-        $insertData=insert_data($data,$tableName);   
-     }
+ 
 
 
   $insert = "INSERT INTO `covers_purchase` (`id`,`purchase_id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
-   VALUES (NULL,'$last_puchase_id', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
+   VALUES (NULL,'$last_purchase_id', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
   $insertResult = $conn->query($insert);
   if ($insertResult) {
 
@@ -53,22 +47,15 @@ $_SESSION['sidebar'] = "Cover";
     $seller = $_SESSION['seller_id'];
 
   
-    $last_puchase_id = $_SESSION['last_purchase_id'];
+    $last_purchase_id = $_SESSION['last_purchase_id'];
   
-    $_SESSION['last_puchase_id'] = $last_puchase_id;
+    $_SESSION['last_purchase_id'] = $last_purchase_id;
     $_SESSION['seller_id'] = $seller;
   
-    $data= [
-      'purchase_id' => $last_puchase_id,
-    ];
-    $tableName='covers_purchase_id'; 
-        if(!empty($data) && !empty($tableName)){
-          $insertData=insert_data($data,$tableName);   
-       }
-  
+    
   
     $insert = "INSERT INTO `covers_purchase` (`id`,`purchase_id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
-     VALUES (NULL,'$last_puchase_id', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
+     VALUES (NULL,'$last_purchase_id', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
     $insertResult = $conn->query($insert);
     if ($insertResult) {
   

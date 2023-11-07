@@ -59,11 +59,11 @@ if (isset($_POST['submit'])) {
   $select = "SELECT * FROM covers_purchase_id ORDER BY purchase_id DESC LIMIT 1";
   $select_res = $conn->query($select);
   $selectData = $select_res->fetch_assoc();
-  $last_puchase_id = $selectData['puchase_id'];
-  $last_puchase_id +=1;
+  $last_purchase_id = $selectData['purchase_id'];
+  $last_purchase_id +=1;
 
   $data= [
-    'purchase_id' => $last_puchase_id,
+    'purchase_id' => $last_purchase_id,
   ];
   $tableName='covers_purchase_id'; 
       if(!empty($data) && !empty($tableName)){
@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
 
 
   $insert = "INSERT INTO `covers_purchase` (`id`,`purchase_id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
-   VALUES (NULL,'$last_puchase_id', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
+   VALUES (NULL,'$last_purchase_id', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
   $insertResult = $conn->query($insert);
   if ($insertResult) {
 
@@ -101,14 +101,14 @@ if (isset($_POST['submit'])) {
   $select = "SELECT * FROM covers_purchase_id ORDER BY purchase_id DESC LIMIT 1";
   $select_res = $conn->query($select);
   $selectData = $select_res->fetch_assoc();
-  $last_puchase_id = $selectData['puchase_id'];
-  $last_puchase_id +=1;
+  $last_purchase_id = $selectData['purchase_id'];
+  $last_purchase_id +=1;
 
-  $_SESSION['last_puchase_id'] = $last_puchase_id;
+  $_SESSION['last_purchase_id'] = $last_purchase_id;
   $_SESSION['seller_id'] = $seller;
 
   $data= [
-    'purchase_id' => $last_puchase_id,
+    'purchase_id' => $last_purchase_id,
   ];
   $tableName='covers_purchase_id'; 
       if(!empty($data) && !empty($tableName)){
@@ -117,7 +117,7 @@ if (isset($_POST['submit'])) {
 
 
   $insert = "INSERT INTO `covers_purchase` (`id`,`purchase_id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
-   VALUES (NULL,'$last_puchase_id', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
+   VALUES (NULL,'$last_purchase_id', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
   $insertResult = $conn->query($insert);
   if ($insertResult) {
 
