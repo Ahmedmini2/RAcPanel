@@ -423,28 +423,28 @@ if (isset($_GET['project_id'])) {
                                     ?>
 
                                         <tr>
-                                            <th class="table-secondary text-center bor" scope="row"><?= $i ?></th>
-                                            <td class="custom-font-m text-center"><?= $item['product_name'] ?></td>
-                                            <td class="custom-font-m"><?= $item['quantity'] ?></td>
-                                            <td class="custom-font-m"><?= number_format($item['sell_price']) ?></td>
-                                            <td class="custom-font-m"><?= number_format($item['sell_price'] * $item['quantity']) ?></td>
+                                            <th class="table-secondary text-center bor border-1" scope="row"><?= $i ?></th>
+                                            <td class="custom-font-m text-center border-1"><?= $item['product_name'] ?></td>
+                                            <td class="custom-font-m border-1"><?= $item['quantity'] ?></td>
+                                            <td class="custom-font-m border-1"><?= number_format($item['sell_price']) ?></td>
+                                            <td class="custom-font-m border-1"><?= number_format($item['sell_price'] * $item['quantity']) ?></td>
 
                                         </tr>
 
                                     <?php } ?>
-                                    <tr class=" text-center">
+                                    <tr class=" text-center border-1">
                                         <td colspan="4">Total</td>
                                         <td class="text-center" ><span>SAR <?= number_format($total_without_tax) ?></span></td>
                                     </tr>
-                                    <tr class="text-center">
+                                    <tr class="text-center border-1">
                                         <td colspan="4">VAT 15% </td>
                                         <td class="text-center"><span>SAR <?= number_format($total_with_tax) ?></span></td>
                                     </tr>
-                                    <tr class=" text-center">
+                                    <tr class=" text-center border-1">
                                         <td colspan="4">Grand total(SAR)</td>
                                         <td class="text-center"><span class="font-weight-bold text-success " id="total">SAR <?= number_format($total_without_tax + $total_with_tax) ?></span></td>
                                     </tr>
-                                    <tr class="table-secondary">
+                                    <tr class="table-secondary border-1">
                                         <td colspan="5">
                                             <p>The total value is SAR <?= number_format($total_without_tax + $total_with_tax) ?> <span id="con"></span> riyals only.</p>
                                         </td>
