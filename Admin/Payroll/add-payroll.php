@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
         $last_amount = get_advanced_status($tableName2,$emp_ids[$i]);
 
         $advance_status_data = [
-            'amount'=>$advanceds[$i]-$last_amount,
+            'amount'=>$last_amount-$advanceds[$i],
             'modified_at'=>'NOW()'
         ];
         
