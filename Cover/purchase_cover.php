@@ -453,7 +453,7 @@ if (isset($_GET['id'])) {
                 <div class="row mt-5 justify-content-center">
                     <div class="col-12">
                         <div class="table-responsive p-0">
-                            <table class="table table-hover table-fixed text-center">
+                            <table class="table table-hover table-bordered table-fixed text-center">
 
                                 <!--Table head-->
                                 <thead class="text-light header-color custom-font-m">
@@ -482,11 +482,11 @@ if (isset($_GET['id'])) {
 
                                     <tr>
                                         <th scope="row"><?=$i?></th>
-                                        <td class="custom-font-m text-center"><?= $cover['type'] ?></td>
-                                        <td class="custom-font-m"><?= $cover['dimensions'] ?></td>
-                                        <td class="custom-font-m"><?= $cover['quantity'] ?></td>
-                                        <td class="custom-font-m"><?= $cover['price_per_piece'] ?></td>
-                                        <td class="custom-font-m"><?= $cover['total_price'] ?></td>
+                                        <td class="custom-font-m text-center border-1"><?= $cover['type'] ?></td>
+                                        <td class="custom-font-m border-1"><?= $cover['dimensions'] ?></td>
+                                        <td class="custom-font-m border-1"><?= $cover['quantity'] ?></td>
+                                        <td class="custom-font-m border-1"><?= $cover['price_per_piece'] ?></td>
+                                        <td class="custom-font-m border-1"><?= $cover['total_price'] ?></td>
 
                                     </tr>
 

@@ -393,7 +393,7 @@ if (isset($_GET['project_id'])) {
                         </div>
                     </div>
                 </div>
-                <!-- == -->
+                <!-- == --> 
 
                 <div class="row justify-content-center">
                     <div class="col-12">
@@ -423,7 +423,7 @@ if (isset($_GET['project_id'])) {
                                     ?>
 
                                         <tr>
-                                            <th class="table-secondary text-center" scope="row"><?= $i ?></th>
+                                            <th class="table-secondary text-center bor" scope="row"><?= $i ?></th>
                                             <td class="custom-font-m text-center"><?= $item['product_name'] ?></td>
                                             <td class="custom-font-m"><?= $item['quantity'] ?></td>
                                             <td class="custom-font-m"><?= number_format($item['sell_price']) ?></td>
