@@ -1,7 +1,7 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "WebManagment";
-$select = mysqli_query($conn, "SELECT * from contacts");
+$select = mysqli_query($conn, "SELECT * from contact_form");
 
 ?>
 <!DOCTYPE html>
