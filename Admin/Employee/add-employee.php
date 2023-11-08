@@ -335,11 +335,8 @@ $image = "";
                                     <label>القسم</label>
                                     <select name="department" class="form-control">
                                         <option value="<?= $department ?>"><?= $department ?></option>
-                                        <option value="Account">محاسب</option>
                                         <option value="Manager">الاداره</option>
                                         <option value="Worker">المصنع</option>
-                                        <option value="Admin">المدير</option>
-
                                     </select>
                                 </div>
                             </div>

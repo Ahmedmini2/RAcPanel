@@ -199,6 +199,38 @@ if(isset($_POST['submit'])){
                                     <input type="date" class="form-control" name="month">
                                 </div>
                             </div>
+
+                            <!-- <div class="col">
+                                <div class="form-group">
+                                    <label>مسير الرواتب لقسم</label>
+                                    <select class="form-control" name="department" id="department" >
+                                        <option value="Manager">Manager</option>
+                                        <option value="Admin">Admin</option>
+                                    </select>
+                                </div>
+
+                                <script>
+                                   $(document).ready(function() {
+                                        $('select').on('change', function() {
+                                            var selectValue = $(this).val();
+                                            $.ajax({
+                                            type: "POST",
+                                            url: "../../ajax/show-emp.php",
+                                            data: {
+                                                selected: selectValue
+                                            },
+                                            success: function (data) {
+                                                console.log(data);
+                                                // Stuff
+                                            },
+                                            error: function (data) {
+                                                // Stuff
+                                            }
+                                            });
+                                        });
+                                        });
+                                </script>
+                            </div> -->
                         </div>
                         <div class="row">
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
