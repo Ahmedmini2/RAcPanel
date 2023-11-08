@@ -187,7 +187,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
                             <!--Section: Content-->
                             <section class="text-center">
-                                <h4 class="mb-5"><strong>Latest posts</strong></h4>
+                                <h4 class="mb-5"><strong>المدونات</strong></h4>
 
                                 <div class="row">
                                     <div class="col-lg-4 col-md-12 mb-4">
