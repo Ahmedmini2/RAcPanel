@@ -254,9 +254,7 @@ $sidebar = $_SESSION['sidebar'];
             <li class="w-100">
               <a href="../WebManagment/index.php" class="nav-link px-0"> <span class=" d-sm-inline">المدونات </span></a>
             </li>
-            <li class="w-100">
-              <a href="../WebManagment/add_blog.php" class="nav-link px-0"> <span class=" d-sm-inline">اضافة مدونة</span></a>
-            </li>
+            
             
           </ul>
         </li>
