@@ -117,7 +117,7 @@ if (!empty($_GET['edit'])) {
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-                        <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">أضافة تكلفة</a></li>
+                        <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">أضافة مدونة</a></li>
 
                     </ol>
 
