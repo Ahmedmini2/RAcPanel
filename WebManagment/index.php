@@ -51,14 +51,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
 
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
-                        <li class="nav-item px-3 d-flex align-items-center">
-                            <label class="ui-switch">
-                                <input type="checkbox" onclick="setDarkMode()">
-                                <div class="slider">
-                                    <div class="circle"></div>
-                                </div>
-                            </label>
-                        </li>
+                   
                         <li class="nav-item d-flex align-items-center">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
