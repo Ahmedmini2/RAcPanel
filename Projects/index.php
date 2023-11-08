@@ -41,7 +41,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
     <!-- Navbar -->
     <?php 
      $titleNav = 'المشاريع';
-     require_once('components/navbar.php');
+     require_once('../components/navbar.php');
      ?>
     <!-- End Navbar -->
 
