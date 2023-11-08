@@ -206,6 +206,18 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                                 </p>
                                                 <a href="#!" class="btn btn-primary">Read</a>
                                             </div>
+                                            <div class="card-footer">
+                                                <div class="media">
+                                                    <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
+                                                    <div class="media-body">
+                                                        <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
                                         </div>
                                     </div>
 
@@ -225,6 +237,18 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                                 </p>
                                                 <a href="#!" class="btn btn-primary">Read</a>
                                             </div>
+                                            <div class="card-footer">
+                                                <div class="media">
+                                                    <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
+                                                    <div class="media-body">
+                                                        <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
                                         </div>
                                     </div>
 
@@ -243,6 +267,18 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                                     card's content.
                                                 </p>
                                                 <a href="#!" class="btn btn-primary">Read</a>
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="media">
+                                                    <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
+                                                    <div class="media-body">
+                                                        <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+
+                                                    </div>
+                                                </div>
+
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -310,18 +346,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                             <!--Section: Content-->
 
 
-                            <div class="card-footer">
-                                <div class="media">
-                                    <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
-                                    <div class="media-body">
-                                        <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
-                                        
-                                    </div>
-                                </div>
 
-
-
-                            </div>
                         </div>
                     </div>
                 </div>
