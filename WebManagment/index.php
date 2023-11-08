@@ -206,7 +206,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                                 </p>
                                                 
                                             </div>
-                                            <div class="card-footer">
+                                            <div class="card-footer22">
                                                 <div class="media">
                                                     <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
                                                     <div class="media-body">
@@ -237,7 +237,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                                 </p>
                                                
                                             </div>
-                                            <div class="card-footer">
+                                            <div class="card-footer22">
                                                 <div class="media">
                                                     <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
                                                     <div class="media-body">
@@ -268,10 +268,10 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                                 </p>
                                                
                                             </div>
-                                            <div class="card-footer">
+                                            <div class="card-footer22">
                                                 <div class="media">
                                                     <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
-                                                    <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+                                                    
                                                     <div class="media-body">
                                                         <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
 
@@ -300,7 +300,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                                                     Some quick example text to build on the card title and make up the bulk of the
                                                     card's content.
                                                 </p>
-                                                <a href="#!" class="btn btn-primary">Read</a>
+                                                
                                             </div>
                                         </div>
                                     </div>
