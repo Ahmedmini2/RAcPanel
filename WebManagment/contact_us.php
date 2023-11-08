@@ -150,10 +150,7 @@ $select = mysqli_query($conn, "SELECT * from contact_form");
     <div class="container-fluid py-4">
       <div class="row">
 
-        <a href="add-type-cost.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">نوع تكلفة جديد&nbsp;&nbsp;
-          <i class="fas fa-plus">
-          </i>
-        </a>
+       
         <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
           <div class="content">
             <div class="block-header bg-warning  col-md-3 col-sm-6 col-xs-6  rounded-pill">
@@ -185,7 +182,7 @@ $select = mysqli_query($conn, "SELECT * from contact_form");
                     <tr class="text-center">
 
                       <td class="text-xs text-secondary mb-0 border-1 "><?= $r['id'] ?></td>
-                      <td class="text-xs text-secondary mb-0 border-1"><?= $r['full_name'] ?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?= $r['user_name'] ?></td>
                       <td class="text-xs text-secondary mb-0 border-1"><?= $r['email'] ?></td>
                       <td class="text-xs text-secondary mb-0 border-1"><?= $r['message'] ?></td>
                       
