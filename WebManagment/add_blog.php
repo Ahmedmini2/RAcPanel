@@ -254,7 +254,7 @@ if (!empty($_GET['edit'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label>نص المقالة</label>
-                                    <textarea type="text" placeholder="نص المقالة" class="form-control" name="text" value="">
+                                    <textarea placeholder="نص المقالة" class="form-control" name="description"></textarea>
                                 </div>
                             </div>
 
