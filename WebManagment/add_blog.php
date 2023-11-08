@@ -262,7 +262,7 @@ if (!empty($_GET['edit'])) {
 
                             <div class="col">
                                 <div class="form-group">
-                                    <label>صورة الفاتورة 1</label>
+                                    <label>صورة المدونة 1</label>
                                     <input type="file" placeholder="" class="form-control" name="bill" value="">
                                 </div>
                                 
@@ -272,11 +272,11 @@ if (!empty($_GET['edit'])) {
 
                             <div class="col">
                             <div class="form-group">
-                                    <label>صورة الفاتورة 2</label>
+                                    <label>صورة المدونة 2</label>
                                     <input type="file" placeholder="" class="form-control" name="bill" value="">
                                 </div>
                                 <div class="form-group">
-                                    <label>صورة الفاتورة 3</label>
+                                    <label>صورة المدونة 3</label>
                                     <input type="file" placeholder="" class="form-control" name="bill" value="">
                                 </div>
                             </div>
