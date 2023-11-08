@@ -22,6 +22,12 @@ $password = 'Roek9933@';
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
+$sSQL= 'SET CHARACTER SET utf8'; 
+
+mysqli_query($conn,$sSQL) 
+or die ('Can\'t charset in DataBase'); 
+
+$conn->query("SET NAMES 'utf8'");
 
 // Check connection
 if ($conn->connect_error) {
