@@ -55,27 +55,16 @@ $projects = mysqli_query($conn, "SELECT * FROM projects WHERE status = 'قيد �
                     <div class="">
                         <h5 class="mb-1">المصنع</h5>
                     </div>
-
-
-
-
                     <div class="card-body p-3  ">
-
-
                         <div class="row">
-
                             <!-- Card -->
-
                             <?php
                             while ($r = mysqli_fetch_array($projects)) {
-
                                 echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
                                 <div class="card  h-100 shadow-lg">
-
-                         
                                      <div class="view overlay">
                                         <img class="inside-card card-img-top" src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="Card image cap">
-                               
+
                                     <div class=" rgba-white-slight"></div>
                                 
                                  </div>
@@ -88,8 +77,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects WHERE status = 'قيد �
                                 <h4 class="card-title"> ' . $r["name"] . '</h4>
                                 
                                 <p class="card-text">' . $r["description"] . '</p>
-                                
-                               
+
 
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -105,34 +93,6 @@ $projects = mysqli_query($conn, "SELECT * FROM projects WHERE status = 'قيد �
                             </div>';
                             }
                             ?>
-
-
-
-
-                            <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
-                            <div class="card card-blog card-plain py-3">
-                                <div class="position-relative">
-                                <a class="d-block shadow-xl border-radius-xl">
-                                    <img src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl inside-card">
-                                </a>
-                                </div>
-                                <div class="card-body px-1 pb-0">
-                                
-                                <a href="">
-                                    <h5>
-                                    ' . $r["name"] . '
-                                    </h5>
-                                </a>
-                                <p class="mb-4 text-sm">
-                                
-                                </p>
-                                
-                                
-                                
-                                
-                                </div>
-                            </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
