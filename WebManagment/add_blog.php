@@ -289,7 +289,7 @@ if (!empty($_GET['edit'])) {
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <button type="submit" name="submit" class="btn btn-secondary">تقديم طلب التكلفة</button>
+                                    <button type="submit" name="submit" class="btn btn-secondary">اضافه المدونة</button>
                                 </div>
                             </div>
                             <div class="col">
