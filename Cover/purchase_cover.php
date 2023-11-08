@@ -486,7 +486,7 @@ if (isset($_GET['id'])) {
                                         <td class="custom-font-m border-1"><?= $cover['dimensions'] ?></td>
                                         <td class="custom-font-m border-1"><?= $cover['quantity'] ?></td>
                                         <td class="custom-font-m border-1"><?= $cover['price_per_piece'] ?></td>
-                                        <td class="custom-font-m border-1"><?= $cover['total_price'] ?></td>
+                                        <td class="custom-font-m borSder-1"><?= $cover['total_price'] ?></td>
 
                                     </tr>
 
