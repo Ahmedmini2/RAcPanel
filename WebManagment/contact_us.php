@@ -188,7 +188,7 @@ $select = mysqli_query($conn, "SELECT * from contacts");
                       <td class="text-xs text-secondary mb-0 border-1"><?= $r['full_name'] ?></td>
                       <td class="text-xs text-secondary mb-0 border-1"><?= $r['email'] ?></td>
                       <td class="text-xs text-secondary mb-0 border-1"><?= $r['message'] ?></td>
-                      <td class="mb-0 text-sm text-secondary border-1"><?= $r['created_at'] ?></td>
+                      
                     <!-- Modal -->
 
                     </tr>
