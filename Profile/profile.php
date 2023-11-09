@@ -309,6 +309,16 @@ $select = mysqli_query($conn, "select * from users");
                         <input type="password" class="form-control" id="exampleInputPassword3">
                       </div>
                     </div>
+                    <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <button type="submit" name="submit" class="btn btn-secondary">save</button>
+                </div>
+              </div>
+              <div class="col">
+
+              </div>
+            </div>
                   
                 </div>
           </div>
