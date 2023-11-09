@@ -95,6 +95,13 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                     </i>
                 </a>
             </div>
+            <div id="filters">
+                                <select name="fetchval" id="fetchval">
+                                    <option value="" disabled="" selected="">select</option>
+                                    <option value="تقنية المعلومات">تقنية المعلومات</option>
+                                    <option value="محاسبه">محاسبه</option>
+                                </select>
+                            </div>
             <!--Table     -->
             <?php
             while ($r = mysqli_fetch_array($select)) {
@@ -128,13 +135,7 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                                 </div>
                             </div>
 
-                            <div id="filters">
-                                <select name="fetchval" id="fetchval">
-                                    <option value="" disabled="" selected="">select</option>
-                                    <option value="تقنية المعلومات">تقنية المعلومات</option>
-                                    <option value="محاسبه">محاسبه</option>
-                                </select>
-                            </div>
+                           
 
                             <div class="card-body px-0 pt-0 pb-2 mx-3">
                                 <div class="table-responsive p-0">
