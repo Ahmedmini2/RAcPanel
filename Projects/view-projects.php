@@ -508,11 +508,12 @@ if (isset($_GET['id'])) {
                                                      while ($kh = mysqli_fetch_array($res4)) {
                                                         $kh_quan = $kh['quantity_per_piece'] * $products['quantity'];
                                                         $kh_total = $kh['total_price'];
+                                                        $kh_peice = $kh['quantity_per_piece'];
                                                         
                                                      }
                                                     ?>
                                                             <td class="border-1 text-secondary"><?= $kh_quan ?></td>
-                                                            <td class="border-1 text-secondary"><?= $kh['quantity_per_piece'] ?></td>
+                                                            <td class="border-1 text-secondary"><?= $kh_peice ?></td>
                                                             <td class="border-1 text-secondary"><?= number_format($kh_total) ?></td>
                                                     <?php
                                                     $status_id = $products['id'];
