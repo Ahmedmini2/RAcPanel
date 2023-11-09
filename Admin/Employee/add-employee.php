@@ -335,8 +335,15 @@ $image = "";
                                     <label>القسم</label>
                                     <select name="department" class="form-control">
                                         <option value="<?= $department ?>"><?= $department ?></option>
-                                        <option value="Manager">الاداره</option>
-                                        <option value="Worker">المصنع</option>
+                                        
+                                        <?php
+                                        $select = mysqli_query($conn, "select * from departments");
+                                        while ($r = mysqli_fetch_array($select)) {
+
+                                        echo '<option value="'.$r['name'].'">'.$r['name'].'</option>';
+                                        }
+                                        ?>
+                                        
                                     </select>
                                 </div>
                             </div>
