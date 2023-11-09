@@ -273,7 +273,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
     </a>
     <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
       <li><a class="dropdown-item" href="https://test.app.ruknamial.com/index.php">الصفحة الرئيسية</a></li>
-
+      <li><a class="dropdown-item" href="../../Profile/profile.php">الملف الشخصي</a></li>
       <li>
         <hr class="dropdown-divider">
       </li>
