@@ -202,7 +202,7 @@ if(isset($_POST['upload'])){
                 <?=$user['name']?>
               </h5>
               <p class="mb-0 font-weight-bold text-sm">
-              <?=$user['Position']?>
+              <?=$user['position']?>
               </p>
             </div>
           </div>
