@@ -43,7 +43,7 @@ $select = mysqli_query($conn, "select * from bank_request ORDER BY id DESC");
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
     <?php 
-     $titleNav = 'الحسابات';
+     $titleNav = 'الحسابات'; 
      require_once('../components/navbar.php');
      ?>
     <!-- End Navbar -->
