@@ -45,13 +45,9 @@ $_SESSION['sidebar_admin'] = "employee";
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
-    <link
-rel="stylesheet"
-type="text/css"
-href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css"
-/>
-<script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    
+    <link rel="stylesheet" type="text/css" href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css" />
+    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
 </head>
 
 
@@ -61,76 +57,27 @@ href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTab
 
     <!-- Side Bar -->
     <?php require_once('../../components/sidebar_admin.php'); ?>
-    
+
 
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
         <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
-            <div class="container-fluid py-1 px-3">
-                <nav aria-label="breadcrumb">
-                    
-                    <h6 class="font-weight-bolder mb-0">الموظفين</h6>
-                </nav>
-                <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
-                    
-                    <ul class="navbar-nav me-auto ms-0 justify-content-end">
-                        <li class="nav-item d-flex align-items-center px-4">
-                            <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
-                                <i class="fa fa-user me-sm-1"></i>
-                                <span class="d-sm-inline d-none"> تسجيل الخروج</span>
-                            </a>
-                        </li>
-                        <li class="nav-item d-xl-none pe-3 d-flex align-items-center px-4">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                                <div class="sidenav-toggler-inner">
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item px-3 d-flex align-items-center">
-                            <a href="Messages/chat.php" class="nav-link text-body p-0">
-
-                                <i class="far fa-comments me-sm-1 cursor-pointer"></i>
-                            </a>
-                        </li>
-
-                        <!-- Notifications -->
-                        <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-bell cursor-pointer"></i>
-                                <span id="notification-count" class="notification-badge">0</span> <!-- Add this line -->
-                            </a>
-                            <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="notifications-container">
-                                <!-- Notifications will be dynamically added here -->
-                            </ul>
-                        </li>
-                        <!-- End of Notifications -->
-
-
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php
+        $titleNav = 'الموظفين';
+        require_once('../../components/navbar.php');
+        ?>
         <!-- End Navbar -->
-
-
-
         <div class="container-fluid py-4">
-        <div class=" mb-4 p-3">
-          <div class="">
-            <h5 class="mb-1">اضافة موظف جديد</h5>
-          </div>
+            <div class=" mb-4 p-3">
+                <div class="">
+                    <h5 class="mb-1">اضافة موظف جديد</h5>
+                </div>
 
-          <a href="add-employee.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة موظف&nbsp;&nbsp;
-            <i class="fas fa-plus">
-            </i>
-          </a>
-          </div>
+                <a href="add-employee.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة موظف&nbsp;&nbsp;
+                    <i class="fas fa-plus">
+                    </i>
+                </a>
+            </div>
             <!--Table     -->
             <div class="row">
                 <div class="col-12">
@@ -164,7 +111,7 @@ href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTab
                                             <td class="border-1">2023/10/22</td>
                                             <td class="border-1"><span class="badge badge-sm bg-gradient-success">مدير</span></td>
                                             <td class="border-1">
-                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>| 
+                                                <a href="view-employee.php"><i class="fa fa-eye" aria-hidden="true"></i></a>|
                                                 <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
@@ -180,44 +127,9 @@ href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTab
                 </div>
             </div>
             <!--Table -->
-        
+
         </div>
-
-
-
-
-
-
-        <footer class="footer pt-3  ">
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6 mb-lg-0 mb-4">
-                        <div class="copyright text-center text-sm text-muted text-lg-end">
-                            © <script>
-                                document.write(new Date().getFullYear())
-                            </script>,
-                            made with <i class="fa fa-heart"></i> by
-                            <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php require_once('../../components/footer.php'); ?>
         </div>
 
     </main>
@@ -234,23 +146,16 @@ href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTab
     <script src="../../assets/js/plugins/chartjs.min.js"></script>
 
     <script src="../../assets/js/plugins/choices.min.js"></script>
-    <script
-type="text/javascript"
-charset="utf8"
-src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"
-></script>
-<script
-type="text/javascript"
-charset="utf8"
-src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 
     <script>
-      $(document).ready(function() {
-       
-      $('#example').dataTable({
-      "order": [ 0, 'desc' ]
-      } );
-    });
+        $(document).ready(function() {
+
+            $('#example').dataTable({
+                "order": [0, 'desc']
+            });
+        });
     </script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;

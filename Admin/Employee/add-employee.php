@@ -228,13 +228,8 @@ $image = "";
 
 
 <body class="g-sidenav-show rtl ">
-
-
-
     <!-- Side Bar -->
     <?php require_once('../../components/sidebar_admin.php'); ?>
-
-
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
         <!-- Navbar -->
@@ -243,9 +238,6 @@ $image = "";
         require_once('../../components/navbar.php');
         ?>
         <!-- End Navbar -->
-
-
-
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="block block-themed">
@@ -432,10 +424,6 @@ $image = "";
         </div>
 
     </main>
-
-
-
-
     <!--   Core JS Files   -->
     <script src="../../assets/js/core/popper.min.js"></script>
     <script src="../../assets/js/core/bootstrap.min.js"></script>
