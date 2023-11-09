@@ -23,6 +23,30 @@ function insert_data(array $data, string $tableName){
   
   }
 
+  function update_user_id($data, $tableName, $id){
+
+   global $db;
+   $columnsValues = ''; 
+   $num = 0; 
+   foreach($data as $column=>$value){ 
+                  
+           $comma = ($num > 0)?', ':''; 
+           $columnsValues.=$comma.$column." = "."'".$value."'"; 
+           $num++; 
+    } 
+
+     $updateQuery="UPDATE ".$tableName." SET ".$columnsValues." WHERE user_id=".$id;
+    
+    $updateResult=$db->query($updateQuery);
+    if($updateResult){
+      return true;
+    }else{
+      echo "Error: " . $updateResult . "<br>" . $db->error;
+    }
+
+
+}
+
   function update_advance_status_data($data, $tableName, $id){
 
    global $db;

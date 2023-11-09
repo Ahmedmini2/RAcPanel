@@ -21,7 +21,7 @@ if(isset($_POST['upload'])){
   $tableName='employee'; 
 
   if(!empty($data) && !empty($tableName)){
-    $updateData=update_advance_status_data($data,$tableName,$user_id);
+    $updateData=update_user_id($data,$tableName,$user_id);
     if($updateData){
       $target_dir = "../Signed_Docs/Employee-Profile/".$user_id."/";
       if(!is_dir($target_dir)) {
