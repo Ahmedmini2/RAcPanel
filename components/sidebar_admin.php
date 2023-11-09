@@ -260,7 +260,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
   <hr>
   <div class="dropdown pb-4">
     <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle px-4" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+      <img src="../Signed-Docs/Employee-Profile/<?=$_SESSION['id']?>/<?=$_SESSION['profile_pic']?>" alt="hugenerd" width="30" height="30" class="rounded-circle">
       <span class="d-none d-sm-inline mx-1"><?=$_SESSION['username']?></span>
     </a>
     <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">

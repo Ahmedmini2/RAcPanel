@@ -82,6 +82,13 @@ function login($db,$email,$password){
       $_SESSION['position']=$row['position'];
       $_SESSION['full_name']=$row['full_name'];
       $_SESSION['sidebar']="Home";
+      $user_id = $row['id'];
+      $query2 = "SELECT * FROM employee WHERE user_id='$user_id";
+      $res2 = $db->query($query2);
+      $user2 = $res2->fetch_assoc();
+
+      $_SESSION['full_name'] = $user2['name'];
+      $_SESSION['profile_pic'] = $user2['image'];
 
       if($_SESSION['position'] == 'Employee'){
         header("location:../Admin/index.php");
