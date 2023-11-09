@@ -289,9 +289,7 @@ $select = mysqli_query($conn, "select * from users");
 
           <div class="row">
                   <h6 class="my-4">Change Password</h6>
-                  <div class="row">
-
-
+                  
                     <div class="col">
                       <div class="form-group">
                         <label for="exampleInputPassword1">Old password *</label>
@@ -311,63 +309,11 @@ $select = mysqli_query($conn, "select * from users");
                         <input type="password" class="form-control" id="exampleInputPassword3">
                       </div>
                     </div>
-                  </div>
+                  
                 </div>
           </div>
         </div>
 
-
-        <form method="post">
-
-
-          <div class="row ">
-
-        
-            <div class="col-12 col-xl-7">
-              <h6 class="mb-4 mt-0">بيانات الموظف</h6>
-              <div class="card p-2">
-                <div class="row ">
-                  <div class="col">
-                    <div class="form-group">
-                      <label>First Name</label>
-                      <input type="text" placeholder="First Name" class="form-control" name="EmployeeID" value="">
-
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="form-group">
-                      <label>Last Name</label>
-                      <input type="text" placeholder="Last Name" class="form-control" name="name" value="">
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <div class="form-group">
-                      <label>Mobile number</label>
-                      <input type="text" placeholder="Mobile number" class="form-control" name="EmployeeID" value="">
-
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="form-group">
-                      <label>Email</label>
-                      <input type="text" placeholder="Email" class="form-control" name="name" value="">
-                    </div>
-                  </div>
-                </div>
-                
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="gap-3">
-            <button type="button" class="btn btn-secondary ">Delete profile</button>
-            <button type="button" class="btn btn-secondary ">Update profile</button>
-          </div>
-        </form>
 
       </div>
       <footer class="footer pt-3  ">
