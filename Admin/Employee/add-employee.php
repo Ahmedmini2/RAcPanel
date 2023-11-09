@@ -154,12 +154,12 @@ else if (isset($_POST['submit'])) {
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
 
         $_SESSION['notification'] = "تم اضافة الموظف بنجاح";
-        header('location: index.php');
+        header('location: view-employee.php');
         exit();
 
     } else {
         $_SESSION['notification'] = "يوجد خلل في النظام";
-        header('location: index.php');
+        header('location: view-employee.php');
         exit();
 
     }
