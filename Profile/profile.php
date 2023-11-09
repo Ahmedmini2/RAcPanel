@@ -377,6 +377,16 @@ $select = mysqli_query($conn, "select * from users");
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+  <script >
+        const previewImage = (event) => {
+            const files = event.target.files;
+            if(files.length > 0){
+                const imageUrl = URL.createObjectURL(files[0]);
+                const imageElement  = document.getElementById("preview-selected-image");
+                imageElement.src = imageUrl;
+            }
+        }
+    </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
