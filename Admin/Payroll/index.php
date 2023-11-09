@@ -95,14 +95,14 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                     </i>
                 </a>
             </div>
-            
-            <!--Table  <div id="filters">
+            <div id="filters">
                                 <select name="fetchval" id="fetchval">
                                     <option value="" disabled="" selected="">select</option>
                                     <option value="تقنية المعلومات">تقنية المعلومات</option>
                                     <option value="محاسبه">محاسبه</option>
                                 </select>
-                            </div>   -->
+                            </div> 
+            <!--Table    -->
             <?php
             while ($r = mysqli_fetch_array($select)) {
                 $month = $r['month'];
@@ -201,21 +201,10 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                 <!--Table -->
             <?php } ?>
         </div>
-
-
-
-
-
-
-
         <?php require_once('../../components/footer.php'); ?>
         </div>
 
     </main>
-
-
-
-
     <!--   Core JS Files   -->
     <script src="../../assets/js/core/popper.min.js"></script>
     <script src="../../assets/js/core/bootstrap.min.js"></script>
