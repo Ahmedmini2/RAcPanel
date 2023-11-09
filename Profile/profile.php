@@ -1,7 +1,44 @@
 <?php
 include('../cookies/session2.php');
+include('../cookies/insert-method2.php');
 $_SESSION['sidebar'] = "Profile";
-$select = mysqli_query($conn, "select * from users");
+$user_id = $_SESSION['id'];
+$query = "SELECT * FROM employee WHERE user_id = $user_id";
+$res = $conn->query($query);
+$user = $res->fetch_assoc();
+$query2 = "SELECT * FROM users WHERE id = $user_id";
+$res2 = $conn->query($query2);
+$user2 = $res2->fetch_assoc();
+
+if(isset($_POST['upload'])){
+
+  $filename = basename($_FILES["profile"]["name"]);
+
+  $data= [
+    'image' => $filename
+  ];
+
+  $tableName='employee'; 
+
+  if(!empty($data) && !empty($tableName)){
+    $updateData=update_advance_status_data($data,$tableName,$user_id);
+    if($updateData){
+      $target_dir = "../Signed_Docs/Employee-Profile/".$user_id."/";
+      if(!is_dir($target_dir)) {
+          mkdir($target_dir, 0777, true);
+      }else{
+      
+      }
+      $target_file = $target_dir . basename($_FILES["profile"]["name"]);
+      move_uploaded_file($_FILES["profile"]["tmp_name"], $target_file);
+      $_SESSION['notification'] = "User Profile Updated sucessfully";
+    }else{
+     $_SESSION['notification'] = "Error!.. check your query";
+    }
+ }
+
+ 
+}
 
 ?>
 <!DOCTYPE html>
@@ -162,10 +199,10 @@ $select = mysqli_query($conn, "select * from users");
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                عباس عثمان الجعفري
+                <?=$user['name']?>
               </h5>
               <p class="mb-0 font-weight-bold text-sm">
-                CEO / Co-Founder
+              <?=$user['Position']?>
               </p>
             </div>
           </div>
@@ -237,27 +274,16 @@ $select = mysqli_query($conn, "select * from users");
               </div>
             </div>
             <div class="card-body p-3">
-              <p class="text-sm">
-                Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).
-              </p>
+             
               <hr class="horizontal gray-light my-4">
               <ul class="list-group">
-                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; عباس عثمان الجعفري</li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; (44) 123 1234 123</li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; alecthompson@mail.com</li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp; السعودية</li>
-                <li class="list-group-item border-0 ps-0 pb-0">
-                  <strong class="text-dark text-sm">Social:</strong> &nbsp;
-                  <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                    <i class="fab fa-facebook fa-lg"></i>
-                  </a>
-                  <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                    <i class="fab fa-twitter fa-lg"></i>
-                  </a>
-                  <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                    <i class="fab fa-instagram fa-lg"></i>
-                  </a>
-                </li>
+                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; <?=$user['name']?></li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp;<?=$user['phone']?></li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; <?=$user['email']?></li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Nationality:</strong> &nbsp; <?=$user['nationality']?></li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Salary:</strong> &nbsp; <?=$user['salary']?></li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Department:</strong> &nbsp; <?=$user['department']?></li>
+                
               </ul>
             </div>
           </div>
@@ -270,57 +296,60 @@ $select = mysqli_query($conn, "select * from users");
               <div class="square position-relative display-2 mb-3">
                 <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
 
-                <img id="preview-selected-image">
+                <img id="preview-selected-image" style="width: -webkit-fill-available;height: -webkit-fill-available;position: relative;">
 
               </div>
               <!-- Button -->
               <div class="form-group">
-                <input type="file" id="customFile" name="file" hidden="" accept="image/*" onchange="previewImage(event);">
+                <form action="" method="POST" enctype="multipart/form-data">
+                <input type="file" id="customFile" name="profile" hidden="" accept="image/*" onchange="previewImage(event);">
                 <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
-                <button type="button" class="btn btn-danger-soft">save</button>
+                <button type="upload" name="upload" class="btn btn-danger-soft">Save</button>
+                </form>
               </div>
               <!-- Content -->
-              <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
+              <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 250px x 250px</p>
             </div>
           </div>
         </div>
         <div class="col-12 col-xl-4">
           <div class="card h-100">
 
-          <div class="row  p-3">
-                  <h6 class="my-4">Change Password</h6>
-                  
-                    <div class="col-12">
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Old password *</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+            <div class="row  p-3">
+              <form action="" method="POST">
+                      <h6 class="my-4">Change Password</h6>
+                      
+                        <div class="col-12">
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Old password *</label>
+                            <input type="password" name="old" class="form-control" id="exampleInputPassword1">
 
-                      </div>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-group">
+                            <label for="exampleInputPassword2">New password *</label>
+                            <input type="password" name="new" class="form-control" id="exampleInputPassword2">
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-group">
+                            <label for="exampleInputPassword3">Confirm Password *</label>
+                            <input type="password" name="cnew" class="form-control" id="exampleInputPassword3">
+                          </div>
+                        </div>
+                        <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <button type="submit" name="change-password" class="btn btn-secondary">save</button>
                     </div>
-                    <div class="col-12">
-                      <div class="form-group">
-                        <label for="exampleInputPassword2">New password *</label>
-                        <input type="password" class="form-control" id="exampleInputPassword2">
-                      </div>
-                    </div>
-                    <div class="col-12">
-                      <div class="form-group">
-                        <label for="exampleInputPassword3">Confirm Password *</label>
-                        <input type="password" class="form-control" id="exampleInputPassword3">
-                      </div>
-                    </div>
-                    <div class="row">
-              <div class="col">
-                <div class="form-group">
-                  <button type="submit" name="submit" class="btn btn-secondary">save</button>
+                  </div>
+                  <div class="col">
+
+                  </div>
                 </div>
-              </div>
-              <div class="col">
-
-              </div>
+              </form> 
             </div>
-                  
-                </div>
           </div>
         </div>
 
