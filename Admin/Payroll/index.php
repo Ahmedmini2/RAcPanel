@@ -335,10 +335,10 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                     type: "POST",
                     data: 'request=' + value,
                     beforeSend: function() {
-                        $(".card-body").html("<span>Working....</span>");
+                        $(".container-fluid-body").html("<span>Working....</span>");
                     },
                     success: function(data) {
-                        $(".card-body").html(data);
+                        $(".container-fluid-body").html(data);
                     }
                 })
             })
