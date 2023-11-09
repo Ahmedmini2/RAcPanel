@@ -90,7 +90,7 @@ function login($db,$email,$password){
       $user_id = $row['id'];
       $query2 = "SELECT * FROM employee WHERE user_id='$user_id";
       $res2 = mysqli_query($db,$query2);
-      $user2 = $res2->fetch_assoc();
+      $user2 = mysqli_fetch_array($res2);
 
       $_SESSION['full_name'] = $user2['name'];
       $_SESSION['profile_pic'] = $user2['image'];
