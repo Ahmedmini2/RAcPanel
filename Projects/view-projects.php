@@ -780,6 +780,7 @@ if (isset($_GET['id'])) {
                                                         <th>تكلفه الصنف</th>
                                                         <th>سعر البيع</th>
                                                         <th>صافي الربح</th>
+                                                        <th>مجموع صافي الربح</th>
                                                         <th>نسبه الربح</th>
                                                        
                                                         
@@ -805,6 +806,7 @@ if (isset($_GET['id'])) {
                                                             <td class="border-1 text-secondary"><?= number_format($products['cost_price'],2,'.',',')?></td>
                                                             <td class="border-1 text-secondary"><?= number_format($products['sell_price'],2,'.',',')?></td>
                                                             <td class="border-1 text-secondary"><?= number_format($products['net_profit'],2,'.',',')?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($products['net_profit']*$products['quantity'],2,'.',',')?></td>
                                                             <td class="border-1 text-secondary"><?=$products['net_perc']?></td>   
                                             
                                                         </tr>
