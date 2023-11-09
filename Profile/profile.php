@@ -277,7 +277,7 @@ $select = mysqli_query($conn, "select * from users");
               <div class="form-group">
                 <input type="file" id="customFile" name="file" hidden="" accept="image/*" onchange="previewImage(event);">
                 <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
-                <button type="button" class="btn btn-danger-soft">Remove</button>
+                <button type="button" class="btn btn-danger-soft">save</button>
               </div>
               <!-- Content -->
               <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
@@ -287,7 +287,7 @@ $select = mysqli_query($conn, "select * from users");
         <div class="col-12 col-xl-4">
           <div class="card h-100">
 
-          <div class="row">
+          <div class="row  p-3">
                   <h6 class="my-4">Change Password</h6>
                   
                     <div class="col-12">
