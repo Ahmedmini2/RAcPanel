@@ -263,7 +263,7 @@ $select = mysqli_query($conn, "select * from users");
           </div>
         </div>
         <div class="col-12 col-xl-4">
-          <div class="card">
+          <div class="card h-100">
 
             <div class="text-center">
               <!-- Image upload -->
@@ -284,6 +284,39 @@ $select = mysqli_query($conn, "select * from users");
             </div>
           </div>
         </div>
+        <div class="col-12 col-xl-4">
+          <div class="card h-100">
+
+          <div class="row">
+                  <h6 class="my-4">Change Password</h6>
+                  <div class="row">
+
+
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Old password *</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputPassword2">New password *</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputPassword3">Confirm Password *</label>
+                        <input type="password" class="form-control" id="exampleInputPassword3">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+
+
         <form method="post">
 
 
@@ -323,32 +356,7 @@ $select = mysqli_query($conn, "select * from users");
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <h6 class="my-4">Change Password</h6>
-                  <div class="row">
-
-
-                    <div class="col">
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Old password *</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
-
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="form-group">
-                        <label for="exampleInputPassword2">New password *</label>
-                        <input type="password" class="form-control" id="exampleInputPassword2">
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="form-group">
-                        <label for="exampleInputPassword3">Confirm Password *</label>
-                        <input type="password" class="form-control" id="exampleInputPassword3">
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
 
             </div>
