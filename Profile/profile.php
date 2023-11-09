@@ -290,20 +290,20 @@ $select = mysqli_query($conn, "select * from users");
           <div class="row">
                   <h6 class="my-4">Change Password</h6>
                   
-                    <div class="col">
+                    <div class="col-lg-12">
                       <div class="form-group">
                         <label for="exampleInputPassword1">Old password *</label>
                         <input type="password" class="form-control" id="exampleInputPassword1">
 
                       </div>
                     </div>
-                    <div class="col">
+                    <div class="col-lg-12">
                       <div class="form-group">
                         <label for="exampleInputPassword2">New password *</label>
                         <input type="password" class="form-control" id="exampleInputPassword2">
                       </div>
                     </div>
-                    <div class="col">
+                    <div class="col-lg-12">
                       <div class="form-group">
                         <label for="exampleInputPassword3">Confirm Password *</label>
                         <input type="password" class="form-control" id="exampleInputPassword3">
