@@ -23,7 +23,7 @@ if(isset($_POST['upload'])){
   if(!empty($data) && !empty($tableName)){
     $updateData=update_user_id($data,$tableName,$user_id);
     if($updateData){
-      $target_dir = "../Signed_Docs/Employee-Profile/".$user_id."/";
+      $target_dir = "../Signed-Docs/Employee-Profile/".$user_id."/";
       if(!is_dir($target_dir)) {
           mkdir($target_dir, 0777, true);
       }else{
