@@ -91,9 +91,11 @@ function login($db,$email,$password){
       $query2 = "SELECT * FROM employee WHERE user_id='$user_id";
       $res2 = mysqli_query($db,$query2);
       $user2 = mysqli_fetch_array($res2);
+      if(mysqli_num_rows($res2)>0){
 
       $_SESSION['full_name'] = $user2['name'];
       $_SESSION['profile_pic'] = $user2['image'];
+      }
 
       if($_SESSION['position'] == 'Employee'){
         header("location:../Admin/index.php");
