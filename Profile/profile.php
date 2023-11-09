@@ -31,6 +31,7 @@ if(isset($_POST['upload'])){
       }
       $target_file = $target_dir . basename($_FILES["profile"]["name"]);
       move_uploaded_file($_FILES["profile"]["tmp_name"], $target_file);
+      $_SESSION['profile_pic'] = $filename;
       $_SESSION['notification'] = "User Profile Updated sucessfully";
     }else{
      $_SESSION['notification'] = "Error!.. check your query";
