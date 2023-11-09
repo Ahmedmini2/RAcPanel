@@ -474,16 +474,18 @@ if (isset($_GET['id'])) {
                                         <div class="table-responsive p-0">
                                             <table class="table table-hover table-bordered table-fixed">
 
-                                                <!--Table head-->
-                                                <thead class="bg-dark text-light table-bordered text-center">
+                                               <!--Table head-->
+                                               <thead class="bg-dark text-light table-bordered text-center">
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>الصنف</th>
                                                         <th>كمية الخرسانة</th>
+                                                        <th>الخرسانة للصنف الواحد</th>
                                                         <th>سعر الخرسانة</th>
                                                         <th>كمية الخرسانة المستخدمة</th>
                                                         <th>سعر الخرسانة المستخدمة</th>
                                                     </tr>
+                                                    
                                                 </thead>
                                                 <!--Table head-->
 
@@ -510,6 +512,7 @@ if (isset($_GET['id'])) {
                                                      }
                                                     ?>
                                                             <td class="border-1 text-secondary"><?= $kh_quan ?></td>
+                                                            <td class="border-1 text-secondary"><?= $kh['quantity_per_piece'] ?></td>
                                                             <td class="border-1 text-secondary"><?= number_format($kh_total) ?></td>
                                                     <?php
                                                     $status_id = $products['id'];
