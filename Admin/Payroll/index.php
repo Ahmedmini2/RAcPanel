@@ -95,14 +95,14 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                     </i>
                 </a>
             </div>
-            <div id="filters">
+            
+            <!--Table  <div id="filters">
                                 <select name="fetchval" id="fetchval">
                                     <option value="" disabled="" selected="">select</option>
                                     <option value="تقنية المعلومات">تقنية المعلومات</option>
                                     <option value="محاسبه">محاسبه</option>
                                 </select>
-                            </div>
-            <!--Table     -->
+                            </div>   -->
             <?php
             while ($r = mysqli_fetch_array($select)) {
                 $month = $r['month'];
