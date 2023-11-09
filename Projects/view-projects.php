@@ -463,11 +463,12 @@ if (isset($_GET['id'])) {
 
                         </div>
 
-                        <div class="row">
+                        <!--Table-->
+                        <div class="row mt-5" >
                             <div class="col-12">
-                                <div class="card mb-4 mt-3">
-                                    <div class="card-header pb-0 ">
-                                        <h6>التوصيل</h6>
+                                <div class="card mb-4">
+                                    <div class="card-header pb-0">
+                                        <h6>خرسانة المشروع</h6>
                                     </div>
                                     <div class="card-body px-0 pt-0 pb-2 mx-3">
                                         <div class="table-responsive p-0">
@@ -478,133 +479,53 @@ if (isset($_GET['id'])) {
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>الصنف</th>
-                                                        <th>عدد القطع للتريلة</th>
-                                                        <th>عدد التريلات</th>
-                                                        <th>سعر توصيل القطعه</th>
-                                                        <th>سعر التوصيل التريلة</th>
-                                                        <th>سعر التوصيل الكلي</th>
-                                                        <th>توصيل الى</th>
-
+                                                        <th>كمية الخرسانة</th>
+                                                        <th>سعر الخرسانة</th>
+                                                        <th>كمية الخرسانة المستخدمة</th>
+                                                        <th>سعر الخرسانة المستخدمة</th>
                                                     </tr>
                                                 </thead>
                                                 <!--Table head-->
 
                                                 <!--Table body-->
-                                                <tbody class=" text-center">
+                                                <tbody class="text-center">
                                                     <?php
                                                     $i = 0;
-                                                    $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
-                                                    while ($products = mysqli_fetch_array($res3)) {
-                                                        $product_id = $products['id'];
-                                                        $deleivery_query  = $conn->query("SELECT * FROM delivery WHERE `product_id` = $product_id");
-                                                        $delevery = $deleivery_query->fetch_assoc();
-                                                        
-                                                       
-                                                        $del_status = $delevery['deliverable'];
-                                                        $peice_per_track = $delevery['peice_per_track'];
-                                                        $quantity_of_track = $delevery['quantity_of_track'];
-                                                        $piece_price = $delevery['piece_price'];
-                                                        $track_price = $delevery['track_price'];
-                                                        $del_total_price = $delevery['total_price'];
-                                                        $delivery_to = $delevery['delivery_to'];
-                                                       
-                                                        $i++;
-                                                    ?>
-                                                        <?php if ($del_status == 1) { ?>
-                                                        <tr>
-                                                            <th class="text-secondarys" scope="row"><?= $i ?></th>
-                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
-                                                            <td class="border-1 text-secondary"><?= $peice_per_track ?></td>                                                
-                                                            <td class="border-1 text-secondary"><?= $quantity_of_track ?></td>
-                                                            <td class="border-1 text-secondary" ><?= number_format( $piece_price ,2,'.',',') ?></td>
-
-
-
-                                                            <td class="border-1 text-secondary"><?= number_format($track_price,2,'.',',') ?></td>
-                                                            <td class="border-1 text-secondary"><?= number_format($del_total_price,2,'.',',') ?></td>
-
-                                                            <td class="border-1 text-secondary"><?= $delivery_to  ?></td>
-                                                        </tr>
-                                                       <?php } ?>
-                                                    <?php } ?>
-
-                                                </tbody>
-                                                <!--Table body-->
-
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Table خط سير تنفيد المشروع -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card mb-4 mt-3">
-                                    <div class="card-header pb-0 ">
-                                        <h6>خط سير تنفيد المشروع</h6>
-                                    </div>
-                                    <div class="card-body px-0 pt-0 pb-2 mx-3">
-                                        <div class="table-responsive p-0">
-                                            <table class="table table-hover table-bordered table-fixed">
-
-                                                <!--Table head-->
-                                                <thead class="bg-dark text-light table-bordered text-center">
-                                                    <tr>
-                                                        <th>الرقم</th>
-                                                        <th>الصنف</th>
-                                                        <th>الكمية الكلية للصنف</th>
-                                                        <th>موجود في المستودع</th>
-                                                        <th>تم انتاج</th>
-                                                        <th>تم الاستلام</th>
-                                                        <th>المتبقي</th>
-
-                                                    </tr>
-                                                </thead>
-                                                <!--Table head-->
-
-                                                <!--Table body-->
-                                                <tbody class=" text-center">
-                                                    <?php
-                                                    $i = 0;
+                                                    
                                                     $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
                                                     while ($products = mysqli_fetch_array($res3)) {
                                                         $i++;
-                                                        $inventory = 0;
-                                                        $production = 0;
-                                                        $deliverd = 0;
+                                                        $kh_quan = 0;
                                                     ?>
                                                         <tr>
                                                             <th class="text-secondary" scope="row"><?= $i ?></th>
-                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
-                                                            <td class="border-1 v"><?= $products['quantity'] ?></td>
-                                                            <?php
-                                                            $inv_id =  $products['id'];
-                                                            $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id");
+                                                            <td class="border-1 text-secondary" ><?= $products['product_name'] ?></td>
+                                                    <?php
+                                                    $kh_id = $products['id'];
+                                                     $res4 = mysqli_query($conn, "SELECT * FROM kharasana WHERE `product_id` = $kh_id");
+                                                     while ($kh = mysqli_fetch_array($res4)) {
+                                                        $kh_quan = $kh['quantity_per_piece'] * $products['quantity'];
+                                                        $kh_total = $kh['total_price'];
+                                                        
+                                                     }
+                                                    ?>
+                                                            <td class="border-1 text-secondary"><?= $kh_quan ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($kh_total) ?></td>
+                                                    <?php
+                                                    $status_id = $products['id'];
+                                                    $kh_used = 0;
+                                                    $kh_used_price = 0;
+                                                        $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id AND `status` ='إنتاج'");
+                                                        while ($status = mysqli_fetch_array($res5)) {
+                                                        $kh_used += $status['kharasana_used'];
+                                                        $kh_used_price += $status['total_price'];
+                                                        
+                                                     }
+                                                    ?>
+                                                    
+                                                            <td class="border-1 text-secondary"><?= number_format($kh_used,2) ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($kh_used_price) ?></td>
 
-                                                            while ($inv = mysqli_fetch_array($inv_res)) {
-                                                                $inventory += $inv['warehouse'];
-                                                                $production += $inv['production'];
-                                                            }
-                                                            ?>
-                                                            <?php
-                                                            $del_id =  $products['id'];
-                                                            $del_res = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `product_id` = $del_id");
-
-                                                            while ($del = mysqli_fetch_array($del_res)) {
-
-                                                                $deliverd += $del['quantity'];
-                                                            }
-                                                            ?>
-                                                            <td class="border-1 text-secondary" ><?= number_format($inventory - $deliverd) ?></td>
-                                                            <td class="border-1 text-secondary"><?= number_format($production) ?></td>
-
-
-
-                                                            <td class="border-1 text-secondary"><?= number_format($deliverd) ?></td>
-
-                                                            <td class="border-1 text-secondary"><?= $products['quantity'] - $production ?></td>
                                                         </tr>
                                                     <?php } ?>
 
@@ -617,6 +538,10 @@ if (isset($_GET['id'])) {
                                 </div>
                             </div>
                         </div>
+
+                        
+
+                       
                         <!--Table البنود -->
                         <div class="col mt-4">
                             <div class="card">
@@ -1062,7 +987,160 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card mb-4 mt-3">
+                                    <div class="card-header pb-0 ">
+                                        <h6>التوصيل</h6>
+                                    </div>
+                                    <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                        <div class="table-responsive p-0">
+                                            <table class="table table-hover table-bordered table-fixed">
 
+                                                <!--Table head-->
+                                                <thead class="bg-dark text-light table-bordered text-center">
+                                                    <tr>
+                                                        <th>الرقم</th>
+                                                        <th>الصنف</th>
+                                                        <th>عدد القطع للتريلة</th>
+                                                        <th>عدد التريلات</th>
+                                                        <th>سعر توصيل القطعه</th>
+                                                        <th>سعر التوصيل التريلة</th>
+                                                        <th>سعر التوصيل الكلي</th>
+                                                        <th>توصيل الى</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <!--Table head-->
+
+                                                <!--Table body-->
+                                                <tbody class=" text-center">
+                                                    <?php
+                                                    $i = 0;
+                                                    $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+                                                    while ($products = mysqli_fetch_array($res3)) {
+                                                        $product_id = $products['id'];
+                                                        $deleivery_query  = $conn->query("SELECT * FROM delivery WHERE `product_id` = $product_id");
+                                                        $delevery = $deleivery_query->fetch_assoc();
+                                                        
+                                                       
+                                                        $del_status = $delevery['deliverable'];
+                                                        $peice_per_track = $delevery['peice_per_track'];
+                                                        $quantity_of_track = $delevery['quantity_of_track'];
+                                                        $piece_price = $delevery['piece_price'];
+                                                        $track_price = $delevery['track_price'];
+                                                        $del_total_price = $delevery['total_price'];
+                                                        $delivery_to = $delevery['delivery_to'];
+                                                       
+                                                        $i++;
+                                                    ?>
+                                                        <?php if ($del_status == 1) { ?>
+                                                        <tr>
+                                                            <th class="text-secondarys" scope="row"><?= $i ?></th>
+                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
+                                                            <td class="border-1 text-secondary"><?= $peice_per_track ?></td>                                                
+                                                            <td class="border-1 text-secondary"><?= $quantity_of_track ?></td>
+                                                            <td class="border-1 text-secondary" ><?= number_format( $piece_price ,2,'.',',') ?></td>
+
+
+
+                                                            <td class="border-1 text-secondary"><?= number_format($track_price,2,'.',',') ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($del_total_price,2,'.',',') ?></td>
+
+                                                            <td class="border-1 text-secondary"><?= $delivery_to  ?></td>
+                                                        </tr>
+                                                       <?php } ?>
+                                                    <?php } ?>
+
+                                                </tbody>
+                                                <!--Table body-->
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>     
+                        
+                         <!--Table خط سير تنفيد المشروع -->
+                         <div class="row">
+                            <div class="col-12">
+                                <div class="card mb-4 mt-3">
+                                    <div class="card-header pb-0 ">
+                                        <h6>خط سير تنفيد المشروع</h6>
+                                    </div>
+                                    <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                        <div class="table-responsive p-0">
+                                            <table class="table table-hover table-bordered table-fixed">
+
+                                                <!--Table head-->
+                                                <thead class="bg-dark text-light table-bordered text-center">
+                                                    <tr>
+                                                        <th>الرقم</th>
+                                                        <th>الصنف</th>
+                                                        <th>الكمية الكلية للصنف</th>
+                                                        <th>موجود في المستودع</th>
+                                                        <th>تم انتاج</th>
+                                                        <th>تم الاستلام</th>
+                                                        <th>المتبقي</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <!--Table head-->
+
+                                                <!--Table body-->
+                                                <tbody class=" text-center">
+                                                    <?php
+                                                    $i = 0;
+                                                    $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+                                                    while ($products = mysqli_fetch_array($res3)) {
+                                                        $i++;
+                                                        $inventory = 0;
+                                                        $production = 0;
+                                                        $deliverd = 0;
+                                                    ?>
+                                                        <tr>
+                                                            <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
+                                                            <td class="border-1 v"><?= $products['quantity'] ?></td>
+                                                            <?php
+                                                            $inv_id =  $products['id'];
+                                                            $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id");
+
+                                                            while ($inv = mysqli_fetch_array($inv_res)) {
+                                                                $inventory += $inv['warehouse'];
+                                                                $production += $inv['production'];
+                                                            }
+                                                            ?>
+                                                            <?php
+                                                            $del_id =  $products['id'];
+                                                            $del_res = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `product_id` = $del_id");
+
+                                                            while ($del = mysqli_fetch_array($del_res)) {
+
+                                                                $deliverd += $del['quantity'];
+                                                            }
+                                                            ?>
+                                                            <td class="border-1 text-secondary" ><?= number_format($inventory - $deliverd) ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($production) ?></td>
+
+
+
+                                                            <td class="border-1 text-secondary"><?= number_format($deliverd) ?></td>
+
+                                                            <td class="border-1 text-secondary"><?= $products['quantity'] - $production ?></td>
+                                                        </tr>
+                                                    <?php } ?>
+
+                                                </tbody>
+                                                <!--Table body-->
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
