@@ -323,6 +323,128 @@ $select =mysqli_query($conn, "select * from users");
             </div>
           </div>
         </div>
+
+        <!-- Page title -->
+        <div class="my-5">
+                <h3>My Profile</h3>
+                <hr>
+            </div>
+            <form method="post">
+
+
+                <div class="row ">
+
+                    <div class="col-12 col-xl-5">
+
+                        <!-- Form START  card h-100" dir="ltr-->
+                        <div class="row">
+                            <!-- Upload profile -->
+                            <div class="col-10">
+                                <h6 class="mb-4 mt-0">رفع صورة</h6>
+                                <div class="card">
+
+                                    <div class="text-center">
+                                        <!-- Image upload -->
+                                        <div class="square position-relative display-2 mb-3">
+                                            <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+                                            
+                                                <img id="preview-selected-image">
+                                            
+                                        </div>
+                                        <!-- Button -->
+                                        <div class="form-group">
+                                        <input  type="file" 
+                                        id="customFile"
+                                         name="file" 
+                                         hidden="" 
+                                         accept="image/*"
+                                         onchange="previewImage(event);"
+                                         >
+                                        <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
+                                        <button type="button" class="btn btn-danger-soft">Remove</button>
+                                        </div>
+                                        <!-- Content -->
+                                        <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-xl-7">
+                        <h6 class="mb-4 mt-0">بيانات الموظف</h6>
+                        <div class="card p-2">
+                            <div class="row ">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" placeholder="First Name" class="form-control" name="EmployeeID" value="">
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" placeholder="Last Name" class="form-control" name="name" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Mobile number</label>
+                                        <input type="text" placeholder="Mobile number" class="form-control" name="EmployeeID" value="">
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="text" placeholder="Email" class="form-control" name="name" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h6 class="my-4">Change Password</h6>
+                                <div class="row">
+
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Old password *</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1">
+
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword2">New password *</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword2">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword3">Confirm Password *</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+                <div class="gap-3">
+                    <button type="button" class="btn btn-secondary ">Delete profile</button>
+                    <button type="button" class="btn btn-secondary ">Update profile</button>
+                </div>
+            </form>
         
       </div>
       <footer class="footer pt-3  ">
