@@ -1,4 +1,5 @@
 <?php
+include '../db/connection.php';
  session_start();
 // by default, error messages are empty
 $call_login=$set_email=$emailErr=$passErr='';
@@ -84,7 +85,7 @@ function login($db,$email,$password){
       $_SESSION['sidebar']="Home";
       $user_id = $row['id'];
       $query2 = "SELECT * FROM employee WHERE user_id='$user_id";
-      $res2 = $db->query($query2);
+      $res2 = $conn->query($query2);
       $user2 = $res2->fetch_assoc();
 
       $_SESSION['full_name'] = $user2['name'];
