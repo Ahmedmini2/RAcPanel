@@ -193,7 +193,7 @@ if(isset($_POST['upload'])){
         <div class="row gx-4">
           <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
-              <img src="../assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+              <img src="../Signed-Docs/Employee-Profile/<?=$user_id?>/<?=$user['image']?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
             </div>
           </div>
           <div class="col-auto my-auto">
@@ -296,7 +296,7 @@ if(isset($_POST['upload'])){
               <div class="square position-relative display-2 mb-3">
                 <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
 
-                <img id="preview-selected-image" style="width: -webkit-fill-available;height: -webkit-fill-available;position: relative;">
+                <img id="preview-selected-image" style="width: -webkit-fill-available;height: -webkit-fill-available;position: relative;" src="../Signed-Docs/Employee-Profile/<?=$user_id?>/<?=$user['image']?>">
 
               </div>
               <!-- Button -->
