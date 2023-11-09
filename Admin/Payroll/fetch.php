@@ -6,7 +6,7 @@ include('../../cookies/session3.php');
 
         $request = $_POST['request'];
 
-        $query = "SELECT * FROM payroll_process WHERE department = '$request'";
+        $query = "SELECT * FROM employee WHERE department = '$request'";
         $result = mysqli_query($conn,$query);
         $count = mysqli_num_rows($result);
     }
