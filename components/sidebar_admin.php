@@ -61,10 +61,6 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
             <li class="w-100">
               <a href="../../Admin/Employee/view-employee.php" class="nav-link px-0"> <span class=" d-sm-inline">بيانات الموظفين</span></a>
             </li>
-            
-
-            
-
 
           </ul>
        </li>
