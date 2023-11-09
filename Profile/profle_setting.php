@@ -209,7 +209,17 @@ if (!empty($_GET['edit'])) {
 
         <div class="container-fluid py-4">
 
-            
+        <div class="row">
+                            <!-- Upload profile -->
+                            <div class="col-10">
+                                <h6 class="mb-4 mt-0">رفع صورة</h6>
+                               
+                            </div>
+
+
+
+
+                        </div>
         </div>
 
 

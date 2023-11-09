@@ -1,7 +1,7 @@
 <?php
-include ('../cookies/session2.php');
-$_SESSION['sidebar']="Profile";
-$select =mysqli_query($conn, "select * from users");
+include('../cookies/session2.php');
+$_SESSION['sidebar'] = "Profile";
+$select = mysqli_query($conn, "select * from users");
 
 ?>
 <!DOCTYPE html>
@@ -17,23 +17,23 @@ $select =mysqli_query($conn, "select * from users");
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show rtl ">
-      
-      <!-- Side Bar -->
+
+  <!-- Side Bar -->
   <?php require_once('../components/sidebar.php'); ?>
-      <!-- End Of side Bar -->
+  <!-- End Of side Bar -->
 
   <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
@@ -42,12 +42,12 @@ $select =mysqli_query($conn, "select * from users");
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
             <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">لوحات القيادة</a></li>
-           
+
           </ol>
           <h6 class="font-weight-bolder mb-0">الملف الشخصي</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-         
+
           <ul class="navbar-nav me-auto ms-0 justify-content-end">
             <li class="nav-item d-flex align-items-center">
               <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
@@ -66,8 +66,8 @@ $select =mysqli_query($conn, "select * from users");
             </li>
             <li class="nav-item px-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0">
-               
-                <i class="fa fa-arrow-left me-sm-1 cursor-pointer"  onclick="history.back()" ></i>
+
+                <i class="fa fa-arrow-left me-sm-1 cursor-pointer" onclick="history.back()"></i>
               </a>
             </li>
             <li class="nav-item dropdown ps-2 d-flex align-items-center">
@@ -162,7 +162,7 @@ $select =mysqli_query($conn, "select * from users");
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-              عباس عثمان الجعفري
+                عباس عثمان الجعفري
               </h5>
               <p class="mb-0 font-weight-bold text-sm">
                 CEO / Co-Founder
@@ -192,7 +192,7 @@ $select =mysqli_query($conn, "select * from users");
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a  hclass="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
+                  <a hclass="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
                     <svg class="text-dark" width="16px" height="16px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <title>document</title>
                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -207,11 +207,11 @@ $select =mysqli_query($conn, "select * from users");
                         </g>
                       </g>
                     </svg>
-                    
+
                     <span class="ms-1">Messages</span>
                   </a>
                 </li>
-                
+
               </ul>
             </div>
           </div>
@@ -219,9 +219,9 @@ $select =mysqli_query($conn, "select * from users");
       </div>
     </div>
     <div class="container-fluid py-4">
-        
-    <div class="row">
-    
+
+      <div class="row">
+
         <div class="col-12 col-xl-4">
           <div class="card h-100" dir="ltr">
             <div class="card-header pb-0 p-3" dir="rtl">
@@ -263,189 +263,104 @@ $select =mysqli_query($conn, "select * from users");
           </div>
         </div>
         <div class="col-12 col-xl-4">
-          <div class="card h-100" dir="ltr">
-            <div class="card-header pb-0 p-3"dir="rtl">
-              <h6 class="mb-0">المحادثات</h6>
-            </div>
-            <div class="card-body p-3">
-              <ul class="list-group">
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="avatar me-3">
-                    <img src="../assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Sophie B.</h6>
-                    <p class="mb-0 text-xs">Hi! I need more information..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="avatar me-3">
-                    <img src="../assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Anne Marie</h6>
-                    <p class="mb-0 text-xs">Awesome work, can you..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="avatar me-3">
-                    <img src="../assets/img/ivana-square.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Ivanna</h6>
-                    <p class="mb-0 text-xs">About files I can..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="avatar me-3">
-                    <img src="../assets/img/team-4.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Peterson</h6>
-                    <p class="mb-0 text-xs">Have a great afternoon..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0">
-                  <div class="avatar me-3">
-                    <img src="../assets/img/team-3.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Nick Daniel</h6>
-                    <p class="mb-0 text-xs">Hi! I need more information..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-              </ul>
+          <div class="card">
+
+            <div class="text-center">
+              <!-- Image upload -->
+              <div class="square position-relative display-2 mb-3">
+                <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+
+                <img id="preview-selected-image">
+
+              </div>
+              <!-- Button -->
+              <div class="form-group">
+                <input type="file" id="customFile" name="file" hidden="" accept="image/*" onchange="previewImage(event);">
+                <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
+                <button type="button" class="btn btn-danger-soft">Remove</button>
+              </div>
+              <!-- Content -->
+              <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
             </div>
           </div>
         </div>
-
-        <!-- Page title -->
-        <div class="my-5">
-                <h3>My Profile</h3>
-                <hr>
-            </div>
-            <form method="post">
+        <form method="post">
 
 
-                <div class="row ">
+          <div class="row ">
 
-                    <div class="col-12 col-xl-5">
-
-                        <!-- Form START  card h-100" dir="ltr-->
-                        <div class="row">
-                            <!-- Upload profile -->
-                            <div class="col-10">
-                                <h6 class="mb-4 mt-0">رفع صورة</h6>
-                                <div class="card">
-
-                                    <div class="text-center">
-                                        <!-- Image upload -->
-                                        <div class="square position-relative display-2 mb-3">
-                                            <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
-                                            
-                                                <img id="preview-selected-image">
-                                            
-                                        </div>
-                                        <!-- Button -->
-                                        <div class="form-group">
-                                        <input  type="file" 
-                                        id="customFile"
-                                         name="file" 
-                                         hidden="" 
-                                         accept="image/*"
-                                         onchange="previewImage(event);"
-                                         >
-                                        <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
-                                        <button type="button" class="btn btn-danger-soft">Remove</button>
-                                        </div>
-                                        <!-- Content -->
-                                        <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-                        </div>
-
-                    </div>
-                    <div class="col-12 col-xl-7">
-                        <h6 class="mb-4 mt-0">بيانات الموظف</h6>
-                        <div class="card p-2">
-                            <div class="row ">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label>First Name</label>
-                                        <input type="text" placeholder="First Name" class="form-control" name="EmployeeID" value="">
-
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input type="text" placeholder="Last Name" class="form-control" name="name" value="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label>Mobile number</label>
-                                        <input type="text" placeholder="Mobile number" class="form-control" name="EmployeeID" value="">
-
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="text" placeholder="Email" class="form-control" name="name" value="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <h6 class="my-4">Change Password</h6>
-                                <div class="row">
-
-
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Old password *</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1">
-
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword2">New password *</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword2">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword3">Confirm Password *</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword3">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    
-                </div>
-
-                <div class="gap-3">
-                    <button type="button" class="btn btn-secondary ">Delete profile</button>
-                    <button type="button" class="btn btn-secondary ">Update profile</button>
-                </div>
-            </form>
         
+            <div class="col-12 col-xl-7">
+              <h6 class="mb-4 mt-0">بيانات الموظف</h6>
+              <div class="card p-2">
+                <div class="row ">
+                  <div class="col">
+                    <div class="form-group">
+                      <label>First Name</label>
+                      <input type="text" placeholder="First Name" class="form-control" name="EmployeeID" value="">
+
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label>Last Name</label>
+                      <input type="text" placeholder="Last Name" class="form-control" name="name" value="">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label>Mobile number</label>
+                      <input type="text" placeholder="Mobile number" class="form-control" name="EmployeeID" value="">
+
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input type="text" placeholder="Email" class="form-control" name="name" value="">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <h6 class="my-4">Change Password</h6>
+                  <div class="row">
+
+
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Old password *</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputPassword2">New password *</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputPassword3">Confirm Password *</label>
+                        <input type="password" class="form-control" id="exampleInputPassword3">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="gap-3">
+            <button type="button" class="btn btn-secondary ">Delete profile</button>
+            <button type="button" class="btn btn-secondary ">Update profile</button>
+          </div>
+        </form>
+
       </div>
       <footer class="footer pt-3  ">
         <div class="container-fluid">
@@ -457,7 +372,7 @@ $select =mysqli_query($conn, "select * from users");
                 </script>,
                 Made by
                 <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
-                
+
               </div>
             </div>
             <div class="col-lg-6">
@@ -471,7 +386,7 @@ $select =mysqli_query($conn, "select * from users");
                 <li class="nav-item">
                   <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
                 </li>
-                
+
               </ul>
             </div>
           </div>
@@ -479,7 +394,7 @@ $select =mysqli_query($conn, "select * from users");
       </footer>
     </div>
   </main>
-  
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -487,7 +402,7 @@ $select =mysqli_query($conn, "select * from users");
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/fullcalendar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
-  
+
   <script src="../assets/js/plugins/choices.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
