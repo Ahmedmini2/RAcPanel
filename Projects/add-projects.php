@@ -694,8 +694,8 @@ if (isset($_POST['add-project'])) {
                 <div class="iron_details">
                   <hr>
                   <h5>بند الحديد</h5>
-                  <div class="col-md-2 col-sm-6 align-self-center flex-fill">
-                        <span class="pull-right clickable close-icon text-start" data-effect="fadeOut"><i class="fa fa-times"></i></span>
+                  <div class="col-md-12 col-sm-6 ">
+                        <span class=" text-start" data-effect="fadeOut"><i class="fa fa-times"></i></span>
                         </div>
                   <div class="iron" id="main-iron">
                     <div class="row" id="row<?= $coco ?>">
