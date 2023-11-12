@@ -377,7 +377,7 @@ if (isset($_GET['project_id'])) {
                                             Rukn Amial Co.Company <br>
                                             Abbas Al Jafari <br>
                                             591022703 <br>
-                                            Eastren Ring Branch Road, Alrwabi - Riyadh  <br>
+                                            Eastren Ring Road, Alrwabi - Riyadh  <br>
                                             info@ruknamyal.com<br>
                                             <?=$vat?><br>
 
