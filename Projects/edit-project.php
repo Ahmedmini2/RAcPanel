@@ -83,10 +83,11 @@ if (isset($_POST['add-project'])) {
       }
 
         $iron_raws = $_POST['iron-rr'];
+        $iron_new_raws = $_POST['iron-new-rr'];
         if ($iron_raws == "") {
           $iron_raws = 1;
         }
-        while ($iron1 <= $iron_raws) {
+        while ($iron1 <= $iron_new_raws) {
           $iron = $_POST['iron_' . $iron1];
           $iron_price = str_replace(',', '', $_POST['iron_price_' . $iron1]);
           $iron_quantity = $_POST['iron_quantity_' . $iron1];
@@ -109,17 +110,36 @@ if (isset($_POST['add-project'])) {
           ];
 
           $selectedSizeText = $sizeText[$iron];
+
+          if($iron1 <= $iron_raws){
           
-          $update_iron = "UPDATE  iron_band  SET  size ='$selectedSizeText', price_today ='$iron_price', quantity ='$iron_quantity', iron_height ='$iron_long', tn_price ='$iron_tn', total_price ='$iron_tot' WHERE  id  = $iron_id ";
-          $iron_res = $conn->query($update_iron);
-          if ($iron_res){
-            
-            $iron1++;
-          }else{
-            $_SESSION['notification'] =  $conn->error;
-                  header('location: index.php');
-                  exit();
-            }
+            $update_iron = "UPDATE  iron_band  SET  size ='$selectedSizeText', price_today ='$iron_price', quantity ='$iron_quantity', iron_height ='$iron_long', tn_price ='$iron_tn', total_price ='$iron_tot' WHERE  id  = $iron_id ";
+            $iron_res = $conn->query($update_iron);
+            if ($iron_res){
+              
+              $iron1++;
+            }else{
+              $_SESSION['notification'] =  $conn->error;
+                    header('location: index.php');
+                    exit();
+              }
+          }else {
+            $data = [
+              'emp_name' => $names[$i],
+              'salary'=>$salaries[$i],
+              'extra'=>$extras[$i],
+              'total_salary'=>$total_salaries[$i],
+              'fees'=>$fees[$i],
+              'absend'=>$absends[$i],
+              'late'=>$lates[$i],
+              'advanced'=>$advanceds[$i],
+              'deductions_total'=>$deductions_totals[$i],
+              'net_salary'=>$net_salaries[$i],
+              'work_days'=>$work_days[$i],
+              'month'=>$date,
+              'year'=>$year,
+            ];
+          }
         }
           $accessory_raws = $_POST['ac-rr'];
           if ($accessory_raws == "") {

@@ -798,9 +798,9 @@ if (isset($_POST['add-project'])) {
                 </div>
                 <hr>
                 <div class="accessory_details">
-                  <div class="row">
+                  
                   <h5>بند الاكسسوارات</h5>
-                  <span class="pull-right clickable close-icon text-start" data-effect="fadeOut"><i class="fa fa-times"></i></span>
+                  
                   </div>
 
                   <div class="accessory" id="main-accessory">
@@ -833,6 +833,7 @@ if (isset($_POST['add-project'])) {
                             <input type="hidden" name="ac-rr" id="ac-rr" readonly>
                           </div>
                         </div>
+                        <span class="pull-right clickable close-icon text-start" data-effect="fadeOut"><i class="fa fa-times"></i></span>
                       </div>
                       <hr class="new2">
                       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
