@@ -1,6 +1,9 @@
 <?php
- session_start();
+session_start();
 // by default, error messages are empty
+
+
+
 $call_login=$set_email=$emailErr=$passErr='';
   
  extract($_POST);
@@ -61,6 +64,8 @@ function legal_input($value) {
 // function to check valid login data into database table
 function login($db,$email,$password){
 
+  
+
    // checking valid user
   $check_email="SELECT email FROM users WHERE email='$email' AND status=1";
   $run_email=mysqli_query($db,$check_email);
@@ -82,6 +87,15 @@ function login($db,$email,$password){
       $_SESSION['position']=$row['position'];
       $_SESSION['full_name']=$row['full_name'];
       $_SESSION['sidebar']="Home";
+      $user_id = $row['id'];
+      $query2 = "SELECT * FROM employee WHERE user_id='$user_id'";
+      $res2 = mysqli_query($db,$query2);
+      $user2 = mysqli_fetch_array($res2);
+      if(mysqli_num_rows($res2)>0){
+
+      $_SESSION['full_name'] = $user2['name'];
+      $_SESSION['profile_pic'] = $user2['image'];
+      }
 
       if($_SESSION['position'] == 'Employee'){
         header("location:../Admin/index.php");

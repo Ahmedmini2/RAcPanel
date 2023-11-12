@@ -1,66 +1,10 @@
 <?php
 include('../cookies/session2.php');
-$_SESSION['sidebar'] = "Cover";
-$select = mysqli_query($conn, "select * from covers_purchase");
-if (!empty($_GET['edit'])) {
+$_SESSION['sidebar'] = "WebManagment";
 
-    $id = $_GET['edit'];
-    $query = "SELECT * FROM covers_report WHERE id=$id";
-    $res = $conn->query($query);
-    $editData = $res->fetch_assoc();
-    $name = $editData['name'];
-    $quantity = $editData['quantity'];
-    $image = $editData['image'];
+$projects = mysqli_query($conn, "SELECT * FROM projects");
 
 
-
-    if (isset($_POST['submit'])) {
-
-        $name = $_POST['name'];
-        $quantity = $_POST['quantity'];
-        $image = $_POST['image'];
-
-
-
-        $update = "UPDATE `covers_report` SET `name` = '$name', `quantity` = '$quantity', `image` = '$filename' WHERE `id` = $id";
-        $updateResult = $conn->query($update);
-        if ($updateResult) {
-
-            $_SESSION['notification'] = "تم تعديل طلب مراجعة الاغطية بنجاح";
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
-            exit();
-        } else {
-            $_SESSION['notification'] = "يوجد خلل في النظام";
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
-            exit();
-        }
-    }
-} else if (isset($_POST['submit'])) {
-
-    $name = $_POST['name'];
-    $quantity = $_POST['quantity'];
-    $image = $_POST['image'];
-
-
-
-    $insert = "INSERT INTO `covers_report` (`id`, `name`, `quantity`, `image`, `created_at`)
-        VALUES (NULL, '$name', '$quantity', '$filename', NOW())";
-    $insertResult = $conn->query($insert);
-    if ($insertResult) {
-
-        $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit();
-    } else {
-        $_SESSION['notification'] = "يوجد خلل في النظام";
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit();
-    }
-} else {
-    $name = "";
-    $quantity = "";
-    $image = "";
-}
 
 ?>
 <!DOCTYPE html>
@@ -72,7 +16,7 @@ if (!empty($_GET['edit'])) {
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-        الاعدادات
+        المدونات
     </title>
     <!--     Fonts and icons     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -99,7 +43,7 @@ if (!empty($_GET['edit'])) {
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-                        <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">اعدادات</a></li>
+                        <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">المدونات</a></li>
 
                     </ol>
 
@@ -107,6 +51,7 @@ if (!empty($_GET['edit'])) {
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
 
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
+                   
                         <li class="nav-item d-flex align-items-center">
                             <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
@@ -122,6 +67,7 @@ if (!empty($_GET['edit'])) {
                                 </div>
                             </a>
                         </li>
+
                         <li class="nav-item px-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0">
 
@@ -202,100 +148,171 @@ if (!empty($_GET['edit'])) {
                             </ul>
                         </li>
                     </ul>
+
                 </div>
+
+                <i class="bi bi-arrow-left"></i>
+
+
             </div>
         </nav>
         <!-- End Navbar -->
 
         <div class="container-fluid py-4">
+            <div class="block-header bg-gradient-dark  col-md-3 col-sm-6 col-xs-6  rounded-pill">
 
-        <div class="row">
-                            <!-- Upload profile -->
-                            <div class="col-10">
-                                <h6 class="mb-4 mt-0">رفع صورة</h6>
-                               
-                            </div>
+                <?php require_once('../components/notification.php'); ?>
+            </div>
+            <div class="col-12 mt-4">
+                <div class=" mb-4 p-3">
+                    <div class="">
+                        <h5 class="mb-1">المدونات</h5>
+                    </div>
 
+                    <a href="add_blog.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة مدونة &nbsp;&nbsp;
+                        <i class="fas fa-plus">
+                        </i>
+                    </a>
+
+
+                    <div class="card-body p-3  ">
+                        <div class="row">
+
+                            <!--Section: Content-->
+                            <section class="text-center">
+                                <h4 class="mb-5"><strong>المدونات</strong></h4>
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-12 mb-4">
+                                        <div class="card">
+                                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                                <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
+                                                <a href="#!">
+                                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                                </a>
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Post title</h5>
+                                                <p class="card-text">
+                                                    Some quick example text to build on the card title and make up the bulk of the
+                                                    card's content.
+                                                </p>
+                                                
+                                            </div>
+                                            <div class="card-footer22">
+                                                <div class="media">
+                                                    <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
+                                                    <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-6 mb-4">
+                                        <div class="card">
+                                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                                <img src="https://mdbootstrap.com/img/new/standard/nature/023.jpg" class="img-fluid" />
+                                                <a href="#!">
+                                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                                </a>
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Post title</h5>
+                                                <p class="card-text">
+                                                    Some quick example text to build on the card title and make up the bulk of the
+                                                    card's content.
+                                                </p>
+                                               
+                                            </div>
+                                            <div class="card-footer22">
+                                                <div class="media">
+                                                    <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
+                                                    <div class="media-body">
+                                                        <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-6 mb-4">
+                                        <div class="card">
+                                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                                <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg" class="img-fluid" />
+                                                <a href="#!">
+                                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                                </a>
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Post title</h5>
+                                                <p class="card-text">
+                                                    Some quick example text to build on the card title and make up the bulk of the
+                                                    card's content.
+                                                </p>
+                                               
+                                            </div>
+                                            <div class="card-footer22">
+                                                <div class="media">
+                                                    <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
+                                                    <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+                                           
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!--Section: Content-->
 
 
 
                         </div>
-        </div>
+                    </div>
+                </div>
+                <footer class="footer pt-3  ">
+                    <div class="container-fluid">
+                        <div class="row align-items-center justify-content-lg-between">
+                            <div class="col-lg-6 mb-lg-0 mb-4">
+                                <div class="copyright text-center text-sm text-muted text-lg-end">
+                                    © <script>
+                                        document.write(new Date().getFullYear())
+                                    </script>,
+                                    by
+                                    <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
 
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                                    <li class="nav-item">
+                                        <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
+                                    </li>
 
-
-
-
-
-        </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
     </main>
-    <!--<div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
-    </a>
-    <div class="card shadow-lg ">
-      <div class="card-header pb-0 pt-3 ">
-        <div class="float-end">
-          <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
-          <p>See our dashboard options.</p>
-        </div>
-        <div class="float-start mt-4">
-          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-            <i class="fa fa-close"></i>
-          </button>
-        </div>
-         End Toggle Button 
-      </div>
-      <hr class="horizontal dark my-1">
-      <div class="card-body pt-sm-3 pt-0">
-         Sidebar Backgrounds
-        <div>
-          <h6 class="mb-0">Sidebar Colors</h6>
-        </div>
-        <a href="javascript:void(0)" class="switch-trigger background-color">
-          <div class="badge-colors my-2 text-end">
-            <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
-          </div>
-        </a>
-        Sidenav Type
-        <div class="mt-3">
-          <h6 class="mb-0">Sidenav Type</h6>
-          <p class="text-sm">Choose between 2 different sidenav types.</p>
-        </div>
-        <div class="d-flex">
-          <button class="btn bg-gradient-primary w-100 px-3 mb-2 active" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
-          <button class="btn bg-gradient-primary w-100 px-3 mb-2 me-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
-        </div>
-        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        Navbar Fixed
-        <div class="mt-3">
-          <h6 class="mb-0">Navbar Fixed</h6>
-        </div>
-        <div class="form-check form-switch ps-0">
-          <input class="form-check-input mt-1 float-end me-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
-        </div>
-        <hr class="horizontal dark my-sm-4">
-        <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard-pro">Free Download</a>
-        <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard">View documentation</a>
-        <div class="w-100 text-center">
-          <a class="github-button" href="https://github.com/creativetimofficial/soft-ui-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/soft-ui-dashboard on GitHub">Star</a>
-          <h6 class="mt-3">Thank you for sharing!</h6>
-          <a href="https://twitter.com/intent/tweet?text=Check%20Soft%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
-          </a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-   Core JS Files   -->
+
+    <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -318,16 +335,6 @@ if (!empty($_GET['edit'])) {
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
     <script src="../Admin/darkmode.js"></script>
-    <script >
-        const previewImage = (event) => {
-            const files = event.target.files;
-            if(files.length > 0){
-                const imageUrl = URL.createObjectURL(files[0]);
-                const imageElement  = document.getElementById("preview-selected-image");
-                imageElement.src = imageUrl;
-            }
-        }
-    </script>
 </body>
 
 </html>

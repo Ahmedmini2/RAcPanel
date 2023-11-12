@@ -474,8 +474,8 @@ if (isset($_GET['id'])) {
                                         <div class="table-responsive p-0">
                                             <table class="table table-hover table-bordered table-fixed">
 
-                                                <!--Table head-->
-                                                <thead class="bg-dark text-light table-bordered text-center">
+                                               <!--Table head-->
+                                               <thead class="bg-dark text-light table-bordered text-center">
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>الصنف</th>
@@ -509,11 +509,15 @@ if (isset($_GET['id'])) {
                                                         $kh_quan = $kh['quantity_per_piece'] * $products['quantity'];
                                                         $kh_total = $kh['total_price'];
                                                         $kh_peice = $kh['quantity_per_piece'];
+
                                                         
                                                      }
                                                     ?>
                                                             <td class="border-1 text-secondary"><?= $kh_quan ?></td>
+
                                                             <td class="border-1 text-secondary"><?= $kh_peice ?></td>
+
+                                                            
                                                             <td class="border-1 text-secondary"><?= number_format($kh_total) ?></td>
                                                     <?php
                                                     $status_id = $products['id'];
@@ -1148,7 +1152,9 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
 
+<<<<<<< HEAD
                        
+
 
                     </div>
                 </div>

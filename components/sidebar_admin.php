@@ -63,12 +63,15 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
             <li class="w-100">
               <a href="../../Admin/Employee/view-employee.php" class="nav-link px-0"> <span class=" d-sm-inline">بيانات الموظفين</span></a>
             </li>
+<<<<<<< HEAD
             
 
             <li class="w-100">
               <a href="../../Admin/Employee/profile-employee.php" class="nav-link px-0"> <span class=" d-sm-inline">معلومات الموظف</span></a>
             </li>
 
+=======
+>>>>>>> Testing
 
           </ul>
        </li>
@@ -268,11 +271,13 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
   <hr>
   <div class="dropdown pb-4">
     <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle px-4" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-      <span class="d-none d-sm-inline mx-1">عباس الجعفري</span>
+      <img src="../Signed-Docs/Employee-Profile/<?=$_SESSION['id']?>/<?=$_SESSION['profile_pic']?>" alt="hugenerd" width="30" height="30" class="rounded-circle">
+      <span class="d-none d-sm-inline mx-1"><?=$_SESSION['username']?></span>
     </a>
     <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
+
       <li><a class="dropdown-item" href="https://app.ruknamial.com/index.php">الصفحة الرئيسية</a></li>
+      <li><a class="dropdown-item" href="../../Profile/profile.php">الملف الشخصي</a></li>
 
       <li>
         <hr class="dropdown-divider">

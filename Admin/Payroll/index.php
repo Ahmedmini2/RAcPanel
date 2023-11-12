@@ -76,56 +76,10 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
         <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
-            <div class="container-fluid py-1 px-3">
-                <nav aria-label="breadcrumb">
-
-                    <h6 class="font-weight-bolder mb-0">مسير الرواتب</h6>
-                </nav>
-                <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-
-
-                    <ul class="navbar-nav me-auto ms-0 justify-content-end">
-                        <li class="nav-item d-flex align-items-center px-4">
-                            <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
-                                <i class="fa fa-user me-sm-1"></i>
-                                <span class="d-sm-inline d-none"> تسجيل الخروج</span>
-                            </a>
-                        </li>
-                        <li class="nav-item d-xl-none pe-3 d-flex align-items-center px-4">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                                <div class="sidenav-toggler-inner">
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item px-3 d-flex align-items-center">
-                            <a href="Messages/chat.php" class="nav-link text-body p-0">
-
-                                <i class="far fa-comments me-sm-1 cursor-pointer"></i>
-                            </a>
-                        </li>
-
-                        <!-- Notifications -->
-                        <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-bell cursor-pointer"></i>
-                                <span id="notification-count" class="notification-badge">0</span> <!-- Add this line -->
-                            </a>
-                            <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="notifications-container">
-                                <!-- Notifications will be dynamically added here -->
-                            </ul>
-                        </li>
-                        <!-- End of Notifications -->
-
-
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php
+        $titleNav = 'مسير الرواتب';
+        require_once('../../components/navbar.php');
+        ?>
         <!-- End Navbar -->
 
 
@@ -141,7 +95,16 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                     </i>
                 </a>
             </div>
-            <!--Table     -->
+            <div id="filters">
+                <select name="fetchval" id="fetchval">
+                  <option value="" disabled="" selected="">select</option>
+                  <option value="General Administration">General Administration</option>
+                  <option value="Rental labors">Rental labors</option>
+                  <option value="Factory Department">Factory Department</option>
+                  <option value="IT">IT</option>
+                </select>
+            </div> 
+            <!--Table    -->
             <?php
             while ($r = mysqli_fetch_array($select)) {
                 $month = $r['month'];
@@ -149,140 +112,101 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                 $nmonth = date("m", strtotime($month));
                 $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$month' AND year = '$year'");
 
-               
+
             ?>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card mb-4 mt-3">
-                        <div class="card-header text-center">
-                            <div class="row align-items-center">
-                                <div class="col-md-11">
-                                    <h5>مسير رواتب مدد لشهر <?=$r['month']?> (<?=$nmonth?>) -السنة الميلادية (<?=$year?>)</h5>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card mb-4 mt-3">
+                            <div class="card-header text-center">
+                                <div class="row align-items-center">
+                                    <div class="col-md-11">
+                                        <h5>مسير رواتب مدد لشهر <?= $r['month'] ?> (<?= $nmonth ?>) -السنة الميلادية (<?= $year ?>)</h5>
+                                    </div>
+                                    <a href="print.php?month=<?= $month ?>&year=<?= $year ?>" class="printer">
+                                        <div class="paper">
+                                            <svg viewBox="0 0 8 8" class="svg">
+                                                <path fill="#0077FF" d="M6.28951 1.3867C6.91292 0.809799 7.00842 0 7.00842 0C7.00842 0 6.45246 0.602112 5.54326 0.602112C4.82505 0.602112 4.27655 0.596787 4.07703 0.595012L3.99644 0.594302C1.94904 0.594302 0.290039 2.25224 0.290039 4.29715C0.290039 6.34206 1.94975 8 3.99644 8C6.04312 8 7.70284 6.34206 7.70284 4.29715C7.70347 3.73662 7.57647 3.18331 7.33147 2.67916C7.08647 2.17502 6.7299 1.73327 6.2888 1.38741L6.28951 1.3867ZM3.99679 6.532C2.76133 6.532 1.75875 5.53084 1.75875 4.29609C1.75875 3.06133 2.76097 2.06018 3.99679 2.06018C4.06423 2.06014 4.13163 2.06311 4.1988 2.06905L4.2414 2.07367C4.25028 2.07438 4.26057 2.0758 4.27406 2.07651C4.81533 2.1436 5.31342 2.40616 5.67465 2.81479C6.03589 3.22342 6.23536 3.74997 6.23554 4.29538C6.23554 5.53084 5.23439 6.532 3.9975 6.532H3.99679Z"></path>
+                                                <path fill="#0055BB" d="M6.756 1.82386C6.19293 2.09 5.58359 2.24445 4.96173 2.27864C4.74513 2.17453 4.51296 2.10653 4.27441 2.07734C4.4718 2.09225 5.16906 2.07947 5.90892 1.66374C6.04642 1.58672 6.1743 1.49364 6.28986 1.38647C6.45751 1.51849 6.61346 1.6647 6.756 1.8235V1.82386Z"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="dot"></div>
+                                        <div class="output">
+                                            <div class="paper-out"></div>
+                                        </div>
+                                    </a>
                                 </div>
-                                <a href="print.php?month=<?=$month?>&year=<?=$year?>" class="printer">
-                                    <div class="paper">
-                                        <svg viewBox="0 0 8 8" class="svg">
-                                            <path fill="#0077FF" d="M6.28951 1.3867C6.91292 0.809799 7.00842 0 7.00842 0C7.00842 0 6.45246 0.602112 5.54326 0.602112C4.82505 0.602112 4.27655 0.596787 4.07703 0.595012L3.99644 0.594302C1.94904 0.594302 0.290039 2.25224 0.290039 4.29715C0.290039 6.34206 1.94975 8 3.99644 8C6.04312 8 7.70284 6.34206 7.70284 4.29715C7.70347 3.73662 7.57647 3.18331 7.33147 2.67916C7.08647 2.17502 6.7299 1.73327 6.2888 1.38741L6.28951 1.3867ZM3.99679 6.532C2.76133 6.532 1.75875 5.53084 1.75875 4.29609C1.75875 3.06133 2.76097 2.06018 3.99679 2.06018C4.06423 2.06014 4.13163 2.06311 4.1988 2.06905L4.2414 2.07367C4.25028 2.07438 4.26057 2.0758 4.27406 2.07651C4.81533 2.1436 5.31342 2.40616 5.67465 2.81479C6.03589 3.22342 6.23536 3.74997 6.23554 4.29538C6.23554 5.53084 5.23439 6.532 3.9975 6.532H3.99679Z"></path>
-                                            <path fill="#0055BB" d="M6.756 1.82386C6.19293 2.09 5.58359 2.24445 4.96173 2.27864C4.74513 2.17453 4.51296 2.10653 4.27441 2.07734C4.4718 2.09225 5.16906 2.07947 5.90892 1.66374C6.04642 1.58672 6.1743 1.49364 6.28986 1.38647C6.45751 1.51849 6.61346 1.6647 6.756 1.8235V1.82386Z"></path>
-                                        </svg>
-                                    </div>
-                                    <div class="dot"></div>
-                                    <div class="output">
-                                        <div class="paper-out"></div>
-                                    </div>
-                                </a>
                             </div>
-                        </div>
+
+                           
+
+                            <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                <div class="table-responsive p-0">
+                                    <table class="table table-hover table-bordered table-fixed" id="table">
+
+                                        <!--Table head-->
+                                        <thead class="bg-dark text-light text-center">
+                                            <tr>
+                                                <th rowspan="2">الرقم</th>
+                                                <th rowspan="2">اسم الموظف</th>
+                                                <th rowspan="2">الراتب الاساسي</th>
+                                                <th rowspan="2">اضافات</th>
+                                                <th rowspan="2">اجمالي الراتب</th>
+                                                <th colspan="4">الاقتطاعات </th>
+                                                <th rowspan="2">مجموع الاقتطاعات</th>
+                                                <th rowspan="2">صافي الراتب المستحق</th>
+                                                <th rowspan="2">عدد الايام</th>
+                                            </tr>
+                                            <tr>
+                                                <th>مخالفات</th>
+                                                <th>غيابات</th>
+                                                <th>تاخير</th>
+                                                <th>سلف و اخرى</th>
+                                            </tr>
+                                        </thead>
+                                        <!--Table head-->
+                                        <!--Table body-->
+                                        <?php
+                                        while ($rr = mysqli_fetch_array($select2)) {
+                                        ?>
+                                            <tbody class=" text-center">
+
+                                                <tr>
+                                                    <th scope="row"><?= $rr['id'] ?></th>
+                                                    <td class="border-1"><?= $rr['emp_name'] ?></td>
+                                                    <td class="border-1"><?= $rr['salary'] ?></td>
+                                                    <td class="border-1"><?= $rr['extra'] ?></td>
+                                                    <td class="border-1"><?= $rr['total_salary'] ?></td>
+                                                    <td class="border-1"><?= $rr['fees'] ?></td>
+                                                    <td class="border-1"><?= $rr['absend'] ?></td>
+                                                    <td class="border-1"><?= $rr['late'] ?></td>
+                                                    <td class="border-1"><?= $rr['advanced'] ?></td>
+                                                    <td class="border-1"><?= $rr['deductions_total'] ?></td>
+                                                    <td class="border-1"><?= $rr['net_salary'] ?></td>
+                                                    <td class="border-1"><?= $rr['work_days'] ?></td>
 
 
-                        <div class="card-body px-0 pt-0 pb-2 mx-3">
-                            <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered table-fixed" id="table">
-
-                                    <!--Table head-->
-                                    <thead class="bg-dark text-light text-center">
-                                        <tr>
-                                            <th rowspan="2">الرقم</th>
-                                            <th rowspan="2">اسم الموظف</th>
-                                            <th rowspan="2">الراتب الاساسي</th>
-                                            <th rowspan="2">اضافات</th>
-                                            <th rowspan="2">اجمالي الراتب</th>
-                                            <th colspan="4">الاقتطاعات </th>
-                                            <th rowspan="2">مجموع الاقتطاعات</th>
-                                            <th rowspan="2">صافي الراتب المستحق</th>
-                                            <th rowspan="2">عدد الايام</th>
-                                        </tr>
-                                        <tr>
-                                            <th>مخالفات</th>
-                                            <th>غيابات</th>
-                                            <th>تاخير</th>
-                                            <th>سلف و اخرى</th>
-                                        </tr>
-                                    </thead>
-                                    <!--Table head-->
-                                    <!--Table body-->
-                                    <?php 
-                                     while($rr = mysqli_fetch_array($select2)){
-                                    ?>
-                                    <tbody class=" text-center">
-
-                                        <tr>
-                                            <th scope="row"><?=$rr['id']?></th>
-                                            <td class="border-1"><?=$rr['emp_name']?></td>
-                                            <td class="border-1"><?=$rr['salary']?></td>
-                                            <td class="border-1"><?=$rr['extra']?></td>
-                                            <td class="border-1"><?=$rr['total_salary']?></td>
-                                            <td class="border-1"><?=$rr['fees']?></td>
-                                            <td class="border-1"><?=$rr['absend']?></td>
-                                            <td class="border-1"><?=$rr['late']?></td>
-                                            <td class="border-1"><?=$rr['advanced']?></td>
-                                            <td class="border-1"><?=$rr['deductions_total']?></td>
-                                            <td class="border-1"><?=$rr['net_salary']?></td>
-                                            <td class="border-1"><?=$rr['work_days']?></td>
+                                                </tr>
 
 
-                                        </tr>
+                                            </tbody>
+                                        <?php } ?>
+                                        <!--Table body-->
 
+                                    </table>
 
-                                    </tbody>
-                                    <?php } ?>
-                                    <!--Table body-->
-
-                                </table>
-
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!--Table -->
+                <!--Table -->
             <?php } ?>
         </div>
-
-
-
-
-
-
-
-        <footer class="footer pt-3  ">
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6 mb-lg-0 mb-4">
-                        <div class="copyright text-center text-sm text-muted text-lg-end">
-                            © <script>
-                                document.write(new Date().getFullYear())
-                            </script>,
-                            made with <i class="fa fa-heart"></i> by
-                            <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php require_once('../../components/footer.php'); ?>
         </div>
 
     </main>
-
-
-
-
     <!--   Core JS Files   -->
     <script src="../../assets/js/core/popper.min.js"></script>
     <script src="../../assets/js/core/bootstrap.min.js"></script>
@@ -391,6 +315,25 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
 
         // Poll for new notifications every 5 minutes (adjust the interval as needed)
         setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
+    </script>
+    <!-- AJAX Filter  -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("fetchval").on('change', function() {
+                var value = $(this).val();
+                $.ajax({
+                    url: "fetch.php",
+                    type: "POST",
+                    data: 'request=' + value,
+                    beforeSend: function() {
+                        $(".container-fluid-body").html("<span>Working....</span>");
+                    },
+                    success: function(data) {
+                        $(".container-fluid-body").html(data);
+                    }
+                })
+            })
+        })
     </script>
     <script src="../darkmode.js"></script>
 

@@ -1,5 +1,6 @@
 <?php
 include('../cookies/session2.php');
+include('../cookies/insert-method2.php');
 $_SESSION['sidebar'] = "Projects";
 
 if(isset($_GET['project_id']) && isset($_GET['item_id'])){
@@ -83,10 +84,11 @@ if (isset($_POST['add-project'])) {
       }
 
         $iron_raws = $_POST['iron-rr'];
+        $iron_new_raws = $_POST['iron-new-rr'];
         if ($iron_raws == "") {
           $iron_raws = 1;
         }
-        while ($iron1 <= $iron_raws) {
+        while ($iron1 <= $iron_new_raws) {
           $iron = $_POST['iron_' . $iron1];
           $iron_price = str_replace(',', '', $_POST['iron_price_' . $iron1]);
           $iron_quantity = $_POST['iron_quantity_' . $iron1];
@@ -109,17 +111,43 @@ if (isset($_POST['add-project'])) {
           ];
 
           $selectedSizeText = $sizeText[$iron];
+
+          if($iron1 <= $iron_raws){
           
-          $update_iron = "UPDATE  iron_band  SET  size ='$selectedSizeText', price_today ='$iron_price', quantity ='$iron_quantity', iron_height ='$iron_long', tn_price ='$iron_tn', total_price ='$iron_tot' WHERE  id  = $iron_id ";
-          $iron_res = $conn->query($update_iron);
-          if ($iron_res){
-            
-            $iron1++;
-          }else{
-            $_SESSION['notification'] =  $conn->error;
-                  header('location: index.php');
-                  exit();
-            }
+            $update_iron = "UPDATE  iron_band  SET  size ='$selectedSizeText', price_today ='$iron_price', quantity ='$iron_quantity', iron_height ='$iron_long', tn_price ='$iron_tn', total_price ='$iron_tot' WHERE  id  = $iron_id ";
+            $iron_res = $conn->query($update_iron);
+            if ($iron_res){
+              
+              $iron1++;
+            }else{
+              $_SESSION['notification'] =  $conn->error;
+                    header('location: index.php');
+                    exit();
+              }
+          }else {
+            $data = [
+              'product_id' => $item_id,
+              'size'=> $selectedSizeText,
+              'price_today'=> $iron_price,
+              'quantity'=> $iron_quantity,
+              'iron_height'=> $iron_long,
+              'tn_price'=> $iron_tn,
+              'total_price'=> $iron_tot,
+            ];
+            $tableName='iron_band';
+            if(!empty($data) && !empty($tableName)){
+              $insertData=insert_data($data,$tableName);
+              if($insertData){
+              
+                $iron1++;
+              }else{
+                $_SESSION['notification'] =  $conn->error;
+                header('location: index.php');
+                exit();
+              
+              }
+          }
+          }
         }
           $accessory_raws = $_POST['ac-rr'];
           if ($accessory_raws == "") {
@@ -619,6 +647,7 @@ if (isset($_POST['add-project'])) {
                   </div>
                 </div>
                 <input type="hidden" name="iron-rr" id="iron-rr" readonly value="<?=$i?>">
+                <input type="hidden" name="iron-new-rr" id="iron-new-rr" readonly value="<?=$i?>">
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                   var i = $("#iron-rr").val();
@@ -629,7 +658,7 @@ if (isset($_POST['add-project'])) {
                   $(document).on('change', 'input , select', function() {
                     var total_iron = 0;
 
-                    for (var z = 1; z <= <?=$i?>; z++) {
+                    for (var z = 1; z <= $("#iron-new-rr").val() ; z++) {
                       var iron = ($("#iron_" + z).val() || 0);
                       var kg = ((parseFloat($("#iron_quantity_" + z).val()) * parseFloat($("#iron_long_" + z).val()) || 0) * iron)
                       var tn = kg / 1000;
@@ -667,14 +696,23 @@ if (isset($_POST['add-project'])) {
                   });
 
 
+                  document.addEventListener("DOMContentLoaded", function() {
+                    const productDetails = document.querySelector("#product_details");
+                    productDetails.addEventListener("click", function(e) {
+                      if (e.target.classList.contains("add_iron")) {
 
+                        i++;
+                        $("#iron-new-rr").val(i);
+                      }
+                    });
+                  });
 
                  
                 </script>
                 
                 
 
-                
+                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
                 <div class="row">
                   السعر الكلي للحديد
                   <input type="text" class="form-control" placeholder="Total" name="total_iron" id="total_iron" readonly>
