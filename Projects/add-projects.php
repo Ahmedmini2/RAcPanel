@@ -799,7 +799,11 @@ if (isset($_POST['add-project'])) {
                 <hr>
                 <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
-                  <span class="pull-right clickable close-icon" data-effect="fadeOut"><i class="fa fa-times"></i></span>
+                  <div class="card-header bg-transparent border-bottom-0">
+                    <button data-dismiss="alert" data-target="#closeablecard" type="button" class="close" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
 
                   <div class="accessory" id="main-accessory">
                     <div class="row ">
@@ -808,7 +812,7 @@ if (isset($_POST['add-project'])) {
                           <label for="accessory">أسم الاكسسوار</label>
                           <input type="text" class="form-control" name='accessory_<?= $coco ?>' id="accessory_<?= $coco ?>">
                         </div>
-                     
+
                         <div class="card-block">
                         </div>
                         <div class="col-md-2 col-sm-6">
@@ -1128,12 +1132,12 @@ if (isset($_POST['add-project'])) {
                           var cov = (parseFloat($("#cover_tot").val().replace(/\,/g, "")) || 0);
 
 
-                        var exband = (parseFloat($("#accessory_tot").val().replace(/\,/g, "")) || 0);
-                        var delivery =  ( parseFloat($("#total_price").val().replace(/\,/g, "")) || 0);
-                        var quan = (parseFloat($("#quantity").val()) || 0);
+                          var exband = (parseFloat($("#accessory_tot").val().replace(/\,/g, "")) || 0);
+                          var delivery = (parseFloat($("#total_price").val().replace(/\,/g, "")) || 0);
+                          var quan = (parseFloat($("#quantity").val()) || 0);
 
-                        var grand_tot = (kh + iro + acce + cov + exband + delivery) / quan;
-                        var grand_tot2 = (kh + iro + acce + cov + exband + delivery);
+                          var grand_tot = (kh + iro + acce + cov + exband + delivery) / quan;
+                          var grand_tot2 = (kh + iro + acce + cov + exband + delivery);
 
 
 
