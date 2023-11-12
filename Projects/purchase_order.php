@@ -567,7 +567,7 @@ if (isset($_GET['project_id'])) {
                 <div class="row">
                     <div class="col text-center">
                         <p class="text-dark">The total value is SAR <?=number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p>
-                        <p class="text-dark">The Price including Delivery Fees.</p>
+                        
                     </div>
                 </div>
                 <script>
