@@ -517,7 +517,7 @@ if (isset($_GET['project_id'])) {
 
                     <div class="col-md-5">
 
-                        <table class="table  border-dark">
+                        <table class="table table-bordered border-dark">
 
                             <tbody class="totals">
 
@@ -601,7 +601,7 @@ if (isset($_GET['project_id'])) {
                 <div class="row">
                     <div class="col text-start text-bolder">
                         <p><?=$payment_type?>.</p>
-                        <input type="text" class="signture" id="signture3"/>
+                        <input type="text" class="signture signture2" id="signture3"/>
                     </div>
                 </div>
 
