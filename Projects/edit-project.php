@@ -1,5 +1,6 @@
 <?php
 include('../cookies/session2.php');
+include('../cookies/insert-method2.php');
 $_SESSION['sidebar'] = "Projects";
 
 if(isset($_GET['project_id']) && isset($_GET['item_id'])){
@@ -125,20 +126,27 @@ if (isset($_POST['add-project'])) {
               }
           }else {
             $data = [
-              'emp_name' => $names[$i],
-              'salary'=>$salaries[$i],
-              'extra'=>$extras[$i],
-              'total_salary'=>$total_salaries[$i],
-              'fees'=>$fees[$i],
-              'absend'=>$absends[$i],
-              'late'=>$lates[$i],
-              'advanced'=>$advanceds[$i],
-              'deductions_total'=>$deductions_totals[$i],
-              'net_salary'=>$net_salaries[$i],
-              'work_days'=>$work_days[$i],
-              'month'=>$date,
-              'year'=>$year,
+              'product_id' => $item_id,
+              'size'=> $selectedSizeText,
+              'price_today'=> $iron_price,
+              'quantity'=> $iron_quantity,
+              'iron_height'=> $iron_long,
+              'tn_price'=> $iron_tn,
+              'total_price'=> $iron_tot,
             ];
+            $tableName='iron_band';
+            if(!empty($data) && !empty($tableName)){
+              $insertData=insert_data($data,$tableName);
+              if($insertData){
+              
+                $iron1++;
+              }else{
+                $_SESSION['notification'] =  $conn->error;
+                header('location: index.php');
+                exit();
+              
+              }
+          }
           }
         }
           $accessory_raws = $_POST['ac-rr'];
