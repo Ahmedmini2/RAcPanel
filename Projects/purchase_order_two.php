@@ -314,17 +314,22 @@ if (isset($_GET['project_id'])) {
                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
                 </button>
+                <a href="purchase_order.php?project_id=<?= $id ?>" id="btn3" class="btn bg-gradient-dark mb-0">
+                                    With Delivery Showing
+                                </a>
                 
             </div>
 
             <script>
                 function printDiv(divName) {
                     document.getElementById('btn2').style.display = "none";
+                    document.getElementById('btn3').style.display = "none";
                     
                     document.getElementById('signture').style.backgroundColor = "#ffffff00";
                     document.getElementById('signture2').style.backgroundColor = "#ffffff00";
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
+                    document.getElementById('btn3').style.display = "inline";
                     
                     document.getElementById('signture').style.backgroundColor = "white";
                     document.getElementById('signture2').style.backgroundColor = "white";
@@ -401,7 +406,7 @@ if (isset($_GET['project_id'])) {
                                             Rukn Amial Co.Company <br>
                                             Abbas Al Jafari <br>
                                             0591022703 <br>
-                                            Al Rawda Street <br>
+                                            Eastren Ring Branch Road, Alrwabi - Riyadh <br>
                                             info@ruknamyal.com<br>
                                             <?=$vat?><br>
 
@@ -424,7 +429,7 @@ if (isset($_GET['project_id'])) {
                                         <div class="col-4">
                                             <p class="card-text custom-font-small">
                                                 Data: <br>
-                                                P.O number:<br>
+                                                S.Q number:<br>
                                                 Supplier name:<br>
                                                 Contact person:<br>
                                                 Tel / mobile:<br>

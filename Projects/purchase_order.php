@@ -314,17 +314,22 @@ if (isset($_GET['project_id'])) {
                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
                 </button>
+                <a href="purchase_order_two.php?project_id=<?= $id ?>" id="btn3" class="btn bg-gradient-dark mb-0">
+                            Without Delivery
+                                </a>
                 
             </div>
 
             <script>
                 function printDiv(divName) {
                     document.getElementById('btn2').style.display = "none";
+                    document.getElementById('btn3').style.display = "none";
                     
                     document.getElementById('signture').style.backgroundColor = "#ffffff00";
                     document.getElementById('signture2').style.backgroundColor = "#ffffff00";
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
+                    document.getElementById('btn3').style.display = "inline";
                     
                     document.getElementById('signture').style.backgroundColor = "white";
                     document.getElementById('signture2').style.backgroundColor = "white";
@@ -333,36 +338,7 @@ if (isset($_GET['project_id'])) {
                 }
             </script>
 
-            <!-- Change Status Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">حالة الطلب</h5>
-                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>">
-                                <?php if ($position == 'Admin' || $position == 'Accounts' && $status == 1) { ?> <button type="submit" name="account" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        تأكيد التعميد عن طريق المحاسب
-                                    </button>
-                                <?php } ?>
-                                <br>
-                                <?php if ($position == 'Admin' || $position == 'Manager' && $status == 2) { ?> <button type="submit" name="manager" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        تأكيد التعميد عن طريق طريق المدير العام
-                                    </button>
-                                <?php } ?>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
            
 
@@ -401,7 +377,7 @@ if (isset($_GET['project_id'])) {
                                             Rukn Amial Co.Company <br>
                                             Abbas Al Jafari <br>
                                             591022703 <br>
-                                            Al Malaz-Jareer Street <br>
+                                            Eastren Ring Branch Road, Alrwabi - Riyadh  <br>
                                             info@ruknamyal.com<br>
                                             <?=$vat?><br>
 
@@ -424,7 +400,7 @@ if (isset($_GET['project_id'])) {
                                         <div class="col-4">
                                             <p class="card-text custom-font-small">
                                                 Data: <br>
-                                                P.O number:<br>
+                                                S.Q number:<br>
                                                 Supplier name:<br>
                                                 Contact person:<br>
                                                 Tel / mobile:<br>
