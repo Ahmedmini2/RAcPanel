@@ -667,7 +667,16 @@ if (isset($_POST['add-project'])) {
                   });
 
 
+                  document.addEventListener("DOMContentLoaded", function() {
+                    const productDetails = document.querySelector("#product_details");
+                    productDetails.addEventListener("click", function(e) {
+                      if (e.target.classList.contains("add_iron")) {
 
+                        i++;
+                        $("#iron-rr").val(i);
+                      }
+                    });
+                  });
 
                  
                 </script>
