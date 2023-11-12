@@ -189,7 +189,7 @@ if (isset($_GET['project_id'])) {
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">عرض التعميد</a></li>
+            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-black" href="javascript:;">عرض التعميد</a></li>
             
           </ol>
 
@@ -314,20 +314,27 @@ if (isset($_GET['project_id'])) {
                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
                 </button>
+                <a href="purchase_order.php?project_id=<?= $id ?>" id="btn3" class="btn bg-gradient-dark mb-0">
+                                    With Delivery Showing
+                                </a>
                 
             </div>
 
             <script>
                 function printDiv(divName) {
                     document.getElementById('btn2').style.display = "none";
+                    document.getElementById('btn3').style.display = "none";
                     
                     document.getElementById('signture').style.backgroundColor = "#ffffff00";
                     document.getElementById('signture2').style.backgroundColor = "#ffffff00";
+                    document.getElementById('signture3').style.backgroundColor = "#ffffff00";
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
+                    document.getElementById('btn3').style.display = "inline";
                     
                     document.getElementById('signture').style.backgroundColor = "white";
                     document.getElementById('signture2').style.backgroundColor = "white";
+                    document.getElementById('signture3').style.backgroundColor = "white";
 
 
                 }
@@ -339,7 +346,7 @@ if (isset($_GET['project_id'])) {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">حالة الطلب</h5>
-                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                            <button type="button" class="btn-close text-black" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -374,7 +381,7 @@ if (isset($_GET['project_id'])) {
                 <div class="row">
                     <div>
                         <div class="card-header text-center text-white header-color" style="margin-top: 120px;">
-                            Sales Quatation
+                            Sales Quotation
                         </div>
 
                     </div>
@@ -400,8 +407,8 @@ if (isset($_GET['project_id'])) {
                                         <p class="card-text custom-font-small">
                                             Rukn Amial Co.Company <br>
                                             Abbas Al Jafari <br>
-                                            591022703 <br>
-                                            Al Malaz-Jareer Street <br>
+                                            0591022703 <br>
+                                            Eastren Ring Road, Alrwabi - Riyadh <br>
                                             info@ruknamyal.com<br>
                                             <?=$vat?><br>
 
@@ -424,7 +431,7 @@ if (isset($_GET['project_id'])) {
                                         <div class="col-4">
                                             <p class="card-text custom-font-small">
                                                 Data: <br>
-                                                P.O number:<br>
+                                                S.Q number:<br>
                                                 Supplier name:<br>
                                                 Contact person:<br>
                                                 Tel / mobile:<br>
@@ -489,15 +496,60 @@ if (isset($_GET['project_id'])) {
    
                                     <tr>
                                         <th scope="row"><?=$i?></th>
-                                        <td class="custom-font-m text-dark text-center border-1"><?=$item['product_name']?></td>
-                                        <td class="custom-font-m text-dark border-1"><?=$item['dimensions']?></td>
-                                        <td class="custom-font-m text-dark border-1"><?=$item['quantity']?></td>
-                                        <td class="custom-font-m text-dark border-1"><?=number_format($item['sell_price'])?></td>
-                                        <td class="custom-font-m text-dark border-1"><?=number_format($item['sell_price']*$item['quantity'])?></td>
+                                        <td class="custom-font-m text-black text-center border-1"><?=$item['product_name']?></td>
+                                        <td class="custom-font-m text-black border-1"><?=$item['dimensions']?></td>
+                                        <td class="custom-font-m text-black border-1"><?=$item['quantity']?></td>
+                                        <td class="custom-font-m text-black border-1"><?=number_format($item['sell_price'])?></td>
+                                        <td class="custom-font-m text-black border-1"><?=number_format($item['sell_price']*$item['quantity'])?></td>
 
                                     </tr>
                                     
                                     <?php } ?>
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="text-center">
+
+                                                <span class="text-black">Total </span>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-center text-black">
+                                                <span>SAR <?=number_format($total_without_tax)?></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+
+                                    <tr>
+                                        <td  colspan="5">
+                                            <div class="text-center">
+
+                                                <span class="text-black">VAT %15 </span>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-center text-black">
+                                                <span>SAR <?=number_format($total_with_tax)?></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td  colspan="5" class=" border-1">
+                                            <div class="text-center">
+
+                                                <span class="font-weight-bold text-black">Grand total(SAR) </span>
+
+                                            </div>
+                                        </td>
+                                        <td class="border-1">
+                                            <div class="text-center">
+                                                <span class="font-weight-bold text-success " id="total"><?=number_format($total_without_tax+$total_with_tax)?></span>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                                 <!--Table body-->
 
@@ -506,83 +558,19 @@ if (isset($_GET['project_id'])) {
                     </div>
                 </div>
 
-                <div class="row d-flex justify-content-end">
-
-                    <div class="col-md-5">
-
-                        <table class="table table-borderless border-dark">
-
-                            <tbody class="totals">
-
-                                <tr>
-                                    <td>
-                                        <div class="text-left">
-
-                                            <span class="text-dark">Total :</span>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-right text-dark">
-                                            <span>SAR <?=number_format($total_without_tax)?></span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <div class="text-left">
-
-                                            <span class="text-dark">VAT %15 :</span>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-right text-dark">
-                                            <span>SAR <?=number_format($total_with_tax)?></span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                
-
-
-                                <tr class="border-top border-bottom">
-                                    <td>
-                                        <div class="text-left">
-
-                                            <span class="font-weight-bold text-dark">Grand total(SAR) :</span>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-right">
-                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax+$del_total_price)?></span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-
-
-                </div>
+             
 
                 <div class="row">
                     <div class="col text-center">
-                        <p class="text-dark">The total value is SAR <?=number_format($total_without_tax+$total_with_tax+$del_total_price)?> <span id="con"></span> riyals only.</p>
-                        <p class="text-dark">The Price including Delivery Fees.</p>
+                        <p class="text-black">The total value is SAR <?=number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p>
+                        <p class="text-black">The Price including Delivery Fees.</p>
                     </div>
                 </div>
                 <script>
                     
                      function changeVal() {
                         
-                        value =  <?=number_format($total_without_tax+$total_with_tax+$del_total_price,0,"","")?> ;
+                        value =  <?=number_format($total_without_tax+$total_with_tax,0,"","")?> ;
                         document.getElementById("con").innerText = numToWords(value);
                         console.log(value);
                         
@@ -594,6 +582,7 @@ if (isset($_GET['project_id'])) {
                 <div class="row">
                     <div class="col text-start text-bolder">
                         <p><?=$payment_type?>.</p>
+                        <input type="text" class="signture signture2" id="signture3"/>
                     </div>
                 </div>
 
