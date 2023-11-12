@@ -798,12 +798,13 @@ if (isset($_POST['add-project'])) {
                 </div>
                 <hr>
                 <div class="accessory_details">
-                  <h5>بند الاكسسوارات</h5>
-                  <div class="card-header bg-transparent border-bottom-0">
+                  
+                  <div class="card-header bg-transparent border-bottom-0 text-start">
                     <button data-dismiss="alert" data-target="#closeablecard" type="button" class="close" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
+                  <h5>بند الاكسسوارات</h5>
 
                   <div class="accessory" id="main-accessory">
                     <div class="row ">
