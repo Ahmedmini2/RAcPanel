@@ -619,6 +619,7 @@ if (isset($_POST['add-project'])) {
                   </div>
                 </div>
                 <input type="hidden" name="iron-rr" id="iron-rr" readonly value="<?=$i?>">
+                <input type="hidden" name="iron-new-rr" id="iron-new-rr" readonly value="<?=$i?>">
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                   var i = $("#iron-rr").val();
@@ -673,7 +674,7 @@ if (isset($_POST['add-project'])) {
                       if (e.target.classList.contains("add_iron")) {
 
                         i++;
-                        $("#iron-rr").val(i);
+                        $("#iron-new-rr").val(i);
                       }
                     });
                   });
