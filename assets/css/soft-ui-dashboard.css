@@ -25069,9 +25069,12 @@ width: 100px;
 }
 .signture{
   border: none;
-  text-align: center;
+  text-align: left !important;
   margin: 10px 20px;
   width: 50%;
+}
+.text-black{
+  color: #000 !important;
 }
 
 
