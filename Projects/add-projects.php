@@ -438,7 +438,7 @@ if (isset($_POST['add-project'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
   <title>
@@ -996,12 +996,12 @@ if (isset($_POST['add-project'])) {
                       <div class="row">
                         <label for="">هل الصنف قابل للتوصيل ؟</label>
                         <div class="form-check form-switch col-md-2 col-sm-6">
-                          <input class="form-check-input" type="checkbox2" id="flexSwitchCheckDefault" name="deliverable">
+                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable">
                           <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
                         </div>
                         <script>
                           $(document).ready(function() {
-                            $('input[type="checkbox2"]').click(function() {
+                            $('input[type="checkbox"]').click(function() {
                               if (document.getElementById("flexSwitchCheckDefault").checked == true) {
                                 $('#delivery-div').show();
                                 document.getElementById("toggle_ch").innerText = "نعم";
@@ -1140,8 +1140,8 @@ if (isset($_POST['add-project'])) {
                         var delivery =  ( parseFloat($("#total_price").val().replace(/\,/g, "")) || 0);
                         var quan = (parseFloat($("#quantity").val()) || 0);
 
-                        var grand_tot = (kh + iro + acce + cov + exband ) / quan;
-                        var grand_tot2 = (kh + iro + acce + cov + exband );
+                        var grand_tot = (kh + iro + acce + cov + exband + delivery) / quan;
+                        var grand_tot2 = (kh + iro + acce + cov + exband + delivery);
 
 
 
