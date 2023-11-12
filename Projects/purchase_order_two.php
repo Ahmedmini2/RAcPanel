@@ -12,6 +12,7 @@ if (isset($_GET['project_id'])) {
     $project_cost = $editData['project_cost'];
     $total_without_tax = $editData['total_without_tax'];
     $total_with_tax = $editData['total_with_tax'];
+    $payment_type = $editData['payment_type'];
     $created_at = $editData['created_at'];
 
 
@@ -456,13 +457,14 @@ if (isset($_GET['project_id'])) {
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="table-responsive p-0">
-                            <table class="table table-hover table-fixed text-center table-bordered">
+                            <table class="table table-hover table-fixed border-dark text-center table-bordered">
 
                                 <!--Table head-->
                                 <thead class="text-light header-color custom-font-m">
                                     <tr>
                                         <th style="color: white;">S.No.</th>
                                         <th style="color: white;">DESCRIPTION</th>
+                                        <th style="color: white;">DIMENSIONS</th>
                                         <th style="color: white;">QTY</th>
                                         <th style="color: white;">U price</th>
                                         <th style="color: white;">Total price</th>
@@ -477,15 +479,21 @@ if (isset($_GET['project_id'])) {
                                     $i = 0;
                                     $items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                     while ($item = mysqli_fetch_array($items)) {
+                                        $prod_id = $item['id'];
+                                        $deleivery_query  = $conn->query("SELECT * FROM delivery WHERE `product_id` = $prod_id");
+                                        $delevery = $deleivery_query->fetch_assoc();
+                                        $del_total_price += $delevery['total_price'];
+                                                        
                                         $i++;
                                     ?>
    
                                     <tr>
                                         <th scope="row"><?=$i?></th>
-                                        <td class="custom-font-m text-center"><?=$item['product_name']?></td>
-                                        <td class="custom-font-m"><?=$item['quantity']?></td>
-                                        <td class="custom-font-m"><?=number_format($item['sell_price'])?></td>
-                                        <td class="custom-font-m"><?=number_format($item['sell_price']*$item['quantity'])?></td>
+                                        <td class="custom-font-m text-dark text-center border-1"><?=$item['product_name']?></td>
+                                        <td class="custom-font-m text-dark border-1"><?=$item['dimensions']?></td>
+                                        <td class="custom-font-m text-dark border-1"><?=$item['quantity']?></td>
+                                        <td class="custom-font-m text-dark border-1"><?=number_format($item['sell_price'])?></td>
+                                        <td class="custom-font-m text-dark border-1"><?=number_format($item['sell_price']*$item['quantity'])?></td>
 
                                     </tr>
                                     
@@ -502,7 +510,7 @@ if (isset($_GET['project_id'])) {
 
                     <div class="col-md-5">
 
-                        <table class="table table-borderless">
+                        <table class="table table-borderless border-dark">
 
                             <tbody class="totals">
 
@@ -510,47 +518,46 @@ if (isset($_GET['project_id'])) {
                                     <td>
                                         <div class="text-left">
 
-                                            <span class="text-muted">Total :</span>
+                                            <span class="text-dark">Total :</span>
 
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="text-right">
-                                            <span>SAR <?=number_format($total_without_tax)?></span>
+                                        <div class="text-right text-dark">
+                                            <span>SAR <?=number_format($total_without_tax-$del_total_price)?></span>
                                         </div>
                                     </td>
                                 </tr>
-
-
-
 
                                 <tr>
                                     <td>
                                         <div class="text-left">
 
-                                            <span class="text-muted">VAT %15 :</span>
+                                            <span class="text-dark">VAT %15 :</span>
 
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="text-right">
+                                        <div class="text-right text-dark">
                                             <span>SAR <?=number_format($total_with_tax)?></span>
                                         </div>
                                     </td>
                                 </tr>
+
+                                
 
 
                                 <tr class="border-top border-bottom">
                                     <td>
                                         <div class="text-left">
 
-                                            <span class="font-weight-bold">Grand total(SAR) :</span>
+                                            <span class="font-weight-bold text-dark">Grand total(SAR) :</span>
 
                                         </div>
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax)?></span>
+                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax+$del_total_price)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -567,14 +574,15 @@ if (isset($_GET['project_id'])) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <p>The total value is SAR <?=number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p>
+                        <p class="text-dark">The total value is SAR <?=number_format($total_without_tax+$total_with_tax+$del_total_price)?> <span id="con"></span> riyals only.</p>
+                        <p class="text-dark">The Price including Delivery Fees.</p>
                     </div>
                 </div>
                 <script>
                     
                      function changeVal() {
                         
-                        value =  <?=number_format($total_without_tax+$total_with_tax,0,"","")?> ;
+                        value =  <?=number_format($total_without_tax+$total_with_tax+$del_total_price,0,"","")?> ;
                         document.getElementById("con").innerText = numToWords(value);
                         console.log(value);
                         
@@ -582,6 +590,13 @@ if (isset($_GET['project_id'])) {
                     window.onload=changeVal;
                 </script>
                 <hr>
+                
+                <div class="row">
+                    <div class="col text-start text-bolder">
+                        <p><?=$payment_type?>.</p>
+                    </div>
+                </div>
+
                 <ul class="list-unstyled">
                    
 
