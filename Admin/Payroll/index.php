@@ -101,7 +101,7 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                   <option value="General Administration">General Administration</option>
                   <option value="Rental labors">Rental labors</option>
                   <option value="Factory Department">Factory Department</option>
-                  <option value="Factory Department">Factory Department</option>
+                  <option value="IT">IT</option>
                 </select>
             </div> 
             <!--Table    -->
