@@ -800,12 +800,7 @@ if (isset($_POST['add-project'])) {
                 <div class="accessory_details">
                   
                   <h5>بند الاكسسوارات</h5>
-<<<<<<< HEAD
                   
-=======
-                  <i class="fa fa-times text-start"></i>
->>>>>>> 80bafe19708e89ada2f58cd169ba778a2bda8542
-                  </div>
 
                   <div class="accessory" id="main-accessory">
                     <div class="row ">
