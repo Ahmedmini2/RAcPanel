@@ -1,4 +1,4 @@
-var i= $('#iron-rr').val();
+var i= $('#rowcount').val();
 var a=$('#rowcount_ac').val();
 var b=$('#rowcount_band').val();
 document.addEventListener("DOMContentLoaded", function () {
