@@ -809,9 +809,7 @@ if (isset($_POST['add-project'])) {
                           <label for="accessory">أسم الاكسسوار</label>
                           <input type="text" class="form-control" name='accessory_<?= $coco ?>' id="accessory_<?= $coco ?>">
                         </div>
-                     
-                        <div class="card-block">
-                        </div>
+                      </div>
                         <div class="col-md-2 col-sm-6">
                           <div class="form-group">
                             <label for="acc_quantity">كمية الاكسسوار</label>
