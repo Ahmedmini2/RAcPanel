@@ -464,6 +464,7 @@ if (isset($_GET['project_id'])) {
                                     <tr>
                                         <th style="color: white;">S.No.</th>
                                         <th style="color: white;">DESCRIPTION</th>
+                                        <th style="color: white;">DIMENTIONS</th>
                                         <th style="color: white;">QTY</th>
                                         <th style="color: white;">U price</th>
                                         <th style="color: white;">Total price</th>
@@ -488,10 +489,11 @@ if (isset($_GET['project_id'])) {
    
                                     <tr>
                                         <th scope="row"><?=$i?></th>
-                                        <td class="custom-font-m text-black text-center border-1"><?=$item['product_name']?></td>
-                                        <td class="custom-font-m border-1"><?=$item['quantity']?></td>
-                                        <td class="custom-font-m border-1"><?=number_format($item['sell_price'])?></td>
-                                        <td class="custom-font-m border-1"><?=number_format($item['sell_price']*$item['quantity'])?></td>
+                                        <td class="custom-font-m text-dark text-center border-1"><?=$item['product_name']?></td>
+                                        <td class="custom-font-m text-dark border-1"><?=$item['quantity']?></td>
+                                        <td class="custom-font-m text-dark border-1"><?=$item['dimentions']?></td>
+                                        <td class="custom-font-m text-dark border-1"><?=number_format($item['sell_price'])?></td>
+                                        <td class="custom-font-m text-dark border-1"><?=number_format($item['sell_price']*$item['quantity'])?></td>
 
                                     </tr>
                                     
