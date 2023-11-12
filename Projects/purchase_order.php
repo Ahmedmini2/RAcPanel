@@ -476,6 +476,67 @@ if (isset($_GET['project_id'])) {
                                     </tr>
                                     
                                     <?php } ?>
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="text-center">
+
+                                                <span class="text-dark">Total :</span>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-right text-dark">
+                                                <span>SAR <?=number_format($total_without_tax-$del_total_price)?></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td  colspan="5">
+                                            <div class="text-center">
+
+                                                <span class="text-dark">Delivery :</span>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-right text-dark">
+                                                <span>SAR <?=number_format($del_total_price)?></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td  colspan="5">
+                                            <div class="text-center">
+
+                                                <span class="text-dark">VAT %15 :</span>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-right text-dark">
+                                                <span>SAR <?=number_format($total_with_tax)?></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    
+
+
+                                    <tr class="border-top border-bottom">
+                                        <td  colspan="5">
+                                            <div class="text-center">
+
+                                                <span class="font-weight-bold text-dark">Grand total(SAR) :</span>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-right">
+                                                <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax)?></span>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                                 <!--Table body-->
 
@@ -484,87 +545,7 @@ if (isset($_GET['project_id'])) {
                     </div>
                 </div>
 
-                <div class="row d-flex justify-content-end">
-
-                    <div class="col-md-5">
-
-                        <table class="table table-bordered  border-dark">
-
-                            <tbody class="totals">
-
-                                <tr>
-                                    <td>
-                                        <div class="text-left">
-
-                                            <span class="text-dark">Total :</span>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-right text-dark">
-                                            <span>SAR <?=number_format($total_without_tax-$del_total_price)?></span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-
-                                <tr>
-                                    <td>
-                                        <div class="text-left">
-
-                                            <span class="text-dark">Delivery :</span>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-right text-dark">
-                                            <span>SAR <?=number_format($del_total_price)?></span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <div class="text-left">
-
-                                            <span class="text-dark">VAT %15 :</span>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-right text-dark">
-                                            <span>SAR <?=number_format($total_with_tax)?></span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                
-
-
-                                <tr class="border-top border-bottom">
-                                    <td>
-                                        <div class="text-left">
-
-                                            <span class="font-weight-bold text-dark">Grand total(SAR) :</span>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-right">
-                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax)?></span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-
-
-                </div>
+               
 
                 <div class="row">
                     <div class="col text-center">
