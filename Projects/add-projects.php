@@ -1127,11 +1127,14 @@ if (isset($_POST['add-project'])) {
 
                           var cov = (parseFloat($("#cover_tot").val().replace(/\,/g, "")) || 0);
 
-                          var exband = (parseFloat($("#accessory_tot").val().replace(/\,/g, "")) || 0);
-                          var quan = (parseFloat($("#quantity").val()) || 0);
 
-                          var grand_tot = (kh + iro + acce + cov + exband) / quan;
-                          var grand_tot2 = (kh + iro + acce + cov + exband);
+                        var exband = (parseFloat($("#accessory_tot").val().replace(/\,/g, "")) || 0);
+                        var delivery =  ( parseFloat($("#total_price").val().replace(/\,/g, "")) || 0);
+                        var quan = (parseFloat($("#quantity").val()) || 0);
+
+                        var grand_tot = (kh + iro + acce + cov + exband + delivery) / quan;
+                        var grand_tot2 = (kh + iro + acce + cov + exband + delivery);
+
 
 
 
