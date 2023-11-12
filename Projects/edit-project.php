@@ -674,7 +674,7 @@ if (isset($_POST['add-project'])) {
                 
                 
 
-                
+                <button type="button" class="btn btn-secondary rounded-pill add_iron">أضافة بند حديد</button>
                 <div class="row">
                   السعر الكلي للحديد
                   <input type="text" class="form-control" placeholder="Total" name="total_iron" id="total_iron" readonly>
