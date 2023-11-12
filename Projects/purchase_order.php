@@ -605,7 +605,7 @@ if (isset($_GET['project_id'])) {
                 <hr>
                 
                 <div class="row">
-                    <div class="col text-start text-bold">
+                    <div class="col text-start text-bolder">
                         <p><?=$payment_type?>.</p>
                     </div>
                 </div>
