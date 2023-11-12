@@ -272,6 +272,7 @@ if(isset($_POST['upload'])){
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+  <!-- upload image -->
   <script >
         const previewImage = (event) => {
             const files = event.target.files;

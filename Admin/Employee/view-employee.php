@@ -145,7 +145,7 @@ $select = mysqli_query($conn, "select * from employee");
                                         <tr>
                                             <th class=" border-1 text-center">الرقم</th>
                                             <th class=" border-1 text-center">اسم الموظف</th>
-                                            <th class=" border-1 text-center">قسم الموظف</th>
+                                            <th class=" border-1 text-center">الوظيفه</th>
                                             <th class=" border-1 text-center">راتب الموظف</th>
                                             <th class=" border-1 text-center">العقد</th>
                                             <th class=" border-1 text-center">بداية العقد</th>

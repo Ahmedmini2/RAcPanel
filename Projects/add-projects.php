@@ -7,9 +7,9 @@ $numberofrows = 1;
 $iron_raws = $_POST['iron-rr'];
 $accessory_raws = $_POST['ac-rr'];
 $band_raws = $_POST['band-rr'];
-$total_cost = 0 ; 
-$total_net = 0 ; 
-$total_without_tax = 0 ; 
+$total_cost = 0;
+$total_net = 0;
+$total_without_tax = 0;
 if (isset($_POST['add-project'])) {
 
   $iron1 = 1;
@@ -22,22 +22,21 @@ if (isset($_POST['add-project'])) {
   $payment_type = $_POST['payment_type'];
   $valid_till = $_POST['valid_till'];
   $total_cost = $_POST['prod_peice_tot'];
-  $total_cost = str_replace(',','',$total_cost);
+  $total_cost = str_replace(',', '', $total_cost);
   $total_net = $_POST['net_toti'];
   $total_without_tax = $total_cost + $total_net;
-  $total_with_tax = ($total_without_tax * 15) /100; 
+  $total_with_tax = ($total_without_tax * 15) / 100;
 
-  $target_dir = "../Projects/Images/".$project_name."/";
-  if(!is_dir($target_dir)) {
+  $target_dir = "../Projects/Images/" . $project_name . "/";
+  if (!is_dir($target_dir)) {
     mkdir($target_dir, 0777, true);
-  }else{
-
+  } else {
   }
   $target_file = $target_dir . basename($_FILES["project_image"]["name"]);
   $filename = basename($_FILES["project_image"]["name"]);
   $uploadOk = 1;
   move_uploaded_file($_FILES["project_image"]["tmp_name"], $target_file);
-  
+
 
   $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`image`,`project_cost`,`total_without_tax`,`total_with_tax`,`net_total`,`valid_till`,`duration`,`payment_type`,`created_at`)
    VALUES(NULL, '$project_name', '$project_description','$filename','$total_cost','$total_without_tax','$total_with_tax','$total_net','$valid_till','$duration','$payment_type' ,NOW())";
@@ -76,8 +75,8 @@ if (isset($_POST['add-project'])) {
       $kharasana = $_POST['kharasana'];
       $kh_price = str_replace(',', '', $_POST['kh_price']);
       $kh_per = str_replace(',', '', $_POST['kh_per']);
-      $kh_peice = str_replace(',','',$_POST['kh_peice']);
-      $kh_tot = str_replace(',','',$_POST['kh_tot']);
+      $kh_peice = str_replace(',', '', $_POST['kh_peice']);
+      $kh_tot = str_replace(',', '', $_POST['kh_tot']);
 
       $insert_kh = "INSERT INTO kharasana (`id`, `product_id`, `type`, `price`, `quantity_per_piece`, `price_per_piece` , `total_price`, `created_at`) 
       VALUES(NULL, $product_id, '$kharasana', '$kh_price', '$kh_per', '$kh_peice' , '$kh_tot' , NOW())";
@@ -172,12 +171,12 @@ if (isset($_POST['add-project'])) {
                 $piece_price = str_replace(',', '', $_POST['piece_price']);
                 $total_track_price = str_replace(',', '', $_POST['total_price']);
                 $peice_per_track = $_POST['peice_per_track'];
-                
-                
+
+
                 $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`, `peice_per_track`, `quantity_of_track`, `delivery_to`, `piece_price`, `track_price`, `total_price`,
                 `created_at`) VALUES (NULL, '$product_id', '$deliverable', '$peice_per_track', '$quantity_of_track', '$delivery_to', '$piece_price', '$track_price', '$total_track_price', NOW())";
                 $delivery_res = $conn->query($insert_delivery);
-                if ($delivery_res){
+                if ($delivery_res) {
                   $_SESSION['notification'] = "الصنف بنجاح";
                   header('location: index.php');
                   exit();
@@ -186,7 +185,7 @@ if (isset($_POST['add-project'])) {
                 $deliverable = 0;
                 $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`,`created_at`) VALUES (NULL, '$product_id', '$deliverable',NOW())";
                 $delivery_res = $conn->query($insert_delivery);
-                if ($delivery_res){
+                if ($delivery_res) {
                   $_SESSION['notification'] = "الصنف بنجاح";
                   header('location: index.php');
                   exit();
@@ -229,27 +228,26 @@ if (isset($_POST['add-project'])) {
   $payment_type = $_POST['payment_type'];
   $valid_till = $_POST['valid_till'];
 
-  $_SESSION['total_cost'] = 0 ;
-  $_SESSION['total_net'] = 0 ;
-  $_SESSION['total_without_tax'] = 0 ;
-  $_SESSION['total_with_tax'] = 0 ;
+  $_SESSION['total_cost'] = 0;
+  $_SESSION['total_net'] = 0;
+  $_SESSION['total_without_tax'] = 0;
+  $_SESSION['total_with_tax'] = 0;
 
-  $_SESSION['total_cost'] += str_replace(',','',$_POST['prod_peice_tot']);
+  $_SESSION['total_cost'] += str_replace(',', '', $_POST['prod_peice_tot']);
   $_SESSION['total_net'] += $_POST['net_toti'];
   $_SESSION['total_without_tax'] += $total_cost + $total_net;
-  $_SESSION['total_with_tax'] += (($total_without_tax * 15) /100);
+  $_SESSION['total_with_tax'] += (($total_without_tax * 15) / 100);
 
-  $target_dir = "../Projects/Images/".$project_name."/";
-  if(!is_dir($target_dir)) {
+  $target_dir = "../Projects/Images/" . $project_name . "/";
+  if (!is_dir($target_dir)) {
     mkdir($target_dir, 0777, true);
-  }else{
-
+  } else {
   }
   $target_file = $target_dir . basename($_FILES["project_image"]["name"]);
   $filename = basename($_FILES["project_image"]["name"]);
   $uploadOk = 1;
- move_uploaded_file($_FILES["project_image"]["tmp_name"], $target_file);
-  
+  move_uploaded_file($_FILES["project_image"]["tmp_name"], $target_file);
+
 
   $insert_project = "INSERT INTO projects (`id`, `name`, `description`,`image`,`valid_till`,`duration`,`payment_type`,`created_at`) VALUES(NULL, '$project_name', '$project_description',
   '$filename','$valid_till','$duration','$payment_type' ,NOW())";
@@ -290,8 +288,8 @@ if (isset($_POST['add-project'])) {
       $kharasana = $_POST['kharasana'];
       $kh_price = str_replace(',', '', $_POST['kh_price']);
       $kh_per = $_POST['kh_per'];
-      $kh_peice = str_replace(',','',$_POST['kh_peice']);
-      $kh_tot = str_replace(',','',$_POST['kh_tot']);
+      $kh_peice = str_replace(',', '', $_POST['kh_peice']);
+      $kh_tot = str_replace(',', '', $_POST['kh_tot']);
 
       $insert_kh = "INSERT INTO kharasana (`id`, `product_id`, `type`, `price`, `quantity_per_piece`, `price_per_piece` , `total_price`, `created_at`) 
           VALUES(NULL, $product_id, '$kharasana', '$kh_price', '$kh_per', '$kh_peice' , '$kh_tot' , NOW())";
@@ -386,12 +384,12 @@ if (isset($_POST['add-project'])) {
                 $piece_price = str_replace(',', '', $_POST['piece_price']);
                 $total_track_price = str_replace(',', '', $_POST['total_price']);
                 $peice_per_track = $_POST['peice_per_track'];
-                
-                
+
+
                 $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`, `peice_per_track`, `quantity_of_track`, `delivery_to`, `piece_price`, `track_price`, `total_price`,
                 `created_at`) VALUES (NULL, '$product_id', '$deliverable', '$peice_per_track', '$quantity_of_track', '$delivery_to', '$piece_price', '$track_price', '$total_track_price', NOW())";
                 $delivery_res = $conn->query($insert_delivery);
-                if ($delivery_res){
+                if ($delivery_res) {
                   $_SESSION['notification'] = "الصنف بنجاح";
                   header('location: add-more-projects.php');
                   exit();
@@ -400,20 +398,19 @@ if (isset($_POST['add-project'])) {
                 $deliverable = 0;
                 $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`,`created_at`) VALUES (NULL, '$product_id', '$deliverable',NOW())";
                 $delivery_res = $conn->query($insert_delivery);
-                if ($delivery_res){
+                if ($delivery_res) {
                   $_SESSION['notification'] = "الصنف بنجاح";
                   header('location: add-more-projects.php');
                   exit();
                 }
               }
             } else {
-             
+
               $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
               header('location: index.php');
             }
             $band1++;
           }
-          
         } else {
           $_SESSION['notification'] = "يوجد خلل في ادخال الاغطية";
           header('location: index.php');
@@ -497,124 +494,10 @@ if (isset($_POST['add-project'])) {
   <!-- End Of side Bar -->
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
-      <div class="container-fluid py-1 px-3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;"> طلب إعتماد مشروع جديد</a></li>
-
-          </ol>
-
-        </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-          
-          <ul class="navbar-nav me-auto ms-0 justify-content-end">
-          <li class="nav-item px-3 d-flex align-items-center">
-                    <label class="ui-switch">
-                        <input type="checkbox" onclick="setDarkMode()">
-                        <div class="slider">
-                            <div class="circle"></div>
-                        </div>
-                    </label>
-                    </li>
-            <li class="nav-item d-flex align-items-center">
-              <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
-                <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">تسجيل الخروج</span>
-              </a>
-            </li>
-            <li class="nav-item d-xl-none pe-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                </div>
-              </a>
-            </li>
-            <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0">
-               
-                <i class="fa fa-arrow-left me-sm-1 cursor-pointer"  onclick="history.back()" ></i>
-              </a>
-            </li>
-            <li class="nav-item dropdown ps-2 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-bell cursor-pointer"></i>
-              </a>
-              <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  ms-3 ">
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New message</span> from Laur
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          13 minutes ago
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  ms-3 ">
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New album</span> by Travis Scott
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          1 day
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="avatar avatar-sm bg-gradient-secondary  ms-3  my-auto">
-                        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                          <title>credit-card</title>
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                              <g transform="translate(1716.000000, 291.000000)">
-                                <g transform="translate(453.000000, 454.000000)">
-                                  <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
-                                  <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                                </g>
-                              </g>
-                            </g>
-                          </g>
-                        </svg>
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          Payment successfully completed
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          2 days
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <?php
+    $titleNav = 'طلب إعتماد مشروع جديد';
+    require_once('../components/navbar.php');
+    ?>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row">
@@ -636,7 +519,7 @@ if (isset($_POST['add-project'])) {
               <div class="col-md-6 col-sm-6">
                 <div class="form-group">
                   <label>صورة المشروع</label>
-                  <input type="file"  class="form-control" name="project_image">
+                  <input type="file" class="form-control" name="project_image">
                 </div>
               </div>
             </div>
@@ -669,7 +552,7 @@ if (isset($_POST['add-project'])) {
               </div>
               <hr>
             </div>
-            
+
             <!-- Contact Detials -->
             <div class="contact_details">
               <h5>بيانات التواصل</h5>
@@ -715,7 +598,7 @@ if (isset($_POST['add-project'])) {
               </div>
               <hr>
             </div>
-            
+
             <!-- Product Details -->
             <div id="product_details">
               <div class="product">
@@ -746,7 +629,7 @@ if (isset($_POST['add-project'])) {
                   </div>
                 </div>
                 <hr>
-               <!-- Item Details -->
+                <!-- Item Details -->
                 <div class="kh_details">
                   <h5>بند الخرسانة</h5>
                   <div class="item">
@@ -806,7 +689,7 @@ if (isset($_POST['add-project'])) {
                     </script>
 
                   </div>
-                 
+
                 </div>
                 <div class="iron_details">
                   <hr>
@@ -923,415 +806,415 @@ if (isset($_POST['add-project'])) {
                           <label for="accessory">أسم الاكسسوار</label>
                           <input type="text" class="form-control" name='accessory_<?= $coco ?>' id="accessory_<?= $coco ?>">
                         </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6">
-                        <div class="form-group">
-                          <label for="acc_quantity">كمية الاكسسوار</label>
-                          <input type="text" class="form-control" name='acc_quantity_<?= $coco ?>' id="acc_quantity_<?= $coco ?>">
+                        <span class="pull-right clickable close-icon" data-effect="fadeOut"><i class="fa fa-times"></i></span>
+                        <div class="card-block">
+                        </div>
+                        <div class="col-md-2 col-sm-6">
+                          <div class="form-group">
+                            <label for="acc_quantity">كمية الاكسسوار</label>
+                            <input type="text" class="form-control" name='acc_quantity_<?= $coco ?>' id="acc_quantity_<?= $coco ?>">
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="acc_price">سعر الاكسسوار الفردي</label>
+                            <input type="text" class="form-control" name='acc_price_<?= $coco ?>' id="acc_price_<?= $coco ?>">
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="acc_tot">السعر</label>
+                            <input type="text" class="form-control" name='acc_tot_<?= $coco ?>' id="acc_tot_<?= $coco ?>" readonly>
+                            <input type="hidden" name="rowcount_ac" value="<?php echo $numberofrows; ?>" id="rowcount_ac" readonly>
+                            <input type="hidden" name="ac-rr" id="ac-rr" readonly>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="acc_price">سعر الاكسسوار الفردي</label>
-                          <input type="text" class="form-control" name='acc_price_<?= $coco ?>' id="acc_price_<?= $coco ?>">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="acc_tot">السعر</label>
-                          <input type="text" class="form-control" name='acc_tot_<?= $coco ?>' id="acc_tot_<?= $coco ?>" readonly>
-                          <input type="hidden" name="rowcount_ac" value="<?php echo $numberofrows; ?>" id="rowcount_ac" readonly>
-                          <input type="hidden" name="ac-rr" id="ac-rr" readonly>
-                        </div>
-                      </div>
-                    </div>
-                    <hr class="new2">
-                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                    <script>
-                      var a = 1;
+                      <hr class="new2">
+                      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                      <script>
+                        var a = 1;
 
-                      $(document).on('change', 'input', function() {
-                        var total_accessory = 0;
-                        for (var z = 1; z <= a; z++) {
+                        $(document).on('change', 'input', function() {
+                          var total_accessory = 0;
+                          for (var z = 1; z <= a; z++) {
 
-                          var peice = ((parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val()) || 0));
-                          total_accessory += peice
-                          peice = peice.toLocaleString("en-US");
-                          $("#acc_tot_" + z).val(peice);
-                        }
-
-                        total_accessory = total_accessory.toLocaleString("en-US");
-                        $("#accessory_iron").val(total_accessory);
-                      })
-                      console.log("Before Accessory Rows : <?= $accessory_raws ?>");
-                      document.addEventListener("DOMContentLoaded", function() {
-                        const productDetails = document.querySelector("#product_details");
-                        productDetails.addEventListener("click", function(e) {
-
-                          if (e.target.classList.contains("add_accessory")) {
-
-                            a++;
-                            $("#ac-rr").val(a);
-
+                            var peice = ((parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val()) || 0));
+                            total_accessory += peice
+                            peice = peice.toLocaleString("en-US");
+                            $("#acc_tot_" + z).val(peice);
                           }
+
+                          total_accessory = total_accessory.toLocaleString("en-US");
+                          $("#accessory_iron").val(total_accessory);
+                        })
+                        console.log("Before Accessory Rows : <?= $accessory_raws ?>");
+                        document.addEventListener("DOMContentLoaded", function() {
+                          const productDetails = document.querySelector("#product_details");
+                          productDetails.addEventListener("click", function(e) {
+
+                            if (e.target.classList.contains("add_accessory")) {
+
+                              a++;
+                              $("#ac-rr").val(a);
+
+                            }
+                          });
                         });
-                      });
-                    </script>
+                      </script>
+
+                    </div>
+
+
 
                   </div>
-
-
-
-                </div>
-                <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
-                <div class="row">
-                  السعر الكلي للإكسسوارات
-                  <input type="text" class="form-control" placeholder="Total" name="accessory_iron" id="accessory_iron" readonly>
-                </div>
-                <hr>
-
-                <div class="accessory_details">
-                  <h5>بند الاغطية</h5>
-                  <div class="covers">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="cover_type">نوع الغطاء</label>
-                          <select class="form-control" name="cover_type" id="cover_type">
-                            <option value="بدون اغطية">بدون اغطية</option>
-                            <option value="غطاء واحد">غطاء واحد</option>
-                            <option value="غطائين">غطائين</option>
-                            <option value="غطاء دائري">غطاء دائري</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="cover_price">سعر الغطاء الفردي</label>
-                          <input type="text" class="form-control" name='cover_price' id="cover_price">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="cover_tot">السعر الكلي</label>
-                          <input type="text" class="form-control" name='cover_tot' id="cover_tot" readonly>
-                        </div>
-                      </div>
-                    </div>
-                    <script>
-                      $("input").on("change", function() {
-                        var peice = ((parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val()) || 0))
-
-                        peice = peice.toLocaleString("en-US");
-                        $("#cover_tot").val(peice);
-                      })
-                    </script>
-
+                  <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
+                  <div class="row">
+                    السعر الكلي للإكسسوارات
+                    <input type="text" class="form-control" placeholder="Total" name="accessory_iron" id="accessory_iron" readonly>
                   </div>
-                </div>
-                <hr>
+                  <hr>
 
-                <div class="band_details">
-                  <h5>بنود اخرى</h5>
-                  <div class="band" id="main-band">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-6">
-                        <div class="form-group">
-                          <label for="band">أسم البند</label>
-                          <input type="text" class="form-control" name="band_<?= $coco ?>" id="band_<?= $coco ?>">
+                  <div class="accessory_details">
+                    <h5>بند الاغطية</h5>
+                    <div class="covers">
+                      <div class="row">
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="cover_type">نوع الغطاء</label>
+                            <select class="form-control" name="cover_type" id="cover_type">
+                              <option value="بدون اغطية">بدون اغطية</option>
+                              <option value="غطاء واحد">غطاء واحد</option>
+                              <option value="غطائين">غطائين</option>
+                              <option value="غطاء دائري">غطاء دائري</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="cover_price">سعر الغطاء الفردي</label>
+                            <input type="text" class="form-control" name='cover_price' id="cover_price">
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="cover_tot">السعر الكلي</label>
+                            <input type="text" class="form-control" name='cover_tot' id="cover_tot" readonly>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-md-2 col-sm-6">
-                        <div class="form-group">
-                          <label for="band_price">سعر البند</label>
-                          <input type="text" class="form-control" name="band_price_<?= $coco ?>" id="band_price_<?= $coco ?>">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6">
-                        <div class="form-group">
-                          <label for="band_tot">السعر </label>
-                          <input type="text" class="form-control" name="band_tot_<?= $coco ?>" id="band_tot_<?= $coco ?>" readonly>
-                          <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_band" disabled>
-                          <input type="hidden" name="band-rr" id="band-rr" readonly>
-                        </div>
-                      </div>
-                    </div>
-                    <hr class="new2">
-                    <script>
-                      b = 1;
-                      $(document).on('change', 'input', function() {
-                        var total_bands = 0;
-                        for (var z = 1; z <= b; z++) {
-                          var peice = ((parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val()) || 0))
-                          total_bands += peice
+                      <script>
+                        $("input").on("change", function() {
+                          var peice = ((parseFloat($("#cover_price").val()) * parseFloat($("#quantity").val()) || 0))
+
                           peice = peice.toLocaleString("en-US");
-                          $("#band_tot_" + z).val(peice);
-                        }
-                        total_bands = total_bands.toLocaleString("en-US");
-                        $("#accessory_tot").val(total_bands);
-                      })
+                          $("#cover_tot").val(peice);
+                        })
+                      </script>
 
-                      document.addEventListener("DOMContentLoaded", function() {
-                        const productDetails = document.querySelector("#product_details");
-                        productDetails.addEventListener("click", function(e) {
-                          if (e.target.classList.contains("add_band")) {
+                    </div>
+                  </div>
+                  <hr>
 
-                            b++;
-                            $("#band-rr").val(b);
-
+                  <div class="band_details">
+                    <h5>بنود اخرى</h5>
+                    <div class="band" id="main-band">
+                      <div class="row">
+                        <div class="col-md-2 col-sm-6">
+                          <div class="form-group">
+                            <label for="band">أسم البند</label>
+                            <input type="text" class="form-control" name="band_<?= $coco ?>" id="band_<?= $coco ?>">
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6">
+                          <div class="form-group">
+                            <label for="band_price">سعر البند</label>
+                            <input type="text" class="form-control" name="band_price_<?= $coco ?>" id="band_price_<?= $coco ?>">
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6">
+                          <div class="form-group">
+                            <label for="band_tot">السعر </label>
+                            <input type="text" class="form-control" name="band_tot_<?= $coco ?>" id="band_tot_<?= $coco ?>" readonly>
+                            <input type="hidden" value="<?php echo $numberofrows; ?>" id="rowcount_band" disabled>
+                            <input type="hidden" name="band-rr" id="band-rr" readonly>
+                          </div>
+                        </div>
+                      </div>
+                      <hr class="new2">
+                      <script>
+                        b = 1;
+                        $(document).on('change', 'input', function() {
+                          var total_bands = 0;
+                          for (var z = 1; z <= b; z++) {
+                            var peice = ((parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val()) || 0))
+                            total_bands += peice
+                            peice = peice.toLocaleString("en-US");
+                            $("#band_tot_" + z).val(peice);
                           }
+                          total_bands = total_bands.toLocaleString("en-US");
+                          $("#accessory_tot").val(total_bands);
+                        })
+
+                        document.addEventListener("DOMContentLoaded", function() {
+                          const productDetails = document.querySelector("#product_details");
+                          productDetails.addEventListener("click", function(e) {
+                            if (e.target.classList.contains("add_band")) {
+
+                              b++;
+                              $("#band-rr").val(b);
+
+                            }
+                          });
                         });
-                      });
-                    </script>
+                      </script>
+
+                    </div>
 
                   </div>
+                  <button type="button" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
+                  <div class="row">
+                    السعر الكلي للبنود الاضافية
+                    <input type="text" class="form-control" placeholder="Total" name="accessory_tot" id="accessory_tot" readonly>
+                  </div>
+                  <hr>
+
+                  <div class="Delivery-details">
+                    <h5>التوصيل</h5>
+                    <div class="delivery">
+                      <div class="row">
+                        <label for="">هل الصنف قابل للتوصيل ؟</label>
+                        <div class="form-check form-switch col-md-2 col-sm-6">
+                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable">
+                          <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
+                        </div>
+                        <script>
+                          $(document).ready(function() {
+                            $('input[type="checkbox"]').click(function() {
+                              if (document.getElementById("flexSwitchCheckDefault").checked == true) {
+                                $('#delivery-div').show();
+                                document.getElementById("toggle_ch").innerText = "نعم";
+                              } else {
+                                $('#delivery-div').hide();
+                                document.getElementById("toggle_ch").innerText = "لا";
+                              }
+                            });
+                          });
+                        </script>
+                      </div>
+                      <div class="row" id="delivery-div" style='display:none'>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="peice_per_track">عدد القطع للتريلة</label>
+                            <input type="text" class="form-control" name='peice_per_track' id="peice_per_track" value="0">
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="quantity_of_track">عدد التريلات</label>
+                            <input type="text" class="form-control" name='quantity_of_track' id="quantity_of_track" value="0" readonly>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="delivery_to">التوصيل الى</label>
+                            <input type="text" class="form-control" name='delivery_to' id="delivery_to">
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="track_price">سعر توصيل التريلة</label>
+                            <input type="text" class="form-control" name='track_price' id="track_price" value="0">
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="piece_price">سعر توصيل القطعة</label>
+                            <input type="text" class="form-control" name='piece_price' id="piece_price" value="0" readonly>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="total_price">سعر التوصيل الكلي</label>
+                            <input type="text" class="form-control" name='total_price' id="total_price" value="0" readonly>
+                          </div>
+                        </div>
+                      </div>
+                      <script>
+                        $("input").on("change", function() {
+                          var quan = ($("#quantity").val() || 0);
+                          var del_peice = ($("#peice_per_track").val() || 0);
+                          var tracks = ((quan / del_peice) || 0);
+                          tracks = Math.ceil(tracks);
+                          $("#quantity_of_track").val(tracks);
+                          var track_price = ($("#track_price").val() || 0);
+                          var del_peice_price = ((track_price / del_peice) || 0);
+                          $("#piece_price").val(del_peice_price);
+                          var del_total = track_price * tracks;
+                          $("#total_price").val(del_total);
+
+
+
+                        })
+                      </script>
+
+                    </div>
+                  </div>
+                  <hr>
+
+                  <!-- Item End -->
+
+                  <div class="Final_details">
+                    <h5>الحساب النهائي</h5>
+                    <div class="final">
+                      <div class="row">
+
+
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="cover_price">تكلفة الصنف الواحد</label>
+                            <input type="text" class="form-control" name='prod_peice' id="prod_peice" readonly>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="cover_price">تكلفة جميع الاصناف</label>
+                            <input type="text" class="form-control" name='prod_peice_tot' id="prod_peice_tot" readonly>
+                          </div>
+
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="cover_tot">سعر البيع للصنف</label>
+                            <input type="text" class="form-control" name='sell_price' id="sell_price">
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="cover_tot">مجموع سعر البيع</label>
+                            <input type="text" class="form-control" name='sell_price_tot' id="sell_price_tot" readonly>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="cover_tot">نسبة الربح</label>
+                            <input type="text" class="form-control" name='net_peice' id="net_peice" readonly>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="cover_tot">الربح للصنف الواحد</label>
+                            <input type="text" class="form-control" name='net_toti_peice' id="net_toti_peice" readonly>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 ">
+                          <div class="form-group">
+                            <label for="cover_tot">إجمالي الربح</label>
+                            <input type="text" class="form-control" name='net_toti' id="net_toti" readonly>
+                          </div>
+                        </div>
+                      </div>
+                      <script>
+                        $(document).on("change", "input", function() {
+                          var kh = (parseFloat($("#kh_tot").val().replace(/\,/g, "")) || 0);
+
+                          var iro = (parseFloat($("#total_iron").val().replace(/\,/g, "")) || 0);
+
+                          var acce = (parseFloat($("#accessory_iron").val().replace(/\,/g, "")) || 0);
+
+                          var cov = (parseFloat($("#cover_tot").val().replace(/\,/g, "")) || 0);
+
+                          var exband = (parseFloat($("#accessory_tot").val().replace(/\,/g, "")) || 0);
+                          var quan = (parseFloat($("#quantity").val()) || 0);
+
+                          var grand_tot = (kh + iro + acce + cov + exband) / quan;
+                          var grand_tot2 = (kh + iro + acce + cov + exband);
+
+
+
+
+                          var sel_price = $("#sell_price").val();
+                          var ful_price = sel_price * quantity;
+                          ful_price = ful_price.toLocaleString("en-US");
+                          $("#sell_price_tot").val(sel_price * quan);
+                          if (sel_price != "") {
+                            var net_peice = (((sel_price - grand_tot) / grand_tot) * 100).toFixed(2);
+                            $("#net_peice").val(net_peice + "%");
+                            net_tot = ((sel_price * quan) - (grand_tot * quan)).toFixed(2);
+                            net_tot_piece = ((sel_price) - (grand_tot)).toFixed(2);
+                            net_tot = net_tot.toLocaleString("en-US");
+                            net_tot_piece = net_tot_piece.toLocaleString("en-US");
+                            $("#net_toti").val(net_tot);
+                            $("#net_toti_peice").val(net_tot_piece);
+                          }
+                          grand_tot = grand_tot.toLocaleString("en-US");
+                          grand_tot2 = grand_tot2.toLocaleString("en-US");
+                          $("#prod_peice").val(grand_tot);
+                          $("#prod_peice_tot").val(grand_tot2);
+
+
+                        })
+                      </script>
+
+                    </div>
+                  </div>
+
+
+
 
                 </div>
-                <button type="button" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
+                <!-- Product End -->
+
+
+                <br><br>
+
                 <div class="row">
-                  السعر الكلي للبنود الاضافية
-                  <input type="text" class="form-control" placeholder="Total" name="accessory_tot" id="accessory_tot" readonly>
-                </div>
-                <hr>
-                        
-                <div class="Delivery-details">
-                  <h5>التوصيل</h5>
-                  <div class="delivery">
-                    <div class="row">
-                    <label for="">هل الصنف قابل للتوصيل ؟</label>
-                    <div class="form-check form-switch col-md-2 col-sm-6">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="deliverable">
-                      <label class="form-check-label" id="toggle_ch" for="flexSwitchCheckDefault">لا</label>
-                    </div>
-                    <script>
-                      $(document).ready(function() {
-                      $('input[type="checkbox"]').click(function() {
-                          if(document.getElementById("flexSwitchCheckDefault").checked  == true) {
-                                $('#delivery-div').show();  
-                                document.getElementById("toggle_ch").innerText ="نعم";         
-                          }
-
-                          else {
-                                $('#delivery-div').hide(); 
-                                document.getElementById("toggle_ch").innerText ="لا";  
-                          }
-                      });
-                    });
-                    </script>
-                    </div>
-                    <div class="row" id="delivery-div" style='display:none'>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="peice_per_track">عدد القطع للتريلة</label>
-                          <input type="text" class="form-control" name='peice_per_track' id="peice_per_track" value="0">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="quantity_of_track">عدد التريلات</label>
-                          <input type="text" class="form-control" name='quantity_of_track' id="quantity_of_track" value="0" readonly>
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="delivery_to">التوصيل الى</label>
-                          <input type="text" class="form-control" name='delivery_to' id="delivery_to">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="track_price">سعر توصيل التريلة</label>
-                          <input type="text" class="form-control" name='track_price' id="track_price" value="0">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="piece_price">سعر توصيل القطعة</label>
-                          <input type="text" class="form-control" name='piece_price' id="piece_price" value="0" readonly>
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="total_price">سعر التوصيل الكلي</label>
-                          <input type="text" class="form-control" name='total_price' id="total_price" value="0" readonly>
-                        </div>
-                      </div>
-                    </div>
-                    <script>
-                      $("input").on("change", function() {
-                        var quan = ($("#quantity").val() || 0) ;
-                        var del_peice = ($("#peice_per_track").val() || 0) ;
-                        var tracks = ((quan / del_peice) || 0) ;
-                        tracks = Math.ceil(tracks);
-                         $("#quantity_of_track").val(tracks) ;
-                        var track_price = ($("#track_price").val() || 0) ;
-                        var del_peice_price = ((track_price / del_peice)|| 0);
-                        $("#piece_price").val(del_peice_price);
-                        var del_total = track_price * tracks ; 
-                        $("#total_price").val(del_total);
-
-                       
-                        
-                      })
-                    </script>
-
-                  </div>
-                </div>
-                <hr>
-
-                <!-- Item End -->
-
-                <div class="Final_details">
-                  <h5>الحساب النهائي</h5>
-                  <div class="final">
-                    <div class="row">
-
-
-                      <div class="col-md-2 col-sm-6 ">
-                      <div class="form-group">
-                          <label for="cover_price">تكلفة الصنف الواحد</label>
-                          <input type="text" class="form-control" name='prod_peice' id="prod_peice" readonly>
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                      <div class="form-group">
-                          <label for="cover_price">تكلفة جميع الاصناف</label>
-                          <input type="text" class="form-control" name='prod_peice_tot' id="prod_peice_tot" readonly>
-                        </div>
-                        
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="cover_tot">سعر البيع للصنف</label>
-                          <input type="text" class="form-control" name='sell_price' id="sell_price">
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="cover_tot">مجموع سعر البيع</label>
-                          <input type="text" class="form-control" name='sell_price_tot' id="sell_price_tot" readonly>
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="cover_tot">نسبة الربح</label>
-                          <input type="text" class="form-control" name='net_peice' id="net_peice" readonly>
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="cover_tot">الربح للصنف الواحد</label>
-                          <input type="text" class="form-control" name='net_toti_peice' id="net_toti_peice" readonly>
-                        </div>
-                      </div>
-                      <div class="col-md-2 col-sm-6 ">
-                        <div class="form-group">
-                          <label for="cover_tot">إجمالي الربح</label>
-                          <input type="text" class="form-control" name='net_toti' id="net_toti" readonly>
-                        </div>
-                      </div>
-                    </div>
-                    <script>
-                      $(document).on("change", "input", function() {
-                        var kh = (parseFloat($("#kh_tot").val().replace(/\,/g, "")) || 0);
-
-                        var iro = (parseFloat($("#total_iron").val().replace(/\,/g, "")) || 0);
-
-                        var acce = (parseFloat($("#accessory_iron").val().replace(/\,/g, "")) || 0);
-
-                        var cov = (parseFloat($("#cover_tot").val().replace(/\,/g, "")) || 0);
-
-                        var exband = (parseFloat($("#accessory_tot").val().replace(/\,/g, "")) || 0);
-                        var quan = (parseFloat($("#quantity").val()) || 0);
-
-                        var grand_tot = (kh + iro + acce + cov + exband) / quan;
-                        var grand_tot2 = (kh + iro + acce + cov + exband);
-
-
-
-
-                        var sel_price = $("#sell_price").val();
-                        var ful_price = sel_price * quantity;
-                        ful_price = ful_price.toLocaleString("en-US");
-                        $("#sell_price_tot").val(sel_price * quan);
-                        if (sel_price != "") {
-                          var net_peice = (((sel_price - grand_tot) / grand_tot) * 100).toFixed(2);
-                          $("#net_peice").val(net_peice + "%");
-                          net_tot = ((sel_price * quan) - (grand_tot * quan)).toFixed(2);
-                          net_tot_piece = ((sel_price) - (grand_tot)).toFixed(2);
-                          net_tot = net_tot.toLocaleString("en-US");
-                          net_tot_piece = net_tot_piece.toLocaleString("en-US");
-                          $("#net_toti").val(net_tot);
-                          $("#net_toti_peice").val(net_tot_piece);
+                  <div class="col">
+                    <div class="form-group">
+                      <style>
+                        .myButton {
+                          border: none;
+                          cursor: pointer;
+                          background: #8392AB;
+                          color: #fff;
+                          border-radius: 20px;
+                          transition: 0.5s;
                         }
-                        grand_tot = grand_tot.toLocaleString("en-US");
-                        grand_tot2 = grand_tot2.toLocaleString("en-US");
-                        $("#prod_peice").val(grand_tot);
-                        $("#prod_peice_tot").val(grand_tot2);
 
+                        .myButton:hover {
+                          background: #344767;
+                          letter-spacing: 1px;
+                        }
+                      </style>
+                      <button type="button" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        إستمرار
+                      </button>
 
-                      })
-                    </script>
-
-                  </div>
-                </div>
-
-
-
-             
-              </div>
-              <!-- Product End -->
-
-
-              <br><br>
-
-              <div class="row">
-                <div class="col">
-                  <div class="form-group">
-                    <style>
-                      .myButton {
-                        border: none;
-                        cursor: pointer;
-                        background: #8392AB;
-                        color: #fff;
-                        border-radius: 20px;
-                        transition: 0.5s;
-                      }
-
-                      .myButton:hover {
-                        background: #344767;
-                        letter-spacing: 1px;
-                      }
-                    </style>
-                    <button type="button" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                      إستمرار
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">إضافة صنف جديد</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            هل لديك المزيد من الاصناف تود اضافتها ؟
-                          </div>
-                          <div class="modal-footer">
-                            <button type="submit" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">لا</button>
-                            <button type="submit" name="add-project2" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">نعم اريد اضافة صنف جديد لنفس المشروع</button>
+                      <!-- Modal -->
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">إضافة صنف جديد</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              هل لديك المزيد من الاصناف تود اضافتها ؟
+                            </div>
+                            <div class="modal-footer">
+                              <button type="submit" name="add-project" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">لا</button>
+                              <button type="submit" name="add-project2" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">نعم اريد اضافة صنف جديد لنفس المشروع</button>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col">
+                  <div class="col">
 
+                  </div>
                 </div>
-              </div>
           </form>
 
         </div>

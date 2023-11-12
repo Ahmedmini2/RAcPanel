@@ -42,7 +42,9 @@ $projects = mysqli_query($conn, "SELECT * FROM projects WHERE status = 'قيد �
         <?php
         $titleNav = 'المصنع';
         require_once('../components/navbar.php');
-        ?>
+        ?>  
+
+        
         <!-- End Navbar -->
 
         <div class="container-fluid py-4">

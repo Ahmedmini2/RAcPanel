@@ -96,12 +96,14 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                 </a>
             </div>
             <div id="filters">
-                                <select name="fetchval" id="fetchval">
-                                    <option value="" disabled="" selected="">select</option>
-                                    <option value="تقنية المعلومات">تقنية المعلومات</option>
-                                    <option value="محاسبه">محاسبه</option>
-                                </select>
-                            </div> 
+                <select name="fetchval" id="fetchval">
+                  <option value="" disabled="" selected="">select</option>
+                  <option value="General Administration">General Administration</option>
+                  <option value="Rental labors">Rental labors</option>
+                  <option value="Factory Department">Factory Department</option>
+                  <option value="Factory Department">Factory Department</option>
+                </select>
+            </div> 
             <!--Table    -->
             <?php
             while ($r = mysqli_fetch_array($select)) {
