@@ -527,13 +527,13 @@ if (isset($_GET['project_id'])) {
                                         <td  colspan="5">
                                             <div class="text-center">
 
-                                                <span class="font-weight-bold text-dark">Grand total(SAR) </span>
+                                                <span class="font-weight-bold text-dark border-1">Grand total(SAR) </span>
 
                                             </div>
                                         </td>
                                         <td>
                                             <div class="text-center">
-                                                <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax)?></span>
+                                                <span class="font-weight-bold text-success border-1" id="total"><?=number_format($total_without_tax+$total_with_tax)?></span>
                                             </div>
                                         </td>
                                     </tr>
