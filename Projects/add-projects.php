@@ -799,6 +799,8 @@ if (isset($_POST['add-project'])) {
                 <hr>
                 <div class="accessory_details">
                   <h5>بند الاكسسوارات</h5>
+                  <span class="pull-right clickable close-icon" data-effect="fadeOut"><i class="fa fa-times"></i></span>
+
                   <div class="accessory" id="main-accessory">
                     <div class="row ">
                       <div class="col-md-2 col-sm-6 ">
@@ -806,7 +808,7 @@ if (isset($_POST['add-project'])) {
                           <label for="accessory">أسم الاكسسوار</label>
                           <input type="text" class="form-control" name='accessory_<?= $coco ?>' id="accessory_<?= $coco ?>">
                         </div>
-                        <span class="pull-right clickable close-icon" data-effect="fadeOut"><i class="fa fa-times"></i></span>
+                     
                         <div class="card-block">
                         </div>
                         <div class="col-md-2 col-sm-6">
