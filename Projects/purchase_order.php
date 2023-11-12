@@ -374,7 +374,7 @@ if (isset($_GET['project_id'])) {
                 <div class="row">
                     <div>
                         <div class="card-header text-center text-white header-color" style="margin-top: 120px;">
-                            Sales Quatation
+                            Sales Quotation
                         </div>
 
                     </div>
@@ -555,7 +555,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right text-dark">
-                                            <span>SAR <?=number_format($total_with_tax)?></span>
+                                            <span>SAR <?=number_format($total_with_tax-$del_total_price)?></span>
                                         </div>
                                     </td>
                                 </tr>

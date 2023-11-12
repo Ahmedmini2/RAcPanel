@@ -374,7 +374,7 @@ if (isset($_GET['project_id'])) {
                 <div class="row">
                     <div>
                         <div class="card-header text-center text-white header-color" style="margin-top: 120px;">
-                            Sales Quatation
+                            Sales Quotation
                         </div>
 
                     </div>
