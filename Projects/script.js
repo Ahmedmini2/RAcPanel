@@ -1,4 +1,4 @@
-var i= parseInt($('#rowcount').val());
+var i= parseInt($('#iron-rr').val());
 var a=$('#rowcount_ac').val();
 var b=$('#rowcount_band').val();
 document.addEventListener("DOMContentLoaded", function () {
