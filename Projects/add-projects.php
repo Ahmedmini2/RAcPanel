@@ -830,7 +830,9 @@ if (isset($_POST['add-project'])) {
                             <input type="hidden" name="ac-rr" id="ac-rr" readonly>
                           </div>
                         </div>
+                        <div class="col-md-2 col-sm-6 ">
                         <span class="pull-right clickable close-icon text-start" data-effect="fadeOut"><i class="fa fa-times"></i></span>
+                        </div>
                       </div>
                       <hr class="new2">
                       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
