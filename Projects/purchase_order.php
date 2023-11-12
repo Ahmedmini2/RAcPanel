@@ -12,6 +12,7 @@ if (isset($_GET['project_id'])) {
     $project_cost = $editData['project_cost'];
     $total_without_tax = $editData['total_without_tax'];
     $total_with_tax = $editData['total_with_tax'];
+    $payment_type = $editData['payment_type'];
     $created_at = $editData['created_at'];
 
 
@@ -373,7 +374,7 @@ if (isset($_GET['project_id'])) {
                 <div class="row">
                     <div>
                         <div class="card-header text-center text-white header-color" style="margin-top: 120px;">
-                            Purchase Order
+                            Sales Quatation
                         </div>
 
                     </div>
@@ -602,6 +603,13 @@ if (isset($_GET['project_id'])) {
                     window.onload=changeVal;
                 </script>
                 <hr>
+                
+                <div class="row">
+                    <div class="col text-left">
+                        <p><?=$payment_type?>.</p>
+                    </div>
+                </div>
+
                 <ul class="list-unstyled">
                    
 

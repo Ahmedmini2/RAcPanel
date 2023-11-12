@@ -373,7 +373,7 @@ if (isset($_GET['project_id'])) {
                 <div class="row">
                     <div>
                         <div class="card-header text-center text-white header-color" style="margin-top: 120px;">
-                            Purchase Order
+                            Sales Quatation
                         </div>
 
                     </div>
