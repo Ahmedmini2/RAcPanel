@@ -488,7 +488,7 @@ if (isset($_GET['project_id'])) {
 
                     <div class="col-md-5">
 
-                        <table class="table table-borderless border-dark">
+                        <table class="table  border-dark">
 
                             <tbody class="totals">
 

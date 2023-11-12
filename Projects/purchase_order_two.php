@@ -327,12 +327,14 @@ if (isset($_GET['project_id'])) {
                     
                     document.getElementById('signture').style.backgroundColor = "#ffffff00";
                     document.getElementById('signture2').style.backgroundColor = "#ffffff00";
+                    document.getElementById('signture3').style.backgroundColor = "#ffffff00";
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
                     document.getElementById('btn3').style.display = "inline";
                     
                     document.getElementById('signture').style.backgroundColor = "white";
                     document.getElementById('signture2').style.backgroundColor = "white";
+                    document.getElementById('signture3').style.backgroundColor = "white";
 
 
                 }
@@ -515,7 +517,7 @@ if (isset($_GET['project_id'])) {
 
                     <div class="col-md-5">
 
-                        <table class="table table-borderless border-dark">
+                        <table class="table  border-dark">
 
                             <tbody class="totals">
 
@@ -599,6 +601,7 @@ if (isset($_GET['project_id'])) {
                 <div class="row">
                     <div class="col text-start text-bolder">
                         <p><?=$payment_type?>.</p>
+                        <input type="text" class="signture" id="signture3"/>
                     </div>
                 </div>
 
