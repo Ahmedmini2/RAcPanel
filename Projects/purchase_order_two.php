@@ -400,8 +400,8 @@ if (isset($_GET['project_id'])) {
                                         <p class="card-text custom-font-small">
                                             Rukn Amial Co.Company <br>
                                             Abbas Al Jafari <br>
-                                            591022703 <br>
-                                            Al Malaz-Jareer Street <br>
+                                            0591022703 <br>
+                                            Al Rawda Street <br>
                                             info@ruknamyal.com<br>
                                             <?=$vat?><br>
 

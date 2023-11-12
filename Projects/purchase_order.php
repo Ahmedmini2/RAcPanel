@@ -555,7 +555,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right text-dark">
-                                            <span>SAR <?=number_format($total_with_tax-$del_total_price)?></span>
+                                            <span>SAR <?=number_format($total_with_tax)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -573,7 +573,7 @@ if (isset($_GET['project_id'])) {
                                     </td>
                                     <td>
                                         <div class="text-right">
-                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax+$del_total_price)?></span>
+                                            <span class="font-weight-bold text-success" id="total"><?=number_format($total_without_tax+$total_with_tax)?></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -590,7 +590,7 @@ if (isset($_GET['project_id'])) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <p class="text-dark">The total value is SAR <?=number_format($total_without_tax+$total_with_tax+$del_total_price)?> <span id="con"></span> riyals only.</p>
+                        <p class="text-dark">The total value is SAR <?=number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p>
                         <p class="text-dark">The Price including Delivery Fees.</p>
                     </div>
                 </div>
@@ -598,7 +598,7 @@ if (isset($_GET['project_id'])) {
                     
                      function changeVal() {
                         
-                        value =  <?=number_format($total_without_tax+$total_with_tax+$del_total_price,0,"","")?> ;
+                        value =  <?=number_format($total_without_tax+$total_with_tax,0,"","")?> ;
                         document.getElementById("con").innerText = numToWords(value);
                         console.log(value);
                         
