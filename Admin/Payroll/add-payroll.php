@@ -142,8 +142,6 @@ if (isset($_POST['submit'])) {
                     </div>
                     <form method="POST" action="">
                         <div class="row">
-
-
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
