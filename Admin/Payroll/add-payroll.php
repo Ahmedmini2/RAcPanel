@@ -218,10 +218,10 @@ if(isset($_POST['submit'])){
                     type: "POST",
                     data: 'request=' + value,
                     beforeSend: function() {
-                        $(".table-responsive p-0").html("<span>Working....</span>");
+                        $(".table-responsive").html("<span>Working....</span>");
                     },
                     success: function(data) {
-                        $(".table-responsive p-0").html(data);
+                        $(".table-responsive").html(data);
                     }
                 })
             })
