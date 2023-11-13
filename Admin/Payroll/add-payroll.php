@@ -148,6 +148,8 @@ if (isset($_POST['submit'])) {
                                     <label>الرجاء ادخال تاريخ مسير الرواتب حسب الشهر</label>
                                     <input type="date" class="form-control" name="month">
                                 </div>
+                            </div>
+                            <div class="col">
                                 <div class="form-group">
                                     <label>الرجاء اختيار القسم</label>
                                     <div id="filters">
@@ -160,24 +162,25 @@ if (isset($_POST['submit'])) {
                                         </select>
                                     </div>
                                 </div>
-
-                            </div>
-
-
-
-                        </div>
-                        <div class="row">
-                            <div class="card-body px-0 pt-0 pb-2 mx-3">
-                                <div class="table-responsive p-0">
-
-                                </div>
                             </div>
 
                         </div>
-                        <button type="submit" name="submit" class="btn btn-secondary">اضافة مسيرة رواتب</button>
-                    </form>
+
+
+
                 </div>
+                <div class="row">
+                    <div class="card-body px-0 pt-0 pb-2 mx-3">
+                        <div class="table-responsive p-0">
+
+                        </div>
+                    </div>
+
+                </div>
+                <button type="submit" name="submit" class="btn btn-secondary">اضافة مسيرة رواتب</button>
+                </form>
             </div>
+        </div>
         </div>
         <?php require_once('../../components/footer.php'); ?>
         </div>
