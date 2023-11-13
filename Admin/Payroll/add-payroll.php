@@ -216,7 +216,7 @@ if (isset($_POST['submit'])) {
                 type: "POST",
                 data: 'request=' + value,
                 beforeSend: function() {
-                    $(".table-responsive").html("<span>Loading....</span>");
+                    $(".table-responsive").html("<span class='loaderSelect'>Loading....</span>");
                 },
                 success: function(data) {
                     $(".table-responsive").html(data);
