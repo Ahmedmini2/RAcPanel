@@ -160,7 +160,7 @@ $select =mysqli_query($conn, "select * from users");
                 
                 <div class="block">
                     
-                    <table class="table align-items-center table-bordered mb-0" id="example">
+                    <table class="table align-items-center table-bordered mb-0" id="myTable">
                     <thead>
                     <tr>
                     <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7" width="2%">Sr.#</th>
@@ -265,12 +265,7 @@ $select =mysqli_query($conn, "select * from users");
   <script src="../assets/js/plugins/chartjs.min.js"></script>
   
   <script src="../assets/js/plugins/choices.min.js"></script>
-
-  <script>
-        $(document).ready(function() {
-            $('#example').dataTable();
-        });
-    </script>
+  
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
