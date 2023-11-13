@@ -143,6 +143,7 @@ if (isset($_POST['submit'])) {
                     <form method="POST" action="">
                         <div class="row">
                                            
+                            <div class="row">
                             <div class="col">
                                 <div class="col">
                                 <div class="form-group">
@@ -164,6 +165,7 @@ if (isset($_POST['submit'])) {
                                     </div>
                                 </div>
                                 </div>
+                            </div>
                             </div>
 
                         
