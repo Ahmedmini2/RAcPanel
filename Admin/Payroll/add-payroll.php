@@ -153,7 +153,7 @@ if (isset($_POST['submit'])) {
                                     <div class="form-group">
                                         <label>الرجاء اختيار القسم</label>
                                         <div id="filters">
-                                            <select dir="ltr" class="form-select" name="fetchval" id="fetchval">
+                                            <select dir="rtl" class="form-select" name="fetchval" id="fetchval">
                                                 <option value="" disabled="" selected="">select</option>
                                                 <option value="General Administration">General Administration</option>
                                                 <option value="Rental labors">Rental labors</option>
@@ -221,7 +221,7 @@ if (isset($_POST['submit'])) {
                 type: "POST",
                 data: 'request=' + value,
                 beforeSend: function() {
-                    $(".table-responsive").append(<div class="loaderSelect"><span>Loading...</span></div>);
+                    $(".table-responsive").html("<span>Working....</span>");
                 },
                 success: function(data) {
                     $(".table-responsive").html(data);
