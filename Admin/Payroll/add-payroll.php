@@ -2,10 +2,10 @@
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "payroll";
 include('../../cookies/insert-method.php');
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $dateNew = new DateTimeImmutable($_POST['month']);
-    $date = date_format($dateNew,'F');
-    $year = date_format($dateNew,'Y');
+    $date = date_format($dateNew, 'F');
+    $year = date_format($dateNew, 'Y');
     $names = $_POST['name'];
     $emp_ids = $_POST['emp_id'];
     $salaries = $_POST['salary'];
@@ -18,51 +18,49 @@ if(isset($_POST['submit'])){
     $deductions_totals = $_POST['deductions_total'];
     $net_salaries = $_POST['net_salary'];
     $work_days = $_POST['work_days'];
- 
-    for($i = 0; $i < count($names); $i++){
-        $data= [
+
+    for ($i = 0; $i < count($names); $i++) {
+        $data = [
             'emp_name' => $names[$i],
-            'salary'=>$salaries[$i],
-            'extra'=>$extras[$i],
-            'total_salary'=>$total_salaries[$i],
-            'fees'=>$fees[$i],
-            'absend'=>$absends[$i],
-            'late'=>$lates[$i],
-            'advanced'=>$advanceds[$i],
-            'deductions_total'=>$deductions_totals[$i],
-            'net_salary'=>$net_salaries[$i],
-            'work_days'=>$work_days[$i],
-            'month'=>$date,
-            'year'=>$year,
+            'salary' => $salaries[$i],
+            'extra' => $extras[$i],
+            'total_salary' => $total_salaries[$i],
+            'fees' => $fees[$i],
+            'absend' => $absends[$i],
+            'late' => $lates[$i],
+            'advanced' => $advanceds[$i],
+            'deductions_total' => $deductions_totals[$i],
+            'net_salary' => $net_salaries[$i],
+            'work_days' => $work_days[$i],
+            'month' => $date,
+            'year' => $year,
         ];
-        $tableName='payroll_process'; 
+        $tableName = 'payroll_process';
 
-        $tableName2='advance_status'; 
+        $tableName2 = 'advance_status';
 
-        $last_amount = get_advanced_status($tableName2,$emp_ids[$i]);
+        $last_amount = get_advanced_status($tableName2, $emp_ids[$i]);
 
         $advance_status_data = [
-            'amount'=>$last_amount-$advanceds[$i],
-            'modified_at'=>'NOW()'
+            'amount' => $last_amount - $advanceds[$i],
+            'modified_at' => 'NOW()'
         ];
-        
-        if(!empty($advance_status_data) && !empty($tableName2)){
-            $insertData2=update_advance_status_data($advance_status_data,$tableName2,$emp_ids[$i]);
-            if($insertData2){
-            $_SESSION['notification'] = "User Profile Added sucessfully";
-            }else{
-            $_SESSION['notification'] = "Error!.. check your query";
+
+        if (!empty($advance_status_data) && !empty($tableName2)) {
+            $insertData2 = update_advance_status_data($advance_status_data, $tableName2, $emp_ids[$i]);
+            if ($insertData2) {
+                $_SESSION['notification'] = "User Profile Added sucessfully";
+            } else {
+                $_SESSION['notification'] = "Error!.. check your query";
             }
         }
 
-        if(!empty($data) && !empty($tableName)){
-            $insertData=insert_data($data,$tableName);
-            if($insertData){
-            $_SESSION['notification'] = "تم إضافة مسير الرواتب بنجاح";
-            
-            }else{
-            $_SESSION['notification'] = "خطأ في النظام";
-            
+        if (!empty($data) && !empty($tableName)) {
+            $insertData = insert_data($data, $tableName);
+            if ($insertData) {
+                $_SESSION['notification'] = "تم إضافة مسير الرواتب بنجاح";
+            } else {
+                $_SESSION['notification'] = "خطأ في النظام";
             }
         }
     }
@@ -128,7 +126,7 @@ if(isset($_POST['submit'])){
 
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
-        <!-- Navbar --> 
+        <!-- Navbar -->
         <?php
         $titleNav = 'اضافه مسير رواتب';
         require_once('../../components/navbar.php');
@@ -150,25 +148,37 @@ if(isset($_POST['submit'])){
                                     <label>الرجاء ادخال تاريخ مسير الرواتب حسب الشهر</label>
                                     <input type="date" class="form-control" name="month">
                                 </div>
+                                <div class="form-group">
+                                    <label>الرجاء اختيار القسم</label>
+                                    <div id="filters">
+                                        <select name="fetchval" id="fetchval">
+                                            <option value="" disabled="" selected="">select</option>
+                                            <option value="General Administration">General Administration</option>
+                                            <option value="Rental labors">Rental labors</option>
+                                            <option value="Factory Department">Factory Department</option>
+                                            <option value="IT">IT</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
 
                             <div id="filters">
                                 <select name="fetchval" id="fetchval">
-                                <option value="" disabled="" selected="">select</option>
-                                <option value="General Administration">General Administration</option>
-                                <option value="Rental labors">Rental labors</option>
-                                <option value="Factory Department">Factory Department</option>
-                                <option value="IT">IT</option>
+                                    <option value="" disabled="" selected="">select</option>
+                                    <option value="General Administration">General Administration</option>
+                                    <option value="Rental labors">Rental labors</option>
+                                    <option value="Factory Department">Factory Department</option>
+                                    <option value="IT">IT</option>
                                 </select>
-                            </div> 
+                            </div>
 
-                            
+
                         </div>
                         <div class="row">
-                        <div class="card-body px-0 pt-0 pb-2 mx-3">
-                            <div class="table-responsive p-0">
-                               
-                            </div>
+                            <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                <div class="table-responsive p-0">
+
+                                </div>
                             </div>
 
                         </div>
@@ -210,24 +220,22 @@ if(isset($_POST['submit'])){
     <script src="../../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
-      
-            $("#fetchval").on('change', function() {
-                var value = $(this).val();
-                $.ajax({
-                    url: "fetch.php",
-                    type: "POST",
-                    data: 'request=' + value,
-                    beforeSend: function() {
-                        $(".table-responsive").html("<span>Working....</span>");
-                    },
-                    success: function(data) {
-                        $(".table-responsive").html(data);
-                    }
-                })
+        $("#fetchval").on('change', function() {
+            var value = $(this).val();
+            $.ajax({
+                url: "fetch.php",
+                type: "POST",
+                data: 'request=' + value,
+                beforeSend: function() {
+                    $(".table-responsive").html("<span>Working....</span>");
+                },
+                success: function(data) {
+                    $(".table-responsive").html(data);
+                }
             })
-        
+        })
     </script>
-    
+
     <script src="../darkmode.js"></script>
 </body>
 
