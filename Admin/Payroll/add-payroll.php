@@ -209,8 +209,8 @@ if(isset($_POST['submit'])){
     <script src="../../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
-            $("fetchval").on('change', function() {
+      
+            $("#fetchval").on('change', function() {
                 var value = $(this).val();
                 $.ajax({
                     url: "fetch.php",
@@ -224,7 +224,7 @@ if(isset($_POST['submit'])){
                     }
                 })
             })
-        })
+        
     </script>
     
     <script src="../darkmode.js"></script>
