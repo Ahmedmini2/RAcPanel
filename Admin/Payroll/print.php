@@ -503,7 +503,7 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
         // Poll for new notifications every 5 minutes (adjust the interval as needed)
         setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
     </script> -->
-    <script src="../darkmode.js"></script>
+    
 </body>
 
 </html>
