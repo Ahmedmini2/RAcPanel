@@ -6,9 +6,7 @@ if (isset($_POST['request'])) {
 
     $request = $_POST['request'];
 
-    $query = "SELECT * FROM employee WHERE department = '$request'";
-    $result = mysqli_query($conn, $query);
-    $count = mysqli_num_rows($result);
+   
 
 
 
@@ -42,7 +40,7 @@ if (isset($_POST['request'])) {
 
                                     <tbody class="text-center">
                                         <?php
-                                        $show_products_status = mysqli_query($conn, "SELECT * FROM `employee`");
+                                        $show_products_status = mysqli_query($conn, "SELECT * FROM `employee` WHERE `department` = '$request'");
                                         while ($r = mysqli_fetch_array($show_products_status)) {
 
                                         ?>
