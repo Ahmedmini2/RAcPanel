@@ -1,6 +1,6 @@
 var i= parseInt($('#iron-new-rr').val());
-var a=$('#rowcount_ac').val();
-var b=$('#rowcount_band').val();
+var a=parseInt($('#ac-new-rr').val());
+var b=parseInt($('#band-new-rr').val());
 document.addEventListener("DOMContentLoaded", function () {
     
     const productDetails = document.querySelector("#product_details");

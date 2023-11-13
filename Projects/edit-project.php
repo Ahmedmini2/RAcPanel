@@ -650,6 +650,7 @@ if (isset($_POST['add-project'])) {
                     <hr class="new2">
                     <?php  } ?>
                     <input type="hidden" name="ac-rr" id="ac-rr" readonly value="<?=$y?>">
+                    <input type="hidden" name="ac-new-rr" id="ac-new-rr" readonly value="<?=$i?>">
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
                       var a = 1;
@@ -683,6 +684,20 @@ if (isset($_POST['add-project'])) {
                         total_accessory = total_accessory.toLocaleString("en-US");
                         $("#accessory_iron").val(total_accessory);
                       });
+
+                      console.log("Before Accessory Rows : <?= $accessory_raws ?>");
+                        document.addEventListener("DOMContentLoaded", function() {
+                          const productDetails = document.querySelector("#product_details");
+                          productDetails.addEventListener("click", function(e) {
+
+                            if (e.target.classList.contains("add_accessory")) {
+
+                              a++;
+                              $("#iron-new-rr").val(a);
+
+                            }
+                          });
+                        });
                     </script>
                     
                   </div>
@@ -690,7 +705,7 @@ if (isset($_POST['add-project'])) {
 
 
                 </div>
-                
+                <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <div class="row">
                   السعر الكلي للإكسسوارات
                   <input type="text" class="form-control" placeholder="Total" name="accessory_iron" id="accessory_iron" readonly>
@@ -782,6 +797,7 @@ if (isset($_POST['add-project'])) {
                     <hr class="new2">
                     <?php } ?>
                     <input type="hidden" name="band-rr" id="band-rr" readonly value="<?=$x?>">
+                    <input type="hidden" name="band-new-rr" id="band-new-rr" readonly value="<?=$i?>">
                     <script>
                       b = 1;
                       $(document).on('change', 'input', function() {
@@ -808,13 +824,24 @@ if (isset($_POST['add-project'])) {
                         $("#accessory_tot").val(total_bands);
                       });
 
+                      document.addEventListener("DOMContentLoaded", function() {
+                          const productDetails = document.querySelector("#product_details");
+                          productDetails.addEventListener("click", function(e) {
+                            if (e.target.classList.contains("add_band")) {
+
+                              b++;
+                              $("#band-new-rr").val(b);
+
+                            }
+                          });
+                        });
                       
                       </script>
 
                   </div>
 
                 </div>
-                
+                <button type="button" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
                 <div class="row">
                   السعر الكلي للبنود الاضافية
                   <input type="text" class="form-control" placeholder="Total" name="accessory_tot" id="accessory_tot" readonly>
