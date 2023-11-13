@@ -151,37 +151,17 @@ if(isset($_POST['submit'])){
                                 </div>
                             </div>
 
-                            <!-- <div class="col">
-                                <div class="form-group">
-                                    <label>مسير الرواتب لقسم</label>
-                                    <select class="form-control" name="department" id="department" >
-                                        <option value="Manager">Manager</option>
-                                        <option value="Admin">Admin</option>
-                                    </select>
-                                </div>
+                            <div id="filters">
+                                <select name="fetchval" id="fetchval">
+                                <option value="" disabled="" selected="">select</option>
+                                <option value="General Administration">General Administration</option>
+                                <option value="Rental labors">Rental labors</option>
+                                <option value="Factory Department">Factory Department</option>
+                                <option value="IT">IT</option>
+                                </select>
+                            </div> 
 
-                                <script>
-                                   $(document).ready(function() {
-                                        $('select').on('change', function() {
-                                            var selectValue = $(this).val();
-                                            $.ajax({
-                                            type: "POST",
-                                            url: "../../ajax/show-emp.php",
-                                            data: {
-                                                selected: selectValue
-                                            },
-                                            success: function (data) {
-                                                console.log(data);
-                                                // Stuff
-                                            },
-                                            error: function (data) {
-                                                // Stuff
-                                            }
-                                            });
-                                        });
-                                        });
-                                </script>
-                            </div> -->
+                            
                         </div>
                         <div class="row">
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
@@ -303,86 +283,25 @@ if(isset($_POST['submit'])){
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- <script>
-        // Function to fetch notifications from the server
-        function fetchNotifications() {
-            // Make an AJAX request to the server to fetch notifications
-            $.ajax({
-                url: 'scripts/notifications/fetch_notification.php', // Replace with the actual URL
-                method: 'GET',
-                dataType: 'json',
-                success: function(data) {
-                    // Process the notifications data and update the notification UI
-                    updateNotificationUI(data);
-
-                },
-                error: function(error) {
-                    console.error('Error fetching notifications:', error);
-                },
-            });
-        }
-
-        // Function to update the notification UI with new data
-        function updateNotificationUI(data) {
-            $('#notifications-container').empty();
-            let unreadCount = 0;
-            console.log(data);
-            // Clear the existing notifications
-            $('#notifications-container').empty();
-
-            // Loop through the received notifications and add them to the UI
-            data.forEach(function(notification) {
-                const notificationItem = $('<li>').addClass('mb-2');
-                const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
-                notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
-                if (notification.read_at !== null) {
-                    notificationLink.addClass('read-notification');
-                } else {
-                    unreadCount++;
-                }
-                const markAsReadButton = $('<button>').text('Mark as Read').addClass('btn btn-sm btn-primary');
-                markAsReadButton.on('click', function() {
-                    markNotificationAsRead(notification.id); // Mark notification as read when clicked
-                });
-
-                notificationItem.append(notificationLink);
-                notificationItem.append(markAsReadButton);
-                $('#notifications-container').append(notificationItem);
-
-                console.log(notification);
-            });
-            $('#notification-count').text(unreadCount); // Update the notification count
-        }
-
-        function markNotificationAsRead(notificationId) {
-            $.ajax({
-                url: 'scripts/notifications/mark_notification_as_read.php', // Replace with the actual URL
-                method: 'POST',
-                data: {
-                    notification_id: notificationId
-                },
-                dataType: 'json',
-                success: function(response) {
-                    // Handle the response (e.g., display a success message)
-                    console.log(response.message);
-
-
-
-                    // Refresh the notifications to reflect the updated status
-                    fetchNotifications();
-                },
-                error: function(error) {
-                    console.error('Error marking notification as read:', error);
-                },
-            });
-        }
-
-        // Fetch notifications initially
-        fetchNotifications();
-
-        // Poll for new notifications every 5 minutes (adjust the interval as needed)
-        setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
-    </script> -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("fetchval").on('change', function() {
+                var value = $(this).val();
+                $.ajax({
+                    url: "fetch.php",
+                    type: "POST",
+                    data: 'request=' + value,
+                    beforeSend: function() {
+                        $(".container-fluid-body").html("<span>Working....</span>");
+                    },
+                    success: function(data) {
+                        $(".container-fluid-body").html(data);
+                    }
+                })
+            })
+        })
+    </script>
+    
     <script src="../darkmode.js"></script>
 </body>
 
