@@ -650,7 +650,7 @@ if (isset($_POST['add-project'])) {
                     <hr class="new2">
                     <?php  } ?>
                     <input type="hidden" name="ac-rr" id="ac-rr" readonly value="<?=$y?>">
-                    <input type="hidden" name="ac-new-rr" id="ac-new-rr" readonly value="<?=$i?>">
+                    <input type="hidden" name="ac-new-rr" id="ac-new-rr" readonly value="<?=$y?>">
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
                       var a = 1;
@@ -797,7 +797,7 @@ if (isset($_POST['add-project'])) {
                     <hr class="new2">
                     <?php } ?>
                     <input type="hidden" name="band-rr" id="band-rr" readonly value="<?=$x?>">
-                    <input type="hidden" name="band-new-rr" id="band-new-rr" readonly value="<?=$i?>">
+                    <input type="hidden" name="band-new-rr" id="band-new-rr" readonly value="<?=$x?>">
                     <script>
                       b = 1;
                       $(document).on('change', 'input', function() {
