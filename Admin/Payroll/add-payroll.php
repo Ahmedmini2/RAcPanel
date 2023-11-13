@@ -155,7 +155,7 @@ if (isset($_POST['submit'])) {
                                     <div class="form-group">
                                         <label>الرجاء اختيار القسم</label>
                                         <div id="filters">
-                                            <select name="fetchval" id="fetchval">
+                                            <select class="form-select form-select-lg mb-3" name="fetchval" id="fetchval">
                                                 <option value="" disabled="" selected="">select</option>
                                                 <option value="General Administration">General Administration</option>
                                                 <option value="Rental labors">Rental labors</option>
