@@ -164,17 +164,12 @@ if (isset($_POST['submit'])) {
                                     </div>
                                 </div>
                             </div>
-
-
-
                         </div>
                         <div class="row">
                             <div class="card-body px-0 pt-0 pb-2 mx-3">
                                 <div class="table-responsive p-0">
-
                                 </div>
                             </div>
-
                         </div>
                         <button type="submit" name="submit" class="btn btn-secondary">اضافة مسيرة رواتب</button>
                     </form>
@@ -221,7 +216,7 @@ if (isset($_POST['submit'])) {
                 type: "POST",
                 data: 'request=' + value,
                 beforeSend: function() {
-                    $(".table-responsive").html("<span>Working....</span>");
+                    $(".table-responsive").html("<span>Loading....</span>");
                 },
                 success: function(data) {
                     $(".table-responsive").html(data);
