@@ -142,33 +142,33 @@ if (isset($_POST['submit'])) {
                     </div>
                     <form method="POST" action="">
                         <div class="row">
-                                           
+
+
                             <div class="row">
-                            <div class="col">
                                 <div class="col">
-                                <div class="form-group">
-                                    <label>الرجاء ادخال تاريخ مسير الرواتب حسب الشهر</label>
-                                    <input type="date" class="form-control" name="month">
-                                </div>
-                                </div>
-                                <div class="col">
-                                <div class="form-group">
-                                    <label>الرجاء اختيار القسم</label>
-                                    <div id="filters">
-                                        <select name="fetchval" id="fetchval">
-                                            <option value="" disabled="" selected="">select</option>
-                                            <option value="General Administration">General Administration</option>
-                                            <option value="Rental labors">Rental labors</option>
-                                            <option value="Factory Department">Factory Department</option>
-                                            <option value="IT">IT</option>
-                                        </select>
+                                    <div class="form-group">
+                                        <label>الرجاء ادخال تاريخ مسير الرواتب حسب الشهر</label>
+                                        <input type="date" class="form-control" name="month">
                                     </div>
                                 </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>الرجاء اختيار القسم</label>
+                                        <div id="filters">
+                                            <select name="fetchval" id="fetchval">
+                                                <option value="" disabled="" selected="">select</option>
+                                                <option value="General Administration">General Administration</option>
+                                                <option value="Rental labors">Rental labors</option>
+                                                <option value="Factory Department">Factory Department</option>
+                                                <option value="IT">IT</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            </div>
 
-                        
+
+
                         </div>
                         <div class="row">
                             <div class="card-body px-0 pt-0 pb-2 mx-3">
