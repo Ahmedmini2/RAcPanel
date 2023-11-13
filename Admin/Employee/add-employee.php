@@ -2,8 +2,8 @@
 include('../../cookies/session3.php');
 include('../../cookies/insert-method.php');
 $_SESSION['sidebar_admin'] = "employee";
-if(isset($_GET['edit'])){
- 
+if (isset($_GET['edit'])) {
+
     $id = $_GET['edit'];
     $query = "SELECT * FROM employee WHERE id=$id";
     $res = $conn->query($query);
@@ -44,11 +44,10 @@ if(isset($_GET['edit'])){
         $trial_period = $_POST['trial_period'];
         $working_hours = $_POST['working_hours'];
 
-        $target_dir = "../Documents/Employee-Contract/".$id."/";
-        if(!is_dir($target_dir)) {
+        $target_dir = "../Documents/Employee-Contract/" . $id . "/";
+        if (!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
-        }else{
-
+        } else {
         }
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         $filename = basename($_FILES["image"]["name"]);
@@ -59,27 +58,19 @@ if(isset($_GET['edit'])){
         , `birth` = '$birth' , `social_status` = '$social_status' , `id_number` = '$id_number' , `position` = '$position' , `department` = '$department' , `salary` = '$salary' , 
         `start_date` = '$start_date' , `contract_type` = '$contract_type' , `trial_period` = '$trial_period' , `working_hours` = '$working_hours' , `image` = '$filename'
         WHERE `id` = '$id'";
-         $updateResult = $conn->query($update);
+        $updateResult = $conn->query($update);
         if ($updateResult) {
 
-        $_SESSION['notification'] = "تم تعديل الموظف بنجاح";
-        header('location: index.php');
-        exit();
-
+            $_SESSION['notification'] = "تم تعديل الموظف بنجاح";
+            header('location: index.php');
+            exit();
         } else {
-        $_SESSION['notification'] = "يوجد خلل في النظام";
-        header('location: index.php');
-        exit();
-
+            $_SESSION['notification'] = "يوجد خلل في النظام";
+            header('location: index.php');
+            exit();
         }
     }
-
-
-    
-
-}
-
-else if (isset($_POST['submit'])) {
+} else if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
@@ -100,55 +91,54 @@ else if (isset($_POST['submit'])) {
     $filename = basename($_FILES["image"]["name"]);
 
     // INSERT NEW USER
-    $data= [
+    $data = [
         'full_name' => $name,
-        'email'=>$email,
-        'username'=>$name,
-        'phone'=>$phone,
-        'role'=>3,
-        'position'=>'Employee',
-        'status'=>1,
-        'password'=>md5('Ruknamial@123')
-        
-      ];
+        'email' => $email,
+        'username' => $name,
+        'phone' => $phone,
+        'role' => 3,
+        'position' => 'Employee',
+        'status' => 1,
+        'password' => md5('Ruknamial@123')
 
-      
-      $tableName='users'; 
-      if(!empty($data) && !empty($tableName)){
-        $insertData=insert_data($data,$tableName);
-        if($insertData){
-          $_SESSION['notification'] = "User Profile Added sucessfully";
-        }else{
-         $_SESSION['notification'] = "Error!.. check your query";
+    ];
+
+
+    $tableName = 'users';
+    if (!empty($data) && !empty($tableName)) {
+        $insertData = insert_data($data, $tableName);
+        if ($insertData) {
+            $_SESSION['notification'] = "User Profile Added sucessfully";
+        } else {
+            $_SESSION['notification'] = "Error!.. check your query";
         }
-     }
-     $inserted_id = $db->insert_id;
+    }
+    $inserted_id = $db->insert_id;
 
-     $advance_status_data = [
+    $advance_status_data = [
         'emp_id' => $inserted_id,
-        'amount'=>0,
-      ];
-      $tableName2='advance_status'; 
-      if(!empty($advance_status_data) && !empty($tableName2)){
-        $insertData2=insert_data($advance_status_data,$tableName2);
-        if($insertData2){
-          $_SESSION['notification'] = "User Profile Added sucessfully";
-        }else{
-         $_SESSION['notification'] = "Error!.. check your query";
+        'amount' => 0,
+    ];
+    $tableName2 = 'advance_status';
+    if (!empty($advance_status_data) && !empty($tableName2)) {
+        $insertData2 = insert_data($advance_status_data, $tableName2);
+        if ($insertData2) {
+            $_SESSION['notification'] = "User Profile Added sucessfully";
+        } else {
+            $_SESSION['notification'] = "Error!.. check your query";
         }
-     }
+    }
 
     $insert = "INSERT INTO employee VALUES (NULL,'$inserted_id', '$name', '$email', '$phone','$phone_code','$nationality','$gender', '$birth', '$social_status','$id_number','$position'
     ,'$department', '$salary', '$start_date','$contract_type','$trial_period','$working_hours','$filename' , NOW())";
 
     $insertResult = $conn->query($insert);
     if ($insertResult) {
-        
-        $target_dir = "../Documents/Employee-Contract/".$inserted_id."/";
-        if(!is_dir($target_dir)) {
+
+        $target_dir = "../Documents/Employee-Contract/" . $inserted_id . "/";
+        if (!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
-        }else{
-        
+        } else {
         }
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
@@ -156,32 +146,30 @@ else if (isset($_POST['submit'])) {
         $_SESSION['notification'] = "تم اضافة الموظف بنجاح";
         header('location: view-employee.php');
         exit();
-
     } else {
         $_SESSION['notification'] = "يوجد خلل في النظام";
         header('location: view-employee.php');
         exit();
-
     }
-}else{
+} else {
 
-$name = "";
-$email = "";
-$phone = "";
-$phone_code = "";
-$nationality = "";
-$gender = "";
-$birth = "";
-$social_status = "";
-$id_number = "";
-$position = "";
-$department = "";
-$salary = "";
-$start_date = "";
-$contract_type = "";
-$trial_period = "";
-$working_hours = "";
-$image = "";
+    $name = "";
+    $email = "";
+    $phone = "";
+    $phone_code = "";
+    $nationality = "";
+    $gender = "";
+    $birth = "";
+    $social_status = "";
+    $id_number = "";
+    $position = "";
+    $department = "";
+    $salary = "";
+    $start_date = "";
+    $contract_type = "";
+    $trial_period = "";
+    $working_hours = "";
+    $image = "";
 }
 ?>
 
@@ -191,7 +179,7 @@ $image = "";
     <!-- Blazor -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet" />
-    <link href="_content/Blazor.Bootstrap/blazor.bootstrap.css" rel="stylesheet" /> --> 
+    <link href="_content/Blazor.Bootstrap/blazor.bootstrap.css" rel="stylesheet" /> -->
     <!-- Blazor js -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
     <!-- Add chart.js reference if chart components are used in your application. -->
@@ -238,60 +226,11 @@ $image = "";
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
         <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
-            <div class="container-fluid py-1 px-3">
-                <nav aria-label="breadcrumb">
-
-                    <h6 class="font-weight-bolder mb-0">اضافه موظف</h6>
-                </nav>
-                <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-
-                    
-                    <ul class="navbar-nav me-auto ms-0 justify-content-end">
-                        <li class="nav-item d-flex align-items-center px-4">
-                            <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
-                                <i class="fa fa-user me-sm-1"></i>
-                                <span class="d-sm-inline d-none"> تسجيل الخروج</span>
-                            </a>
-                        </li>
-                        <li class="nav-item d-xl-none pe-3 d-flex align-items-center px-4">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                                <div class="sidenav-toggler-inner">
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item px-3 d-flex align-items-center">
-                            <a href="Messages/chat.php" class="nav-link text-body p-0">
-
-                                <i class="far fa-comments me-sm-1 cursor-pointer"></i>
-                            </a>
-                        </li>
-
-                        <!-- Notifications -->
-                        <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-bell cursor-pointer"></i>
-                                <span id="notification-count" class="notification-badge">0</span> <!-- Add this line -->
-                            </a>
-                            <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="notifications-container">
-                                <!-- Notifications will be dynamically added here -->
-                            </ul>
-                        </li>
-                        <!-- End of Notifications -->
-
-
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php
+        $titleNav = 'اضافه موظف';
+        require_once('../../components/navbar.php');
+        ?>
         <!-- End Navbar -->
-
-
-
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="block block-themed">
@@ -335,15 +274,15 @@ $image = "";
                                     <label>القسم</label>
                                     <select name="department" class="form-control">
                                         <option value="<?= $department ?>"><?= $department ?></option>
-                                        
+
                                         <?php
                                         $select = mysqli_query($conn, "select * from departments");
                                         while ($r = mysqli_fetch_array($select)) {
 
-                                        echo '<option value="'.$r['name'].'">'.$r['name'].'</option>';
+                                            echo '<option value="' . $r['name'] . '">' . $r['name'] . '</option>';
                                         }
                                         ?>
-                                        
+
                                     </select>
                                 </div>
                             </div>
@@ -475,45 +414,10 @@ $image = "";
             </div>
         </div>
 
-
-
-
-
-
-        <footer class="footer pt-3  ">
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6 mb-lg-0 mb-4">
-                        <div class="copyright text-center text-sm text-muted text-lg-end">
-                            © <script>
-                                document.write(new Date().getFullYear())
-                            </script>,
-                            made with <i class="fa fa-heart"></i> by
-                            <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php require_once('../../components/footer.php'); ?>
         </div>
 
     </main>
-
 
 
 
