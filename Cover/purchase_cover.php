@@ -481,7 +481,7 @@ if (isset($_GET['id'])) {
                                 ?>
 
                                     <tr>
-                                        <th scope="row border-1"><?=$i?></th>
+                                        <th scope="row" class=" border-1"><?=$i?></th>
                                         <td class="custom-font-m text-center border-1"><?= $cover['type'] ?></td>
                                         <td class="custom-font-m border-1"><?= $cover['dimensions'] ?></td>
                                         <td class="custom-font-m border-1"><?= $cover['quantity'] ?></td>
@@ -492,15 +492,15 @@ if (isset($_GET['id'])) {
 
                                     <?php } ?>
                                     <tr>
-                                    <td>
-                                        <div class="text-left">
+                                    <td colspan="5">
+                                        <div class="text-center">
 
-                                            <span class="text-muted">Total :</span>
+                                            <span class="text-black">Total</span>
 
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="text-right">
+                                        <div class="text-center text-black">
                                             <span>SAR <?= number_format($total_price) ?></span>
                                         </div>
                                     </td>
@@ -510,31 +510,31 @@ if (isset($_GET['id'])) {
 
 
                                 <tr>
-                                    <td>
-                                        <div class="text-left">
+                                    <td colspan="5">
+                                        <div class="text-center">
 
-                                            <span class="text-muted">VAT %15 :</span>
+                                            <span class="text-black">VAT %15</span>
 
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="text-right">
+                                        <div class="text-center text-black">
                                             <span>SAR <?= number_format(($total_price * 15) / 100) ?></span>
                                         </div>
                                     </td>
                                 </tr>
 
 
-                                <tr class="border-top border-bottom">
-                                    <td>
-                                        <div class="text-left">
+                                <tr >
+                                    <td colspan="5" class=" border-1">
+                                        <div class="text-center">
 
-                                            <span class="font-weight-bold">Grand total(SAR) :</span>
+                                            <span class="text-black">Grand total(SAR)</span>
 
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="text-right">
+                                        <div class="border-1">
                                             <span class="font-weight-bold text-success" id="total"><?= number_format($total_price + (($total_price * 15) / 100)) ?></span>
                                         </div>
                                     </td>
