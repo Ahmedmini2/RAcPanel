@@ -130,20 +130,7 @@ if (!empty($_GET['edit'])) {
                     <div class="block-header bg-gradient-dark col-md-2 col-sm-6 col-xs-6  rounded-pill">
                         <h6 class="block-title text-white py-2 px-4 ">مراجعه الطلبيات</h6>
                     </div>
-                    <div class="row">
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="counter orange">
-                                <div class="counter-content">
-                                    <div class="counter-icon">
-                                        <i class="fa fa-mobile"></i>
-                                    </div>
-                                    <span class="counter-value">1710</span>
-                                    <h3>Responsive Design</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                     <form id="<?php echo $idAttr; ?>" action="" method="post" enctype="multipart/form-data">
                         <div class="row">
 
