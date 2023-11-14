@@ -2,6 +2,9 @@
 include('../cookies/session2.php');
 include('../cookies/insert-method2.php');
 $_SESSION['sidebar'] = "Projects";
+$iron1 = 1;
+  $accessory1 = 1;
+  $band1 = 1;
 
 if(isset($_GET['project_id']) && isset($_GET['item_id'])){
     $project_id = $_GET['project_id'];
