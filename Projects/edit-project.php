@@ -629,7 +629,7 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="acc_quantity">كمية الاكسسوار</label>
-                          <input type="text" class="form-control" name='acc_quantity_<?= $y ?>' id="acc_quantity_<?= $y ?>" value="<?=$accessory_band['quantity']?>">
+                          <input type="text" class="form-control" name='  _quantity_<?= $y ?>' id="acc_quantity_<?= $y ?>" value="<?=$accessory_band['quantity']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">

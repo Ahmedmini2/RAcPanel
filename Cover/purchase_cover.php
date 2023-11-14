@@ -481,7 +481,7 @@ if (isset($_GET['id'])) {
                                 ?>
 
                                     <tr>
-                                        <th scope="row"><?=$i?></th>
+                                        <th scope="row border-1"><?=$i?></th>
                                         <td class="custom-font-m text-center border-1"><?= $cover['type'] ?></td>
                                         <td class="custom-font-m border-1"><?= $cover['dimensions'] ?></td>
                                         <td class="custom-font-m border-1"><?= $cover['quantity'] ?></td>
@@ -491,24 +491,7 @@ if (isset($_GET['id'])) {
                                     </tr>
 
                                     <?php } ?>
-
-                                </tbody>
-                                <!--Table body-->
-
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row d-flex justify-content-end">
-
-                    <div class="col-md-5">
-
-                        <table class="table table-borderless">
-
-                            <tbody class="totals">
-
-                                <tr>
+                                    <tr>
                                     <td>
                                         <div class="text-left">
 
@@ -556,6 +539,23 @@ if (isset($_GET['id'])) {
                                         </div>
                                     </td>
                                 </tr>
+                                </tbody>
+                                <!--Table body-->
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-end">
+
+                    <div class="col-md-5">
+
+                        <table class="table table-borderless">
+
+                            <tbody class="totals">
+
+                                
 
                             </tbody>
 
