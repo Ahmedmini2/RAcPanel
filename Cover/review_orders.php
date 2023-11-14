@@ -53,11 +53,15 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                     </i>
                 </a>
 
-                <div class="col">
-                    <div class="counter">
-                        <i class="fa fa-code fa-2x"></i>
-                        <h2>45</h2>
-                        <p class="count-text ">االكميه المتبقية</p>
+                <div class="col-md-3 col-sm-6">
+                    <div class="counter blue">
+                        <div class="counter-icon">
+                            <i class="fa fa-rocket"></i>
+                        </div>
+                        <div class="counter-content">
+                            <h3>Web Development</h3>
+                            <span class="counter-value">1854</span>
+                        </div>
                     </div>
                 </div>
             </div>
