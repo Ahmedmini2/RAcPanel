@@ -242,7 +242,7 @@ if (isset($_POST['add-project'])) {
                   $insertData=insert_data($data,$tableName);
                   if($insertData){
                   
-                    $accessory1++;
+                    $band1++;
                   }else{
                     $_SESSION['notification'] =  $conn->error;
                     header('location: index.php');
