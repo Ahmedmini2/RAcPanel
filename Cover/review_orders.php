@@ -65,7 +65,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                     <i class="fa fa-rocket"></i>
                                 </div>
                                 <div class="counter-content">
-                                    <h3>Web Development</h3>
+                                    <h3>الكمية المتبقيه</h3>
                                     <span class="counter-value">1854</span>
                                 </div>
                             </div>
