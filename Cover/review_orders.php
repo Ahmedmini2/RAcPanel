@@ -56,7 +56,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
 
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-2">
                     <div class="form-group">
                         <div class="col-md-3 col-sm-6">
                             <div class="counter blue">
@@ -71,7 +71,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                         </div>
 
                     </div>
-                </div>S
+                </div>
                 </div>
                
 
