@@ -653,7 +653,7 @@ if (isset($_POST['add-project'])) {
                     <input type="hidden" name="ac-new-rr" id="ac-new-rr" readonly value="<?=$y?>">
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
-                      var a = 1;
+                      var a = $("#ac-rr").val();
 
                       $(document).on('change', 'input', function() {
                         var total_accessory = 0;
@@ -799,7 +799,7 @@ if (isset($_POST['add-project'])) {
                     <input type="hidden" name="band-rr" id="band-rr" readonly value="<?=$x?>">
                     <input type="hidden" name="band-new-rr" id="band-new-rr" readonly value="<?=$x?>">
                     <script>
-                      b = 1;
+                      b = $("#band-rr").val();;
                       $(document).on('change', 'input', function() {
                         var total_bands = 0;
                         for (var z = 1; z <= $("#band-new-rr").val(); z++) {
