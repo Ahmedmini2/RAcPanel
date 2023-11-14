@@ -19,22 +19,21 @@ if (!empty($_GET['edit'])) {
 
         $name = $_POST['name'];
         $quantity = $_POST['quantity'];
-        $target_dir = "../Signed-Docs/Cover-Reviews/".$cover_id."/";
-        if(!is_dir($target_dir)) {
+        $target_dir = "../Signed-Docs/Cover-Reviews/" . $cover_id . "/";
+        if (!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
-        }else{
-
+        } else {
         }
         $target_file = $target_dir . basename($_FILES["review_image"]["name"]);
         $filename = basename($_FILES["review_image"]["name"]);
         $uploadOk = 1;
         move_uploaded_file($_FILES["review_image"]["tmp_name"], $target_file);
-        
+
 
         $update = "UPDATE `covers_report` SET `name` = '$name', `quantity` = '$quantity', `image` = '$filename' WHERE `id` = $id";
         $updateResult = $conn->query($update);
         if ($updateResult) {
-            
+
 
             $_SESSION['notification'] = "تم تعديل طلب مراجعة الاغطية بنجاح";
             header("location:javascript://history.go(-1)");
@@ -47,43 +46,41 @@ if (!empty($_GET['edit'])) {
     }
 } else if (isset($_POST['submit'])) {
 
-        $name = $_POST['name'];
-        $quantity = $_POST['quantity'];
-        $image = $_POST['image'];
-        
-            $target_dir = "../Signed-Docs/Cover-Reviews/".$cover_id."/";
-            if(!is_dir($target_dir)) {
-                mkdir($target_dir, 0777, true);
-            }else{
-            
-            }
-            $target_file = $target_dir . basename($_FILES["review_image"]["name"]);
-            move_uploaded_file($_FILES["review_image"]["tmp_name"], $target_file);
+    $name = $_POST['name'];
+    $quantity = $_POST['quantity'];
+    $image = $_POST['image'];
 
-        $filename = basename($_FILES["review_image"]["name"]);
-        $uploadOk = 1;
-
-
-
-        $insert = "INSERT INTO `covers_report` (`id`,`cover_id`, `name`, `quantity`, `image`, `created_at`)
-        VALUES (NULL,'$cover_id', '$name', '$quantity', '$filename', NOW())";
-        $insertResult = $conn->query($insert);
-        if ($insertResult) {
-
-            $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
-           header("location:javascript://history.go(-1)");
-            exit();
+    $target_dir = "../Signed-Docs/Cover-Reviews/" . $cover_id . "/";
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0777, true);
     } else {
-            $_SESSION['notification'] = "يوجد خلل في النظام";
-           header("location:javascript://history.go(-1)");
-            exit();
-        }
-    } else {
-            $name = "";
-            $quantity = "";
-            $image = "";
-
     }
+    $target_file = $target_dir . basename($_FILES["review_image"]["name"]);
+    move_uploaded_file($_FILES["review_image"]["tmp_name"], $target_file);
+
+    $filename = basename($_FILES["review_image"]["name"]);
+    $uploadOk = 1;
+
+
+
+    $insert = "INSERT INTO `covers_report` (`id`,`cover_id`, `name`, `quantity`, `image`, `created_at`)
+        VALUES (NULL,'$cover_id', '$name', '$quantity', '$filename', NOW())";
+    $insertResult = $conn->query($insert);
+    if ($insertResult) {
+
+        $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
+        header("location:javascript://history.go(-1)");
+        exit();
+    } else {
+        $_SESSION['notification'] = "يوجد خلل في النظام";
+        header("location:javascript://history.go(-1)");
+        exit();
+    }
+} else {
+    $name = "";
+    $quantity = "";
+    $image = "";
+}
 
 ?>
 <!DOCTYPE html>
@@ -118,10 +115,10 @@ if (!empty($_GET['edit'])) {
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
         <!-- Navbar -->
-        <?php 
-     $titleNav = 'شراء اغطية'; 
-     require_once('../components/navbar.php');
-     ?>
+        <?php
+        $titleNav = 'شراء اغطية';
+        require_once('../components/navbar.php');
+        ?>
         <!-- End Navbar -->
         <!-- اسم الفاتوره ))كميه المستلمه )) صورة -->
         <div class="container-fluid py-4">
@@ -132,6 +129,20 @@ if (!empty($_GET['edit'])) {
                     </div>
                     <div class="block-header bg-gradient-dark col-md-2 col-sm-6 col-xs-6  rounded-pill">
                         <h6 class="block-title text-white py-2 px-4 ">مراجعه الطلبيات</h6>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-3 col-sm-6">
+                            <div class="counter orange">
+                                <div class="counter-content">
+                                    <div class="counter-icon">
+                                        <i class="fa fa-mobile"></i>
+                                    </div>
+                                    <span class="counter-value">1710</span>
+                                    <h3>Responsive Design</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <form id="<?php echo $idAttr; ?>" action="" method="post" enctype="multipart/form-data">
                         <div class="row">
@@ -169,7 +180,7 @@ if (!empty($_GET['edit'])) {
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <button type="submit" name="submit" class="btn btn-secondary">شراء الاغطية</button>
+                                    <button type="submit" name="submit" class="btn btn-secondary">استلام الاغطية</button>
                                 </div>
                             </div>
                             <div class="col">
@@ -269,7 +280,7 @@ if (!empty($_GET['edit'])) {
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
-    
+
     <script src="../Admin/darkmode.js"></script>
 </body>
 
