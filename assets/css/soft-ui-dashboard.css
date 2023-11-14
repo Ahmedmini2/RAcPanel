@@ -25712,10 +25712,10 @@ width: 100px;
 .counter .counter-icon{
   color: #fff;
   
-  font-size: 50px;
+  font-size: 30px;
   line-height: 90px;
   width: 120px;
-  height: 100px;
+  height: 68px;
   margin: 0 auto 10px;
   border-radius: 10px 10px 0 0;
   transform: translateY(-20px);
@@ -25750,7 +25750,7 @@ width: 100px;
 .counter .counter-value{
   
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 600; 
   display: block;
 }
 .counter.blue:before{ background-color: #5A9BEF; }
