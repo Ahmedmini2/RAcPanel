@@ -533,8 +533,8 @@ if (isset($_GET['id'])) {
 
                                         </div>
                                     </td>
-                                    <td>
-                                        <div class="border-1">
+                                    <td class=" border-1">
+                                        <div class="text-center">
                                             <span class="font-weight-bold text-success" id="total"><?= number_format($total_price + (($total_price * 15) / 100)) ?></span>
                                         </div>
                                     </td>
