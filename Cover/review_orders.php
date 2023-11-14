@@ -46,7 +46,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
         <!-- اسم الفاتوره ))كميه المستلمه )) صورة -->
         <div class="container-fluid py-4">
             <div class=" mb-4 p-3">
-
+                <div class="row">
                 <div class="col">
                     <div class="form-group">
                         <a href="add_review_orders.php?cover_id=<?= $cover_id ?>" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
@@ -56,25 +56,27 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
 
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-2">
                     <div class="form-group">
-                    <div class="col-md-3 col-sm-6">
-                    <div class="counter blue">
-                        <div class="counter-icon">
-                            <i class="fa fa-rocket"></i>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="counter blue">
+                                <div class="counter-icon">
+                                    <i class="fa fa-rocket"></i>
+                                </div>
+                                <div class="counter-content">
+                                    <h3>Web Development</h3>
+                                    <span class="counter-value">1854</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="counter-content">
-                            <h3>Web Development</h3>
-                            <span class="counter-value">1854</span>
-                        </div>
+
                     </div>
                 </div>
-
-                    </div>
                 </div>
-
-
                
+
+
+
             </div>
 
             <!--Table     -->
