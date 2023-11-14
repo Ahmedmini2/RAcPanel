@@ -802,7 +802,7 @@ if (isset($_POST['add-project'])) {
                       b = 1;
                       $(document).on('change', 'input', function() {
                         var total_bands = 0;
-                        for (var z = 1; z <= $("#iron-new-rr").val(); z++) {
+                        for (var z = 1; z <= $("#band-new-rr").val(); z++) {
                           var peice = ((parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val()) || 0))
                           total_bands += peice
                           peice = peice.toLocaleString("en-US");
