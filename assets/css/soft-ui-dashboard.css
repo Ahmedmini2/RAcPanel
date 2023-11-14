@@ -25752,8 +25752,17 @@ width: 100px;
   transform: rotate(360deg);
   transition: all 0.3s ease;
 }
+
 .counter h3{
-  color: #333;
+  color: #ffffff;
+  font-size:17px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 5px 0;
+}
+.darkmode .counter h3{
+  color: #ffffff;
   font-size:17px;
   font-weight: 600;
   letter-spacing: 1px;
