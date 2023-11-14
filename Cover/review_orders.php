@@ -45,15 +45,20 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
         <!-- End Navbar -->
         <!-- اسم الفاتوره ))كميه المستلمه )) صورة -->
         <div class="container-fluid py-4">
-            <div class="row">
+            <div class=" mb-4 p-3">
 
+                <div class="col">
+                    <div class="form-group">
+                        <a href="add_review_orders.php?cover_id=<?= $cover_id ?>" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
+                            <i class="fas fa-plus">
+                            </i>
+                        </a>
 
-                <a href="add_review_orders.php?cover_id=<?= $cover_id ?>" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
-                    <i class="fas fa-plus">
-                    </i>
-                </a>
-
-                <div class="col-md-3 col-sm-6">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                    <div class="col-md-3 col-sm-6">
                     <div class="counter blue">
                         <div class="counter-icon">
                             <i class="fa fa-rocket"></i>
@@ -64,6 +69,12 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                         </div>
                     </div>
                 </div>
+
+                    </div>
+                </div>
+
+
+               
             </div>
 
             <!--Table     -->
