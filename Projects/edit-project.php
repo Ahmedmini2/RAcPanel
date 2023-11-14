@@ -150,16 +150,18 @@ if (isset($_POST['add-project'])) {
           }
         }
           $accessory_raws = $_POST['ac-rr'];
+          $ac_new_raws = $_POST['ac-new-rr'];
           if ($accessory_raws == "") {
             $accessory_raws = 1;
           }
-          while ($accessory1 <= $accessory_raws) {
+          while ($accessory1 <= $ac_new_raws) {
             $accessory = $_POST['accessory_' . $accessory1];
             $acc_quantity = $_POST['acc_quantity_' . $accessory1];
             $acc_price = str_replace(',', '', $_POST['acc_price_' . $accessory1]);
             $acc_tot = str_replace(',', '', $_POST['acc_tot_' . $accessory1]);
             $accessory_id = $_POST['accessory_id_'. $accessory1];
 
+            if($accessory1 <= $accessory_raws){
 
             $update_accessory = "UPDATE `accessory_band` SET  `name` = '$accessory' , `quantity` = '$acc_quantity' , `price_per_piece` = '$acc_price' , `total_price` = '$acc_tot' WHERE `id` = '$accessory_id'";
             $accessory_res = $conn->query($update_accessory);
@@ -171,7 +173,29 @@ if (isset($_POST['add-project'])) {
                     header('location: index.php');
                     exit();
               }
-            
+            }
+            else { 
+              $data = [
+              'product_id' => $item_id,
+              'name'=> $accessory,
+              'quantity'=> $acc_quantity,
+              'price_per_piece'=> $acc_price,
+              'total_price'=> $acc_tot,
+              ];
+              $tableName='accessory_band';
+              if(!empty($data) && !empty($tableName)){
+                $insertData=insert_data($data,$tableName);
+                if($insertData){
+                
+                  $accessory1++;
+                }else{
+                  $_SESSION['notification'] =  $conn->error;
+                  header('location: index.php');
+                  exit();
+                
+                }
+              }
+            }
           }
 
         $cover_type = $_POST['cover_type'];
@@ -693,7 +717,7 @@ if (isset($_POST['add-project'])) {
                             if (e.target.classList.contains("add_accessory")) {
 
                               a++;
-                              $("#iron-new-rr").val(a);
+                              $("#ac-new-rr").val(a);
 
                             }
                           });
