@@ -657,7 +657,7 @@ if (isset($_POST['add-project'])) {
 
                       $(document).on('change', 'input', function() {
                         var total_accessory = 0;
-                        for (var z = 1; z <= <?=$y?>; z++) {
+                        for (var z = 1; z <= $("#ac-new-rr").val(); z++) {
 
                           var peice = ((parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val()) || 0));
                           total_accessory += peice
@@ -802,7 +802,7 @@ if (isset($_POST['add-project'])) {
                       b = 1;
                       $(document).on('change', 'input', function() {
                         var total_bands = 0;
-                        for (var z = 1; z <= <?=$x?>; z++) {
+                        for (var z = 1; z <= $("#iron-new-rr").val(); z++) {
                           var peice = ((parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val()) || 0))
                           total_bands += peice
                           peice = peice.toLocaleString("en-US");
