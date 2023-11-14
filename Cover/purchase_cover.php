@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
     $purchase_id = $editData['purchase_id'];
     $quantity = $editData['quantity'];
     $price_per_peice = $editData['price_per_piece'];
-    
+
     $seller = $editData['seller'];
     $query2 = "SELECT * FROM contact_covers WHERE id=$seller";
     $res2 = $conn->query($query2);
@@ -303,21 +303,21 @@ if (isset($_GET['id'])) {
             </div>
             <!-- Button trigger modal -->
 
-          
 
-                <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
-                    طباعة الطلب
-                    <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
-                </button>
-                <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    إرفاق \ عرض الملف
-                </button>
-                <a href="review_orders.php?cover_id=<?=$id?>"  id="btn4" class="  btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5  ">
-                  مراجعه الطلبيات 
-                </a>
+            <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
+                طباعة الطلب
+                <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
-           
+            </button>
+            <button type="button" id="btn3" class="printing printing2 btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5  " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                إرفاق \ عرض الملف
+            </button>
+            <a href="review_orders.php?cover_id=<?= $id ?>" id="btn4" class="  btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5  ">
+                مراجعه الطلبيات
+            </a>
+
+
 
             <script>
                 function printDiv(divName) {
@@ -473,74 +473,74 @@ if (isset($_GET['id'])) {
                                 <!--Table body-->
                                 <tbody>
 
-                                <?php 
-                                
-                                $covers = mysqli_query($conn, "SELECT * FROM covers_purchase WHERE purchase_id = $purchase_id");
-                                $i = 0;
-                                while ($cover = mysqli_fetch_array($covers)) {
-                                    $i++;
-                                    $total_price += $cover['total_price'];
-                                ?>
+                                    <?php
 
-                                    <tr>
-                                        <th scope="row" class=" border-1"><?=$i?></th>
-                                        <td class="custom-font-m text-center border-1"><?= $cover['type'] ?></td>
-                                        <td class="custom-font-m border-1"><?= $cover['dimensions'] ?></td>
-                                        <td class="custom-font-m border-1"><?= $cover['quantity'] ?></td>
-                                        <td class="custom-font-m border-1"><?= $cover['price_per_piece'] ?></td>
-                                        <td class="custom-font-m borSder-1"><?= $cover['total_price'] ?></td>
+                                    $covers = mysqli_query($conn, "SELECT * FROM covers_purchase WHERE purchase_id = $purchase_id");
+                                    $i = 0;
+                                    while ($cover = mysqli_fetch_array($covers)) {
+                                        $i++;
+                                        $total_price += $cover['total_price'];
+                                    ?>
 
-                                    </tr>
+                                        <tr>
+                                            <th scope="row" class=" border-1"><?= $i ?></th>
+                                            <td class="custom-font-m text-center border-1"><?= $cover['type'] ?></td>
+                                            <td class="custom-font-m border-1"><?= $cover['dimensions'] ?></td>
+                                            <td class="custom-font-m border-1"><?= $cover['quantity'] ?></td>
+                                            <td class="custom-font-m border-1"><?= $cover['price_per_piece'] ?></td>
+                                            <td class="custom-font-m borSder-1"><?= $cover['total_price'] ?></td>
+
+                                        </tr>
 
                                     <?php } ?>
                                     <tr>
-                                    <td colspan="5">
-                                        <div class="text-center">
+                                        <td colspan="5">
+                                            <div class="text-center">
 
-                                            <span class="text-black">Total</span>
+                                                <span class="text-black">Total</span>
 
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-center text-black">
-                                            <span>SAR <?= number_format($total_price) ?></span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-center text-black">
+                                                <span>SAR <?= number_format($total_price) ?></span>
+                                            </div>
+                                        </td>
+                                    </tr>
 
 
-                                <tr>
-                                    <td colspan="5">
-                                        <div class="text-center">
-
-                                            <span class="text-black">VAT %15</span>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-center text-black">
-                                            <span>SAR <?= number_format(($total_price * 15) / 100) ?></span>
-                                        </div>
-                                    </td>
-                                </tr>
 
 
-                                <tr >
-                                    <td colspan="5" class=" border-1">
-                                        <div class="text-center">
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="text-center">
 
-                                            <span class="text-black">Grand total(SAR)</span>
+                                                <span class="text-black">VAT %15</span>
 
-                                        </div>
-                                    </td>
-                                    <td class=" border-1">
-                                        <div class="text-center">
-                                            <span class="font-weight-bold text-success" id="total"><?= number_format($total_price + (($total_price * 15) / 100)) ?></span>
-                                        </div>
-                                    </td>
-                                </tr>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-center text-black">
+                                                <span>SAR <?= number_format(($total_price * 15) / 100) ?></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td colspan="5" class=" border-1">
+                                            <div class="text-center">
+
+                                                <span class="text-black">Grand total(SAR)</span>
+
+                                            </div>
+                                        </td>
+                                        <td class=" border-1">
+                                            <div class="text-center">
+                                                <span class="font-weight-bold text-success" id="total"><?= number_format($total_price + (($total_price * 15) / 100)) ?></span>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                                 <!--Table body-->
 
@@ -549,7 +549,7 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
 
-               
+
 
                 <div class="row">
                     <div class="col text-center">
@@ -577,12 +577,12 @@ if (isset($_GET['id'])) {
                     </li>
 
                 </ul>
-                
-                
+
+
                 <div class="row">
                     <div class="col text-start text-bolder">
-                        <p><?=$payment_type?>.</p>
-                        <input type="text" class="signture signture2" id="signture3"/>
+                        <p><?= $payment_type ?>.</p>
+                        <input type="text" class="signture signture2" id="signture3" />
                     </div>
                 </div>
 
