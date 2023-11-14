@@ -52,21 +52,16 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                     <i class="fas fa-plus">
                     </i>
                 </a>
-            </div>
-            <div class="row">
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="counter orange">
-                        <div class="counter-content">
-                            <div class="counter-icon">
-                                <i class="fa fa-mobile"></i>
-                            </div>
-                            <span class="counter-value">1710</span>
-                            <h3>Responsive Design</h3>
-                        </div>
+                <div class="col">
+                    <div class="counter">
+                        <i class="fa fa-code fa-2x"></i>
+                        <h2 class="timer count-title count-number" data-to="100" data-speed="1500"></h2>
+                        <p class="count-text ">االكميه المتبقية</p>
                     </div>
                 </div>
             </div>
+
             <!--Table     -->
             <div class="row">
                 <div class="col-12">

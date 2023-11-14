@@ -25686,88 +25686,25 @@ width: 100px;
     transform: rotate(-360deg);
   }
 }
-
-:root{
-  --white: #fff;
-  --bg_color1: #9fcc26;
-  --bg_color2: #e2374a;
-  --bg_color3: #A8198B;
-  --bg_color4: #FE9901;
-}
-.demo{ background-color: #e7e7e7; }
-.counter{
-  font-family: 'Roboto', sans-serif;
+.count-title {
+  font-size: 40px;
+  font-weight: normal;
+  margin-top: 10px;
+  margin-bottom: 0;
   text-align: center;
-  width: 200px;
-  padding: 0 0 30px;
+}
+
+.count-text {
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.fa-2x {
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
+  float: none;
+  display: table;
+  color: #FF5E00;
 }
-.counter:after{
-  content: '';
-  background-color: var(--bg_color1);
-  height: 180px;
-  width: 180px;
-  border-radius: 50%;
-  box-shadow: 0 0 5px #999 inset;
-  transform: translateX(-50%);
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  z-index: -1;
-}
-.counter .counter-content{
-  background: var(--white);
-  width: 200px;
-  height: 200px;
-  padding: 10px 15px;
-  box-shadow: 10px 15px 10px -10px rgba(0,0,0,0.8);
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-}
-.counter .counter-content:before{
-  content: "";
-  background: var(--bg_color1);
-  width: 200px;
-  height: 100px;
-  border-radius: 50%;
-  transform: translateX(-50%);
-  position: absolute;
-  top: -35px;
-  left: 50%;
-  z-index: -1;
-}
-.counter .counter-icon{
-  color: var(--white);
-  font-size: 35px;
-  margin-bottom: 25px;
-  transition: all 0.3s ease-in-out;
-}
-.counter:hover .counter-icon{ transform: rotateY(180deg) rotateX(360deg); }
-.counter .counter-value{
-  color: var(--bg_color1);
-  font-size: 35px;
-  font-weight: 700;
-  line-height: 20px;
-  display: block;
-}
-.counter h3{
-  color: #555;
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 0 10px;
-  display: inline-block;
-}
-.counter.red:after,
-.counter.red .counter-content:before{ background-color: var(--bg_color2); }
-.counter.red .counter-value{ color: var(--bg_color2); }
-.counter.purple:after,
-.counter.purple .counter-content:before{ background-color: var(--bg_color3); }
-.counter.purple .counter-value{ color: var(--bg_color3); }
-.counter.orange:after,
-.counter.orange .counter-content:before{ background-color: var(--bg_color4); }
-.counter.orange .counter-value{ color: var(--bg_color4); }
