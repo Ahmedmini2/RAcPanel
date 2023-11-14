@@ -45,7 +45,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
         <!-- End Navbar -->
         <!-- اسم الفاتوره ))كميه المستلمه )) صورة -->
         <div class="container-fluid py-4">
-            <div class=" mb-4 p-3">
+            <div class="row">
 
 
                 <a href="add_review_orders.php?cover_id=<?= $cover_id ?>" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
