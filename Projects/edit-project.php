@@ -209,23 +209,47 @@ if (isset($_POST['add-project'])) {
         }
 
           $band_raws = $_POST['band-rr'];
+          $band_new_raws = $_POST['band-new-rr'];
           if ($band_raws == "") {
             $band_raws = 1;
           }
-          while ($band1 <= $band_raws) {
+          while ($band1 <= $band_new_raws) {
             $band = $_POST['band_' . $band1];
             $band_price = str_replace(',', '', $_POST['band_price_' . $band1]);
             $band_tot = str_replace(',', '', $_POST['band_tot_' . $band1]);
             $extra_id = $_POST['extra_id_'.$band1];
 
-            $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `id` = '$extra_id'";
-            $band_res = $conn->query($update_band);
-            if ($band_res) {
-              $band1++;
-            }else{
-            $_SESSION['notification'] = "تعديل خطأ في البنود الاضافيه";
-                  header('location: index.php');
-                  exit();
+            if($band1 <= $band_raws){
+
+              $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `id` = '$extra_id'";
+              $band_res = $conn->query($update_band);
+              if ($band_res) {
+                $band1++;
+              }else{
+              $_SESSION['notification'] = "تعديل خطأ في البنود الاضافيه";
+                    header('location: index.php');
+                    exit();
+              }
+            }else {
+              $data = [
+                'product_id' => $item_id,
+                'name'=> $band,
+                'price_per_piece'=> $band_price,
+                'total_price'=> $band_tot,
+                ];
+                $tableName='extra_band';
+                if(!empty($data) && !empty($tableName)){
+                  $insertData=insert_data($data,$tableName);
+                  if($insertData){
+                  
+                    $accessory1++;
+                  }else{
+                    $_SESSION['notification'] =  $conn->error;
+                    header('location: index.php');
+                    exit();
+                  
+                  }
+                }
             }
           }
           
