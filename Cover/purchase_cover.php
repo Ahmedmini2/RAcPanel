@@ -324,10 +324,12 @@ if (isset($_GET['id'])) {
                     document.getElementById('btn2').style.display = "none";
                     document.getElementById('btn3').style.display = "none";
                     document.getElementById('btn4').style.display = "none";
+                    document.getElementById('signture3').style.backgroundColor = "#ffffff00";
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
                     document.getElementById('btn3').style.display = "inline";
                     document.getElementById('btn4').style.display = "inline";
+                    document.getElementById('signture3').style.backgroundColor = "white";
 
                 }
             </script>
@@ -547,25 +549,7 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
 
-                <div class="row d-flex justify-content-end">
-
-                    <div class="col-md-5">
-
-                        <table class="table table-borderless">
-
-                            <tbody class="totals">
-
-                                
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-
-
-                </div>
+               
 
                 <div class="row">
                     <div class="col text-center">
@@ -593,6 +577,14 @@ if (isset($_GET['id'])) {
                     </li>
 
                 </ul>
+                
+                
+                <div class="row">
+                    <div class="col text-start text-bolder">
+                        <p><?=$payment_type?>.</p>
+                        <input type="text" class="signture signture2" id="signture3"/>
+                    </div>
+                </div>
 
 
                 <div class="row text-center">
