@@ -55,6 +55,28 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
 
                         </div>
                     </div>
+                    <div class="sal-card-info">
+
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">الكميه المتبقيه</p>
+                    <h5 class="font-weight-bolder mb-0">
+                      1444
+                      
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-4 text-start">
+                  
+                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                    <i class="fa fa-money text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
                     <div class="col-2">
                         <div class="form-group">
                             <div class="col-md-3 col-sm-6">
@@ -88,7 +110,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                             <th>كميه المستلمه</th>
                                             <th>ملف الفاتورة</th>
                                             <th>تاريخ الفاتورة</th>
-                                            <th>Action </th>
+                                              <th>Action </th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
@@ -120,7 +142,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                                                         الرجاء ادخال كلمة المرور للتأكيد
                                                                         <form action="../scripts/covers/delete-review.php?id=<?php echo $r['id']; ?>" method="post">
                                                                             <input type="password" name="pas" class="form-control">
-
+  
                                                                     </div>
                                                                     <div class="modal-footer">
 
