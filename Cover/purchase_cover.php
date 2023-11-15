@@ -3,8 +3,8 @@ include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Cover";
 if (isset($_GET['id'])) {
 
-    $id = $_GET['id'];
-    $query = "SELECT * FROM covers_purchase WHERE id=$id";
+    $purchase_id = $_GET['id'];
+    $query = "SELECT * FROM covers_purchase WHERE purchase_id=$id";
     $res = $conn->query($query);
     $editData = $res->fetch_assoc();
     $type = $editData['type'];
