@@ -84,7 +84,7 @@ $select = mysqli_query($conn, "select * from covers_purchase_id");
                 $i++;
                 $type = "";
                 $purchase_id = $r['purchase_id'];
-                $select2 = mysqli_query($conn, "SELECT * FROM covers_purchase WHERE purchase_id = $purchase_id");
+                $select2 = mysqli_query($conn, "SELECT * FROM covers_purchase WHERE purchase_id = '$purchase_id'");
                 while ($row = mysqli_fetch_array($select2)){
                   $type += $row['type'].'<br>';
                   $dimensions += $row['dimensions'].'<br>';
