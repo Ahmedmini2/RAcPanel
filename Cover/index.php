@@ -82,7 +82,7 @@ $select = mysqli_query($conn, "select * from covers_purchase_id");
               while ($r = mysqli_fetch_array($select)) {
 
                 $i++;
-                (string)$type = "<br>";
+                
                 $dimensions = "";
                 $price_per_piece = "";
                 $total_price = "";
