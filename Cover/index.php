@@ -90,7 +90,7 @@ $select = mysqli_query($conn, "select * from covers_purchase_id");
                 $purchase_id = $r['purchase_id'];
                 $select2 = mysqli_query($conn, "SELECT * FROM covers_purchase WHERE purchase_id = '$purchase_id'");
                 while ($row = mysqli_fetch_array($select2)){
-                  $type += '<br>' .(string)$row['type'].'<br>';
+                  $type += '<br>' + (string)$row['type'] + '<br>';
                   $dimensions += '<br>' .(string)$row['dimensions'].'<br>';
                   $quantity += '<br>' .(string)$row['quantity'].'<br>';
                   $price_per_piece += '<br>' .(string)$row['price_per_piece'].'<br>';
