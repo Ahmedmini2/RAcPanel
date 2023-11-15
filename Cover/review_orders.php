@@ -47,7 +47,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
         <div class="container-fluid py-4">
             <div class=" mb-4 p-3">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col">
                         <div class="form-group">
                             <a href="add_review_orders.php?cover_id=<?= $cover_id ?>" class="btn bg-gradient-dark mb-0 col-md-3 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
                                 <i class="fas fa-plus"></i>
@@ -55,12 +55,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
 
                         </div>
                     </div>
-
-
-                    
-                    <div class="col-4">
-                        <div class="form-group">
-                            <div class="col-md-3 col-sm-6">
+                    <!--<div class="col-lg-8 col-md-3 col-sm-6">
                                 <div class="sal-card-info">
 
                                     <div class="card-body p-3">
@@ -81,6 +76,19 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>     -->
+                    <div class="col-2">
+                        <div class="form-group">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="counter">
+                                    <div class="counter-icon">
+                                        <i class="fa fa-rocket"></i>
+                                    </div>
+                                    <div class="counter-content">
+                                        <h3>الكمية المتبقيه</h3>
+                                        <span class="counter-value">1854</span>
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +112,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                             <th>كميه المستلمه</th>
                                             <th>ملف الفاتورة</th>
                                             <th>تاريخ الفاتورة</th>
-                                            <th>Action </th>
+                                              <th>Action </th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
@@ -136,7 +144,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                                                         الرجاء ادخال كلمة المرور للتأكيد
                                                                         <form action="../scripts/covers/delete-review.php?id=<?php echo $r['id']; ?>" method="post">
                                                                             <input type="password" name="pas" class="form-control">
-
+  
                                                                     </div>
                                                                     <div class="modal-footer">
 
