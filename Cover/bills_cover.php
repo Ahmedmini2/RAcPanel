@@ -1,7 +1,7 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Cover";
-$select = mysqli_query($conn, "select * from covers_purchase");
+$select = mysqli_query($conn, "select * from covers_purchase_id");
 
 ?>
 <!DOCTYPE html>
@@ -78,25 +78,44 @@ $select = mysqli_query($conn, "select * from covers_purchase");
                  
 
                 <?php
+                $i = 0;
               while ($r = mysqli_fetch_array($select)) {
+
+                $i++;
+                $type = "";
+                $dimensions = "";
+                $price_per_piece = "";
+                $total_price = "";
+                $created_at = "";
+                $purchase_id = $r['purchase_id'];
+                $select2 = mysqli_query($conn, "SELECT * FROM covers_purchase WHERE purchase_id = '$purchase_id'");
+                while ($row = mysqli_fetch_array($select2)){
+                  $type .= $row['type'] . '<br>';
+                  $dimensions .= $row['dimensions'].'<br>';
+                  $quantity .= $row['quantity'].'<br>';
+                  $price_per_piece .= $row['price_per_piece'].'<br>';
+                  $total_price .= $row['total_price'].'<br>';
+                  $created_at .= $row['created_at'].'<br>';
+                  $cover_id = $r['id'];
+                }
                 ?>
                     <tr class="text-center">
 
-                      <td class="text-xs text-secondary mb-0">1</td>
-                      <td class="text-xs text-secondary mb-0"><?=$r['type']?></td>
-                      <td class="mb-0 text-sm"><?=$r['dimensions']?></td>
-                      <td class="mb-0 text-sm"><?=$r['quantity']?></td>
-                      <td class="mb-0 text-sm"><?=$r['price_per_piece']?></td>
-                      <td class="mb-0 text-sm"><?=$r['total_price']?></td>
-                      <td class="text-xs text-secondary mb-0"><?php echo $r['created_at']; ?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?=$i?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?=$type?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$dimensions?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$quantity?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$price_per_piece?></td>
+                      <td class="mb-0 text-sm text-secondary  border-1"><?=$total_price?></td>
+                      <td class="text-xs text-secondary mb-0 border-1"><?=$created_at?></td>
                       
 
-                      <td><a href="purchase_cover.php?id=<?=$r['id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
-                          <a href="add-cover.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                      <td class="border-1 text-secondary"><a href="purchase_cover.php?id=<?=$r['purchase_id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
+                          <a href="add-cover.php?edit=<?=$r['purchase_id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
-                          <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
-                          <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['purchase_id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
+                          <div class="modal fade" id="exampleModal<?= $r['purchase_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
