@@ -47,48 +47,39 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
         <div class="container-fluid py-4">
             <div class=" mb-4 p-3">
                 <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <a href="add_review_orders.php?cover_id=<?= $cover_id ?>" class="btn bg-gradient-dark mb-0 col-md-3 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
-                            <i class="fas fa-plus">
-                            </i>
-                        </a>
+                    <div class="col">
+                        <div class="form-group">
+                            <a href="add_review_orders.php?cover_id=<?= $cover_id ?>" class="btn bg-gradient-dark mb-0 col-md-3 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
+                                <i class="fas fa-plus"></i>
+                            </a>
 
+                        </div>
                     </div>
-                </div>
-                <div class="col-2">
-                    <div class="form-group">
-                        
-                        <div class="col-md-3 col-sm-6">
-                            <div class="counter">
-                                <div class="counter-icon">
-                                    <i class="fa fa-rocket"></i>
-                                </div>
-                                <div class="counter-content">
-                                    <h3>الكمية المتبقيه</h3>
-                                    <span class="counter-value">1854</span>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="counter">
+                                    <div class="counter-icon">
+                                        <i class="fa fa-rocket"></i>
+                                    </div>
+                                    <div class="counter-content">
+                                        <h3>الكمية المتبقيه</h3>
+                                        <span class="counter-value">1854</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
-                </div>
-               
-
-
-
             </div>
-
             <!--Table     -->
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4 mt-3">
-
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
                                 <table class="table table-hover table-bordered  table-fixed" id="example">
-
                                     <!--Table head-->
                                     <thead class="bg-dark text-light table-bordered text-center">
                                         <tr>
@@ -97,7 +88,6 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                             <th>كميه المستلمه</th>
                                             <th>ملف الفاتورة</th>
                                             <th>تاريخ الفاتورة</th>
-
                                             <th>Action </th>
                                         </tr>
                                     </thead>
@@ -109,7 +99,6 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                         while ($r = mysqli_fetch_array($select)) {
                                             $i++;
                                         ?>
-
                                             <tr>
                                                 <th scope="row"><?= $r['id'] ?></th>
                                                 <td class="border-1"><?= $r['name'] ?></td>
@@ -119,8 +108,6 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
 
                                                 <td class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> |
                                                         <a href="add_review_orders.php?edit=<?= $r['id'] ?>&cover_id=<?= $cover_id ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
-
-
                                                         <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
                                                         <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                             <div class="modal-dialog">
