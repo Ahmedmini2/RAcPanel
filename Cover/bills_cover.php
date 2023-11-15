@@ -110,12 +110,12 @@ $select = mysqli_query($conn, "select * from covers_purchase_id");
                       <td class="text-xs text-secondary mb-0 border-1"><?=$created_at?></td>
                       
 
-                      <td class="border-1 text-secondary"><a href="purchase_cover.php?id=<?=$r['purchase_id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
-                          <a href="add-cover.php?edit=<?=$r['purchase_id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                      <td class="border-1 text-secondary"><a href="purchase_cover.php?id=<?=$cover_id?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
+                          <a href="add-cover.php?edit=<?=$cover_id?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
-                          <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['purchase_id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
-                          <div class="modal fade" id="exampleModal<?= $r['purchase_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $cover_id ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
+                          <div class="modal fade" id="exampleModal<?= $cover_id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
