@@ -80,9 +80,9 @@ $select = mysqli_query($conn, "select * from covers_report WHERE purchase_id = $
                                 </div>
                             </div>     -->
                             <?php 
-                            $select = mysqli_query($conn, "select * from covers_purchase WHERE purchase_id = $purchase_id");
+                            $select2 = mysqli_query($conn, "select * from covers_purchase WHERE purchase_id = $purchase_id");
                             ?>
-                    <? while ($row = mysqli_fetch_array($select)){ 
+                    <? while ($row = mysqli_fetch_array($select2)){ 
                         $covers_id = $row['id'];?>
                     <div class="col-2">
                         <div class="form-group">
