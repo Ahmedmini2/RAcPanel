@@ -94,7 +94,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                     <div class="counter-content">
                                         <h6>الكمية المتبقيه من <?=$row['type']?></h6>
                                         <?php 
-                                        $count = 'SELECT sum(quantity) as quantity FROM covers_report WHERE cover_id = $covers_id';
+                                        $count = "SELECT sum(quantity) as quantity FROM covers_report WHERE cover_id = $covers_id";
                                         $res = $conn->query($count);
                                         $countData = $res->fetch_assoc();
                                         ?>
