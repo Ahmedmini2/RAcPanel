@@ -90,12 +90,12 @@ $select = mysqli_query($conn, "select * from covers_purchase_id");
                 $purchase_id = $r['purchase_id'];
                 $select2 = mysqli_query($conn, "SELECT * FROM covers_purchase WHERE purchase_id = '$purchase_id'");
                 while ($row = mysqli_fetch_array($select2)){
-                  $type += '<br>' .$row['type'].'<br>';
-                  $dimensions += '<br>' .$row['dimensions'].'<br>';
-                  $quantity += '<br>' .$row['quantity'].'<br>';
-                  $price_per_piece += '<br>' .$row['price_per_piece'].'<br>';
-                  $total_price += '<br>' .$row['total_price'].'<br>';
-                  $created_at += '<br>' .$row['created_at'].'<br>';
+                  $type += '<br>' .(string)$row['type'].'<br>';
+                  $dimensions += '<br>' .(string)$row['dimensions'].'<br>';
+                  $quantity += '<br>' .(string)$row['quantity'].'<br>';
+                  $price_per_piece += '<br>' .(string)$row['price_per_piece'].'<br>';
+                  $total_price += '<br>' .(string)$row['total_price'].'<br>';
+                  $created_at += '<br>' .(string)$row['created_at'].'<br>';
                   $cover_id = $r['id'];
                 }
                 ?>
