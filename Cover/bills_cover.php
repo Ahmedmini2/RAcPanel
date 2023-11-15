@@ -96,7 +96,7 @@ $select = mysqli_query($conn, "select * from covers_purchase_id");
                   $price_per_piece .= $row['price_per_piece'].'<br>';
                   $total_price .= $row['total_price'].'<br>';
                   $created_at .= $row['created_at'].'<br>';
-                  $cover_id = $r['id'];
+                  $cover_id = $row['id'];
                 }
                 ?>
                     <tr class="text-center">
