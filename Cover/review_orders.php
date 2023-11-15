@@ -82,7 +82,8 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                             <?php 
                             $select = mysqli_query($conn, "select * from covers_purchase WHERE purchase_id = $purchase_id");
                             ?>
-                    <? while ($row = mysqli_fetch_array($select)){ ?>
+                    <? while ($row = mysqli_fetch_array($select)){ 
+                        $covers_id = $row['id'];?>
                     <div class="col-2">
                         <div class="form-group">
                             <div class="col-md-3 col-sm-6">
@@ -91,8 +92,13 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                         <i class="fa fa-rocket"></i>
                                     </div>
                                     <div class="counter-content">
-                                        <h3>الكمية المتبقيه</h3>
-                                        <span class="counter-value">1854</span>
+                                        <h6>الكمية المتبقيه من <?=$row['type']?></h6>
+                                        <?php 
+                                        $count = 'SELECT sum(quantity) as quantity FROM covers_report WHERE cover_id = $covers_id';
+                                        $res = $conn->query($count);
+                                        $countData = $res->fetch_assoc();
+                                        ?>
+                                        <span class="counter-value"><?=$row['quantity']-$countData['quantity']?></span>
                                     </div>
                                 </div>
                             </div>
