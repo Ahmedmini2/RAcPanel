@@ -142,7 +142,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE purchase_id = $
                                                 <td class="border-1"><?= $r['created_at'] ?></td>
 
                                                 <td class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> |
-                                                        <a href="add_review_orders.php?edit=<?= $r['id'] ?>&purchase_id=<?= $purchase_id ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                                                        
                                                         <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
                                                         <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                             <div class="modal-dialog">
