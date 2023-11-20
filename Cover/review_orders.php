@@ -112,7 +112,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                             <th>كميه المستلمه</th>
                                             <th>ملف الفاتورة</th>
                                             <th>تاريخ الفاتورة</th>
-                                              <th>Action </th>
+                                            <th>Action </th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
