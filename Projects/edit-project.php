@@ -2,6 +2,9 @@
 include('../cookies/session2.php');
 include('../cookies/insert-method2.php');
 $_SESSION['sidebar'] = "Projects";
+$iron1 = 1;
+  $accessory1 = 1;
+  $band1 = 1;
 
 if(isset($_GET['project_id']) && isset($_GET['item_id'])){
     $project_id = $_GET['project_id'];
@@ -150,16 +153,18 @@ if (isset($_POST['add-project'])) {
           }
         }
           $accessory_raws = $_POST['ac-rr'];
+          $ac_new_raws = $_POST['ac-new-rr'];
           if ($accessory_raws == "") {
             $accessory_raws = 1;
           }
-          while ($accessory1 <= $accessory_raws) {
+          while ($accessory1 <= $ac_new_raws) {
             $accessory = $_POST['accessory_' . $accessory1];
             $acc_quantity = $_POST['acc_quantity_' . $accessory1];
             $acc_price = str_replace(',', '', $_POST['acc_price_' . $accessory1]);
             $acc_tot = str_replace(',', '', $_POST['acc_tot_' . $accessory1]);
             $accessory_id = $_POST['accessory_id_'. $accessory1];
 
+            if($accessory1 <= $accessory_raws){
 
             $update_accessory = "UPDATE `accessory_band` SET  `name` = '$accessory' , `quantity` = '$acc_quantity' , `price_per_piece` = '$acc_price' , `total_price` = '$acc_tot' WHERE `id` = '$accessory_id'";
             $accessory_res = $conn->query($update_accessory);
@@ -171,7 +176,29 @@ if (isset($_POST['add-project'])) {
                     header('location: index.php');
                     exit();
               }
-            
+            }
+            else { 
+              $data = [
+              'product_id' => $item_id,
+              'name'=> $accessory,
+              'quantity'=> $acc_quantity,
+              'price_per_piece'=> $acc_price,
+              'total_price'=> $acc_tot,
+              ];
+              $tableName='accessory_band';
+              if(!empty($data) && !empty($tableName)){
+                $insertData=insert_data($data,$tableName);
+                if($insertData){
+                
+                  $accessory1++;
+                }else{
+                  $_SESSION['notification'] =  $conn->error;
+                  header('location: index.php');
+                  exit();
+                
+                }
+              }
+            }
           }
 
         $cover_type = $_POST['cover_type'];
@@ -185,23 +212,47 @@ if (isset($_POST['add-project'])) {
         }
 
           $band_raws = $_POST['band-rr'];
+          $band_new_raws = $_POST['band-new-rr'];
           if ($band_raws == "") {
             $band_raws = 1;
           }
-          while ($band1 <= $band_raws) {
+          while ($band1 <= $band_new_raws) {
             $band = $_POST['band_' . $band1];
             $band_price = str_replace(',', '', $_POST['band_price_' . $band1]);
             $band_tot = str_replace(',', '', $_POST['band_tot_' . $band1]);
             $extra_id = $_POST['extra_id_'.$band1];
 
-            $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `id` = '$extra_id'";
-            $band_res = $conn->query($update_band);
-            if ($band_res) {
-              $band1++;
-            }else{
-            $_SESSION['notification'] = "تعديل خطأ في البنود الاضافيه";
-                  header('location: index.php');
-                  exit();
+            if($band1 <= $band_raws){
+
+              $update_band = "UPDATE `extra_band` SET  `name` = '$band' , `price_per_piece` = '$band_price' , `total_price` = '$band_tot' WHERE `id` = '$extra_id'";
+              $band_res = $conn->query($update_band);
+              if ($band_res) {
+                $band1++;
+              }else{
+              $_SESSION['notification'] = "تعديل خطأ في البنود الاضافيه";
+                    header('location: index.php');
+                    exit();
+              }
+            }else {
+              $data = [
+                'product_id' => $item_id,
+                'name'=> $band,
+                'price_per_piece'=> $band_price,
+                'total_price'=> $band_tot,
+                ];
+                $tableName='extra_band';
+                if(!empty($data) && !empty($tableName)){
+                  $insertData=insert_data($data,$tableName);
+                  if($insertData){
+                  
+                    $band1++;
+                  }else{
+                    $_SESSION['notification'] =  $conn->error;
+                    header('location: index.php');
+                    exit();
+                  
+                  }
+                }
             }
           }
           
@@ -327,121 +378,10 @@ if (isset($_POST['add-project'])) {
   <!-- End Of side Bar -->
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
-      <div class="container-fluid py-1 px-3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-            <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;"> طلب إعتماد مشروع جديد</a></li>
-
-          </ol>
-
-        </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="أكتب هنا...">
-            </div>
-          </div>
-          <ul class="navbar-nav me-auto ms-0 justify-content-end">
-            <li class="nav-item d-flex align-items-center">
-              <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
-                <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">تسجيل الخروج</span>
-              </a>
-            </li>
-            <li class="nav-item d-xl-none pe-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                </div>
-              </a>
-            </li>
-            <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0">
-               
-                <i class="fa fa-arrow-left me-sm-1 cursor-pointer"  onclick="history.back()" ></i>
-              </a>
-            </li>
-            <li class="nav-item dropdown ps-2 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-bell cursor-pointer"></i>
-              </a>
-              <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  ms-3 ">
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New message</span> from Laur
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          13 minutes ago
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  ms-3 ">
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New album</span> by Travis Scott
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          1 day
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="avatar avatar-sm bg-gradient-secondary  ms-3  my-auto">
-                        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                          <title>credit-card</title>
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                              <g transform="translate(1716.000000, 291.000000)">
-                                <g transform="translate(453.000000, 454.000000)">
-                                  <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
-                                  <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                                </g>
-                              </g>
-                            </g>
-                          </g>
-                        </svg>
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          Payment successfully completed
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          2 days
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <?php
+    $titleNav = 'طلب إعتماد مشروع جديد';
+    require_once('../components/navbar.php');
+    ?>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row">
@@ -740,7 +680,7 @@ if (isset($_POST['add-project'])) {
                       <div class="col-md-2 col-sm-6">
                         <div class="form-group">
                           <label for="acc_quantity">كمية الاكسسوار</label>
-                          <input type="text" class="form-control" name='acc_quantity_<?= $y ?>' id="acc_quantity_<?= $y ?>" value="<?=$accessory_band['quantity']?>">
+                          <input type="text" class="form-control" name='  _quantity_<?= $y ?>' id="acc_quantity_<?= $y ?>" value="<?=$accessory_band['quantity']?>">
                         </div>
                       </div>
                       <div class="col-md-2 col-sm-6 ">
@@ -761,13 +701,14 @@ if (isset($_POST['add-project'])) {
                     <hr class="new2">
                     <?php  } ?>
                     <input type="hidden" name="ac-rr" id="ac-rr" readonly value="<?=$y?>">
+                    <input type="hidden" name="ac-new-rr" id="ac-new-rr" readonly value="<?=$y?>">
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
-                      var a = 1;
+                      var a = $("#ac-rr").val();
 
                       $(document).on('change', 'input', function() {
                         var total_accessory = 0;
-                        for (var z = 1; z <= <?=$y?>; z++) {
+                        for (var z = 1; z <= $("#ac-new-rr").val(); z++) {
 
                           var peice = ((parseFloat($("#acc_quantity_" + z).val()) * parseFloat($("#acc_price_" + z).val()) || 0));
                           total_accessory += peice
@@ -794,6 +735,20 @@ if (isset($_POST['add-project'])) {
                         total_accessory = total_accessory.toLocaleString("en-US");
                         $("#accessory_iron").val(total_accessory);
                       });
+
+                      console.log("Before Accessory Rows : <?= $accessory_raws ?>");
+                        document.addEventListener("DOMContentLoaded", function() {
+                          const productDetails = document.querySelector("#product_details");
+                          productDetails.addEventListener("click", function(e) {
+
+                            if (e.target.classList.contains("add_accessory")) {
+
+                              a++;
+                              $("#ac-new-rr").val(a);
+
+                            }
+                          });
+                        });
                     </script>
                     
                   </div>
@@ -801,7 +756,7 @@ if (isset($_POST['add-project'])) {
 
 
                 </div>
-                
+                <button type="button" class="btn btn-secondary rounded-pill add_accessory">أضافة بند اكسسوار</button>
                 <div class="row">
                   السعر الكلي للإكسسوارات
                   <input type="text" class="form-control" placeholder="Total" name="accessory_iron" id="accessory_iron" readonly>
@@ -893,11 +848,12 @@ if (isset($_POST['add-project'])) {
                     <hr class="new2">
                     <?php } ?>
                     <input type="hidden" name="band-rr" id="band-rr" readonly value="<?=$x?>">
+                    <input type="hidden" name="band-new-rr" id="band-new-rr" readonly value="<?=$x?>">
                     <script>
-                      b = 1;
+                      b = $("#band-rr").val();;
                       $(document).on('change', 'input', function() {
                         var total_bands = 0;
-                        for (var z = 1; z <= <?=$x?>; z++) {
+                        for (var z = 1; z <= $("#band-new-rr").val(); z++) {
                           var peice = ((parseFloat($("#band_price_" + z).val()) * parseFloat($("#quantity").val()) || 0))
                           total_bands += peice
                           peice = peice.toLocaleString("en-US");
@@ -919,13 +875,24 @@ if (isset($_POST['add-project'])) {
                         $("#accessory_tot").val(total_bands);
                       });
 
+                      document.addEventListener("DOMContentLoaded", function() {
+                          const productDetails = document.querySelector("#product_details");
+                          productDetails.addEventListener("click", function(e) {
+                            if (e.target.classList.contains("add_band")) {
+
+                              b++;
+                              $("#band-new-rr").val(b);
+
+                            }
+                          });
+                        });
                       
                       </script>
 
                   </div>
 
                 </div>
-                
+                <button type="button" class="btn btn-secondary rounded-pill add_band">أضافة بند</button>
                 <div class="row">
                   السعر الكلي للبنود الاضافية
                   <input type="text" class="form-control" placeholder="Total" name="accessory_tot" id="accessory_tot" readonly>
@@ -1221,7 +1188,7 @@ if (isset($_POST['add-project'])) {
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/fullcalendar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script2.js"></script>
   <script src="../assets/js/plugins/choices.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;

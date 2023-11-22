@@ -12,78 +12,84 @@ if (!empty($_GET['edit'])) {
     $quantity = $editData['quantity'];
     $image = $editData['image'];
 
+    
+
 
 
     if (isset($_POST['submit'])) {
 
 
-        $name = $_POST['name'];
+        
         $quantity = $_POST['quantity'];
-        $target_dir = "../Signed-Docs/Cover-Reviews/".$cover_id."/";
-        if(!is_dir($target_dir)) {
+        $str = explode(",",$_POST['name']);
+        $product_id_new = $str[0];
+        $product_name = $str[1];
+        $target_dir = "../Signed-Docs/Cover-Reviews/" . $product_id_new . "/";
+        if (!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
-        }else{
-
+        } else {
         }
         $target_file = $target_dir . basename($_FILES["review_image"]["name"]);
         $filename = basename($_FILES["review_image"]["name"]);
         $uploadOk = 1;
         move_uploaded_file($_FILES["review_image"]["tmp_name"], $target_file);
-        
 
-        $update = "UPDATE `covers_report` SET `name` = '$name', `quantity` = '$quantity', `image` = '$filename' WHERE `id` = $id";
+
+        $update = "UPDATE `covers_report` SET `name` = '$product_name', `quantity` = '$quantity', `image` = '$filename' WHERE `cover_id` = $product_id_new";
         $updateResult = $conn->query($update);
         if ($updateResult) {
-            
+
 
             $_SESSION['notification'] = "تم تعديل طلب مراجعة الاغطية بنجاح";
-            header("location:javascript://history.go(-1)");
+            header("location:review_orders.php?cover_id=$cover_id");
             exit();
         } else {
             $_SESSION['notification'] = "يوجد خلل في النظام";
-            header("location:javascript://history.go(-1)");
+            header("location:review_orders.php?cover_id=$cover_id");
             exit();
         }
     }
 } else if (isset($_POST['submit'])) {
 
-        $name = $_POST['name'];
-        $quantity = $_POST['quantity'];
-        $image = $_POST['image'];
-        
-            $target_dir = "../Signed-Docs/Cover-Reviews/".$cover_id."/";
-            if(!is_dir($target_dir)) {
-                mkdir($target_dir, 0777, true);
-            }else{
-            
-            }
-            $target_file = $target_dir . basename($_FILES["review_image"]["name"]);
-            move_uploaded_file($_FILES["review_image"]["tmp_name"], $target_file);
+    $str = explode(",",$_POST['name']);
+    $product_id_new = $str[0];
+    $product_name = $str[1];
+    $quantity = $_POST['quantity'];
+    $image = $_POST['image'];
 
-        $filename = basename($_FILES["review_image"]["name"]);
-        $uploadOk = 1;
-
-
-
-        $insert = "INSERT INTO `covers_report` (`id`,`cover_id`, `name`, `quantity`, `image`, `created_at`)
-        VALUES (NULL,'$cover_id', '$name', '$quantity', '$filename', NOW())";
-        $insertResult = $conn->query($insert);
-        if ($insertResult) {
-
-            $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
-           header("location:javascript://history.go(-1)");
-            exit();
+    $target_dir = "../Signed-Docs/Cover-Reviews/" . $product_id_new . "/";
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0777, true);
     } else {
-            $_SESSION['notification'] = "يوجد خلل في النظام";
-           header("location:javascript://history.go(-1)");
-            exit();
-        }
-    } else {
-            $name = "";
-            $quantity = "";
-            $image = "";
-
     }
+    $target_file = $target_dir . basename($_FILES["review_image"]["name"]);
+    move_uploaded_file($_FILES["review_image"]["tmp_name"], $target_file);
+
+    $filename = basename($_FILES["review_image"]["name"]);
+    $uploadOk = 1;
+
+
+
+    $insert = "INSERT INTO `covers_report` (`id`,`purchase_id`,`cover_id`, `name`, `quantity`, `image`, `created_at`)
+        VALUES (NULL,'$cover_id','$product_id_new', '$product_name', '$quantity', '$filename', NOW())";
+    $insertResult = $conn->query($insert);
+    if ($insertResult) {
+
+        $_SESSION['notification'] = "تم اضافة طلب مراجعه الاغطية بنجاح";
+        header("location:review_orders.php?cover_id=$cover_id");
+        exit();
+    } else {
+        $_SESSION['notification'] = "يوجد خلل في النظام";
+        header("location:review_orders.php?cover_id=$cover_id");
+        exit();
+    }
+} else {
+    $name = "";
+    $quantity = "";
+    $image = "";
+    $product_id_new = "";
+    $$product_name = "";
+}
 
 ?>
 <!DOCTYPE html>
@@ -118,10 +124,10 @@ if (!empty($_GET['edit'])) {
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
         <!-- Navbar -->
-        <?php 
-     $titleNav = 'شراء اغطية'; 
-     require_once('../components/navbar.php');
-     ?>
+        <?php
+        $titleNav = 'شراء اغطية';
+        require_once('../components/navbar.php');
+        ?>
         <!-- End Navbar -->
         <!-- اسم الفاتوره ))كميه المستلمه )) صورة -->
         <div class="container-fluid py-4">
@@ -133,14 +139,24 @@ if (!empty($_GET['edit'])) {
                     <div class="block-header bg-gradient-dark col-md-2 col-sm-6 col-xs-6  rounded-pill">
                         <h6 class="block-title text-white py-2 px-4 ">مراجعه الطلبيات</h6>
                     </div>
+                   
                     <form id="<?php echo $idAttr; ?>" action="" method="post" enctype="multipart/form-data">
                         <div class="row">
 
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="validationCustom01">اسم الفاتورة</label>
+                                    <label for="validationCustom01">اسم الصنف</label>
+                                    <select name="name" id="name" class="form-control" placeholder="أسم الصنف" >
+                                        <option value="<?=$item_id?>,<?=$product_name?>"><?=$product_name?></option>
+                                        <?php
+                                        $s_items = mysqli_query($conn, "SELECT * FROM covers_purchase WHERE `purchase_id` = $cover_id ");
+                                        while ($item = mysqli_fetch_array($s_items)){
+                                            echo '<option value="'.$item['id'].','.$item['type'].'">'.$item['type'].'</option>';
+                                        }
 
-                                    <input type="text" placeholder="الرجاء ادخل اسم الفاتورة" class="form-control" name="name" value="<?php echo $name; ?>" id="validationCustom01" required>
+                                        ?>
+
+                                    </select>
                                     <div class="invalid-feedback">
                                         الرجاء ادخل اسم الفاتورة.
                                     </div>
@@ -169,7 +185,7 @@ if (!empty($_GET['edit'])) {
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <button type="submit" name="submit" class="btn btn-secondary">شراء الاغطية</button>
+                                    <button type="submit" name="submit" class="btn btn-secondary">استلام الاغطية</button>
                                 </div>
                             </div>
                             <div class="col">
@@ -269,7 +285,7 @@ if (!empty($_GET['edit'])) {
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
-    
+
     <script src="../Admin/darkmode.js"></script>
 </body>
 

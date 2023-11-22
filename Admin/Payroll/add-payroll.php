@@ -2,10 +2,10 @@
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "payroll";
 include('../../cookies/insert-method.php');
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $dateNew = new DateTimeImmutable($_POST['month']);
-    $date = date_format($dateNew,'F');
-    $year = date_format($dateNew,'Y');
+    $date = date_format($dateNew, 'F');
+    $year = date_format($dateNew, 'Y');
     $names = $_POST['name'];
     $emp_ids = $_POST['emp_id'];
     $salaries = $_POST['salary'];
@@ -18,51 +18,49 @@ if(isset($_POST['submit'])){
     $deductions_totals = $_POST['deductions_total'];
     $net_salaries = $_POST['net_salary'];
     $work_days = $_POST['work_days'];
- 
-    for($i = 0; $i < count($names); $i++){
-        $data= [
+
+    for ($i = 0; $i < count($names); $i++) {
+        $data = [
             'emp_name' => $names[$i],
-            'salary'=>$salaries[$i],
-            'extra'=>$extras[$i],
-            'total_salary'=>$total_salaries[$i],
-            'fees'=>$fees[$i],
-            'absend'=>$absends[$i],
-            'late'=>$lates[$i],
-            'advanced'=>$advanceds[$i],
-            'deductions_total'=>$deductions_totals[$i],
-            'net_salary'=>$net_salaries[$i],
-            'work_days'=>$work_days[$i],
-            'month'=>$date,
-            'year'=>$year,
+            'salary' => $salaries[$i],
+            'extra' => $extras[$i],
+            'total_salary' => $total_salaries[$i],
+            'fees' => $fees[$i],
+            'absend' => $absends[$i],
+            'late' => $lates[$i],
+            'advanced' => $advanceds[$i],
+            'deductions_total' => $deductions_totals[$i],
+            'net_salary' => $net_salaries[$i],
+            'work_days' => $work_days[$i],
+            'month' => $date,
+            'year' => $year,
         ];
-        $tableName='payroll_process'; 
+        $tableName = 'payroll_process';
 
-        $tableName2='advance_status'; 
+        $tableName2 = 'advance_status';
 
-        $last_amount = get_advanced_status($tableName2,$emp_ids[$i]);
+        $last_amount = get_advanced_status($tableName2, $emp_ids[$i]);
 
         $advance_status_data = [
-            'amount'=>$last_amount-$advanceds[$i],
-            'modified_at'=>'NOW()'
+            'amount' => $last_amount - $advanceds[$i],
+            'modified_at' => 'NOW()'
         ];
-        
-        if(!empty($advance_status_data) && !empty($tableName2)){
-            $insertData2=update_advance_status_data($advance_status_data,$tableName2,$emp_ids[$i]);
-            if($insertData2){
-            $_SESSION['notification'] = "User Profile Added sucessfully";
-            }else{
-            $_SESSION['notification'] = "Error!.. check your query";
+
+        if (!empty($advance_status_data) && !empty($tableName2)) {
+            $insertData2 = update_advance_status_data($advance_status_data, $tableName2, $emp_ids[$i]);
+            if ($insertData2) {
+                $_SESSION['notification'] = "User Profile Added sucessfully";
+            } else {
+                $_SESSION['notification'] = "Error!.. check your query";
             }
         }
 
-        if(!empty($data) && !empty($tableName)){
-            $insertData=insert_data($data,$tableName);
-            if($insertData){
-            $_SESSION['notification'] = "تم إضافة مسير الرواتب بنجاح";
-            
-            }else{
-            $_SESSION['notification'] = "خطأ في النظام";
-            
+        if (!empty($data) && !empty($tableName)) {
+            $insertData = insert_data($data, $tableName);
+            if ($insertData) {
+                $_SESSION['notification'] = "تم إضافة مسير الرواتب بنجاح";
+            } else {
+                $_SESSION['notification'] = "خطأ في النظام";
             }
         }
     }
@@ -111,6 +109,7 @@ if(isset($_POST['submit'])){
 
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
@@ -127,7 +126,7 @@ if(isset($_POST['submit'])){
 
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
-        <!-- Navbar --> 
+        <!-- Navbar -->
         <?php
         $titleNav = 'اضافه مسير رواتب';
         require_once('../../components/navbar.php');
@@ -143,130 +142,36 @@ if(isset($_POST['submit'])){
                     </div>
                     <form method="POST" action="">
                         <div class="row">
-
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>الرجاء ادخال تاريخ مسير الرواتب حسب الشهر</label>
-                                    <input type="date" class="form-control" name="month">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>الرجاء ادخال تاريخ مسير الرواتب حسب الشهر</label>
+                                        <input type="date" class="form-control" name="month">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>الرجاء اختيار القسم</label>
+                                        <div id="filters">
+                                            <select dir="ltr" class="form-select" name="fetchval" id="fetchval">
+                                                <option value="" disabled="" selected="">select</option>
+                                                <option value="General Administration">General Administration</option>
+                                                <option value="Rental labors">Rental labors</option>
+                                                <option value="Factory Department">Factory Department</option>
+                                                <option value="IT">IT</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
-                            <!-- <div class="col">
-                                <div class="form-group">
-                                    <label>مسير الرواتب لقسم</label>
-                                    <select class="form-control" name="department" id="department" >
-                                        <option value="Manager">Manager</option>
-                                        <option value="Admin">Admin</option>
-                                    </select>
-                                </div>
-
-                                <script>
-                                   $(document).ready(function() {
-                                        $('select').on('change', function() {
-                                            var selectValue = $(this).val();
-                                            $.ajax({
-                                            type: "POST",
-                                            url: "../../ajax/show-emp.php",
-                                            data: {
-                                                selected: selectValue
-                                            },
-                                            success: function (data) {
-                                                console.log(data);
-                                                // Stuff
-                                            },
-                                            error: function (data) {
-                                                // Stuff
-                                            }
-                                            });
-                                        });
-                                        });
-                                </script>
-                            </div> -->
                         </div>
                         <div class="row">
-                        <div class="card-body px-0 pt-0 pb-2 mx-3">
-                            <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered table-fixed">
-                                    <thead class="bg-dark text-light table-bordered text-center">
-                                        <tr>
-                                            <th rowspan="2">الرقم</th>
-                                            <th rowspan="2">إسم الموظف</th>
-                                            <th rowspan="2">الراتب الاساسي</th>
-                                            <th rowspan="2">اضافات</th>
-                                            <th rowspan="2">اجمالي الراتب</th>
-                                            <th colspan="4">الاقتطاعات </th>
-                                            <th rowspan="2">مجموع الاقتطاعات</th>
-                                            <th rowspan="2">صافي الراتب المستحق</th>
-                                            <th rowspan="2">عدد الايام</th>
-                                        </tr>
-                                        <tr>
-                                            <th>مخالفات</th>
-                                            <th>غيابات</th>
-                                            <th>تاخير</th>
-                                            <th>سلف و اخرى</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody class="text-center">
-                                        <?php
-                                        $show_products_status = mysqli_query($conn, "SELECT * FROM `employee`");
-                                        while ($r = mysqli_fetch_array($show_products_status)) {
-
-                                        ?>
-                                            <tr>
-                                                <th class="text-secondary" scope="row">RA-EMP-<?= $r['id'] ?></th>
-                                                <td class="border-1"><input type="text" class="form-control" name="name[]" value="<?= $r['name'] ?>" readonly></td>
-                                                <td class="border-1"><input type="text" class="form-control" name="salary[]" value="<?= $r['salary'] ?>" readonly></td>
-                                                <td class="border-1"><input type="text" class="form-control" name="extra[]" value="0"></td>
-                                                <td class="border-1"><input type="text" class="form-control" name="total_salary[]" value="0"></td>
-                                                <td class="border-1"><input type="text" class="form-control" name="fee[]" value="0"></td>
-                                                <td class="border-1"><input type="text" class="form-control" name="absend[]" value="0"></td>
-                                                <td class="border-1"><input type="text" class="form-control" name="latee[]" value="0"></td>
-                                                <?php
-                                                $user_id = $r['user_id'];
-                                                $query = "SELECT * FROM `advance_status` WHERE `emp_id` = $user_id";
-                                                $res = $conn->query($query);
-                                                $advanced = $res->fetch_assoc();
-                                                ?>
-                                                <td class="border-1"><input type="text" class="form-control" name="advancedd[]" value="<?php if ($advanced['amount'] != '') {
-                                                                                                                                            echo $advanced['amount'];
-                                                                                                                                        } else echo '0'; ?>"></td>
-                                                <td class="border-1"><input type="text" class="form-control" name="deductions_total[]" value="0"></td>
-                                                <td class="border-1"><input type="text" class="form-control" name="net_salary[]" value="0"></td>
-                                                <td class="border-1"><input type="text" class="form-control" name="work_days[]" value="0"></td>
-                                            </tr>
-                                            <input type="text" class="form-control" name="emp_id[]" value="<?= $r['user_id'] ?>" hidden>                                                                                              
-                                        <?php } ?>
-                                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                                        <script>
-                                            $(document).on('change', 'input', function() {
-                                                var salary = $('input[name="salary[]"]');
-                                                var extra = $('input[name="extra[]"]');
-                                                var total_salary = $('input[name="total_salary[]"]');
-                                                var fee = $('input[name="fee[]"]');
-                                                var absend = $('input[name="absend[]"]');
-                                                var latee = $('input[name="latee[]"]');
-                                                var advancedd = $('input[name="advancedd[]"]');
-                                                var deductions_total = $('input[name="deductions_total[]"]');
-                                                var net_salary = $('input[name="net_salary[]"]');
-                                                var work_days = $('input[name="work_days[]"]');
-                                                var salary_per_day = 0
-                                                for (var i = 0; i < salary.length; i++) {
-                                                    salary_per_day = (parseFloat(salary[i].value) / 30);
-                                                    $('input[name="absend[]"]').eq(i).val(parseFloat((salary[i].value) - (salary_per_day * work_days[i].value)).toFixed(2));
-
-                                                    $('input[name="total_salary[]"]').eq(i).val(parseFloat(salary[i].value) + parseFloat(extra[i].value));
-                                                    $('input[name="deductions_total[]"]').eq(i).val(parseFloat(fee[i].value) + parseFloat(absend[i].value) + parseFloat(latee[i].value) + parseFloat(advancedd[i].value));
-                                                    $('input[name="net_salary[]"]').eq(i).val(parseFloat(total_salary[i].value - deductions_total[i].value).toFixed(2));
-                                                }
-                                            });
-                                        </script>
-                                </table>
+                            <div class="card-body px-0 pt-0 pb-2 mx-3">
+                                <div class="table-responsive p-0">
+                                </div>
                             </div>
-                            </div>
-
                         </div>
-                        <button type="submit" name="submit" class="btn btn-secondary">اضافة مسيرة رواتب</button>
+                        <button type="submit" name="submit" class=" btn btn-secondary">اضافة مسيرة رواتب</button>
                     </form>
                 </div>
             </div>
@@ -303,86 +208,23 @@ if(isset($_POST['submit'])){
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- <script>
-        // Function to fetch notifications from the server
-        function fetchNotifications() {
-            // Make an AJAX request to the server to fetch notifications
+    <script type="text/javascript">
+        $("#fetchval").on('change', function() {
+            var value = $(this).val();
             $.ajax({
-                url: 'scripts/notifications/fetch_notification.php', // Replace with the actual URL
-                method: 'GET',
-                dataType: 'json',
+                url: "fetch.php",
+                type: "POST",
+                data: 'request=' + value,
+                beforeSend: function() {
+                    $(".table-responsive").html("<div class='loaderSelect'><span>Loading....</span></div>");
+                },
                 success: function(data) {
-                    // Process the notifications data and update the notification UI
-                    updateNotificationUI(data);
-
-                },
-                error: function(error) {
-                    console.error('Error fetching notifications:', error);
-                },
-            });
-        }
-
-        // Function to update the notification UI with new data
-        function updateNotificationUI(data) {
-            $('#notifications-container').empty();
-            let unreadCount = 0;
-            console.log(data);
-            // Clear the existing notifications
-            $('#notifications-container').empty();
-
-            // Loop through the received notifications and add them to the UI
-            data.forEach(function(notification) {
-                const notificationItem = $('<li>').addClass('mb-2');
-                const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
-                notificationLink.html('<h6>' + notification.title + '</h6><p>' + notification.message + '</p>');
-                if (notification.read_at !== null) {
-                    notificationLink.addClass('read-notification');
-                } else {
-                    unreadCount++;
+                    $(".table-responsive").html(data);
                 }
-                const markAsReadButton = $('<button>').text('Mark as Read').addClass('btn btn-sm btn-primary');
-                markAsReadButton.on('click', function() {
-                    markNotificationAsRead(notification.id); // Mark notification as read when clicked
-                });
+            })
+        })
+    </script>
 
-                notificationItem.append(notificationLink);
-                notificationItem.append(markAsReadButton);
-                $('#notifications-container').append(notificationItem);
-
-                console.log(notification);
-            });
-            $('#notification-count').text(unreadCount); // Update the notification count
-        }
-
-        function markNotificationAsRead(notificationId) {
-            $.ajax({
-                url: 'scripts/notifications/mark_notification_as_read.php', // Replace with the actual URL
-                method: 'POST',
-                data: {
-                    notification_id: notificationId
-                },
-                dataType: 'json',
-                success: function(response) {
-                    // Handle the response (e.g., display a success message)
-                    console.log(response.message);
-
-
-
-                    // Refresh the notifications to reflect the updated status
-                    fetchNotifications();
-                },
-                error: function(error) {
-                    console.error('Error marking notification as read:', error);
-                },
-            });
-        }
-
-        // Fetch notifications initially
-        fetchNotifications();
-
-        // Poll for new notifications every 5 minutes (adjust the interval as needed)
-        setInterval(fetchNotifications, 10000); // 5 minutes = 300,000 milliseconds
-    </script> -->
     <script src="../darkmode.js"></script>
 </body>
 

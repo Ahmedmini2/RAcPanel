@@ -25612,3 +25612,181 @@ width: 100px;
     }
   }
 }
+
+.darkmode .form-select {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 0.75rem;
+  -moz-padding-start: calc(0.75rem - 3px);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4rem;
+  color: #fff;
+  background-color: #403e3e;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  border: 1px solid #d2d6da;
+  border-radius: 0.5rem;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  appearance: none;
+}
+
+.loaderSelect{
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border-top: 5px solid #e74c3c;
+  position: relative;
+  animation: load 2s linear infinite;
+}
+
+.loaderSelect::before,.loaderSelect::after {
+  content: '';
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.loaderSelect::before {
+  border-top: 5px solid #e67e22;
+  transform: rotate(120deg);
+}
+
+.loaderSelect::after {
+  border-top: 5px solid #3498db;
+  transform: rotate(240deg);
+}
+
+.loaderSelect span {
+  position: absolute;
+  font-size: small;
+  width: 100px;
+  height: 100px;
+  color: #fff;
+  text-align: center;
+  line-height: 100px;
+  animation: a2 2s linear infinite;
+}
+
+@keyframes load {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes a2 {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.counter{
+  font-family: 'Nunito Sans', sans-serif;
+  background-image: linear-gradient(310deg, #141727 0%, #3A416F 100%);
+  text-align: center;
+  width: 200px;
+  min-height: 180px;
+  padding: 10px 15px;
+  margin: 0 auto;
+  border-radius: 30px;
+  box-shadow: 0 8px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.darkmode .counter{
+  font-family: 'Nunito Sans', sans-serif;
+  background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important;
+
+  text-align: center;
+  width: 200px;
+  min-height: 180px;
+  padding: 10px 15px;
+  margin: 0 auto;
+  border-radius: 30px;
+  box-shadow: 0 8px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.counter:before{
+  content: '';
+  
+  height: 105px;
+  width: 100%;
+  border-radius: 30px 30px 0 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.counter .counter-icon{
+  color: #fff;
+  
+  font-size: 30px;
+  line-height: 90px;
+  width: 120px;
+  height: 68px;
+  margin: 0 auto 10px;
+  border-radius: 10px 10px 0 0;
+  transform: translateY(-20px);
+  position: relative;
+  clip-path: polygon(0% 0%, 100% 0, 100% 70%, 50% 100%, 0 70%);
+}
+.counter .counter-icon:before{
+  content: "";
+  
+  width: 120px;
+  height: 90px;
+  border-radius: 10px 10px 0 0;
+  transform: translateX(-50%);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: -1;
+  clip-path: polygon(0% 0%, 100% 0, 100% 70%, 50% 100%, 0 70%);
+}
+.counter:hover .counter-icon i{
+  transform: rotate(360deg);
+  transition: all 0.3s ease;
+}
+
+.counter h3{
+  color: #ffffff;
+  font-size:17px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 5px 0;
+}
+.darkmode .counter h3{
+  color: #ffffff;
+  font-size:17px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 5px 0;
+}
+.counter .counter-value{
+  
+  font-size: 30px;
+  font-weight: 600; 
+  display: block;
+}
+.counter.blue:before{ background-color: #5A9BEF; }
+.counter.blue .counter-icon{ background-color: #2A70B5; }
+.counter.blue .counter-icon:before{ background-color: #367DCB; }
+.counter.blue .counter-value{ color: #367DCB; }
+.counter.red:before{ background-color: #FD6D4B; }
+.counter.red .counter-icon{ background-color: #D14026; }
+.counter.red .counter-icon:before{ background-color: #EA5736; }
+.counter.red .counter-value{ color: #EA5736; }
+.counter.gray:before{ background-color: #777; }
+.counter.gray .counter-icon{ background-color: #444; }
+.counter.gray .counter-icon:before{ background-color: #666; }
+.counter.gray .counter-value{ color: #666; }
+@media screen and (max-width:990px){
+  .counter{ margin-bottom: 40px; }
+}

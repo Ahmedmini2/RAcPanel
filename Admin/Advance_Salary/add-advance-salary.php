@@ -2,63 +2,61 @@
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "Advance_Salary";
 include('../../cookies/insert-method.php');
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $employee_id = $_SESSION['id'];
-    $target_dir = "../Documents/Advanced-Salary/".$employee_id."/";
-        if(!is_dir($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        }else{
-
-        }
-        $target_file = $target_dir . basename($_FILES["image"]["name"]);
-        $filename = basename($_FILES["image"]["name"]);
-        $uploadOk = 1;
-        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+    $target_dir = "../Documents/Advanced-Salary/" . $employee_id . "/";
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    } else {
+    }
+    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+    $filename = basename($_FILES["image"]["name"]);
+    $uploadOk = 1;
+    move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
     extract($_POST);
 
     $data = [
         'employee_id' => $employee_id,
-        'amount'=>$amount,
-        'payment'=>$amount,
-        'description'=>$description,
-        'status'=>'Pending',
-        'payment_status'=>'يوجد مستحق',
-        'image'=>$filename,
-        
-    ];
-    $tableName=$_POST['table_name'];
-    $tableName2='advance_status'; 
+        'amount' => $amount,
+        'payment' => $amount,
+        'description' => $description,
+        'status' => 'Pending',
+        'payment_status' => 'يوجد مستحق',
+        'image' => $filename,
 
-    $last_amount = get_advanced_status($tableName2,$employee_id);
+    ];
+    $tableName = $_POST['table_name'];
+    $tableName2 = 'advance_status';
+
+    $last_amount = get_advanced_status($tableName2, $employee_id);
 
     $advance_status_data = [
-        'amount'=>$amount+$last_amount,
-        'modified_at'=>'NOW()'
-      ];
-      
-      if(!empty($advance_status_data) && !empty($tableName2)){
-        $insertData2=update_advance_status_data($advance_status_data,$tableName2,$employee_id);
-        if($insertData2){
-          $_SESSION['notification'] = "User Profile Added sucessfully";
-        }else{
-         $_SESSION['notification'] = "Error!.. check your query";
-        }
-     }
+        'amount' => $amount + $last_amount,
+        'modified_at' => 'NOW()'
+    ];
 
-    if(!empty($data) && !empty($tableName)){
-        $insertData=insert_data($data,$tableName);
-        if($insertData){
-          $_SESSION['notification'] = "تم إضافة طلب السلفية بنجاح";
-          header('location: index.php');
-          exit();
-        }else{
-         $_SESSION['notification'] = "Error!.. check your query";
-         header('location: index.php');
-         exit();
+    if (!empty($advance_status_data) && !empty($tableName2)) {
+        $insertData2 = update_advance_status_data($advance_status_data, $tableName2, $employee_id);
+        if ($insertData2) {
+            $_SESSION['notification'] = "User Profile Added sucessfully";
+        } else {
+            $_SESSION['notification'] = "Error!.. check your query";
         }
-     }
+    }
 
-}else {
+    if (!empty($data) && !empty($tableName)) {
+        $insertData = insert_data($data, $tableName);
+        if ($insertData) {
+            $_SESSION['notification'] = "تم إضافة طلب السلفية بنجاح";
+            header('location: index.php');
+            exit();
+        } else {
+            $_SESSION['notification'] = "Error!.. check your query";
+            header('location: index.php');
+            exit();
+        }
+    }
+} else {
     $amount = '';
     $description = '';
     $image = '';
@@ -68,22 +66,6 @@ if(isset($_POST['submit'])){
 <html lang="ar" dir="rtl">
 
 <head>
-
-
-
-    <!-- Blazor -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet" />
-<link href="_content/Blazor.Bootstrap/blazor.bootstrap.css" rel="stylesheet" /> -->
-
-    <!-- Blazor js -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
-    <!-- Add chart.js reference if chart components are used in your application. -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.js" integrity="sha512-gQhCDsnnnUfaRzD8k1L5llCCV6O9HN09zClIzzeJ8OJ9MpGmIlCxm+pdCkqTwqJ4JcjbojFr79rl2F1mzcoLMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-    <!-- Add chartjs-plugin-datalabels.min.js reference if chart components with data label feature is used in your application. -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js" integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="_content/Blazor.Bootstrap/blazor.bootstrap.js"></script> -->
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
@@ -122,56 +104,10 @@ if(isset($_POST['submit'])){
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
         <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
-            <div class="container-fluid py-1 px-3">
-                <nav aria-label="breadcrumb">
-
-                    <h6 class="font-weight-bolder mb-0">اضافه سلفيه</h6>
-                </nav>
-                <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-
-                    
-                    <ul class="navbar-nav me-auto ms-0 justify-content-end">
-                        <li class="nav-item d-flex align-items-center px-4">
-                            <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
-                                <i class="fa fa-user me-sm-1"></i>
-                                <span class="d-sm-inline d-none"> تسجيل الخروج</span>
-                            </a>
-                        </li>
-                        <li class="nav-item d-xl-none pe-3 d-flex align-items-center px-4">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                                <div class="sidenav-toggler-inner">
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item px-3 d-flex align-items-center">
-                            <a href="Messages/chat.php" class="nav-link text-body p-0">
-
-                                <i class="far fa-comments me-sm-1 cursor-pointer"></i>
-                            </a>
-                        </li>
-
-                        <!-- Notifications -->
-                        <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-bell cursor-pointer"></i>
-                                <span id="notification-count" class="notification-badge">0</span> <!-- Add this line -->
-                            </a>
-                            <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="notifications-container">
-                                <!-- Notifications will be dynamically added here -->
-                            </ul>
-                        </li>
-                        <!-- End of Notifications -->
-
-
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php
+        $titleNav = 'اضافه سلفيه';
+        require_once('../components/navbar.php');
+        ?>
         <!-- End Navbar -->
 
 
@@ -190,13 +126,13 @@ if(isset($_POST['submit'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label>قيمة السلفية</label>
-                                    <input type="text" placeholder="إكتب قيمة السلفية" class="form-control" name="amount" value="<?=$amount?>">
+                                    <input type="text" placeholder="إكتب قيمة السلفية" class="form-control" name="amount" value="<?= $amount ?>">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>وصف السلفية</label>
-                                    <input type="text" placeholder="إكتب وصف السلفية" class="form-control" name="description" value="<?=$description?>">
+                                    <input type="text" placeholder="إكتب وصف السلفية" class="form-control" name="description" value="<?= $description ?>">
                                     <input type="text" name="table_name" value="advance_salary" hidden>
 
                                 </div>
@@ -206,13 +142,13 @@ if(isset($_POST['submit'])){
                             <div class="col">
                                 <div class="form-group">
                                     <label>مستند السلفية</label>
-                                    <input type="file"  class="form-control" name="image" value="<?=$image?>">
+                                    <input type="file" class="form-control" name="image" value="<?= $image ?>">
                                 </div>
                             </div>
 
 
                         </div>
-                       
+
 
 
                         <div class="row">
@@ -230,41 +166,7 @@ if(isset($_POST['submit'])){
             </div>
         </div>
 
-
-
-
-
-
-        <footer class="footer pt-3  ">
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6 mb-lg-0 mb-4">
-                        <div class="copyright text-center text-sm text-muted text-lg-end">
-                            © <script>
-                                document.write(new Date().getFullYear())
-                            </script>,
-                            made with <i class="fa fa-heart"></i> by
-                            <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php require_once('../../components/footer.php'); ?>
         </div>
 
     </main>

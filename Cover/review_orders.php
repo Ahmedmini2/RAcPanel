@@ -1,8 +1,8 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Cover";
-$cover_id = $_GET['cover_id'];
-$select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cover_id");
+$purchase_id = $_GET['cover_id'];
+$select = mysqli_query($conn, "select * from covers_report WHERE purchase_id = $purchase_id");
 
 
 ?>
@@ -38,136 +38,83 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
         <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
-            <div class="container-fluid py-1 px-3">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-                        <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">شراء اغطية</a></li>
-
-                    </ol>
-
-                </nav>
-                <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
-                    <ul class="navbar-nav me-auto ms-0 justify-content-end">
-                        <li class="nav-item d-flex align-items-center">
-                            <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
-                                <i class="fa fa-user me-sm-1"></i>
-                                <span class="d-sm-inline d-none">تسجيل الخروج</span>
-                            </a>
-                        </li>
-                        <li class="nav-item d-xl-none pe-3 d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                                <div class="sidenav-toggler-inner">
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item px-3 d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body p-0">
-
-                                <i class="fa fa-arrow-left me-sm-1 cursor-pointer" onclick="history.back()"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown ps-2 d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-bell cursor-pointer"></i>
-                            </a>
-                            <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                                <li class="mb-2">
-                                    <a class="dropdown-item border-radius-md" href="javascript:;">
-                                        <div class="d-flex py-1">
-                                            <div class="my-auto">
-                                                <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  ms-3 ">
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="text-sm font-weight-normal mb-1">
-                                                    <span class="font-weight-bold">New message</span> from Laur
-                                                </h6>
-                                                <p class="text-xs text-secondary mb-0">
-                                                    <i class="fa fa-clock me-1"></i>
-                                                    13 minutes ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="mb-2">
-                                    <a class="dropdown-item border-radius-md" href="javascript:;">
-                                        <div class="d-flex py-1">
-                                            <div class="my-auto">
-                                                <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  ms-3 ">
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="text-sm font-weight-normal mb-1">
-                                                    <span class="font-weight-bold">New album</span> by Travis Scott
-                                                </h6>
-                                                <p class="text-xs text-secondary mb-0">
-                                                    <i class="fa fa-clock me-1"></i>
-                                                    1 day
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item border-radius-md" href="javascript:;">
-                                        <div class="d-flex py-1">
-                                            <div class="avatar avatar-sm bg-gradient-secondary  ms-3  my-auto">
-                                                <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <title>credit-card</title>
-                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                        <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                                            <g transform="translate(1716.000000, 291.000000)">
-                                                                <g transform="translate(453.000000, 454.000000)">
-                                                                    <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
-                                                                    <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                                                                </g>
-                                                            </g>
-                                                        </g>
-                                                    </g>
-                                                </svg>
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="text-sm font-weight-normal mb-1">
-                                                    Payment successfully completed
-                                                </h6>
-                                                <p class="text-xs text-secondary mb-0">
-                                                    <i class="fa fa-clock me-1"></i>
-                                                    2 days
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php
+        $titleNav = 'شراء اغطية';
+        require_once('../components/navbar.php');
+        ?>
         <!-- End Navbar -->
         <!-- اسم الفاتوره ))كميه المستلمه )) صورة -->
         <div class="container-fluid py-4">
-        <div class=" mb-4 p-3">
-          
+            <div class=" mb-4 p-3">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <a href="add_review_orders.php?cover_id=<?= $purchase_id ?>" class="btn bg-gradient-dark mb-0 col-md-3 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
+                                <i class="fas fa-plus"></i>
+                            </a>
 
-          <a href="add_review_orders.php?cover_id=<?=$cover_id?>" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
-            <i class="fas fa-plus">
-            </i>
-          </a>
-          </div>
+                        </div>
+                    </div>
+                    <!--<div class="col-lg-8 col-md-3 col-sm-6">
+                                <div class="sal-card-info">
+
+                                    <div class="card-body p-3">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <div class="numbers">
+                                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">الكميه المتبقيه</p>
+                                                    <h5 class="font-weight-bolder mb-0">
+                                                        1444
+
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 text-start">
+
+                                                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                    <i class="fa fa-money text-lg opacity-10" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>     -->
+                            <?php 
+                            $select2 = mysqli_query($conn, "select * from covers_purchase WHERE purchase_id = $purchase_id");
+                            ?>
+                    <? while ($row = mysqli_fetch_array($select2)){ 
+                        $covers_id = $row['id'];?>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="counter">
+                                    <div class="counter-icon">
+                                        <i class="fa fa-rocket"></i>
+                                    </div>
+                                    <div class="counter-content">
+                                        <h6>الكمية المتبقيه من <?=$row['type']?></h6>
+                                        <?php 
+                                        $count = "SELECT sum(quantity) as quantity FROM covers_report WHERE cover_id = $covers_id";
+                                        $res = $conn->query($count);
+                                        $countData = $res->fetch_assoc();
+                                        ?>
+                                        <span class="counter-value"><?=$row['quantity']-$countData['quantity']?></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
             <!--Table     -->
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4 mt-3">
-
                         <div class="card-body px-0 pt-0 pb-2 mx-3">
                             <div class="table-responsive p-0">
                                 <table class="table table-hover table-bordered  table-fixed" id="example">
-
                                     <!--Table head-->
                                     <thead class="bg-dark text-light table-bordered text-center">
                                         <tr>
@@ -176,54 +123,50 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                                             <th>كميه المستلمه</th>
                                             <th>ملف الفاتورة</th>
                                             <th>تاريخ الفاتورة</th>
-                                            
-                                            <th>Action </th>
+                                              <th>Action </th>
                                         </tr>
                                     </thead>
                                     <!--Table head-->
                                     <!--Table body-->
                                     <tbody class=" text-center">
-                                    <?php
-                                     $i = 0;
-                                    while ($r = mysqli_fetch_array($select)) {
-                                        $i++;
+                                        <?php
+                                        $i = 0;
+                                        while ($r = mysqli_fetch_array($select)) {
+                                            $i++;
                                         ?>
+                                            <tr>
+                                                <th scope="row"><?= $r['id'] ?></th>
+                                                <td class="border-1"><?= $r['name'] ?></td>
+                                                <td class="border-1"><?= $r['quantity'] ?></td>
+                                                <td class="border-1"><a href="../Signed-Docs/Cover-Reviews/<?= $r['cover_id'] ?>/<?= $r['image'] ?>" target="_blank"><?= $r['image'] ?></a></td>
+                                                <td class="border-1"><?= $r['created_at'] ?></td>
 
-                                        <tr>
-                                            <th scope="row"><?=$r['id']?></th>
-                                            <td class="border-1"><?=$r['name']?></td>
-                                            <td class="border-1"><?=$r['quantity']?></td>
-                                            <td class="border-1"><a href="../Signed-Docs/Cover-Reviews/<?=$cover_id?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
-                                            <td class="border-1"><?=$r['created_at']?></td>
-                                            
-                                            <td class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> |
-                                                <a href="add_review_orders.php?edit=<?=$r['id']?>&cover_id=<?=$cover_id?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                                                <td class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> |
+                                                        
+                                                        <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
+                                                        <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">حذف طلب المراجعه'</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        الرجاء ادخال كلمة المرور للتأكيد
+                                                                        <form action="../scripts/covers/delete-review.php?id=<?php echo $r['id']; ?>" method="post">
+                                                                            <input type="password" name="pas" class="form-control">
+  
+                                                                    </div>
+                                                                    <div class="modal-footer">
 
-
-                                                <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
-                                                <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">حذف طلب المراجعه'</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                        الرجاء ادخال كلمة المرور للتأكيد
-                                                        <form action="../scripts/covers/delete-review.php?id=<?php echo $r['id']; ?>" method="post">
-                                                            <input type="password" name="pas" class="form-control">
-
-                                                        </div>
-                                                        <div class="modal-footer">
-
-                                                        <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
-                                                        </form>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-                                                </div> <?php } ?>
-                                            </td>
-                                        </tr>
+                                                                        <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div> <?php } ?>
+                                                </td>
+                                            </tr>
 
                                         <?php } ?>
                                     </tbody>
@@ -236,7 +179,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE cover_id = $cov
                 </div>
             </div>
             <!--Table -->
-        
+
         </div>
         </div>
     </main>

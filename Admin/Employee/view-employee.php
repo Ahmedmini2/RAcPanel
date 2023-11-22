@@ -47,8 +47,8 @@ $select = mysqli_query($conn, "select * from employee");
 
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" defer ></script>
-    <link href= "https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" defer></script>
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
 </head>
 
 
@@ -63,71 +63,22 @@ $select = mysqli_query($conn, "select * from employee");
     <!-- End Of side Bar -->
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
         <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
-            <div class="container-fluid py-1 px-3">
-                <nav aria-label="breadcrumb">
-
-                    <h6 class="font-weight-bolder mb-0">الموظفين</h6>
-                </nav>
-                <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-
-
-                    <ul class="navbar-nav me-auto ms-0 justify-content-end">
-                        <li class="nav-item d-flex align-items-center px-4">
-                            <a href="../Auth/logout.php" class="nav-link text-body font-weight-bold px-0">
-                                <i class="fa fa-user me-sm-1"></i>
-                                <span class="d-sm-inline d-none"> تسجيل الخروج</span>
-                            </a>
-                        </li>
-                        <li class="nav-item d-xl-none pe-3 d-flex align-items-center px-4">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                                <div class="sidenav-toggler-inner">
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item px-3 d-flex align-items-center">
-                            <a href="Messages/chat.php" class="nav-link text-body p-0">
-
-                                <i class="far fa-comments me-sm-1 cursor-pointer"></i>
-                            </a>
-                        </li>
-
-                        <!-- Notifications -->
-                        <li class="nav-item dropdown ps-2 d-flex align-items-center px-4">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-bell cursor-pointer"></i>
-                                <span id="notification-count" class="notification-badge">0</span> <!-- Add this line -->
-                            </a>
-                            <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="notifications-container">
-                                <!-- Notifications will be dynamically added here -->
-                            </ul>
-                        </li>
-                        <!-- End of Notifications -->
-
-
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php
+        $titleNav = 'الموظفين';
+        require_once('../../components/navbar.php');
+        ?>
         <!-- End Navbar -->
-
-
-
         <div class="container-fluid py-4">
-        <div class=" mb-4 p-3">
-          <div class="">
-            <h5 class="mb-1">اضافة موظف جديد</h5>
-          </div>
+            <div class=" mb-4 p-3">
+                <div class="">
+                    <h5 class="mb-1">اضافة موظف جديد</h5>
+                </div>
 
-          <a href="add-employee.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة موظف&nbsp;&nbsp;
-            <i class="fas fa-plus">
-            </i>
-          </a>
-          </div>
+                <a href="add-employee.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6">أضافة موظف&nbsp;&nbsp;
+                    <i class="fas fa-plus">
+                    </i>
+                </a>
+            </div>
 
             <!--Table     -->
 
@@ -192,42 +143,7 @@ $select = mysqli_query($conn, "select * from employee");
 
             <!--Table -->
         </div>
-
-
-
-
-
-
-        <footer class="footer pt-3  ">
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6 mb-lg-0 mb-4">
-                        <div class="copyright text-center text-sm text-muted text-lg-end">
-                            © <script>
-                                document.write(new Date().getFullYear())
-                            </script>,
-                            made with <i class="fa fa-heart"></i> by
-                            <a href="" class="font-weight-bold" target="_blank">Rukn Amial</a>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com" class="nav-link text-muted" target="_blank">Rukn Amial</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://files.ruknamial.com" class="nav-link text-muted" target="_blank">Files</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://ruknamial.com/blogs" class="nav-link text-muted" target="_blank">Blog</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php require_once('../../components/footer.php'); ?>>
         </div>
 
     </main>

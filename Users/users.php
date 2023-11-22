@@ -25,6 +25,7 @@ $select =mysqli_query($conn, "select * from users");
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" defer></script>
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
@@ -264,6 +265,7 @@ $select =mysqli_query($conn, "select * from users");
   <script src="../assets/js/plugins/chartjs.min.js"></script>
   
   <script src="../assets/js/plugins/choices.min.js"></script>
+  
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
