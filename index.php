@@ -3,7 +3,7 @@ include('cookies/session.php');
 $_SESSION['sidebar'] = "Home";
 
 $show_products_status = mysqli_query($conn, "SELECT * FROM `product_status`");
-$projects = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
+$projects = mysqli_query($conn, "SELECT * FROM projects WHERE status = 'قيد التنفيذ' LIMIT 3");
 
 $banner = mysqli_query($conn, "SELECT * FROM projects LIMIT 3");
 while ($ban = mysqli_fetch_array($banner)) {
