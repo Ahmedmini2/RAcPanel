@@ -590,7 +590,7 @@ if (isset($_GET['id'])) {
                             
                         </div>
                         <div class="row">
-                            <div class="col text-start text-bolder">
+                            <div class="col text-center text-bolder">
                                 <p><?= $payment_type ?>.</p>
                                 <input type="text" class="signture signture2" id="signture3" />
                             </div>
@@ -602,7 +602,7 @@ if (isset($_GET['id'])) {
                             <h6>Approved by</h6>
                         </div>
                         <div class="row">
-                    <div class="col text-start text-bolder">
+                    <div class="col text-center text-bolder">
                         <p><?= $payment_type ?>.</p>
                         <input type="text" class="signture signture2" id="signture3" />
                     </div>
