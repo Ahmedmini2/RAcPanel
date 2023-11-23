@@ -412,7 +412,7 @@ if (isset($_GET['project_id'])) {
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
                                             <?=$created_at?><br>
-                                                RA<?=$id?> <br>
+                                                SQ-23-<?=$id?> <br>
                                                 <?=$supplier_name?><br>
                                                 <?=$contact_person?><br>
                                                 <?=$mobile?><br>

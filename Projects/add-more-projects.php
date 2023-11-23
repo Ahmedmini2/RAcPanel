@@ -44,7 +44,11 @@ if (isset($_POST['add-project'])) {
 
   if ($product_res) {
     $product_id = $conn->insert_id;
-
+  } else {
+    $_SESSION['notification'] = "يوجد خلل في ادخال الصنف";
+    header('location: index.php');
+    exit();
+  }
     $kharasana = $_POST['kharasana'];
     $kh_price = str_replace(',', '', $_POST['kh_price']);
     $kh_per = $_POST['kh_per'];
@@ -56,6 +60,11 @@ if (isset($_POST['add-project'])) {
     $kh_res = $conn->query($insert_kh);
     if ($kh_res) {
 
+    } else {
+      $_SESSION['notification'] = "يوجد خلل في ادخال الخرسانة";
+      header('location: index.php');
+      exit();
+    }
       $iron_raws = $_POST['iron-rr'];
       if ($iron_raws == "") {
         $iron_raws = 1;
@@ -87,9 +96,11 @@ if (isset($_POST['add-project'])) {
                     VALUES (NULL, '$product_id' , '$selectedSizeText' , '$iron_price' , '$iron_quantity' , '$iron_long' , '$iron_tn' ,'$iron_tot', NOW())";
         $iron_res = $conn->query($insert_iron);
         if ($iron_res) {
-          $_SESSION['notification'] = "One Addes";
+          $_SESSION['notification'] = "One Addes in iron";
         } else {
-          $_SESSION['notification'] = "One Error";
+          $_SESSION['notification'] = "One Error in iron";
+          header('location: index.php');
+          exit();
         }
         $iron1++;
       }
@@ -107,9 +118,11 @@ if (isset($_POST['add-project'])) {
                     VALUES (NULL, '$product_id' , '$accessory' , '$acc_quantity' , '$acc_price' , '$acc_tot' , NOW())";
         $accessory_res = $conn->query($insert_accessory);
         if ($accessory_res) {
-          $_SESSION['notification'] = "One Addes";
+          $_SESSION['notification'] = "One Addes in accessory";
         } else {
-          $_SESSION['notification'] = "One Error";
+          $_SESSION['notification'] = "One Error in accessory";
+          header('location: index.php');
+          exit();
         }
         $accessory1++;
       }
@@ -122,7 +135,11 @@ if (isset($_POST['add-project'])) {
         VALUES (NULL , '$product_id' , '$cover_type' , '$cover_price' , '$cover_tot' , NOW())";
       $cover_res = $conn->query($insert_cover);
       if ($cover_res) {
-
+      } else {
+        $_SESSION['notification'] = "يوجد خلل في ادخال الاغطية";
+        header('location: index.php');
+        exit();
+      }
         $band_raws = $_POST['band-rr'];
         if ($band_raws == "") {
           $band_raws = 1;
@@ -136,28 +153,46 @@ if (isset($_POST['add-project'])) {
             VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
           $band_res = $conn->query($insert_band);
           if ($band_res) {
+
           } else {
             $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
             header('location: index.php');
+            exit();
           }
           $band1++;
+        }
+        if (isset($_POST['deliverable'])) {
+          $deliverable = 1;
+          $quantity_of_track = $_POST['quantity_of_track'];
+          $delivery_to = $_POST['delivery_to'];
+          $track_price = str_replace(',', '', $_POST['track_price']);
+          $piece_price = str_replace(',', '', $_POST['piece_price']);
+          $total_track_price = str_replace(',', '', $_POST['total_price']);
+          $peice_per_track = $_POST['peice_per_track'];
+  
+  
+          $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`, `peice_per_track`, `quantity_of_track`, `delivery_to`, `piece_price`, `track_price`, `total_price`,
+          `created_at`) VALUES (NULL, '$product_id', '$deliverable', '$peice_per_track', '$quantity_of_track', '$delivery_to', '$piece_price', '$track_price', '$total_track_price', NOW())";
+          $delivery_res = $conn->query($insert_delivery);
+          if ($delivery_res) {
+            $_SESSION['notification'] = "تم اضافة التوصيل";
+           
+          }
+        } else {
+          $deliverable = 0;
+          $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`,`created_at`) VALUES (NULL, '$product_id', '$deliverable',NOW())";
+          $delivery_res = $conn->query($insert_delivery);
+          if ($delivery_res) {
+            $_SESSION['notification'] = "لا يوجد توصيل";
+          }
         }
         $_SESSION['notification'] = "تمت اضافة المشروع بنجاح";
         unset($_SESSION['last_insert_project']);
         header('location: index.php');
         exit();
-      } else {
-        $_SESSION['notification'] = "يوجد خلل في ادخال الاغطية";
-        header('location: index.php');
-      }
-    } else {
-      $_SESSION['notification'] = "يوجد خلل في ادخال الخرسانة";
-      header('location: index.php');
-    }
-  } else {
-    $_SESSION['notification'] = "يوجد خلل في ادخال الصنف";
-    header('location: index.php');
-  }
+
+
+// Second Item Insert  
 } else if (isset($_POST['add-project2'])) {
   $iron1 = 1;
   $accessory1 = 1;
@@ -185,7 +220,11 @@ if (isset($_POST['add-project'])) {
 
   if ($product_res) {
     $product_id = $conn->insert_id;
-
+  } else {
+    $_SESSION['notification'] = "يوجد خلل في ادخال الصنف";
+    header('location: index.php');
+    exit();
+  }
     $kharasana = $_POST['kharasana'];
     $kh_price = str_replace(',', '', $_POST['kh_price']);
     $kh_per = $_POST['kh_per'];
@@ -197,135 +236,136 @@ if (isset($_POST['add-project'])) {
     $kh_res = $conn->query($insert_kh);
     if ($kh_res) {
 
-      $iron_raws = $_POST['iron-rr'];
-      if ($iron_raws == "") {
-        $iron_raws = 1;
-      }
-      while ($iron1 <= $iron_raws) {
-        $iron = $_POST['iron_' . $iron1];
-        $iron_price = str_replace(',', '', $_POST['iron_price_' . $iron1]);
-        $iron_quantity = $_POST['iron_quantity_' . $iron1];
-        $iron_long = $_POST['iron_long_' . $iron1];
-        $iron_tn = $_POST['iron_tn_' . $iron1];
-        $iron_tot = str_replace(',', '', $_POST['iron_tot_' . $iron1]);
-
-        $sizeText = [
-          "0.395" => "8مم",
-          "0.617" => "10مم",
-          "0.888" => "12مم",
-          "1.21" => "14مم",
-          "1.58" => "16مم",
-          "2" => "18مم",
-          "2.47" => "20مم",
-          "2.984" => "22مم",
-          "3.85" => "25مم",
-          "6.41" => "32مم",
-        ];
-
-        $selectedSizeText = $sizeText[$iron];
-
-        $insert_iron = "INSERT INTO iron_band (`id`, `product_id`, `size`, `price_today`, `quantity`, `iron_height`, `tn_price`, `total_price`, `created_at`)
-              VALUES (NULL, '$product_id' , '$selectedSizeText' , '$iron_price' , '$iron_quantity' , '$iron_long' , '$iron_tn' ,'$iron_tot', NOW())";
-        $iron_res = $conn->query($insert_iron);
-        if ($iron_res) {
-          $_SESSION['notification'] = "One Addes";
-        } else {
-          $_SESSION['notification'] = "One Error";
-        }
-        $iron1++;
-      }
-      $accessory_raws = $_POST['ac-rr'];
-      if ($accessory_raws == "") {
-        $accessory_raws = 1;
-      }
-      while ($accessory1 <= $accessory_raws) {
-        $accessory = $_POST['accessory_' . $accessory1];
-        $acc_quantity = $_POST['acc_quantity_' . $accessory1];
-        $acc_price = str_replace(',', '', $_POST['acc_price_' . $accessory1]);
-        $acc_tot = str_replace(',', '', $_POST['acc_tot_' . $accessory1]);
-
-        $insert_accessory = "INSERT INTO `accessory_band` (`id`, `product_id`, `name`, `quantity`, `price_per_piece`, `total_price`, `created_at`) 
-              VALUES (NULL, '$product_id' , '$accessory' , '$acc_quantity' , '$acc_price' , '$acc_tot' , NOW())";
-        $accessory_res = $conn->query($insert_accessory);
-        if ($accessory_res) {
-          $_SESSION['notification'] = "One Addes";
-        } else {
-          $_SESSION['notification'] = "One Error";
-        }
-        $accessory1++;
-      }
-
-      $cover_type = $_POST['cover_type'];
-      $cover_price = str_replace(',', '', $_POST['cover_price']);
-      $cover_tot = str_replace(',', '', $_POST['cover_tot']);
-
-      $insert_cover = "INSERT INTO `covers_band` (`id`, `product_id`, `type`, `price_per_piece`, `total_price`, `created_at`) 
-            VALUES (NULL , '$product_id' , '$cover_type' , '$cover_price' , '$cover_tot' , NOW())";
-      $cover_res = $conn->query($insert_cover);
-      if ($cover_res) {
-
-        $band_raws = $_POST['band-rr'];
-        if ($band_raws == "") {
-          $band_raws = 1;
-        }
-        while ($band1 <= $band_raws) {
-          $band = $_POST['band_' . $band1];
-          $band_price = str_replace(',', '', $_POST['band_price_' . $band1]);
-          $band_tot = str_replace(',', '', $_POST['band_tot_' . $band1]);
-
-          $insert_band = "INSERT INTO `extra_band` (`id`, `product_id`, `name`, `price_per_piece`, `total_price`, `created_at`) 
-                VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
-          $band_res = $conn->query($insert_band);
-          if ($band_res) {
-            if (isset($_POST['deliverable'])) {
-              $deliverable = 1;
-              $quantity_of_track = $_POST['quantity_of_track'];
-              $delivery_to = $_POST['delivery_to'];
-              $track_price = str_replace(',', '', $_POST['track_price']);
-              $piece_price = str_replace(',', '', $_POST['piece_price']);
-              $total_track_price = str_replace(',', '', $_POST['total_price']);
-              $peice_per_track = $_POST['peice_per_track'];
-
-
-              $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`, `peice_per_track`, `quantity_of_track`, `delivery_to`, `piece_price`, `track_price`, `total_price`,
-              `created_at`) VALUES (NULL, '$product_id', '$deliverable', '$peice_per_track', '$quantity_of_track', '$delivery_to', '$piece_price', '$track_price', '$total_track_price', NOW())";
-              $delivery_res = $conn->query($insert_delivery);
-              if ($delivery_res) {
-                $_SESSION['notification'] = "الصنف بنجاح";
-                header('location: add-more-projects.php');
-                exit();
-              }
-            } else {
-              $deliverable = 0;
-              $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`,`created_at`) VALUES (NULL, '$product_id', '$deliverable',NOW())";
-              $delivery_res = $conn->query($insert_delivery);
-              if ($delivery_res) {
-                $_SESSION['notification'] = "الصنف بنجاح";
-                header('location: add-more-projects.php');
-                exit();
-              }
-            }
-          } else {
-            $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
-            header('location: index.php');
-          }
-          $band1++;
-        }
-        $_SESSION['notification'] = "الصنف بنجاح";
-        header('location: add-more-projects.php');
-        exit();
-      } else {
-        $_SESSION['notification'] = "يوجد خلل في ادخال الاغطية";
-        header('location: index.php');
-      }
     } else {
       $_SESSION['notification'] = "يوجد خلل في ادخال الخرسانة";
       header('location: index.php');
+      exit();
     }
-  } else {
-    $_SESSION['notification'] = "يوجد خلل في ادخال الصنف";
-    header('location: index.php');
-  }
+    $iron_raws = $_POST['iron-rr'];
+    if ($iron_raws == "") {
+      $iron_raws = 1;
+    }
+    while ($iron1 <= $iron_raws) {
+      $iron = $_POST['iron_' . $iron1];
+      $iron_price = str_replace(',', '', $_POST['iron_price_' . $iron1]);
+      $iron_quantity = $_POST['iron_quantity_' . $iron1];
+      $iron_long = $_POST['iron_long_' . $iron1];
+      $iron_tn = $_POST['iron_tn_' . $iron1];
+      $iron_tot = str_replace(',', '', $_POST['iron_tot_' . $iron1]);
+
+      $sizeText = [
+        "0.395" => "8مم",
+        "0.617" => "10مم",
+        "0.888" => "12مم",
+        "1.21" => "14مم",
+        "1.58" => "16مم",
+        "2" => "18مم",
+        "2.47" => "20مم",
+        "2.984" => "22مم",
+        "3.85" => "25مم",
+        "6.41" => "32مم",
+      ];
+
+      $selectedSizeText = $sizeText[$iron];
+
+      $insert_iron = "INSERT INTO iron_band (`id`, `product_id`, `size`, `price_today`, `quantity`, `iron_height`, `tn_price`, `total_price`, `created_at`)
+            VALUES (NULL, '$product_id' , '$selectedSizeText' , '$iron_price' , '$iron_quantity' , '$iron_long' , '$iron_tn' ,'$iron_tot', NOW())";
+      $iron_res = $conn->query($insert_iron);
+      if ($iron_res) {
+        $_SESSION['notification'] = "One Addes in iron band";
+      } else {
+        $_SESSION['notification'] = "One Error in iron";
+        header('location: index.php');
+      exit();
+      }
+      $iron1++;
+    }
+    $accessory_raws = $_POST['ac-rr'];
+    if ($accessory_raws == "") {
+      $accessory_raws = 1;
+    }
+    while ($accessory1 <= $accessory_raws) {
+      $accessory = $_POST['accessory_' . $accessory1];
+      $acc_quantity = $_POST['acc_quantity_' . $accessory1];
+      $acc_price = str_replace(',', '', $_POST['acc_price_' . $accessory1]);
+      $acc_tot = str_replace(',', '', $_POST['acc_tot_' . $accessory1]);
+
+      $insert_accessory = "INSERT INTO `accessory_band` (`id`, `product_id`, `name`, `quantity`, `price_per_piece`, `total_price`, `created_at`) 
+            VALUES (NULL, '$product_id' , '$accessory' , '$acc_quantity' , '$acc_price' , '$acc_tot' , NOW())";
+      $accessory_res = $conn->query($insert_accessory);
+      if ($accessory_res) {
+        $_SESSION['notification'] = "One Addes in Accessory";
+      } else {
+        $_SESSION['notification'] = "One Error in accessory";
+        header('location: index.php');
+        exit();
+      }
+      $accessory1++;
+    }
+
+    $cover_type = $_POST['cover_type'];
+    $cover_price = str_replace(',', '', $_POST['cover_price']);
+    $cover_tot = str_replace(',', '', $_POST['cover_tot']);
+
+    $insert_cover = "INSERT INTO `covers_band` (`id`, `product_id`, `type`, `price_per_piece`, `total_price`, `created_at`) 
+          VALUES (NULL , '$product_id' , '$cover_type' , '$cover_price' , '$cover_tot' , NOW())";
+    $cover_res = $conn->query($insert_cover);
+    if ($cover_res) {
+
+    } else {
+      $_SESSION['notification'] = "يوجد خلل في ادخال الاغطية";
+      header('location: index.php');
+      exit();
+    }
+      $band_raws = $_POST['band-rr'];
+      if ($band_raws == "") {
+        $band_raws = 1;
+      }
+      while ($band1 <= $band_raws) {
+        $band = $_POST['band_' . $band1];
+        $band_price = str_replace(',', '', $_POST['band_price_' . $band1]);
+        $band_tot = str_replace(',', '', $_POST['band_tot_' . $band1]);
+
+        $insert_band = "INSERT INTO `extra_band` (`id`, `product_id`, `name`, `price_per_piece`, `total_price`, `created_at`) 
+              VALUES (NULL , '$product_id' , '$band' , '$band_price' , '$band_tot' , NOW())";
+        $band_res = $conn->query($insert_band);
+        if ($band_res) {
+          
+        } else {
+          $_SESSION['notification'] = "يوجد خلل في ادخال البنود الاضافية";
+          header('location: index.php');
+          exit();
+        }
+        $band1++;
+      }
+      if (isset($_POST['deliverable'])) {
+        $deliverable = 1;
+        $quantity_of_track = $_POST['quantity_of_track'];
+        $delivery_to = $_POST['delivery_to'];
+        $track_price = str_replace(',', '', $_POST['track_price']);
+        $piece_price = str_replace(',', '', $_POST['piece_price']);
+        $total_track_price = str_replace(',', '', $_POST['total_price']);
+        $peice_per_track = $_POST['peice_per_track'];
+
+
+        $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`, `peice_per_track`, `quantity_of_track`, `delivery_to`, `piece_price`, `track_price`, `total_price`,
+        `created_at`) VALUES (NULL, '$product_id', '$deliverable', '$peice_per_track', '$quantity_of_track', '$delivery_to', '$piece_price', '$track_price', '$total_track_price', NOW())";
+        $delivery_res = $conn->query($insert_delivery);
+        if ($delivery_res) {
+          $_SESSION['notification'] = "تم اضافة التوصيل";
+         
+        }
+      } else {
+        $deliverable = 0;
+        $insert_delivery = "INSERT INTO `delivery` (`id`, `product_id`, `deliverable`,`created_at`) VALUES (NULL, '$product_id', '$deliverable',NOW())";
+        $delivery_res = $conn->query($insert_delivery);
+        if ($delivery_res) {
+          $_SESSION['notification'] = "لا يوجد توصيل";
+        }
+      }
+      $_SESSION['notification'] = "تم إضافة الصنف بنجاح";
+      header('location: add-more-projects.php');
+      exit();
 }
 
 ?>
