@@ -85,6 +85,7 @@ $select = mysqli_query($conn, "select * from covers_purchase_id");
                 $type = "";
                 $dimensions = "";
                 $price_per_piece = "";
+                $quantity = "";
                 $total_price = "";
                 $created_at = "";
                 $purchase_id = $r['purchase_id'];
@@ -124,7 +125,7 @@ $select = mysqli_query($conn, "select * from covers_purchase_id");
                                 </div>
                                 <div class="modal-body">
                                   الرجاء ادخال كلمة المرور للتأكيد
-                                  <form action="../scripts/covers/delete.php?id=<?php echo $r['id']; ?>" method="post">
+                                  <form action="../scripts/covers/delete.php?id=<?php echo $r['purchase_id']; ?>" method="post">
                                     <input type="password" name="pas" class="form-control">
 
                                 </div>
