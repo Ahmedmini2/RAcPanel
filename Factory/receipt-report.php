@@ -263,7 +263,7 @@ else if (isset($_GET['project_id'])) {
                                             while ($del_item = mysqli_fetch_array($del_items)) {
                                                 $delivery += $del_item['quantity'];
                                             }
-                                            echo '<option value="'.$item['id'].','.$warehouse-$delivery.'">' . $item['product_name'] . '</option>';
+                                            echo '<option value="'.$item['id'].','.($warehouse-$delivery).'">' . $item['product_name'] . '</option>';
                                         }
                                         ?>
 
