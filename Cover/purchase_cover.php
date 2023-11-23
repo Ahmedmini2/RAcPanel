@@ -332,7 +332,7 @@ if (isset($_GET['id'])) {
             </a>
 
 
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script>
                 function printDiv(divName) {
                     document.getElementById('btn2').style.display = "none";
