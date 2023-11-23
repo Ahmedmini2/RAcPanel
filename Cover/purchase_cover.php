@@ -579,12 +579,7 @@ if (isset($_GET['id'])) {
                 </ul>
 
 
-                <div class="row">
-                    <div class="col text-start text-bolder">
-                        <p><?= $payment_type ?>.</p>
-                        <input type="text" class="signture signture2" id="signture3" />
-                    </div>
-                </div>
+
 
 
                 <div class="row text-center">
@@ -592,13 +587,26 @@ if (isset($_GET['id'])) {
                     <div class="col-6">
                         <div class="row">
                             <h6>Prepared by</h6>
-                            <h5></h5>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col text-start text-bolder">
+                                <p><?= $payment_type ?>.</p>
+                                <input type="text" class="signture signture2" id="signture3" />
+                            </div>
                         </div>
                     </div>
+
                     <div class="col-6">
                         <div class="row">
                             <h6>Approved by</h6>
                         </div>
+                        <div class="row">
+                    <div class="col text-start text-bolder">
+                        <p><?= $payment_type ?>.</p>
+                        <input type="text" class="signture signture2" id="signture3" />
+                    </div>
+                </div>
                     </div>
                 </div>
                 <table>
