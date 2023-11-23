@@ -248,7 +248,7 @@ if (isset($_POST['submit'])) {
               <div class="col">
                 <div class="form-group">
                   <label>الوصف</label>
-                  <input type="text" placeholder="الرجاء كتابه الوصف" class="form-control" name="descrption" id="descrption"  value="<?php echo $description; ?>">
+                  <input type="text" placeholder="الرجاء كتابه الوصف" class="form-control" name="description" id="description"  value="<?php echo $description; ?>">
                 </div>
               </div>
             </div>
