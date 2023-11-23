@@ -4,7 +4,7 @@ $_SESSION['sidebar'] = "Cover";
 if (isset($_GET['id'])) {
 
     $id = $_GET['id'];
-    $query = "SELECT * FROM covers_purchase WHERE purchase_id=$id LIMIT 1 ORDER by `id` ASC";
+    $query = "SELECT * FROM covers_purchase WHERE purchase_id=$id  ORDER by `id` ASC LIMIT 1";
     $res = $conn->query($query);
     $editData = $res->fetch_assoc();
     $type = $editData['type'];
