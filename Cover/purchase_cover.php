@@ -339,6 +339,7 @@ if (isset($_GET['id'])) {
                     document.getElementById('btn3').style.display = "none";
                     document.getElementById('btn4').style.display = "none";
                     document.getElementById('signture3').style.backgroundColor = "#ffffff00";
+                    document.getElementById('signture4').style.backgroundColor = "#ffffff00";
                     
                         var $print = $(divName)
                             .clone()
@@ -352,6 +353,7 @@ if (isset($_GET['id'])) {
                     document.getElementById('btn3').style.display = "inline";
                     document.getElementById('btn4').style.display = "inline";
                     document.getElementById('signture3').style.backgroundColor = "white";
+                    document.getElementById('signture4').style.backgroundColor = "white";
 
                 }
                 
@@ -627,7 +629,7 @@ if (isset($_GET['id'])) {
                         <div class="row">
                     <div class="col text-center text-bolder">
                         <p><?= $payment_type ?>.</p>
-                        <input type="text" class="signture signture2" id="signture3" />
+                        <input type="text" class="signture signture2" id="signture4" />
                     </div>
                 </div>
                     </div>
