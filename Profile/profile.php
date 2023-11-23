@@ -2,7 +2,11 @@
 include('../cookies/session2.php');
 include('../cookies/insert-method2.php');
 $_SESSION['sidebar'] = "Profile";
+if (isset($_GET['user_id'])) {
+  $user_id = $_GET['user_id'];
+} else {
 $user_id = $_SESSION['id'];
+}
 $query = "SELECT * FROM employee WHERE user_id = $user_id";
 $res = $conn->query($query);
 $user = $res->fetch_assoc();

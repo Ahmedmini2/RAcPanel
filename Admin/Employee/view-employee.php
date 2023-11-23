@@ -123,7 +123,7 @@ $select = mysqli_query($conn, "select * from employee");
 
                                                 <td class="border-1"><?= $r['department'] ?></td>
                                                 <td class="border-1">
-                                                    <a href="../../Profile/profile.php?id=<?= $r['id'] ?>"><i class="fa fa-eye" aria-hidden="true"></i></a>|
+                                                    <a href="../../Profile/profile.php?user_id=<?= $r['user_id'] ?>"><i class="fa fa-eye" aria-hidden="true"></i></a>|
                                                     <a href="add-employee.php?edit=<?= $r['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>
