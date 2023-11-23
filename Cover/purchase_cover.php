@@ -59,7 +59,7 @@ if (isset($_GET['id'])) {
 
         .print {
             position: fixed;
-            overflow: auto;
+            overflow: visible !important;
             width: 100%;
             height: 100%;
             z-index: 100000; /* CSS doesn't support infinity */
