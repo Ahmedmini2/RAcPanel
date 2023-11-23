@@ -12,6 +12,7 @@ if (isset($_GET['id'])) {
     $purchase_id = $editData['purchase_id'];
     $quantity = $editData['quantity'];
     $price_per_peice = $editData['price_per_piece'];
+    $description = $editData['description'];
 
     $seller = $editData['seller'];
     $query2 = "SELECT * FROM contact_covers WHERE id=$seller";
@@ -416,6 +417,7 @@ if (isset($_GET['id'])) {
                                             Tel / mobile:<br>
                                             Address:<br>
                                             E-mail:<br>
+                                            Description:<br>
 
                                         </p>
                                     </div>
@@ -426,6 +428,7 @@ if (isset($_GET['id'])) {
                                             591022703 <br>
                                             Al Malaz-Jareer Street <br>
                                             info@ruknamyal.com<br>
+                                            <?=$description?><br>
 
 
                                         </p>

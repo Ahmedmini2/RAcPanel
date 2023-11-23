@@ -12,6 +12,7 @@ if (!empty($_GET['edit'])) {
   $dimensions = $editData['dimensions'];
   $quantity = $editData['quantity'];
   $price_per_peice = $editData['price_per_piece'];
+  $description = $editData['description'];
   $total_price = $editData['total_price'];
   $seller = $editData['seller'];
 
@@ -23,12 +24,13 @@ if (isset($_POST['submit'])) {
   $dimensions = $_POST['dimensions'];
   $quantity = $_POST['quantity'];
   $price_per_peice = $_POST['price_per_peice'];
+  $description = $_POST['description'];
   $total_price = str_replace(',','',$_POST['total_price']);
   $seller = $_POST['seller'];
 
 
 
-  $update = "UPDATE `covers_purchase` SET `type` = '$type', `dimensions` = '$dimensions', `quantity` = '$quantity', `price_per_piece` = '$price_per_peice', `total_price` = '$total_price',
+  $update = "UPDATE `covers_purchase` SET `description` = '$description' , `type` = '$type', `dimensions` = '$dimensions', `quantity` = '$quantity', `price_per_piece` = '$price_per_peice', `total_price` = '$total_price',
    `seller` = '$seller' WHERE `covers_purchase`.`id` = $id";
     $updateResult = $conn->query($update);
     if ($updateResult) {
@@ -53,6 +55,7 @@ if (isset($_POST['submit'])) {
   $dimensions = $_POST['dimensions'];
   $quantity = $_POST['quantity'];
   $price_per_peice = $_POST['price_per_peice'];
+  $description = $_POST['description'];
   $total_price = str_replace(',','',$_POST['total_price']);
   $seller = $_POST['seller'];
 
@@ -71,8 +74,8 @@ if (isset($_POST['submit'])) {
      }
 
 
-  $insert = "INSERT INTO `covers_purchase` (`id`,`purchase_id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
-   VALUES (NULL,'$last_purchase_id', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
+  $insert = "INSERT INTO `covers_purchase` (`id`,`purchase_id`,`description`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
+   VALUES (NULL,'$last_purchase_id','$description', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
   $insertResult = $conn->query($insert);
   if ($insertResult) {
 
@@ -95,6 +98,7 @@ if (isset($_POST['submit'])) {
   $dimensions = $_POST['dimensions'];
   $quantity = $_POST['quantity'];
   $price_per_peice = $_POST['price_per_peice'];
+  $description = $_POST['description'];
   $total_price = str_replace(',','',$_POST['total_price']);
   $seller = $_POST['seller'];
 
@@ -116,8 +120,8 @@ if (isset($_POST['submit'])) {
      }
 
 
-  $insert = "INSERT INTO `covers_purchase` (`id`,`purchase_id`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
-   VALUES (NULL,'$last_purchase_id', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
+  $insert = "INSERT INTO `covers_purchase` (`id`,`purchase_id`,`description`, `type`, `dimensions`, `quantity`, `price_per_piece`, `total_price`, `seller`, `created_at`)
+   VALUES (NULL,'$last_purchase_id','$description', '$type', '$dimensions', '$quantity', '$price_per_peice', '$total_price', '$seller', NOW())";
   $insertResult = $conn->query($insert);
   if ($insertResult) {
 
@@ -145,6 +149,7 @@ if (isset($_POST['submit'])) {
   $address = "";
   $email = "";
   $phone = "";
+  $description = "";
 }
 
 ?>
@@ -243,7 +248,7 @@ if (isset($_POST['submit'])) {
               <div class="col">
                 <div class="form-group">
                   <label>الوصف</label>
-                  <input type="text" placeholder="الرجاء كتابه الوصف" class="form-control" name="descrption" id="descrption"  value="">
+                  <input type="text" placeholder="الرجاء كتابه الوصف" class="form-control" name="descrption" id="descrption"  value="<?php echo $description; ?>">
                 </div>
               </div>
             </div>
