@@ -24,6 +24,7 @@ include '../../db/connection.php';
                             $del= mysqli_query($conn, "delete from covers_purchase where purchase_id = '$id'");
                             if($del)
                             {
+                                $del= mysqli_query($conn, "delete from covers_purchase_id where purchase_id = '$id'");
                                 $_SESSION['notification'] = "تم حذف طلب شراء الأغطية بنجاح";
                                 header('location:../../Cover/index.php');
                             }else{
