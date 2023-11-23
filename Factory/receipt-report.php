@@ -254,11 +254,16 @@ else if (isset($_GET['project_id'])) {
                                         while ($item = mysqli_fetch_array($s_items)) {
                                             $inv_id = $item['id'];
                                             $warehouse = 0 ;
+                                            $delivery = 0 ;
                                             $inv_items = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id ");
                                             while ($inv_item = mysqli_fetch_array($inv_items)) {
                                                 $warehouse += $inv_item['warehouse'];
                                             }
-                                            echo '<option value="'.$item['id'].','.$warehouse.'">' . $item['product_name'] . '</option>';
+                                            $del_items = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `product_id` = $inv_id ");
+                                            while ($del_item = mysqli_fetch_array($del_items)) {
+                                                $delivery += $del_item['quantity'];
+                                            }
+                                            echo '<option value="'.$item['id'].','.$warehouse-$delivery.'">' . $item['product_name'] . '</option>';
                                         }
                                         ?>
 
