@@ -106,7 +106,7 @@ if (isset($_POST['submit'])) {
         <!-- Navbar -->
         <?php
         $titleNav = 'اضافه سلفيه';
-        require_once('../components/navbar.php');
+        require_once('../../components/navbar.php');
         ?>
         <!-- End Navbar -->
 
