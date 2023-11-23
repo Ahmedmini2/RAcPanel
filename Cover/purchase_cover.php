@@ -69,9 +69,9 @@ if (isset($_GET['id'])) {
         .invoice-box {
             max-width: 1200px;
             margin: auto;
-            padding: 30px;
-            border: 1px solid #eee;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
+
+           
             font-size: 16px;
             line-height: 24px;
             font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
