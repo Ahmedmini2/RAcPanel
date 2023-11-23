@@ -52,12 +52,26 @@ if (isset($_GET['id'])) {
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     <style>
+        body, html {
+            width: 100%;
+            height: 100%;
+        }
+
+        .print {
+            position: fixed;
+            overflow: visible !important;
+            width: 100%;
+            height: 100%;
+            z-index: 100000; /* CSS doesn't support infinity */
+
+            /* Any other Print Properties */
+        }
         .invoice-box {
             max-width: 1200px;
             margin: auto;
-            padding: 30px;
-            border: 1px solid #eee;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
+
+           
             font-size: 16px;
             line-height: 24px;
             font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
@@ -305,7 +319,7 @@ if (isset($_GET['id'])) {
 
 
 
-            <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
+            <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('invoice-box')">
                 طباعة الطلب
                 <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
@@ -318,20 +332,31 @@ if (isset($_GET['id'])) {
             </a>
 
 
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script>
                 function printDiv(divName) {
                     document.getElementById('btn2').style.display = "none";
                     document.getElementById('btn3').style.display = "none";
                     document.getElementById('btn4').style.display = "none";
                     document.getElementById('signture3').style.backgroundColor = "#ffffff00";
+                    document.getElementById('signture4').style.backgroundColor = "#ffffff00";
+                    
+                        var $print = $(divName)
+                            .clone()
+                            .addClass('print2')
+                            .prependTo('body');
+
                     window.print();
+
+                        $print.remove();
                     document.getElementById('btn2').style.display = "inline";
                     document.getElementById('btn3').style.display = "inline";
                     document.getElementById('btn4').style.display = "inline";
                     document.getElementById('signture3').style.backgroundColor = "white";
+                    document.getElementById('signture4').style.backgroundColor = "white";
 
                 }
+                
             </script>
 
             <!-- Change Status Modal -->
@@ -604,7 +629,7 @@ if (isset($_GET['id'])) {
                         <div class="row">
                     <div class="col text-center text-bolder">
                         <p><?= $payment_type ?>.</p>
-                        <input type="text" class="signture signture2" id="signture3" />
+                        <input type="text" class="signture signture2" id="signture4" />
                     </div>
                 </div>
                     </div>
