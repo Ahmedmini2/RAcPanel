@@ -138,8 +138,9 @@ $select = mysqli_query($conn, "select * from advance_salary");
                                         <tr>
                                             <th class=" border-1 text-center">الرقم</th>
                                             <th class=" border-1 text-center">اسم الموظف</th>
-
                                             <th class="  border-1 text-center">سلفيه الموظف</th>
+                                            <th class="  border-1 text-center">المسدد</th>
+                                            <th class="  border-1 text-center">المتبقي</th>
                                             <th class=" border-1 text-center">مستند الملف</th>
                                             <th class=" border-1 text-center">ACTION</th>
                                         </tr>
