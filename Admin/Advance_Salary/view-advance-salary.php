@@ -163,8 +163,8 @@ $select = mysqli_query($conn, "select * from advance_salary");
                                                 <td class="border-1"><?= $editData['full_name'] ?></td>
 
                                                 <td class="border-1"><?= $r['amount'] ?></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td class="border-1"></td>
+                                                <td class="border-1"></td>
 
                                                 <td class="border-1"><?= $r['image'] ?></td>
 
