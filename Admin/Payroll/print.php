@@ -6,6 +6,11 @@ $year = $_GET['year'];
 $month = $_GET['month'];
 $nmonth = date("m", strtotime($month));
 $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$month' AND year = '$year'");
+$query = "SELECT * FROM payroll_documents WHERE month = '$month' AND year = '$year'";
+  $res33 = $conn->query($query);
+  $editData = $res33->fetch_assoc();
+  $name = $editData['name'];
+
 ?>
 
 <html lang="ar" dir="rtl">
@@ -63,7 +68,7 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
         .invoice-box {
             max-width: 1430px;
             margin: auto;
-            padding: 30px;
+           
             font-size: 16px;
             line-height: 24px;
             font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
@@ -243,7 +248,7 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class=" text-center">
-                            <h5>مسير رواتب مدد لشهر <?=$month?> (<?=$nmonth?>) -السنة الميلادية (<?=$year?>)</h5>
+                            <h5><?=$name?> لشهر <?=$month?> (<?=$nmonth?>) -السنة الميلادية (<?=$year?>)</h5>
                         </div>
                         <div class="table-responsive p-0">
                             <table class="table table-hover table-bordered table-fixed text-center border-dark">

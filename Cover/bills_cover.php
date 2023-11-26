@@ -84,7 +84,7 @@ $select = mysqli_query($conn, "select * from covers_purchase_id");
                 $i++;
                 $type = "";
                 $dimensions = "";
-                $quantity = "";
+                $quantity = "" ;
                 $price_per_piece = "";
                 $total_price = "";
                 $created_at = "";
