@@ -467,6 +467,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">المشروع</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">رقم المشروع</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">قيمة المشروع</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">التكلفة</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">صافي الربح</th>
@@ -489,6 +490,9 @@ while ($ban = mysqli_fetch_array($banner)) {
                         </td>
                         <td class="align-middle text-center text-sm">
                           <span class="text-xs font-weight-bold"> <?= number_format($r['total_without_tax']) ?> </span>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <span class="text-xs font-weight-bold"> <?= number_format($r['description']) ?> </span>
                         </td>
                         <td class="align-middle text-center text-sm">
                           <span class="text-xs font-weight-bold"> <?= number_format($r['project_cost']) ?> </span>
