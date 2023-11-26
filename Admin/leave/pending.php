@@ -127,8 +127,9 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Pending'");
                                             </td>
                                         </tr>
                                         <?php } ?>
-
-
+                                        <?php
+                                        echo "<h5>No Data Found</h5>";
+                                        ?>
                                     </tbody>
                                     <!--Table body-->
 
