@@ -894,8 +894,9 @@ if (isset($_GET['id'])) {
                                                         <th>عدد التريلات</th>
                                                         <th>سعر توصيل القطعه</th>
                                                         <th>سعر التوصيل التريلة</th>
-                                                        <th>سعر التوصيل الكلي</th>
+                                                        
                                                         <th>توصيل الى</th>
+                                                        <th>سعر التوصيل الكلي</th>
 
                                                     </tr>
                                                 </thead>
@@ -934,14 +935,15 @@ if (isset($_GET['id'])) {
 
 
                                                             <td class="border-1 text-secondary"><?= number_format($track_price,2,'.',',') ?></td>
-                                                            <td class="border-1 text-secondary"><?= number_format($del_total_price,2,'.',',') ?></td>
+                                                            
 
                                                             <td class="border-1 text-secondary"><?= $delivery_to  ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($del_total_price,2,'.',',') ?></td>
                                                         </tr>
                                                        <?php } ?>
                                                     <?php } ?>
                                                          <tr class="table-secondary">
-                                                            <td class="border-1 " colspan="6">المجموع</td>
+                                                            <td class="border-1 " colspan="7">المجموع</td>
                                                             <td class="border-1"><?=number_format($extra_del_total_price,2,'.',',')?></td>
                                                          </tr>
 
