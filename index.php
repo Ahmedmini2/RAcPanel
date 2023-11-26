@@ -489,10 +489,10 @@ while ($ban = mysqli_fetch_array($banner)) {
                           </div>
                         </td>
                         <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> <?= number_format($r['total_without_tax']) ?> </span>
+                          <span class="text-xs font-weight-bold"> <?= $r['description'] ?> </span>
                         </td>
                         <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> <?= number_format($r['description']) ?> </span>
+                          <span class="text-xs font-weight-bold"> <?= number_format($r['total_without_tax']) ?> </span>
                         </td>
                         <td class="align-middle text-center text-sm">
                           <span class="text-xs font-weight-bold"> <?= number_format($r['project_cost']) ?> </span>
