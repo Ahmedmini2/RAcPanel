@@ -126,9 +126,11 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Pending'");
                                                 <a href="../../scripts/leaves/status.php?Declined=<?=$r['id']?>"><i class="fa fa-times" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
-                                        <?php } ?>
-
-
+                                        
+                                        <?php
+                                    echo "<h5>No Data Found</h5>";
+                                    } ?>
+                                        
                                     </tbody>
                                     <!--Table body-->
 
