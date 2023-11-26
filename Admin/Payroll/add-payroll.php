@@ -146,7 +146,7 @@ if (isset($_POST['submit'])) {
                                 <div class="col">
                                     <div class="form-group">
                                         <label>الرجاء ادخال تاريخ مسير الرواتب حسب الشهر</label>
-                                        <input type="date" class="form-control" name="month">
+                                        <input type="month" class="form-control" name="month">
                                     </div>
                                 </div>
                                 <div class="col">

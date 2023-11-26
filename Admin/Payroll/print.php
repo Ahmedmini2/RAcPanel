@@ -63,7 +63,7 @@ $select2 = mysqli_query($conn, "select * FROM payroll_process WHERE month = '$mo
         .invoice-box {
             max-width: 1430px;
             margin: auto;
-            padding: 30px;
+           
             font-size: 16px;
             line-height: 24px;
             font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
