@@ -378,7 +378,7 @@ if (isset($_GET['project_id'])) {
                                         <div class="col-8">
                                             <p class="card-text custom-font-small">
                                                 <?= $supplier_name ?><br>
-                                                proforma invoice for (PO No :RA<?= $id ?>) <br>
+                                                Proforma Invoice For (<?= $description ?>) <br>
                                                
 
 
