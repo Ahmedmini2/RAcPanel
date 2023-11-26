@@ -921,6 +921,7 @@ if (isset($_GET['id'])) {
                                                         $delivery_to = $delevery['delivery_to'];
                                                        
                                                         $i++;
+                                                        $extra_del_total_price += $del_total_price['total_price'];
                                                     ?>
                                                         <?php if ($del_status == 1) { ?>
                                                         <tr>
@@ -939,6 +940,10 @@ if (isset($_GET['id'])) {
                                                         </tr>
                                                        <?php } ?>
                                                     <?php } ?>
+                                                         <tr class="table-secondary">
+                                                            <td class="border-1 " colspan="6">المجموع</td>
+                                                            <td class="border-1"><?=number_format($extra_del_total_price,2,'.',',')?></td>
+                                                         </tr>
 
                                                 </tbody>
                                                 <!--Table body-->
