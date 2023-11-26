@@ -921,7 +921,7 @@ if (isset($_GET['id'])) {
                                                         $delivery_to = $delevery['delivery_to'];
                                                        
                                                         $i++;
-                                                        $extra_del_total_price += $del_total_price['total_price'];
+                                                        $extra_del_total_price += $del_total_price;
                                                     ?>
                                                         <?php if ($del_status == 1) { ?>
                                                         <tr>
