@@ -6,6 +6,7 @@ if (isset($_POST['submit'])) {
     $dateNew = new DateTimeImmutable($_POST['month']);
     $date = date_format($dateNew, 'F');
     $year = date_format($dateNew, 'Y');
+    $title = $_POST['title'];
     $names = $_POST['name'];
     $emp_ids = $_POST['emp_id'];
     $salaries = $_POST['salary'];
@@ -58,10 +59,25 @@ if (isset($_POST['submit'])) {
         if (!empty($data) && !empty($tableName)) {
             $insertData = insert_data($data, $tableName);
             if ($insertData) {
-                $_SESSION['notification'] = "تم إضافة مسير الرواتب بنجاح";
+               
             } else {
-                $_SESSION['notification'] = "خطأ في النظام";
+                
             }
+        }
+    }
+
+    $data = [
+        'name' => $title,
+        'month' => $date,
+        'year' => $year,
+    ];
+    $tableName = 'payroll_documents';
+    if (!empty($data) && !empty($tableName)) {
+        $insertData = insert_data($data, $tableName);
+        if ($insertData) {
+            $_SESSION['notification'] = "تم إضافة مسير الرواتب بنجاح";
+        } else {
+            $_SESSION['notification'] = "خطأ في النظام";
         }
     }
     header('location: index.php');
@@ -163,6 +179,18 @@ if (isset($_POST['submit'])) {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>الرجاء ادخال أسم مسير الرواتب</label>
+                                        <input type="text" class="form-control" name="title">
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                         <div class="row">
