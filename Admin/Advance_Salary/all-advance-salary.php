@@ -142,7 +142,7 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                             <div class="card-header text-center">
                                 <div class="row align-items-center">
                                     <div class="col-md-11">
-                                        <h5>مسير رواتب مدد لشهر <?= $r['month'] ?> (<?= $nmonth ?>) -السنة الميلادية (<?= $year ?>)</h5>
+                                        <h5>مسير سلفيات مدد لشهر <?= $r['month'] ?> (<?= $nmonth ?>) -السنة الميلادية (<?= $year ?>)</h5>
                                     </div>
                                     <a href="print.php?month=<?= $month ?>&year=<?= $year ?>" class="printer">
                                         <div class="paper">
