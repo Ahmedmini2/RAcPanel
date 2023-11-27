@@ -164,7 +164,7 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                                             $emp_id = $r['employee_id'];
                                             $query = "SELECT * FROM users WHERE id=$emp_id";
                                             $res = $conn->query($query);
-                                            $editData = $res->fetch_assoc();
+                                           
                                         ?>
                                             <tbody class=" text-center">
 
