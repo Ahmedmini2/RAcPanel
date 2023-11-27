@@ -155,6 +155,9 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
         <li class="w-100">
           <a href="../../Admin/Advance_Salary/view-advance-salary.php" class="nav-link px-0"> <span class=" d-sm-inline">بيانات السفليات</span></a>
         </li>
+        <li class="w-100">
+          <a href="../../Admin/Advance_Salary/all-advance-salary.php" class="nav-link px-0"> <span class=" d-sm-inline">حسابات السفليات</span></a>
+        </li>
         <?php } ?>  
         <li class="w-100">
           <a href="../../Admin/Advance_Salary/index.php" class="nav-link px-0"> <span class=" d-sm-inline">اضافه سلفيه</span></a>
