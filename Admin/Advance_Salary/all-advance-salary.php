@@ -170,6 +170,7 @@ $select = mysqli_query($conn, "SELECT DISTINCT `month`,`year` FROM `payroll_proc
                                             <tr>
                                             <th class=" border-1 text-center">الرقم</th>
                                             <th class=" border-1 text-center">اسم الموظف</th>
+                                            <th class=" border-1 text-center">المرتب</th>
                                             <th class="  border-1 text-center">سلفيه الموظف</th>
                                             <th class="  border-1 text-center">المسدد</th>
                                             <th class="  border-1 text-center">المتبقي</th>
