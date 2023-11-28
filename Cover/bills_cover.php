@@ -63,14 +63,14 @@ $select = mysqli_query($conn, "select * from covers_purchase_id");
               <table class="table align-items-center mb-0" id="example">
                 <thead>
                   <tr  class="text-center">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">نوع الاغطية</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ابعاد الاغطية</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">كمية الاغطية</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">سعر الغطاء الواحد</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">السعر الكلي</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">تاريخ الإضافة</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الحالة</th>
+                    <th class="text-uppercase text-secondary table-bordered text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
+                    <th class="text-uppercase text-secondary table-bordered text-xxs font-weight-bolder opacity-7">ابعاد الاغطية</th>
+                    <th class="text-uppercase text-secondary table-bordered text-xxs font-weight-bolder opacity-7">كمية الاغطية</th>
+                    <th class="text-uppercase text-secondary table-bordered text-xxs font-weight-bolder opacity-7" width="5%">نوع الاغطية</th>
+                    <th class="text-uppercase text-secondary table-bordered text-xxs font-weight-bolder opacity-7">سعر الغطاء الواحد</th>
+                    <th class="text-uppercase text-secondary table-bordered text-xxs font-weight-bolder opacity-7">السعر الكلي</th>
+                    <th class="text-uppercase text-secondary table-bordered text-xxs font-weight-bolder opacity-7">تاريخ الإضافة</th>
+                    <th class="text-uppercase text-secondary table-bordered text-xxs font-weight-bolder opacity-7">الحالة</th>
 
                   </tr>
                 </thead>
