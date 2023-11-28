@@ -80,16 +80,16 @@ if (isset($_GET['id'])) {
                                 <a href="sales_quatation.php?project_id=<?= $id ?>" id="btn2" class="btn bg-gradient-dark mb-0">
                                     Proforma Invoice
                                 </a>
-                                <a href="documents.php?project_id=<?= $id ?>" id="btn3" class="btn bg-gradient-dark mb-0">
+                                <a href="documents.php?project_id=<?=$id?>" id="btn3" class="btn bg-gradient-dark mb-0">
                                     مستندات المشروع
                                 </a>
-                                <a href="edit-project-info.php?project_id=<?= $project['id'] ?>" id="btn4" class="btn bg-gradient-dark mb-0">
+                                <a href="edit-project-info.php?project_id=<?=$project['id']?>" id="btn4" class="btn bg-gradient-dark mb-0">
                                     تعديل بيانات المشروع
                                 </a>
                             </div>
                             <div class="text-left col-lg-5 col-sm-6">
                                 <button type="button" id="btn7" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
-                                    تعديل بيانات الاصناف
+                                 تعديل بيانات الاصناف 
                                 </button>
                                 <button type="button" id="btn5" class=" btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     تغير حالة المشروع
@@ -171,22 +171,22 @@ if (isset($_GET['id'])) {
                                         </button>
                                     </div>
                                     <div class="modal-body">
-
-                                        <?php
-                                        $res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
-                                        while ($rr = mysqli_fetch_array($res2)) {
-
-
-                                        ?>
-                                            <form method="post" action="edit-project.php?project_id=<?= $id ?>&item_id=<?= $rr['id'] ?>">
-                                                <?php if ($position == 'Admin') { ?> <button type="submit" name="confirm" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
-                                                        <?= $rr['product_name'] ?>
-                                                    </button>
-                                                <?php } ?>
-                                                <br>
+                                        
+                                            <?php
+                                            $res2 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
+                                            while ($rr = mysqli_fetch_array($res2)) {
+                                                
+                                            
+                                            ?>
+                                            <form method="post" action="edit-project.php?project_id=<?=$id?>&item_id=<?=$rr['id']?>">
+                                            <?php if ($position == 'Admin') { ?> <button type="submit" name="confirm" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModa2">
+                                                    <?= $rr['product_name'] ?>
+                                                </button>
+                                            <?php } ?>
+                                            <br>
                                             </form>
-                                        <?php } ?>
-
+                                            <?php } ?>
+                                        
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
@@ -244,7 +244,7 @@ if (isset($_GET['id'])) {
                                                 <h6 class="text-center mb-0">القيمة الاجمالية للمشروع</h6>
                                                 <hr class="horizontal dark my-3">
 
-                                                <h5 class="mb-0"><?= number_format($project['total_without_tax'], 2, '.', ',') ?> ريال</h5>
+                                                <h5 class="mb-0"><?= number_format($project['total_without_tax'],2,'.',',') ?> ريال</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -349,7 +349,7 @@ if (isset($_GET['id'])) {
                         </div>
 
                         <!--Table-->
-                        <div class="row mt-5">
+                        <div class="row mt-5" >
                             <div class="col-12">
                                 <div class="card mb-4">
                                     <div class="card-header pb-0">
@@ -359,8 +359,8 @@ if (isset($_GET['id'])) {
                                         <div class="table-responsive p-0">
                                             <table class="table table-hover table-bordered table-fixed">
 
-                                                <!--Table head-->
-                                                <thead class="bg-dark text-light table-bordered text-center">
+                                               <!--Table head-->
+                                               <thead class="bg-dark text-light table-bordered text-center">
                                                     <tr>
                                                         <th>الرقم</th>
                                                         <th>الصنف</th>
@@ -370,7 +370,7 @@ if (isset($_GET['id'])) {
                                                         <th>كمية الخرسانة المستخدمة</th>
                                                         <th>سعر الخرسانة المستخدمة</th>
                                                     </tr>
-
+                                                    
                                                 </thead>
                                                 <!--Table head-->
 
@@ -378,7 +378,7 @@ if (isset($_GET['id'])) {
                                                 <tbody class="text-center">
                                                     <?php
                                                     $i = 0;
-
+                                                    
                                                     $res3 = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id");
                                                     while ($products = mysqli_fetch_array($res3)) {
                                                         $i++;
@@ -386,30 +386,32 @@ if (isset($_GET['id'])) {
                                                     ?>
                                                         <tr>
                                                             <th class="text-secondary" scope="row"><?= $i ?></th>
-                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
-                                                            <?php
-                                                            $kh_id = $products['id'];
-                                                            $res4 = mysqli_query($conn, "SELECT * FROM kharasana WHERE `product_id` = $kh_id");
-                                                            while ($kh = mysqli_fetch_array($res4)) {
-                                                                $kh_quan = $kh['quantity_per_piece'] * $products['quantity'];
-                                                                $kh_total = $kh['total_price'];
-                                                            }
-                                                            ?>
+                                                            <td class="border-1 text-secondary" ><?= $products['product_name'] ?></td>
+                                                    <?php
+                                                    $kh_id = $products['id'];
+                                                     $res4 = mysqli_query($conn, "SELECT * FROM kharasana WHERE `product_id` = $kh_id");
+                                                     while ($kh = mysqli_fetch_array($res4)) {
+                                                        $kh_quan = $kh['quantity_per_piece'] * $products['quantity'];
+                                                        $kh_total = $kh['total_price'];
+                                                        
+                                                     }
+                                                    ?>
                                                             <td class="border-1 text-secondary"><?= $kh_quan ?></td>
                                                             <td class="border-1 text-secondary"><?= $kh['quantity_per_piece'] ?></td>
                                                             <td class="border-1 text-secondary"><?= number_format($kh_total) ?></td>
-                                                            <?php
-                                                            $status_id = $products['id'];
-                                                            $kh_used = 0;
-                                                            $kh_used_price = 0;
-                                                            $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id AND `status` ='إنتاج'");
-                                                            while ($status = mysqli_fetch_array($res5)) {
-                                                                $kh_used += $status['kharasana_used'];
-                                                                $kh_used_price += $status['total_price'];
-                                                            }
-                                                            ?>
-
-                                                            <td class="border-1 text-secondary"><?= number_format($kh_used, 2) ?></td>
+                                                    <?php
+                                                    $status_id = $products['id'];
+                                                    $kh_used = 0;
+                                                    $kh_used_price = 0;
+                                                        $res5 = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $status_id AND `status` ='إنتاج'");
+                                                        while ($status = mysqli_fetch_array($res5)) {
+                                                        $kh_used += $status['kharasana_used'];
+                                                        $kh_used_price += $status['total_price'];
+                                                        
+                                                     }
+                                                    ?>
+                                                    
+                                                            <td class="border-1 text-secondary"><?= number_format($kh_used,2) ?></td>
                                                             <td class="border-1 text-secondary"><?= number_format($kh_used_price) ?></td>
 
                                                         </tr>
@@ -425,20 +427,19 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
 
+                        
 
-
-
+                       
                         <!--Table البنود -->
                         <div class="col mt-4">
-                            
-                                <!--  <div class="card-header pb-0 px-3">
+                            <div class="card">
+                                <div class="card-header pb-0 px-3">
                                     <h6 class="mb-0 text-lg">البنود</h6>
-                                </div> -->
+                                </div>
                                 <div class="card-body pt-4 p-3">
-
+                                
                                     <ul class="list-group">
-                                        <h6 class="mb-0 text-lg">البنود</h6>
-                                        <br>
+                                 
                                         <?php
                                         $get_products = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
                                         while ($prod = mysqli_fetch_array($get_products)) {
@@ -479,21 +480,21 @@ if (isset($_GET['id'])) {
                                                                 ?>
                                                                     <tr>
                                                                         <th class="text-secondary" scope="row"><?= $i ?></th>
-
+                                                                    
                                                                         <td class="border-1 text-secondary"><?= $iron['size'] ?></td>
-                                                                        <td class="border-1 text-secondary"><?= number_format($iron['price_today'], 2, '.', ',') ?></td>
-                                                                        <td class="border-1 text-secondary"><?= $iron['quantity'] ?></td>
-                                                                        <td class="border-1 text-secondary"><?= $iron['iron_height'] ?></td>
+                                                                        <td class="border-1 text-secondary"><?= number_format($iron['price_today'],2,'.',',')?></td>
+                                                                        <td class="border-1 text-secondary" ><?= $iron['quantity'] ?></td>
+                                                                        <td class="border-1 text-secondary" ><?= $iron['iron_height'] ?></td>
                                                                         <td class="border-1 text-secondary"><?= $iron['tn_price'] ?></td>
                                                                         <td class="border-1 text-secondary"><?= $iron['total_price'] ?></td>
-
+                                                                        
                                                                     </tr>
-
+                                                                    
                                                                 <?php } ?>
                                                                 <tr class="table-secondary">
-                                                                    <td class="border-1" colspan="6">المجموع</td>
-                                                                    <td class="border-1"><?= number_format($iron_total, 2, '.', ',') ?></td>
-                                                                </tr>
+                                                                        <td class="border-1" colspan="6">المجموع</td>
+                                                                        <td class="border-1"><?=number_format($iron_total,2,'.',',')?></td>
+                                                                    </tr>
 
                                                             </tbody>
                                                             <!--Table body-->
@@ -537,12 +538,12 @@ if (isset($_GET['id'])) {
                                                                         <td class="border-1 text-secondary"><?= $accessory['price_per_piece'] ?></td>
                                                                         <td class="border-1 text-secondary"><?= $accessory['total_price'] ?></td>
                                                                     </tr>
-
+                                                                    
                                                                 <?php } ?>
                                                                 <tr class="table-secondary">
-                                                                    <td class="border-1" colspan="4">المجموع</td>
-                                                                    <td class="border-1"><?= number_format($accessory_total, 2, '.', ',') ?></td>
-                                                                </tr>
+                                                                        <td class="border-1"  colspan="4">المجموع</td>
+                                                                        <td class="border-1" ><?=number_format($accessory_total,2,'.',',')?></td>
+                                                                    </tr>
 
 
                                                             </tbody>
@@ -622,14 +623,14 @@ if (isset($_GET['id'])) {
                                                                         <th class="text-secondary" scope="row"><?= $i ?></th>
                                                                         <td class="border-1 text-secondary"><?= $extra['name'] ?></td>
                                                                         <td class="border-1 text-secondary "><?= $extra['price_per_piece'] ?></td>
-                                                                        <td class="border-1 text-secondary"><?= $extra['total_price'] ?></td>
+                                                                        <td class="border-1 text-secondary" ><?= $extra['total_price'] ?></td>
                                                                     </tr>
-
+                                                                    
                                                                 <?php } ?>
                                                                 <tr class="table-secondary">
-                                                                    <td class="border-1 " colspan="3">المجموع</td>
-                                                                    <td class="border-1"><?= number_format($extra_total, 2, '.', ',') ?></td>
-                                                                </tr>
+                                                                        <td class="border-1 " colspan="3">المجموع</td>
+                                                                        <td class="border-1"><?=number_format($extra_total,2,'.',',')?></td>
+                                                                    </tr>
 
                                                             </tbody>
                                                             <!--Table body-->
@@ -644,10 +645,10 @@ if (isset($_GET['id'])) {
 
                                     </ul>
                                 </div>
-                            
+                            </div>
                         </div>
                         <!--Table المجموع الكلي لجميع الاصناف -->
-                        <div class="row">
+                         <div class="row">
                             <div class="col-12">
                                 <div class="card mb-4 mt-3">
                                     <div class="card-header pb-0 ">
@@ -666,8 +667,8 @@ if (isset($_GET['id'])) {
                                                         <th>سعر البيع</th>
                                                         <th>صافي الربح</th>
                                                         <th>نسبه الربح</th>
-
-
+                                                       
+                                                        
 
                                                     </tr>
                                                 </thead>
@@ -687,11 +688,11 @@ if (isset($_GET['id'])) {
                                                         <tr>
                                                             <th class="text-secondary" scope="row"><?= $i ?></th>
                                                             <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
-                                                            <td class="border-1 text-secondary"><?= number_format($products['cost_price'], 2, '.', ',') ?></td>
-                                                            <td class="border-1 text-secondary"><?= number_format($products['sell_price'], 2, '.', ',') ?></td>
-                                                            <td class="border-1 text-secondary"><?= number_format($products['net_profit'], 2, '.', ',') ?></td>
-                                                            <td class="border-1 text-secondary"><?= $products['net_perc'] ?></td>
-
+                                                            <td class="border-1 text-secondary"><?= number_format($products['cost_price'],2,'.',',')?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($products['sell_price'],2,'.',',')?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($products['net_profit'],2,'.',',')?></td>
+                                                            <td class="border-1 text-secondary"><?=$products['net_perc']?></td>   
+                                            
                                                         </tr>
                                                     <?php } ?>
 
@@ -734,25 +735,25 @@ if (isset($_GET['id'])) {
                                                     <button type="button" class="btn btn-link text-dark text-sm mb-0 px-3 ms-2 p-2" data-bs-toggle="modal" data-bs-target="#exampleModalBill"><i class="fas fa-trash  me-2"></i> Delete</button>
                                                     <div class="modal fade" id="exampleModalBill" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">حذف الفاتورة</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    الرجاء ادخال كلمة المرور للتأكيد
-                                                                    <form action="../scripts/projects/delete-bill.php?id=<?php echo $bill['id']; ?>" method="post">
-                                                                        <input type="password" name="pas" class="form-control">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">حذف الفاتورة</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            الرجاء ادخال كلمة المرور للتأكيد
+                                                            <form action="../scripts/projects/delete-bill.php?id=<?php echo $bill['id']; ?>" method="post">
+                                                                <input type="password" name="pas" class="form-control">
 
-                                                                </div>
-                                                                <div class="modal-footer">
+                                                            </div>
+                                                            <div class="modal-footer">
 
-                                                                    <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
-                                                                    </form>
-                                                                </div>
+                                                            <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                                            </form>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                        </div>
+                                                    </div> 
                                                 </div>
                                             </li>
                                         <?php } ?>
@@ -769,56 +770,56 @@ if (isset($_GET['id'])) {
                                             <div class="col-12 d-flex align-items-center">
                                                 <h6 class="mb-0 text-lg">عمليات التسليم</h6>
                                             </div>
-
+                                           
                                         </div>
                                     </div>
                                     <div class="card-body p-3 pb-0">
                                         <ul class="list-group">
 
-                                            <?php
-                                            $get_delivery = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `project_id` = $id ");
-                                            while ($delivery = mysqli_fetch_array($get_delivery)) {
+                                        <?php 
+                                          $get_delivery = mysqli_query($conn, "SELECT * FROM product_delivery WHERE `project_id` = $id ");
+                                          while ($delivery = mysqli_fetch_array($get_delivery)){
 
-                                            ?>
-                                                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                                    <div class="d-flex flex-column">
-                                                        <h6 class="mb-1 text-dark font-weight-bold text-sm"><?= $delivery['created_at'] ?> <span class="badge text-dark badge-success"> تم استلام: <?= $delivery['quantity'] ?> </span></h6>
-                                                        <span class="text-xs">#<?= $delivery['id'] ?></span>
-                                                    </div>
-                                                    <div class="align-items-center text-sm">
+                                        ?>
+                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                <div class="d-flex flex-column">
+                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm"><?=$delivery['created_at']?> <span class="badge text-dark badge-success"> تم استلام: <?=$delivery['quantity']?> </span></h6>
+                                                    <span class="text-xs">#<?=$delivery['id']?></span>
+                                                </div>
+                                                <div class="align-items-center text-sm">
+                                                    
+                                                    <a href="../Factory/receipt-bills.php?project_id=<?=$id?>&delivery_id=<?=$delivery['id']?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-3 ms-2 p-2"><i class="fas fa-file-pdf  me-2"></i> PDF</a>
+                                                    <a class="btn btn-link text-dark px-3 mb-0 ms-2 p-2" href="../Factory/receipt-report.php?project_id=<?=$id?>&edit=<?=$delivery['id']?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                                                    <button type="button" class="btn btn-link text-dark text-sm mb-0 px-3  p-2" data-bs-toggle="modal" data-bs-target="#exampleModalReceive"><i class="fas fa-trash  me-2"></i> Delete</button>
+                                                    <div class="modal fade" id="exampleModalReceive" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">حذف التسليم</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            الرجاء ادخال كلمة المرور للتأكيد
+                                                            <form action="../scripts/projects/delete-receive.php?id=<?php echo $delivery['id']; ?>" method="post">
+                                                                <input type="password" name="pas" class="form-control">
 
-                                                        <a href="../Factory/receipt-bills.php?project_id=<?= $id ?>&delivery_id=<?= $delivery['id'] ?>" target="_blank" class="btn btn-link text-dark text-sm mb-0 px-3 ms-2 p-2"><i class="fas fa-file-pdf  me-2"></i> PDF</a>
-                                                        <a class="btn btn-link text-dark px-3 mb-0 ms-2 p-2" href="../Factory/receipt-report.php?project_id=<?= $id ?>&edit=<?= $delivery['id'] ?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
-                                                        <button type="button" class="btn btn-link text-dark text-sm mb-0 px-3  p-2" data-bs-toggle="modal" data-bs-target="#exampleModalReceive"><i class="fas fa-trash  me-2"></i> Delete</button>
-                                                        <div class="modal fade" id="exampleModalReceive" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLabel">حذف التسليم</h5>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        الرجاء ادخال كلمة المرور للتأكيد
-                                                                        <form action="../scripts/projects/delete-receive.php?id=<?php echo $delivery['id']; ?>" method="post">
-                                                                            <input type="password" name="pas" class="form-control">
+                                                            </div>
+                                                            <div class="modal-footer">
 
-                                                                    </div>
-                                                                    <div class="modal-footer">
-
-                                                                        <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
+                                                            <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                                            </form>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </li>
-                                            <?php } ?>
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                            </li>
+                                           <?php } ?>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-
+                        
                             <div class="col-lg-6 col-md-6 my-4">
                                 <div class="card h-100">
                                     <div class="card-header pb-0">
@@ -843,29 +844,29 @@ if (isset($_GET['id'])) {
 
                                                         <h6 class="text-dark text-sm font-weight-bold mb-0">تم <?= $r['description'] ?> عدد <?= $r['quantity'] ?> من الصنف <?= $r['name'] ?> وحالته <?= $r['status'] ?></h6>
                                                         <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><?= $date->format('D jS \o\f F Y h:i:s A') ?></p>
-                                                        <a class="btn btn-link text-dark px-3 mb-0 ms-2 p-2" href="../Factory/project-report.php?project_id=<?= $id ?>&edit=<?= $r['id'] ?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                                                        <a class="btn btn-link text-dark px-3 mb-0 ms-2 p-2" href="../Factory/project-report.php?project_id=<?=$id?>&edit=<?=$r['id']?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                                                         <button type="button" class="btn btn-link text-dark text-sm mb-0 px-3 ms-2 p-2" data-bs-toggle="modal" data-bs-target="#exampleModalReport"><i class="fas fa-trash me-2"></i> Delete</button>
-                                                        <div class="modal fade" id="exampleModalReport" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog">
+                                                            <div class="modal fade" id="exampleModalReport" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLabel">حذف تقرير الإستلام</h5>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    <h5 class="modal-title" id="exampleModalLabel">حذف تقرير الإستلام</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                     </div>
                                                                     <div class="modal-body">
-                                                                        الرجاء ادخال كلمة المرور للتأكيد
-                                                                        <form action="../scripts/projects/delete-report.php?id=<?php echo $r['id']; ?>" method="post">
-                                                                            <input type="password" name="pas" class="form-control">
+                                                                    الرجاء ادخال كلمة المرور للتأكيد
+                                                                    <form action="../scripts/projects/delete-report.php?id=<?php echo $r['id']; ?>" method="post">
+                                                                        <input type="password" name="pas" class="form-control">
 
                                                                     </div>
                                                                     <div class="modal-footer">
 
-                                                                        <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
-                                                                        </form>
+                                                                    <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                                                    </form>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>
+                                                                </div>
+                                                            </div> 
                                                     </div>
                                                 </div>
 
@@ -895,7 +896,7 @@ if (isset($_GET['id'])) {
                                                         <th>عدد التريلات</th>
                                                         <th>سعر توصيل القطعه</th>
                                                         <th>سعر التوصيل التريلة</th>
-
+                                                        
                                                         <th>توصيل الى</th>
                                                         <th>سعر التوصيل الكلي</th>
 
@@ -912,8 +913,8 @@ if (isset($_GET['id'])) {
                                                         $product_id = $products['id'];
                                                         $deleivery_query  = $conn->query("SELECT * FROM delivery WHERE `product_id` = $product_id");
                                                         $delevery = $deleivery_query->fetch_assoc();
-
-
+                                                        
+                                                       
                                                         $del_status = $delevery['deliverable'];
                                                         $peice_per_track = $delevery['peice_per_track'];
                                                         $quantity_of_track = $delevery['quantity_of_track'];
@@ -921,32 +922,32 @@ if (isset($_GET['id'])) {
                                                         $track_price = $delevery['track_price'];
                                                         $del_total_price = $delevery['total_price'];
                                                         $delivery_to = $delevery['delivery_to'];
-
+                                                       
                                                         $i++;
                                                         $extra_del_total_price += $del_total_price;
                                                     ?>
                                                         <?php if ($del_status == 1) { ?>
-                                                            <tr>
-                                                                <th class="text-secondarys" scope="row"><?= $i ?></th>
-                                                                <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
-                                                                <td class="border-1 text-secondary"><?= $peice_per_track ?></td>
-                                                                <td class="border-1 text-secondary"><?= $quantity_of_track ?></td>
-                                                                <td class="border-1 text-secondary"><?= number_format($piece_price, 2, '.', ',') ?></td>
+                                                        <tr>
+                                                            <th class="text-secondarys" scope="row"><?= $i ?></th>
+                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
+                                                            <td class="border-1 text-secondary"><?= $peice_per_track ?></td>                                                
+                                                            <td class="border-1 text-secondary"><?= $quantity_of_track ?></td>
+                                                            <td class="border-1 text-secondary" ><?= number_format( $piece_price ,2,'.',',') ?></td>
 
 
 
-                                                                <td class="border-1 text-secondary"><?= number_format($track_price, 2, '.', ',') ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($track_price,2,'.',',') ?></td>
+                                                            
 
-
-                                                                <td class="border-1 text-secondary"><?= $delivery_to  ?></td>
-                                                                <td class="border-1 text-secondary"><?= number_format($del_total_price, 2, '.', ',') ?></td>
-                                                            </tr>
-                                                        <?php } ?>
+                                                            <td class="border-1 text-secondary"><?= $delivery_to  ?></td>
+                                                            <td class="border-1 text-secondary"><?= number_format($del_total_price,2,'.',',') ?></td>
+                                                        </tr>
+                                                       <?php } ?>
                                                     <?php } ?>
-                                                    <tr class="table-secondary">
-                                                        <td class="border-1 " colspan="7">المجموع</td>
-                                                        <td class="border-1"><?= number_format($extra_del_total_price, 2, '.', ',') ?></td>
-                                                    </tr>
+                                                         <tr class="table-secondary">
+                                                            <td class="border-1 " colspan="7">المجموع</td>
+                                                            <td class="border-1"><?=number_format($extra_del_total_price,2,'.',',')?></td>
+                                                         </tr>
 
                                                 </tbody>
                                                 <!--Table body-->
@@ -956,10 +957,10 @@ if (isset($_GET['id'])) {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!--Table خط سير تنفيد المشروع -->
-                        <div class="row">
+                        </div>     
+                        
+                         <!--Table خط سير تنفيد المشروع -->
+                         <div class="row">
                             <div class="col-12">
                                 <div class="card mb-4 mt-3">
                                     <div class="card-header pb-0 ">
@@ -1017,7 +1018,7 @@ if (isset($_GET['id'])) {
                                                                 $deliverd += $del['quantity'];
                                                             }
                                                             ?>
-                                                            <td class="border-1 text-secondary"><?= number_format($inventory - $deliverd) ?></td>
+                                                            <td class="border-1 text-secondary" ><?= number_format($inventory - $deliverd) ?></td>
                                                             <td class="border-1 text-secondary"><?= number_format($production) ?></td>
 
 
@@ -1042,27 +1043,27 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
             <button type="button" class=" btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-6 mx-4 " data-bs-toggle="modal" data-bs-target="#exampleModal3">حذف المشروع</button>
-            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">حذف التكلفة</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            الرجاء ادخال كلمة المرور للتأكيد
-                            <form action="../scripts/projects/delete.php?id=<?php echo $project['id']; ?>" method="post">
-                                <input type="password" name="pas" class="form-control">
+                          <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">حذف التكلفة</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  الرجاء ادخال كلمة المرور للتأكيد
+                                  <form action="../scripts/projects/delete.php?id=<?php echo $project['id']; ?>" method="post">
+                                    <input type="password" name="pas" class="form-control">
 
-                        </div>
-                        <div class="modal-footer">
+                                </div>
+                                <div class="modal-footer">
 
-                            <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                  <button type="submit" name="del" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div> 
         </div>
         <?php require_once('../components/footer.php'); ?>
     </main>
@@ -1079,5 +1080,4 @@ if (isset($_GET['id'])) {
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
     <script src="../Admin/darkmode.js"></script>
 </body>
-
 </html>
