@@ -206,12 +206,14 @@ if (isset($_POST['submit'])) {
                   <label>نوع الاغطية</label>
                   <select name="type" id="type" class="form-control" placeholder="نوع الاغطية">
                     <option value="<?=$type?>"><?=$type?></option>
-                    <option value="One Cover With Frame">One Cover With Frame</option>
-                    <option value="Two Cover With Frame">Two Cover With Frame</option>
+                    <option value="Square One Cover With Frame">Square One Cover With Frame</option>
+                    <option value="Square Two Cover With Frame">Square Two Cover With Frame</option>
                     <option value="Rounded Cover With Frame">Rounded Cover With Frame</option>
-                    <option value="One Cover Without Frame">One Cover Without Frame</option>
-                    <option value="Two Cover Without Frame">Two Cover Without Frame</option>
+                    <option value="Rectangle Cover With Frame">Rectangle Cover With Frame</option>
+                    <option value="Square One Cover Without Frame">Square One Cover Without Frame</option>
+                    <option value="Square Two Cover Without Frame">Square Two Cover Without Frame</option>
                     <option value="Rounded Cover Without Frame">Rounded Cover Without Frame</option>
+                    <option value="Rectangle Cover Without Frame">Rectangle Cover Without Frame</option>
                     
 
                   </select>
