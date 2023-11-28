@@ -60,7 +60,7 @@ $select = mysqli_query($conn, "select * from cost_center");
             </div>
 
             <div class="block">
-              <table class="table align-items-center mb-0" id="example">
+              <table class="table table-hover table-bordered align-items-center mb-0" id="example">
                 <thead>
                   <tr  class="text-center">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
