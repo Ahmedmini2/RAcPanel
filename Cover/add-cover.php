@@ -36,12 +36,12 @@ if (isset($_POST['submit'])) {
     if ($updateResult) {
 
       $_SESSION['notification'] = "تم تعديل طلب شراء الاغطية بنجاح";
-      header('location: index.php');
+      header('location: bills_cover.php');
       exit();
 
       } else {
       $_SESSION['notification'] = "يوجد خلل في النظام";
-      header('location: index.php');
+      header('location: bills_cover.php');
       exit();
 
       }
@@ -80,12 +80,12 @@ if (isset($_POST['submit'])) {
   if ($insertResult) {
 
       $_SESSION['notification'] = "تم اضافة طلب شراء الاغطية بنجاح";
-      header('location: index.php');
+      header('location: bills_cover.php');
       exit();
    
   } else {
     $_SESSION['notification'] = "يوجد خلل في النظام";
-    header('location: index.php');
+    header('location: bills_cover.php');
     exit();
   }
 
