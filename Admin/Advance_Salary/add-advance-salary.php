@@ -38,8 +38,7 @@ if (isset($_POST['submit'])) {
         ];
         $insertData3 = insert_data($advance_status_data, $tableName2);
         if ($insertData3) {
-            $_SESSION['notification'] = "اضافة سلفية جديدة";
-            echo $last_amount;
+            $_SESSION['notification'] = "User Profile Added sucessfully";
         } else {
 
         }
@@ -52,8 +51,7 @@ if (isset($_POST['submit'])) {
         if (!empty($advance_status_data) && !empty($tableName2)) {
             $insertData2 = update_advance_status_data($advance_status_data, $tableName2, $employee_id);
             if ($insertData2) {
-                $_SESSION['notification'] = "نفس الشي";
-                echo $last_amount;
+                $_SESSION['notification'] = "User Profile Added sucessfully";
             } else {
             }
         }
@@ -63,10 +61,12 @@ if (isset($_POST['submit'])) {
         $insertData = insert_data($data, $tableName);
         if ($insertData) {
             $_SESSION['notification'] = "تم إضافة طلب السلفية بنجاح";
-            
+            header('location: index.php');
+            exit();
         } else {
             $_SESSION['notification'] = "Error!.. check your query";
-            
+            header('location: index.php');
+            exit();
         }
     }
 } else {
@@ -160,6 +160,14 @@ if (isset($_POST['submit'])) {
                             </div>
 
 
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1" checked="" required>
+                                <label class="custom-control-label" for="customCheck1">أنا <?=$_SESSION['username'] ?> أتعهد بأن أقوم بسداد قيمة السلفة المذكورة أعلاه وأفهم أنه في حالة تأخري في سداد المبلغ في الموعد المحدد، يحق للجهة المانحة للسلفة اتخاذ الإجراءات القانونية اللازمة لتحصيل المبلغ المستحق.</label>
+                                </div>
+                            </div>
                         </div>
 
 
