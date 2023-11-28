@@ -194,7 +194,7 @@ if(isset($_GET['project_id'])){
                       <td class="mb-0 text-sm border-1"><a href="../Signed-Docs/Project-Doc/<?=$id?>/<?=$r['image']?>" target="_blank">صورة المستند</a></td>
                       <td class="text-xs text-secondary border-1 mb-0"><?=$r['created_at']?></td>
 
-                      <td><?php if ($position == 'Admin') { ?> 
+                      <td class="border-1"><?php if ($position == 'Admin') { ?> 
                           <a href="add-document.php?edit=<?=$r['id']?>&project_id=<?=$id?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
