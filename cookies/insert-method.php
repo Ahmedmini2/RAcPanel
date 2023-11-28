@@ -115,7 +115,7 @@ function delete_data($tableName, $id){
    $result= $db->query($query);
    if($result){
       $data = $result->fetch_assoc();
-      if($data['amount'] == 0 || $data['amount'] > 0){
+      if(!empty($data['amount'])){
       return $data['amount'];
       }else{
         return "New";
