@@ -1,8 +1,16 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "leave";
+$position = $_SESSION['position'];
+$role = $_SESSION['role'];
 
-$select = mysqli_query($conn, "select * from leaves WHERE status = 'Pending'");
+if($position == 'Worker'){
+$select = mysqli_query($conn, "select * from leaves WHERE status = 'Pending' AND factory_approve = 'Pending'");
+} else if($position == 'Admin' && $role == '1' ){
+    $select = mysqli_query($conn, "select * from leaves WHERE factory_approve = 'Approved' AND manager_approve = 'Pending'");
+} else if($position == 'Admin' && $role == '3' ){
+    $select = mysqli_query($conn, "select * from leaves WHERE manager_approve = 'Approved'");
+}
 ?>
 
 <html lang="ar" dir="rtl">
@@ -122,8 +130,8 @@ $select = mysqli_query($conn, "select * from leaves WHERE status = 'Pending'");
                                             <td class="border-1"><?=$r['end_date']?></td>
                                             <td class="border-1"><span class="badge badge-sm bg-gradient-warning"><?=$r['status']?></span></td>
                                             <td class="border-1">
-                                                <a href="../../scripts/leaves/status.php?Approved=<?=$r['id']?>"><i class="fa fa-check" aria-hidden="true"></i></a> | 
-                                                <a href="../../scripts/leaves/status.php?Declined=<?=$r['id']?>"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                <a href="../../scripts/leaves/status.php?Approved=<?=$r['id']?>&Position=<?=$position?>&Role=<?=$role?>"><i class="fa fa-check" aria-hidden="true"></i></a> | 
+                                                <a href="../../scripts/leaves/status.php?Declined=<?=$r['id']?>&Position=<?=$position?>&Role=<?=$role?>"><i class="fa fa-times" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                        

@@ -170,7 +170,7 @@ if(isset($_GET['project_id'])){
             </div>
 
             <div class="block">
-              <table class="table align-items-center mb-0" id="example">
+              <table class="table table-hover table-bordered table-responsive align-items-center mb-0" id="example">
                 <thead>
                   <tr  class="text-center">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
@@ -189,12 +189,12 @@ if(isset($_GET['project_id'])){
 
                     <tr class="text-center">
 
-                      <td class="text-xs text-secondary mb-0"><?=$r['id']?></td>
-                      <td class="text-xs text-secondary mb-0"><?=$r['name']?></td>
-                      <td class="mb-0 text-sm"><a href="../Signed-Docs/Project-Doc/<?=$id?>/<?=$r['image']?>" target="_blank">صورة المستند</a></td>
-                      <td class="text-xs text-secondary mb-0"><?=$r['created_at']?></td>
+                      <td class="text-xs text-secondary border-1 mb-0"><?=$r['id']?></td>
+                      <td class="text-xs text-secondary border-1 mb-0"><?=$r['name']?></td>
+                      <td class="mb-0 text-sm border-1"><a href="../Signed-Docs/Project-Doc/<?=$id?>/<?=$r['image']?>" target="_blank">صورة المستند</a></td>
+                      <td class="text-xs text-secondary border-1 mb-0"><?=$r['created_at']?></td>
 
-                      <td><?php if ($position == 'Admin') { ?> 
+                      <td class="border-1"><?php if ($position == 'Admin') { ?> 
                           <a href="add-document.php?edit=<?=$r['id']?>&project_id=<?=$id?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 

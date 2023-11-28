@@ -309,12 +309,12 @@ if (isset($_GET['project_id'])) {
 
             <div class=" justify-content-md-end">
 
-                <button type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
+                <button  type="button" id="btn2" class=" printing btn bg-gradient-dark rounded-pill col-md-2 col-sm-6 col-xs-5 me-md-2 " onclick="printDiv('printableArea')">
                     طباعة الطلب
                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
 
                 </button>
-                <a href="purchase_order_two.php?project_id=<?= $id ?>" id="btn3" class="btn bg-gradient-dark mb-0">
+                <a href="purchase_order_two.php?project_id=<?= $id ?>" id="btn3" class="btn bg-gradient-dark mb-0 rounded-pill">
                             Without Delivery
                                 </a>
                 

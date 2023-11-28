@@ -115,7 +115,11 @@ function delete_data($tableName, $id){
    $result= $db->query($query);
    if($result){
       $data = $result->fetch_assoc();
+      if(!empty($data['amount'])){
       return $data['amount'];
+      }else{
+        return "New";
+      }
    }else{
       echo "Error found in ".$db->error;
    }

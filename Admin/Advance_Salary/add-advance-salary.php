@@ -30,17 +30,30 @@ if (isset($_POST['submit'])) {
 
     $last_amount = get_advanced_status($tableName2, $employee_id);
 
-    $advance_status_data = [
-        'amount' => $amount + $last_amount,
-        'modified_at' => 'NOW()'
-    ];
-
-    if (!empty($advance_status_data) && !empty($tableName2)) {
-        $insertData2 = update_advance_status_data($advance_status_data, $tableName2, $employee_id);
-        if ($insertData2) {
+    if ($last_amount == "New" ) {
+        
+        $advance_status_data = [
+            'emp_id' => $employee_id,
+            'amount' => $amount,
+        ];
+        $insertData3 = insert_data($advance_status_data, $tableName2);
+        if ($insertData3) {
             $_SESSION['notification'] = "User Profile Added sucessfully";
         } else {
-            $_SESSION['notification'] = "Error!.. check your query";
+
+        }
+    }else {
+        $advance_status_data = [
+            'amount' => $amount + $last_amount,
+            'modified_at' => 'NOW()'
+        ];
+
+        if (!empty($advance_status_data) && !empty($tableName2)) {
+            $insertData2 = update_advance_status_data($advance_status_data, $tableName2, $employee_id);
+            if ($insertData2) {
+                $_SESSION['notification'] = "User Profile Added sucessfully";
+            } else {
+            }
         }
     }
 
@@ -147,6 +160,15 @@ if (isset($_POST['submit'])) {
                             </div>
 
 
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-check">
+                                
+                                <label class="custom-control-label" for="customCheck1">أنا <?=$_SESSION['username'] ?>  أتعهد بأن أقوم بسداد قيمة السلفة المذكورة أعلاه وأفهم أنه في حالة تأخري في سداد المبلغ في الموعد المحدد، يحق للشركة خصم مبلغ السلفية من رواتبي او مستحقاتي المالية لتحصيل المبلغ المستحق دون الرجوع الي.</label>
+                                <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1"  required>   
+                            </div>
+                            </div>
                         </div>
 
 

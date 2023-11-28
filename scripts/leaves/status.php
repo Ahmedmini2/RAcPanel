@@ -12,33 +12,47 @@ if(empty($email_address))
 //     header('location:index');
 // }
 include '../../db/connection.php';
-
+$position = $_GET['Position'];
+$role = $_GET['Role'];
 if(isset($_GET['Approved'])){
 $id = $_GET['Approved'];
-$update = "UPDATE leaves SET status = 'Approved' WHERE id = '$id'";
+
+if($position == 'Worker' ){
+  $update = "UPDATE leaves SET factory_approve = 'Approved' WHERE id = '$id'";
+}else if($position == 'Admin' && $role == '1' ){
+  $update = "UPDATE leaves SET manager_approve = 'Approved' WHERE id = '$id'";
+}else if($position == 'Admin' && $role == '3' ){
+$update = "UPDATE leaves SET status = 'Approved', admin_approve = 'Approved' WHERE id = '$id'";
+}
 $up_res = $conn->query($update);
 if($up_res){
   $_SESSION['notification'] = "تم تغير الحالة الى  ّ تم اعتماد الاجازة  ّ بنجاح";
-  header('location:../../Admin/leave/index.php');
+  header('location:../../Admin/leave/pending.php');
   exit();
 }else{
   $_SESSION['notification'] = "خلل في تغير الحالة";
-  header('location:../../Admin/leave/index.php');
+  header('location:../../Admin/leave/pending.php');
   exit();
 }
 }
 
 if(isset($_GET['Declined'])){
     $id = $_GET['Declined'];
-    $update = "UPDATE leaves SET status = 'Declined' WHERE id = '$id'";
+    if($position == 'Worker' ){
+      $update = "UPDATE leaves SET status = 'Declined', factory_approve = 'Declined' WHERE id = '$id'";
+    }else if($position == 'Admin' && $role == '1' ){
+      $update = "UPDATE leaves SET status = 'Declined', manager_approve = 'Declined' WHERE id = '$id'";
+    }else if($position == 'Admin' && $role == '3' ){
+    $update = "UPDATE leaves SET status = 'Declined', admin_approve = 'Declined' WHERE id = '$id'";
+    }
     $up_res = $conn->query($update);
     if($up_res){
       $_SESSION['notification'] = "تم تغير الحالة الى  ّ تم رفض الاجازة  ّ بنجاح";
-      header('location:../../Admin/leaves/index.php');
+      header('location:../../Admin/leaves/pending.php');
       exit();
     }else{
       $_SESSION['notification'] = "خلل في تغير الحالة";
-      header('location:../../Admin/leave/index.php');
+      header('location:../../Admin/leave/pending.php');
       exit();
     }
     }

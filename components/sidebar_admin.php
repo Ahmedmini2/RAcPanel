@@ -117,7 +117,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
         <li class="w-100">
           <a href="../../Admin/leave/index.php" class="nav-link px-0"> <span class=" d-sm-inline">الاجازات</span></a>
         </li>
-        <?php if ($_SESSION['position'] == 'Admin') { ?>
+        <?php if ($_SESSION['position'] == 'Admin' || $_SESSION['position'] == 'Worker') { ?>
         <li class="w-100">
           <a href="../../Admin/leave/pending.php" class="nav-link px-0"> <span class=" d-sm-inline">قيد الانتظار الطلب</span></a>
         </li>
@@ -157,6 +157,9 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
       <?php if ($_SESSION['position'] == 'Admin') { ?>
         <li class="w-100">
           <a href="../../Admin/Advance_Salary/view-advance-salary.php" class="nav-link px-0"> <span class=" d-sm-inline">بيانات السفليات</span></a>
+        </li>
+        <li class="w-100">
+          <a href="../../Admin/Advance_Salary/all-advance-salary.php" class="nav-link px-0"> <span class=" d-sm-inline">حسابات السفليات</span></a>
         </li>
         <?php } ?>  
         <li class="w-100">
