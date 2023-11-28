@@ -170,7 +170,7 @@ if(isset($_GET['project_id'])){
             </div>
 
             <div class="block">
-              <table class="table align-items-center mb-0" id="example">
+              <table class="table table-hover table-bordered table-responsive align-items-center mb-0" id="example">
                 <thead>
                   <tr  class="text-center">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
