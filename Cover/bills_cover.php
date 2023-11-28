@@ -112,7 +112,7 @@ $select = mysqli_query($conn, "select * from covers_purchase_id");
                       
 
                       <td class="border-1 text-secondary"><a href="purchase_cover.php?id=<?=$r['purchase_id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
-                          <a href="add-cover.php?edit=<?=$r['purchase_id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                          <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModalEdit<?= $r['purchase_id'] ?>"><i class="fa fa-pencil  " aria-hidden="true"></i></button> |
 
 
                           <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['purchase_id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
@@ -136,7 +136,45 @@ $select = mysqli_query($conn, "select * from covers_purchase_id");
                                 </div>
                               </div>
                             </div>
-                          </div> <?php } ?>
+                          </div>
+
+
+                          <div class="modal fade" id="exampleModalEdit<?= $r['purchase_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabeEdit" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabe2">تعديل الاغطية</h5>
+                                        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close" style="position: relative;left: 0%;right: 80%;">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        
+                                            <?php
+                                            $pur_id = $r['purchase_id'];
+                                            $res2 = mysqli_query($conn, "SELECT * FROM covers_purchase WHERE `purchase_id` = $pur_id");
+                                            while ($rr = mysqli_fetch_array($res2)) {
+                                                
+                                            
+                                            ?>
+                                            <form method="post" action="add-cover.php?edit=<?=$rr['id']?>">
+                                            <?php if ($position == 'Admin') { ?> <button type="submit" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModalEdit<?= $r['purchase_id'] ?>">
+                                                    <?= $rr['type'] ?>
+                                                </button>
+                                            <?php } ?>
+                                            <br>
+                                            </form>
+                                            <?php } ?>
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <?php } ?>
                       </td>
                       <!-- Modal -->
 

@@ -24,6 +24,11 @@ if (isset($_GET['id'])) {
     $phone = $seller_data['phone'];
     $email = $seller_data['email'];
     $created_at = $editData['created_at'];
+
+    $query3 = "SELECT * FROM covers_purchase_id WHERE purchase_id = $id ";
+    $res3 = $conn->query($query3);
+    $editData3 = $res3->fetch_assoc();
+    $image = $editData3['image'];
 }
 
 
@@ -374,11 +379,11 @@ if (isset($_GET['id'])) {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="../scripts/update-status/update.php?bank_req=<?= $id ?>" enctype="multipart/form-data">
+                            <form method="post" action="../scripts/covers/upload.php?id=<?= $id ?>" enctype="multipart/form-data">
                                 <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
                                 <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
-                                <?php if ($doc != '') {
-                                    echo '<a href="../Signed-Docs/' . $id . '/' . $doc . '" target="_blank"><img src="../Signed-Docs/' . $id . '/' . $doc . '" class="img-fluid rounded-top" alt="' . $doc . '"></a>';
+                                <?php if ($image != '') {
+                                    echo '<a href="../Signed-Docs/Covers_Purchase/' . $id . '/' . $image . '" target="_blank"><img src="../Signed-Docs/Covers_Purchase/' . $id . '/' . $image . '" class="img-fluid rounded-top" alt="' . $image . '"></a>';
                                 } ?>
                             </form>
                         </div>
