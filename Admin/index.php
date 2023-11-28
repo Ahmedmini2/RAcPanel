@@ -226,8 +226,7 @@ $total_left_advance = get_advanced_status('advance_status',$emp_id);
                                     <thead class="bg-dark text-ligh table-bordered text-center">
                                         <tr>
                                             <th>الرقم</th>
-                                            <th>رقم الموظف</th>
-                                            <th>اسم الموظف</th>
+                                            
                                             <th>سبب الاجازه</th>
                                             <th>تاريخ طلب الاجازة</th>
                                             <th>حاله الطلب</th>
@@ -241,7 +240,7 @@ $total_left_advance = get_advanced_status('advance_status',$emp_id);
                                     <!--Table body-->
                                     <tbody class=" text-center">
 
-                                        <tr>
+                                        <!-- <tr>
                                             <th scope="row">1</th>
                                             <td class="border-1">RUKNAMIL0002</td>
                                             <td class="border-1">عباس الجعفري</td>
@@ -249,7 +248,7 @@ $total_left_advance = get_advanced_status('advance_status',$emp_id);
                                             <td class="border-1">2023/10/22</td>
                                             <td class="border-1"><span style="color: gray">Pending <i class="fa fa-spinner"></i></span></td>
 
-                                        </tr>
+                                        </tr> -->
 
 
                                     </tbody>
@@ -277,10 +276,9 @@ $total_left_advance = get_advanced_status('advance_status',$emp_id);
                                     <thead class="bg-dark text-ligh table-bordered text-center">
                                         <tr>
                                             <th>الرقم</th>
-                                            <th>رقم الموظف</th>
-                                            <th>اسم الموظف</th>
-                                            <th>سبب الاجازه</th>
-                                            <th>تاريخ طلب الاجازة</th>
+                                            
+                                            <th>قيمة السلفية</th>
+                                            <th>تاريخ الطلب</th>
                                             <th>حاله الطلب</th>
 
 
@@ -292,7 +290,7 @@ $total_left_advance = get_advanced_status('advance_status',$emp_id);
                                     <!--Table body-->
                                     <tbody class=" text-center">
 
-                                        <tr>
+                                        <!-- <tr>
                                             <th scope="row">1</th>
                                             <td class="border-1">RUKNAMIL0002</td>
                                             <td class="border-1">عباس الجعفري</td>
@@ -300,7 +298,7 @@ $total_left_advance = get_advanced_status('advance_status',$emp_id);
                                             <td class="border-1">2023/10/22</td>
                                             <td class="border-1"><span style="color: gray">Pending <i class="fa fa-spinner"></i></span></td>
 
-                                        </tr>
+                                        </tr> -->
 
 
                                     </tbody>
