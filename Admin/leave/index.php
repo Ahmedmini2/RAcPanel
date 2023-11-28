@@ -98,6 +98,9 @@ $select = mysqli_query($conn, "select * from leaves WHERE employee_id = '$employ
                                             <th class=" border-1 text-center">description</th>
                                             <th class=" border-1 text-center" >تاريخ بداية الإجازة</th>
                                             <th class=" border-1 text-center">تاريخ نهاية الإجازة</th>
+                                            <th class=" border-1 text-center">موافقة المصنع </th>
+                                            <th class=" border-1 text-center">موافقة المدير التنفيذي </th>
+                                            <th class=" border-1 text-center">موافقة المدير العام </th>
                                             <th class=" border-1 text-center">حاله الاجازة </th>
                                            
                                             
@@ -117,7 +120,10 @@ $select = mysqli_query($conn, "select * from leaves WHERE employee_id = '$employ
                                             <td class="border-1"><?=$r['description']?></td>
                                             <td class="border-1"><?=$r['start_date']?></td>
                                             <td class="border-1"><?=$r['end_date']?></td>
-                                            <td ><span class="badge badge-sm bg-gradient-success border-1"><?=$r['status']?></span></td>
+                                            <td ><span class="badge badge-sm border-1"><?=$r['factory_approve']?></span></td>
+                                            <td ><span class="badge badge-sm border-1"><?=$r['manager_approve']?></span></td>
+                                            <td ><span class="badge badge-sm border-1"><?=$r['admin_approve']?></span></td>
+                                            <td ><span class="badge badge-sm border-1"><?=$r['status']?></span></td>
                                             
                                         </tr>
                                         <?php } ?>
