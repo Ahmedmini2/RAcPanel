@@ -1,8 +1,13 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "leave";
+$position = $_SESSION['position'];
 
+if($position == 'Worker'){
 $select = mysqli_query($conn, "select * from leaves WHERE status = 'Pending'");
+} else if($position == 'Admin'){
+    $select = mysqli_query($conn, "select * from leaves WHERE factory_approve = 'Approved'");
+}
 ?>
 
 <html lang="ar" dir="rtl">
