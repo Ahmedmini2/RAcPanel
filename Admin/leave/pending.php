@@ -5,9 +5,9 @@ $position = $_SESSION['position'];
 $role = $_SESSION['role'];
 
 if($position == 'Worker'){
-$select = mysqli_query($conn, "select * from leaves WHERE status = 'Pending'");
+$select = mysqli_query($conn, "select * from leaves WHERE status = 'Pending' AND factory_approve = 'Pending'");
 } else if($position == 'Admin' && $role == '1' ){
-    $select = mysqli_query($conn, "select * from leaves WHERE factory_approve = 'Approved'");
+    $select = mysqli_query($conn, "select * from leaves WHERE factory_approve = 'Approved' AND manager_approve = 'Pending'");
 } else if($position == 'Admin' && $role == '3' ){
     $select = mysqli_query($conn, "select * from leaves WHERE manager_approve = 'Approved'");
 }
