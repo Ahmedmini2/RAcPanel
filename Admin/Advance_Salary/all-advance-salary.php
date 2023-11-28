@@ -160,7 +160,7 @@ $select = mysqli_query($conn, "SELECT * FROM `employee`");
                                             $advanc_data = $res->fetch_assoc();
                                             $total_adv = $advanc_data['amount'];
 
-                                            $query2 = "SELECT * FROM `advance_status` WHERE `employee_id` = $emp_id";
+                                            $query2 = "SELECT * FROM `advance_status` WHERE `emp_id` = $emp_id";
                                             $res2 = $conn->query($query2);
                                             $status_data = $res2->fetch_assoc();
                                             $total_status = $status_data['amount'];
