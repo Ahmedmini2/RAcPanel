@@ -351,7 +351,7 @@ if (isset($_GET['bank_req'])) {
                   </button>
                 <?php } ?>
                 <br>
-                <?php if ($position == 'Admin' || $position == 'Manager' && $status == 2) { ?> <button type="submit" name="manager" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <?php if ($position == 'Admin' || $position == 'Accounts' || $position == 'Manager' && $status == 2) { ?> <button type="submit" name="manager" class="btn bg-gradient-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     تأكيد التعميد عن طريق طريق المدير العام
                   </button>
                 <?php } ?>
