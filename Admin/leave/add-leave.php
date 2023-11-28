@@ -152,6 +152,15 @@ if(isset($_GET['edit'])){
 
                         </div>
 
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1" checked="" required>
+                                <label class="custom-control-label" for="customCheck1">أنا <?=$_SESSION['username'] ?> أتعهد بأن أقوم بسداد قيمة السلفة المذكورة أعلاه وأفهم أنه في حالة تأخري في سداد المبلغ في الموعد المحدد، يحق للجهة المانحة للسلفة اتخاذ الإجراءات القانونية اللازمة لتحصيل المبلغ المستحق.</label>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="row">
                             <div class="col">
