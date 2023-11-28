@@ -39,6 +39,7 @@ if (isset($_POST['submit'])) {
         $insertData3 = insert_data($advance_status_data, $tableName2);
         if ($insertData3) {
             $_SESSION['notification'] = "اضافة سلفية جديدة";
+            echo "صح";
         } else {
 
         }
@@ -52,6 +53,7 @@ if (isset($_POST['submit'])) {
             $insertData2 = update_advance_status_data($advance_status_data, $tableName2, $employee_id);
             if ($insertData2) {
                 $_SESSION['notification'] = "نفس الشي";
+                echo "نفس الشي";
             } else {
             }
         }
