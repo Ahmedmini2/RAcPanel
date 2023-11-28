@@ -84,7 +84,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE purchase_id = $
                             ?>
                     <? while ($row = mysqli_fetch_array($select2)){ 
                         $covers_id = $row['id'];?>
-                    <div class="col-lg-2 col-md-5 ol-sm-5 col-5">
+                    <div class="col-lg-2 col-md-5 col-sm-5 col-5">
                         <div class="form-group">
                             <div class="col-md-3 col-sm-6">
                                 <div class="counter">
