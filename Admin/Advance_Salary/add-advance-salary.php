@@ -30,7 +30,19 @@ if (isset($_POST['submit'])) {
 
     $last_amount = get_advanced_status($tableName2, $employee_id);
 
-    if ($last_amount != "New") {
+    if ($last_amount == "New" ) {
+        
+        $advance_status_data = [
+            'emp_id' => $employee_id,
+            'amount' => $amount,
+        ];
+        $insertData3 = insert_data($advance_status_data, $tableName2);
+        if ($insertData3) {
+            $_SESSION['notification'] = "اضافة سلفية جديدة";
+        } else {
+
+        }
+    }else {
         $advance_status_data = [
             'amount' => $amount + $last_amount,
             'modified_at' => 'NOW()'
@@ -39,21 +51,9 @@ if (isset($_POST['submit'])) {
         if (!empty($advance_status_data) && !empty($tableName2)) {
             $insertData2 = update_advance_status_data($advance_status_data, $tableName2, $employee_id);
             if ($insertData2) {
-                $_SESSION['notification'] = "User Profile Added sucessfully";
+                $_SESSION['notification'] = "نفس الشي";
             } else {
             }
-        }
-        
-    }else {
-        $advance_status_data = [
-            'emp_id' => $employee_id,
-            'amount' => $amount,
-        ];
-        $insertData3 = insert_data($advance_status_data, $tableName2);
-        if ($insertData3) {
-            $_SESSION['notification'] = "User Profile Added sucessfully";
-        } else {
-
         }
     }
 
@@ -61,12 +61,10 @@ if (isset($_POST['submit'])) {
         $insertData = insert_data($data, $tableName);
         if ($insertData) {
             $_SESSION['notification'] = "تم إضافة طلب السلفية بنجاح";
-            header('location: index.php');
-            exit();
+            
         } else {
             $_SESSION['notification'] = "Error!.. check your query";
-            header('location: index.php');
-            exit();
+            
         }
     }
 } else {
