@@ -117,7 +117,7 @@ function delete_data($tableName, $id){
       $data = $result->fetch_assoc();
       return $data['amount'];
    }else{
-      echo "Error found in ".$db->error;
+      echo "New";
    }
  }
   ?>
