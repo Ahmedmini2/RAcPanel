@@ -112,7 +112,7 @@ $select = mysqli_query($conn, "select * from covers_purchase_id");
                       
 
                       <td class="border-1 text-secondary"><a href="purchase_cover.php?id=<?=$r['purchase_id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <?php if ($position == 'Admin') { ?> |
-                          <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModalEdit<?= $r['purchase_id'] ?>"><i class="fa fa-eye  " aria-hidden="true"></i></button> |
+                          <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModalEdit<?= $r['purchase_id'] ?>"><i class="fa fa-pencil  " aria-hidden="true"></i></button> |
 
 
                           <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['purchase_id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
