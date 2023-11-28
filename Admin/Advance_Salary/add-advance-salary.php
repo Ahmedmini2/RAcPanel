@@ -40,7 +40,12 @@ if (isset($_POST['submit'])) {
         if ($insertData2) {
             $_SESSION['notification'] = "User Profile Added sucessfully";
         } else {
-            $_SESSION['notification'] = "Error!.. check your query";
+            $advance_status_data = [
+                'emp_id' => $employee_id,
+                'amount' => $amount,
+                'modified_at' => 'NOW()'
+            ];
+            $insertData3 = insert_data($advance_status_data, $tableName2);
         }
     }
 
