@@ -432,13 +432,13 @@ if (isset($_GET['id'])) {
                        
                         <!--Table البنود -->
                         <div class="col mt-4">
-                            <div class="card">
+                           
                                <!--  <div class="card-header pb-0 px-3">
                                     <h6 class="mb-0 text-lg">البنود</h6>
                                 </div> -->
                                 <div class="card-body pt-4 p-3">
                                 <h6 class="mb-0 text-lg">البنود</h6>
-                                br
+                                <br>
                                     <ul class="list-group">
                                         <?php
                                         $get_products = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
@@ -645,7 +645,7 @@ if (isset($_GET['id'])) {
 
                                     </ul>
                                 </div>
-                            </div>
+                            
                         </div>
                         <!--Table المجموع الكلي لجميع الاصناف -->
                          <div class="row">
