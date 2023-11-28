@@ -35,9 +35,13 @@ if (isset($_POST['submit'])) {
         $advance_status_data = [
             'emp_id' => $employee_id,
             'amount' => $amount,
-            'modified_at' => 'NOW()'
         ];
         $insertData3 = insert_data($advance_status_data, $tableName2);
+        if ($insertData3) {
+            $_SESSION['notification'] = "User Profile Added sucessfully";
+        } else {
+
+        }
     }else {
         $advance_status_data = [
             'amount' => $amount + $last_amount,
