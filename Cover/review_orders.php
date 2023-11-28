@@ -47,7 +47,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE purchase_id = $
         <div class="container-fluid py-4">
             <div class=" mb-4 p-3">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-lg-12">
                         <div class="form-group">
                             <a href="add_review_orders.php?cover_id=<?= $purchase_id ?>" class="btn bg-gradient-dark mb-0 col-md-3 col-sm-6 col-xs-6">أضافة طلبية مراجعه&nbsp;&nbsp;
                                 <i class="fas fa-plus"></i>
@@ -84,7 +84,7 @@ $select = mysqli_query($conn, "select * from covers_report WHERE purchase_id = $
                             ?>
                     <? while ($row = mysqli_fetch_array($select2)){ 
                         $covers_id = $row['id'];?>
-                    <div class="col-2">
+                    <div class="col-lg-2 col-md-5 ol-sm-5 col-5">
                         <div class="form-group">
                             <div class="col-md-3 col-sm-6">
                                 <div class="counter">
