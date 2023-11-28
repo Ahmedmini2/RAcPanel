@@ -15,6 +15,9 @@ if(isset($_GET['edit'])){
         'description'=>$description,
         'start_date'=>$start_date,
         'end_date'=>$end_date,
+        'factory_approve'=>'Pending',
+        'manager_approve'=>'Pending',
+        'admin_approve'=>'Pending',
         'status'=>'Pending',
     ];
     $tableName=$_POST['table_name'];
