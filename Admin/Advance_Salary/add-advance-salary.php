@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
 
     $last_amount = get_advanced_status($tableName2, $employee_id);
 
-    if ($last_amount == "New" ) {
+    if ($last_amount == "New") {
         
         $advance_status_data = [
             'emp_id' => $employee_id,
