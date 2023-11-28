@@ -30,19 +30,7 @@ if (isset($_POST['submit'])) {
 
     $last_amount = get_advanced_status($tableName2, $employee_id);
 
-    if ($last_amount == "New") {
-        
-        $advance_status_data = [
-            'emp_id' => $employee_id,
-            'amount' => $amount,
-        ];
-        $insertData3 = insert_data($advance_status_data, $tableName2);
-        if ($insertData3) {
-            $_SESSION['notification'] = "User Profile Added sucessfully";
-        } else {
-
-        }
-    }else {
+    if ($last_amount != "New") {
         $advance_status_data = [
             'amount' => $amount + $last_amount,
             'modified_at' => 'NOW()'
@@ -54,6 +42,18 @@ if (isset($_POST['submit'])) {
                 $_SESSION['notification'] = "User Profile Added sucessfully";
             } else {
             }
+        }
+        
+    }else {
+        $advance_status_data = [
+            'emp_id' => $employee_id,
+            'amount' => $amount,
+        ];
+        $insertData3 = insert_data($advance_status_data, $tableName2);
+        if ($insertData3) {
+            $_SESSION['notification'] = "User Profile Added sucessfully";
+        } else {
+
         }
     }
 
