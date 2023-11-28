@@ -397,7 +397,7 @@ if (isset($_GET['id'])) {
                 <!-- == -->
                 <div class="row">
                     <div>
-                        <div class="card-header text-center text-white header-color" style="margin-top: 120px;">
+                        <div class="card-header text-center text-white header-color" >
                             Purchase Order
                         </div>
 
