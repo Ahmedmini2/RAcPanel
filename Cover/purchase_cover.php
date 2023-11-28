@@ -382,7 +382,7 @@ if (isset($_GET['id'])) {
                             <form method="post" action="../scripts/covers/upload.php?id=<?= $id ?>" enctype="multipart/form-data">
                                 <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
                                 <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
-                                <?php if ($doc != '') {
+                                <?php if ($image != '') {
                                     echo '<a href="../Signed-Docs/Covers_Purchase/' . $id . '/' . $image . '" target="_blank"><img src="../Signed-Docs/Covers_Purchase/' . $id . '/' . $image . '" class="img-fluid rounded-top" alt="' . $image . '"></a>';
                                 } ?>
                             </form>
