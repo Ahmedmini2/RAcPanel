@@ -233,7 +233,7 @@ if (isset($_GET['id'])) {
                             </div>
                             <div class="col-xl-6">
                                 <div class="row">
-                                    <div class="col-md-4 col-sm-2 mb-3">
+                                    <div class="col-md-4 col-sm-6 mb-3">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
@@ -248,7 +248,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
+                                    <div class="col-md-4 col-sm-6 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
@@ -263,7 +263,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
+                                    <div class="col-md-4 col-sm-6 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
@@ -278,7 +278,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
+                                    <div class="col-md-4 col-sm-6 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
@@ -294,7 +294,7 @@ if (isset($_GET['id'])) {
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
+                                    <div class="col-md-4 col-sm-6 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
@@ -309,7 +309,7 @@ if (isset($_GET['id'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-2 mt-md-0 mt-4">
+                                    <div class="col-md-4 col-sm-6 mt-md-0 mt-4">
                                         <div class="card ">
                                             <div class="card-header mx-4 p-3 text-center">
                                                 <div class="icon icon-shape icon-lg color-bg-icon shadow text-center border-radius-lg">
@@ -433,10 +433,12 @@ if (isset($_GET['id'])) {
                         <!--Table البنود -->
                         <div class="col mt-4">
                             <div class="card">
-                                <div class="card-header pb-0 px-3">
+                               <!--  <div class="card-header pb-0 px-3">
                                     <h6 class="mb-0 text-lg">البنود</h6>
-                                </div>
+                                </div> -->
                                 <div class="card-body pt-4 p-3">
+                                <h6 class="mb-0 text-lg">البنود</h6>
+                                br
                                     <ul class="list-group">
                                         <?php
                                         $get_products = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
