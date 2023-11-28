@@ -166,7 +166,7 @@ if (isset($_POST['submit'])) {
                                 <div class="form-check">
                                 
                                 <label class="custom-control-label" for="customCheck1">أنا <?=$_SESSION['username'] ?>  أتعهد بأن أقوم بسداد قيمة السلفة المذكورة أعلاه وأفهم أنه في حالة تأخري في سداد المبلغ في الموعد المحدد، يحق للشركة خصم مبلغ السلفية من رواتبي او مستحقاتي المالية لتحصيل المبلغ المستحق دون الرجوع الي.</label>
-                                <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1" checked="" required>   
+                                <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1"  required>   
                             </div>
                             </div>
                         </div>
