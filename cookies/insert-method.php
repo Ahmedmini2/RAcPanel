@@ -125,9 +125,18 @@ function delete_data($tableName, $id){
    }
  }
 
- function delete_image($id){
+ function delete_image($data, $tableName,$id){
   global $db;
-  $updateQuery = "UPDATE `covers_purchase_id` SET `image`='' WHERE `id` = 6" ;
+  $columnsValues = ''; 
+   $num = 0; 
+   foreach($data as $column=>$value){ 
+                  
+           $comma = ($num > 0)?', ':''; 
+           $columnsValues.=$comma.$column." = "."'".$value."'"; 
+           $num++; 
+    } 
+
+    $updateQuery="UPDATE ".$tableName." SET ".$columnsValues." WHERE purchase_id=".$id;
   $updateResult = $db->query($updateQuery);
     if($updateResult){
       return true;

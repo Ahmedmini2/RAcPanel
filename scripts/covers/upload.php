@@ -38,7 +38,11 @@ if(isset($_POST['delete'])) {
   $id= $_GET['id'];
   $table = 'covers_purchase_id';
 
-  $res = delete_image($id);
+  $data = [
+    'image' => '',
+  ];
+
+  $res = delete_image($data, $table, $id);
   $_SESSION['notification'] = 'Image Deleted';
   header('location:../../Cover/purchase_cover.php?id='.$id);
 }
