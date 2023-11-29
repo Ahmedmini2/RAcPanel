@@ -36,14 +36,9 @@ if(isset($_POST['upload'])){
 
 if(isset($_POST['delete'])) {
   $id= $_GET['id'];
-  $table = 'covers_purchase_id';
-
-  $data = [
-    'image' => 'NULL',
-  ];
-
-  $res = delete_image($data, $table, $id);
-  if($res) {
+  $updateQuery="UPDATE covers_purchase_id SET image = '' WHERE purchase_id=$id";
+  $updateResult = $conn->query($updateQuery);
+  if($updateResult) {
     $_SESSION['notification'] = 'Image Deleted';
     header('location:../../Cover/purchase_cover.php?id='.$id);
   }else{
