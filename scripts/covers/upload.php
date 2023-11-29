@@ -43,7 +43,13 @@ if(isset($_POST['delete'])) {
   ];
 
   $res = delete_image($data, $table, $id);
-  $_SESSION['notification'] = 'Image Deleted';
-  header('location:../../Cover/purchase_cover.php?id='.$id);
+  if($res) {
+    $_SESSION['notification'] = 'Image Deleted';
+    header('location:../../Cover/purchase_cover.php?id='.$id);
+  }else{
+    $_SESSION['notification'] = 'Error';
+    header('location:../../Cover/purchase_cover.php?id='.$id);
+  }
+ 
 }
 ?>
