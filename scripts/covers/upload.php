@@ -39,7 +39,7 @@ if(isset($_POST['delete'])) {
   $table = 'covers_purchase_id';
 
   $data = [
-    'image' => '',
+    'image' => 'NULL',
   ];
 
   $res = delete_image($data, $table, $id);
