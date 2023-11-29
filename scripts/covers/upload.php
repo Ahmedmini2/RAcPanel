@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include('../../cookies/insert-method2.php');
+include('../../cookies/insert-method.php');
 $email_address= !empty($_SESSION['email'])?$_SESSION['email']:'';
 
 if(empty($email_address))
