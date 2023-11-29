@@ -127,8 +127,8 @@ function delete_data($tableName, $id){
 
  function delete_image($id){
   global $db;
-  $updateQuery = "UPDATE `covers_purchase_id` SET `image`='' WHERE `purchase_id` = '3'" ;
-  $updateResult=$db->query($updateQuery);
+  
+  $updateResult=$db->query("UPDATE `covers_purchase_id` SET `image`='' WHERE `purchase_id` = '3'");
     if($updateResult){
       return true;
     }else{
