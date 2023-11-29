@@ -1,5 +1,5 @@
 <?php 
-include('/db/connection.php'); 
+include('../../db/connection.php'); 
 $db = $conn; // update with your database connection
 function insert_data(array $data, string $tableName){
        
