@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include('../../cookies/insert-method.php');
 $email_address= !empty($_SESSION['email'])?$_SESSION['email']:'';
 
 if(empty($email_address))
@@ -32,4 +33,13 @@ if(isset($_POST['upload'])){
       $_SESSION['notification'] = "Sorry, there was an error uploading your file.";
     }
     }
+
+if(isset($_POST['delete'])) {
+  $id= $_GET['id'];
+  $table = 'covers_purchase_id';
+
+  delete_image($table, $id);
+  $_SESSION['notification'] = 'Image Deleted';
+  header('location:../../Cover/purchase_cover.php?id='.$id);
+}
 ?>
