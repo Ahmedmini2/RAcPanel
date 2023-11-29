@@ -388,7 +388,7 @@ if (isset($_GET['id'])) {
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal2">Close</button>
+                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="button" class="btn bg-gradient-dark rounded-pill">Save changes</button>
                         </div>
                     </div>
