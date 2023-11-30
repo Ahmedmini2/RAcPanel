@@ -36,8 +36,8 @@ if (isset($_GET['project_id'])) {
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
     <title>
         عقد عمل
     </title>
@@ -46,13 +46,13 @@ if (isset($_GET['project_id'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <!-- Nucleo Icons -->
-    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+    <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     <style>
         .invoice-box {
             max-width: 1200px;
@@ -176,7 +176,7 @@ if (isset($_GET['project_id'])) {
     <script src="../assets/js/numtowords/numtowords.js"></script>
 
     <!-- Side Bar -->
-    <?php require_once('../components/sidebar.php'); ?>
+    <?php require_once('../../components/sidebar.php'); ?>
     <!-- End Of side Bar -->
 
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
@@ -184,7 +184,7 @@ if (isset($_GET['project_id'])) {
         <div class="container-fluid py-4">
             <div class="block-header bg-warning rounded col-md-3 col-sm-6 col-xs-6">
 
-                <?php require_once('../components/notification.php'); ?>
+                <?php require_once('../../components/notification.php'); ?>
             </div>
             <!-- Button trigger modal -->
 
@@ -569,7 +569,7 @@ if (isset($_GET['project_id'])) {
             },
         });
     </script>
-    <script src="../assets/js/plugins/choices.min.js"></script>
+    <script src="../../assets/js/plugins/choices.min.js"></script>
 
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
@@ -583,7 +583,7 @@ if (isset($_GET['project_id'])) {
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+    <script src="../../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
 </body>
 
 </html>
