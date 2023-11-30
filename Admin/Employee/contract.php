@@ -1,6 +1,6 @@
 <?php
 include('../cookies/session2.php');
-$_SESSION['sidebar'] = "Projects";
+$_SESSION['sidebar_admin'] = "employee";
 if (isset($_GET['project_id'])) {
 
     $id = $_GET['project_id'];
