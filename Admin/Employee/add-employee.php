@@ -420,7 +420,7 @@ if (isset($_GET['edit'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> تأمين السيارة </label>
-                                    <select name="contract_type" class="form-control">
+                                    <select name="car_insurance" class="form-control">
                                         <option value=""></option>
                                         <option value="يوجد">يوجد</option>
                                         <option value="لا يوجد">لا يوجد</option>
@@ -431,7 +431,7 @@ if (isset($_GET['edit'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> تأمين محروقات السيارة </label>
-                                    <select name="contract_type" class="form-control">
+                                    <select name="car_fuel_insurance" class="form-control">
                                         <option value=""></option>
                                         <option value="يوجد">يوجد</option>
                                         <option value="لا يوجد">لا يوجد</option>
@@ -442,7 +442,7 @@ if (isset($_GET['edit'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> التأمين الطبي </label>
-                                    <select name="contract_type" class="form-control">
+                                    <select name="medical_insurance" class="form-control">
                                         <option value=""></option>
                                         <option value="تأمين شخصي">تأمين شخصي</option>
                                         <option value="تأمين للعائلة">تأمين للعائلة</option>
@@ -458,13 +458,35 @@ if (isset($_GET['edit'])) {
                             <div class="col">
                                 <div class="form-group">
                                     <label> نسبة الحافز  </label>
-                                    <select name="contract_type" class="form-control">
+                                    <select name="ratio" class="form-control">
                                         <option value=""></option>
                                         <option value="1">1%</option>
                                         <option value="2">2%</option>
                                         <option value="3">3%</option>
                                         <option value="4">4%</option>
                                         <option value="5">5%</option>
+                                        <option value="لا يوجد">لا يوجد</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> توفير جوال وشريحة اتصال </label>
+                                    <select name="phoneAndSimCard" class="form-control">
+                                        <option value=""></option>
+                                        <option value="يوجد">يوجد</option>
+                                        <option value="لا يوجد">لا يوجد</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> توفير بدل سكن </label>
+                                    <select name="housing" class="form-control">
+                                        <option value=""></option>
+                                        <option value="يوجد">يوجد</option>
                                         <option value="لا يوجد">لا يوجد</option>
 
                                     </select>
