@@ -217,15 +217,17 @@ if (isset($_GET['project_id'])) {
 
 
 
-            <div class="invoice-box mt-8">
+            <div class="invoice-box ">
 
                 <div class="row">
                     <div class="col-12">
                         <div class="text-center text-150">
-                        <p class="font-weight-bold">عقد العمل</p>
+                        <h2 class="font-weight-bold">عقد العمل</h2>
                         </div>
                     </div>
                 </div>
+
+                <hr class="row brc-default-l1 mx-n1 mb-4" />
 
                 <!-- here to change -->
                 <div class="row ">
