@@ -454,6 +454,26 @@ if (isset($_GET['edit'])) {
                         </div>
 
                         <div class="row">
+
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> نسبة الحافز  </label>
+                                    <select name="contract_type" class="form-control">
+                                        <option value=""></option>
+                                        <option value="1">1%</option>
+                                        <option value="2">2%</option>
+                                        <option value="3">3%</option>
+                                        <option value="4">4%</option>
+                                        <option value="5">5%</option>
+                                        <option value="لا يوجد">لا يوجد</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <button type="submit" name="submit" class="btn btn-secondary">Save</button>
