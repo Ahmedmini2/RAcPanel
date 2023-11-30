@@ -400,6 +400,28 @@ if (isset($_GET['edit'])) {
                         </div>
 
                         <div class="row">
+
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>تاريخ اصدار الاقامة </label>
+                                    <input type="date" placeholder="الرجاء ادخال تاريخ اصدار الاقامة" class="form-control" name="dateAccommodation" value="<?= $name ?>">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>مصدر الاقامة</label>
+                                    <input type="text" placeholder="الرجاء ادخال مصدر الاقامة" class="form-control" name="sourceAccommodation" value="<?= $phone ?>">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>العنوان</label>
+                                    <input type="text" placeholder="الرجاء ادخال عنوان السكن" class="form-control" name="address" value="<?= $phone_code ?>">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <button type="submit" name="submit" class="btn btn-secondary">Save</button>
