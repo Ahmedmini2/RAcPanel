@@ -176,7 +176,7 @@ if (isset($_GET['project_id'])) {
     <script src="../assets/js/numtowords/numtowords.js"></script>
 
     <!-- Side Bar -->
-    <?php require_once('../../components/sidebar.php'); ?>
+    <?php require_once('../../components/sidebar_admin.php'); ?>
     <!-- End Of side Bar -->
 
     <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
