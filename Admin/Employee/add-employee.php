@@ -457,7 +457,7 @@ if (isset($_GET['edit'])) {
 
                             <div class="col">
                                 <div class="form-group">
-                                    <label> نسبة الحافز  </label>
+                                    <label> نسبة الحافز </label>
                                     <select name="ratio" class="form-control">
                                         <option value=""></option>
                                         <option value="1">1%</option>
@@ -494,6 +494,70 @@ if (isset($_GET['edit'])) {
                             </div>
 
                         </div>
+
+
+                        <div class="row">
+
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> هل يجدد مدة العقد؟ </label>
+                                    <select name="contract_period" class="form-control">
+                                        <option value=""></option>
+                                        <option value="تلقائيا">تلقائيا</option>
+
+                                        <option value="لا ">لا </option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> استحقاق الاجازة </label>
+                                    <select name="holiday" class="form-control">
+                                        <option value=""></option>
+                                        <option value="سنة">سنة</option>
+                                        <option value=" سنتين">سنتين</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> تذاكر السفر </label>
+                                    <select name="travel_tickets" class="form-control">
+                                        <option value=""></option>
+                                        <option value="ذهاب واياب">ذهاب واياب</option>
+                                        <option value="ذهاب فقط">ذهاب فقط</option>
+                                        <option value="قيمة التذاكر">قيمة التذاكر</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label> عدد ايام العمل </label>
+                                    <select name="contract_period" class="form-control">
+                                        <option value=""></option>
+                                        <option value="5">5</option>
+
+                                        <option value="6">6</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
 
                         <div class="row">
                             <div class="col">
