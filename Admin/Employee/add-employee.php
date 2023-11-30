@@ -390,12 +390,7 @@ if (isset($_GET['edit'])) {
                                     <input type="date" class="form-control" name="trial_period" value="<?= $trial_period ?>">
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <div class="form-group">
-                                    <label> صورة العقد</label>
-                                    <input type="file" class="form-control" name="image" value="<?= $image ?>">
-                                </div>
-                            </div>
+
 
                         </div>
 
@@ -417,6 +412,43 @@ if (isset($_GET['edit'])) {
                                 <div class="form-group">
                                     <label>العنوان</label>
                                     <input type="text" placeholder="الرجاء ادخال عنوان السكن" class="form-control" name="address" value="<?= $phone_code ?>">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> تأمين السيارة </label>
+                                    <select name="contract_type" class="form-control">
+                                        <option value=""></option>
+                                        <option value="يوجد">يوجد</option>
+                                        <option value="لا يوجد">لا يوجد</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> تأمين محروقات السيارة </label>
+                                    <select name="contract_type" class="form-control">
+                                        <option value=""></option>
+                                        <option value="يوجد">يوجد</option>
+                                        <option value="لا يوجد">لا يوجد</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> التأمين الطبي </label>
+                                    <select name="contract_type" class="form-control">
+                                        <option value=""></option>
+                                        <option value="تأمين شخصي">تأمين شخصي</option>
+                                        <option value="تأمين للعائلة">تأمين للعائلة</option>
+                                        <option value="لا يوجد">لا يوجد</option>
+
+                                    </select>
                                 </div>
                             </div>
                         </div>
