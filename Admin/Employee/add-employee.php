@@ -540,7 +540,7 @@ if (isset($_GET['edit'])) {
 
                         <div class="row">
 
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label> عدد ايام العمل </label>
                                     <select name="num_days" class="form-control">
