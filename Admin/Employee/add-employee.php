@@ -240,6 +240,7 @@ if (isset($_GET['edit'])) {
                         <h6 class="block-title text-white py-2 px-4">إضافة موظف جديد</h6>
                     </div>
                     <form method="post" action="" enctype="multipart/form-data">
+
                         <div class="row">
 
                             <div class="col">
@@ -287,6 +288,7 @@ if (isset($_GET['edit'])) {
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
@@ -494,8 +496,7 @@ if (isset($_GET['edit'])) {
                             </div>
 
                         </div>
-
-
+                        
                         <div class="row">
 
                             <div class="col">
