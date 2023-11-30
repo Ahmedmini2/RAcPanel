@@ -222,7 +222,7 @@ if (isset($_GET['project_id'])) {
                 <div class="row">
                     <div class="col-12">
                         <div class="text-center text-150">
-                        <h2 class="font-weight-bold">عقد العمل</h2>
+                        <h2 class="font-weight-bold">عقد عمل</h2>
                         </div>
                     </div>
                 </div>
