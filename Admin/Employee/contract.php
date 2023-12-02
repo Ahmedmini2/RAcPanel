@@ -213,16 +213,12 @@ if (isset($_GET['project_id'])) {
                 }
             </script>
 
-
-
-
-
             <div class="invoice-box ">
 
                 <div class="row">
                     <div class="col-12">
                         <div class="text-center text-150">
-                        <h2 class="font-weight-bold">عقد عمل</h2>
+                            <h2 class="font-weight-bold">عقد عمل</h2>
                         </div>
                     </div>
                 </div>
@@ -287,90 +283,11 @@ if (isset($_GET['project_id'])) {
                     </div>
                 </div>
                 <!-- == -->
-
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="table-responsive p-0">
-                            <table class="table table-hover table-bordered table-fixed text-center border-dark">
-
-                                <!--Table head-->
-                                <thead class="text-light header-color custom-font-m table-bordered">
-                                    <tr>
-                                        <th style="color: white;">S.No.</th>
-                                        <th style="color: white;">DESCRIPTION</th>
-                                        <th style="color: white;">QTY</th>
-                                        <th style="color: white;">U price</th>
-                                        <th style="color: white;">Total price</th>
-                                    </tr>
-                                </thead>
-                                <!--Table head-->
-
-                                <!--Table body-->
-                                <tbody>
-
-                                    <?php
-                                    $i = 0;
-                                    $items = mysqli_query($conn, "SELECT * FROM products WHERE `project_id` = $id ");
-                                    while ($item = mysqli_fetch_array($items)) {
-                                        $i++;
-                                    ?>
-
-                                        <tr>
-                                            <th class=" text-center bor border-1" scope="row"><?= $i ?></th>
-                                            <td class="custom-font-m text-center border-1"><?= $item['product_name'] ?></td>
-                                            <td class="custom-font-m border-1"><?= $item['quantity'] ?></td>
-                                            <td class="custom-font-m border-1"><?= number_format($item['sell_price']) ?></td>
-                                            <td class="custom-font-m border-1"><?= number_format($item['sell_price'] * $item['quantity']) ?></td>
-
-                                        </tr>
-
-                                    <?php } ?>
-                                    <tr class=" text-center border-1">
-                                        <td colspan="4">Total</td>
-                                        <td class="text-center"><span>SAR <?= number_format($total_without_tax) ?></span></td>
-                                    </tr>
-                                    <tr class="text-center border-1">
-                                        <td colspan="4">VAT 15% </td>
-                                        <td class="text-center"><span>SAR <?= number_format($total_with_tax) ?></span></td>
-                                    </tr>
-                                    <tr class=" text-center border-1">
-                                        <td colspan="4">Grand total(SAR)</td>
-                                        <td class="text-center"><span class="font-weight-bold text-success " id="total">SAR <?= number_format($total_without_tax + $total_with_tax) ?></span></td>
-                                    </tr>
-                                    <tr class="table-secondary border-1">
-                                        <td colspan="5">
-                                            <p>The total value is SAR <?= number_format($total_without_tax + $total_with_tax) ?> <span id="con"></span> riyals only.</p>
-                                        </td>
-                                        <script>
-                                            function changeVal() {
-
-                                                value = <?= number_format($total_without_tax + $total_with_tax, 0, "", "") ?>;
-                                                document.getElementById("con").innerText = numToWords(value);
-                                                console.log(value);
-
-                                            }
-                                            window.onload = changeVal;
-                                        </script>
-                                    </tr>
-                                </tbody>
-                                <!--Table body-->
-
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
+                <!-- https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-typography.php -->
                 <hr>
 
 
-
                 <div class="row text-center">
-
-
                     <div class="col-6">
                         <div class="row">
                             <h6>Approved by</h6>
