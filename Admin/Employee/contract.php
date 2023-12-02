@@ -214,7 +214,46 @@ if (isset($_GET['project_id'])) {
             </script>
 
             <div class="invoice-box ">
+                <div class="row ">
+                    <div class="col-6">
 
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <p class="card-text custom-font-small">
+                                        مؤسسة ركن أميال للمقاولات
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-6">
+                        <div>
+
+                       
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p class="card-text custom-font-small">
+                                                Miles Corner Foundation <br>
+                                                <hr>
+                                                Contracting
+
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+                          
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-12">
                         <div class="text-center text-150">
@@ -227,60 +266,7 @@ if (isset($_GET['project_id'])) {
 
                 <!-- here to change -->
                 <div class="row ">
-                    <div class="col">
-                        <div>
 
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p class="card-text custom-font-small">
-                                            Date:
-
-                                        </p>
-                                    </div>
-                                    <div class="col-8">
-                                        <p class="card-text custom-font-small">
-                                            <?= $created_at ?> <br>
-                                        </p>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div>
-
-                            <div>
-
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p class="card-text custom-font-small">
-                                                TO: <br>
-                                                Subject:<br>
-
-                                            </p>
-                                        </div>
-                                        <div class="col-8">
-                                            <p class="card-text custom-font-small">
-                                                <?= $supplier_name ?><br>
-                                                Proforma Invoice For (<?= $description ?>) <br>
-
-
-
-                                            </p>
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- == -->
                 <!-- https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-typography.php -->
