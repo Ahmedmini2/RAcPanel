@@ -191,12 +191,12 @@ $user2 = $res2->fetch_assoc();
                     document.getElementById('btn2').style.display = "none";
 
 
-                    document.getElementById('signture2').style.backgroundColor = "#ffffff00";
+                   // document.getElementById('signture2').style.backgroundColor = "#ffffff00";
                     window.print();
                     document.getElementById('btn2').style.display = "inline";
 
 
-                    document.getElementById('signture2').style.backgroundColor = "white";
+                  //  document.getElementById('signture2').style.backgroundColor = "white";
 
                 }
             </script>
@@ -330,7 +330,7 @@ $user2 = $res2->fetch_assoc();
                             <h4>المدير العام/عباس الجعفري</h4>
                         </div>
                     </div>
-                    <input class="signture" id="signture2" />
+                    
                 </div>
                 <table>
 
