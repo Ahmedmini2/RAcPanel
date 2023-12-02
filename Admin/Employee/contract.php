@@ -1,31 +1,17 @@
 <?php
 include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "employee";
-if (isset($_GET['project_id'])) {
-
-    $id = $_GET['project_id'];
-    $query = "SELECT * FROM projects WHERE id=$id";
-    $res = $conn->query($query);
-    $editData = $res->fetch_assoc();
-    $name = $editData['name'];
-    $description = $editData['description'];
-    $project_cost = $editData['project_cost'];
-    $total_without_tax = $editData['total_without_tax'];
-    $total_with_tax = $editData['total_with_tax'];
-    $created_at = $editData['created_at'];
-
-
-    $query3 = "SELECT * FROM contact_projects WHERE project_id=$id";
-    $res3 = $conn->query($query3);
-    $editData3 = $res3->fetch_assoc();
-    $supplier_name = $editData3['supplier_name'];
-    $contact_person = $editData3['contact_person'];
-    $mobile = $editData3['mobile'];
-    $address = $editData3['address'];
-    $email = $editData3['email'];
-    $vat = $editData3['vat'];
-    $company_trade = $editData3['company_trade'];
-}
+if (isset($_GET['user_id'])) {
+    $user_id = $_GET['user_id'];
+  } else {
+  $user_id = $_SESSION['id'];
+  }
+  $query = "SELECT * FROM employee WHERE user_id = $user_id";
+  $res = $conn->query($query);
+  $user = $res->fetch_assoc();
+  $query2 = "SELECT * FROM users WHERE id = $user_id";
+  $res2 = $conn->query($query2);
+  $user2 = $res2->fetch_assoc();
 
 
 
@@ -264,8 +250,8 @@ if (isset($_GET['project_id'])) {
                 <div class="row ">
                  <p>ابرم هذا العقد في تاريخ : 2022/12/01م</p>
                  <p>بين كل من: </p>
-                 <p>1 <strong>مؤسسة ركن أميال للمقاولات</strong> وهي مؤسسة سعودية برقم سجل تجاري (1010897903) بتاريخ 1400/1/1هـ, ويمثله في هذا العقد السيد / عباس الجعفري، بصفته المدير العام للمؤسسة ويشار إليه فيما بعد بالطرف الأول .</p>
-                 <p>2 <strong>المهندس / عبد الله بن غازي الرويس</strong> ، سعودي الجنسية، بسجل مدني (1050276102) تاريخ الإصدار 1418/12/17 هـ ومصدره الرياض, والمقيم سكناً في مدينة الرياض, ويشار إليه فيما بعد بالطرف الثاني . </p>
+                 <p>1- <strong>مؤسسة ركن أميال للمقاولات</strong> وهي مؤسسة سعودية برقم سجل تجاري (1010897903) بتاريخ 1400/1/1هـ, ويمثله في هذا العقد السيد / عباس الجعفري، بصفته المدير العام للمؤسسة ويشار إليه فيما بعد بالطرف الأول .</p>
+                 <p>2- <strong><?=$user['name']?></strong> ، سعودي الجنسية، بسجل مدني (1050276102) تاريخ الإصدار 1418/12/17 هـ ومصدره الرياض, والمقيم سكناً في مدينة الرياض, ويشار إليه فيما بعد بالطرف الثاني . </p>
                 </div>
                 <!-- == -->
             
