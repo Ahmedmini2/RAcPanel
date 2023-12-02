@@ -160,7 +160,7 @@ $user2 = $res2->fetch_assoc();
 
 <body class="g-sidenav-show rtl bg-gray-100">
 
-    <script src="../assets/js/numtowords/numtowords.js"></script>
+    <script src="../../assets/js/numtowords/numtowords.js"></script>
 
     <!-- Side Bar -->
     <?php require_once('../../components/sidebar_admin.php'); ?>
