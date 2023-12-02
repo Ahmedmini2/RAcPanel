@@ -219,9 +219,11 @@ if (isset($_GET['project_id'])) {
 
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-4">
-                                    <p class="card-text custom-font-small">
-                                        مؤسسة ركن أميال للمقاولات
+                                <div >
+                                    <p class="card-text">
+                                        مؤسسة ركن أميال <br>
+                                        <hr style="border:10px solid green;  border-radius: 2px;">
+                                        للمقاولات
                                     </p>
                                 </div>
 
@@ -231,13 +233,10 @@ if (isset($_GET['project_id'])) {
                     </div>
                     <div class="col-6">
                         <div>
-
-                       
-
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-4">
-                                            <p class="card-text custom-font-small">
+                                        <div>
+                                            <p class="card-text">
                                                 Miles Corner Foundation <br>
                                                 <hr>
                                                 Contracting
@@ -246,11 +245,7 @@ if (isset($_GET['project_id'])) {
                                         </div>
 
                                     </div>
-
-
-
                                 </div>
-                          
                         </div>
                     </div>
                 </div>
