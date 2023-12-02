@@ -312,11 +312,22 @@ $user2 = $res2->fetch_assoc();
                 <!-- == -->
 
 
+                <!--<input type="text" class="signture" id="signture2" />== -->
+
+
                 <div class="row text-center">
                     <div class="col-6">
                         <div class="row">
-                            <h6>Approved by</h6>
-                            <input type="text" class="signture" id="signture2" />
+                            <h6>الطرف الأول</h6>
+                            <h4>مؤسسة ركن اميال للمقاولات</h4>
+                            <h4>المدير العام/عباس الجعفري</h4>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <h6>الطرف الأول</h6>
+                            <h4>مؤسسة ركن اميال للمقاولات</h4>
+                            <h4>المدير العام/عباس الجعفري</h4>
                         </div>
                     </div>
                 </div>
