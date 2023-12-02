@@ -7,9 +7,10 @@ if (isset($_GET['user_id'])) {
     $user_id = $_SESSION['id'];
 }
 $query = "SELECT * FROM employee WHERE user_id = $user_id";
-$text_salary = $user['salary'];
+
 $res = $conn->query($query);
 $user = $res->fetch_assoc();
+$text_salary = $user['salary'];
 $query2 = "SELECT * FROM users WHERE id = $user_id";
 $res2 = $conn->query($query2);
 $user2 = $res2->fetch_assoc();
