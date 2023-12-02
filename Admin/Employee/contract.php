@@ -3,15 +3,16 @@ include('../../cookies/session3.php');
 $_SESSION['sidebar_admin'] = "employee";
 if (isset($_GET['user_id'])) {
     $user_id = $_GET['user_id'];
-  } else {
-  $user_id = $_SESSION['id'];
-  }
-  $query = "SELECT * FROM employee WHERE user_id = $user_id";
-  $res = $conn->query($query);
-  $user = $res->fetch_assoc();
-  $query2 = "SELECT * FROM users WHERE id = $user_id";
-  $res2 = $conn->query($query2);
-  $user2 = $res2->fetch_assoc();
+} else {
+    $user_id = $_SESSION['id'];
+}
+$query = "SELECT * FROM employee WHERE user_id = $user_id";
+$text_salary = $user['salary'];
+$res = $conn->query($query);
+$user = $res->fetch_assoc();
+$query2 = "SELECT * FROM users WHERE id = $user_id";
+$res2 = $conn->query($query2);
+$user2 = $res2->fetch_assoc();
 
 
 
@@ -205,7 +206,7 @@ if (isset($_GET['user_id'])) {
 
                         <div class="card-body">
                             <div class="row text-center">
-                                <div >
+                                <div>
                                     <p class="card-text">
                                         مؤسسة ركن أميال <br>
                                         <hr style="border-top: 1px solid green;">
@@ -220,19 +221,19 @@ if (isset($_GET['user_id'])) {
                     <div class="col-6"></div>
                     <div class="col-3">
                         <div>
-                                <div class="card-body">
-                                    <div class="row text-center">
-                                        <div>
-                                            <p class="card-text">
-                                                Miles Corner Foundation <br>
-                                                <hr>
-                                                Contracting
+                            <div class="card-body">
+                                <div class="row text-center">
+                                    <div>
+                                        <p class="card-text">
+                                            Miles Corner Foundation <br>
+                                            <hr>
+                                            Contracting
 
-                                            </p>
-                                        </div>
-
+                                        </p>
                                     </div>
+
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -248,17 +249,29 @@ if (isset($_GET['user_id'])) {
 
                 <!-- here to change -->
                 <div class="row ">
-                 <p>ابرم هذا العقد في تاريخ : 2022/12/01م</p>
-                 <p>بين كل من: </p>
-                 <p>1- <strong>مؤسسة ركن أميال للمقاولات</strong> وهي مؤسسة سعودية برقم سجل تجاري (1010897903) بتاريخ 1400/1/1هـ, ويمثله في هذا العقد السيد / عباس الجعفري، بصفته المدير العام للمؤسسة ويشار إليه فيما بعد بالطرف الأول .</p>
-                 <p>2- <strong><?=$user['name']?></strong> ،  الجنسية، بسجل مدني (1050276102) تاريخ الإصدار 1418/12/17 هـ ومصدره الرياض, والمقيم سكناً في مدينة الرياض, ويشار إليه فيما بعد بالطرف الثاني <?=$user['nationality']?>. </p>
-                 <p>حيث تم الإتفاق والتراضي بين الطرفين أعلاه وهما بأتم الأوصاف المعتبرة على الإلتزام بالعقد التالي: </p>
-                 <p><strong>تعتبر هذه المقدمة جزء لا يتجزأ من هذا العقد.</strong></p>
-                 <h3>المهنة ومكان العمل + الأجر والمزايا المالية</h3>
-                 <p>قبل الطرف الثاني بالعمل لدى الطرف الأول بوظيفة <?=$user['position']?> , وراتب أساسي شهري قدره<?= $user['salary']?> , </p>
+                    <p>ابرم هذا العقد في تاريخ : 2022/12/01م</p>
+                    <p>بين كل من: </p>
+                    <p>1- <strong>مؤسسة ركن أميال للمقاولات</strong> وهي مؤسسة سعودية برقم سجل تجاري (1010897903) بتاريخ 1400/1/1هـ, ويمثله في هذا العقد السيد / عباس الجعفري، بصفته المدير العام للمؤسسة ويشار إليه فيما بعد بالطرف الأول .</p>
+                    <p>2- <strong><?= $user['name'] ?></strong> ، الجنسية، بسجل مدني (1050276102) تاريخ الإصدار 1418/12/17 هـ ومصدره الرياض, والمقيم سكناً في مدينة الرياض, ويشار إليه فيما بعد بالطرف الثاني <?= $user['nationality'] ?>. </p>
+                    <p>حيث تم الإتفاق والتراضي بين الطرفين أعلاه وهما بأتم الأوصاف المعتبرة على الإلتزام بالعقد التالي: </p>
+                    <p><strong>تعتبر هذه المقدمة جزء لا يتجزأ من هذا العقد.</strong></p>
+                    <h4>المهنة ومكان العمل + الأجر والمزايا المالية</h4>
+                    <p>قبل الطرف الثاني بالعمل لدى الطرف الأول بوظيفة <?= $user['position'] ?> , وراتب أساسي شهري قدره(<?= $user['salary'] ?> ) ,<?= number_format($text_salary) ?> يدفع في نهاية كل شهر ميلادي + تأمين
+
+                        السيارة و المحروقات للعمل + تامين طبى له ولافراد العائلة + حوافز سنوية حسب اللوائح المعتمدة داخل المؤسسة نسبة 3% من قيمة اي مشروع يجلبه الطرف الثاني للمؤسسة ، حيث يلتزم الطرف الثاني بأي عمل يسند إليه من قبل الطرف الأول في أي مكان داخل المملكة العربية السعودية أو خارجها . </p>
+                    <script>
+                        function changeVal() {
+
+                            value = <?= number_format($text_salary, 0, "", "") ?>;
+                            document.getElementById("con").innerText = numToWords(value);
+                            console.log(value);
+
+                        }
+                        window.onload = changeVal;
+                    </script>
                 </div>
                 <!-- == -->
-            
+
 
                 <div class="row text-center">
                     <div class="col-6">
