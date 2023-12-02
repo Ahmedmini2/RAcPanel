@@ -330,6 +330,7 @@ $user2 = $res2->fetch_assoc();
                             <h4>المدير العام/عباس الجعفري</h4>
                         </div>
                     </div>
+                    <input class="signture" id="signture2" />
                 </div>
                 <table>
 
