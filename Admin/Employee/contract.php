@@ -215,14 +215,14 @@ if (isset($_GET['project_id'])) {
 
             <div class="invoice-box ">
                 <div class="row ">
-                    <div class="col-6">
+                    <div class="col-3">
 
                         <div class="card-body">
-                            <div class="row">
+                            <div class="row text-center">
                                 <div >
                                     <p class="card-text">
                                         مؤسسة ركن أميال <br>
-                                        <hr style="border:10px solid green;  border-radius: 2px;">
+                                        <hr style="border-top: 1px solid green;">
                                         للمقاولات
                                     </p>
                                 </div>
@@ -231,10 +231,11 @@ if (isset($_GET['project_id'])) {
                         </div>
 
                     </div>
-                    <div class="col-6">
+                    <div class="col-6"></div>
+                    <div class="col-3">
                         <div>
                                 <div class="card-body">
-                                    <div class="row">
+                                    <div class="row text-center">
                                         <div>
                                             <p class="card-text">
                                                 Miles Corner Foundation <br>
