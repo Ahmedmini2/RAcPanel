@@ -56,7 +56,7 @@ $sidebar = $_SESSION['sidebar'];
             </div>
             <span class="ms-1  d-sm-inline">الحسابات</span>
           </a>
-          <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+          <ul class="collapse nav flex-column ms-1" id="submenu1" >
             <li class="w-100">
               <a href="../Accounts/accounts.php" class="nav-link px-0"> <span class=" d-sm-inline">التعاميد</span></a>
             </li>
@@ -184,7 +184,7 @@ $sidebar = $_SESSION['sidebar'];
             </div>
             <span class="ms-1  d-sm-inline">مركز التكلفة</span>
           </a>
-          <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+          <ul class="collapse nav flex-column ms-1" id="submenu2" >
             <li class="w-100">
               <a href="../cost/cost.php" class="nav-link px-0"> <span class=" d-sm-inline">تكلفة</span></a>
             </li>
@@ -217,7 +217,7 @@ $sidebar = $_SESSION['sidebar'];
             </div>
             <span class="ms-1  d-sm-inline">الاغطية</span>
           </a>
-          <ul class="collapse nav flex-column ms-1" id="submenu22" data-bs-parent="#menu">
+          <ul class="collapse nav flex-column ms-1" id="submenu22" >
             <li class="w-100">
               <a href="../Cover/bills_cover.php" class="nav-link px-0"> <span class=" d-sm-inline">فواتير الاغطية </span></a>
             </li>
@@ -250,7 +250,7 @@ $sidebar = $_SESSION['sidebar'];
             </div>
             <span class="ms-1  d-sm-inline">ادارة الموقع</span>
           </a>
-          <ul class="collapse nav flex-column ms-1" id="submenu44" data-bs-parent="#menu">
+          <ul class="collapse nav flex-column ms-1" id="submenu44" >
             <li class="w-100">
               <a href="../WebManagment/index.php" class="nav-link px-0"> <span class=" d-sm-inline">المدونات </span></a>
             </li>
