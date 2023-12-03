@@ -114,7 +114,7 @@ $select = mysqli_query($conn, "select * from employee");
                                         ?>
                                             <tr>
                                                 <th scope="row">RA-EMP-<?= $r['id'] ?></th>
-                                                <td class="border-1"><?= $r['name'] ?></td>
+                                                <td class="border-1"><?= $r['name_en'] ?></td>
                                                 <td class="border-1"><?= $r['position'] ?></td>
                                                 <td class="border-1"><?= $r['salary'] ?></td>
                                                 <td class="border-1"><?= $r['contract_type'] ?></td>
