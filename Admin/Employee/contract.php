@@ -260,14 +260,14 @@ $user2 = $res2->fetch_assoc();
                                     <div class="row">
                                         <div class="col-6">
                                             <p>1-<strong>الطرف الأول</strong> </p>
-                                            <p>الايميل: <?= $user['email'] ?></p>
-                                            <p>جوال: <?= $user['phone'] ?></p>
+                                            <p>Email: info@ruknamial.com</p>
+                                            <p>Phone: (+966 59 102 2703)</p>
                                         </div>
                                         <div class="col-6">
 
                                             <p>2-<strong>الطرف التاني</strong> </p>
-                                            <p>الايميل: <?= $user['email'] ?></p>
-                                            <p>جوال: <?= $user['phone'] ?></p>
+                                            <p>Email: <?= $user['email'] ?></p>
+                                            <p>Phone: <?= $user['phone'] ?></p>
                                         </div>
                                     </div>
 
@@ -300,14 +300,14 @@ $user2 = $res2->fetch_assoc();
                         <div class="row">
                             <h6>الطرف الأول</h6>
                             <h4>مؤسسة ركن اميال للمقاولات</h4>
-                            <h4>المدير العام/عباس الجعفري</h4>
+                            <h4>المدير العام/<?=$_SESSION['full_name']?></h4>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="row">
                             <h6>الطرف التاني</h6>
                             
-                            <h4><p><?=$user['name']?></p></h4>
+                            <h4><?=$user['name_ar']?></h4>
                         </div>
                     </div>
                     
