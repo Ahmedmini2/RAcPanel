@@ -326,7 +326,7 @@ $user2 = $res2->fetch_assoc();
                     <div class="col-6">
                         <div class="row">
                             <h6>الطرف التاني</h6>
-                            <h4>مؤسسة ركن اميال للمقاولات</h4>
+                            
                             <h4><p><?=$user['name']?></p></h4>
                         </div>
                     </div>
