@@ -260,8 +260,8 @@ $user2 = $res2->fetch_assoc();
                                     <div class="row">
                                         <div class="col-6">
                                             <p>1-<strong>الطرف الأول</strong> </p>
-                                            <p>الايميل: <?= $user['email'] ?></p>
-                                            <p>جوال: <?= $user['phone'] ?></p>
+                                            <p>الايميل: info@ruknamial.com</p>
+                                            <p>جوال: (+966 59 102 2703)</p>
                                         </div>
                                         <div class="col-6">
 
