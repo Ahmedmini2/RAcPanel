@@ -8,15 +8,19 @@ if (isset($_GET['edit'])) {
     $query = "SELECT * FROM employee WHERE id=$id";
     $res = $conn->query($query);
     $editData = $res->fetch_assoc();
-    $name = $editData['name'];
+    $name_en = $editData['name_en'];
+    $name_ar = $editData['name_ar'];
     $email = $editData['email'];
     $phone = $editData['phone'];
     $phone_code = $editData['phone_code'];
     $nationality = $editData['nationality'];
     $gender = $editData['gender'];
     $birth = $editData['birth'];
+    $address = $editData['address'];
     $social_status = $editData['social_status'];
     $id_number = $editData['id_number'];
+    $id_issue_date = $editData['id_issue_date'];
+    $id_source = $editData['id_source'];
     $position = $editData['position'];
     $department = $editData['department'];
     $salary = $editData['salary'];
@@ -24,51 +28,69 @@ if (isset($_GET['edit'])) {
     $contract_type = $editData['contract_type'];
     $trial_period = $editData['trial_period'];
     $working_hours = $editData['working_hours'];
-    $image = $editData['image'];
+    $working_days = $editData['working_days'];
+    $car_insurance = $editData['car_insurance'];
+    $gas_insurance = $editData['gas_insurance'];
+    $medical_insurance = $editData['medical_insurance'];
+    $extra_perc = $editData['extra_perc'];
+    $phone_and_sim = $editData['phone_and_sim'];
+    $house_insurance = $editData['house_insurance'];
+    $auto_renew = $editData['auto_renew'];
+    $vication_year = $editData['vication_year'];
+    $tickets = $editData['tickets'];
 
     if (isset($_POST['submit'])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $phone_code = $_POST['phone_code'];
-        $nationality = $_POST['nationality'];
-        $gender = $_POST['gender'];
-        $birth = $_POST['birth'];
-        $social_status = $_POST['social_status'];
-        $id_number = $_POST['id_number'];
-        $position = $_POST['position'];
-        $department = $_POST['department'];
-        $salary = $_POST['salary'];
-        $start_date = $_POST['start_date'];
-        $contract_type = $_POST['contract_type'];
-        $trial_period = $_POST['trial_period'];
-        $working_hours = $_POST['working_hours'];
+        extract($_POST);
 
-        $target_dir = "../Documents/Employee-Contract/" . $id . "/";
-        if (!is_dir($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        } else {
+        // UPDATE EMPLOYEE DATA
+        $employee_data = [
+            'name_en' => $name_en,
+            'name_ar' => $name_ar,
+            'email' => $email,
+            'phone' => $phone,
+            'phone_code' => $phone_code,
+            'nationality' => $nationality,
+            'gender' => $gender,
+            'birth' => $birth,
+            'address' => $address,
+            'social_status' => $social_status,
+            'id_number' => $id_number,
+            'id_issue_date' => $id_issue_date,
+            'id_source' => $id_source,
+            'position' => $position,
+            'department' => $department,
+            'salary' => $salary,
+            'start_date' => $start_date,
+            'contract_type' => $contract_type,
+            'trial_period' => $trial_period,
+            'working_days' => $working_days,
+            'working_hours' => $working_hours,
+            'car_insurance' => $car_insurance,
+            'gas_insurance'=> $gas_insurance,
+            'medical_insurance' => $medical_insurance,
+            'extra_perc' => $extra_perc,
+            'phone_and_sim' => $phone_and_sim,
+            'house_insurance' => $house_insurance, 
+            'auto_renew' => $auto_renew,
+            'vication_year' => $vication_year,
+            'tickets' => $tickets,
+        ];
+
+        $employee_table = 'employee';
+
+        if (!empty($employee_data) && !empty($employee_table) && !empty($id)) {
+            $updateData = update_data($employee_data, $employee_table, $id);
+            if ($updateData) {
+                $_SESSION['notification'] = "تم تعديل الموظف بنجاح";
+                header('location: view-employee.php');
+                exit();
+            } else {
+                $_SESSION['notification'] = "يوجد خلل في النظام";
+                header('location: view-employee.php');
+                exit();
+            }
         }
-        $target_file = $target_dir . basename($_FILES["image"]["name"]);
-        $filename = basename($_FILES["image"]["name"]);
-        $uploadOk = 1;
-        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
 
-        $update = "UPDATE employee SET `name` = '$name' , `email` = '$email' , `phone` = '$phone' , `phone_code` = '$phone_code' , `nationality` = '$nationality' , `gender` = '$gender'
-        , `birth` = '$birth' , `social_status` = '$social_status' , `id_number` = '$id_number' , `position` = '$position' , `department` = '$department' , `salary` = '$salary' , 
-        `start_date` = '$start_date' , `contract_type` = '$contract_type' , `trial_period` = '$trial_period' , `working_hours` = '$working_hours' , `image` = '$filename'
-        WHERE `id` = '$id'";
-        $updateResult = $conn->query($update);
-        if ($updateResult) {
-
-            $_SESSION['notification'] = "تم تعديل الموظف بنجاح";
-            header('location: view-employee.php');
-            exit();
-        } else {
-            $_SESSION['notification'] = "يوجد خلل في النظام";
-            header('location: view-employee.php');
-            exit();
-        }
     }
 } else if (isset($_POST['submit'])) {
     extract($_POST);
