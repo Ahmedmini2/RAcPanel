@@ -59,7 +59,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
             </div>
             <span class="ms-1  d-sm-inline">الموظفين</span>
           </a>
-          <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+          <ul class="collapse nav flex-column ms-1" id="submenu2" >
             <li class="w-100">
               <a href="../../Admin/Employee/view-employee.php" class="nav-link px-0"> <span class=" d-sm-inline">بيانات الموظفين</span></a>
             </li>
@@ -113,7 +113,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
         </div>
         <span class="ms-1  d-sm-inline">اداره الاجازات</span>
       </a>
-      <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+      <ul class="collapse nav flex-column ms-1" id="submenu3" >
         <li class="w-100">
           <a href="../../Admin/leave/index.php" class="nav-link px-0"> <span class=" d-sm-inline">الاجازات</span></a>
         </li>
@@ -153,7 +153,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
         </div>
         <span class="ms-1  d-sm-inline">اداره السلفيات</span>
       </a>
-      <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
+      <ul class="collapse nav flex-column ms-1" id="submenu4" >
       <?php if ($_SESSION['position'] == 'Admin') { ?>
         <li class="w-100">
           <a href="../../Admin/Advance_Salary/view-advance-salary.php" class="nav-link px-0"> <span class=" d-sm-inline">بيانات السفليات</span></a>
@@ -201,7 +201,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
     </div>
     <span class="ms-1  d-sm-inline">مسير الرواتب</span>
   </a>
-  <ul class="collapse nav flex-column ms-1" id="submenu5" data-bs-parent="#menu">
+  <ul class="collapse nav flex-column ms-1" id="submenu5" >
     <li class="w-100">
       <a href="../../Admin/Payroll/index.php" class="nav-link px-0"> <span class=" d-sm-inline">مسير رواتب الشهور الماضية</span></a>
     </li>
