@@ -209,7 +209,7 @@ $user2 = $res2->fetch_assoc();
                             <div class="row text-center">
                                 <div>
                                     <p class="card-text fw-bold">
-                                        مؤسسة ركن أميال <br>
+                                        مؤسسة ركن أميال 
                                         <hr style="border-top: 1px solid green;">
                                         للمقاولات
                                     </p>
