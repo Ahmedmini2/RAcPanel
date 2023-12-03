@@ -202,42 +202,7 @@ $user2 = $res2->fetch_assoc();
             </script>
 
             <div class="invoice-box ">
-                <div class="row ">
-                    <div class="col-3">
-
-                        <div class="card-body">
-                            <div class="row text-center">
-                                <div>
-                                    <p class="card-text fw-bold">
-                                        مؤسسة ركن أميال <br>
-                                        <hr style="border-top: 1px solid green;">
-                                        للمقاولات
-                                    </p>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-5"></div>
-                    <div class="col-4">
-                        <div>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div>
-                                        <p class="card-text fw-bold">
-                                            Miles Corner Foundation <br>
-                                            <hr style="border-top: 1px solid green;">
-                                            Contracting
-
-                                        </p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="row">
                     <div class="col-12">
                         <div class="text-center text-150">
@@ -250,10 +215,10 @@ $user2 = $res2->fetch_assoc();
 
                 <!-- here to change -->
                 <div class="row ">
-                    <p>ابرم هذا العقد في تاريخ : 2022/12/01م</p>
+                    <p>ابرم هذا العقد في تاريخ : <?=$user['start_date']?>م</p>
                     <p>بين كل من: </p>
                     <p>1- <strong>مؤسسة ركن أميال للمقاولات</strong> وهي مؤسسة سعودية برقم سجل تجاري (1010897903) بتاريخ 1400/1/1هـ, ويمثله في هذا العقد السيد / عباس الجعفري، بصفته المدير العام للمؤسسة ويشار إليه فيما بعد بالطرف الأول .</p>
-                    <p>2- <strong><?= $user['name'] ?></strong> ، الجنسية، بسجل مدني (<?= $user['id_number'] ?>) تاريخ الإصدار 1418/12/17 هـ ومصدره الرياض, والمقيم سكناً في مدينة الرياض, ويشار إليه فيما بعد بالطرف الثاني <?= $user['nationality'] ?>. </p>
+                    <p>2- <strong><?= $user['name_ar'] ?></strong> ، الجنسية <?= $user['nationality'] ?> ، <?php if($user['nationality'] == 'سعودي') echo'بسجل مدني رقم'; else{ echo 'بإقامة رقم';} ?> (<?= $user['id_number'] ?>) تاريخ الإصدار <?=$user['id_issue_date']?> ومصدره <?=$user['id_source']?>, والمقيم سكناً في مدينة <?=$user['address']?>, ويشار إليه فيما بعد بالطرف الثاني . </p>
                     <p>حيث تم الإتفاق والتراضي بين الطرفين أعلاه وهما بأتم الأوصاف المعتبرة على الإلتزام بالعقد التالي: </p>
                     <p><strong>تعتبر هذه المقدمة جزء لا يتجزأ من هذا العقد.</strong></p>
                     <h4>المهنة ومكان العمل + الأجر والمزايا المالية</h4>

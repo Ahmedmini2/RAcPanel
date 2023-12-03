@@ -46,7 +46,7 @@ if (isset($_POST['request'])) {
             ?>
                 <tr>
                     <th class="text-secondary" scope="row">RA-EMP-<?= $r['id'] ?></th>
-                    <td class="border-1"><input type="text" class="form-control" name="name[]" value="<?= $r['name'] ?>" readonly></td>
+                    <td class="border-1"><input type="text" class="form-control" name="name[]" value="<?= $r['name_en'] ?>" readonly></td>
                     <td class="border-1"><input type="text" class="form-control" name="salary[]" value="<?= $r['salary'] ?>" readonly></td>
                     <td class="border-1"><input type="text" class="form-control" name="extra[]" value="0"></td>
                     <td class="border-1"><input type="text" class="form-control" name="total_salary[]" value="0"></td>
