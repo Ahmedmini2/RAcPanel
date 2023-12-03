@@ -5,7 +5,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
 $emp_id = $_SESSION['id'];
 $total_left_advance = get_advanced_status('advance_status',$emp_id);
 
-$leaves = get_advanced_status('leaves',$emp_id);
+
 
 ?>
 
@@ -135,7 +135,7 @@ $leaves = get_advanced_status('leaves',$emp_id);
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">عدد الاجازات</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                           <?=$leaves?>
+                                           12
                                         </h5>
                                     </div>
                                 </div>
