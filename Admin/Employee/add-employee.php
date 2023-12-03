@@ -397,7 +397,6 @@ if (isset($_GET['edit'])) {
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> تاريخ نهاية فترة التجربة</label>
-                                    <input type="date" class="form-control" name="trial_period" value="<?= $trial_period ?>">
                                     <select name="trial_period" class="form-control">
                                         <option value=""></option>
                                         <option value="شهر">شهر</option>
