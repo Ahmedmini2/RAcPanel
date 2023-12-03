@@ -245,8 +245,14 @@ if (isset($_GET['edit'])) {
 
                             <div class="col">
                                 <div class="form-group">
-                                    <label>اسم الموظف</label>
-                                    <input type="text" placeholder="اسم الموظف" class="form-control" name="name" value="<?= $name ?>">
+                                    <label>اسم الموظف بالانجليزي</label>
+                                    <input type="text" placeholder=" الرجاء ادخال اسم الموظف بالانجليزي" class="form-control" name="name_en" value="<?= $name ?>">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> اسم الموظف بالعربي</label>
+                                    <input type="text" placeholder="الرجاء ادخال اسم الموظف بالعربي" class="form-control" name="name_ar" value="<?= $name ?>">
                                 </div>
                             </div>
                             <div class="col">
@@ -255,15 +261,16 @@ if (isset($_GET['edit'])) {
                                     <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone" value="<?= $phone ?>">
                                 </div>
                             </div>
-                            <div class="col">
+
+                        </div>
+
+                        <div class="row">
+                             <div class="col">
                                 <div class="form-group">
                                     <label>رقم تحويلة الهاتف</label>
                                     <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone_code" value="<?= $phone_code ?>">
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label>البريد الإلكتروني</label>
