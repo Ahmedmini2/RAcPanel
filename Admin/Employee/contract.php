@@ -219,8 +219,8 @@ $user2 = $res2->fetch_assoc();
                         </div>
 
                     </div>
-                    <div class="col-6"></div>
-                    <div class="col-3">
+                    <div class="col-5"></div>
+                    <div class="col-4">
                         <div>
                             <div class="card-body">
                                 <div class="row text-center">
