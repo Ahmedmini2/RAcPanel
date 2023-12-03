@@ -228,8 +228,8 @@ $user2 = $res2->fetch_assoc();
                     <?php if ($user['medical_insurance'] == 'تأمين شخصي') echo ' + تأمين شخصي فقط '; else if($user['medical_insurance'] == 'تأمين طبى له ولأفراد العائلة') echo '+ تأمين طبى له ولأفراد العائلة';?>
                     <?php if ($user['phone_and_sim'] == 'يوجد') echo ' + تأمين جوال وشريحة إتصال '; ?> 
                     <?php if ($user['house_insurance'] == 'يوجد') echo ' + تأمين بدل سكن '; ?> 
-                    <?php if ($user['tickets'] == 'لا يوجد') echo''; else echo ' + تأمين قيمة تذاكر السفر '.$user['tickets'].' '; ?> 
-                    <?php if ($user['extra_perc'] == 'لا يوجد') echo ''; else echo ' + حوافز سنوية حسب اللوائح المعتمدة داخل المؤسسة نسبة  '.$user['extra_perc'].' من قيمة اي مشروع يجلبه الطرف الثاني للمؤسسة '; ?> 
+                    <?php if ($user['tickets'] == 'لا يوجد') echo''; else { echo ' + تأمين قيمة تذاكر السفر '.$user['tickets'].' '; } ?> 
+                    <?php if ($user['extra_perc'] == 'لا يوجد') echo ''; else { echo ' + حوافز سنوية حسب اللوائح المعتمدة داخل المؤسسة نسبة  '.$user['extra_perc'].' من قيمة اي مشروع يجلبه الطرف الثاني للمؤسسة ';} ?> 
                        
                       ، حيث يلتزم الطرف الثاني بأي عمل يسند إليه من قبل الطرف الأول في أي مكان داخل المملكة العربية السعودية أو خارجها . </p> 
                     <h4>مدة العقد</h4>
