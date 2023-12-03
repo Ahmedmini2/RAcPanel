@@ -285,7 +285,7 @@ if (isset($_GET['edit'])) {
             <div class="row">
                 <div class="block block-themed">
 
-                    <div class="block-header bg-gradient-dark  col-md-2 col-sm-6 col-xs-6  rounded-pill">
+                    <div class="block-header bg-gradient-dark  col-md-4 col-sm-6 col-xs-6  rounded-pill">
 
                         <h6 class="block-title text-white py-2 px-4">إضافة موظف جديد</h6>
                     </div>
