@@ -5,7 +5,7 @@ $_SESSION['sidebar_admin'] = "dashboard";
 $emp_id = $_SESSION['id'];
 $total_left_advance = get_advanced_status('advance_status',$emp_id);
 
-$leaves = mysqli_query($conn, "SELECT * FROM leaves LIMIT 1");
+$leaves = mysqli_query($conn, "SELECT * FROM leaves");
 while ($leave = mysqli_fetch_array($leaves)) {
 
   $total_approve += $leave['admin_approve'];
