@@ -25,6 +25,7 @@ if (isset($_GET['edit'])) {
     $department = $editData['department'];
     $salary = $editData['salary'];
     $start_date = $editData['start_date'];
+    $contract_period = $editData['contract_period'];
     $contract_type = $editData['contract_type'];
     $trial_period = $editData['trial_period'];
     $working_hours = $editData['working_hours'];
@@ -61,6 +62,7 @@ if (isset($_GET['edit'])) {
             'department' => $department,
             'salary' => $salary,
             'start_date' => $start_date,
+            'contract_period' => $contract_period,
             'contract_type' => $contract_type,
             'trial_period' => $trial_period,
             'working_days' => $working_days,
@@ -154,6 +156,7 @@ if (isset($_GET['edit'])) {
         'department' => $department,
         'salary' => $salary,
         'start_date' => $start_date,
+        'contract_period' => $contract_period,
         'contract_type' => $contract_type,
         'trial_period' => $trial_period,
         'working_days' => $working_days,
@@ -204,6 +207,7 @@ if (isset($_GET['edit'])) {
     $salary = "";
     $start_date = "";
     $contract_type = "";
+    $contract_period = "";
     $trial_period = "";
     $working_hours = "";
     $working_days = "";
@@ -443,12 +447,13 @@ if (isset($_GET['edit'])) {
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> مدة العقد </label>
-                                    <select name="vication_year" class="form-control">
-                                        <option value="<?= $vication_year ?>"><?= $vication_year ?></option>
+                                    <select name="contract_period" class="form-control">
+                                        <option value="<?= $contract_period ?>"><?= $contract_period ?></option>
                                         <option value="سنة">سنة</option>
-                                        <option value=" سنتين">سنتين</option>
-                                        <option value=" ثلاثة سنين">ثلاثة سنين</option>
-                                        <option value=" اربعة سنين">اربعة سنين</option>
+                                        <option value="سنتين">سنتين</option>
+                                        <option value="ثلاثة سنين">ثلاثة سنين</option>
+                                        <option value="اربعة سنين">اربعة سنين</option>
+                                        <option value="خمسة سنين">خمسة سنين</option>
 
                                     </select>
                                 </div>
