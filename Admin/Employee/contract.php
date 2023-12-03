@@ -208,7 +208,7 @@ $user2 = $res2->fetch_assoc();
                         <div class="card-body">
                             <div class="row text-center">
                                 <div>
-                                    <p class="card-text">
+                                    <p class="card-text fw-bold">
                                         مؤسسة ركن أميال <br>
                                         <hr style="border-top: 1px solid green;">
                                         للمقاولات
@@ -225,9 +225,9 @@ $user2 = $res2->fetch_assoc();
                             <div class="card-body">
                                 <div class="row text-center">
                                     <div>
-                                        <p class="card-text">
+                                        <p class="card-text fw-bold">
                                             Miles Corner Foundation <br>
-                                            <hr>
+                                            <hr style="border-top: 1px solid green;">
                                             Contracting
 
                                         </p>
