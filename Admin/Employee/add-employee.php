@@ -243,19 +243,19 @@ if (isset($_GET['edit'])) {
 
                         <div class="row">
 
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>اسم الموظف بالانجليزي</label>
                                     <input type="text" placeholder=" الرجاء ادخال اسم الموظف بالانجليزي" class="form-control" name="name_en" value="<?= $name ?>">
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> اسم الموظف بالعربي</label>
                                     <input type="text" placeholder="الرجاء ادخال اسم الموظف بالعربي" class="form-control" name="name_ar" value="<?= $name ?>">
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>رقم الهاتف</label>
                                     <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone" value="<?= $phone ?>">
@@ -265,19 +265,19 @@ if (isset($_GET['edit'])) {
                         </div>
 
                         <div class="row">
-                             <div class="col">
+                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>رقم تحويلة الهاتف</label>
                                     <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone_code" value="<?= $phone_code ?>">
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>البريد الإلكتروني</label>
                                     <input type="email" placeholder="البريد الإلكتروني" class="form-control" name="email" value="<?= $email ?>">
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>القسم</label>
                                     <select name="department" class="form-control">
@@ -297,7 +297,7 @@ if (isset($_GET['edit'])) {
                         </div>
 
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>الوظيفة</label>
                                     <input type="text" placeholder="المسمى الوظيفي" class="form-control" name="position" value="<?= $position ?>">
@@ -326,7 +326,7 @@ if (isset($_GET['edit'])) {
                         </div>
 
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>الجنسية</label>
                                     <input type="text" placeholder="اكتب جنسية الموظف" class="form-control" name="nationality" value="<?= $nationality ?>">
@@ -338,16 +338,16 @@ if (isset($_GET['edit'])) {
                                     <input type="date" class="form-control" name="birth" value="<?= $birth ?>">
                                 </div>
                             </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>رقم الهوية / جواز السفر</label>
                                     <input type="text" placeholder="اكتب رقم الهوية" class="form-control" name="id_number" value="<?= $id_number ?>">
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
+
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> الجنس</label>
@@ -372,10 +372,7 @@ if (isset($_GET['edit'])) {
                                     </select>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> نوع العقد</label>
                                     <select name="contract_type" class="form-control">
@@ -387,6 +384,10 @@ if (isset($_GET['edit'])) {
                                     </select>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
+
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> تاريخ بداية التوظيف</label>
@@ -397,36 +398,41 @@ if (isset($_GET['edit'])) {
                                 <div class="form-group">
                                     <label> تاريخ نهاية فترة التجربة</label>
                                     <input type="date" class="form-control" name="trial_period" value="<?= $trial_period ?>">
+                                    <select name="trial_period" class="form-control">
+                                        <option value=""></option>
+                                        <option value="شهر">شهر</option>
+                                        <option value="شهرين">شهرين</option>
+                                        <option value="ثلاثة شهور">ثلاثة شهور</option>
+                                        <option value="اربعة شهور">اربعة شهور</option>
+                                        <option value="خمسة شهور">خمسة شهور</option>
+                                    </select>
                                 </div>
                             </div>
 
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>تاريخ اصدار الاقامة </label>
                                     <input type="date" placeholder="الرجاء ادخال تاريخ اصدار الاقامة" class="form-control" name="dateAccommodation" value="<?= $name ?>">
                                 </div>
                             </div>
-                            <div class="col">
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>مصدر الاقامة</label>
                                     <input type="text" placeholder="الرجاء ادخال مصدر الاقامة" class="form-control" name="sourceAccommodation" value="<?= $phone ?>">
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>العنوان</label>
                                     <input type="text" placeholder="الرجاء ادخال عنوان السكن" class="form-control" name="address" value="<?= $phone_code ?>">
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> تأمين السيارة </label>
                                     <select name="car_insurance" class="form-control">
@@ -437,7 +443,11 @@ if (isset($_GET['edit'])) {
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> تأمين محروقات السيارة </label>
                                     <select name="car_fuel_insurance" class="form-control">
@@ -448,7 +458,7 @@ if (isset($_GET['edit'])) {
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> التأمين الطبي </label>
                                     <select name="medical_insurance" class="form-control">
@@ -460,11 +470,7 @@ if (isset($_GET['edit'])) {
                                     </select>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> نسبة الحافز </label>
                                     <select name="ratio" class="form-control">
@@ -479,7 +485,12 @@ if (isset($_GET['edit'])) {
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> توفير جوال وشريحة اتصال </label>
                                     <select name="phoneAndSimCard" class="form-control">
@@ -490,7 +501,7 @@ if (isset($_GET['edit'])) {
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> توفير بدل سكن </label>
                                     <select name="housing" class="form-control">
@@ -501,12 +512,7 @@ if (isset($_GET['edit'])) {
                                     </select>
                                 </div>
                             </div>
-
-                        </div>
-                        
-                        <div class="row">
-
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> هل يجدد مدة العقد؟ </label>
                                     <select name="contract_period" class="form-control">
@@ -519,7 +525,12 @@ if (isset($_GET['edit'])) {
                                 </div>
                             </div>
 
-                            <div class="col">
+                        </div>
+                        
+                        <div class="row">
+
+
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> استحقاق الاجازة </label>
                                     <select name="holiday" class="form-control">
@@ -531,7 +542,7 @@ if (isset($_GET['edit'])) {
                                 </div>
                             </div>
 
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> تذاكر السفر </label>
                                     <select name="travel_tickets" class="form-control">
@@ -543,12 +554,7 @@ if (isset($_GET['edit'])) {
                                     </select>
                                 </div>
                             </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> عدد ايام العمل </label>
                                     <select name="num_days" class="form-control">
@@ -560,10 +566,8 @@ if (isset($_GET['edit'])) {
                                     </select>
                                 </div>
                             </div>
-
-
-
                         </div>
+
 
 
 
