@@ -66,11 +66,11 @@ if (isset($_GET['edit'])) {
             'working_days' => $working_days,
             'working_hours' => $working_hours,
             'car_insurance' => $car_insurance,
-            'gas_insurance'=> $gas_insurance,
+            'gas_insurance' => $gas_insurance,
             'medical_insurance' => $medical_insurance,
             'extra_perc' => $extra_perc,
             'phone_and_sim' => $phone_and_sim,
-            'house_insurance' => $house_insurance, 
+            'house_insurance' => $house_insurance,
             'auto_renew' => $auto_renew,
             'vication_year' => $vication_year,
             'tickets' => $tickets,
@@ -90,7 +90,6 @@ if (isset($_GET['edit'])) {
                 exit();
             }
         }
-
     }
 } else if (isset($_POST['submit'])) {
     extract($_POST);
@@ -160,11 +159,11 @@ if (isset($_GET['edit'])) {
         'working_days' => $working_days,
         'working_hours' => $working_hours,
         'car_insurance' => $car_insurance,
-        'gas_insurance'=> $gas_insurance,
+        'gas_insurance' => $gas_insurance,
         'medical_insurance' => $medical_insurance,
         'extra_perc' => $extra_perc,
         'phone_and_sim' => $phone_and_sim,
-        'house_insurance' => $house_insurance, 
+        'house_insurance' => $house_insurance,
         'auto_renew' => $auto_renew,
         'vication_year' => $vication_year,
         'tickets' => $tickets,
@@ -185,7 +184,6 @@ if (isset($_GET['edit'])) {
             exit();
         }
     }
-    
 } else {
 
     $name_en = "";
@@ -214,11 +212,10 @@ if (isset($_GET['edit'])) {
     $medical_insurance = "";
     $extra_perc = "";
     $phone_and_sim = "";
-    $house_insurance = ""; 
+    $house_insurance = "";
     $auto_renew = "";
     $vication_year = "";
     $tickets = "";
-    
 }
 ?>
 
@@ -314,7 +311,7 @@ if (isset($_GET['edit'])) {
                         </div>
 
                         <div class="row">
-                             <div class="col-md-4 col-sm-6">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>رقم تحويلة الهاتف</label>
                                     <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone_code" value="<?= $phone_code ?>">
@@ -445,6 +442,19 @@ if (isset($_GET['edit'])) {
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
+                                    <label> مدة العقد </label>
+                                    <select name="vication_year" class="form-control">
+                                        <option value="<?= $vication_year ?>"><?= $vication_year ?></option>
+                                        <option value="سنة">سنة</option>
+                                        <option value=" سنتين">سنتين</option>
+                                        <option value=" ثلاثة سنين">ثلاثة سنين</option>
+                                        <option value=" اربعة سنين">اربعة سنين</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
                                     <label> تاريخ نهاية فترة التجربة</label>
                                     <select name="trial_period" class="form-control">
                                         <option value="<?= $trial_period ?>"><?= $trial_period ?></option>
@@ -457,17 +467,17 @@ if (isset($_GET['edit'])) {
                                 </div>
                             </div>
 
+
+                        </div>
+
+                        <div class="row">
+
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>تاريخ اصدار الاقامة </label>
                                     <input type="date" placeholder="الرجاء ادخال تاريخ اصدار الاقامة" class="form-control" name="id_issue_date" value="<?= $id_issue_date ?>">
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-
-
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>مصدر الاقامة</label>
@@ -480,25 +490,25 @@ if (isset($_GET['edit'])) {
                                     <input type="text" placeholder="الرجاء ادخال عنوان السكن" class="form-control" name="address" value="<?= $address ?>">
                                 </div>
                             </div>
+
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> تأمين السيارة </label>
                                     <select name="car_insurance" class="form-control">
-                                        <option value="<?=$car_insurance?>"><?=$car_insurance?></option>
+                                        <option value="<?= $car_insurance ?>"><?= $car_insurance ?></option>
                                         <option value="يوجد">يوجد</option>
                                         <option value="لا يوجد">لا يوجد</option>
                                     </select>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> تأمين محروقات السيارة </label>
                                     <select name="gas_insurance" class="form-control">
-                                        <option value="<?=$gas_insurance?>"><?=$gas_insurance?></option>
+                                        <option value="<?= $gas_insurance ?>"><?= $gas_insurance ?></option>
                                         <option value="يوجد">يوجد</option>
                                         <option value="لا يوجد">لا يوجد</option>
 
@@ -509,19 +519,24 @@ if (isset($_GET['edit'])) {
                                 <div class="form-group">
                                     <label> التأمين الطبي </label>
                                     <select name="medical_insurance" class="form-control">
-                                        <option value="<?=$medical_insurance?>"><?=$medical_insurance?></option>
+                                        <option value="<?= $medical_insurance ?>"><?= $medical_insurance ?></option>
                                         <option value="تأمين شخصي">تأمين شخصي</option>
                                         <option value="تأمين طبى له ولأفراد العائلة">تأمين طبى له ولأفراد العائلة</option>
                                         <option value="لا يوجد">لا يوجد</option>
 
                                     </select>
                                 </div>
+
+                            </div>
+
+                            <div class="row">
+
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> نسبة الحافز </label>
                                     <select name="extra_perc" class="form-control">
-                                        <option value="<?=$extra_perc?>"><?=$extra_perc?></option>
+                                        <option value="<?= $extra_perc ?>"><?= $extra_perc ?></option>
                                         <option value="1%">1%</option>
                                         <option value="2%">2%</option>
                                         <option value="3%">3%</option>
@@ -532,16 +547,11 @@ if (isset($_GET['edit'])) {
                                     </select>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-
-
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> توفير جوال وشريحة اتصال </label>
                                     <select name="phone_and_sim" class="form-control">
-                                        <option value="<?=$phone_and_sim?>"><?=$phone_and_sim?></option>
+                                        <option value="<?= $phone_and_sim ?>"><?= $phone_and_sim ?></option>
                                         <option value="يوجد">يوجد</option>
                                         <option value="لا يوجد">لا يوجد</option>
 
@@ -552,33 +562,33 @@ if (isset($_GET['edit'])) {
                                 <div class="form-group">
                                     <label> توفير بدل سكن </label>
                                     <select name="house_insurance" class="form-control">
-                                        <option value="<?=$house_insurance?>"><?=$house_insurance?></option>
+                                        <option value="<?= $house_insurance ?>"><?= $house_insurance ?></option>
                                         <option value="يوجد">يوجد</option>
                                         <option value="لا يوجد">لا يوجد</option>
                                     </select>
                                 </div>
                             </div>
+
+
+                        </div>
+
+                        <div class="row">
+
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> هل يجدد مدة العقد؟ </label>
                                     <select name="auto_renew" class="form-control">
-                                        <option value="<?=$auto_renew?>"><?=$auto_renew?></option>
+                                        <option value="<?= $auto_renew ?>"><?= $auto_renew ?></option>
                                         <option value="تلقائيا">تلقائيا</option>
                                         <option value="لا ">لا </option>
                                     </select>
                                 </div>
                             </div>
-
-                        </div>
-                        
-                        <div class="row">
-
-
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> استحقاق الاجازة </label>
                                     <select name="vication_year" class="form-control">
-                                        <option value="<?=$vication_year?>"><?=$vication_year?></option>
+                                        <option value="<?= $vication_year ?>"><?= $vication_year ?></option>
                                         <option value="سنة">سنة</option>
                                         <option value=" سنتين">سنتين</option>
 
@@ -590,25 +600,31 @@ if (isset($_GET['edit'])) {
                                 <div class="form-group">
                                     <label> تذاكر السفر </label>
                                     <select name="tickets" class="form-control">
-                                        <option value="<?=$tickets?>"><?=$tickets?></option>
+                                        <option value="<?= $tickets ?>"><?= $tickets ?></option>
                                         <option value="ذهاب واياب">ذهاب واياب</option>
                                         <option value="ذهاب فقط">ذهاب فقط</option>
-                                        
+
                                         <option value=">لا يوجد">>لا يوجد</option>
                                     </select>
                                 </div>
                             </div>
+
+                        </div>
+                        <div class="row">
+
+
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> عدد ايام العمل </label>
                                     <select name="working_days" class="form-control">
-                                        <option value="<?=$working_days?>"><?=$working_days?></option>
+                                        <option value="<?= $working_days ?>"><?= $working_days ?></option>
                                         <option value="5">5</option>
                                         <option value="6">6</option>
 
                                     </select>
                                 </div>
                             </div>
+
                         </div>
 
 
