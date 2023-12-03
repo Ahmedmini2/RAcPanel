@@ -124,6 +124,20 @@ function delete_data($tableName, $id){
       echo "Error found in ".$db->error;
    }
  }
+ 
+function getCount($tableName,$emp_id){
+  global $db;
+ 
+  $query = "SELECT * FROM ".$tableName." WHERE employee_id=".$emp_id;
+  $result= $db->query($query);
+  if ($result) {
+     $totalCount = mysqli_num_rows($result);
+     return $totalCount;
+  } else {
+    return 'Something Went Wrong!';
+  }
+  
+}
 
  
   ?>
