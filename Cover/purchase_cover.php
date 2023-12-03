@@ -384,7 +384,11 @@ if (isset($_GET['id'])) {
                                 <input type="submit" value="Upload Image" name="upload" class="btn bg-gradient-dark m-4 rounded-pill">
                                 <?php if ($image != '') {
                                     echo '<a href="../Signed-Docs/Covers_Purchase/' . $id . '/' . $image . '" target="_blank"><img src="../Signed-Docs/Covers_Purchase/' . $id . '/' . $image . '" class="img-fluid rounded-top" alt="' . $image . '"></a>';
+                                   echo '<button type="submit" name="delete" class="btn bg-gradient-dark rounded-pill">
+                                   حذف مستند
+                                    </button>';
                                 } ?>
+                                
                             </form>
                         </div>
                         <div class="modal-footer">

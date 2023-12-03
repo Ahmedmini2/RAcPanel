@@ -1,6 +1,6 @@
 <?php 
 include('../../db/connection.php'); 
-$db= $conn; // update with your database connection
+$db = $conn; // update with your database connection
 function insert_data(array $data, string $tableName){
        
        global $db;
@@ -124,6 +124,7 @@ function delete_data($tableName, $id){
       echo "Error found in ".$db->error;
    }
  }
+<<<<<<< HEAD
 
  function delete_image($tableName, $id){
   global $db;
@@ -135,4 +136,10 @@ function delete_data($tableName, $id){
       echo "Error: " . $updateResult . "<br>" . $db->error;
     }
 }
+=======
+ 
+
+
+ 
+>>>>>>> Testing
   ?>

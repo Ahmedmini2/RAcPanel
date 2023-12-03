@@ -8,93 +8,99 @@ if (isset($_GET['edit'])) {
     $query = "SELECT * FROM employee WHERE id=$id";
     $res = $conn->query($query);
     $editData = $res->fetch_assoc();
-    $name = $editData['name'];
+    $name_en = $editData['name_en'];
+    $name_ar = $editData['name_ar'];
     $email = $editData['email'];
     $phone = $editData['phone'];
     $phone_code = $editData['phone_code'];
     $nationality = $editData['nationality'];
     $gender = $editData['gender'];
     $birth = $editData['birth'];
+    $address = $editData['address'];
     $social_status = $editData['social_status'];
     $id_number = $editData['id_number'];
+    $id_issue_date = $editData['id_issue_date'];
+    $id_source = $editData['id_source'];
     $position = $editData['position'];
     $department = $editData['department'];
     $salary = $editData['salary'];
     $start_date = $editData['start_date'];
+    $contract_period = $editData['contract_period'];
     $contract_type = $editData['contract_type'];
     $trial_period = $editData['trial_period'];
     $working_hours = $editData['working_hours'];
-    $image = $editData['image'];
+    $working_days = $editData['working_days'];
+    $car_insurance = $editData['car_insurance'];
+    $gas_insurance = $editData['gas_insurance'];
+    $medical_insurance = $editData['medical_insurance'];
+    $extra_perc = $editData['extra_perc'];
+    $phone_and_sim = $editData['phone_and_sim'];
+    $house_insurance = $editData['house_insurance'];
+    $auto_renew = $editData['auto_renew'];
+    $vication_year = $editData['vication_year'];
+    $tickets = $editData['tickets'];
 
     if (isset($_POST['submit'])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $phone_code = $_POST['phone_code'];
-        $nationality = $_POST['nationality'];
-        $gender = $_POST['gender'];
-        $birth = $_POST['birth'];
-        $social_status = $_POST['social_status'];
-        $id_number = $_POST['id_number'];
-        $position = $_POST['position'];
-        $department = $_POST['department'];
-        $salary = $_POST['salary'];
-        $start_date = $_POST['start_date'];
-        $contract_type = $_POST['contract_type'];
-        $trial_period = $_POST['trial_period'];
-        $working_hours = $_POST['working_hours'];
+        extract($_POST);
 
-        $target_dir = "../Documents/Employee-Contract/" . $id . "/";
-        if (!is_dir($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        } else {
-        }
-        $target_file = $target_dir . basename($_FILES["image"]["name"]);
-        $filename = basename($_FILES["image"]["name"]);
-        $uploadOk = 1;
-        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+        // UPDATE EMPLOYEE DATA
+        $employee_data = [
+            'name_en' => $name_en,
+            'name_ar' => $name_ar,
+            'email' => $email,
+            'phone' => $phone,
+            'phone_code' => $phone_code,
+            'nationality' => $nationality,
+            'gender' => $gender,
+            'birth' => $birth,
+            'address' => $address,
+            'social_status' => $social_status,
+            'id_number' => $id_number,
+            'id_issue_date' => $id_issue_date,
+            'id_source' => $id_source,
+            'position' => $position,
+            'department' => $department,
+            'salary' => $salary,
+            'start_date' => $start_date,
+            'contract_period' => $contract_period,
+            'contract_type' => $contract_type,
+            'trial_period' => $trial_period,
+            'working_days' => $working_days,
+            'working_hours' => $working_hours,
+            'car_insurance' => $car_insurance,
+            'gas_insurance' => $gas_insurance,
+            'medical_insurance' => $medical_insurance,
+            'extra_perc' => $extra_perc,
+            'phone_and_sim' => $phone_and_sim,
+            'house_insurance' => $house_insurance,
+            'auto_renew' => $auto_renew,
+            'vication_year' => $vication_year,
+            'tickets' => $tickets,
+        ];
 
-        $update = "UPDATE employee SET `name` = '$name' , `email` = '$email' , `phone` = '$phone' , `phone_code` = '$phone_code' , `nationality` = '$nationality' , `gender` = '$gender'
-        , `birth` = '$birth' , `social_status` = '$social_status' , `id_number` = '$id_number' , `position` = '$position' , `department` = '$department' , `salary` = '$salary' , 
-        `start_date` = '$start_date' , `contract_type` = '$contract_type' , `trial_period` = '$trial_period' , `working_hours` = '$working_hours' , `image` = '$filename'
-        WHERE `id` = '$id'";
-        $updateResult = $conn->query($update);
-        if ($updateResult) {
+        $employee_table = 'employee';
 
-            $_SESSION['notification'] = "تم تعديل الموظف بنجاح";
-            header('location: view-employee.php');
-            exit();
-        } else {
-            $_SESSION['notification'] = "يوجد خلل في النظام";
-            header('location: view-employee.php');
-            exit();
+        if (!empty($employee_data) && !empty($employee_table) && !empty($id)) {
+            $updateData = update_data($employee_data, $employee_table, $id);
+            if ($updateData) {
+                $_SESSION['notification'] = "تم تعديل الموظف بنجاح";
+                header('location: view-employee.php');
+                exit();
+            } else {
+                $_SESSION['notification'] = "يوجد خلل في النظام";
+                header('location: view-employee.php');
+                exit();
+            }
         }
     }
 } else if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $phone_code = $_POST['phone_code'];
-    $nationality = $_POST['nationality'];
-    $gender = $_POST['gender'];
-    $birth = $_POST['birth'];
-    $social_status = $_POST['social_status'];
-    $id_number = $_POST['id_number'];
-    $position = $_POST['position'];
-    $department = $_POST['department'];
-    $salary = $_POST['salary'];
-    $start_date = $_POST['start_date'];
-    $contract_type = $_POST['contract_type'];
-    $trial_period = $_POST['trial_period'];
-    $working_hours = $_POST['working_hours'];
-
-    $filename = basename($_FILES["image"]["name"]);
+    extract($_POST);
 
     // INSERT NEW USER
     $data = [
-        'full_name' => $name,
+        'full_name' => $name_ar,
         'email' => $email,
-        'username' => $name,
+        'username' => $name_en,
         'phone' => $phone,
         'role' => 3,
         'position' => 'Employee',
@@ -115,6 +121,7 @@ if (isset($_GET['edit'])) {
     }
     $inserted_id = $db->insert_id;
 
+    // INSERT EMPTY ADVANCE SALARY
     $advance_status_data = [
         'emp_id' => $inserted_id,
         'amount' => 0,
@@ -129,31 +136,61 @@ if (isset($_GET['edit'])) {
         }
     }
 
-    $insert = "INSERT INTO employee VALUES (NULL,'$inserted_id', '$name', '$email', '$phone','$phone_code','$nationality','$gender', '$birth', '$social_status','$id_number','$position'
-    ,'$department', '$salary', '$start_date','$contract_type','$trial_period','$working_hours','$filename' , NOW())";
+    // INSERT EMPLOYEE DATA
+    $employee_data = [
+        'user_id' => $inserted_id,
+        'name_en' => $name_en,
+        'name_ar' => $name_ar,
+        'email' => $email,
+        'phone' => $phone,
+        'phone_code' => $phone_code,
+        'nationality' => $nationality,
+        'gender' => $gender,
+        'birth' => $birth,
+        'address' => $address,
+        'social_status' => $social_status,
+        'id_number' => $id_number,
+        'id_issue_date' => $id_issue_date,
+        'id_source' => $id_source,
+        'position' => $position,
+        'department' => $department,
+        'salary' => $salary,
+        'start_date' => $start_date,
+        'contract_period' => $contract_period,
+        'contract_type' => $contract_type,
+        'trial_period' => $trial_period,
+        'working_days' => $working_days,
+        'working_hours' => $working_hours,
+        'car_insurance' => $car_insurance,
+        'gas_insurance' => $gas_insurance,
+        'medical_insurance' => $medical_insurance,
+        'extra_perc' => $extra_perc,
+        'phone_and_sim' => $phone_and_sim,
+        'house_insurance' => $house_insurance,
+        'auto_renew' => $auto_renew,
+        'vication_year' => $vication_year,
+        'tickets' => $tickets,
 
-    $insertResult = $conn->query($insert);
-    if ($insertResult) {
+    ];
 
-        $target_dir = "../Documents/Employee-Contract/" . $inserted_id . "/";
-        if (!is_dir($target_dir)) {
-            mkdir($target_dir, 0777, true);
+    $employee_table = 'employee';
+
+    if (!empty($employee_data) && !empty($employee_table)) {
+        $insertData = insert_data($employee_data, $employee_table);
+        if ($insertData) {
+            $_SESSION['notification'] = "تم اضافة الموظف بنجاح";
+            header('location: view-employee.php');
+            exit();
         } else {
+            $_SESSION['notification'] = "يوجد خلل في النظام";
+            header('location: view-employee.php');
+            exit();
         }
-        $target_file = $target_dir . basename($_FILES["image"]["name"]);
-        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-
-        $_SESSION['notification'] = "تم اضافة الموظف بنجاح";
-        header('location: view-employee.php');
-        exit();
-    } else {
-        $_SESSION['notification'] = "يوجد خلل في النظام";
-        header('location: view-employee.php');
-        exit();
     }
 } else {
 
-    $name = "";
+    $name_en = "";
+    $name_ar = "";
     $email = "";
     $phone = "";
     $phone_code = "";
@@ -161,15 +198,28 @@ if (isset($_GET['edit'])) {
     $gender = "";
     $birth = "";
     $social_status = "";
+    $address = "";
     $id_number = "";
+    $id_issue_date = "";
+    $id_source = "";
     $position = "";
     $department = "";
     $salary = "";
     $start_date = "";
     $contract_type = "";
+    $contract_period = "";
     $trial_period = "";
     $working_hours = "";
-    $image = "";
+    $working_days = "";
+    $car_insurance = "";
+    $gas_insurance = "";
+    $medical_insurance = "";
+    $extra_perc = "";
+    $phone_and_sim = "";
+    $house_insurance = "";
+    $auto_renew = "";
+    $vication_year = "";
+    $tickets = "";
 }
 ?>
 
@@ -235,41 +285,49 @@ if (isset($_GET['edit'])) {
             <div class="row">
                 <div class="block block-themed">
 
-                    <div class="block-header bg-gradient-dark  col-md-2 col-sm-6 col-xs-6  rounded-pill">
+                    <div class="block-header bg-gradient-dark  col-md-4 col-sm-6 col-xs-6  rounded-pill">
 
                         <h6 class="block-title text-white py-2 px-4">إضافة موظف جديد</h6>
                     </div>
                     <form method="post" action="" enctype="multipart/form-data">
+
                         <div class="row">
 
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
-                                    <label>اسم الموظف</label>
-                                    <input type="text" placeholder="اسم الموظف" class="form-control" name="name" value="<?= $name ?>">
+                                    <label>اسم الموظف بالانجليزي</label>
+                                    <input type="text" placeholder=" الرجاء ادخال اسم الموظف بالانجليزي" class="form-control" name="name_en" value="<?= $name_en ?>">
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> اسم الموظف بالعربي</label>
+                                    <input type="text" placeholder="الرجاء ادخال اسم الموظف بالعربي" class="form-control" name="name_ar" value="<?= $name_ar ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>رقم الهاتف</label>
                                     <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone" value="<?= $phone ?>">
                                 </div>
                             </div>
-                            <div class="col">
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>رقم تحويلة الهاتف</label>
                                     <input type="text" placeholder="رقم الهاتف الخاص بالموظف" class="form-control" name="phone_code" value="<?= $phone_code ?>">
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>البريد الإلكتروني</label>
                                     <input type="email" placeholder="البريد الإلكتروني" class="form-control" name="email" value="<?= $email ?>">
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>القسم</label>
                                     <select name="department" class="form-control">
@@ -287,8 +345,9 @@ if (isset($_GET['edit'])) {
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>الوظيفة</label>
                                     <input type="text" placeholder="المسمى الوظيفي" class="form-control" name="position" value="<?= $position ?>">
@@ -317,7 +376,7 @@ if (isset($_GET['edit'])) {
                         </div>
 
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>الجنسية</label>
                                     <input type="text" placeholder="اكتب جنسية الموظف" class="form-control" name="nationality" value="<?= $nationality ?>">
@@ -329,16 +388,16 @@ if (isset($_GET['edit'])) {
                                     <input type="date" class="form-control" name="birth" value="<?= $birth ?>">
                                 </div>
                             </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>رقم الهوية / جواز السفر</label>
                                     <input type="text" placeholder="اكتب رقم الهوية" class="form-control" name="id_number" value="<?= $id_number ?>">
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
+
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> الجنس</label>
@@ -363,21 +422,22 @@ if (isset($_GET['edit'])) {
                                     </select>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> نوع العقد</label>
                                     <select name="contract_type" class="form-control">
                                         <option value="<?= $contract_type ?>"><?= $contract_type ?></option>
-                                        <option value="دوام كامل">دوام كامل</option>
-                                        <option value="دوام جزئي">دوام جزئي</option>
-                                        <option value="دوام مؤقت">دوام مؤقت</option>
-                                        <option value="دوام عن بعد">دوام عن بعد</option>
+                                        <option value="كامل">دوام كامل</option>
+                                        <option value="جزئي">دوام جزئي</option>
+                                        <option value="مؤقت">دوام مؤقت</option>
+                                        <option value="عن بعد">دوام عن بعد</option>
                                     </select>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
+
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label> تاريخ بداية التوظيف</label>
@@ -386,18 +446,194 @@ if (isset($_GET['edit'])) {
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
-                                    <label> تاريخ نهاية فترة التجربة</label>
-                                    <input type="date" class="form-control" name="trial_period" value="<?= $trial_period ?>">
+                                    <label> مدة العقد </label>
+                                    <select name="contract_period" class="form-control">
+                                        <option value="<?= $contract_period ?>"><?= $contract_period ?></option>
+                                        <option value="سنة">سنة</option>
+                                        <option value="سنتين">سنتين</option>
+                                        <option value="ثلاثة سنين">ثلاثة سنين</option>
+                                        <option value="اربعة سنين">اربعة سنين</option>
+                                        <option value="خمسة سنين">خمسة سنين</option>
+
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
-                                    <label> صورة العقد</label>
-                                    <input type="file" class="form-control" name="image" value="<?= $image ?>">
+                                    <label> تاريخ نهاية فترة التجربة</label>
+                                    <select name="trial_period" class="form-control">
+                                        <option value="<?= $trial_period ?>"><?= $trial_period ?></option>
+                                        <option value="شهر">شهر</option>
+                                        <option value="شهرين">شهرين</option>
+                                        <option value="ثلاثة شهور">ثلاثة شهور</option>
+                                        <option value="اربعة شهور">اربعة شهور</option>
+                                        <option value="خمسة شهور">خمسة شهور</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label>تاريخ اصدار الاقامة </label>
+                                    <input type="date" placeholder="الرجاء ادخال تاريخ اصدار الاقامة" class="form-control" name="id_issue_date" value="<?= $id_issue_date ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label>مصدر الاقامة</label>
+                                    <input type="text" placeholder="الرجاء ادخال مصدر الاقامة" class="form-control" name="id_source" value="<?= $id_source ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label>العنوان</label>
+                                    <input type="text" placeholder="الرجاء ادخال عنوان السكن" class="form-control" name="address" value="<?= $address ?>">
                                 </div>
                             </div>
 
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> تأمين السيارة </label>
+                                    <select name="car_insurance" class="form-control">
+                                        <option value="<?= $car_insurance ?>"><?= $car_insurance ?></option>
+                                        <option value="يوجد">يوجد</option>
+                                        <option value="لا يوجد">لا يوجد</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> تأمين محروقات السيارة </label>
+                                    <select name="gas_insurance" class="form-control">
+                                        <option value="<?= $gas_insurance ?>"><?= $gas_insurance ?></option>
+                                        <option value="يوجد">يوجد</option>
+                                        <option value="لا يوجد">لا يوجد</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> التأمين الطبي </label>
+                                    <select name="medical_insurance" class="form-control">
+                                        <option value="<?= $medical_insurance ?>"><?= $medical_insurance ?></option>
+                                        <option value="تأمين شخصي">تأمين شخصي</option>
+                                        <option value="تأمين طبى له ولأفراد العائلة">تأمين طبى له ولأفراد العائلة</option>
+                                        <option value="لا يوجد">لا يوجد</option>
+
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> نسبة الحافز </label>
+                                    <select name="extra_perc" class="form-control">
+                                        <option value="<?= $extra_perc ?>"><?= $extra_perc ?></option>
+                                        <option value="1%">1%</option>
+                                        <option value="2%">2%</option>
+                                        <option value="3%">3%</option>
+                                        <option value="4%">4%</option>
+                                        <option value="5%">5%</option>
+                                        <option value="لا يوجد">لا يوجد</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> توفير جوال وشريحة اتصال </label>
+                                    <select name="phone_and_sim" class="form-control">
+                                        <option value="<?= $phone_and_sim ?>"><?= $phone_and_sim ?></option>
+                                        <option value="يوجد">يوجد</option>
+                                        <option value="لا يوجد">لا يوجد</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> توفير بدل سكن </label>
+                                    <select name="house_insurance" class="form-control">
+                                        <option value="<?= $house_insurance ?>"><?= $house_insurance ?></option>
+                                        <option value="يوجد">يوجد</option>
+                                        <option value="لا يوجد">لا يوجد</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> هل يجدد مدة العقد؟ </label>
+                                    <select name="auto_renew" class="form-control">
+                                        <option value="<?= $auto_renew ?>"><?= $auto_renew ?></option>
+                                        <option value="تلقائيا">تلقائيا</option>
+                                        <option value="لا ">لا </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> استحقاق الاجازة </label>
+                                    <select name="vication_year" class="form-control">
+                                        <option value="<?= $vication_year ?>"><?= $vication_year ?></option>
+                                        <option value="سنوية">سنة</option>
+                                        <option value="كل سنتين">سنتين</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> تذاكر السفر </label>
+                                    <select name="tickets" class="form-control">
+                                        <option value="<?= $tickets ?>"><?= $tickets ?></option>
+                                        <option value="ذهاب واياب">ذهاب واياب</option>
+                                        <option value="ذهاب فقط">ذهاب فقط</option>
+
+                                        <option value="لا يوجد">لا يوجد</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label> عدد ايام العمل </label>
+                                    <select name="working_days" class="form-control">
+                                        <option value="<?= $working_days ?>"><?= $working_days ?></option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
 
                         <div class="row">
                             <div class="col">

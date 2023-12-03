@@ -114,7 +114,7 @@ $select = mysqli_query($conn, "select * from employee");
                                         ?>
                                             <tr>
                                                 <th scope="row">RA-EMP-<?= $r['id'] ?></th>
-                                                <td class="border-1"><?= $r['name'] ?></td>
+                                                <td class="border-1"><?= $r['name_en'] ?></td>
                                                 <td class="border-1"><?= $r['position'] ?></td>
                                                 <td class="border-1"><?= $r['salary'] ?></td>
                                                 <td class="border-1"><?= $r['contract_type'] ?></td>
@@ -123,6 +123,7 @@ $select = mysqli_query($conn, "select * from employee");
 
                                                 <td class="border-1"><?= $r['department'] ?></td>
                                                 <td class="border-1">
+                                                <a href="contract.php?user_id=<?= $r['user_id'] ?>"><i class="fa fa-file-text" aria-hidden="true"></i></a>|
                                                     <a href="../../Profile/profile.php?user_id=<?= $r['user_id'] ?>"><i class="fa fa-eye" aria-hidden="true"></i></a>|
                                                     <a href="add-employee.php?edit=<?= $r['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                                 </td>

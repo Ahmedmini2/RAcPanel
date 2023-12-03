@@ -122,6 +122,7 @@ function delete_data($tableName, $id){
   }
 }
 
+<<<<<<< HEAD
 function delete_image($tableName, $id){
   global $db;
   $updateQuery = "UPDATE ".$tableName." SET image='' WHERE purchase_id=".$id;
@@ -132,4 +133,7 @@ function delete_image($tableName, $id){
       echo "Error: " . $updateResult . "<br>" . $db->error;
     }
 }
+=======
+
+>>>>>>> Testing
   ?>
