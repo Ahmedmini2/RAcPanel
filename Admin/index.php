@@ -5,7 +5,11 @@ $_SESSION['sidebar_admin'] = "dashboard";
 $emp_id = $_SESSION['id'];
 $total_left_advance = get_advanced_status('advance_status',$emp_id);
 
+$leaves = mysqli_query($conn, "SELECT * FROM leaves LIMIT 1");
+while ($leave = mysqli_fetch_array($leaves)) {
 
+  $total_approve += $leave['admin_approve'];
+}
 
 
 ?>
@@ -158,7 +162,7 @@ $total_left_advance = get_advanced_status('advance_status',$emp_id);
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">الاجازة المعتمدة</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            6
+                                            <?=$total_approve?>
                                         </h5>
                                     </div>
                                 </div>
