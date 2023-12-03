@@ -572,6 +572,7 @@ if (isset($_GET['edit'])) {
                                         <option value="ذهاب واياب">ذهاب واياب</option>
                                         <option value="ذهاب فقط">ذهاب فقط</option>
                                         <option value="قيمة التذاكر">قيمة التذاكر</option>
+                                        <option value=">لا يوجد">>لا يوجد</option>
                                     </select>
                                 </div>
                             </div>
