@@ -4,15 +4,8 @@ include('../cookies/insert-method2.php');
 $_SESSION['sidebar_admin'] = "dashboard";
 $emp_id = $_SESSION['id'];
 $total_left_advance = get_advanced_status('advance_status',$emp_id);
-$query = "SELECT * FROM leaves";
-    $query_run = mysqli_query($conn,$query);
-    if ($query_run) {
-       $totalLeaves = mysqli_num_rows($query_run);
-       return $totalLeaves;
-    } else {
-      return 'Something Went Wrong!';
-    }
 
+$leaves = get_advanced_status('leaves',$emp_id);
 
 ?>
 
@@ -142,7 +135,7 @@ $query = "SELECT * FROM leaves";
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">عدد الاجازات</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            <?=$totalLeaves;?>
+                                           <?=$leaves?>
                                         </h5>
                                     </div>
                                 </div>
