@@ -4,7 +4,7 @@ include('../cookies/insert-method2.php');
 $_SESSION['sidebar_admin'] = "dashboard";
 $emp_id = $_SESSION['id'];
 $total_left_advance = get_advanced_status('advance_status',$emp_id);
-$total_leave=  getCount('leaves',$emp_id) ;
+
 
 
 
@@ -136,7 +136,7 @@ $total_leave=  getCount('leaves',$emp_id) ;
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">عدد الاجازات</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                        <?= $total_leave ?>
+                                       12
                                         </h5>
                                     </div>
                                 </div>
