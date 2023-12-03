@@ -427,10 +427,10 @@ if (isset($_GET['edit'])) {
                                     <label> نوع العقد</label>
                                     <select name="contract_type" class="form-control">
                                         <option value="<?= $contract_type ?>"><?= $contract_type ?></option>
-                                        <option value="دوام كامل">دوام كامل</option>
-                                        <option value="دوام جزئي">دوام جزئي</option>
-                                        <option value="دوام مؤقت">دوام مؤقت</option>
-                                        <option value="دوام عن بعد">دوام عن بعد</option>
+                                        <option value="كامل">دوام كامل</option>
+                                        <option value="جزئي">دوام جزئي</option>
+                                        <option value="مؤقت">دوام مؤقت</option>
+                                        <option value="عن بعد">دوام عن بعد</option>
                                     </select>
                                 </div>
                             </div>
@@ -594,8 +594,8 @@ if (isset($_GET['edit'])) {
                                     <label> استحقاق الاجازة </label>
                                     <select name="vication_year" class="form-control">
                                         <option value="<?= $vication_year ?>"><?= $vication_year ?></option>
-                                        <option value="سنة">سنة</option>
-                                        <option value=" سنتين">سنتين</option>
+                                        <option value="سنوية">سنة</option>
+                                        <option value="كل سنتين">سنتين</option>
 
                                     </select>
                                 </div>
