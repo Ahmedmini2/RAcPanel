@@ -171,7 +171,7 @@ $select = mysqli_query($conn, "SELECT * FROM `employee`");
 
                                                 <tr>
                                                     <th scope="row"><?= $rr['id'] ?></th>
-                                                    <td class="border-1"><?= $rr['name'] ?></td>
+                                                    <td class="border-1"><?= $rr['name_en'] ?></td>
                                                     <td class="border-1"><?= $rr['salary'] ?></td>
                                                     <td class="border-1"><?= $total_adv ?></td>
                                                     <td class="border-1"><?=$total_adv - $total_status?></td>
