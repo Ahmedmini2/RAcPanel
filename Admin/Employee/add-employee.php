@@ -500,11 +500,11 @@ if (isset($_GET['edit'])) {
                                     <label> نسبة الحافز </label>
                                     <select name="extra_perc" class="form-control">
                                         <option value="<?=$extra_perc?>"><?=$extra_perc?></option>
-                                        <option value="1">1%</option>
-                                        <option value="2">2%</option>
-                                        <option value="3">3%</option>
-                                        <option value="4">4%</option>
-                                        <option value="5">5%</option>
+                                        <option value="1%">1%</option>
+                                        <option value="2%">2%</option>
+                                        <option value="3%">3%</option>
+                                        <option value="4%">4%</option>
+                                        <option value="5%">5%</option>
                                         <option value="لا يوجد">لا يوجد</option>
 
                                     </select>
