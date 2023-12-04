@@ -3,24 +3,24 @@ include('../cookies/session2.php');
 include('../cookies/insert-method2.php');
 $_SESSION['sidebar_admin'] = "dashboard";
 $emp_id = $_SESSION['id'];
-$total_left_advance = get_advanced_status('advance_status',$emp_id);
+$total_left_advance = get_advanced_status('advance_status', $emp_id);
 
 $query = "SELECT * FROM leaves";
-$res = mysqli_query($conn,$query);
+$res = mysqli_query($conn, $query);
 if ($res) {
-    $rowcount=mysqli_num_rows($res);
+    $rowcount = mysqli_num_rows($res);
 }
 
 $query = "SELECT * FROM leaves WHERE status='Approved'";
-$res = mysqli_query($conn,$query);
+$res = mysqli_query($conn, $query);
 if ($res) {
-    $rowcountApproved=mysqli_num_rows($res);
+    $rowcountApproved = mysqli_num_rows($res);
 }
 
 $query = "SELECT * FROM leaves WHERE status='Pending'";
-$res = mysqli_query($conn,$query);
+$res = mysqli_query($conn, $query);
 if ($res) {
-    $rowcountPending=mysqli_num_rows($res);
+    $rowcountPending = mysqli_num_rows($res);
 }
 ?>
 
@@ -91,7 +91,7 @@ if ($res) {
                     <h6 class="font-weight-bolder mb-0">الرئيسية</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
-                    
+
 
 
 
@@ -150,7 +150,7 @@ if ($res) {
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">عدد الاجازات</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                       <?=$rowcount?>
+                                            <?= $rowcount ?>
                                         </h5>
                                     </div>
                                 </div>
@@ -172,7 +172,7 @@ if ($res) {
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">الاجازة المعتمدة</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            <?=$rowcountApproved?>
+                                            <?= $rowcountApproved ?>
                                         </h5>
                                     </div>
                                 </div>
@@ -193,7 +193,7 @@ if ($res) {
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">انتظار الموافقه على الاجازة</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                        <?=$rowcountPending?>
+                                            <?= $rowcountPending ?>
                                         </h5>
                                     </div>
                                 </div>
@@ -214,7 +214,7 @@ if ($res) {
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">إجمالي متبقي السلفيات</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            <?=$total_left_advance?>
+                                            <?= $total_left_advance ?>
                                         </h5>
                                     </div>
                                 </div>
@@ -257,25 +257,36 @@ if ($res) {
 
                                     <!--Table body-->
                                     <tbody class=" text-center">
-                                    <?php
-                                         $i=0;
-                                         $show_leaves = mysqli_query($conn, "SELECT * FROM `leaves`");
-                                         while ($r = mysqli_fetch_array($show_leaves)) {
-                                         $i++;
-                                         $emp_id = $r['employee_id'];
-                                         $query = "SELECT * FROM users WHERE id=$emp_id";
-                                         $resLeaves = $conn->query($query);
-                                         $full_name = $resLeaves->fetch_assoc();
-                                    ?>
-                                         <tr>
-                                            <th scope="row"><?= $r['id'] ?></th>
-                                            <td class="border-1"><?= $full_name['full_name'] ?></td>
-                                            <td class="border-1"><?= $r['type'] ?></td>
-                                            <td class="border-1"><?= $r['created_at'] ?></td>
-                              
-                                            <td class="border-1"><span style="color: gray"> <?= $r['status'] ?><i class="fa fa-spinner"></i></span></td>
+                                        <?php
+                                        $i = 0;
+                                        $show_leaves = mysqli_query($conn, "SELECT * FROM `leaves`");
+                                        while ($r = mysqli_fetch_array($show_leaves)) {
+                                            $i++;
+                                            $emp_id = $r['employee_id'];
+                                            $query = "SELECT * FROM users WHERE id=$emp_id";
+                                            $resLeaves = $conn->query($query);
+                                            $full_name = $resLeaves->fetch_assoc();
+                                        ?>
+                                            <tr>
+                                                <th scope="row"><?= $r['id'] ?></th>
+                                                <td class="border-1"><?= $full_name['full_name'] ?></td>
+                                                <td class="border-1"><?= $r['type'] ?></td>
+                                                <td class="border-1"><?= $r['created_at'] ?></td>
 
-                                        </tr> 
+                                                <td class="border-1">
+                                                    <?php if ($r['status'] == 'Approved') {
+                                                        echo '<span class="badge badge-sm bg-gradient-success">Approved</span>';
+                                                    } elseif ($r['status'] == 'Pending') {
+                                                        echo '<span class="badge badge-sm bg-gradient-warning">Pending</span>';
+                                                    } else {
+                                                        echo '<span class="badge badge-sm bg-gradient-danger">Declined</span>';
+                                                    } ?>
+
+                                                    <span style="color: gray"> <?= $r['status'] ?><i class="fa fa-spinner"></i></span>
+
+                                                </td>
+
+                                            </tr>
 
                                         <?php } ?>
                                     </tbody>
@@ -304,7 +315,7 @@ if ($res) {
                                         <tr>
                                             <th>الرقم</th>
                                             <th>اسم الموظف</th>
-                                        
+
                                             <th>قيمة السلفية</th>
                                             <th>تاريخ الطلب</th>
                                             <th>حاله الطلب</th>
@@ -317,25 +328,25 @@ if ($res) {
 
                                     <!--Table body-->
                                     <tbody class=" text-center">
-                                    <?php
-                                     $i=0;
+                                        <?php
+                                        $i = 0;
                                         $show_advance_salary = mysqli_query($conn, "SELECT * FROM `advance_salary`");
                                         while ($r = mysqli_fetch_array($show_advance_salary)) {
-                                        $i++;
-                                        $emp_id = $r['employee_id'];
-                                        $query = "SELECT * FROM users WHERE id=$emp_id";
-                                        $res = $conn->query($query);
-                                        $full_name = $res->fetch_assoc();
-                                   ?>
-                                         <tr>
-                                            <th scope="row"><?= $r['id'] ?></th>
-                                            <td class="border-1"><?=$full_name['full_name'] ?></td>
-                                            <td class="border-1"><?= $r['amount'] ?></td>
-                                            <td class="border-1"><?= $r['created_at'] ?></td>
-                              
-                                            <td class="border-1"><span style="color: gray"> <?= $r['status'] ?><i class="fa fa-spinner"></i></span></td>
+                                            $i++;
+                                            $emp_id = $r['employee_id'];
+                                            $query = "SELECT * FROM users WHERE id=$emp_id";
+                                            $res = $conn->query($query);
+                                            $full_name = $res->fetch_assoc();
+                                        ?>
+                                            <tr>
+                                                <th scope="row"><?= $r['id'] ?></th>
+                                                <td class="border-1"><?= $full_name['full_name'] ?></td>
+                                                <td class="border-1"><?= $r['amount'] ?></td>
+                                                <td class="border-1"><?= $r['created_at'] ?></td>
 
-                                        </tr> 
+                                                <td class="border-1"><span style="color: gray"> <?= $r['status'] ?><i class="fa fa-spinner"></i></span></td>
+
+                                            </tr>
 
                                         <?php } ?>
                                     </tbody>
@@ -353,9 +364,9 @@ if ($res) {
 
 
 
-       
+
         </div>
-       
+
     </main>
 
 
