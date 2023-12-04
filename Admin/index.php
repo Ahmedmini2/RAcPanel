@@ -244,6 +244,7 @@ if ($res) {
                                     <thead class="bg-dark text-ligh table-bordered text-center">
                                         <tr>
                                             <th>الرقم</th>
+                                            <th>اسم الموظف</th>
                                             <th>سبب الاجازه</th>
                                             <th>تاريخ طلب الاجازة</th>
                                             <th>حاله الطلب</th>
@@ -269,6 +270,7 @@ if ($res) {
                                          <tr>
                                             <th scope="row"><?= $r['id'] ?></th>
                                             <td class="border-1"><?= $full_name['full_name'] ?></td>
+                                            <td class="border-1"><?= $r['type'] ?></td>
                                             <td class="border-1"><?= $r['created_at'] ?></td>
                               
                                             <td class="border-1"><span style="color: gray"> <?= $r['status'] ?><i class="fa fa-spinner"></i></span></td>
