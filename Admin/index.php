@@ -243,7 +243,7 @@ if ($res) {
                                     <!--Table head-->
                                     <thead class="bg-dark text-ligh table-bordered text-center">
                                         <tr>
-                                            <th>الرقم</th>
+                                            
                                             <th>اسم الموظف</th>
                                             <th>سبب الاجازه</th>
                                             <th>تاريخ طلب الاجازة</th>
@@ -268,7 +268,7 @@ if ($res) {
                                             $full_name = $resLeaves->fetch_assoc();
                                         ?>
                                             <tr>
-                                                <th scope="row"><?= $r['id'] ?></th>
+                                               
                                                 <td class="border-1"><?= $full_name['full_name'] ?></td>
                                                 <td class="border-1"><?= $r['type'] ?></td>
                                                 <td class="border-1"><?= $r['created_at'] ?></td>
@@ -313,7 +313,7 @@ if ($res) {
                                     <!--Table head-->
                                     <thead class="bg-dark text-ligh table-bordered text-center">
                                         <tr>
-                                            <th>الرقم</th>
+                                            
                                             <th>اسم الموظف</th>
 
                                             <th>قيمة السلفية</th>
@@ -339,7 +339,7 @@ if ($res) {
                                             $full_name = $res->fetch_assoc();
                                         ?>
                                             <tr>
-                                                <th scope="row"><?= $r['id'] ?></th>
+                                                
                                                 <td class="border-1"><?= $full_name['full_name'] ?></td>
                                                 <td class="border-1"><?= $r['amount'] ?></td>
                                                 <td class="border-1"><?= $r['created_at'] ?></td>
