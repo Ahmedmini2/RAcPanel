@@ -295,7 +295,7 @@ if ($res) {
                                     <thead class="bg-dark text-ligh table-bordered text-center">
                                         <tr>
                                             <th>الرقم</th>
-                                            
+                                        
                                             <th>قيمة السلفية</th>
                                             <th>تاريخ الطلب</th>
                                             <th>حاله الطلب</th>
@@ -308,22 +308,21 @@ if ($res) {
 
                                     <!--Table body-->
                                     <tbody class=" text-center">
+                                    <?php
+                                        $show_advance_salary = mysqli_query($conn, "SELECT * FROM `advance_salary`");
+                                        while ($r = mysqli_fetch_array($show_advance_salary)) {
+                                    ?>
+                                         <tr>
+                                            <th scope="row"><?= $r['id'] ?></th>
+                                            <td class="border-1"><?= $r['amount'] ?></td>
+                                            <td class="border-1"><?= $r['created_at'] ?></td>
+                              
+                                            <td class="border-1"><span style="color: gray"> <?= $r['status'] ?><i class="fa fa-spinner"></i></span></td>
 
-                                        <!-- <tr>
-                                            <th scope="row">1</th>
-                                            <td class="border-1">RUKNAMIL0002</td>
-                                            <td class="border-1">عباس الجعفري</td>
-                                            <td class="border-1">مناسبة خاصة</td>
-                                            <td class="border-1">2023/10/22</td>
-                                            <td class="border-1"><span style="color: gray">Pending <i class="fa fa-spinner"></i></span></td>
+                                        </tr> 
 
-                                        </tr> -->
-
-
+                                        <?php } ?>
                                     </tbody>
-                                    <!--Table body-->
-
-                                </table>
                             </div>
                         </div>
                     </div>
