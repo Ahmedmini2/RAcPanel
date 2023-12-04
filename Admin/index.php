@@ -345,9 +345,9 @@ if ($res) {
 
 
 
-        <?php require_once('../components/footer.php'); ?>
+       
         </div>
-
+        <?php require_once('../components/footer.php'); ?>
     </main>
 
 
