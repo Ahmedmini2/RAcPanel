@@ -258,10 +258,10 @@ if ($res) {
                                     <tbody class=" text-center">
                                     <?php
                                         $show_leaves = mysqli_query($conn, "SELECT * FROM `leaves`");
-                                        while ($r = mysqli_fetch_array($show_projects)) {
+                                        while ($r = mysqli_fetch_array($show_leaves)) {
                                     ?>
                                          <tr>
-                                            <th scope="row">1</th>
+                                            <th scope="row"><?= $r['id'] ?></th>
                                             <td class="border-1"><?= $r['type'] ?></td>
                                             <td class="border-1"><?= $r['created_at'] ?></td>
                               
