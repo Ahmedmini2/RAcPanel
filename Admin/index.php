@@ -257,12 +257,18 @@ if ($res) {
                                     <!--Table body-->
                                     <tbody class=" text-center">
                                     <?php
-                                        $show_leaves = mysqli_query($conn, "SELECT * FROM `leaves`");
-                                        while ($r = mysqli_fetch_array($show_leaves)) {
+                                         $i=0;
+                                         $show_leaves = mysqli_query($conn, "SELECT * FROM `leaves`");
+                                         while ($r = mysqli_fetch_array($show_leaves)) {
+                                         $i++;
+                                         $emp_id = $r['employee_id'];
+                                         $query = "SELECT * FROM users WHERE id=$emp_id";
+                                         $resLeaves = $conn->query($query);
+                                         $full_name = $resLeaves->fetch_assoc();
                                     ?>
                                          <tr>
                                             <th scope="row"><?= $r['id'] ?></th>
-                                            <td class="border-1"><?= $r['type'] ?></td>
+                                            <td class="border-1"><?= $full_name['full_name'] ?></td>
                                             <td class="border-1"><?= $r['created_at'] ?></td>
                               
                                             <td class="border-1"><span style="color: gray"> <?= $r['status'] ?><i class="fa fa-spinner"></i></span></td>
