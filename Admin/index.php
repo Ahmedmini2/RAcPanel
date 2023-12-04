@@ -17,7 +17,11 @@ if ($res) {
     $rowcountApproved=mysqli_num_rows($res);
 }
 
-
+$query = "SELECT * FROM leaves WHERE status='Pending'";
+$res = mysqli_query($conn,$query);
+if ($res) {
+    $rowcountPending=mysqli_num_rows($res);
+}
 ?>
 
 <html lang="ar" dir="rtl">
@@ -168,7 +172,7 @@ if ($res) {
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">الاجازة المعتمدة</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            <?$rowcountApproved?>
+                                            <?=$rowcountApproved?>
                                         </h5>
                                     </div>
                                 </div>
@@ -189,7 +193,7 @@ if ($res) {
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">انتظار الموافقه على الاجازة</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            4
+                                        <?=$rowcountPending?>
                                         </h5>
                                     </div>
                                 </div>
