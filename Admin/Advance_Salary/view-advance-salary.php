@@ -169,7 +169,7 @@ $select = mysqli_query($conn, "select * from advance_salary");
                                                 <td class="border-1">
                                                     <?php
                                                     if ($r['image']) {
-                                                        echo "" . $r['image'] . "";
+                                                        $r['image'] ;
                                                     } else {
                                                       
                                                         echo "لايوجد مستند" ;
