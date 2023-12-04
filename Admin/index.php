@@ -295,6 +295,7 @@ if ($res) {
                                     <thead class="bg-dark text-ligh table-bordered text-center">
                                         <tr>
                                             <th>الرقم</th>
+                                            <th>اسم الموظف</th>
                                         
                                             <th>قيمة السلفية</th>
                                             <th>تاريخ الطلب</th>
@@ -344,7 +345,7 @@ if ($res) {
 
 
 
-        <?php require_once('../../components/footer.php'); ?>>
+        <?php require_once('../../components/footer.php'); ?>
         </div>
 
     </main>
