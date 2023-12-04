@@ -337,7 +337,7 @@ if ($res) {
 
 
 
-  
+        <?php require_once('../../components/footer.php'); ?>>
         </div>
 
     </main>
