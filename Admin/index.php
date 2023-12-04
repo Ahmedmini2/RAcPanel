@@ -309,11 +309,18 @@ if ($res) {
                                     <!--Table body-->
                                     <tbody class=" text-center">
                                     <?php
+                                     $i=0;
                                         $show_advance_salary = mysqli_query($conn, "SELECT * FROM `advance_salary`");
                                         while ($r = mysqli_fetch_array($show_advance_salary)) {
-                                    ?>
+                                        $i++;
+                                        $emp_id = $r['employee_id'];
+                                        $query = "SELECT * FROM users WHERE id=$emp_id";
+                                        $res = $conn->query($query);
+                                        $full_name = $res->fetch_assoc();
+                                   ?>
                                          <tr>
                                             <th scope="row"><?= $r['id'] ?></th>
+                                            <td class="border-1"><?=$full_name['full_name'] ?></td>
                                             <td class="border-1"><?= $r['amount'] ?></td>
                                             <td class="border-1"><?= $r['created_at'] ?></td>
                               
