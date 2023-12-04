@@ -11,6 +11,11 @@ if ($res) {
     $rowcount=mysqli_num_rows($res);
 }
 
+$query = "SELECT * FROM leaves WHERE status='Approved'";
+$res = mysqli_query($conn,$query);
+if ($res) {
+    $rowcountApproved=mysqli_num_rows($res);
+}
 
 
 ?>
@@ -163,7 +168,7 @@ if ($res) {
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">الاجازة المعتمدة</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            6
+                                            <?$rowcountApproved?>
                                         </h5>
                                     </div>
                                 </div>
