@@ -282,7 +282,7 @@ if ($res) {
                                                         echo '<span class="badge badge-sm bg-gradient-danger">Declined</span>';
                                                     } ?>
 
-                                                    <span style="color: gray"> <?= $r['status'] ?><i class="fa fa-spinner"></i></span>
+                                                    
 
                                                 </td>
 
