@@ -7,7 +7,7 @@ $total_left_advance = get_advanced_status('advance_status',$emp_id);
 
 $query = "SELECT * FROM leaves";
 $res = mysqli_query($conn,$query);
-if (mysqli_num_rows($res)) {
+if ($res) {
     $rowcount=mysqli_num_rows($result);
 }
 
