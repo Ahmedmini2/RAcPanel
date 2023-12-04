@@ -344,7 +344,18 @@ if ($res) {
                                                 <td class="border-1"><?= $r['amount'] ?></td>
                                                 <td class="border-1"><?= $r['created_at'] ?></td>
 
-                                                <td class="border-1"><span style="color: gray"> <?= $r['status'] ?><i class="fa fa-spinner"></i></span></td>
+                                                <td class="border-1">
+                                                    <?php if ($r['status'] == 'Approved') {
+                                                        echo '<span class="badge badge-sm bg-gradient-success">Approved</span>';
+                                                    } elseif ($r['status'] == 'Pending') {
+                                                        echo '<span class="badge badge-sm bg-gradient-warning">Pending</span>';
+                                                    } else {
+                                                        echo '<span class="badge badge-sm bg-gradient-danger">Declined</span>';
+                                                    } ?>
+
+                                                    
+
+                                                </td>
 
                                             </tr>
 
