@@ -5,6 +5,11 @@ $_SESSION['sidebar_admin'] = "dashboard";
 $emp_id = $_SESSION['id'];
 $total_left_advance = get_advanced_status('advance_status',$emp_id);
 
+$query = "SELECT * FROM leaves";
+$res = mysqli_query($conn,$query);
+if (mysqli_num_rows($res)) {
+    $rowcount=mysqli_num_rows($result);
+}
 
 
 
@@ -136,7 +141,7 @@ $total_left_advance = get_advanced_status('advance_status',$emp_id);
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">عدد الاجازات</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                       12
+                                       <?=$rowcount?>
                                         </h5>
                                     </div>
                                 </div>
