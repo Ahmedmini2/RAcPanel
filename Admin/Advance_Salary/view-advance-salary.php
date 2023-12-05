@@ -166,7 +166,10 @@ $select = mysqli_query($conn, "select * from advance_salary");
                                                 <td class="border-1"></td>
                                                 <td class="border-1"></td>
 
-                                                <td class="border-1"><?= $r['image'] ?></td>
+                                                <td class="border-1">
+                                                   
+                                                    <?= $r['image'] ?>
+                                                </td>
                                                 <td class="border-1">
                                                     <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>|
                                                     <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
