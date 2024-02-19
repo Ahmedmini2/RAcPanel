@@ -490,7 +490,7 @@ while ($ban = mysqli_fetch_array($banner)) {
             </div>
             <div class="card-body p-3">
               <div class="timeline timeline-one-side">
-                <?php
+                <!-- <?php
                 while ($r = mysqli_fetch_array($show_products_status)) {
                   $product_id = $r['product_id'];
                   $query = "SELECT * FROM `products` WHERE `id`=$product_id";
@@ -517,7 +517,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                     </div>
                   </div>
 
-                <?php } ?>
+                <?php } ?> -->
               </div>
             </div>
           </div>
