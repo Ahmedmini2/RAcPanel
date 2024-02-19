@@ -330,6 +330,9 @@ while ($ban = mysqli_fetch_array($banner)) {
 
               <!-- مشاريع -->
 
+
+
+
               <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
 <div class="card card-blog card-plain py-3">
     <div class="position-relative">
@@ -436,7 +439,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                     </tr>
                   </thead>
                   <tbody class="text-center">
-                    <?php
+                     <!-- <?php
                     $show_projects = mysqli_query($conn, "SELECT * FROM `projects`");
                     while ($r = mysqli_fetch_array($show_projects)) {
                     ?>
@@ -469,7 +472,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                           </div>
                         </td>
                       </tr>
-                    <?php } ?>
+                    <?php } ?> -->
                   </tbody>
                 </table>
               </div>
