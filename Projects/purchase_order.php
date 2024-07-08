@@ -376,11 +376,11 @@ if (isset($_GET['project_id'])) {
                                     </div>
                                     <div class="col-8">
                                         <p class="card-text custom-font-small">
-                                            Rukn Amial Co.Company <br>
+                                            Afraa Co.Company <br>
                                             Abbas Al Jafari <br>
                                             591022703 <br>
                                             Eastren Ring Road, Alrwabi - Riyadh  <br>
-                                            info@ruknamyal.com<br>
+                                            info@Afraa.com<br>
                                             <?=$vat?><br>
 
                                         </p>
