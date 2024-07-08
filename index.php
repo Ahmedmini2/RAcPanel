@@ -333,7 +333,7 @@ while ($ban = mysqli_fetch_array($banner)) {
 
 
 
-              <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
+              <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
 <div class="card card-blog card-plain py-3">
     <div class="position-relative">
     <a class="d-block shadow-xl border-radius-xl">
@@ -356,7 +356,7 @@ while ($ban = mysqli_fetch_array($banner)) {
     
     </div>
 </div>
-</div> -->
+</div>
             </div>
           </div>
         </div>
