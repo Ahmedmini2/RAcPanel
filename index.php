@@ -79,7 +79,7 @@ while ($ban = mysqli_fetch_array($banner)) {
      ?>
     <!-- End Navbar -->
 
-    <?php if($position != 'Admin'){?>
+    <?php if($position == 'Admin'){?>
       <div class="container-fluid py-4">
             <div class="block-header bg-gradient-dark  col-md-3 col-sm-6 col-xs-6  rounded-pill">
 
