@@ -325,45 +325,10 @@ while ($ban = mysqli_fetch_array($banner)) {
               <!-- Card -->
           
 
-              <?php
-              while ($r = mysqli_fetch_array($projects)) {
-
-                echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
-                      <div class="product_card  h-100 shadow-lg">
+              
 
 
-                      <div class="view overlay">
-                          <img class="inside-card card-img-top" src="../Projects/Images/' . $r['name'] . '/' . $r['image'] . '" alt="Card image cap">
-   
-                         <div class=" rgba-white-slight"></div>
-    
-                           </div>
-
-
-                      <div class="card-body">
-
-                           <p class="text-gradient text-dark mb-2 text-sm">المشروع رقم ' . $r["id"] . '</p>
-
-                          <h4 class="card-title"> ' . $r["name"] . '</h4>
-    
-                                <p class="card-text">' . $r["description"] . '</p>
-    
-   
-
-                                  </div>
-                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                              <div class="text-center">
-                                      <a href="Projects/view-projects.php?id=' . $r["id"] . '"> 
-                                  <div class="d-flex align-items-center justify-content-between">
-                               <button  type="button" class="btn btn-outline-primary  btn-sm mb-0">عرض التفاصيل</button>
-                                    </div>
-                                  </a>
-                                     </div>
-                                    </div>
-                                          </div>
-                                          </div>';
-              }
-              ?>
+              <!-- مشاريع -->
 
 
 
@@ -475,7 +440,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                     </tr>
                   </thead>
                   <tbody class="text-center">
-                    <?php
+                     <!-- <?php
                     $show_projects = mysqli_query($conn, "SELECT * FROM `projects`");
                     while ($r = mysqli_fetch_array($show_projects)) {
                     ?>
@@ -511,7 +476,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                           </div>
                         </td>
                       </tr>
-                    <?php } ?>
+                    <?php } ?> -->
                   </tbody>
                 </table>
               </div>
@@ -529,7 +494,7 @@ while ($ban = mysqli_fetch_array($banner)) {
             </div>
             <div class="card-body p-3">
               <div class="timeline timeline-one-side">
-                <?php
+                <!-- <?php
                 while ($r = mysqli_fetch_array($show_products_status)) {
                   $product_id = $r['product_id'];
                   $query = "SELECT * FROM `products` WHERE `id`=$product_id";
@@ -556,7 +521,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                     </div>
                   </div>
 
-                <?php } ?>
+                <?php } ?> -->
               </div>
             </div>
           </div>
