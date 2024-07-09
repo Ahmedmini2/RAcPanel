@@ -2,7 +2,7 @@
 
 // $db = "ruknamial";
 // $host = "localhost";
-// $dbusername = "root";
+// $dbusername = "root"; 
 // $dbpassword = "";
 
 $db = "ruknam5_app";
