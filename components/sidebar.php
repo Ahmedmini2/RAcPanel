@@ -8,7 +8,7 @@ $sidebar = $_SESSION['sidebar'];
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute start-0 top-0 d-none d-xl-none index-1500" aria-hidden="true" id="iconSidenav"></i>
     <a class="navbar-brand m-0" href="https://app.ruknamial.com/index.php">
-      <img src="../assets/img/logos/logo-gold.png" class="navbar-brand-img " alt="main_logo">
+      <img src="../assets/img/logos/3f.png" class="navbar-brand-img " alt="main_logo">
 
     </a>
   </div>
@@ -117,9 +117,10 @@ $sidebar = $_SESSION['sidebar'];
         </a>
       </li>
       <?php } ?>
-      <?php if ($position == 'Admin') { ?> 
+      <!-- 
+        
       <li class="nav-item">
-        <a class="nav-link <?php if ($sidebar == "Projects") echo 'active'; ?>" href="../Projects/index.php">
+        <a class="nav-link" href="../Projects/index.php">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
@@ -139,10 +140,11 @@ $sidebar = $_SESSION['sidebar'];
         </a>
 
       </li>
-      <?php } ?>
-      <?php if ($position == 'Admin' || $position == 'Worker') { ?> 
+       -->
+    
+      <!-- 
       <li class="nav-item">
-        <a class="nav-link <?php if ($sidebar == "Factory") echo 'active'; ?>" href="../Factory/index.php">
+        <a class="nav-link " href="../Factory/index.php">
           <div class="icon icon-factory icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
@@ -161,8 +163,8 @@ $sidebar = $_SESSION['sidebar'];
           <span class="nav-link-text me-1">المصنع</span>
         </a>
 
-      </li>
-      <?php } ?> 
+      </li> -->
+       
       <ul class="navbar-nav active">
       <?php if ($position == 'Admin' || $position == 'Worker') { ?> 
         <li class="nav-item ">
@@ -197,9 +199,9 @@ $sidebar = $_SESSION['sidebar'];
         <?php } ?>
       </ul>
       <ul class="navbar-nav active">
-      <?php if ($position == 'Admin') { ?> 
-        <li class="nav-item ">
-          <a href="#submenu22" data-bs-toggle="collapse" class="nav-link <?php if ($sidebar == "Cover") echo 'active'; ?>"">
+      
+        <!-- <li class="nav-item ">
+          <a href="#submenu22" data-bs-toggle="collapse" class="nav-link "">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
@@ -226,8 +228,8 @@ $sidebar = $_SESSION['sidebar'];
             </li>
             
           </ul>
-        </li>
-        <?php } ?>
+        </li> -->
+        
       </ul>
       <ul class="navbar-nav active">
       <?php if ($position == 'Admin') { ?> 
