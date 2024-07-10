@@ -8,7 +8,7 @@ $sidebar = $_SESSION['sidebar'];
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute start-0 top-0 d-none d-xl-none index-1500" aria-hidden="true" id="iconSidenav"></i>
     <a class="navbar-brand m-0" href="https://app.ruknamial.com/index.php">
-      <img src="../assets/img/logos/3f.png" class="navbar-brand-img " alt="main_logo">
+      <img src="../assets/img/logos/3ff.png" class="navbar-brand-img " alt="main_logo">
 
     </a>
   </div>
