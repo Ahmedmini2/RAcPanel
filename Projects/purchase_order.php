@@ -181,7 +181,7 @@ if (isset($_GET['project_id'])) {
             font-weight: 400;
             line-height: 1.4rem;
             color: #495057;
-            background-color: #fff;
+            background-color: #f8f9fa;
             background-clip: padding-box;
             border: 1px solid #d2d6da;
             appearance: none;
