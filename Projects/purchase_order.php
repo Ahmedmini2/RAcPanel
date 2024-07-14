@@ -618,7 +618,7 @@ if (isset($_GET['project_id'])) {
                         <option value="This offer valid for one month from the date">
                         
                     </datalist>
-                    <input type="text" class="signture signture2" id="signture3"/>
+                    <input type="text" class="signture signture2 bg-gray-100 " id="signture3"/>
                 </div>
 
                 
