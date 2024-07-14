@@ -585,7 +585,7 @@ if (isset($_GET['project_id'])) {
                 <hr>
                 
                 <div class="row">
-                    <input class="form-control-selec" list="delivery" name="delivery" id="delivery">
+                    <input class="form-control-selec" list="delivery" name="delivery" >
                     <datalist id="delivery">
                         <option value="Price not included delivery">
                         <option value="Price not included delivery">
@@ -597,13 +597,13 @@ if (isset($_GET['project_id'])) {
                         
                     </div>
 
-                    <input class="form-control-selec" list="Processing" name="Processing" id="Processing">
+                    <input class="form-control-selec" list="Processing" name="Processing" >
                     <datalist id="Processing">
                         <option value="Processing starts after Payment">
                         <option value="Processing starts Purchase Order">
                     </datalist>
 
-                    <input class="form-control-selec" list="quote" name="quote" id="quote">
+                    <input class="form-control-selec" list="quote" name="quote" >
                     <datalist id="quote">
                         <option value="This quote includes covers and accessories">
                         <option value="This quote includes covers without accessories">
@@ -611,7 +611,7 @@ if (isset($_GET['project_id'])) {
                         <option value="This quote does not includes covers and accessories">
                     </datalist>
 
-                    <input class="form-control-selec" list="offer" name="offer" id="offer">
+                    <input class="form-control-selec" list="offer" name="offer" >
                     <datalist id="offer">
                         <option value="This offer is vaild one week from the date">
                         <option value="This offer is vaild two weeks from the date">
