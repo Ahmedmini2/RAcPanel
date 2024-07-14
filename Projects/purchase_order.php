@@ -568,6 +568,7 @@ if (isset($_GET['project_id'])) {
                 
                 <div class="row">
                     <div class="col text-start text-bolder">
+                        <p>Add</p>
                         <p><?=$payment_type?>.</p>
                         <input type="text" class="signture signture2" id="signture3"/>
                     </div>
