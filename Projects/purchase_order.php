@@ -498,7 +498,7 @@ if (isset($_GET['project_id'])) {
                                         <td colspan="5">
                                             <div class="text-center">
 
-                                                <span class="text-black">Total </span>
+                                                <span class="text-black" style="font-size:11px;">Total </span>
 
                                             </div>
                                         </td>
@@ -512,12 +512,12 @@ if (isset($_GET['project_id'])) {
                                         <td  colspan="5">
                                             <div class="text-center">
 
-                                                <span class="text-black">Delivery </span>
+                                                <span class="text-black " style="font-size:11px;" >Delivery </span>
 
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="text-center text-black">
+                                            <div class="text-center text-black" style="font-size:11px;">
                                                 <span>SAR <?=number_format($del_total_price)?></span>
                                             </div>
                                         </td>
@@ -527,12 +527,12 @@ if (isset($_GET['project_id'])) {
                                         <td  colspan="5">
                                             <div class="text-center">
 
-                                                <span class="text-black">VAT %15 </span>
+                                                <span class="text-black" style="font-size:11px;">VAT %15 </span>
 
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="text-center text-black">
+                                            <div class="text-center text-black" style="font-size:11px;">
                                                 <span>SAR <?=number_format($total_with_tax)?></span>
                                             </div>
                                         </td>
@@ -545,7 +545,7 @@ if (isset($_GET['project_id'])) {
                                         <td  colspan="5" class=" border-1">
                                             <div class="text-center">
 
-                                                <span class="font-weight-bold text-black">Grand total(SAR) </span>
+                                                <span class="font-weight-bold text-black " style="font-size:11px;">Grand total(SAR) </span>
 
                                             </div>
                                         </td>
