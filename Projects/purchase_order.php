@@ -172,6 +172,10 @@ if (isset($_GET['project_id'])) {
         .printing2 {
             left: 140px;
         }
+
+        .form-control-s {
+            color:#5bc0de;
+            }
     </style>
 </head>
 
@@ -572,7 +576,7 @@ if (isset($_GET['project_id'])) {
                         <p>Advanced : <?=$payment_type?>.</p>
                         <input type="text" class="signture signture2" id="signture3"/>
                     </div>
-                    <select  ">
+                    <select class="form-control-s"  >
                      <option selected>Open this select menu</option>
                      <option value="1">One</option>
                      <option value="2">Two</option>
