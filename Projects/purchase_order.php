@@ -585,8 +585,8 @@ if (isset($_GET['project_id'])) {
                 <hr>
                 
                 <div class="row">
-                    <input class="form-control-selec" list="browsers" name="delivery" id="delivery">
-                    <datalist id="browsers">
+                    <input class="form-control-selec" list="delivery" name="delivery" id="delivery">
+                    <datalist id="delivery">
                         <option value="Price not included delivery">
                         <option value="Price not included delivery">
                     </datalist> 
@@ -594,22 +594,31 @@ if (isset($_GET['project_id'])) {
                     <div class="col text-start text-bolder">
                       
                         <p>Advanced Payment <?=$payment_type?>%</p>
-                        <input type="text" class="signture signture2" id="signture3"/>
+                        
                     </div>
 
-                    <input class="form-control-selec" list="browsers" name="Processing" id="Processing">
-                    <datalist id="browsers">
+                    <input class="form-control-selec" list="Processing" name="Processing" id="Processing">
+                    <datalist id="Processing">
                         <option value="Processing starts after Payment">
                         <option value="Processing starts Purchase Order">
                     </datalist>
 
-                    <input class="form-control-selec" list="browsers" name="quote" id="quote">
-                    <datalist id="browsers">
+                    <input class="form-control-selec" list="quote" name="quote" id="quote">
+                    <datalist id="quote">
                         <option value="This quote includes covers and accessories">
                         <option value="This quote includes covers without accessories">
                         <option value="This quote includes accessories without covers">
                         <option value="This quote does not includes covers and accessories">
                     </datalist>
+
+                    <input class="form-control-selec" list="offer" name="offer" id="offer">
+                    <datalist id="offer">
+                        <option value="This offer is vaild one week from the date">
+                        <option value="This offer is vaild two weeks from the date">
+                        <option value="This offer vaild for one month from the date">
+                        
+                    </datalist>
+                    <input type="text" class="signture signture2" id="signture3"/>
                 </div>
 
                 
