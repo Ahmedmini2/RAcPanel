@@ -551,7 +551,7 @@ if (isset($_GET['project_id'])) {
                                         </td>
                                         <td class="border-1">
                                             <div class="text-center">
-                                                <span class="font-weight-bold text-success " id="total"><?=number_format($total_without_tax+$total_with_tax)?></span>
+                                                <span class="font-weight-bold text-success " style="font-size:11px;" id="total"><?=number_format($total_without_tax+$total_with_tax)?></span>
                                             </div>
                                         </td>
                                     </tr>
@@ -567,7 +567,7 @@ if (isset($_GET['project_id'])) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <p class="text-black">The total value is SAR <?=number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p>
+                        <p class="text-black" style="font-size:11px;">The total value is SAR <?=number_format($total_without_tax+$total_with_tax)?> <span id="con"></span> riyals only.</p>
                         
                     </div>
                 </div>
@@ -584,7 +584,7 @@ if (isset($_GET['project_id'])) {
                 </script>
                 <hr>
                 
-                <div class="row">
+                <div class="row" style="font-size:11px;">
                     <input class="form-control-selec" list="delivery" name="delivery" >
                     <datalist id="delivery">
                         <option value="Price not included delivery">
