@@ -613,9 +613,9 @@ if (isset($_GET['project_id'])) {
 
                     <input class="form-control-selec" list="offer" name="offer" >
                     <datalist id="offer">
-                        <option value="This offer is vaild one week from the date">
-                        <option value="This offer is vaild two weeks from the date">
-                        <option value="This offer vaild for one month from the date">
+                        <option value="This offer is valid one week from the date">
+                        <option value="This offer is valid two weeks from the date">
+                        <option value="This offer valid for one month from the date">
                         
                     </datalist>
                     <input type="text" class="signture signture2" id="signture3"/>
