@@ -634,14 +634,14 @@ if (isset($_GET['project_id'])) {
                     <div class="col-6">
                         <div class="row">
                             <h6>Prepared by</h6>
-                            <input type="text" class="signture" id="signture"/>
+                            <input type="text" class="signture bg-gray-100 " id="signture"/>
                             <h5></h5>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="row">
                             <h6>Approved by</h6>
-                            <input type="text" class="signture" id="signture2"/>
+                            <input type="text" class="signture bg-gray-100" id="signture2"/>
                         </div>
                     </div>
                 </div>
