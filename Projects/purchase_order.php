@@ -503,7 +503,7 @@ if (isset($_GET['project_id'])) {
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="text-center text-black">
+                                            <div class="text-center text-black" style="font-size:11px;">
                                                 <span>SAR <?=number_format($total_without_tax-$del_total_price)?></span>
                                             </div>
                                         </td>
