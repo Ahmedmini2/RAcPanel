@@ -572,7 +572,7 @@ if (isset($_GET['project_id'])) {
                         <p>Advanced : <?=$payment_type?>.</p>
                         <input type="text" class="signture signture2" id="signture3"/>
                     </div>
-                    <select  aria-label="Default select example">
+                    <select  ">
                      <option selected>Open this select menu</option>
                      <option value="1">One</option>
                      <option value="2">Two</option>
