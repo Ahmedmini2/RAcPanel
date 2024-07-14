@@ -61,7 +61,7 @@ if (isset($_GET['project_id'])) {
             max-width: 1200px;
             margin: auto;
             padding: 30px;
-           
+            text-align: -webkit-center;
             font-size: 16px;
             line-height: 24px;
             font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
