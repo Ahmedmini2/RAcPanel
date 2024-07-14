@@ -81,7 +81,7 @@ if (isset($_GET['project_id'])) {
         }
 
         .invoice-box table {
-            width: 100%;
+            width: 75%;
             line-height: inherit;
 
         }
