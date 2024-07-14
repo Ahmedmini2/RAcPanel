@@ -173,7 +173,23 @@ if (isset($_GET['project_id'])) {
             left: 140px;
         }
 
-        
+        .form-control-selec{
+            display: block;
+            width: 90%;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1.4rem;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #d2d6da;
+            appearance: none;
+            border-radius: 0.5rem;
+            transition: box-shadow 0.15s ease, border-color 0.15s ease;
+            border: aliceblue;
+        }
+       
     </style>
 </head>
 
@@ -569,20 +585,31 @@ if (isset($_GET['project_id'])) {
                 <hr>
                 
                 <div class="row">
+                    <input class="form-control-selec" list="browsers" name="delivery" id="delivery">
+                    <datalist id="browsers">
+                        <option value="Price not included delivery">
+                        <option value="Price not included delivery">
+                    </datalist> 
+
                     <div class="col text-start text-bolder">
                       
-                        <p>Advanced : <?=$payment_type?>.</p>
+                        <p>Advanced Payment <?=$payment_type?>%</p>
                         <input type="text" class="signture signture2" id="signture3"/>
                     </div>
 
-                    <input class="form-control" list="browsers" name="browser" id="browser">
-    <datalist id="browsers">
-      <option value="Edge">
-      <option value="Firefox">
-      <option value="Chrome">
-      <option value="Opera">
-      <option value="Safari">
-    </datalist>    
+                    <input class="form-control-selec" list="browsers" name="Processing" id="Processing">
+                    <datalist id="browsers">
+                        <option value="Processing starts after Payment">
+                        <option value="Processing starts Purchase Order">
+                    </datalist>
+
+                    <input class="form-control-selec" list="browsers" name="quote" id="quote">
+                    <datalist id="browsers">
+                        <option value="This quote includes covers and accessories">
+                        <option value="This quote includes covers without accessories">
+                        <option value="This quote includes accessories without covers">
+                        <option value="This quote does not includes covers and accessories">
+                    </datalist>
                 </div>
 
                 
