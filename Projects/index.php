@@ -96,7 +96,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
                             echo '<img class="inside-card card-img-top" src="' . $imagePath . '" alt="Card image cap">';
                         } else {
                             // إذا لم تجد الصورة، يمكنك عرض صورة افتراضية أو رسالة خطأ أو أي شيء آخر
-                            echo '<img class="inside-card card-img-top" src="../assets/img/logos/3ff.png" alt="Default Image">';
+                            echo '<img class="inside-card card-img-top" src="https://app.ruknamial.com/assets/img/logos/3ff.png" alt="Default Image">';
                         }
                         ?>
                       <?php
