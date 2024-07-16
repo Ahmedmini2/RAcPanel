@@ -86,18 +86,8 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
 
                     <div class="view overlay">
+                      <img class="inside-card card-img-top" src="../Projects/Images/<?= $r['name'] ?>/<?= $r['image'] ?>" alt="Card image cap">
                       
-                                              <?php
-                        // التحقق من وجود صورة
-                        $imagePath = '../Projects/Images/' . $r['name'] . '/' . $r['image'];
-                        if (file_exists($imagePath)) {
-                            // إذا وجدت الصورة، عرضها
-                            echo '<img class="inside-card card-img-top" src="' . $imagePath . '" alt="Card image cap">';
-                        } else {
-                            // إذا لم تجد الصورة، يمكنك عرض صورة افتراضية أو رسالة خطأ أو أي شيء آخر
-                            echo '<img class="inside-card card-img-top" src="../assets/img/logos/3ff.png" alt="Default Image">';
-                        }
-                        ?>
                       <?php
 
                       $durationInDays = ceil($timeDiff / (24 * 60 * 60)); // Calculate the number of days left
