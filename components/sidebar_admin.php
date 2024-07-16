@@ -8,7 +8,10 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute start-0 top-0 d-none d-xl-none index-1500" aria-hidden="true" id="iconSidenav"></i>
 
-    <a class="navbar-brand m-0" <?php if ($_SESSION['position'] == 'Employee') { ?> href="https://app.ruknamial.com/Admin/index.php" <?php } else { ?> href="https://app.ruknamial.com/index.php" <?php } ?>>
+    <a class="navbar-brand m-0"
+     <?php if ($_SESSION['position'] == 'Employee') 
+     { ?> href="https://test.app.ruknamial.com/Admin/index.php" <?php }
+      else { ?> href="https://test.app.ruknamial.com/index.php" <?php } ?>>
       <img src="https://app.ruknamial.com/assets/img/logos/3ff.png" class="navbar-brand-img " alt="main_logo">
 
 
