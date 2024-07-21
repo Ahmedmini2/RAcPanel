@@ -87,7 +87,7 @@ $projects = mysqli_query($conn, "SELECT * FROM projects");
 
                     <div class="view overlay">
                       <img class="inside-card card-img-top" src="../Projects/Images/<?= $r['name'] ?>/<?= $r['image'] ?>" alt="Card image cap">
-                      
+                       
                       <?php
 
                       $durationInDays = ceil($timeDiff / (24 * 60 * 60)); // Calculate the number of days left
