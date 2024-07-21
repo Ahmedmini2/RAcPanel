@@ -10,9 +10,9 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
 
     <a class="navbar-brand m-0"
      <?php if ($_SESSION['position'] == 'Employee') 
-     { ?> href="https://test.app.ruknamial.com/Admin/index.php" <?php }
-      else { ?> href="https://test.app.ruknamial.com/index.php" <?php } ?>>
-      <img src="https://app.ruknamial.com/assets/img/logos/3ff.png" class="navbar-brand-img " alt="main_logo">
+     { ?> href="https://test.skypecontracting.com/Admin/index.php" <?php }
+      else { ?> href="https://test.app.skypecontracting.com/index.php" <?php } ?>>
+      <img src="https://app.ruknamial.com/assets/img/logos/logo2.png" class="navbar-brand-img " alt="main_logo">
 
 
     </a>
