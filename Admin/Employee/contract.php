@@ -244,7 +244,7 @@ $user2 = $res2->fetch_assoc();
                 <table>
                     <tr class="heading">
                          <td colspan="2">
-                         <h4>المهنة ومكان العمل + الأجر والمزايا المالية</h4>
+                         <h4 class="font-weight-bold text-center">المهنة ومكان العمل + الأجر والمزايا المالية</h4>
                         </td>
                      </tr>
                 </table>
@@ -271,7 +271,7 @@ $user2 = $res2->fetch_assoc();
                 <table>
                     <tr class="heading">
                          <td colspan="2">
-                         <h4>مدة العقد</h4>
+                         <h4 class="font-weight-bold text-center">مدة العقد</h4>
                         </td>
                      </tr>
                 </table>
@@ -295,7 +295,7 @@ $user2 = $res2->fetch_assoc();
                 <table>
                     <tr class="heading">
                          <td colspan="2">
-                         <h4>الاجازات</h4>
+                         <h4 class="font-weight-bold text-center">الاجازات</h4>
                         </td>
                      </tr>
                 </table>
@@ -320,7 +320,7 @@ $user2 = $res2->fetch_assoc();
                 <table>
                     <tr class="heading">
                          <td colspan="2">
-                         <h4>عناوين التخاطب الرسمي</h4>
+                         <h4 class="font-weight-bold text-center">عناوين التخاطب الرسمي</h4>
                         </td>
                      </tr>
                 </table>
