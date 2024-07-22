@@ -430,6 +430,7 @@ if (isset($_GET['edit'])) {
                                         <option value="كامل">دوام كامل</option>
                                         <option value="جزئي">دوام جزئي</option>
                                         <option value="مؤقت">دوام مؤقت</option>
+                                            <!-- use if to -->
                                         <option value="عن بعد">دوام عن بعد</option>
                                     </select>
                                 </div>
@@ -547,6 +548,13 @@ if (isset($_GET['edit'])) {
                                         <option value="3%">3%</option>
                                         <option value="4%">4%</option>
                                         <option value="5%">5%</option>
+                                        <option value="5%">7%</option>
+                                        <option value="5%">10%</option>
+                                        <option value="5%">20%</option>
+                                        <option value="5%">25%</option>
+                                        <option value="5%">30%</option>
+                                        <option value="5%">40%</option>
+                                        <option value="5%">50%</option>
                                         <option value="لا يوجد">لا يوجد</option>
 
                                     </select>
@@ -608,6 +616,8 @@ if (isset($_GET['edit'])) {
                                         <option value="<?= $tickets ?>"><?= $tickets ?></option>
                                         <option value="ذهاب واياب">ذهاب واياب</option>
                                         <option value="ذهاب فقط">ذهاب فقط</option>
+                                        <option value="ذهاب واياب له ولافرادعائلته">ذهاب واياب له ولافرادعائلته</option>
+                                        <option value="ذهاب واياب له ولزوجته وطفلين">ذهاب واياب له ولزوجته وطفلين</option>
 
                                         <option value="لا يوجد">لا يوجد</option>
                                     </select>

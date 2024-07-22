@@ -12,7 +12,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
      <?php if ($_SESSION['position'] == 'Employee') 
      { ?> href="https://test.skypecontracting.com/Admin/index.php" <?php }
       else { ?> href="https://test.app.skypecontracting.com/index.php" <?php } ?>>
-      <img src="https://app.ruknamial.com/assets/img/logos/logo2.png" class="navbar-brand-img " alt="main_logo">
+      <img src="https://app.skypecontracting/assets/img/logos/logo2.png" class="navbar-brand-img " alt="main_logo">
 
 
     </a>
@@ -21,7 +21,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
   <div class="collapse navbar-collapse px-0 w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link <?php if ($sidebar_admin == "dashboard") echo 'active'; ?>" href="https://app.ruknamial.com/Admin/index.php">
+        <a class="nav-link <?php if ($sidebar_admin == "dashboard") echo 'active'; ?>" href="https://app.skypecontracting.com/Admin/index.php">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
@@ -265,6 +265,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
                 <span class="nav-link-text me-1">اشتراك</span>
               </a>
             </li> -->
+            
   </ul>
   <hr>
   <div class="dropdown pb-4">
@@ -274,7 +275,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
     </a>
     <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
 
-      <li><a class="dropdown-item" href="https://app.ruknamial.com/index.php">الصفحة الرئيسية</a></li>
+      <li><a class="dropdown-item" href="https://app.skypecontracting/index.php">الصفحة الرئيسية</a></li>
       <li><a class="dropdown-item" href="../../Profile/profile.php">الملف الشخصي</a></li>
 
       <li>
