@@ -122,6 +122,9 @@ $user2 = $res2->fetch_assoc();
             border-top: 2px solid #eee;
             font-weight: bold;
         }
+        .fontT{
+            font-family: 'Courier New', Courier, monospace;
+        }
 
 
 
@@ -223,7 +226,7 @@ $user2 = $res2->fetch_assoc();
                 <!-- here to change -->
                 <div class="row ">
                     <table>
-                        <tr class="heading">
+                        <tr class="heading fontT">
                             <td colspan="2">
                                 <p>ابرم هذا العقد في تاريخ : <?= $user['start_date'] ?>م</p>
                                 <p>بين كل من: </p>
