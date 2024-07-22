@@ -287,6 +287,7 @@ $user2 = $res2->fetch_assoc();
                     <table>
                         <tr class="heading fontT">
                             <td colspan="2">
+                                <p>
                             <?php if ($user['extra_perc'] == 'لا يوجد') echo '';
                                     else {
                                         echo ' + حوافز سنوية حسب اللوائح المعتمدة داخل المؤسسة نسبة  ' . $user['extra_perc'] . ' من قيمة اي مشروع يجلبه الطرف الثاني للمؤسسة ';
