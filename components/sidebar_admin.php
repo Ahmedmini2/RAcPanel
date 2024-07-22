@@ -8,7 +8,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute start-0 top-0 d-none d-xl-none index-1500" aria-hidden="true" id="iconSidenav"></i>
 
-    <a class="navbar-brand m-0"
+    <a class="navbar-brand m-0 pt-5"
      <?php if ($_SESSION['position'] == 'Employee') 
      { ?> href="https://test.skypecontracting.com/Admin/index.php" <?php }
       else { ?> href="https://test.app.skypecontracting.com/index.php" <?php } ?>>
