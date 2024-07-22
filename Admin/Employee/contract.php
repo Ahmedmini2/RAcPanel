@@ -454,15 +454,15 @@ $user2 = $res2->fetch_assoc();
                     <div class="col-6">
                         <div class="row">
                             <h6>الطرف الأول</h6>
-                            <h4>مؤسسة ركن اميال للمقاولات</h4>
-                            <h4>المدير العام/<?= $_SESSION['full_name'] ?></h4>
+                            <h4 class="fontTi">مؤسسة ركن اميال للمقاولات</h4>
+                            <h4 class="fontTi">المدير العام/<?= $_SESSION['full_name'] ?></h4>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="row">
-                            <h6>الطرف التاني</h6>
+                            <h6 class="fontTi">الطرف التاني</h6>
 
-                            <h4><?= $user['name_ar'] ?></h4>
+                            <h4 class="fontTi"><?= $user['name_ar'] ?></h4>
                         </div>
                     </div>
 
