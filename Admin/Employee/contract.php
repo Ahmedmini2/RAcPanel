@@ -46,6 +46,7 @@ $user2 = $res2->fetch_assoc();
             max-width: 1200px;
             margin: auto;
             padding: 30px;
+            padding-top: 100px;
             font-size: 16px;
             line-height: 24px;
             font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
@@ -278,7 +279,14 @@ $user2 = $res2->fetch_assoc();
                                     else {
                                         echo ' + تأمين قيمة تذاكر السفر ' . $user['tickets'] . ' ';
                                     } ?>
-                                    <?php if ($user['extra_perc'] == 'لا يوجد') echo '';
+                                    
+                            </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr class="heading">
+                            <td colspan="2">
+                            <?php if ($user['extra_perc'] == 'لا يوجد') echo '';
                                     else {
                                         echo ' + حوافز سنوية حسب اللوائح المعتمدة داخل المؤسسة نسبة  ' . $user['extra_perc'] . ' من قيمة اي مشروع يجلبه الطرف الثاني للمؤسسة ';
                                     } ?>
