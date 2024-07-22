@@ -229,9 +229,9 @@ $user2 = $res2->fetch_assoc();
                                 <p>بين كل من: </p>
                                 <p>1- <strong>شركة سكايب للمقاولات</strong> وهي مؤسسة سعودية برقم سجل تجاري (1010967570) بتاريخ 1400/1/1هـ, ويمثله في هذا العقد السيد / <?= $_SESSION['full_name'] ?>، بصفته المدير العام للمؤسسة ويشار إليه فيما بعد بالطرف الأول .</p>
                                 <p>2- <strong><?= $user['name_ar'] ?></strong> ، الجنسية <?= $user['nationality'] ?> ، <?php if ($user['nationality'] == 'سعودي') echo 'بسجل مدني رقم';
-                                                                                                                        else {
-                                                                                                                            echo 'بإقامة رقم';
-                                                                                                                        } ?> (<?= $user['id_number'] ?>) تاريخ الإصدار <?= $user['id_issue_date'] ?> ومصدره <?= $user['id_source'] ?>, والمقيم سكناً في مدينة <?= $user['address'] ?>, ويشار إليه فيما بعد بالطرف الثاني . </p>
+                                    else {
+                                        echo 'بإقامة رقم';
+                                    } ?> (<?= $user['id_number'] ?>)  ومصدره <?= $user['id_source'] ?>, والمقيم سكناً في مدينة <?= $user['address'] ?>, ويشار إليه فيما بعد بالطرف الثاني . </p>
                                 <p>حيث تم الإتفاق والتراضي بين الطرفين أعلاه وهما بأتم الأوصاف المعتبرة على الإلتزام بالعقد التالي: </p>
                                 <p><strong>تعتبر هذه المقدمة جزء لا يتجزأ من هذا العقد.</strong></p>
                             </td>
@@ -246,7 +246,7 @@ $user2 = $res2->fetch_assoc();
                                                                                                             } ?> (<?= $user['id_number'] ?>) تاريخ الإصدار <?= $user['id_issue_date'] ?> ومصدره <?= $user['id_source'] ?>, والمقيم سكناً في مدينة <?= $user['address'] ?>, ويشار إليه فيما بعد بالطرف الثاني . </p>
                     <p>حيث تم الإتفاق والتراضي بين الطرفين أعلاه وهما بأتم الأوصاف المعتبرة على الإلتزام بالعقد التالي: </p>
                     <p><strong>تعتبر هذه المقدمة جزء لا يتجزأ من هذا العقد.</strong></p> -->
-
+                    <hr class="row brc-default-l1 mx-n1 mb-4" />
                     <table>
                         <tr class="heading">
                             <td colspan="2">
@@ -282,6 +282,7 @@ $user2 = $res2->fetch_assoc();
                     </table>
 
                     <!-- <h4>مدة العقد</h4> -->
+                    <hr class="row brc-default-l1 mx-n1 mb-4" />
                     <table>
                         <tr class="heading">
                             <td colspan="2">
@@ -306,7 +307,7 @@ $user2 = $res2->fetch_assoc();
                             </td>
                         </tr>
                     </table>
-
+ <hr class="row brc-default-l1 mx-n1 mb-4" />
                     <table>
                         <tr class="heading">
                             <td colspan="2">
@@ -324,6 +325,7 @@ $user2 = $res2->fetch_assoc();
                         </tr>
                     </table>
 
+                    <hr class="row brc-default-l1 mx-n1 mb-4" />
 
                     <table>
                         <tr class="heading">
@@ -344,6 +346,8 @@ $user2 = $res2->fetch_assoc();
                             </td>
                         </tr>
                     </table>
+                    <hr class="row brc-default-l1 mx-n1 mb-4" />
+
                     <table>
                         <tr class="heading">
                             <td colspan="2">
@@ -368,6 +372,7 @@ $user2 = $res2->fetch_assoc();
                             </td>
                         </tr>
                     </table>
+                    <hr class="row brc-default-l1 mx-n1 mb-4" />
 
                     <table>
                         <tr class="heading">
@@ -384,6 +389,8 @@ $user2 = $res2->fetch_assoc();
                             </td>
                         </tr>
                     </table>
+                    <hr class="row brc-default-l1 mx-n1 mb-4" />
+
                     <table>
                         <tr class="heading">
                             <td colspan="2">
