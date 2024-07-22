@@ -432,7 +432,7 @@ if (isset($_GET['id'])) {
                                     </div>
                                     <div class="col-8">
                                         <p class="card-text custom-font-small">
-                                            Rukn Amial Co.Company <br>
+                                            Skype Contracting Co.Company <br>
                                             Abbas Al Jafari <br>
                                             591022703 <br>
                                             Al Malaz-Jareer Street <br>

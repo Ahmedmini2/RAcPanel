@@ -19,7 +19,7 @@ include '../scripts/login.php';
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    ركن اميال تسجيل الدخول | Rukn Amial
+    ركن اميال تسجيل الدخول | Skype Contracting
   </title>
   <!--     Fonts and icons     -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -194,7 +194,7 @@ include '../scripts/login.php';
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())
-            </script> By Rukn Amial.
+            </script> By Skype Contracting.
           </p>
         </div>
       </div>
