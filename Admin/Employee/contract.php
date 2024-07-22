@@ -125,6 +125,10 @@ $user2 = $res2->fetch_assoc();
         .fontT{
             font-family: 'Courier New', Courier, monospace;
         }
+        .fontTi{
+            font-weight: 600 !important;
+            color: black;
+        }
 
 
 
@@ -216,7 +220,7 @@ $user2 = $res2->fetch_assoc();
                 <table>
                     <tr class="heading">
                         <td colspan="2">
-                            <h2 class="font-weight-bold text-center">عقد عمل</h2>
+                            <h2 class="fontTi text-center">عقد عمل</h2>
                         </td>
                     </tr>
                 </table>
@@ -253,7 +257,7 @@ $user2 = $res2->fetch_assoc();
                     <table>
                         <tr class="heading">
                             <td colspan="2">
-                                <h4 class="font-weight-bold text-center">المهنة ومكان العمل + الأجر والمزايا المالية</h4>
+                                <h4 class="fontTi text-center">المهنة ومكان العمل + الأجر والمزايا المالية</h4>
                             </td>
                         </tr>
                     </table>
@@ -289,7 +293,7 @@ $user2 = $res2->fetch_assoc();
                     <table>
                         <tr class="heading">
                             <td colspan="2">
-                                <h4 class="font-weight-bold text-center">مدة العقد</h4>
+                                <h4 class="fontTi text-center">مدة العقد</h4>
                             </td>
                         </tr>
                     </table>
@@ -314,7 +318,7 @@ $user2 = $res2->fetch_assoc();
                     <table>
                         <tr class="heading">
                             <td colspan="2">
-                                <h4 class="font-weight-bold text-center">فترة التجربة</h4>
+                                <h4 class="fontTi text-center">فترة التجربة</h4>
                             </td>
                         </tr>
                     </table>
@@ -333,7 +337,7 @@ $user2 = $res2->fetch_assoc();
                     <table>
                         <tr class="heading">
                             <td colspan="2">
-                                <h4 class="font-weight-bold text-center">الاجازات</h4>
+                                <h4 class="fontTi text-center">الاجازات</h4>
                             </td>
                         </tr>
                     </table>
@@ -354,7 +358,7 @@ $user2 = $res2->fetch_assoc();
                     <table>
                         <tr class="heading">
                             <td colspan="2">
-                                <h4 class="font-weight-bold text-center">ساعات العمل</h4>
+                                <h4 class="fontTi text-center">ساعات العمل</h4>
                             </td>
                         </tr>
                     </table>
@@ -380,7 +384,7 @@ $user2 = $res2->fetch_assoc();
                     <table>
                         <tr class="heading">
                             <td colspan="2">
-                                <h4 class="font-weight-bold text-center"> الجزاءات و الغرامات والعلاوات</h4>
+                                <h4 class="fontTi text-center"> الجزاءات و الغرامات والعلاوات</h4>
                             </td>
                         </tr>
                     </table>
@@ -397,7 +401,7 @@ $user2 = $res2->fetch_assoc();
                     <table>
                         <tr class="heading">
                             <td colspan="2">
-                                <h4 class="font-weight-bold text-center">عناوين التخاطب الرسمي</h4>
+                                <h4 class="fontTi text-center">عناوين التخاطب الرسمي</h4>
                             </td>
                         </tr>
                     </table>
@@ -410,13 +414,13 @@ $user2 = $res2->fetch_assoc();
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-6">
-                                            <p>1-<strong>الطرف الأول</strong> </p>
+                                            <p class="fontTi">1-<strong>الطرف الأول</strong> </p>
                                             <p>Email: info@skypecontracting.com</p>
                                             <p>Phone: (+966 55 654 0707)</p>
                                         </div>
                                         <div class="col-6">
 
-                                            <p>2-<strong>الطرف التاني</strong> </p>
+                                            <p class="fontTi">2-<strong>الطرف التاني</strong> </p>
                                             <p>Email: <?= $user['email'] ?></p>
                                             <p>Phone: <?= $user['phone'] ?></p>
                                         </div>
