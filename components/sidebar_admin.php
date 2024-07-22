@@ -12,7 +12,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
      <?php if ($_SESSION['position'] == 'Employee') 
      { ?> href="https://test.skypecontracting.com/Admin/index.php" <?php }
       else { ?> href="https://test.app.skypecontracting.com/index.php" <?php } ?>>
-      <img src="https://app.skypecontracting/assets/img/logos/logo2.png" class="navbar-brand-img " alt="main_logo">
+      <img src="https://test.skypecontracting/assets/img/logos/logo2.png" class="navbar-brand-img " alt="main_logo">
 
 
     </a>
@@ -265,7 +265,7 @@ $sidebar_admin = $_SESSION['sidebar_admin'];
                 <span class="nav-link-text me-1">اشتراك</span>
               </a>
             </li> -->
-            
+
   </ul>
   <hr>
   <div class="dropdown pb-4">
