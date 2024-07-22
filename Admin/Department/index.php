@@ -28,7 +28,7 @@ $select = mysqli_query($conn, "select * from departments");
     <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
     <title>
-        ركن أميال | Rukn Amial
+       سكايب  | Skype Contracting
     </title>
     <!--     Fonts and icons     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

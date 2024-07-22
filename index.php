@@ -42,7 +42,8 @@ while ($ban = mysqli_fetch_array($banner)) {
   <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <title>
-  سكايب  | Skype Contracting
+   سكايب  | Skype Contracting
+    
 
   </title>
   <!--     Fonts and icons     -->
