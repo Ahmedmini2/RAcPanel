@@ -279,12 +279,13 @@ $user2 = $res2->fetch_assoc();
                                     else {
                                         echo ' + تأمين قيمة تذاكر السفر ' . $user['tickets'] . ' ';
                                     } ?>
+                                    //
                                     
                             </td>
                         </tr>
                     </table>
                     <table>
-                        <tr class="heading">
+                        <tr class="heading fontT">
                             <td colspan="2">
                             <?php if ($user['extra_perc'] == 'لا يوجد') echo '';
                                     else {
