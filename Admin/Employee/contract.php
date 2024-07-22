@@ -203,31 +203,43 @@ $user2 = $res2->fetch_assoc();
 
             <div class="invoice-box ">
                 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-12">
                         <div class="text-center text-150">
                             <h2 class="font-weight-bold">عقد عمل</h2>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <table>
-                <tr class="heading">
-                <td colspan="2">
-                    <h2 class="font-weight-bold text-center">عقد عمل</h2>
-                </td>
-            </tr>
+                    <tr class="heading">
+                         <td colspan="2">
+                         <h2 class="font-weight-bold text-center">عقد عمل</h2>
+                        </td>
+                     </tr>
                 </table>
 
                 <hr class="row brc-default-l1 mx-n1 mb-4" />
 
                 <!-- here to change -->
                 <div class="row ">
-                    <p>ابرم هذا العقد في تاريخ : <?=$user['start_date']?>م</p>
+                <table>
+                    <tr class="heading">
+                         <td colspan="2">
+                         <p>ابرم هذا العقد في تاريخ : <?=$user['start_date']?>م</p>
                     <p>بين كل من: </p>
                     <p>1- <strong>شركة سكايب للمقاولات</strong> وهي مؤسسة سعودية برقم سجل تجاري (1010967570) بتاريخ 1400/1/1هـ, ويمثله في هذا العقد السيد / <?=$_SESSION['full_name']?>، بصفته المدير العام للمؤسسة ويشار إليه فيما بعد بالطرف الأول .</p>
                     <p>2- <strong><?= $user['name_ar'] ?></strong> ، الجنسية <?= $user['nationality'] ?> ، <?php if($user['nationality'] == 'سعودي') echo'بسجل مدني رقم'; else{ echo 'بإقامة رقم';} ?> (<?= $user['id_number'] ?>) تاريخ الإصدار <?=$user['id_issue_date']?> ومصدره <?=$user['id_source']?>, والمقيم سكناً في مدينة <?=$user['address']?>, ويشار إليه فيما بعد بالطرف الثاني . </p>
                     <p>حيث تم الإتفاق والتراضي بين الطرفين أعلاه وهما بأتم الأوصاف المعتبرة على الإلتزام بالعقد التالي: </p>
                     <p><strong>تعتبر هذه المقدمة جزء لا يتجزأ من هذا العقد.</strong></p>
+                        </td>
+                     </tr>
+                </table>
+                    <!-- <p>ابرم هذا العقد في تاريخ : <?=$user['start_date']?>م</p>
+                    <p>بين كل من: </p>
+                    <p>1- <strong>شركة سكايب للمقاولات</strong> وهي مؤسسة سعودية برقم سجل تجاري (1010967570) بتاريخ 1400/1/1هـ, ويمثله في هذا العقد السيد / <?=$_SESSION['full_name']?>، بصفته المدير العام للمؤسسة ويشار إليه فيما بعد بالطرف الأول .</p>
+                    <p>2- <strong><?= $user['name_ar'] ?></strong> ، الجنسية <?= $user['nationality'] ?> ، <?php if($user['nationality'] == 'سعودي') echo'بسجل مدني رقم'; else{ echo 'بإقامة رقم';} ?> (<?= $user['id_number'] ?>) تاريخ الإصدار <?=$user['id_issue_date']?> ومصدره <?=$user['id_source']?>, والمقيم سكناً في مدينة <?=$user['address']?>, ويشار إليه فيما بعد بالطرف الثاني . </p>
+                    <p>حيث تم الإتفاق والتراضي بين الطرفين أعلاه وهما بأتم الأوصاف المعتبرة على الإلتزام بالعقد التالي: </p>
+                    <p><strong>تعتبر هذه المقدمة جزء لا يتجزأ من هذا العقد.</strong></p> -->
 
                     <h4>المهنة ومكان العمل + الأجر والمزايا المالية</h4>
                     <p>قبل الطرف الثاني بالعمل لدى الطرف الأول بوظيفة ( <?= $user['position'] ?> ) , وراتب أساسي شهري قدره ( <?= $user['salary'] ?> ريال ) , يدفع في نهاية كل شهر ميلادي 
