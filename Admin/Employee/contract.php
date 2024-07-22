@@ -279,16 +279,7 @@ $user2 = $res2->fetch_assoc();
                                     else {
                                         echo ' + تأمين قيمة تذاكر السفر ' . $user['tickets'] . ' ';
                                     } ?>
-                                    //
-                                    
-                            </td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr class="heading fontT">
-                            <td colspan="2">
-                                <p>
-                            <?php if ($user['extra_perc'] == 'لا يوجد') echo '';
+                                    <?php if ($user['extra_perc'] == 'لا يوجد') echo '';
                                     else {
                                         echo ' + حوافز سنوية حسب اللوائح المعتمدة داخل المؤسسة نسبة  ' . $user['extra_perc'] . ' من قيمة اي مشروع يجلبه الطرف الثاني للمؤسسة ';
                                     } ?>
@@ -297,6 +288,7 @@ $user2 = $res2->fetch_assoc();
                             </td>
                         </tr>
                     </table>
+                    
 
                     <!-- <h4>مدة العقد</h4> -->
                     <hr class="row brc-default-l1 mx-n1 mb-4" />
