@@ -210,6 +210,13 @@ $user2 = $res2->fetch_assoc();
                         </div>
                     </div>
                 </div>
+                <table>
+                <tr class="heading">
+                <td colspan="2">
+                    <h2 class="font-weight-bold text-center">عقد عمل</h2>
+                </td>
+            </tr>
+                </table>
 
                 <hr class="row brc-default-l1 mx-n1 mb-4" />
 
