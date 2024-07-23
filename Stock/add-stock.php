@@ -84,7 +84,7 @@ if (!empty($_GET['edit'])) {
     $name_stock = "";
     $description = "";
     $quantity = "";
-    $price_per_peice = "";
+    $price_per_piece = "";
     $total_price = "";
 }
 
@@ -166,7 +166,7 @@ if (!empty($_GET['edit'])) {
                                 <div class="col">
                                     <div class="form-group">
                                         <label>سعر منتج الواحد</label>
-                                        <input type="number" placeholder="ادخل سعر المنج الواحد" class="form-control" name="price_per_peice" id="price_per_peice" value="<?php echo $price_per_peice; ?>">
+                                        <input type="number" placeholder="ادخل سعر المنج الواحد" class="form-control" name="price_per_piece" id="price_per_piece" value="<?php echo $price_per_piece; ?>">
                                     </div>
                                 </div>
 
