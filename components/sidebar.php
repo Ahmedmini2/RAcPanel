@@ -188,7 +188,7 @@ $sidebar = $_SESSION['sidebar'];
             </div>
             <span class="ms-1  d-sm-inline">المخزن</span>
           </a>
-          <ul class="collapse nav flex-column ms-1" id="submenu2" >
+          <ul class="collapse nav flex-column ms-1" id="submenu33" >
             <li class="w-100">
               <a href="../Stock/stock.php" class="nav-link px-0"> <span class=" d-sm-inline">المخزن</span></a>
             </li>
