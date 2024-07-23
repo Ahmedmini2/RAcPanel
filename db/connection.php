@@ -5,7 +5,7 @@
 // $dbusername = "root"; 
 // $dbpassword = "";
 
-$db = "ruknam5_app";
+$db = "ruknam5_test_app";
 $host = "localhost";
 $dbusername = "ruknam5_root";
 $dbpassword = "Roek9933@";
