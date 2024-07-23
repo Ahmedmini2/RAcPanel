@@ -60,7 +60,7 @@ if (!empty($_GET['edit'])) {
     $uploadOk = 1;
 
 
-    $insert = "INSERT INTO cost_center (`id`, `name_stock`, `description`, `quantity` , `price_per_piece` , `total_price`, `image` , `stock_date` , `created_at`) VALUES (NULL, '$name_stock', '$description', '$quantity', '$price_per_piece', 'total_price', $filename','$c_date', NOW())";
+    $insert = "INSERT INTO stock (`id`, `name_stock`, `description`, `quantity` , `price_per_piece` , `total_price`, `image` , `stock_date` , `created_at`) VALUES (NULL, '$name_stock', '$description', '$quantity', '$price_per_piece', 'total_price', $filename','$c_date', NOW())";
     $insertResult = $conn->query($insert);
     if ($insertResult) {
         $id = $conn->insert_id;
