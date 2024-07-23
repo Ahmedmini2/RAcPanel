@@ -41,7 +41,7 @@ if (!empty($_GET['edit'])) {
             header('location: stock.php');
             exit();
         } else {
-            $_SESSION['notification'] = "يوجد خلل في النظام";
+            $_SESSION['notification'] = "1يوجد خلل في النظام";
             header('location: stock.php');
             exit();
         }
@@ -76,7 +76,7 @@ if (!empty($_GET['edit'])) {
         header('location: stock.php');
         exit();
     } else {
-        $_SESSION['notification'] = "يوجد خلل في النظام";
+        $_SESSION['notification'] = "2يوجد خلل في النظام";
         header('location: stock.php');
         exit();
     }
