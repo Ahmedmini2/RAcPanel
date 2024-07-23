@@ -93,7 +93,7 @@ $select = mysqli_query($conn, "select * from stock");
                       <td class="text-xs text-secondary mb-0 border-1"><?=$r['created_at']?></td>
 
                       <td class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> 
-                          <a href="add-cost.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                          <a href="add-stock.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
                           <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
