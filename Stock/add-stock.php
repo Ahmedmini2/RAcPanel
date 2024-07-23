@@ -202,7 +202,7 @@ if (!empty($_GET['edit'])) {
 
                       $(document).on('change', 'input', function() {
                        
-                          var peice = (parseFloat($("#quantity").val()) * parseFloat($("#price_per_peice").val() || '0'));
+                          var peice = (parseFloat($("#quantity").val()) * parseFloat($("#price_per_piece").val() || '0'));
                           $("#total_price").val(peice);
                       });
                     
