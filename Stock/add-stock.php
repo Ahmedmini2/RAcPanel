@@ -196,7 +196,18 @@ if (!empty($_GET['edit'])) {
                             </div>
                         </div>
 
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
+                      var a = 1;
 
+                      $(document).on('change', 'input', function() {
+                       
+                          var peice = (parseFloat($("#quantity").val()) * parseFloat($("#price_per_peice").val() || '0'));
+                          $("#total_price").val(peice);
+                      });
+                    
+                      
+                    </script>
 
 
                         <div class="row">
