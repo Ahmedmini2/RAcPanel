@@ -10,7 +10,7 @@ if (!empty($_GET['edit'])) {
     $name_stock = $editData['name_stock'];
     $description = $editData['description'];
     $quantity = $editData['quantity'];
-    $price_per_peice = $editData['price_per_piece'];
+    $price_per_piece = $editData['price_per_piece'];
     $total_price = $editData['total_price'];
     $c_date = $editData['c_date'];
 
@@ -19,29 +19,32 @@ if (!empty($_GET['edit'])) {
         $name_stock = $_POST['name_stock'];
         $description = $_POST['description'];
         $quantity = $_POST['quantity'];
-        $price_per_peice = $_POST['price_per_piece'];
+        $price_per_piece = $_POST['price_per_piece'];
         $total_price = str_replace(',', '', $_POST['total_price']);
         $c_date = $_POST['c_date'];
-        //here
-        $target_dir = "../Signed-Docs/Cost-Bills/" . $id . "/";
-        if (!is_dir($target_dir)) {
-            mkdir($target_dir, 0777, true);
+
+        if (isset($_FILES['bill']) && $_FILES['bill']['error'] == 0) {
+            $target_dir = "../Signed-Docs/Stock-Bills/" . $id . "/";
+            if (!is_dir($target_dir)) {
+                mkdir($target_dir, 0777, true);
+            }
+            $target_file = $target_dir . basename($_FILES["bill"]["name"]);
+            $filename = basename($_FILES["bill"]["name"]);
+            move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
         } else {
+            $filename = $editData['image']; // احتفظ بالصورة الحالية إذا لم يتم رفع صورة جديدة
         }
-        $target_file = $target_dir . basename($_FILES["bill"]["name"]);
-        $filename = basename($_FILES["bill"]["name"]);
-        $uploadOk = 1;
-        move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
 
-        $update = "UPDATE `stock` SET `name_stock` = '$name_stock', `description` = '$description', `quantity` = '$quantity' ,`price_per_piece` = '$price_per_piece' , `total_price` = '$total_price', `image` = '$filename' , `stock_date` = '$c_date' WHERE `id` = $id";
-        $updateResult = $conn->query($update);
+        $stmt = $conn->prepare("UPDATE `stock` SET `name_stock` = ?, `description` = ?, `quantity` = ?, `price_per_piece` = ?, `total_price` = ?, `image` = ?, `stock_date` = ? WHERE `id` = ?");
+        $stmt->bind_param("ssiddssi", $name_stock, $description, $quantity, $price_per_piece, $total_price, $filename, $c_date, $id);
+        $updateResult = $stmt->execute();
+
         if ($updateResult) {
-
             $_SESSION['notification'] = "تم تعديل المخزن بنجاح";
             header('location: stock.php');
             exit();
         } else {
-            $_SESSION['notification'] = "1يوجد خلل في النظام";
+            $_SESSION['notification'] = "يوجد خلل في النظام";
             header('location: stock.php');
             exit();
         }
@@ -51,32 +54,36 @@ if (!empty($_GET['edit'])) {
     $name_stock = $_POST['name_stock'];
     $description = $_POST['description'];
     $quantity = $_POST['quantity'];
-    $price_per_peice = $_POST['price_per_piece'];
+    $price_per_piece = $_POST['price_per_piece'];
     $total_price = str_replace(',', '', $_POST['total_price']);
     $c_date = $_POST['c_date'];
 
+    if (isset($_FILES['bill']) && $_FILES['bill']['error'] == 0) {
+        $filename = basename($_FILES["bill"]["name"]);
+    } else {
+        $filename = "";
+    }
 
-    $filename = basename($_FILES["bill"]["name"]);
-    $uploadOk = 1;
+    $stmt = $conn->prepare("INSERT INTO stock (`name_stock`, `description`, `quantity`, `price_per_piece`, `total_price`, `image`, `stock_date`, `created_at`) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())");
+    $stmt->bind_param("ssiddss", $name_stock, $description, $quantity, $price_per_piece, $total_price, $filename, $c_date);
+    $insertResult = $stmt->execute();
 
-
-    $insert = "INSERT INTO stock (`id`, `name_stock`, `description`, `quantity` , `price_per_piece` , `total_price`, `image` , `stock_date` , `created_at`) VALUES (NULL, '$name_stock', '$description', '$quantity', '$price_per_piece', '$total_price', $filename','$c_date', NOW())";
-    $insertResult = $conn->query($insert);
     if ($insertResult) {
         $id = $conn->insert_id;
-        $target_dir = "../Signed-Docs/Cost-Bills/" . $id . "/";
+        $target_dir = "../Signed-Docs/Stock-Bills/" . $id . "/";
         if (!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
-        } else {
         }
-        $target_file = $target_dir . basename($_FILES["bill"]["name"]);
-        move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
+        if (isset($_FILES['bill']) && $_FILES['bill']['error'] == 0) {
+            $target_file = $target_dir . basename($_FILES["bill"]["name"]);
+            move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
+        }
 
         $_SESSION['notification'] = "تم اضافة المخزن بنجاح";
         header('location: stock.php');
         exit();
     } else {
-        $_SESSION['notification'] = "2يوجد خلل في النظام";
+        $_SESSION['notification'] = "يوجد خلل في النظام";
         header('location: stock.php');
         exit();
     }
@@ -84,9 +91,10 @@ if (!empty($_GET['edit'])) {
     $name_stock = "";
     $description = "";
     $quantity = "";
-    $price_per_peice = "";
+    $price_per_piece = "";
     $total_price = "";
 }
+
 
 ?>
 <!DOCTYPE html>
