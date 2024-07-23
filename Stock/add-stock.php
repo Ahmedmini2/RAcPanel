@@ -137,19 +137,10 @@ if (!empty($_GET['edit'])) {
                     </div>
                     <form id="<?php echo $idAttr; ?>" action="" method="post" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col">
+                        <div class="col">
                                 <div class="form-group">
-                                    <label>اسم االمنتج</label>
-                                    <select name="name" id="name" class="form-control" placeholder="اسم المنتج">
-                                        <option value="<?php echo $name_stock; ?>"><?php echo $name_stock; ?></option>
-                                        <?php
-                                        $select = mysqli_query($conn, "select * from stock");
-                                        while ($r = mysqli_fetch_array($select)) {
-
-                                            echo '<option value="' . $r['name_stock'] . '">' . $r['name_stock'] . '</option>';
-                                        }
-                                        ?>
-                                    </select>
+                                    <label>اسم الشركة</label>
+                                    <input type="text" placeholder="ادخل اسم منتج" class="form-control" name="name" value="<?php echo $name_stock; ?>">
                                 </div>
                             </div>
 
