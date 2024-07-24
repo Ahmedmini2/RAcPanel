@@ -53,7 +53,7 @@ $select = mysqli_query($conn, "select * from stock");
 
        }
        .table td:before{
-        content: attr();
+        content: attr(data-label);
         position: absolute;
         left: 0;
         width: 50%;
