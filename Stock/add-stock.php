@@ -11,7 +11,7 @@ if (!empty($_GET['edit'])) {
     $description = $editData['description'];
     $quantity = $editData['quantity'];
     $used_quantity = $editData['used_quantity'];
-    $price_per_peice = $editData['price_per_piece'];
+    $price_per_piece = $editData['price_per_piece'];
     $total_price = $editData['total_price'];
     $c_date = $editData['c_date'];
 
@@ -22,7 +22,7 @@ if (!empty($_GET['edit'])) {
         $quantity = $_POST['quantity'];
         $used_quantity = $_POST['used_quantity'];
         $remaining_quantity = $quantity - $used_quantity;
-        $price_per_peice = $_POST['price_per_piece'];
+        $price_per_piece = $_POST['price_per_piece'];
         $total_price = str_replace(',', '', $_POST['total_price']);
         $c_date = $_POST['c_date'];
         //here
@@ -55,7 +55,7 @@ if (!empty($_GET['edit'])) {
     $description = $_POST['description'];
     $quantity = $_POST['quantity'];
     $used_quantity = $_POST['used_quantity'];
-    $price_per_peice = $_POST['price_per_piece'];
+    $price_per_piece = $_POST['price_per_piece'];
     $total_price = str_replace(',', '', $_POST['total_price']);
     $c_date = $_POST['c_date'];
 
