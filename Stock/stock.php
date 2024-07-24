@@ -79,6 +79,7 @@ $select = mysqli_query($conn, "select * from stock");
                  
                 <?php 
                   while ($r = mysqli_fetch_array($select)) {
+                    $remaining_quantity = $r['quantity'] - $r['used_quantity'];
                      ?>
 
                     <tr class="text-center">
@@ -87,6 +88,8 @@ $select = mysqli_query($conn, "select * from stock");
                       <td class="text-xs text-secondary mb-0 border-1"><?=$r['name_stock']?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><?=$r['description']?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><?=$r['quantity']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['used_quantity']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?= $remaining_quantity?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><?=$r['price_per_peice']?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><?=$r['total_price']?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Bills/<?=$r['id']?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
@@ -104,6 +107,7 @@ $select = mysqli_query($conn, "select * from stock");
                                   <h5 class="modal-title" id="exampleModalLabel">حذف المنتج</h5>
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
+                                <!-- background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important; -->
                                 <div class="modal-body">
                                   الرجاء ادخال كلمة المرور للتأكيد
                                   <form action="../scripts/Stock/delete.php?id=<?php echo $r['id']; ?>" method="post">

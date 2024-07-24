@@ -10,6 +10,7 @@ if (!empty($_GET['edit'])) {
     $name_stock = $editData['name_stock'];
     $description = $editData['description'];
     $quantity = $editData['quantity'];
+    $used_quantity = $editData['used_quantity'];
     $price_per_peice = $editData['price_per_piece'];
     $total_price = $editData['total_price'];
     $c_date = $editData['c_date'];
@@ -19,6 +20,8 @@ if (!empty($_GET['edit'])) {
         $name_stock = $_POST['name_stock'];
         $description = $_POST['description'];
         $quantity = $_POST['quantity'];
+        $used_quantity = $_POST['used_quantity'];
+        $remaining_quantity = $quantity - $used_quantity;
         $price_per_peice = $_POST['price_per_piece'];
         $total_price = str_replace(',', '', $_POST['total_price']);
         $c_date = $_POST['c_date'];
@@ -33,7 +36,7 @@ if (!empty($_GET['edit'])) {
         $uploadOk = 1;
         move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
 
-        $update = "UPDATE `stock` SET `name_stock` = '$name_stock', `description` = '$description', `quantity` = '$quantity' ,`price_per_piece` = '$price_per_piece' , `total_price` = '$total_price', `image` = '$filename' , `stock_date` = '$c_date' WHERE `id` = $id";
+        $update = "UPDATE `stock` SET `name_stock` = '$name_stock', `description` = '$description', `quantity` = '$quantity' , `used_quantity` = '$used_quantity' ,`price_per_piece` = '$price_per_piece' , `total_price` = '$total_price', `image` = '$filename' , `stock_date` = '$c_date' WHERE `id` = $id";
         $updateResult = $conn->query($update);
         if ($updateResult) {
 
@@ -51,6 +54,7 @@ if (!empty($_GET['edit'])) {
     $name_stock = $_POST['name_stock'];
     $description = $_POST['description'];
     $quantity = $_POST['quantity'];
+    $used_quantity = $_POST['used_quantity'];
     $price_per_peice = $_POST['price_per_piece'];
     $total_price = str_replace(',', '', $_POST['total_price']);
     $c_date = $_POST['c_date'];
@@ -60,7 +64,7 @@ if (!empty($_GET['edit'])) {
     $uploadOk = 1;
 
 
-    $insert = "INSERT INTO stock (`id`, `name_stock`, `description`, `quantity` , `price_per_piece` , `total_price`, `image` , `stock_date` , `created_at`) VALUES (NULL, '$name_stock', '$description', '$quantity', '$price_per_piece', '$total_price', '$filename','$c_date', NOW())";
+    $insert = "INSERT INTO stock (`id`, `name_stock`, `description`, `quantity` , `used_quantity` , `price_per_piece` , `total_price`, `image` , `stock_date` , `created_at`) VALUES (NULL, '$name_stock', '$description', '$quantity', '$used_quantity', '$price_per_piece', '$total_price', '$filename','$c_date', NOW())";
     $insertResult = $conn->query($insert);
     if ($insertResult) {
         $id = $conn->insert_id;
@@ -84,6 +88,7 @@ if (!empty($_GET['edit'])) {
     $name_stock = "";
     $description = "";
     $quantity = "";
+    $used_quantity = "";
     $price_per_piece = "";
     $total_price = "";
 }
@@ -160,6 +165,12 @@ if (!empty($_GET['edit'])) {
                                     <div class="form-group">
                                         <label>كمية المنتج</label>
                                         <input type="number" placeholder="ادخل كمية المنتج" class="form-control" name="quantity" id="quantity" value="<?php echo $quantity; ?>">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>كمية المستهلكه</label>
+                                        <input type="number" placeholder="ادخل كمية المستهلكه" class="form-control" name="used_quantity" id="used_quantity" value="<?php echo $used_quantity; ?>">
                                     </div>
                                 </div>
 
