@@ -33,6 +33,18 @@ $select = mysqli_query($conn, "select * from stock");
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+
+    <style>
+        @media (max-width: 768px) {
+       .table thead{
+        display: none;
+       } 
+       .table, .table tbody,.table tr,.table td{
+        display: block;
+        width: 100%;
+       }
+      }
+    </style>
 </head>
 
 <body class="g-sidenav-show rtl ">
