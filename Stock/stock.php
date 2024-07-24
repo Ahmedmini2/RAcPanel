@@ -118,18 +118,18 @@ $select = mysqli_query($conn, "select * from stock");
 
                     <tr class="text-center">
 
-                      <td  class="text-xs text-secondary mb-0 border-1 "><?=$r['id']?></td>
-                      <td class="text-xs text-secondary mb-0 border-1"><?=$r['name_stock']?></td>
-                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['description']?></td>
-                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['quantity']?></td>
-                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['used_quantity']?></td>
-                      <td class="mb-0 text-sm text-secondary border-1"><?= $remaining_quantity?></td>
-                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['price_per_piece']?></td>
-                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['total_price']?></td>
-                      <td class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Bills/<?=$r['id']?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
-                      <td class="text-xs text-secondary mb-0 border-1"><?=$r['created_at']?></td>
+                      <td data-labe="الرقم"  class="text-xs text-secondary mb-0 border-1 "><?=$r['id']?></td>
+                      <td data-labe="اسم المنج"  class="text-xs text-secondary mb-0 border-1"><?=$r['name_stock']?></td>
+                      <td data-labe="الوصف"  class="mb-0 text-sm text-secondary border-1"><?=$r['description']?></td>
+                      <td data-labe="الكمية"  class="mb-0 text-sm text-secondary border-1"><?=$r['quantity']?></td>
+                      <td data-labe="الكمية المستهلكة"  class="mb-0 text-sm text-secondary border-1"><?=$r['used_quantity']?></td>
+                      <td data-labe="الكيمة المتبقيه"  class="mb-0 text-sm text-secondary border-1"><?= $remaining_quantity?></td>
+                      <td data-labe="سعر الصنف الواحد"  class="mb-0 text-sm text-secondary border-1"><?=$r['price_per_piece']?></td>
+                      <td data-labe="الاجمالي"  class="mb-0 text-sm text-secondary border-1"><?=$r['total_price']?></td>
+                      <td data-labe="صورة الفاتورة"  class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Bills/<?=$r['id']?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
+                      <td data-labe="تاريخ الطلب"  class="text-xs text-secondary mb-0 border-1"><?=$r['created_at']?></td>
 
-                      <td class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> 
+                      <td data-labe="Action"  class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> 
                           <a href="add-stock.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
 
