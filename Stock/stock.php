@@ -67,6 +67,8 @@ $select = mysqli_query($conn, "select * from stock");
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">اسم المنتج</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الوصف</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الكمية</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الكمية المستهلكة</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الكمية المتبقيه</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">سعر الصنف الواحد</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الاجمالي</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">صورة الفاتورة</th>
