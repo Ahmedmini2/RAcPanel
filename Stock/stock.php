@@ -92,7 +92,7 @@ $select = mysqli_query($conn, "select * from stock");
                       <td class="mb-0 text-sm text-secondary border-1"><?=$r['quantity']?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><?=$r['used_quantity']?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><?= $remaining_quantity?></td>
-                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['price_per_peice']?></td>
+                      <td class="mb-0 text-sm text-secondary border-1"><?=$r['price_per_piece']?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><?=$r['total_price']?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Bills/<?=$r['id']?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
                       <td class="text-xs text-secondary mb-0 border-1"><?=$r['created_at']?></td>
