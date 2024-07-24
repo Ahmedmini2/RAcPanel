@@ -43,6 +43,26 @@ $select = mysqli_query($conn, "select * from stock");
         display: block;
         width: 100%;
        }
+       .table tr{
+        margin-bottom: 15px;
+       }
+       .table tbody tr td{
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+
+       }
+       .table td:before{
+        content: attr();
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: 600;
+        font-size: 14px;
+        text-align: left;
+        
+       }
       }
     </style>
 </head>
@@ -98,7 +118,7 @@ $select = mysqli_query($conn, "select * from stock");
 
                     <tr class="text-center">
 
-                      <td class="text-xs text-secondary mb-0 border-1 "><?=$r['id']?></td>
+                      <td  class="text-xs text-secondary mb-0 border-1 "><?=$r['id']?></td>
                       <td class="text-xs text-secondary mb-0 border-1"><?=$r['name_stock']?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><?=$r['description']?></td>
                       <td class="mb-0 text-sm text-secondary border-1"><?=$r['quantity']?></td>
