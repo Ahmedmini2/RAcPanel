@@ -1043,8 +1043,8 @@ if (isset($_GET['id'])) {
                                                         ?>
                                                             <tr>
                                                                 <th class="text-secondary" scope="row"><?= $i ?></th>
-                                                                <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
-                                                                <td class="border-1 v"><?= $products['quantity'] ?></td>
+                                                                <td data-label="الصنف" class="border-1 text-secondary"><?= $products['product_name'] ?></td>
+                                                                <td data-label="الكمية الكلية للصنف" class="border-1 v"><?= $products['quantity'] ?></td>
                                                                 <?php
                                                                 $inv_id =  $products['id'];
                                                                 $inv_res = mysqli_query($conn, "SELECT * FROM product_status WHERE `product_id` = $inv_id");
@@ -1063,14 +1063,14 @@ if (isset($_GET['id'])) {
                                                                     $deliverd += $del['quantity'];
                                                                 }
                                                                 ?>
-                                                                <td class="border-1 text-secondary" ><?= number_format($inventory - $deliverd) ?></td>
-                                                                <td class="border-1 text-secondary"><?= number_format($production) ?></td>
+                                                                <td data-label="موجود في المستودع" class="border-1 text-secondary" ><?= number_format($inventory - $deliverd) ?></td>
+                                                                <td data-label="تم انتاج" class="border-1 text-secondary"><?= number_format($production) ?></td>
 
 
 
-                                                                <td class="border-1 text-secondary"><?= number_format($deliverd) ?></td>
+                                                                <td data-label="تم الاستلام" class="border-1 text-secondary"><?= number_format($deliverd) ?></td>
 
-                                                                <td class="border-1 text-secondary"><?= $products['quantity'] - $production ?></td>
+                                                                <td data-label="المتبقي" class="border-1 text-secondary"><?= $products['quantity'] - $production ?></td>
                                                             </tr>
                                                         <?php } ?>
 
