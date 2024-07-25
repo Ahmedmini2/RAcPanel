@@ -42,6 +42,39 @@ if (isset($_GET['id'])) {
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+
+    <!-- Style table -->
+    <style>
+        @media (max-width: 768px) {
+       .table thead{
+        display: none;
+       } 
+       .table, .table tbody,.table tr,.table td{
+        display: block;
+        width: 100%;
+       }
+       .table tr{
+        margin-bottom: 15px;
+       }
+       .table tbody tr td{
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+
+       }
+       .table td:before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: 600;
+        font-size: 14px;
+        text-align: left;
+        
+       }
+      }
+    </style>
 </head>
 
 <body class="g-sidenav-show rtl">
@@ -386,7 +419,7 @@ if (isset($_GET['id'])) {
                                                     ?>
                                                         <tr>
                                                             <th class="text-secondary" scope="row"><?= $i ?></th>
-                                                            <td class="border-1 text-secondary" ><?= $products['product_name'] ?></td>
+                                                            <td data-label="الصنف" class="border-1 text-secondary" ><?= $products['product_name'] ?></td>
                                                     <?php
                                                     $kh_id = $products['id'];
                                                      $res4 = mysqli_query($conn, "SELECT * FROM kharasana WHERE `product_id` = $kh_id");
@@ -398,12 +431,12 @@ if (isset($_GET['id'])) {
                                                         
                                                      }
                                                     ?>
-                                                            <td class="border-1 text-secondary"><?= $kh_quan ?></td>
+                                                            <td data-label="كمية الخرسانة" class="border-1 text-secondary"><?= $kh_quan ?></td>
 
-                                                            <td class="border-1 text-secondary"><?= $kh_peice ?></td>
+                                                            <td data-label="الخرسانة للصنف الواحد" class="border-1 text-secondary"><?= $kh_peice ?></td>
 
                                                             
-                                                            <td class="border-1 text-secondary"><?= number_format($kh_total) ?></td>
+                                                            <td data-label="سعر الخرسانة" class="border-1 text-secondary"><?= number_format($kh_total) ?></td>
                                                     <?php
                                                     $status_id = $products['id'];
                                                     $kh_used = 0;
@@ -416,8 +449,8 @@ if (isset($_GET['id'])) {
                                                      }
                                                     ?>
                                                     
-                                                            <td class="border-1 text-secondary"><?= number_format($kh_used,2) ?></td>
-                                                            <td class="border-1 text-secondary"><?= number_format($kh_used_price) ?></td>
+                                                            <td data-label="كمية الخرسانة المستخدمة" class="border-1 text-secondary"><?= number_format($kh_used,2) ?></td>
+                                                            <td data-label="سعر الخرسانة المستخدمة" class="border-1 text-secondary"><?= number_format($kh_used_price) ?></td>
 
                                                         </tr>
                                                     <?php } ?>
