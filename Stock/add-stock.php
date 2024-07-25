@@ -26,17 +26,18 @@ if (!empty($_GET['edit'])) {
         $total_price = str_replace(',', '', $_POST['total_price']);
         $c_date = $_POST['c_date'];
         //here
-        $target_dir = "../Signed-Docs/Stock-Bills/" . $id . "/";
-        if (!is_dir($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        } else {
-        }
-        $target_file = $target_dir . basename($_FILES["bill"]["name"]);
-        $filename = basename($_FILES["bill"]["name"]);
-        $uploadOk = 1;
-        move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
+        // $target_dir = "../Signed-Docs/Stock-Bills/" . $id . "/";
+        // if (!is_dir($target_dir)) {
+        //     mkdir($target_dir, 0777, true);
+        // } else {
+        // }
+        // $target_file = $target_dir . basename($_FILES["bill"]["name"]);
+        // $filename = basename($_FILES["bill"]["name"]);
+        // $uploadOk = 1;
+        // move_uploaded_file($_FILES["bill"]["tmp_name"], $target_file);
+        // `image` = '$filename' ,
 
-        $update = "UPDATE `stock` SET `name_stock` = '$name_stock', `description` = '$description', `quantity` = '$quantity' , `used_quantity` = '$used_quantity' ,`price_per_piece` = '$price_per_piece' , `total_price` = '$total_price', `image` = '$filename' , `stock_date` = '$c_date' WHERE `id` = $id";
+        $update = "UPDATE `stock` SET `name_stock` = '$name_stock', `description` = '$description', `quantity` = '$quantity' , `used_quantity` = '$used_quantity' ,`price_per_piece` = '$price_per_piece' , `total_price` = '$total_price',  `stock_date` = '$c_date' WHERE `id` = $id";
         $updateResult = $conn->query($update);
         if ($updateResult) {
 
