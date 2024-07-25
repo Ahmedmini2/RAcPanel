@@ -515,7 +515,7 @@ if (isset($_GET['id'])) {
                                                                     $iron_total += $iron['total_price'];
                                                                 ?>
                                                                     <tr>
-                                                                        <th data-label="الرقم" class="text-secondary" scope="row"><?= $i ?></th>
+                                                                        <th data-label="الرقم" class="text-secondary " scope="row"><?= $i ?></th>
                                                                     
                                                                         <td data-label="الحجم" class="border-1 text-secondary"><?= $iron['size'] ?></td>
                                                                         <td data-label="سعر اليوم" class="border-1 text-secondary"><?= number_format($iron['price_today'],2,'.',',')?></td>
@@ -616,10 +616,10 @@ if (isset($_GET['id'])) {
                                                                 ?>
                                                                     <tr>
                                                                         <th class="text-secondary" scope="row"><?= $i ?></th>
-                                                                        <td class="border-1 text-secondary"><?= $cover['type'] ?></td>
-                                                                        <td class="border-1 text-secondary"><?= $prod['quantity'] ?></td>
-                                                                        <td class="border-1 text-secondary"><?= $cover['price_per_piece'] ?></td>
-                                                                        <td class="border-1 text-secondary"><?= $cover['total_price'] ?></td>
+                                                                        <td data-label="نوع الغطاء"  class="border-1 text-secondary"><?= $cover['type'] ?></td>
+                                                                        <td data-label="الكمية" class="border-1 text-secondary"><?= $prod['quantity'] ?></td>
+                                                                        <td data-label="سعر الحبه" class="border-1 text-secondary"><?= $cover['price_per_piece'] ?></td>
+                                                                        <td data-label="السعر الكلي" class="border-1 text-secondary"><?= $cover['total_price'] ?></td>
                                                                     </tr>
                                                                 <?php } ?>
 
@@ -657,9 +657,9 @@ if (isset($_GET['id'])) {
                                                                 ?>
                                                                     <tr>
                                                                         <th class="text-secondary" scope="row"><?= $i ?></th>
-                                                                        <td class="border-1 text-secondary"><?= $extra['name'] ?></td>
-                                                                        <td class="border-1 text-secondary "><?= $extra['price_per_piece'] ?></td>
-                                                                        <td class="border-1 text-secondary" ><?= $extra['total_price'] ?></td>
+                                                                        <td data-label="إسم البند"  class="border-1 text-secondary"><?= $extra['name'] ?></td>
+                                                                        <td data-label="سعر الفرد"  class="border-1 text-secondary "><?= $extra['price_per_piece'] ?></td>
+                                                                        <td data-label="السعر الكلي"  class="border-1 text-secondary" ><?= $extra['total_price'] ?></td>
                                                                     </tr>
                                                                     
                                                                 <?php } ?>
@@ -697,13 +697,13 @@ if (isset($_GET['id'])) {
                                                 <!--Table head-->
                                                 <thead class="bg-dark text-light table-bordered text-center">
                                                     <tr>
-                                                        <th>الرقم</th>
-                                                        <th>اسم الصنف</th>
-                                                        <th>تكلفه الصنف</th>
-                                                        <th>سعر البيع</th>
-                                                        <th>صافي الربح</th>
-                                                        <th>مجموع صافي الربح</th>
-                                                        <th>نسبه الربح</th>
+                                                        <th>الرقم</th> 
+                                                        <th >اسم الصنف</th>
+                                                        <th  >تكلفه الصنف</th>
+                                                        <th  >سعر البيع</th>
+                                                        <th  >صافي الربح</th>
+                                                        <th  >مجموع صافي الربح</th>
+                                                        <th  >نسبه الربح</th>
                                                        
                                                         
 
@@ -724,12 +724,12 @@ if (isset($_GET['id'])) {
                                                     ?>
                                                         <tr>
                                                             <th class="text-secondary" scope="row"><?= $i ?></th>
-                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
-                                                            <td class="border-1 text-secondary"><?= number_format($products['cost_price'],2,'.',',')?></td>
-                                                            <td class="border-1 text-secondary"><?= number_format($products['sell_price'],2,'.',',')?></td>
-                                                            <td class="border-1 text-secondary"><?= number_format($products['net_profit'],2,'.',',')?></td>
-                                                            <td class="border-1 text-secondary"><?= number_format($products['net_profit']*$products['quantity'],2,'.',',')?></td>
-                                                            <td class="border-1 text-secondary"><?=$products['net_perc']?></td>   
+                                                            <td data-label="اسم الصنف"  class="border-1 text-secondary"><?= $products['product_name'] ?></td>
+                                                            <td data-label="تكلفه الصنف" class="border-1 text-secondary"><?= number_format($products['cost_price'],2,'.',',')?></td>
+                                                            <td  data-label="سعر البيع" class="border-1 text-secondary"><?= number_format($products['sell_price'],2,'.',',')?></td>
+                                                            <td data-label="صافي الربح" class="border-1 text-secondary"><?= number_format($products['net_profit'],2,'.',',')?></td>
+                                                            <td data-label="مجموع صافي الربح" class="border-1 text-secondary"><?= number_format($products['net_profit']*$products['quantity'],2,'.',',')?></td>
+                                                            <td data-label="نسبه الربح" class="border-1 text-secondary"><?=$products['net_perc']?></td>   
                                             
                                                         </tr>
                                                     <?php } ?>
@@ -795,16 +795,13 @@ if (isset($_GET['id'])) {
                                                         <?php if ($del_status == 1) { ?>
                                                         <tr>
                                                             <th class="text-secondarys" scope="row"><?= $i ?></th>
-                                                            <td class="border-1 text-secondary"><?= $products['product_name'] ?></td>
-                                                            <td class="border-1 text-secondary"><?= $peice_per_track ?></td>                                                
-                                                            <td class="border-1 text-secondary"><?= $quantity_of_track ?></td>
-                                                            <td class="border-1 text-secondary" ><?= number_format( $piece_price ,2,'.',',') ?></td>
-
-
-
-                                                            <td class="border-1 text-secondary"><?= number_format($track_price,2,'.',',') ?></td>
-                                                            <td class="border-1 text-secondary"><?= $delivery_to  ?></td>
-                                                            <td class="border-1 text-secondary"><?= number_format($del_total_price,2,'.',',') ?></td>
+                                                            <td data-label="الصنف" class="border-1 text-secondary"><?= $products['product_name'] ?></td>
+                                                            <td data-label="عدد القطع للتريلة" class="border-1 text-secondary"><?= $peice_per_track ?></td>                                                
+                                                            <td data-label="عدد التريلات" class="border-1 text-secondary"><?= $quantity_of_track ?></td>
+                                                            <td data-label="سعر توصيل القطعه" class="border-1 text-secondary" ><?= number_format( $piece_price ,2,'.',',') ?></td>
+                                                            <td data-label="سعر التوصيل التريلة" class="border-1 text-secondary"><?= number_format($track_price,2,'.',',') ?></td>
+                                                            <td data-label="سعر التوصيل الكلي" class="border-1 text-secondary"><?= $delivery_to  ?></td>
+                                                            <td data-label="توصيل الى" class="border-1 text-secondary"><?= number_format($del_total_price,2,'.',',') ?></td>
 
                                                             
                                                         </tr>
