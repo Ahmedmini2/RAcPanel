@@ -491,11 +491,11 @@ if (isset($_GET['id'])) {
                                                             <thead class="bg-dark text-light table-bordered text-center">
                                                                 <tr>
                                                                     <th>الرقم</th>
-                                                                    <th>الحجم</th>
-                                                                    <th>سعر اليوم</th>
-                                                                    <th>الكمية</th>
-                                                                    <th>طول الحديد</th>
-                                                                    <th>سعر الطن</th>
+                                                                    <th >الحجم</th>
+                                                                    <th >سعر اليوم</th>
+                                                                    <th >الكمية</th>
+                                                                    <th >طول الحديد</th>
+                                                                    <th >سعر الطن</th>
                                                                     <th>السعر الكلي</th>
 
 
@@ -515,14 +515,14 @@ if (isset($_GET['id'])) {
                                                                     $iron_total += $iron['total_price'];
                                                                 ?>
                                                                     <tr>
-                                                                        <th class="text-secondary" scope="row"><?= $i ?></th>
+                                                                        <th data-label="الرقم" class="text-secondary" scope="row"><?= $i ?></th>
                                                                     
-                                                                        <td class="border-1 text-secondary"><?= $iron['size'] ?></td>
-                                                                        <td class="border-1 text-secondary"><?= number_format($iron['price_today'],2,'.',',')?></td>
-                                                                        <td class="border-1 text-secondary" ><?= $iron['quantity'] ?></td>
-                                                                        <td class="border-1 text-secondary" ><?= $iron['iron_height'] ?></td>
-                                                                        <td class="border-1 text-secondary"><?= $iron['tn_price'] ?></td>
-                                                                        <td class="border-1 text-secondary"><?= $iron['total_price'] ?></td>
+                                                                        <td data-label="الحجم" class="border-1 text-secondary"><?= $iron['size'] ?></td>
+                                                                        <td data-label="سعر اليوم" class="border-1 text-secondary"><?= number_format($iron['price_today'],2,'.',',')?></td>
+                                                                        <td data-label="الكمية" class="border-1 text-secondary" ><?= $iron['quantity'] ?></td>
+                                                                        <td data-label="طول الحديد" class="border-1 text-secondary" ><?= $iron['iron_height'] ?></td>
+                                                                        <td data-label="سعر الطن" class="border-1 text-secondary"><?= $iron['tn_price'] ?></td>
+                                                                        <td  data-label="السعر الكلي" class="border-1 text-secondary"><?= $iron['total_price'] ?></td>
                                                                         
                                                                     </tr>
                                                                     
@@ -568,11 +568,11 @@ if (isset($_GET['id'])) {
                                                                     $accessory_total += $accessory['total_price'];
                                                                 ?>
                                                                     <tr>
-                                                                        <th class="text-secondary" scope="row"><?= $i ?></th>
-                                                                        <td class="border-1 text-secondary"><?= $accessory['name'] ?></td>
-                                                                        <td class="border-1 text-secondary"><?= $accessory['quantity'] ?></td>
-                                                                        <td class="border-1 text-secondary"><?= $accessory['price_per_piece'] ?></td>
-                                                                        <td class="border-1 text-secondary"><?= $accessory['total_price'] ?></td>
+                                                                        <th  data-label="الرقم" class="text-secondary" scope="row"><?= $i ?></th>
+                                                                        <td  data-label="إسم الاكسسوار" class="border-1 text-secondary"><?= $accessory['name'] ?></td>
+                                                                        <td  data-label="الكمية" class="border-1 text-secondary"><?= $accessory['quantity'] ?></td>
+                                                                        <td  data-label="سعر الحبه" class="border-1 text-secondary"><?= $accessory['price_per_piece'] ?></td>
+                                                                        <td  data-label="السعر الكلي" class="border-1 text-secondary"><?= $accessory['total_price'] ?></td>
                                                                     </tr>
                                                                     
                                                                 <?php } ?>
