@@ -365,6 +365,67 @@ if ($res) {
                 </div>
 
             </div>
+
+            <!--Table     -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mb-4 mt-3">
+                        <div class="card-header pb-0 ">
+                            <h6>اخر الاجازات</h6>
+                        </div>
+                        <div class="card-body px-0 pt-0 pb-2 mx-3">
+                            <div class="table-responsive p-0">
+                                <table class="table table-hover table-bordered table-fixed" id="example">
+
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-ligh table-bordered text-center">
+                                        <tr>
+                                            
+                                            <th>اسم المنتح</th>
+                                            <th>كميه المنتج</th>
+                                            <th>المستهلك</th>
+                                            <th>المتبقي</th>
+
+
+
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+
+                                    <!--Table body-->
+                                    <tbody class=" text-center">
+                                        <?php
+                                        $i = 0;
+                                        $dataStock = mysqli_query($conn, "SELECT * FROM `stock`");
+                                        while ($r = mysqli_fetch_array($dataStock)) {
+                                            $i++;
+                                            $quantity = $r['quantity'];
+                                            $used_quantity= $r['used_quantity'];
+                                            $remaining_quantity = $quantity - $used_quantity;
+                                          
+                                        ?>
+                                            <tr>
+                                               
+                                                <td class="border-1"><?= $r['name_stock'] ?></td>
+                                                <td class="border-1"><?= $r['quantity'] ?></td>
+                                                <td class="border-1"><?= $r['used_quantity'] ?></td>
+                                                <td class="border-1"><?= $remaining_quantity ?></td>
+
+
+
+                                            </tr>
+
+                                        <?php } ?>
+                                    </tbody>
+                                    <!--Table body-->
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Table -->
             <!--Table     -->
             <div class="row">
                 <div class="col-12">
