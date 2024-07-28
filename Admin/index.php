@@ -381,7 +381,7 @@ if ($res) {
                                     <thead class="bg-dark text-ligh table-bordered text-center">
                                         <tr>
                                             
-                                            <th>اسم المنتح</th>
+                                            <th>اسم المنتج</th>
                                             <th>كميه المنتج</th>
                                             <th>المستهلك</th>
                                             <th>المتبقي</th>
@@ -411,7 +411,18 @@ if ($res) {
                                                 <td class="border-1"><?= $r['used_quantity'] ?></td>
                                                 <td class="border-1"><?= $remaining_quantity ?></td>
 
+                                                <td class="border-1">
+                                                    <?php if ($remaining_quantity >= 100) {
+                                                        echo '<span class="badge badge-sm bg-gradient-success">كمية كافية</span>';
+                                                    } elseif ($remaining_quantity <= 50) {
+                                                        echo '<span class="badge badge-sm bg-gradient-warning">قرب تنتهي الكميه</span>';
+                                                    } else {
+                                                        echo '<span class="badge badge-sm bg-gradient-danger">انتهت</span>';
+                                                    } ?>
 
+                                                    
+
+                                                </td>
 
                                             </tr>
 
