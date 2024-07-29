@@ -150,7 +150,7 @@ $select = mysqli_query($conn, "select * from stock");
                           <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
                           <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
-                              <div class="modal-content">
+                              <div class="modal-contentt">
                                 <div class="modal-header">
                                   <h5 class="modal-title" id="exampleModalLabel">حذف المنتج</h5>
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
