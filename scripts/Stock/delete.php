@@ -21,7 +21,7 @@ include '../../db/connection.php';
                             $password=  md5($password);
                             if($password == $_SESSION['password']){
                         $id = $_GET['id'];
-                        $del= mysqli_query($conn, "delete from cost_center where id = '$id'");
+                        $del= mysqli_query($conn, "delete from stock where id = '$id'");
                         if($del)
                         {
                             $_SESSION['notification'] = "تم حذف المنتج بنجاح";
