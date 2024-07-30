@@ -2,12 +2,7 @@
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "stock";
 $select = mysqli_query($conn, "select * from stock");
-$email_address= !empty($_SESSION['email'])?$_SESSION['email']:'';
 
-if(empty($email_address))
-{
-  header("location:../../Auth/sign-in.php");
-}
 
 ?>
 <!DOCTYPE html>
@@ -152,53 +147,7 @@ if(empty($email_address))
                       <td data-label="Action"  class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> 
                           <a href="add-stock.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
-                      <!-- -->
-                      <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-pencil  " aria-hidden="true"></i></button>
-                          <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-contentt">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">تعديل المنتج</h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <!-- background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important; -->
-                                <?php 
-                                 if(!empty($_GET['edit']))
-                                 {
-                                     if(isset($_POST['upd']))
-                                     {
-                                         $password = $_POST['pas'];
-                                         $password=  md5($password);
-                                         if($password == $_SESSION['password']){
-                                     $id = $_GET['id'];
-                                     $udp= mysqli_query($conn, "select * from stock");
-                                     if($udp)
-                                     {
-                                         $_SESSION['notification'] = "تم  المنتج بنجاح";
-                                         header('location:../../Stock/add-stock.php?edit='.$id);
-                                     } }else{
-                                         $_SESSION['notification'] = "كلمة مرور خاطئة";
-                                         header('location:../../Stock/stock.php');
-                                         }
-                                     }
-                                 }
-                                ?>
-                                
-                                <div class="modal-body">
-                                  الرجاء ادخال كلمة المرور للتأكيد
-                                  <form action="add-stock.php?edit=<?php echo $id; ?>" method="post">
-                                    <input type="password" name="pas" class="form-control">
-
-                                </div>
-                                
-                                <div class="modal-footer">
-
-                                  <button type="submit" name="udp" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
-                                  </form>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                     
                           
                           <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
                           <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
