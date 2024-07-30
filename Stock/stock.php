@@ -158,7 +158,7 @@ $select = mysqli_query($conn, "select * from stock");
                                 <!-- background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important; -->
                                 <div class="modal-body">
                                   الرجاء ادخال كلمة المرور للتأكيد
-                                  <form action="../scripts/Stock/update.php?id=<?php echo $r['id']; ?>" method="post">
+                                  <form action="../scripts/Stock/update.php?edit=<?php echo $r['id']; ?>" method="post">
                                     <input type="password" name="pas" class="form-control">
 
                                 </div>
