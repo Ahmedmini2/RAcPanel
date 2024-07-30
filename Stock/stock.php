@@ -229,22 +229,7 @@ $select = mysqli_query($conn, "select * from stock");
 
     
   </script>
-  <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const passwordForm = document.getElementById('passwordForm');
-            const passwordInput = document.getElementById('passwordInput');
-
-            passwordForm.addEventListener('submit', function (event) {
-                const password = passwordInput.value;
-                const correctPassword = 'yourpassword'; // استبدل بكلمة المرور الحقيقية
-
-                if (password !== correctPassword) {
-                    event.preventDefault(); // منع إرسال النموذج
-                    alert('كلمة المرور غير صحيحة. حاول مرة أخرى.');
-                }
-            });
-        });
-    </script>
+  
   <script src="../assets/js/plugins/choices.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
