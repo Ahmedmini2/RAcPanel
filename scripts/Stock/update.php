@@ -13,7 +13,7 @@ if(empty($email_address))
 // }
 include '../../db/connection.php';
 
-    if(!empty($_GET['id']))
+    if(!empty($_GET['edit']))
                     {
                         if(isset($_POST['upd']))
                         {
