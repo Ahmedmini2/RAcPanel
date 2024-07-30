@@ -21,9 +21,9 @@ if (!empty($_GET['edit'])) {
         $description = $_POST['description'];
         // $quantity = $_POST['quantity'];
         $used_quantity = $_POST['used_quantity'];
-        $remaining_quantity = $quantity - $used_quantity;
-        $price_per_piece = $_POST['price_per_piece'];
-        $total_price = str_replace(',', '', $_POST['total_price']);
+        // $remaining_quantity = $quantity - $used_quantity;
+        // $price_per_piece = $_POST['price_per_piece'];
+        // $total_price = str_replace(',', '', $_POST['total_price']);
         $c_date = $_POST['c_date'];
         //here
         $target_dir = "../Signed-Docs/Stock-Bills/" . $id . "/";
