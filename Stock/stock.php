@@ -2,32 +2,12 @@
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "stock";
 $select = mysqli_query($conn, "select * from stock");
-session_start();
 $email_address= !empty($_SESSION['email'])?$_SESSION['email']:'';
 
 if(empty($email_address))
 {
   header("location:../../Auth/sign-in.php");
 }
-if(!empty($_GET['edit']))
-                    {
-                        if(isset($_POST['upd']))
-                        {
-                            $password = $_POST['pas'];
-                            $password=  md5($password);
-                            if($password == $_SESSION['password']){
-                        $id = $_GET['edit'];
-                        $udp= mysqli_query($conn, "select * from stock");
-                        if($udp)
-                        {
-                            $_SESSION['notification'] = "تم  المنتج بنجاح";
-                            header('location:../../Stock/add-stock.php?edit='.$id);
-                        } }else{
-                            $_SESSION['notification'] = "كلمة مرور خاطئة";
-                            header('location:../../Stock/stock.php');
-                            }
-                        }
-                    }
 
 ?>
 <!DOCTYPE html>
@@ -188,6 +168,27 @@ if(!empty($_GET['edit']))
                                     <input type="password" name="pas" class="form-control">
 
                                 </div>
+                                <?php 
+                                 if(!empty($_GET['edit']))
+                                 {
+                                     if(isset($_POST['upd']))
+                                     {
+                                         $password = $_POST['pas'];
+                                         $password=  md5($password);
+                                         if($password == $_SESSION['password']){
+                                     $id = $_GET['edit'];
+                                     $udp= mysqli_query($conn, "select * from stock");
+                                     if($udp)
+                                     {
+                                         $_SESSION['notification'] = "تم  المنتج بنجاح";
+                                         header('location:../../Stock/add-stock.php?edit='.$id);
+                                     } }else{
+                                         $_SESSION['notification'] = "كلمة مرور خاطئة";
+                                         header('location:../../Stock/stock.php');
+                                         }
+                                     }
+                                 }
+                                ?>
                                 <div class="modal-footer">
 
                                   <button type="submit" name="udp" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
