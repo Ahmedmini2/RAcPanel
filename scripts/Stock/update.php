@@ -21,7 +21,7 @@ include '../../db/connection.php';
                             $password=  md5($password);
                             if($password == $_SESSION['password']){
                         $id = $_GET['id'];
-                        $udp= mysqli_query($conn, "UPDATE `stock` SET  WHERE `id` = $id");
+                        $udp= mysqli_query($conn, "select * from stock");
                         if($udp)
                         {
                             $_SESSION['notification'] = "تم  المنتج بنجاح";
