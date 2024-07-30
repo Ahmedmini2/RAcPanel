@@ -35,39 +35,45 @@ $select = mysqli_query($conn, "select * from stock");
   <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 
-    <style>
+  <style>
+    .modal-contentt {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      pointer-events: auto;
+      background-color: #2c2c2c;
+      background-clip: padding-box;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 0.75rem;
+      outline: 0;
+    }
 
-      .modal-contentt {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            pointer-events: auto;
-            background-color: #2c2c2c;
-            background-clip: padding-box;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            border-radius: 0.75rem;
-            outline: 0;
-         }
-
-        @media (max-width: 768px) {
-       .table thead{
+    @media (max-width: 768px) {
+      .table thead {
         display: none;
-       } 
-       .table, .table tbody,.table tr,.table td{
+      }
+
+      .table,
+      .table tbody,
+      .table tr,
+      .table td {
         display: block;
         width: 100%;
-       }
-       .table tr{
+      }
+
+      .table tr {
         margin-bottom: 15px;
-       }
-       .table tbody tr td{
+      }
+
+      .table tbody tr td {
         text-align: right;
         padding-left: 50%;
         position: relative;
 
-       }
-       .table td:before{
+      }
+
+      .table td:before {
         content: attr(data-label);
         position: absolute;
         left: 0;
@@ -76,10 +82,10 @@ $select = mysqli_query($conn, "select * from stock");
         font-weight: 600;
         font-size: 14px;
         text-align: left;
-        
-       }
+
       }
-    </style>
+    }
+  </style>
 </head>
 
 <body class="g-sidenav-show rtl ">
@@ -89,16 +95,16 @@ $select = mysqli_query($conn, "select * from stock");
   <!-- End Of side Bar -->
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden">
     <!-- Navbar -->
-    <?php 
-     $titleNav = 'المخزن'; 
-     require_once('../components/navbar.php');
-     ?>
+    <?php
+    $titleNav = 'المخزن';
+    require_once('../components/navbar.php');
+    ?>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row">
 
         <a href="add-stock.php" class="btn bg-gradient-dark mb-0 col-md-2 col-sm-6 col-xs-6"> أضافة منتج جديد&nbsp;&nbsp; <i class="fas fa-plus"></i></a>
-       
+
         <div class="block-content " style="padding:15px;overflow-x: auto;white-space: nowrap;">
           <div class="content">
             <div class="block-header col-md-3 col-sm-6 col-xs-6  rounded">
@@ -109,7 +115,7 @@ $select = mysqli_query($conn, "select * from stock");
             <div class="block">
               <table class="table table-hover table-bordered align-items-center mb-0" id="example">
                 <thead>
-                  <tr  class="text-center">
+                  <tr class="text-center">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="2%">الرقم</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="5%">اسم المنتج</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الوصف</th>
@@ -119,36 +125,37 @@ $select = mysqli_query($conn, "select * from stock");
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">سعر الصنف الواحد</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">الاجمالي</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">صورة الفاتورة</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">صورة الفاتورة المسحوب</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">تاريخ الطلب</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 
                   </tr>
                 </thead>
                 <tbody>
-                 
-                <?php 
+
+                  <?php
                   while ($r = mysqli_fetch_array($select)) {
                     $remaining_quantity = $r['quantity'] - $r['used_quantity'];
-                     ?>
+                  ?>
 
                     <tr class="text-center">
 
-                      <td data-label="الرقم"  class="text-xs text-secondary mb-0 border-1 "><?=$r['id']?></td>
-                      <td data-label="اسم المنج"  class="text-xs text-secondary mb-0 border-1"><?=$r['name_stock']?></td>
-                      <td data-label="الوصف"  class="mb-0 text-sm text-secondary border-1"><?=$r['description']?></td>
-                      <td data-label="الكمية"  class="mb-0 text-sm text-secondary border-1"><?=$r['quantity']?></td>
-                      <td data-label="الكمية المستهلكة"  class="mb-0 text-sm text-secondary border-1"><?=$r['used_quantity']?></td>
-                      <td data-label="الكيمة المتبقيه"  class="mb-0 text-sm text-secondary border-1"><?= $remaining_quantity?></td>
-                      <td data-label="سعر الصنف الواحد"  class="mb-0 text-sm text-secondary border-1"><?=$r['price_per_piece']?></td>
-                      <td data-label="الاجمالي"  class="mb-0 text-sm text-secondary border-1"><?=$r['total_price']?></td>
-                      <td data-label="صورة الفاتورة"  class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Bills/<?=$r['id']?>/<?=$r['image']?>" target="_blank"><?=$r['image']?></a></td>
-                      <td data-label="تاريخ الطلب"  class="text-xs text-secondary mb-0 border-1"><?=$r['created_at']?></td>
+                      <td data-label="الرقم" class="text-xs text-secondary mb-0 border-1 "><?= $r['id'] ?></td>
+                      <td data-label="اسم المنج" class="text-xs text-secondary mb-0 border-1"><?= $r['name_stock'] ?></td>
+                      <td data-label="الوصف" class="mb-0 text-sm text-secondary border-1"><?= $r['description'] ?></td>
+                      <td data-label="الكمية" class="mb-0 text-sm text-secondary border-1"><?= $r['quantity'] ?></td>
+                      <td data-label="الكمية المستهلكة" class="mb-0 text-sm text-secondary border-1"><?= $r['used_quantity'] ?></td>
+                      <td data-label="الكيمة المتبقيه" class="mb-0 text-sm text-secondary border-1"><?= $remaining_quantity ?></td>
+                      <td data-label="سعر الصنف الواحد" class="mb-0 text-sm text-secondary border-1"><?= $r['price_per_piece'] ?></td>
+                      <td data-label="الاجمالي" class="mb-0 text-sm text-secondary border-1"><?= $r['total_price'] ?></td>
+                      <td data-label="صورة الفاتورة" class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Bills/<?= $r['id'] ?>/<?= $r['image'] ?>" target="_blank"><?= $r['image'] ?></a></td>
+                      <td data-label="صورة الفاتورة" class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Bills/<?= $r['id'] ?>/<?= $r['use_image'] ?>" target="_blank"><?= $r['use_image'] ?></a></td>
+                      <td data-label="تاريخ الطلب" class="text-xs text-secondary mb-0 border-1"><?= $r['created_at'] ?></td>
 
-                      <td data-label="Action"  class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> 
-                          <a href="add-stock.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                      <td data-label="Action" class="border-1 text-secondary">
+                        <?php if ($position == 'Admin') { ?>
+                          <a href="add-stock.php?edit=<?= $r['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
-                     
-                          
                           <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
                           <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -171,13 +178,20 @@ $select = mysqli_query($conn, "select * from stock");
                                 </div>
                               </div>
                             </div>
-                          </div> <?php } ?>
+                          </div>
+                        <?php } elseif ($position == 'worker') { ?>
+                          <!-- إذا كان المستخدم Editor، يظهر فقط رابط التعديل بدون زر الحذف -->
+                          <a href="add-stock-worker.php?edit=<?= $r['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <?php } else { ?>
+                          <!-- إذا لم يكن المستخدم Admin أو Editor، يظهر رسالة توضح أنه ليس لديك الصلاحيات اللازمة -->
+                          <p>ليس لديك الصلاحيات اللازمة للوصول إلى هذه الخيارات.</p>
+                        <?php } ?>
                       </td>
                       <!-- Modal -->
 
                     </tr>
-                        <?php } ?>
-                 
+                  <?php } ?>
+
                 </tbody>
               </table>
 
@@ -202,12 +216,10 @@ $select = mysqli_query($conn, "select * from stock");
   <script>
     $(document).ready(function() {
       $('#example').dataTable();
-      
-    });
 
-    
+    });
   </script>
-  
+
   <script src="../assets/js/plugins/choices.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
