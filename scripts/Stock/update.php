@@ -21,11 +21,9 @@ include '../../db/connection.php';
                             $password=  md5($password);
                             if($password == $_SESSION['password']){
                         $id = $_GET['id'];
-                        $udp= mysqli_query($conn, "UPDATE `stock` SET `name_stock` = '$name_stock', `description` = '$description', `quantity` = '$quantity' , `used_quantity` = '$used_quantity' ,`price_per_piece` = '$price_per_piece' , `total_price` = '$total_price',  `stock_date` = '$c_date' WHERE `id` = $id");
+                        $udp= mysqli_query($conn, "UPDATE `stock` SET  WHERE `id` = $id");
                         if($udp)
                         {
-
-
                             $_SESSION['notification'] = "تم  المنتج بنجاح";
                             header('location:../../Stock/add-stock.php?id='.$id);
                         } }else{
