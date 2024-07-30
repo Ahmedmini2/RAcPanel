@@ -27,7 +27,7 @@ include '../../db/connection.php';
 
 
                             $_SESSION['notification'] = "تم  المنتج بنجاح";
-                            header('location:../../Stock/add-stock.php');
+                            header('location:../../Stock/add-stock.php?id='.$id);
                         } }else{
                             $_SESSION['notification'] = "كلمة مرور خاطئة";
                             header('location:../../Stock/stock.php');
