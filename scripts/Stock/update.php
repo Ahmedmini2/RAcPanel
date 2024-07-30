@@ -20,12 +20,12 @@ include '../../db/connection.php';
                             $password = $_POST['pas'];
                             $password=  md5($password);
                             if($password == $_SESSION['password']){
-                        $id = $_GET['id'];
+                        $id = $_GET['edit'];
                         $udp= mysqli_query($conn, "select * from stock");
                         if($udp)
                         {
                             $_SESSION['notification'] = "تم  المنتج بنجاح";
-                            header('location:../../Stock/add-stock.php?id='.$id);
+                            header('location:../../Stock/add-stock.php?edit='.$id);
                         } }else{
                             $_SESSION['notification'] = "كلمة مرور خاطئة";
                             header('location:../../Stock/stock.php');
