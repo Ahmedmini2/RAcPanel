@@ -146,7 +146,31 @@ $select = mysqli_query($conn, "select * from stock");
                       <td data-label="Action"  class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> 
                           <a href="add-stock.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
+                      <!-- -->
+                      <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-pencil  " aria-hidden="true"></i></button>
+                          <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-contentt">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">تعديل المنتج</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <!-- background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important; -->
+                                <div class="modal-body">
+                                  الرجاء ادخال كلمة المرور للتأكيد
+                                  <form action="../scripts/Stock/update.php?id=<?php echo $r['id']; ?>" method="post">
+                                    <input type="password" name="pas" class="form-control">
 
+                                </div>
+                                <div class="modal-footer">
+
+                                  <button type="submit" name="udp" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
                           <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
                           <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
