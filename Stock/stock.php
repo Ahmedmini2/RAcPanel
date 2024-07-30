@@ -162,12 +162,6 @@ if(empty($email_address))
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <!-- background-image: linear-gradient(310deg, #6c6879 0%, #fbcf33 100%) !important; -->
-                                <div class="modal-body">
-                                  الرجاء ادخال كلمة المرور للتأكيد
-                                  <form action="add-stock.php?edit=<?php echo $r['id']; ?>" method="post">
-                                    <input type="password" name="pas" class="form-control">
-
-                                </div>
                                 <?php 
                                  if(!empty($_GET['edit']))
                                  {
@@ -176,7 +170,7 @@ if(empty($email_address))
                                          $password = $_POST['pas'];
                                          $password=  md5($password);
                                          if($password == $_SESSION['password']){
-                                     $id = $_GET['edit'];
+                                     $id = $_GET['id'];
                                      $udp= mysqli_query($conn, "select * from stock");
                                      if($udp)
                                      {
@@ -189,6 +183,14 @@ if(empty($email_address))
                                      }
                                  }
                                 ?>
+                                
+                                <div class="modal-body">
+                                  الرجاء ادخال كلمة المرور للتأكيد
+                                  <form action="add-stock.php?edit=<?php echo $id; ?>" method="post">
+                                    <input type="password" name="pas" class="form-control">
+
+                                </div>
+                                
                                 <div class="modal-footer">
 
                                   <button type="submit" name="udp" class="myButton col-md-6 col-sm-6 mt-5 btn btn-secondary rounded-pill">تأكيد الحذف</button>
