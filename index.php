@@ -316,79 +316,84 @@ while ($ban = mysqli_fetch_array($banner)) {
 
         <!--Table     -->
         <div class="row">
-                <div class="col-12">
-                    <div class="card mb-4 mt-3">
-                        <div class="card-header pb-0 ">
-                            <h6>المخزن</h6>
-                        </div>
-                        <div class="card-body px-0 pt-0 pb-2 mx-3">
-                            <div class="table-responsive p-0">
-                                <table class="table table-hover table-bordered table-fixed" id="example">
+          <div class="col-12">
+            <div class="card mb-4 mt-3">
+              <div class="card-header pb-0 ">
+                <h6>المخزن</h6>
+              </div>
+              <div class="card-body px-0 pt-0 pb-2 mx-3">
+                <div class="table-responsive p-0">
+                  <table class="table table-hover table-bordered table-fixed" id="example">
 
-                                    <!--Table head-->
-                                    <thead class="bg-dark text-ligh table-bordered text-center">
-                                        <tr>
-                                            
-                                            <th>اسم المنتج</th>
-                                            <th>كميه المنتج</th>
-                                            <th>المستهلك</th>
-                                            <th>المتبقي</th>
-                                            <th>فاتوره السحب</th>
-                                            <th>حاله المشروع</th>
+                    <!--Table head-->
+                    <thead class="bg-dark text-ligh table-bordered text-center">
+                      <tr>
 
-
-
-                                        </tr>
-                                    </thead>
-                                    <!--Table head-->
-
-                                    <!--Table body-->
-                                    <tbody class=" text-center">
-                                        <?php
-                                        $i = 0;
-                                        $dataStock = mysqli_query($conn, "SELECT * FROM `stock`");
-                                        while ($r = mysqli_fetch_array($dataStock)) {
-                                            $i++;
-                                            $quantity = $r['quantity'];
-                                            $used_quantity= $r['used_quantity'];
-                                            $remaining_quantity = $quantity - $used_quantity;
-                                          
-                                        ?>
-                                            <tr>
-                                               
-                                                <td class="border-1"><?= $r['name_stock'] ?></td>
-                                                <td class="border-1"><?= $r['quantity'] ?></td>
-                                                <td class="border-1"><?= $r['used_quantity'] ?></td>
-                                                <td class="border-1"><?= $remaining_quantity ?></td>
-                                                <td  class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Use-Bills/<?= $r['id'] ?>/<?= $r['use_image'] ?>" target="_blank"><?= $r['use_image'] ?></a></td>
+                        <th>اسم المنتج</th>
+                        <th>كميه المنتج</th>
+                        <th>المستهلك</th>
+                        <th>المتبقي</th>
+                        <th>فاتوره السحب</th>
+                        <th>حاله المشروع</th>
 
 
-                                                <td class="border-1">
-                                                    <?php if ($remaining_quantity >= 100) {
-                                                        echo '<span class="badge badge-sm bg-gradient-success">كمية كافية</span>';
-                                                    } elseif ($remaining_quantity <= 50) {
-                                                        echo '<span class="badge badge-sm bg-gradient-warning">قرب تنتهي الكميه</span>';
-                                                    } else {
-                                                        echo '<span class="badge badge-sm bg-gradient-danger">انتهت</span>';
-                                                    } ?>
 
-                                                    
+                      </tr>
+                    </thead>
+                    <!--Table head-->
 
-                                                </td>
+                    <!--Table body-->
+                    <tbody class=" text-center">
+                      <?php
+                      $i = 0;
+                      $dataStock = mysqli_query($conn, "SELECT * FROM `stock`");
+                      while ($r = mysqli_fetch_array($dataStock)) {
+                        $i++;
+                        $quantity = $r['quantity'];
+                        $used_quantity = $r['used_quantity'];
+                        $remaining_quantity = $quantity - $used_quantity;
 
-                                            </tr>
+                      ?>
+                        <tr>
 
-                                        <?php } ?>
-                                    </tbody>
-                                    <!--Table body-->
+                          <td class="border-1"><?= $r['name_stock'] ?></td>
+                          <td class="border-1"><?= $r['quantity'] ?></td>
+                          <td class="border-1"><?= $r['used_quantity'] ?></td>
 
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                          <td class="border-1"><?= $remaining_quantity ?></td>
+                          <td class="border-1">
+                            <?= ($r['use_image']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $r['id'] . '/' . $r['use_image'] . '" target="_blank">' . $r['use_image'] . '</a>' : 'لا يوجد رابط' ?>
+                          </td>
+
+                          <td class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Use-Bills/<?= $r['id'] ?>/<?= $r['use_image'] ?>" target="_blank"><?= $r['use_image'] ?></a></td>
+
+
+                          <td class="border-1">
+                            <?php if ($remaining_quantity >= 100) {
+                              echo '<span class="badge badge-sm bg-gradient-success">كمية كافية</span>';
+                            } elseif ($remaining_quantity <= 50) {
+                              echo '<span class="badge badge-sm bg-gradient-warning">قرب تنتهي الكميه</span>';
+                            } else {
+                              echo '<span class="badge badge-sm bg-gradient-danger">انتهت</span>';
+                            } ?>
+
+
+
+                          </td>
+
+                        </tr>
+
+                      <?php } ?>
+                    </tbody>
+                    <!--Table body-->
+
+                  </table>
                 </div>
+              </div>
             </div>
-            <!--Table -->
+          </div>
+        </div>
+        <!--Table -->
 
 
 
