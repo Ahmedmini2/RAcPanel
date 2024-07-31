@@ -365,7 +365,6 @@ while ($ban = mysqli_fetch_array($banner)) {
                             <?= ($r['use_image']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $r['id'] . '/' . $r['use_image'] . '" target="_blank">' . $r['use_image'] . '</a>' : 'لا يوجد رابط' ?>
                           </td>
 
-                          <td class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Use-Bills/<?= $r['id'] ?>/<?= $r['use_image'] ?>" target="_blank"><?= $r['use_image'] ?></a></td>
 
 
                           <td class="border-1">
@@ -507,6 +506,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                   <i class="ni ni-bell-55 text-lg text-primary text-gradient opacity-10" aria-hidden="true"></i>
                 </div>
               </div>
+              
               <div class="ms-3">
                 <div class="numbers">
                   <h6 class="mb-1 text-dark text-sm">Meeting with Marry</h6>
