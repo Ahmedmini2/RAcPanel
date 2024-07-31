@@ -149,7 +149,7 @@ $select = mysqli_query($conn, "select * from stock");
                       <td data-label="سعر الصنف الواحد" class="mb-0 text-sm text-secondary border-1"><?= $r['price_per_piece'] ?></td>
                       <td data-label="الاجمالي" class="mb-0 text-sm text-secondary border-1"><?= $r['total_price'] ?></td>
                       <td data-label="صورة الفاتورة" class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Bills/<?= $r['id'] ?>/<?= $r['image'] ?>" target="_blank"><?= $r['image'] ?></a></td>
-                      <td data-label="صورة الفاتورة" class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Bills/<?= $r['id'] ?>/<?= $r['use_image'] ?>" target="_blank"><?= $r['use_image'] ?></a></td>
+                      <td data-label="صورة الفاتورة" class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Use-Bills/<?= $r['id'] ?>/<?= $r['use_image'] ?>" target="_blank"><?= $r['use_image'] ?></a></td>
                       <td data-label="تاريخ الطلب" class="text-xs text-secondary mb-0 border-1"><?= $r['created_at'] ?></td>
 
                       <td data-label="Action" class="border-1 text-secondary">
