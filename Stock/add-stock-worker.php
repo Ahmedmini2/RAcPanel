@@ -200,13 +200,13 @@ if (!empty($_GET['edit'])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
+                            <!-- <div class="col">
                                 <div class="form-group">
                                     <label>صورة الفاتورة</label>
                                     <input type="file" placeholder="" class="form-control" name="bill" value="" required>
                                     <div class="invalid-feedback">الرجاء ارفاق الفاتورة</div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col">
                                 <div class="form-group">
                                     <label>صورة الفاتورة المسحوب</label>
