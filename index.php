@@ -11,7 +11,6 @@ while ($ban = mysqli_fetch_array($banner)) {
   $total_cost += $ban['project_cost'];
   $net_total += $ban['net_total'];
   $total_with_tax += $ban['total_with_tax'];
-
 }
 
 ?>
@@ -42,8 +41,8 @@ while ($ban = mysqli_fetch_array($banner)) {
   <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <title>
-   سكايب  | Skype Contracting
-    
+    سكايب | Skype Contracting
+
 
   </title>
   <!--     Fonts and icons     -->
@@ -70,267 +69,345 @@ while ($ban = mysqli_fetch_array($banner)) {
 
   <!-- Side Bar -->
   <?php require_once('components/sidebar.php'); ?>
-  
-  
+
+
   <!-- End Of side Bar -->
   <main class="main-content position-relative lg:max-height-vh-100 lg:h-100 mt-1 border-radius-lg overflow-hidden" style="-webkit-overflow-scrolling: touch;overflow-y: scroll;">
     <!-- Navbar -->
-     <?php 
-     $titleNav = 'الرئيسية';
-     require_once('components/navbar.php');
-     ?>
+    <?php
+    $titleNav = 'الرئيسية';
+    require_once('components/navbar.php');
+    ?>
     <!-- End Navbar -->
 
-    <?php if($position != 'Admin'){?>
+    <?php if ($position != 'Admin') { ?>
       <div class="container-fluid py-4">
-            <div class="block-header bg-gradient-dark  col-md-3 col-sm-6 col-xs-6  rounded-pill">
+        <div class="block-header bg-gradient-dark  col-md-3 col-sm-6 col-xs-6  rounded-pill">
 
-                <?php require_once('components/notification.php'); ?>
-            </div>
-            <div class="border-radius-xl mt-3 mx-3 position-relative" style="background-image: url('../assets/img/vr-bg.jpg') ; background-size: cover;" dir="ltr">
-               
-                <main class="main-content mt-1 border-radius-lg">
-                    <div class="section min-vh-85 position-relative transform-scale-0 transform-scale-md-7">
-                        <div class="container-fluid">
-                            <div class="row pt-10">
-                                
-                                <div class="col-lg-8 col-md-11">
-                                    <div class="d-flex">
-                                        <div class="me-auto">
-                                            <h1 class="display-1 font-weight-bold mt-n4 mb-0">28°C</h1>
-                                            <h6 class="text-uppercase mb-0 ms-1">Cloudy</h6>
-                                        </div>
-                                        <div class="ms-auto">
-                                            <img class="w-50 float-end mt-lg-n4" src="../assets/img/small-logos/icon-sun-cloud.png" alt="image sun">
-                                        </div>
-                                    </div>
-                                    <div class="row mt-4">
-                                        <div class="col-lg-4 col-md-4">
-                                            <div class="card move-on-hover overflow-hidden">
-                                                <div class="card-body">
-                                                    <div class="d-flex">
-                                                        <h6 class="mb-0 me-3">08:00</h6>
-                                                        <h6 class="mb-0">Synk up with Mark
-                                                            <small class="text-secondary font-weight-normal">Hangouts</small>
-                                                        </h6>
-                                                    </div>
-                                                    <hr class="horizontal dark">
-                                                    <div class="d-flex">
-                                                        <h6 class="mb-0 me-3">09:30</h6>
-                                                        <h6 class="mb-0">Gym <br />
-                                                            <small class="text-secondary font-weight-normal">World Class</small>
-                                                        </h6>
-                                                    </div>
-                                                    <hr class="horizontal dark">
-                                                    <div class="d-flex">
-                                                        <h6 class="mb-0 me-3">11:00</h6>
-                                                        <h6 class="mb-0">Design Review<br />
-                                                            <small class="text-secondary font-weight-normal">Zoom</small>
-                                                        </h6>
-                                                    </div>
-                                                </div>
-                                                <a href="javascript:;" class="bg-gray-100 w-100 text-center py-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Show More">
-                                                    <i class="fas fa-chevron-down text-primary"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 mt-4 mt-sm-0">
-                                            <div class="card bg-gradient-dark move-on-hover">
-                                                <div class="card-body">
-                                                    <div class="d-flex">
-                                                        <h5 class="mb-0 text-white">To Do</h5>
-                                                        <div class="ms-auto">
-                                                            <h1 class="text-white text-end mb-0 mt-n2">7</h1>
-                                                            <p class="text-sm mb-0 text-white">items</p>
-                                                        </div>
-                                                    </div>
-                                                    <p class="text-white mb-0">Shopping</p>
-                                                    <p class="mb-0 text-white">Meeting</p>
-                                                </div>
-                                                <a href="javascript:;" class="w-100 text-center py-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Show More">
-                                                    <i class="fas fa-chevron-down text-white"></i>
-                                                </a>
-                                            </div>
-                                            <div class="card move-on-hover mt-4">
-                                                <div class="card-body">
-                                                    <div class="d-flex">
-                                                        <p class="mb-0">Emails (21)</p>
-                                                        <a href="javascript:;" class="ms-auto" data-bs-toggle="tooltip" data-bs-placement="top" title="Check your emails">
-                                                            Check
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 mt-4 mt-sm-0">
-                                            <div class="card card-background card-background-mask-primary move-on-hover align-items-start">
-                                                <div class="cursor-pointer">
-                                                    <div class="full-background" style="background-image: url('../assets/img/curved-images/curved1.jpg')"></div>
-                                                    <div class="card-body">
-                                                        <h5 class="text-white mb-0">Some Kind Of Blues</h5>
-                                                        <p class="text-white text-sm">Deftones</p>
-                                                        <div class="d-flex mt-5">
-                                                            <button class="btn btn-outline-white rounded-circle p-2 mb-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Prev">
-                                                                <i class="fas fa-backward p-2"></i>
-                                                            </button>
-                                                            <button class="btn btn-outline-white rounded-circle p-2 mx-2 mb-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Pause">
-                                                                <i class="fas fa-play p-2"></i>
-                                                            </button>
-                                                            <button class="btn btn-outline-white rounded-circle p-2 mb-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Next">
-                                                                <i class="fas fa-forward p-2"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card move-on-hover mt-4">
-                                                <div class="card-body">
-                                                    <div class="d-flex">
-                                                        <p class="my-auto">Messages</p>
-                                                        <div class="ms-auto">
-                                                            <div class="avatar-group">
-                                                                <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="2 New Messages">
-                                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                                </a>
-                                                                <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="1 New Message">
-                                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                                </a>
-                                                                <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="13 New Messages">
-                                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                                </a>
-                                                                <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="7 New Messages">
-                                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+          <?php require_once('components/notification.php'); ?>
+        </div>
+        <div class="border-radius-xl mt-3 mx-3 position-relative" style="background-image: url('../assets/img/vr-bg.jpg') ; background-size: cover;" dir="ltr">
+
+          <main class="main-content mt-1 border-radius-lg">
+            <div class="section min-vh-85 position-relative transform-scale-0 transform-scale-md-7">
+              <div class="container-fluid">
+                <div class="row pt-10">
+
+                  <div class="col-lg-8 col-md-11">
+                    <div class="d-flex">
+                      <div class="me-auto">
+                        <h1 class="display-1 font-weight-bold mt-n4 mb-0">28°C</h1>
+                        <h6 class="text-uppercase mb-0 ms-1">Cloudy</h6>
+                      </div>
+                      <div class="ms-auto">
+                        <img class="w-50 float-end mt-lg-n4" src="../assets/img/small-logos/icon-sun-cloud.png" alt="image sun">
+                      </div>
+                    </div>
+                    <div class="row mt-4">
+                      <div class="col-lg-4 col-md-4">
+                        <div class="card move-on-hover overflow-hidden">
+                          <div class="card-body">
+                            <div class="d-flex">
+                              <h6 class="mb-0 me-3">08:00</h6>
+                              <h6 class="mb-0">Synk up with Mark
+                                <small class="text-secondary font-weight-normal">Hangouts</small>
+                              </h6>
+                            </div>
+                            <hr class="horizontal dark">
+                            <div class="d-flex">
+                              <h6 class="mb-0 me-3">09:30</h6>
+                              <h6 class="mb-0">Gym <br />
+                                <small class="text-secondary font-weight-normal">World Class</small>
+                              </h6>
+                            </div>
+                            <hr class="horizontal dark">
+                            <div class="d-flex">
+                              <h6 class="mb-0 me-3">11:00</h6>
+                              <h6 class="mb-0">Design Review<br />
+                                <small class="text-secondary font-weight-normal">Zoom</small>
+                              </h6>
+                            </div>
+                          </div>
+                          <a href="javascript:;" class="bg-gray-100 w-100 text-center py-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Show More">
+                            <i class="fas fa-chevron-down text-primary"></i>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 mt-4 mt-sm-0">
+                        <div class="card bg-gradient-dark move-on-hover">
+                          <div class="card-body">
+                            <div class="d-flex">
+                              <h5 class="mb-0 text-white">To Do</h5>
+                              <div class="ms-auto">
+                                <h1 class="text-white text-end mb-0 mt-n2">7</h1>
+                                <p class="text-sm mb-0 text-white">items</p>
+                              </div>
+                            </div>
+                            <p class="text-white mb-0">Shopping</p>
+                            <p class="mb-0 text-white">Meeting</p>
+                          </div>
+                          <a href="javascript:;" class="w-100 text-center py-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Show More">
+                            <i class="fas fa-chevron-down text-white"></i>
+                          </a>
+                        </div>
+                        <div class="card move-on-hover mt-4">
+                          <div class="card-body">
+                            <div class="d-flex">
+                              <p class="mb-0">Emails (21)</p>
+                              <a href="javascript:;" class="ms-auto" data-bs-toggle="tooltip" data-bs-placement="top" title="Check your emails">
+                                Check
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 mt-4 mt-sm-0">
+                        <div class="card card-background card-background-mask-primary move-on-hover align-items-start">
+                          <div class="cursor-pointer">
+                            <div class="full-background" style="background-image: url('../assets/img/curved-images/curved1.jpg')"></div>
+                            <div class="card-body">
+                              <h5 class="text-white mb-0">Some Kind Of Blues</h5>
+                              <p class="text-white text-sm">Deftones</p>
+                              <div class="d-flex mt-5">
+                                <button class="btn btn-outline-white rounded-circle p-2 mb-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Prev">
+                                  <i class="fas fa-backward p-2"></i>
+                                </button>
+                                <button class="btn btn-outline-white rounded-circle p-2 mx-2 mb-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Pause">
+                                  <i class="fas fa-play p-2"></i>
+                                </button>
+                                <button class="btn btn-outline-white rounded-circle p-2 mb-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Next">
+                                  <i class="fas fa-forward p-2"></i>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card move-on-hover mt-4">
+                          <div class="card-body">
+                            <div class="d-flex">
+                              <p class="my-auto">Messages</p>
+                              <div class="ms-auto">
+                                <div class="avatar-group">
+                                  <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="2 New Messages">
+                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
+                                  </a>
+                                  <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="1 New Message">
+                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
+                                  </a>
+                                  <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="13 New Messages">
+                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
+                                  </a>
+                                  <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="7 New Messages">
+                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
+                                  </a>
                                 </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+        <?php require_once('components/footer.php'); ?>
+      </div>
+    <?php } else { ?>
+
+
+      <div class="container-fluid py-4">
+
+        <div class="row justify-content-around">
+          <div class="sal-card col-lg-3 col-sm-6 mb-lg-0 mb-4">
+            <div class="sal-card-info">
+
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="numbers">
+                      <p class="text-sm mb-0 text-capitalize font-weight-bold">القيمة الإجمالية للمشاريع</p>
+                      <h5 class="font-weight-bolder mb-0">
+                        <?= number_format($total_price) ?> ريال
+
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="col-4 text-start">
+
+                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                      <i class="fa fa-money text-lg opacity-10" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sal-card col-lg-3 col-sm-6 mb-lg-0 mb-4">
+            <div class="sal-card-info">
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="numbers">
+                      <p class="text-sm mb-0 text-capitalize font-weight-bold">التكلفة الاجمالية للمشاريع</p>
+                      <h5 class="font-weight-bolder mb-0">
+                        <?= number_format($total_cost) ?> ريال
+
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="col-4 text-start">
+                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                      <i class="fa fa-university text-lg opacity-10" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sal-card col-lg-3 col-sm-6 mb-lg-0 mb-4">
+            <div class="sal-card-info">
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="numbers">
+                      <p class="text-sm mb-0 text-capitalize font-weight-bold">مجموع صافي الربح</p>
+                      <h5 class="font-weight-bolder mb-0">
+                        <?= number_format($net_total) ?> ريال
+
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="col-4 text-start">
+                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                      <i class="fa fa-usd text-lg opacity-10" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sal-card col-lg-3 col-sm-6">
+            <div class="sal-card-info">
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="numbers">
+                      <p class="text-sm mb-0 text-capitalize font-weight-bold">مجموع القيمة المضافة</p>
+                      <h5 class="font-weight-bolder mb-0">
+                        <?= number_format($total_with_tax) ?> ريال
+
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="col-4 text-start">
+                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                      <i class="fa fa-usd text-lg opacity-10" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!--Table     -->
+        <div class="row">
+                <div class="col-12">
+                    <div class="card mb-4 mt-3">
+                        <div class="card-header pb-0 ">
+                            <h6>المخزن</h6>
+                        </div>
+                        <div class="card-body px-0 pt-0 pb-2 mx-3">
+                            <div class="table-responsive p-0">
+                                <table class="table table-hover table-bordered table-fixed" id="example">
+
+                                    <!--Table head-->
+                                    <thead class="bg-dark text-ligh table-bordered text-center">
+                                        <tr>
+                                            
+                                            <th>اسم المنتج</th>
+                                            <th>كميه المنتج</th>
+                                            <th>المستهلك</th>
+                                            <th>المتبقي</th>
+                                            <th>فاتوره السحب</th>
+                                            <th>حاله المشروع</th>
+
+
+
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+
+                                    <!--Table body-->
+                                    <tbody class=" text-center">
+                                        <?php
+                                        $i = 0;
+                                        $dataStock = mysqli_query($conn, "SELECT * FROM `stock`");
+                                        while ($r = mysqli_fetch_array($dataStock)) {
+                                            $i++;
+                                            $quantity = $r['quantity'];
+                                            $used_quantity= $r['used_quantity'];
+                                            $remaining_quantity = $quantity - $used_quantity;
+                                          
+                                        ?>
+                                            <tr>
+                                               
+                                                <td class="border-1"><?= $r['name_stock'] ?></td>
+                                                <td class="border-1"><?= $r['quantity'] ?></td>
+                                                <td class="border-1"><?= $r['used_quantity'] ?></td>
+                                                <td class="border-1"><?= $remaining_quantity ?></td>
+                                                <td  class="mb-0 text-sm text-secondary border-1"><a href="../Signed-Docs/Stock-Bills/<?= $r['id'] ?>/<?= $r['use_image'] ?>" target="_blank"><?= $r['use_image'] ?></a></td>
+
+
+                                                <td class="border-1">
+                                                    <?php if ($remaining_quantity >= 100) {
+                                                        echo '<span class="badge badge-sm bg-gradient-success">كمية كافية</span>';
+                                                    } elseif ($remaining_quantity <= 50) {
+                                                        echo '<span class="badge badge-sm bg-gradient-warning">قرب تنتهي الكميه</span>';
+                                                    } else {
+                                                        echo '<span class="badge badge-sm bg-gradient-danger">انتهت</span>';
+                                                    } ?>
+
+                                                    
+
+                                                </td>
+
+                                            </tr>
+
+                                        <?php } ?>
+                                    </tbody>
+                                    <!--Table body-->
+
+                                </table>
                             </div>
                         </div>
                     </div>
-                </main>
+                </div>
             </div>
-            <?php require_once('components/footer.php'); ?>
-        </div>
-      <?php } else {?>
-        
+            <!--Table -->
 
-    <div class="container-fluid py-4">
 
-      <div class="row justify-content-around">
-        <div class="sal-card col-lg-3 col-sm-6 mb-lg-0 mb-4">
-          <div class="sal-card-info">
 
-            <div class="card-body p-3">
+        <div class="col-12 mt-4">
+          <div class="card mb-4">
+            <div class="card-header pb-0 p-3">
+              <h6 class="mb-1">المشاريع</h6>
+              <p class="text-sm">إدارة اخر المشاريع</p>
+            </div>
+            <div class=" p-3 ">
               <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">القيمة الإجمالية للمشاريع</p>
-                    <h5 class="font-weight-bolder mb-0">
-                      <?=number_format($total_price)?> ريال
-                      
-                    </h5>
-                  </div>
-                </div>
-                <div class="col-4 text-start">
-                  
-                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="fa fa-money text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="sal-card col-lg-3 col-sm-6 mb-lg-0 mb-4">
-          <div class="sal-card-info">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">التكلفة الاجمالية للمشاريع</p>
-                    <h5 class="font-weight-bolder mb-0">
-                    <?=number_format($total_cost)?> ريال
-                      
-                    </h5>
-                  </div>
-                </div>
-                <div class="col-4 text-start">
-                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="fa fa-university text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="sal-card col-lg-3 col-sm-6 mb-lg-0 mb-4">
-          <div class="sal-card-info">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">مجموع صافي الربح</p>
-                    <h5 class="font-weight-bolder mb-0">
-                    <?=number_format($net_total)?> ريال
-                      
-                    </h5>
-                  </div>
-                </div>
-                <div class="col-4 text-start">
-                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="fa fa-usd text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="sal-card col-lg-3 col-sm-6">
-          <div class="sal-card-info">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">مجموع القيمة المضافة</p>
-                    <h5 class="font-weight-bolder mb-0">
-                    <?=number_format($total_with_tax)?> ريال
-                     
-                    </h5>
-                  </div>
-                </div>
-                <div class="col-4 text-start">
-                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="fa fa-usd text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-      </div>
+                <!-- Card -->
 
-      <div class="col-12 mt-4">
-        <div class="card mb-4">
-          <div class="card-header pb-0 p-3">
-            <h6 class="mb-1">المشاريع</h6>
-            <p class="text-sm">إدارة اخر المشاريع</p>
-          </div>
-          <div class=" p-3 ">
-            <div class="row">
 
-              <!-- Card -->
-          
+                <?php
+                while ($r = mysqli_fetch_array($projects)) {
 
-              <?php 
-              while ($r = mysqli_fetch_array($projects)) {
-
-                echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
+                  echo '<div class="col-xs-12 col-sm-6 col-md-4 pt-2">
                       <div class="product_card  h-100 shadow-lg">
 
 
@@ -364,13 +441,13 @@ while ($ban = mysqli_fetch_array($banner)) {
                                     </div>
                                           </div>
                                           </div>';
-              }
-              ?>
+                }
+                ?>
 
 
 
 
-              <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
+                <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4  ">
 <div class="card card-blog card-plain py-3">
     <div class="position-relative">
     <a class="d-block shadow-xl border-radius-xl">
@@ -394,12 +471,12 @@ while ($ban = mysqli_fetch_array($banner)) {
     </div>
 </div>
 </div> -->
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-     <!-- <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+        <!-- <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
         <div class="card">
           <div class="card-header p-3 pb-0">
             <h6 class="mb-0">الاحداث القادمة</h6>
@@ -435,137 +512,137 @@ while ($ban = mysqli_fetch_array($banner)) {
           </div>
         </div>
       </div> -->
-      
 
-      <div class="row my-4">
-        <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
-          <div class="card">
-            <div class="card-header pb-0">
-              <div class="row mb-3">
-                <div class="col-6">
-                  <h6>المشاريع</h6>
-                  <p class="text-sm">
-                    <i class="fa fa-check text-info" aria-hidden="true"></i>
-                    <span class="font-weight-bold ms-1">30 انتهى</span> هذا الشهر
-                  </p>
-                </div>
-                <div class="col-6 my-auto text-start">
-                  <div class="dropdown float-start ps-4">
-                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-ellipsis-v text-secondary"></i>
-                    </a>
-                    <ul class="dropdown-menu px-2 py-3 me-n4" aria-labelledby="dropdownTable">
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">عمل</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">عمل آخر</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">شيء آخر هنا</a></li>
-                    </ul>
+
+        <div class="row my-4">
+          <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+            <div class="card">
+              <div class="card-header pb-0">
+                <div class="row mb-3">
+                  <div class="col-6">
+                    <h6>المشاريع</h6>
+                    <p class="text-sm">
+                      <i class="fa fa-check text-info" aria-hidden="true"></i>
+                      <span class="font-weight-bold ms-1">30 انتهى</span> هذا الشهر
+                    </p>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body p-0 pb-2">
-              <div class="table-responsive">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">المشروع</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">رقم المشروع</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">قيمة المشروع</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">التكلفة</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">صافي الربح</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">حالة المشروع</th>
-                    </tr>
-                  </thead>
-                  <tbody class="text-center">
-                    <?php
-                    $show_projects = mysqli_query($conn, "SELECT * FROM `projects`");
-                    while ($r = mysqli_fetch_array($show_projects)) {
-                    ?>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-
-                            <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm"><?= $r['name'] ?></h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> <?= $r['description'] ?> </span>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> <?= number_format($r['total_without_tax']) ?> </span>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> <?= number_format($r['project_cost']) ?> </span>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> <?= number_format($r['net_total']) ?> </span>
-                        </td>
-                        <td class="align-middle">
-                          <div class="progress-wrapper w-75 mx-auto">
-                            <div class="progress-info">
-                              <div class="progress-percentage">
-                                <span class="text-xs font-weight-bold"><?= $r['status'] ?></span>
-                              </div>
-                            </div>
-                            
-                          </div>
-                        </td>
-                      </tr>
-                    <?php } ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card h-100">
-            <div class="card-header pb-0">
-              <h6>نظرة عامة على سير العمل</h6>
-              <p class="text-sm">
-
-                <span class="font-weight-bold"></span> في الأيام الماضية
-              </p>
-            </div>
-            <div class="card-body p-3">
-              <div class="timeline timeline-one-side">
-                <?php
-                while ($r = mysqli_fetch_array($show_products_status)) {
-                  $product_id = $r['product_id'];
-                  $query = "SELECT * FROM `products` WHERE `id`=$product_id";
-                  $res = $conn->query($query);
-                  $product = $res->fetch_assoc();
-
-                  $project_id = $product['project_id'];
-                  $query = "SELECT * FROM `projects` WHERE `id`=$project_id";
-                  $res = $conn->query($query);
-                  $project = $res->fetch_assoc();
-
-                  $date = new DateTimeImmutable($r['created_at']);
-
-
-                ?>
-                  <div class="timeline-block mb-3">
-                    <span class="timeline-step">
-                      <i class="fa fa-bell text-success text-gradient"></i>
-                    </span>
-                    <div class="timeline-content">
-
-                      <h6 class="text-dark text-sm font-weight-bold mb-0">في مشروع <?= $project['name'] ?> تم <?= $r['description'] ?> لصنف <?=$r['name']?> عدد <?=$r['quantity']?> وحالته <?= $r['status'] ?></h6>
-                      <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><?= $date->format('D jS \o\f F Y h:i:s A') ?></p>
+                  <div class="col-6 my-auto text-start">
+                    <div class="dropdown float-start ps-4">
+                      <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-ellipsis-v text-secondary"></i>
+                      </a>
+                      <ul class="dropdown-menu px-2 py-3 me-n4" aria-labelledby="dropdownTable">
+                        <li><a class="dropdown-item border-radius-md" href="javascript:;">عمل</a></li>
+                        <li><a class="dropdown-item border-radius-md" href="javascript:;">عمل آخر</a></li>
+                        <li><a class="dropdown-item border-radius-md" href="javascript:;">شيء آخر هنا</a></li>
+                      </ul>
                     </div>
                   </div>
+                </div>
+              </div>
+              <div class="card-body p-0 pb-2">
+                <div class="table-responsive">
+                  <table class="table align-items-center mb-0">
+                    <thead>
+                      <tr>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">المشروع</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">رقم المشروع</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">قيمة المشروع</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">التكلفة</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">صافي الربح</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">حالة المشروع</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-center">
+                      <?php
+                      $show_projects = mysqli_query($conn, "SELECT * FROM `projects`");
+                      while ($r = mysqli_fetch_array($show_projects)) {
+                      ?>
+                        <tr>
+                          <td>
+                            <div class="d-flex px-2 py-1">
 
-                <?php } ?>
+                              <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm"><?= $r['name'] ?></h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> <?= $r['description'] ?> </span>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> <?= number_format($r['total_without_tax']) ?> </span>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> <?= number_format($r['project_cost']) ?> </span>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> <?= number_format($r['net_total']) ?> </span>
+                          </td>
+                          <td class="align-middle">
+                            <div class="progress-wrapper w-75 mx-auto">
+                              <div class="progress-info">
+                                <div class="progress-percentage">
+                                  <span class="text-xs font-weight-bold"><?= $r['status'] ?></span>
+                                </div>
+                              </div>
+
+                            </div>
+                          </td>
+                        </tr>
+                      <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card h-100">
+              <div class="card-header pb-0">
+                <h6>نظرة عامة على سير العمل</h6>
+                <p class="text-sm">
+
+                  <span class="font-weight-bold"></span> في الأيام الماضية
+                </p>
+              </div>
+              <div class="card-body p-3">
+                <div class="timeline timeline-one-side">
+                  <?php
+                  while ($r = mysqli_fetch_array($show_products_status)) {
+                    $product_id = $r['product_id'];
+                    $query = "SELECT * FROM `products` WHERE `id`=$product_id";
+                    $res = $conn->query($query);
+                    $product = $res->fetch_assoc();
+
+                    $project_id = $product['project_id'];
+                    $query = "SELECT * FROM `projects` WHERE `id`=$project_id";
+                    $res = $conn->query($query);
+                    $project = $res->fetch_assoc();
+
+                    $date = new DateTimeImmutable($r['created_at']);
+
+
+                  ?>
+                    <div class="timeline-block mb-3">
+                      <span class="timeline-step">
+                        <i class="fa fa-bell text-success text-gradient"></i>
+                      </span>
+                      <div class="timeline-content">
+
+                        <h6 class="text-dark text-sm font-weight-bold mb-0">في مشروع <?= $project['name'] ?> تم <?= $r['description'] ?> لصنف <?= $r['name'] ?> عدد <?= $r['quantity'] ?> وحالته <?= $r['status'] ?></h6>
+                        <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><?= $date->format('D jS \o\f F Y h:i:s A') ?></p>
+                      </div>
+                    </div>
+
+                  <?php } ?>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <?php require_once('components/footer.php'); ?>
       </div>
-      <?php require_once('components/footer.php'); ?>
-    </div>
     <?php } ?>
   </main>
 
@@ -629,17 +706,17 @@ while ($ban = mysqli_fetch_array($banner)) {
         const notificationLink = $('<a>').addClass('dropdown-item border-radius-md').attr('href', 'javascript:;');
         const notificationMainDiv = $('<div>').addClass('d-flex py-1');
         const notificationImgDiv = $('<div>').addClass('my-auto');
-        const notificationImg = $('<img>').addClass('avatar avatar-sm  me-3 ').attr('src','assets/img/team-2.jpg');
+        const notificationImg = $('<img>').addClass('avatar avatar-sm  me-3 ').attr('src', 'assets/img/team-2.jpg');
         const notificationMsgDiv = $('<div>').addClass('d-flex flex-column justify-content-center');
-        notificationMsgDiv.html('<h6 class="text-sm font-weight-normal mb-1"> <span class="font-weight-bold">' + notification.title + '</span> </h6><p class="text-xs text-secondary mb-0"> <i class="fa fa-clock me-1"></i>'+ notification.timestamp +'</p>');
-        
+        notificationMsgDiv.html('<h6 class="text-sm font-weight-normal mb-1"> <span class="font-weight-bold">' + notification.title + '</span> </h6><p class="text-xs text-secondary mb-0"> <i class="fa fa-clock me-1"></i>' + notification.timestamp + '</p>');
+
 
         if (notification.read_at == '0000-00-00 00:00:00') {
           unreadCount++;
           notificationLink.addClass('read-notification');
         } else {
-          
-          
+
+
         }
         notificationLink.on('click', function() {
           console.log('Mark as Read clicked for notification ID: ' + notification.id);
@@ -662,8 +739,10 @@ while ($ban = mysqli_fetch_array($banner)) {
     function markNotificationAsRead(notificationId) {
       $.ajax({
         url: 'scripts/notifications/mark_notification_as_read.php',
-        method: 'GET',  // Change this to GET
-        data: { data: notificationId }, // Send data as a GET parameter
+        method: 'GET', // Change this to GET
+        data: {
+          data: notificationId
+        }, // Send data as a GET parameter
         dataType: 'json',
         success: function(response) {
           // Handle the response (e.g., display a success message)
