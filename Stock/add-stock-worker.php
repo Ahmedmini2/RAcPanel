@@ -26,7 +26,7 @@ if (!empty($_GET['edit'])) {
         // $total_price = str_replace(',', '', $_POST['total_price']);
         $c_date = $_POST['c_date'];
         //here
-        $target_dir = "../Signed-Docs/Stock-Bills/" . $id . "/";
+        $target_dir = "../Signed-Docs/Stock-Use-Bills/" . $id . "/";
         if (!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
         } else {
@@ -65,11 +65,11 @@ if (!empty($_GET['edit'])) {
     $uploadOk = 1;
 
 
-    $insert = "INSERT INTO stock (`id`, `name_stock`, `description`, `quantity` , `used_quantity` , `price_per_piece` , `total_price`, `image` , `use_image`,  `stock_date` , `created_at`) VALUES (NULL, '$name_stock', '$description', '$quantity', '$used_quantity', '$price_per_piece', '$total_price', '$filename','$c_date', NOW())";
+    $insert = "INSERT INTO stock (`id`, `name_stock`, `description`, `quantity` , `used_quantity` , `price_per_piece` , `total_price`, `use_image`,  `stock_date` , `created_at`) VALUES (NULL, '$name_stock', '$description', '$quantity', '$used_quantity', '$price_per_piece', '$total_price', '$filename','$c_date', NOW())";
     $insertResult = $conn->query($insert);
     if ($insertResult) {
         $id = $conn->insert_id;
-        $target_dir = "../Signed-Docs/Stock-Bills/" . $id . "/";
+        $target_dir = "../Signed-Docs/Stock-Use-Bills/" . $id . "/";
         if (!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
         } else {
