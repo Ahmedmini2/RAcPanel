@@ -215,10 +215,7 @@ $select = mysqli_query($conn, "select * from stock");
                               formData.append('used_quantity', newUsedQuantity);
 
                               // إضافة الصورة إذا كانت مرفوعة
-                              var useImageInput = $('.use-image-input[data-id="' + id + '"]')[0];
-                              if (useImageInput.files.length > 0) {
-                                  formData.append('use_image', useImageInput.files[0]);
-                              }
+                              
 
                               $.ajax({
                                   url: 'update_stock.php',
