@@ -112,6 +112,8 @@ $select = mysqli_query($conn, "select * from stock");
               <?php require_once('../components/notification.php'); ?>
             </div>
 
+          
+
             <div class="block">
               <table class="table table-hover table-bordered align-items-center mb-0" id="example">
                 <thead>
@@ -235,6 +237,7 @@ $select = mysqli_query($conn, "select * from stock");
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+      
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
