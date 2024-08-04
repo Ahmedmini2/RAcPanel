@@ -4,8 +4,7 @@ include('../cookies/session2.php');
 if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
     $id = $_POST['id'];
     $used_quantity = $_POST['used_quantity'];
-    $use_image = '';
-
+   
     // // التعامل مع الصورة المرفوعة
     // if (isset($_FILES['use_image']) && $_FILES['use_image']['error'] == 0) {
     //     $uploadDir = '../Signed-Docs/Stock-Use-Bills/' . $id . '/';
@@ -22,18 +21,11 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
     // }
 
     // تحديث البيانات في قاعدة البيانات
-    $query = "UPDATE stock SET used_quantity = ?";
-    if ($use_image) {
-        $query .= ", use_image = ?";
-    }
-    $query .= " WHERE id = ?";
+    $query = "UPDATE stock SET used_quantity = ? WHERE id = ?";
 
     $stmt = $conn->prepare($query);
-    if ($use_image) {
-        $stmt->bind_param("iisi", $used_quantity, $use_image, $id);
-    } else {
-        $stmt->bind_param("iii", $used_quantity, $id);
-    }
+   
+    $stmt->bind_param("ii", $used_quantity, $id);
 
     if ($stmt->execute()) {
         echo "success";

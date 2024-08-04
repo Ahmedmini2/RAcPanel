@@ -205,7 +205,7 @@ $select = mysqli_query($conn, "select * from stock");
 
               <script>
                   $(document).ready(function() {
-                      $('.quantity-input, .used-quantity-input').on('keypress', function(e) {
+                      $('.used-quantity-input').on('keypress', function(e) {
                           if (e.which == 13) { // 13 هو مفتاح Enter
                               var id = $(this).data('id');
                               var newUsedQuantity = $('.used-quantity-input[data-id="' + id + '"]').val();
