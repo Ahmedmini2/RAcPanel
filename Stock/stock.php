@@ -154,9 +154,15 @@ $select = mysqli_query($conn, "select * from stock");
                       <td data-label="صورة الفاتورة" class="mb-0 text-sm text-secondary border-1">
                             <?= ($r['image']) ? '<a href="../Signed-Docs/Stock-Bills/' . $r['id'] . '/' . $r['image'] . '" target="_blank">' . $r['image'] . '</a>' : 'لا يوجد رابط' ?>
                       </td>
+                      <?php if ($position == 'Admin') { ?>
                       <td data-label="صورة الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
                             <?= ($r['use_image']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $r['id'] . '/' . $r['use_image'] . '" target="_blank">' . $r['use_image'] . '</a>' : 'لا يوجد رابط' ?>
                       </td>
+                      <?php } else { ?>
+                        <td data-label="صورة الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
+                          <input type="file" class="use-image-input" data-id="<?= $r['id'] ?>" />
+                        </td>
+                      <?php }?>
                       <td data-label="تاريخ الطلب" class="text-xs text-secondary mb-0 border-1"><?= $r['created_at'] ?></td>
 
                       <td data-label="Action" class="border-1 text-secondary">
@@ -208,6 +214,7 @@ $select = mysqli_query($conn, "select * from stock");
                       $('.used-quantity-input').on('keypress', function(e) {
                           if (e.which == 13) { // 13 هو مفتاح Enter
                               var id = $(this).data('id');
+                              var newQuantity = $(this).val();
                               var newUsedQuantity = $('.used-quantity-input[data-id="' + id + '"]').val();
 
                               var formData = new FormData();
@@ -215,7 +222,10 @@ $select = mysqli_query($conn, "select * from stock");
                               formData.append('used_quantity', newUsedQuantity);
 
                               // إضافة الصورة إذا كانت مرفوعة
-                              
+                              var useImageInput = $('.use-image-input[data-id="' + id + '"]')[0];
+                              if (useImageInput.files.length > 0) {
+                                  formData.append('use_image', useImageInput.files[0]);
+                              }
 
                               $.ajax({
                                   url: 'update_stock.php',
@@ -234,6 +244,8 @@ $select = mysqli_query($conn, "select * from stock");
                       });
                   });
               </script>
+
+
 
 
 
