@@ -1,6 +1,6 @@
 <?php
 include('../cookies/session2.php');
-$_SESSION['sidebar'] = "stock";
+$_SESSION['sidebar'] = "Stock";
 $select = mysqli_query($conn, "select * from stock");
 
 
