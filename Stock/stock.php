@@ -146,7 +146,7 @@ $select = mysqli_query($conn, "select * from stock");
                       <td data-label="اسم المنج" class="text-xs text-secondary mb-0 border-1"><?= $r['name_stock'] ?></td>
                       <td data-label="الوصف" class="mb-0 text-sm text-secondary border-1"><?= $r['description'] ?></td>
                       <td data-label="الكمية" class="mb-0 text-sm text-secondary border-1"><?= $r['quantity'] ?></td>
-                      <td data-label="الكمية المستهلكة" class="mb-0 text-sm text-secondary border-1"><?= $r['used_quantity'] ?></td>
+                      <td data-label="الكمية المستهلكة" class="mb-0 text-sm text-secondary border-1"><input type="number" class="used-quantity-input" data-id="<?= $r['id'] ?>" value="<?= $r['used_quantity'] ?>" /></td>
                       <td data-label="الكيمة المتبقيه" class="mb-0 text-sm text-secondary border-1"><?= $remaining_quantity ?></td>
                       <td data-label="سعر الصنف الواحد" class="mb-0 text-sm text-secondary border-1"><?= $r['price_per_piece'] ?></td>
                       <td data-label="الاجمالي" class="mb-0 text-sm text-secondary border-1"><?= $r['total_price'] ?></td>
@@ -201,6 +201,41 @@ $select = mysqli_query($conn, "select * from stock");
 
                 </tbody>
               </table>
+
+              <script>
+                  $(document).ready(function() {
+                      $('.quantity-input, .used-quantity-input').on('keypress', function(e) {
+                          if (e.which == 13) { // 13 هو مفتاح Enter
+                              var id = $(this).data('id');
+                              var newUsedQuantity = $('.used-quantity-input[data-id="' + id + '"]').val();
+
+                              var formData = new FormData();
+                              formData.append('id', id);
+                              formData.append('used_quantity', newUsedQuantity);
+
+                              // إضافة الصورة إذا كانت مرفوعة
+                              var useImageInput = $('.use-image-input[data-id="' + id + '"]')[0];
+                              if (useImageInput.files.length > 0) {
+                                  formData.append('use_image', useImageInput.files[0]);
+                              }
+
+                              $.ajax({
+                                  url: 'update_stock.php',
+                                  type: 'POST',
+                                  data: formData,
+                                  processData: false,
+                                  contentType: false,
+                                  success: function(response) {
+                                      alert('تم تحديث البيانات بنجاح');
+                                  },
+                                  error: function() {
+                                      alert('حدث خطأ أثناء تحديث البيانات');
+                                  }
+                              });
+                          }
+                      });
+                  });
+              </script>
 
 
 
