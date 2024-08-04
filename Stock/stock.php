@@ -156,9 +156,9 @@ $select = mysqli_query($conn, "select * from stock");
                       </td>
                       <td data-label="تاريخ الطلب" class="text-xs text-secondary mb-0 border-1"><?= $r['created_at'] ?></td>
 
-                      <td data-label="Action"  class="border-1 text-secondary"><?php if ($position == 'Admin') { ?> 
-                          <a href="add-stock.php?edit=<?=$r['id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
-
+                      <td data-label="Action" class="border-1 text-secondary">
+                        <?php if ($position == 'Admin') { ?>
+                          <a href="add-stock.php?edit=<?= $r['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
 
                           <button type="button" class="borderless" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $r['id'] ?>"><i class="fa fa-trash  " aria-hidden="true"></i></button>
                           <div class="modal fade" id="exampleModal<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -182,7 +182,14 @@ $select = mysqli_query($conn, "select * from stock");
                                 </div>
                               </div>
                             </div>
-                          </div> <?php } ?>
+                          </div>
+                        <?php } elseif ($position == 'Worker') { ?>
+                          <!-- إذا كان المستخدم Editor، يظهر فقط رابط التعديل بدون زر الحذف -->
+                          <a href="add-stock-worker.php?edit=<?= $r['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <?php } else { ?>
+                          <!-- إذا لم يكن المستخدم Admin أو Editor، يظهر رسالة توضح أنه ليس لديك الصلاحيات اللازمة -->
+                          <p>ليس لديك الصلاحيات اللازمة للوصول إلى هذه الخيارات.</p>
+                        <?php } ?>
                       </td>
                       <!-- Modal -->
                       <!-- Modal -->
