@@ -183,13 +183,7 @@ $select = mysqli_query($conn, "select * from stock");
                               </div>
                             </div>
                           </div>
-                        <?php } elseif ($position == 'Worker') { ?>
-                          <!-- إذا كان المستخدم Editor، يظهر فقط رابط التعديل بدون زر الحذف -->
-                          <a href="add-stock-worker.php?edit=<?= $r['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                        <?php } else { ?>
-                          <!-- إذا لم يكن المستخدم Admin أو Editor، يظهر رسالة توضح أنه ليس لديك الصلاحيات اللازمة -->
-                          <p>ليس لديك الصلاحيات اللازمة للوصول إلى هذه الخيارات.</p>
-                        <?php } ?>
+                        <?php }  ?>
                       </td>
                       <!-- Modal -->
 
