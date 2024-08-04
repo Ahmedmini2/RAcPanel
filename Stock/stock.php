@@ -183,7 +183,7 @@ $select = mysqli_query($conn, "select * from stock");
                               </div>
                             </div>
                           </div>
-                        <?php } elseif ($position == 'Worker') { ?>
+                        <?php } elseif ($position == 'Worker' || 'Admin') { ?>
                           <!-- إذا كان المستخدم Editor، يظهر فقط رابط التعديل بدون زر الحذف -->
                           <a href="add-stock-worker.php?edit=<?= $r['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                         <?php } else { ?>
