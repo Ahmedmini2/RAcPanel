@@ -37,7 +37,7 @@ $_SESSION['sidebar_admin'] = "manage";
     <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
     <link href="../../assets/css/custom.css" rel="stylesheet" />
 
