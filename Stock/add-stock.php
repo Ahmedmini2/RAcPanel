@@ -59,7 +59,9 @@ if (!empty($_GET['edit'])) {
     $price_per_piece = $_POST['price_per_piece'];
     $total_price = str_replace(',', '', $_POST['total_price']);
     $c_date = $_POST['c_date'];
+  
 
+    
 
     $filename = basename($_FILES["bill"]["name"]);
     $uploadOk = 1;
