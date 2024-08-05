@@ -140,7 +140,7 @@ $select = mysqli_query($conn, "select * from stock");
                   while ($r = mysqli_fetch_array($select)) {
                     // $remaining_quantity = $r['quantity'] - $r['used_quantity'];
                     $stock = $r['quantity'] - $r['used_quantity'];
-                    $new_stock =$stock - $r['used_quantity'];
+                    $new_stock = $stock 
                   ?>
 
                     <tr class="text-center">
