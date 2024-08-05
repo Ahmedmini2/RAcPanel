@@ -138,7 +138,7 @@ $select = mysqli_query($conn, "select * from stock");
 
                   <?php
                   while ($r = mysqli_fetch_array($select)) {
-
+                    
                   //   $remaining_quantity = $r['quantity'] - $r['used_quantity'];
                   //   $idS =  $r['id'];
                   //   $update = "UPDATE `stock` SET `stock` = '$remaining_quantity' WHERE `id` = $idS";
@@ -149,7 +149,7 @@ $select = mysqli_query($conn, "select * from stock");
                   $idS =  $r['id'];
                   
                   // استخدام استعلام مُعَدٍّ
-                  $stmt = $conn->prepare("UPDATE `stock` SET `stock` = $remaining_quantity  WHERE `id` = $idS");
+                  $stmt = $conn->prepare("UPDATE `stock` SET `stock` = ? WHERE `id` = ?");
                   $stmt->bind_param("ii", $remaining_quantity, $idS);
                   
                   if ($stmt->execute()) {
