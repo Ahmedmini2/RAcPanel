@@ -138,22 +138,14 @@ $select = mysqli_query($conn, "select * from stock");
 
                   <?php
                   while ($r = mysqli_fetch_array($select)) {
-                    $current_remaining_quantity = $r['stock'];
+                    $current_remaining_quantity = $r['quantity'];
                     // حساب الكمية المتبقية بعد السحب
                   $new_remaining_quantity = $current_remaining_quantity - $r['used_quantity'];
                    
                   
                     $update = "UPDATE stock SET stock = '$new_remaining_quantity' WHERE id = $id";
                     $updateResult = $conn->query($update);
-                    if ($updateResult) {
-                      $_SESSION['notification'] = "تم سحب الكمية بنجاح";
-                      header('location: stock.php');
-                      exit();
-                  } else {
-                      $_SESSION['notification'] = "يوجد خلل في النظام";
-                      header('location: stock.php');
-                      exit();
-                  }
+                    
                   ?>
 
                     <tr class="text-center">
