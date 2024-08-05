@@ -142,7 +142,7 @@ $select = mysqli_query($conn, "select * from stock");
                     $idS =  $r['id'];
                     $update = "UPDATE `stock` SET `stock` = '$remaining_quantity' WHERE `id` = $idS";
                     $updateResult = $conn->query($update);
-                    $new_stock = $r['stock'] - $r['used_quantity'];
+                    $new_stock = $r['stock'] 
                     
                   ?>
 
