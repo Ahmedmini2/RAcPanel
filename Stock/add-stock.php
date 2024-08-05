@@ -10,6 +10,7 @@ if (!empty($_GET['edit'])) {
     $name_stock = $editData['name_stock'];
     $description = $editData['description'];
     $quantity = $editData['quantity'];
+    $stock = $_POST['stock'];
     $used_quantity = $editData['used_quantity'];
     $price_per_piece = $editData['price_per_piece'];
     $total_price = $editData['total_price'];
@@ -20,6 +21,7 @@ if (!empty($_GET['edit'])) {
         $name_stock = $_POST['name_stock'];
         $description = $_POST['description'];
         $quantity = $_POST['quantity'];
+        $stock = $_POST['stock'];
         $used_quantity = $_POST['used_quantity'];
         $remaining_quantity = $quantity - $used_quantity;
         $price_per_piece = $_POST['price_per_piece'];
@@ -55,6 +57,7 @@ if (!empty($_GET['edit'])) {
     $name_stock = $_POST['name_stock'];
     $description = $_POST['description'];
     $quantity = $_POST['quantity'];
+    $stock = $_POST['stock'];
     $used_quantity = $_POST['used_quantity'];
     $price_per_piece = $_POST['price_per_piece'];
     $total_price = str_replace(',', '', $_POST['total_price']);
@@ -67,7 +70,7 @@ if (!empty($_GET['edit'])) {
     $uploadOk = 1;
 
 
-    $insert = "INSERT INTO stock (`id`, `name_stock`, `description`, `quantity` , `used_quantity` , `price_per_piece` , `total_price`, `image` , `stock_date` , `created_at`) VALUES (NULL, '$name_stock', '$description', '$quantity', '$used_quantity', '$price_per_piece', '$total_price', '$filename','$c_date', NOW())";
+    $insert = "INSERT INTO stock (`id`, `name_stock`, `description`, `quantity`, `stock` , `used_quantity` , `price_per_piece` , `total_price`, `image` , `stock_date` , `created_at`) VALUES (NULL, '$name_stock', '$description', '$quantity', '$stock' , '$used_quantity', '$price_per_piece', '$total_price', '$filename','$c_date', NOW())";
     $insertResult = $conn->query($insert);
     if ($insertResult) {
         $id = $conn->insert_id;
@@ -91,6 +94,7 @@ if (!empty($_GET['edit'])) {
     $name_stock = "";
     $description = "";
     $quantity = "";
+    $stock = "";
     $used_quantity = "";
     $price_per_piece = "";
     $total_price = "";
