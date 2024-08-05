@@ -30,9 +30,9 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
 
     $stmt = $conn->prepare($query);
     if ($use_image) {
-        $stmt->bind_param("iisi", $used_quantity, $use_image, $id);
+        $stmt->bind_param("isi",  $used_quantity, $use_image, $id);
     } else {
-        $stmt->bind_param("iii", $used_quantity, $id);
+        $stmt->bind_param("ii",  $used_quantity, $id);
     }
 
     if ($stmt->execute()) {

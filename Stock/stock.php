@@ -32,6 +32,7 @@ $select = mysqli_query($conn, "select * from stock");
 
 
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 
@@ -155,9 +156,15 @@ $select = mysqli_query($conn, "select * from stock");
                       <td data-label="صورة الفاتورة" class="mb-0 text-sm text-secondary border-1">
                             <?= ($r['image']) ? '<a href="../Signed-Docs/Stock-Bills/' . $r['id'] . '/' . $r['image'] . '" target="_blank">' . $r['image'] . '</a>' : 'لا يوجد رابط' ?>
                       </td>
+                      <?php if ($position == 'Admin') { ?>
                       <td data-label="صورة الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
                             <?= ($r['use_image']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $r['id'] . '/' . $r['use_image'] . '" target="_blank">' . $r['use_image'] . '</a>' : 'لا يوجد رابط' ?>
                       </td>
+                      <?php } else { ?>
+                        <td data-label="صورة الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
+                          <input type="file" class="use-image-input" data-id="<?= $r['id'] ?>" />
+                        </td>
+                      <?php }?>
                       <td data-label="تاريخ الطلب" class="text-xs text-secondary mb-0 border-1"><?= $r['created_at'] ?></td>
 
                       <td data-label="Action" class="border-1 text-secondary">
@@ -206,9 +213,10 @@ $select = mysqli_query($conn, "select * from stock");
 
               <script>
                   $(document).ready(function() {
-                      $('.quantity-input, .used-quantity-input').on('keypress', function(e) {
+                      $('.used-quantity-input').on('keypress', function(e) {
                           if (e.which == 13) { // 13 هو مفتاح Enter
                               var id = $(this).data('id');
+                              var newQuantity = $(this).val();
                               var newUsedQuantity = $('.used-quantity-input[data-id="' + id + '"]').val();
 
                               var formData = new FormData();
@@ -238,6 +246,8 @@ $select = mysqli_query($conn, "select * from stock");
                       });
                   });
               </script>
+
+
 
 
 
