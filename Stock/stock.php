@@ -139,9 +139,9 @@ $select = mysqli_query($conn, "select * from stock");
                   <?php
                   while ($r = mysqli_fetch_array($select)) {
                     $remaining_quantity = $r['quantity'] - $r['used_quantity'];
-                    
-                    $stock ="UPDATE stock SET stock = $remaining_quantity WHERE id=$id";
                     $new_stock = $stock - $r['used_quantity'];
+                    $stock ="UPDATE stock SET stock = $remaining_quantity WHERE id=$id";
+                    
                   ?>
 
                     <tr class="text-center">
