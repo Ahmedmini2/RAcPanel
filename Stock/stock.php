@@ -138,11 +138,26 @@ $select = mysqli_query($conn, "select * from stock");
 
                   <?php
                   while ($r = mysqli_fetch_array($select)) {
-                    $remaining_quantity = $r['quantity'] - $r['used_quantity'];
-                    $idS =  $r['id'];
-                    $update = "UPDATE `stock` SET `stock` = '$remaining_quantity' WHERE `id` = $idS";
-                    $updateResult = $conn->query($update);
-                    $new_stock = $r['stock'] 
+                  //   $remaining_quantity = $r['quantity'] - $r['used_quantity'];
+                  //   $idS =  $r['id'];
+                  //   $update = "UPDATE `stock` SET `stock` = '$remaining_quantity' WHERE `id` = $idS";
+                  //   $updateResult = $conn->query($update);
+                  //   $new_stock = $r['stock'] 
+                  $remaining_quantity = $r['quantity'] - $r['used_quantity'];
+                  $idS =  $r['id'];
+                  
+                  // استخدام استعلام مُعَدٍّ
+                  $stmt = $conn->prepare("UPDATE `stock` SET `stock` = ? WHERE `id` = ?");
+                  $stmt->bind_param("ii", $remaining_quantity, $idS);
+                  
+                  if ($stmt->execute()) {
+                      echo "Stock updated successfully.";
+                  } else {
+                      echo "Error updating stock: " . $stmt->error;
+                  }
+                  
+                  // يمكنك الحصول على القيمة الجديدة إذا لزم الأمر
+                  $new_stock = $r['stock'];
                     
                   ?>
 
