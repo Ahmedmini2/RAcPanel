@@ -139,27 +139,14 @@ $select = mysqli_query($conn, "select * from stock");
                   <?php
                   while ($r = mysqli_fetch_array($select)) {
                     
-                  //   $remaining_quantity = $r['quantity'] - $r['used_quantity'];
-                  //   $idS =  $r['id'];
-                  //   $update = "UPDATE `stock` SET `stock` = '$remaining_quantity' WHERE `id` = $idS";
-                  //   $updateResult = $conn->query($update);
-                  //   $new_stock = $r['stock'] 
+                    $remaining_quantity = $r['quantity'] - $r['used_quantity'];
+                    
+                    $idS =  $r['id'];
+                    $update = "UPDATE `stock` SET `stock` = '$remaining_quantity' WHERE `id` = $idS";
+                    $updateResult = $conn->query($update);
+                    $new_stock = $r['stock'] ;
 
-                  $remaining_quantity = $r['quantity'] - $r['used_quantity'];
-                  $idS =  $r['id'];
                   
-                  // استخدام استعلام مُعَدٍّ
-                  $stmt = $conn->prepare("UPDATE `stock` SET `stock` = ? WHERE `id` = ?");
-                  $stmt->bind_param("ii", $remaining_quantity, $idS);
-                  
-                  if ($stmt->execute()) {
-                      echo "Stock updated successfully.";
-                  } else {
-                      echo "Error updating stock: " . $stmt->error;
-                  }
-                  
-                  // يمكنك الحصول على القيمة الجديدة إذا لزم الأمر
-                  $new_stock = $r['stock'];
                     
                   ?>
 
@@ -170,6 +157,8 @@ $select = mysqli_query($conn, "select * from stock");
                       <td data-label="الوصف" class="mb-0 text-sm text-secondary border-1"><?= $r['description'] ?></td>
                       <td data-label="الكمية" class="mb-0 text-sm text-secondary border-1"><?= $r['quantity'] ?></td>
                       <td data-label="الكمية المستهلكة" class="mb-0 text-sm text-secondary border-1"><input type="number" class="used-quantity-input" data-id="<?= $r['id'] ?>" value="<?= $r['used_quantity'] ?>" /></td>
+                         <input type="number" class="new-field-input" data-id="<?= $r['id'] ?>" placeholder="أدخل قيمة هنا" />
+                      </td>
                       <td data-label="الكيمة المتبقيه" class="mb-0 text-sm text-secondary border-1"><?= $new_stock ?></td>
                       <td data-label="سعر الصنف الواحد" class="mb-0 text-sm text-secondary border-1"><?= $r['price_per_piece'] ?></td>
                       <td data-label="الاجمالي" class="mb-0 text-sm text-secondary border-1"><?= $r['total_price'] ?></td>
@@ -230,6 +219,8 @@ $select = mysqli_query($conn, "select * from stock");
 
                 </tbody>
               </table>
+                
+              
 
               <script>
                   $(document).ready(function() {
