@@ -142,15 +142,18 @@ $select = mysqli_query($conn, "select * from stock");
                     // حساب الكمية المتبقية بعد السحب
                   $new_remaining_quantity = $current_remaining_quantity - $r['used_quantity'];
                    
-                    // التأكد من أن الكمية المتبقية ليست سلبية
-                    if ($new_remaining_quantity < 0) {
-                      $_SESSION['notification'] = "الكمية المتبقية غير كافية";
-                      header('location: stock.php');
-                      exit();
-                    }
+                  
                     $update = "UPDATE stock SET stock = '$new_remaining_quantity' WHERE id = $id";
                     $updateResult = $conn->query($update);
-                    
+                    if ($updateResult) {
+                      $_SESSION['notification'] = "تم سحب الكمية بنجاح";
+                      header('location: stock.php');
+                      exit();
+                  } else {
+                      $_SESSION['notification'] = "يوجد خلل في النظام";
+                      header('location: stock.php');
+                      exit();
+                  }
                   ?>
 
                     <tr class="text-center">
