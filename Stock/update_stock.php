@@ -9,10 +9,10 @@ if (!$conn) {
 if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
     $id = $_POST['id'];
     $used_quantity = $_POST['used_quantity'];
-    $use_image = '';
+    $use_images = [];
 
-    // التعامل مع الصورة المرفوعة
-    if (isset($_FILES['use_image']) && $_FILES['use_image']['error'] == 0) {
+    // التعامل مع الصور المرفوعة
+    if (isset($_FILES['use_images']) && $_FILES['use_images']['error'][0] == 0) {
         $uploadDir = '../Signed-Docs/Stock-Use-Bills/' . $id . '/';
         
         // التحقق من وجود المجلد وإنشاؤه إذا لم يكن موجوداً
@@ -22,14 +22,18 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
                 exit;
             }
         }
-        
-        $use_image = basename($_FILES['use_image']['name']);
-        $uploadFile = $uploadDir . $use_image;
 
-        // نقل الصورة المرفوعة إلى المجلد المناسب
-        if (!move_uploaded_file($_FILES['use_image']['tmp_name'], $uploadFile)) {
-            echo "خطأ في رفع الصورة";
-            exit;
+        foreach ($_FILES['use_images']['tmp_name'] as $key => $tmp_name) {
+            $fileName = basename($_FILES['use_images']['name'][$key]);
+            $uploadFile = $uploadDir . $fileName;
+
+            // نقل الصورة المرفوعة إلى المجلد المناسب
+            if (move_uploaded_file($tmp_name, $uploadFile)) {
+                $use_images[] = $fileName; // تخزين أسماء الملفات المرفوعة
+            } else {
+                echo "خطأ في رفع الصورة: $fileName";
+                exit;
+            }
         }
     }
 
@@ -59,8 +63,8 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
 
     // تحديث الكمية المتبقية
     $query = "UPDATE stock SET stock = ?";
-    if ($use_image) {
-        $query .= ", use_image = ?";
+    if (!empty($use_images)) {
+        $query .= ", use_images = ?";
     }
     $query .= " WHERE id = ?";
 
@@ -69,8 +73,10 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
         die("خطأ في إعداد الاستعلام: " . $conn->error);
     }
 
-    if ($use_image) {
-        $stmt->bind_param("isi", $remaining_stock, $use_image, $id);
+    $use_images_str = !empty($use_images) ? implode(',', $use_images) : '';
+
+    if (!empty($use_images)) {
+        $stmt->bind_param("ssi", $remaining_stock, $use_images_str, $id);
     } else {
         $stmt->bind_param("ii", $remaining_stock, $id);
     }
