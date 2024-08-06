@@ -1,7 +1,8 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Stock";
-$select = mysqli_query($conn, "select * from stock ORDER BY created_at DESC");
+// $select = mysqli_query($conn, "select * from stock ");
+$select = mysqli_query($conn, "SELECT * FROM stock ORDER BY created_at DESC");
 // الحصول على القيمة من النموذج
 // $used_quantity = isset($_POST['num']) ? intval($_POST['num']) : 0;
 
