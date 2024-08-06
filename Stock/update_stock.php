@@ -57,7 +57,7 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
 
     // تحديث الكمية المتبقية
     $new_quantity = $current_quantity - $used_quantity;
-    $query = "UPDATE stock SET stock = ?, used_quantity = ?";
+    $query = "UPDATE stock SET stock = $new_quantity, used_quantity = ?";
     if ($use_image) {
         $query .= ", use_image = ?";
     }
@@ -69,7 +69,7 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
     }
 
     if ($use_image) {
-        $stmt->bind_param("isi", $new_quantity, $used_quantity, $use_image, $id);
+        $stmt->bind_param("isis", $new_quantity, $used_quantity, $use_image, $id);
     } else {
         $stmt->bind_param("iii", $new_quantity, $used_quantity, $id);
     }
