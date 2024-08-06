@@ -34,30 +34,31 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
     }
 
     // التحقق من الكمية المتاحة
-    $sql = "SELECT quantity FROM stock WHERE id=?";
+    $sql = "SELECT stock, quantity FROM stock WHERE id=?";
     $stmt = $conn->prepare($sql);
     if (!$stmt) {
         die("خطأ في إعداد الاستعلام: " . $conn->error);
     }
     $stmt->bind_param("i", $id);
     $stmt->execute();
-    $stmt->bind_result($current_quantity);
+    $stmt->bind_result($current_stock, $current_quantity);
     $stmt->fetch();
     $stmt->close();
 
-    if ($current_quantity === null) {
+    if ($current_stock === null) {
         echo "المنتج غير موجود!";
         exit;
     }
 
-    if ($used_quantity > $current_quantity) {
+    // حساب الكمية المتبقية
+    $remaining_stock = $current_stock - $used_quantity;
+    if ($remaining_stock < 0) {
         echo "الكمية المسحوبة تتجاوز الكمية المتاحة!";
         exit;
     }
 
     // تحديث الكمية المتبقية
-    $new_quantity = $current_quantity - $used_quantity;
-    $query = "UPDATE stock SET stock = ?, used_quantity = ?";
+    $query = "UPDATE stock SET stock = ?";
     if ($use_image) {
         $query .= ", use_image = ?";
     }
@@ -69,9 +70,9 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
     }
 
     if ($use_image) {
-        $stmt->bind_param("isis", $new_quantity, $used_quantity, $use_image, $id);
+        $stmt->bind_param("isi", $remaining_stock, $use_image, $id);
     } else {
-        $stmt->bind_param("iii", $new_quantity, $used_quantity, $id);
+        $stmt->bind_param("ii", $remaining_stock, $id);
     }
 
     if ($stmt->execute()) {
