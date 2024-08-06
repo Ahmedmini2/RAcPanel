@@ -143,9 +143,9 @@ $select = mysqli_query($conn, "select * from stock");
 
                     $idS =  $r['id'];
                     $update = "UPDATE `stock` SET `stock` = '$remaining_quantity' WHERE `id` = $idS";
-                    $res = $conn->query($update);
-                    $new_stock = $res->fetch_assoc();
-                    // $new_stock = $r['stock'] - $r['used_quantity'];
+                    $updateResult = $conn->query($update);
+                    $new_stock = $r['stock'] - $r['used_quantity'];
+
                   ?>
 
                     <tr class="text-center">
@@ -155,7 +155,7 @@ $select = mysqli_query($conn, "select * from stock");
                       <td data-label="الوصف" class="mb-0 text-sm text-secondary border-1"><?= $r['description'] ?></td>
                       <td data-label="الكمية" class="mb-0 text-sm text-secondary border-1"><?= $r['quantity'] ?></td>
                       <td data-label="الكمية المستهلكة" class="mb-0 text-sm text-secondary border-1"><input type="number" class="used-quantity-input" data-id="<?= $r['id'] ?>" value="<?= $r['used_quantity'] ?>" /></td>
-                      <td data-label="الكيمة المتبقيه" class="mb-0 text-sm text-secondary border-1"><?= $new_stock['stock'] - $new_stock['used_quantity'] ?></td>
+                      <td data-label="الكيمة المتبقيه" class="mb-0 text-sm text-secondary border-1"><?= $new_stock ?></td>
                       <td data-label="سعر الصنف الواحد" class="mb-0 text-sm text-secondary border-1"><?= $r['price_per_piece'] ?></td>
                       <td data-label="الاجمالي" class="mb-0 text-sm text-secondary border-1"><?= $r['total_price'] ?></td>
                       <td data-label="صورة الفاتورة" class="mb-0 text-sm text-secondary border-1">
