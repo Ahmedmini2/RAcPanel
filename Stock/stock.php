@@ -1,7 +1,7 @@
 <?php
 include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Stock";
-$select = mysqli_query($conn, "select * from stock");
+$select = mysqli_query($conn, "select * from stock ORDER BY created_at DESC");
 // الحصول على القيمة من النموذج
 // $used_quantity = isset($_POST['num']) ? intval($_POST['num']) : 0;
 
@@ -140,15 +140,7 @@ $select = mysqli_query($conn, "select * from stock");
 
                   <?php
                   while ($r = mysqli_fetch_array($select)) {
-                    // $remaining_quantity = $r['quantity'] - $r['used_quantity'];
-                    // $idS =  $r['id'];
-                    // $update = "UPDATE `stock` SET `stock` = '$remaining_quantity' WHERE `id` = $idS";
-                    // $updateResult = $conn->query($update);
-                    // $new_stock = $r['stock'] - $r['used_quantity'];
-
-                    
-                    
-                     
+              
 
                   ?>
 
