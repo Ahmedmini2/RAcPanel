@@ -3,7 +3,7 @@ include('../cookies/session2.php');
 $_SESSION['sidebar'] = "Stock";
 $select = mysqli_query($conn, "select * from stock");
 // الحصول على القيمة من النموذج
-$used_quantity = isset($_POST['num']) ? intval($_POST['num']) : 0;
+// $used_quantity = isset($_POST['num']) ? intval($_POST['num']) : 0;
 
 
 ?>
@@ -140,17 +140,17 @@ $used_quantity = isset($_POST['num']) ? intval($_POST['num']) : 0;
 
                   <?php
                   while ($r = mysqli_fetch_array($select)) {
-                    // $remaining_quantity = $r['quantity'] - $r['used_quantity'];
-                    // $idS =  $r['id'];
-                    // $update = "UPDATE `stock` SET `stock` = '$remaining_quantity' WHERE `id` = $idS";
-                    // $updateResult = $conn->query($update);
-                    // $new_stock = $r['stock'] - $r['used_quantity'];
-                    $remaining_quantity = $r['quantity'] - $used_quantity;
-                    $idS = $r['id'];
-                    
-                    // تحديث الكمية في قاعدة البيانات
-                    $update = "UPDATE stock SET stock = '$remaining_quantity' WHERE id = $idS";
+                    $remaining_quantity = $r['quantity'] - $r['used_quantity'];
+                    $idS =  $r['id'];
+                    $update = "UPDATE `stock` SET `stock` = '$remaining_quantity' WHERE `id` = $idS";
                     $updateResult = $conn->query($update);
+                    $new_stock = $r['stock'] - $r['used_quantity'];
+                    // $remaining_quantity = $r['quantity'] - $used_quantity;
+                    // $idS = $r['id'];
+                    
+                    // // تحديث الكمية في قاعدة البيانات
+                    // $update = "UPDATE stock SET stock = '$remaining_quantity' WHERE id = $idS";
+                    // $updateResult = $conn->query($update);
                      
 
                   ?>
@@ -161,8 +161,8 @@ $used_quantity = isset($_POST['num']) ? intval($_POST['num']) : 0;
                       <td data-label="اسم المنج" class="text-xs text-secondary mb-0 border-1"><?= $r['name_stock'] ?></td>
                       <td data-label="الوصف" class="mb-0 text-sm text-secondary border-1"><?= $r['description'] ?></td>
                       <td data-label="الكمية" class="mb-0 text-sm text-secondary border-1"><?= $r['quantity'] ?></td>
-                      <!-- <td data-label="الكمية المستهلكة" class="mb-0 text-sm text-secondary border-1"><input type="number" class="used-quantity-input" data-id="<?= $r['id'] ?>" value="<?= $r['used_quantity'] ?>" /></td> -->
-                      <td data-label="الكمية المستهلكة" class="mb-0 text-sm text-secondary border-1"><input type="number" class="used-quantity-input"   value="num" name="num" id="num" /></td>
+                      <td data-label="الكمية المستهلكة" class="mb-0 text-sm text-secondary border-1"><input type="number" class="used-quantity-input" data-id="<?= $r['id'] ?>" value="<?= $r['used_quantity'] ?>" /></td>
+                      <!-- <td data-label="الكمية المستهلكة" class="mb-0 text-sm text-secondary border-1"><input type="number" class="used-quantity-input"   value="num" name="num" id="num" /></td> -->
                       <td data-label="الكيمة المتبقيه" class="mb-0 text-sm text-secondary border-1"><?= $r['stock'] - $used_quantity ?></td>
                       <td data-label="سعر الصنف الواحد" class="mb-0 text-sm text-secondary border-1"><?= $r['price_per_piece'] ?></td>
                       <td data-label="الاجمالي" class="mb-0 text-sm text-secondary border-1"><?= $r['total_price'] ?></td>
