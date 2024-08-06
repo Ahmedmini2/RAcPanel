@@ -57,7 +57,7 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
 
     // تحديث الكمية المتبقية
     $new_quantity = $current_quantity - $used_quantity;
-    $query = "UPDATE stock SET quantity = ?, used_quantity = ?";
+    $query = "UPDATE stock SET stock = ?, used_quantity = ?";
     if ($use_image) {
         $query .= ", use_image = ?";
     }
