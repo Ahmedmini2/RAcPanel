@@ -113,7 +113,7 @@ $select = mysqli_query($conn, "select * from stock");
               <?php require_once('../components/notification.php'); ?>
             </div>
 
-          
+
 
             <div class="block">
               <table class="table table-hover table-bordered align-items-center mb-0" id="example">
@@ -138,16 +138,14 @@ $select = mysqli_query($conn, "select * from stock");
 
                   <?php
                   while ($r = mysqli_fetch_array($select)) {
-                    
+
                     $remaining_quantity = $r['quantity'] - $r['used_quantity'];
-                    
+
                     $idS =  $r['id'];
                     $update = "UPDATE `stock` SET `stock` = '$remaining_quantity' WHERE `id` = $idS";
                     $updateResult = $conn->query($update);
-                    $new_stock = $r['stock'] - $r['used_quantity'];;
-
-                  
-                    
+                    $new_stock = $res->fetch_assoc();
+                    // $new_stock = $r['stock'] - $r['used_quantity'];
                   ?>
 
                     <tr class="text-center">
@@ -157,21 +155,21 @@ $select = mysqli_query($conn, "select * from stock");
                       <td data-label="الوصف" class="mb-0 text-sm text-secondary border-1"><?= $r['description'] ?></td>
                       <td data-label="الكمية" class="mb-0 text-sm text-secondary border-1"><?= $r['quantity'] ?></td>
                       <td data-label="الكمية المستهلكة" class="mb-0 text-sm text-secondary border-1"><input type="number" class="used-quantity-input" data-id="<?= $r['id'] ?>" value="<?= $r['used_quantity'] ?>" /></td>
-                      <td data-label="الكيمة المتبقيه" class="mb-0 text-sm text-secondary border-1"><?= $new_stock ?></td>
+                      <td data-label="الكيمة المتبقيه" class="mb-0 text-sm text-secondary border-1"><?= $new_stock['stock'] - $new_stock['used_quantity'] ?></td>
                       <td data-label="سعر الصنف الواحد" class="mb-0 text-sm text-secondary border-1"><?= $r['price_per_piece'] ?></td>
                       <td data-label="الاجمالي" class="mb-0 text-sm text-secondary border-1"><?= $r['total_price'] ?></td>
                       <td data-label="صورة الفاتورة" class="mb-0 text-sm text-secondary border-1">
-                            <?= ($r['image']) ? '<a href="../Signed-Docs/Stock-Bills/' . $r['id'] . '/' . $r['image'] . '" target="_blank">' . $r['image'] . '</a>' : 'لا يوجد رابط' ?>
+                        <?= ($r['image']) ? '<a href="../Signed-Docs/Stock-Bills/' . $r['id'] . '/' . $r['image'] . '" target="_blank">' . $r['image'] . '</a>' : 'لا يوجد رابط' ?>
                       </td>
                       <?php if ($position == 'Admin') { ?>
-                      <td data-label="صورة الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
-                            <?= ($r['use_image']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $r['id'] . '/' . $r['use_image'] . '" target="_blank">' . $r['use_image'] . '</a>' : 'لا يوجد رابط' ?>
-                      </td>
+                        <td data-label="صورة الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
+                          <?= ($r['use_image']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $r['id'] . '/' . $r['use_image'] . '" target="_blank">' . $r['use_image'] . '</a>' : 'لا يوجد رابط' ?>
+                        </td>
                       <?php } else { ?>
                         <td data-label="صورة الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
                           <input type="file" class="use-image-input" data-id="<?= $r['id'] ?>" />
                         </td>
-                      <?php }?>
+                      <?php } ?>
                       <td data-label="تاريخ الطلب" class="text-xs text-secondary mb-0 border-1"><?= $r['created_at'] ?></td>
 
                       <td data-label="Action" class="border-1 text-secondary">
@@ -209,7 +207,7 @@ $select = mysqli_query($conn, "select * from stock");
                           <p>ليس لديك الصلاحيات اللازمة للوصول إلى هذه الخيارات.</p>
                         <?php } ?>
                       </td>
-                      
+
                       <!-- Modal -->
 
                     </tr>
@@ -219,39 +217,39 @@ $select = mysqli_query($conn, "select * from stock");
               </table>
 
               <script>
-                  $(document).ready(function() {
-                      $('.used-quantity-input').on('keypress', function(e) {
-                          if (e.which == 13) { // 13 هو مفتاح Enter
-                              var id = $(this).data('id');
-                              var newQuantity = $(this).val();
-                              var newUsedQuantity = $('.used-quantity-input[data-id="' + id + '"]').val();
+                $(document).ready(function() {
+                  $('.used-quantity-input').on('keypress', function(e) {
+                    if (e.which == 13) { // 13 هو مفتاح Enter
+                      var id = $(this).data('id');
+                      var newQuantity = $(this).val();
+                      var newUsedQuantity = $('.used-quantity-input[data-id="' + id + '"]').val();
 
-                              var formData = new FormData();
-                              formData.append('id', id);
-                              formData.append('used_quantity', newUsedQuantity);
+                      var formData = new FormData();
+                      formData.append('id', id);
+                      formData.append('used_quantity', newUsedQuantity);
 
-                              // إضافة الصورة إذا كانت مرفوعة
-                              var useImageInput = $('.use-image-input[data-id="' + id + '"]')[0];
-                              if (useImageInput.files.length > 0) {
-                                  formData.append('use_image', useImageInput.files[0]);
-                              }
+                      // إضافة الصورة إذا كانت مرفوعة
+                      var useImageInput = $('.use-image-input[data-id="' + id + '"]')[0];
+                      if (useImageInput.files.length > 0) {
+                        formData.append('use_image', useImageInput.files[0]);
+                      }
 
-                              $.ajax({
-                                  url: 'update_stock.php',
-                                  type: 'POST',
-                                  data: formData,
-                                  processData: false,
-                                  contentType: false,
-                                  success: function(response) {
-                                      alert('تم تحديث البيانات بنجاح');
-                                  },
-                                  error: function() {
-                                      alert('حدث خطأ أثناء تحديث البيانات');
-                                  }
-                              });
-                          }
+                      $.ajax({
+                        url: 'update_stock.php',
+                        type: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(response) {
+                          alert('تم تحديث البيانات بنجاح');
+                        },
+                        error: function() {
+                          alert('حدث خطأ أثناء تحديث البيانات');
+                        }
                       });
+                    }
                   });
+                });
               </script>
 
 
@@ -291,7 +289,7 @@ $select = mysqli_query($conn, "select * from stock");
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
-      
+
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
