@@ -160,20 +160,17 @@ $select = mysqli_query($conn, "SELECT * FROM stock ORDER BY created_at DESC");
                         <?= ($r['image']) ? '<a href="../Signed-Docs/Stock-Bills/' . $r['id'] . '/' . $r['image'] . '" target="_blank">' . $r['image'] . '</a>' : 'لا يوجد رابط' ?>
                       </td>
 
-                      <td data-label="صور الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
-                                                <?php
-                                                $images = explode(",", $r['use_images']);
-                                                if (!empty($images)) {
-                                                    foreach ($images as $image) {
-                                                        echo '<a href="../Signed-Docs/Stock-Use-Bills/' . $r['id'] . '/' . $image . '" target="_blank">' . $image . '</a><br>';
-                                                    }
-                                                } else {
-                                                    echo 'لا يوجد رابط';
-                                                }
-                                                ?>
-                                            </td>
-
                       
+
+                      <?php if ($position == 'Admin') { ?>
+                        <td data-label="صورة الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
+                          <?= ($r['use_image']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $r['id'] . '/' . $r['use_image'] . '" target="_blank">' . $r['use_image'] . '</a>' : 'لا يوجد رابط' ?>
+                        </td>
+                      <?php } else { ?>
+                        <td data-label="صورة الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
+                          <input type="file" class="use-image-input" data-id="<?= $r['id'] ?>"   />
+                        </td>
+                      <?php } ?>
 
                       
                       <td data-label="تاريخ الطلب" class="text-xs text-secondary mb-0 border-1"><?= $r['created_at'] ?></td>

@@ -23,23 +23,8 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
             }
         }
         
-        $uploadedImages = [];
-        if (isset($_FILES['use_image']) && is_array($_FILES['use_image']['name'])) {
-            $fileCount = count($_FILES['use_image']['name']);
-            for ($i = 0; $i < $fileCount; $i++) {
-                if ($_FILES['use_image']['error'][$i] == 0) {
-                    $fileName = basename($_FILES['use_image']['name'][$i]);
-                    $uploadFile = $uploadDir . $fileName;
-    
-                    if (move_uploaded_file($_FILES['use_image']['tmp_name'][$i], $uploadFile)) {
-                        $uploadedImages[] = $fileName;
-                    } else {
-                        echo "خطأ في رفع الصورة: " . $fileName;
-                        exit;
-                    }
-                }
-            }
-        }
+        $use_image = basename($_FILES['use_image']['name']);
+        $uploadFile = $uploadDir . $use_image;
 
         // نقل الصورة المرفوعة إلى المجلد المناسب
         if (!move_uploaded_file($_FILES['use_image']['tmp_name'], $uploadFile)) {
