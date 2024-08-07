@@ -169,7 +169,7 @@ $select = mysqli_query($conn, "SELECT * FROM stock ORDER BY created_at DESC");
                          <?php $stock_id = $r['id'];
                         $viewsImage = mysqli_query($conn, "SELECT * FROM stock_images WHERE stock_id = '$stock_id'");
                          while ($rr = mysqli_fetch_array($viewsImage)) { ?>
-                        <?= ($rr['images']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $rr['id'] . '/' . $rr['images'] . '" target="_blank">' . $rr['images'] . '</a>' : 'لا يوجد رابط' ?>
+                        <?= ($rr['images']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $rr['stock_id'] . '/' . $rr['images'] . '" target="_blank">' . $rr['images'] . '</a>' : 'لا يوجد رابط' ?>
                         <?php } ?>
                       </td>
                         
