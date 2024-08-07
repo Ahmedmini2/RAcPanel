@@ -1,5 +1,6 @@
 <?php
 include('../cookies/session2.php');
+$userName = $_SESSION['username'];
 
 // التأكد من أن الاتصال بقاعدة البيانات موجود
 if (!$conn) {
@@ -60,6 +61,8 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
 
     // تحديث الكمية المتبقية
     $query = "UPDATE stock SET stock = ?";
+    $insertQuery = "INSERT INTO `stock_images`(`id`, `stock_id`, `user_name`, `use_quantity`, `images`, `created_at`) VALUES ( NULL ,'$id','$userName','$used_quantity','$use_image', NOW())";
+    $conn->query($insertQuery);
     if ($use_image) {
         $query .= ", use_image = ?";
     }
