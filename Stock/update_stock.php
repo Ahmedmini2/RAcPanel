@@ -77,7 +77,7 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
     }
 
     if ($stmt->execute()) {
-        echo "نجاح";
+        echo "تم سحب الكميه بنجاح ";
     } else {
         echo "خطأ: " . $stmt->error;
     }
