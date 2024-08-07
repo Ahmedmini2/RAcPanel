@@ -162,16 +162,18 @@ $select = mysqli_query($conn, "SELECT * FROM stock ORDER BY created_at DESC");
 
                       
 
-                      <?php if ($position == 'Admin') { 
-                        $stock_id = $r['id'];
-                        $viewsImage = mysqli_query($conn, "SELECT * FROM stock_images WHERE stock_id = '$stock_id'");
-                         while ($rr = mysqli_fetch_array($viewsImage)) { ?>
+                      <?php if ($position == 'Admin') { ?>
+                       
 
                         <td data-label="صورة الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
-                          <?= ($rr['images']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $rr['id'] . '/' . $rr['images'] . '" target="_blank">' . $rr['images'] . '</a>' : 'لا يوجد رابط' ?>
-                        </td>
-                        
+                         <?php $stock_id = $r['id'];
+                        $viewsImage = mysqli_query($conn, "SELECT * FROM stock_images WHERE stock_id = '$stock_id'");
+                         while ($rr = mysqli_fetch_array($viewsImage)) { ?>
+                        <?= ($rr['images']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $rr['id'] . '/' . $rr['images'] . '" target="_blank">' . $rr['images'] . '</a>' : 'لا يوجد رابط' ?>
                         <?php } ?>
+                      </td>
+                        
+                        
 
                         
                       <?php } else { ?>
