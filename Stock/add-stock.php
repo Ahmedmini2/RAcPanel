@@ -57,7 +57,7 @@ if (!empty($_GET['edit'])) {
     $name_stock = $_POST['name_stock'];
     $description = $_POST['description'];
     $quantity = $_POST['quantity'];
-    $stock = $_POST['stock'];
+    $stock = $quantity;
     $used_quantity = $_POST['used_quantity'];
     $price_per_piece = $_POST['price_per_piece'];
     $total_price = str_replace(',', '', $_POST['total_price']);
