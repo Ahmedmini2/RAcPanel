@@ -248,10 +248,11 @@ $select = mysqli_query($conn, "SELECT * FROM stock ORDER BY created_at DESC");
                         processData: false,
                         contentType: false,
                         success: function(response) {
-                          alert('تم تحديث البيانات بنجاح');
+                          alert('تم تحديث البيانات بنجاح' + response);
+
                         },
                         error: function() {
-                          alert('حدث خطأ أثناء تحديث البيانات');
+                          alert('حدث خطأ أثناء تحديث البيانات'+ response);
                         }
                       });
                     }
