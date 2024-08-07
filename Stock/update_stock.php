@@ -52,7 +52,7 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
     }
 
     // حساب الكمية المتبقية
-    $remaining_stock = $current_stock - $used_quantity;
+    $remaining_stock = $current_quantity - $used_quantity;
     if ($remaining_stock < 0) {
         echo "الكمية المسحوبة تتجاوز الكمية المتاحة!";
         exit;
