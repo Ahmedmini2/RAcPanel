@@ -360,7 +360,7 @@ while ($ban = mysqli_fetch_array($banner)) {
                           <td class="border-1"><?= $r['quantity'] ?></td>
                           <td class="border-1"><?= $r['used_quantity'] ?></td>
 
-                          <td class="border-1"><?= $remaining_quantity ?></td>
+                          <td class="border-1"><?= $r['stock'] ?></td>
                           <td class="border-1">
                             <?= ($r['use_image']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $r['id'] . '/' . $r['use_image'] . '" target="_blank">' . $r['use_image'] . '</a>' : 'لا يوجد رابط' ?>
                           </td>
