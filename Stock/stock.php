@@ -117,7 +117,7 @@ $select = mysqli_query($conn, "SELECT * FROM stock ORDER BY created_at DESC");
             </div>
 
 
-
+              
             <div class="block">
               <table class="table table-hover table-bordered align-items-center mb-0" id="example">
                 <thead>
@@ -141,7 +141,7 @@ $select = mysqli_query($conn, "SELECT * FROM stock ORDER BY created_at DESC");
 
                   <?php
                   while ($r = mysqli_fetch_array($select)) {
-
+              
 
                   ?>
 
@@ -153,39 +153,30 @@ $select = mysqli_query($conn, "SELECT * FROM stock ORDER BY created_at DESC");
                       <td data-label="الكمية" class="mb-0 text-sm text-secondary border-1"><?= $r['quantity'] ?></td>
                       <td data-label="الكمية المستهلكة" class="mb-0 text-sm text-secondary border-1"><input type="number" class="used-quantity-input" data-id="<?= $r['id'] ?>" value="<?= $r['used_quantity'] ?>" /></td>
                       <!-- <td data-label="الكمية المستهلكة" class="mb-0 text-sm text-secondary border-1"><input type="number" class="used-quantity-input"   value="num" name="num" id="num" /></td> -->
-                      <td data-label="الكيمة المتبقيه" class="mb-0 text-sm text-secondary border-1"><?= $r['stock'] ?></td>
+                      <td data-label="الكيمة المتبقيه" class="mb-0 text-sm text-secondary border-1"><?= $r['stock']?></td>
                       <td data-label="سعر الصنف الواحد" class="mb-0 text-sm text-secondary border-1"><?= $r['price_per_piece'] ?></td>
                       <td data-label="الاجمالي" class="mb-0 text-sm text-secondary border-1"><?= $r['total_price'] ?></td>
                       <td data-label="صورة الفاتورة" class="mb-0 text-sm text-secondary border-1">
                         <?= ($r['image']) ? '<a href="../Signed-Docs/Stock-Bills/' . $r['id'] . '/' . $r['image'] . '" target="_blank">' . $r['image'] . '</a>' : 'لا يوجد رابط' ?>
                       </td>
 
-
+                      
 
                       <?php if ($position == 'Admin') { ?>
                         <td data-label="صورة الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
-                          <?php
-                          if ($r['use_image']) {
-                            $images = explode(',', $r['use_image']);
-                            foreach ($images as $image) {
-                              echo '<a href="../Signed-Docs/Stock-Use-Bills/' . $r['id'] . '/' . $image . '" target="_blank">' . $image . '</a><br>';
-                            }
-                          } else {
-                            echo 'لا يوجد رابط';
-                          }
-                          ?>
+                          <?= ($r['use_image']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $r['id'] . '/' . $r['use_image'] . '" target="_blank">' . $r['use_image'] . '</a>' : 'لا يوجد رابط' ?>
                         </td>
+                        
+                        
 
-
-
-
+                        
                       <?php } else { ?>
                         <td data-label="صورة الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
-                          <input type="file" class="use-image-input" data-id="<?= $r['id'] ?>" />
+                          <input type="file" class="use-image-input" data-id="<?= $r['id'] ?>"   />
                         </td>
                       <?php } ?>
 
-
+                      
                       <td data-label="تاريخ الطلب" class="text-xs text-secondary mb-0 border-1"><?= $r['created_at'] ?></td>
 
                       <td data-label="Action" class="border-1 text-secondary">

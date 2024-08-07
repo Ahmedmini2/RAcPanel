@@ -14,7 +14,7 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
     // التعامل مع الصورة المرفوعة
     if (isset($_FILES['use_image']) && $_FILES['use_image']['error'] == 0) {
         $uploadDir = '../Signed-Docs/Stock-Use-Bills/' . $id . '/';
-
+        
         // التحقق من وجود المجلد وإنشاؤه إذا لم يكن موجوداً
         if (!is_dir($uploadDir)) {
             if (!mkdir($uploadDir, 0777, true)) {
@@ -22,21 +22,17 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
                 exit;
             }
         }
-
+        
         $use_image = basename($_FILES['use_image']['name']);
         $uploadFile = $uploadDir . $use_image;
 
-        if (move_uploaded_file($_FILES['use_image']['tmp_name'][$key], $uploadFile)) {
-            $use_images[] = $use_image; // أضف اسم الصورة إلى المصفوفة
-        } else {
-            echo "خطأ في رفع الصورة $use_image";
+        // نقل الصورة المرفوعة إلى المجلد المناسب
+        if (!move_uploaded_file($_FILES['use_image']['tmp_name'], $uploadFile)) {
+            echo "خطأ في رفع الصورة";
             exit;
         }
+        
     }
-    // تحويل المصفوفة إلى سلسلة نصية وتخزينها في قاعدة البيانات
-    $images_string = implode(',', $use_images);
-    $sql = "UPDATE stock SET use_image='$images_string' WHERE id=$id";
-    mysqli_query($conn, $sql);
 
     // التحقق من الكمية المتاحة
     $sql = "SELECT stock, quantity FROM stock WHERE id=?";
@@ -92,3 +88,4 @@ if (isset($_POST['id']) && isset($_POST['used_quantity'])) {
 }
 
 $conn->close();
+?>
