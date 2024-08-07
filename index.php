@@ -351,14 +351,14 @@ while ($ban = mysqli_fetch_array($banner)) {
                         $i++;
                         $quantity = $r['quantity'];
                         $used_quantity = $r['used_quantity'];
-                        $remaining_quantity = $quantity - $used_quantity;
+                        $remaining_use_quantity = $r['quantity'] - $r['stock'];
 
                       ?>
                         <tr>
 
                           <td class="border-1"><?= $r['name_stock'] ?></td>
                           <td class="border-1"><?= $r['quantity'] ?></td>
-                          <td class="border-1"><?= $r['used_quantity'] ?></td>
+                          <td class="border-1"><?= $remaining_use_quantity ?></td>
 
                           <td class="border-1"><?= $r['stock'] ?></td>
                           <td class="border-1">
