@@ -142,7 +142,7 @@ $select = mysqli_query($conn, "SELECT * FROM stock ORDER BY created_at DESC");
                   <?php
                   while ($r = mysqli_fetch_array($select)) {
               
-
+                    $allImage .= $row['use_image'].'<br>';
                   ?>
 
                     <tr class="text-center">
@@ -164,7 +164,7 @@ $select = mysqli_query($conn, "SELECT * FROM stock ORDER BY created_at DESC");
 
                       <?php if ($position == 'Admin') { ?>
                         <td data-label="صورة الفاتورة المسحوبه" class="mb-0 text-sm text-secondary border-1">
-                          <?= ($r['use_image']) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $r['id'] . '/' . $r['use_image'] . '" target="_blank">' . $r['use_image'] . '</a>' : 'لا يوجد رابط' ?>
+                          <?= ($allImage) ? '<a href="../Signed-Docs/Stock-Use-Bills/' . $r['id'] . '/' . $r['use_image'] . '" target="_blank">' . $r['use_image'] . '</a>' : 'لا يوجد رابط' ?>
                         </td>
                         
                         
